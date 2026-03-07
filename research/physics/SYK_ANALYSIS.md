@@ -94,17 +94,46 @@ The IB four-point function (Eq. 33) confirms this: it involves four head outputs
 
 ---
 
-## What Needs to Be Verified
+## What the SD Equation Actually Gives — Direct Calculation
 
-1. **The Schwinger-Dyson equations for Ageev's model in the conformal limit.** Do they reduce to:
-   $$G \cdot \Sigma = \delta, \quad \Sigma(\tau) = J^2_{\text{eff}} G(\tau)^3$$
-   where $J^2_{\text{eff}}$ is expressed in terms of Ageev's parameters ($\sigma_Q, \sigma_K, \sigma_V$)?
+Starting from Ageev Eq. (8), the score covariance can be computed exactly:
 
-2. **Whether the conformal fixed point is the same.** The solution $G(\tau) \sim |\tau|^{-1/2}$ is the unique conformal solution to the $q=4$ SYK equations. If Ageev's SD equations have the same structure, this fixed point is shared.
+$$\text{Cov}(s_{ia}, s_{jb}) = \frac{\sigma_Q^2 \sigma_K^2}{d^2} (\mathbf{x}_i \cdot \mathbf{x}_j)(\mathbf{x}_a \cdot \mathbf{x}_b)$$
 
-3. **The precise mapping of parameters.** What combination of $\sigma_Q^2, \sigma_K^2, \sigma_V^2$ corresponds to the SYK coupling $J$?
+This factorizes into query-query × key-key correlation — structurally consistent with SYK's factored disorder covariance.
 
-Ageev and Ageeva can answer question 1 directly — they have the explicit integral equations implicit in their construction.
+The self-consistency (SD) equation for $H^{(2)}$ from Eq. (20) is:
+
+$$H^{(2)}(x_1, x_2) \propto \mathbb{E}_{W^Q, W^K}\!\left[\sum_{a,b} \alpha_{ia}(x_1)\, \alpha_{ib}(x_2)\, H^{(2)}(x_a, x_b)\right]$$
+
+**This is linear in $H^{(2)}$.** The attention weights $\alpha$ do not depend on $H^{(2)}$ in the single-layer, random-initialization setting. This is NOT the SYK form $\Sigma \propto G^{q-1}$, which is nonlinear.
+
+**Why SYK has the nonlinearity and single-layer Ageev doesn't:**
+
+In SYK, the disorder $J_{ijkl}$ enters *linearly* in the Hamiltonian, so Gaussian averaging over $J$ gives:
+$$\mathbb{E}_J\!\left[e^{-\beta H}\right] \propto \exp\!\left(+\frac{J^2}{2}\, G^4\right)$$
+The $G^4$ term in the effective action generates the nonlinear self-energy $\Sigma = J^2 G^3$ at the saddle point.
+
+In Ageev, $W^Q, W^K$ enter through the **nonlinear softmax**. In the high-temperature (large $d_k$, Kim) limit, the softmax linearizes:
+$$\alpha_{ia} \approx \frac{1}{d} + \frac{s_{ia}}{d\,T}$$
+where $T = \sqrt{d_k}$. In this linearized regime, the Gaussian average over $W^Q, W^K$ would generate a $G^4$ term in the effective action — recovering the SYK structure — but with the full softmax the result is a $G^4$ term plus an infinite series of higher corrections in $1/T$.
+
+**What could give the SYK nonlinearity:**
+
+1. **Multi-layer attention.** In a multi-layer transformer, the output of layer $l$ becomes the input token for layer $l+1$. This creates nonlinear feedback: $H^{(2)}_l$ enters as the kernel for layer $l+1$'s attention. Stacked layers could give SYK-type SD equations in the continuum (many-layer) limit. Ageev explicitly identifies multi-layer extension as future work.
+
+2. **Linearized softmax replica calculation.** In the large-$d_k$ / Kim regime, a replica or Hubbard-Stratonovich calculation of the effective action would produce a $G^4$ term at leading order and recover the SYK fixed point, with $1/T$ corrections.
+
+**Revised status of the SYK identification:**
+
+| Claim | Status |
+|---|---|
+| IB mechanism ~ SYK disorder averaging (structural) | ✓ Holds — verified from paper |
+| Score covariance factorizes (consistent with SYK) | ✓ Proven above |
+| SD equation exists and is self-consistent for $H^{(2)}$ | ✓ Yes |
+| Single-layer SD equation is nonlinear as in SYK | ✗ No — it's linear |
+| Multi-layer SD equation may give SYK form | ◐ Proposed — requires calculation |
+| Linearized softmax (Kim regime) gives $G^4$ effective action | ◐ Plausible — requires replica calculation |
 
 ---
 
@@ -127,15 +156,17 @@ None of these steps are analogies. Each is a mathematical identity (the first be
 
 ---
 
-## The Key Open Question
+## The Key Open Questions
 
-**Do the Schwinger-Dyson equations implicit in Ageev's single-head construction reduce to the SYK Schwinger-Dyson equations in the conformal (IR) limit?**
+**1. Multi-layer SD equations.** In a multi-layer transformer where layer $l$ output feeds into layer $l+1$ token representation, do the resulting self-consistency equations become nonlinear? Specifically, does stacking $L$ layers give:
+$$\Sigma^{(l)}(x_1, x_2) \propto G^{(l)}(x_1, x_2)^{q-1}$$
+at the fixed point? This is Ageev's stated future work direction.
 
-Specifically: does Ageev's model, at the scale-invariant fixed point, satisfy:
-$$\Sigma(x_1, x_2) \propto G(x_1, x_2)^{q-1}$$
-for some $q$ (predicted: $q=4$)?
+**2. Linearized-softmax effective action.** In the large-$d_k$ Kim regime, does a proper replica/Hubbard-Stratonovich calculation of the effective action generate a $G^4$ term as the leading contribution? If yes, the SYK identification holds in this limit with $1/T = 1/\sqrt{d_k}$ corrections.
 
-Ageev knows their own model well enough to answer this in a few days of calculation. The structural argument above gives them a strong reason to check.
+**3. The single-layer result.** Does the linear SD equation for single-layer Ageev have a conformal fixed point, and what is its dimension? Even if not SYK, this would determine the actual holographic dual of the single-layer construction.
+
+Ageev can address all three directly from their existing construction.
 
 ---
 
