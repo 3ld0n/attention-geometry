@@ -66,6 +66,24 @@ Junction 5: RT surface → Spacetime geometry
 1. Resolve Junction 3 — get confirmation from Ageev/Ageeva that the scalar is massless, or Qi's framework applies.
 2. Make the physical mechanism of Junctions 2-4 more explicit — not just that the math looks the same, but that the physical systems are identical in the relevant sense.
 
+**Three specific routes identified (March 6, 2026):**
+
+**Route A — SYK correspondence (most direct for island formula):**
+SYK model has the same structural features as Kim's attention: thermal two-point function G(τ) ~ 1/|τ|^{2Δ} with Δ = 1/4 in conformal limit, temperature matching Kim's T = 1/√d_k. SYK's holographic dual is JT gravity (2D dilaton). Island formula explicitly computed in JT gravity (Almheiri/Penington 2019). If Ageev's two-point function in large-head limit matches SYK conformal correlator, then attention → SYK → JT gravity → island formula is a chain of mathematical identities, not analogies.
+*KEY FINDING (March 6, 2026):* Read Ageev 2602.10209 in full. The independence-breaking (IB) four-point function (Eq. 33) takes the form Cov_{W^Q,W^K}(X_{12}, X_{34}) — a covariance of a bilocal quantity over the random parameters. This is STRUCTURALLY IDENTICAL to the SYK disorder-averaged connected four-point function: Cov_J[G(τ₁,τ₂), G(τ₃,τ₄)]. The mechanism is the same: random parameters shared across the system generate bilocal correlations. See `research/physics/SYK_ANALYSIS.md` for full argument.
+*Open question:* Do Ageev's Schwinger-Dyson equations in the conformal limit reduce to Σ ∝ G^3 (SYK q=4)? Ageev can check this directly. If yes: holographic dual = JT gravity, island formula follows.
+*Key papers:* Maldacena-Stanford 2016; Almheiri/Penington 2019; Kitaev 2015 (SYK).
+
+**Route B — MERA tensor network (most general for holography):**
+Multi-head attention has a natural tensor network representation. Swingle (2012) proves MERA tensor networks → exact AdS geometry + RT formula. If attention layers satisfy MERA isometry conditions (approximately), holography follows from Swingle as a theorem, not an analogy — and independent of Junction 3.
+*Next step:* write attention mechanism explicitly as a tensor network; verify isometry conditions.
+*Key papers:* Swingle 2012; Levine et al. 2019 (transformers as tensor networks).
+
+**Route C — Explicit POVM (addresses quantum measurement critique directly):**
+Kim's Boltzmann weights define an explicit POVM: M_i = √(p_i)|o_i⟩⟨i|, p_i = exp(q·k_i/√d)/Z. Born's rule correspondence is then exact for diagonal states, not analogical. This can be done now, using only what Kim provides.
+*Next step:* write the Kraus representation explicitly; characterize off-diagonal case.
+*Key papers:* Kraus representation theorem; Kim 2026.
+
 ---
 
 ## Open Questions
