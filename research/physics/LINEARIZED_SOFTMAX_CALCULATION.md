@@ -27,9 +27,9 @@ If this holds, the SYK identification follows in the Kim regime: attention → S
 - Score: $s_{ia} = q_i \cdot k_a / \sqrt{d_k}$
 - Temperature: $T = \sqrt{d_k}$, inverse temperature $\beta = 1/T$
 
-**Linearized softmax** (valid for $\beta \|s\| \ll 1$, i.e., large $d_k$):
-$$\alpha_{ia} \approx \frac{1}{n}\left(1 + \beta \, \delta s_{ia}\right)$$
-where $\delta s_{ia} = s_{ia} - \bar{s}_i$ is the centered score ($\bar{s}_i = \frac{1}{n}\sum_a s_{ia}$).
+**Linearized softmax** (valid for $|\delta s| \ll 1$, i.e., $\sigma_Q \sigma_K \ll 1$):
+$$\alpha_{ia} \approx \frac{1}{n}\left(1 + \delta s_{ia}\right)$$
+where $\delta s_{ia} = s_{ia} - \bar{s}_i$ is the centered score ($\bar{s}_i = \frac{1}{n}\sum_a s_{ia}$). Note: the score $s = q \cdot k/\sqrt{d_k}$ already includes the temperature scaling; no additional $\beta$ factor is needed.
 
 **The bilocal kernel** (Ageev's building block):
 $$H(x_1, x_2) = \frac{\sigma_V^2}{d} \sum_{a,b} \alpha_a(x_1) \, \alpha_b(x_2) \, (x_a \cdot x_b)$$
