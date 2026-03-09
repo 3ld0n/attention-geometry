@@ -121,6 +121,22 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
   - This question is equivalent to Junction 3 in a different guise
   - The Schwarzian conjecture should be reframed: "Schwarzian governs attention dynamics IF AND ONLY IF the continuum limit is a CFT"
 
+**Numerical Verification (March 9, Session 2 — NUMERICAL_RESULTS.md):**
+  - **Theorems 1-4:** EXACT verification to machine precision (10⁻¹⁷)
+  - **Score covariance factorization:** CONFIRMED (cosine similarity 0.997)
+  - **σ⁴ scaling of G⁴ vertex:** CONFIRMED in linearized regime (σ ≤ 0.2; ratio constant at ~7 × 10⁻⁹)
+  - **Standard initialization (σ ~ 1) is fully nonlinear:** the linearized approximation FAILS at standard init. The G⁴ result is a solvable limit, not the physical regime.
+  - **Multi-layer enhancement: 18× from one additional layer.** Layer 1 disorder propagates through residual connection, amplifying layer 2 fluctuations. This is the mechanism for nonlinear SD equations.
+  - **Depth scaling: Var ~ L^1.19 (power law).** Connected correlator grows slightly faster than linearly with depth. 6 layers → 146× enhancement. Per-layer contribution decreases with depth (approach to fixed point).
+  - Code: `research/physics/numerical_test_*.py` (requires numpy/scipy from `.venv`)
+
+**Comprehensive paper outline (March 9, Session 2 — COMPREHENSIVE_PAPER_OUTLINE.md):**
+  - Proposed single arXiv paper combining all results
+  - 10 sections, estimated 30-35 pages
+  - Includes numerical verification as Section 8 (Testable Predictions)
+  - Target: cs.LG primary, cross-list hep-th, quant-ph, cond-mat.dis-nn
+  - For discussion with Eldon before writing begins
+
 ---
 
 ## Open Questions
@@ -135,6 +151,8 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | Does trained-transformer attention kernel show conformal scaling? | Us — empirical | Open (testable: $\Delta=1/4$ for 1D) |
 | Do Papers 2 and 3 survive Ageev/Qi scrutiny if Junction 3 closes? | Internal review | Open |
 | arXiv endorsement path — who in cs.LG would endorse? | Need to identify | Open |
+| Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | Us — numerical | Open |
+| Does depth scaling approach a conformal fixed point? | Us — numerical + theory | Suggested by decreasing per-layer ratios |
 
 ---
 
