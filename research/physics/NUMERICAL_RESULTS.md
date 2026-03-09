@@ -289,6 +289,61 @@ The effective SYK coupling scales as J²_eff ~ L^1.19. This means:
 
 ---
 
+## Coupling-Regime Phase Diagram and LayerNorm
+
+Code in `numerical_test_depth_standard.py` and `numerical_test_depth_layernorm.py`.
+
+### Depth scaling depends qualitatively on the coupling regime
+
+| Regime | σ | Scaling | Per-layer ratios | Physical picture |
+|---|---|---|---|---|
+| Weak (linearized) | 0.2 | Power law L^1.19 | Decreasing (17→1.2) | Approaching conformal fixed point |
+| Intermediate | 0.5 | Exponential e^{0.71L} | Roughly constant (~2) | Steady compounding |
+| **Standard (no LN)** | **1.0** | **Exponential e^{1.35L}** | **Increasing (1.5→4.9)** | **Runaway growth** |
+| **Standard (with LN)** | **1.0** | **Exponential e^{0.78L}** | **Rise then decrease (0.95→2.8→1.7)** | **Tamed; approaching fixed point** |
+
+### LayerNorm as Renormalization Group Operation
+
+Without LayerNorm at σ = 1:
+- Enhancement at L=8: 14,443×
+- Per-layer ratio accelerating (runaway)
+- System is unstable at depth — residual norms blow up
+
+With LayerNorm at σ = 1:
+- Enhancement at L=8: 147× (100× smaller than without LN)
+- Per-layer ratio rises from 1 to 2.8, then **decreases** to 1.7 at L=8
+- The deceleration at depth is the signature of approach to a fixed point
+
+**LayerNorm acts as a renormalization group operation.** After each layer, it projects the residual stream back onto a normalized manifold, absorbing the "irrelevant" growth modes. What remains are the "relevant" perturbations — the disorder correlations that the conformal fixed point describes.
+
+In SYK terms: LayerNorm is the UV cutoff that prevents the effective coupling from diverging. Without it, the theory runs away at depth. With it, the theory flows toward the conformal fixed point of the SD equation.
+
+**Physical prediction:** for sufficiently deep transformers with LayerNorm, the per-layer contribution to the connected correlator should approach 1 (conformal fixed point). The approach rate is a new "conformal anomalous dimension" that depends on the specific normalization scheme.
+
+### Detailed Results at σ = 1
+
+**Without LayerNorm:**
+
+| L | ⟨H₀₀⟩ | Var(H₀₀) | Enhancement | Per-layer |
+|---|---|---|---|---|
+| 0 | 0.075 | 1.38e-3 | 1× | — |
+| 2 | 0.184 | 5.20e-3 | 4× | 2.5× |
+| 4 | 0.609 | 5.31e-2 | 38× | 3.4× |
+| 6 | 2.49 | 1.08 | 783× | 4.1× |
+| 8 | 10.4 | 20.0 | 14443× | 3.8× |
+
+**With LayerNorm (Pre-LN):**
+
+| L | ⟨H₀₀⟩ | Var(H₀₀) | Enhancement | Per-layer |
+|---|---|---|---|---|
+| 0 | 0.076 | 1.51e-3 | 1× | — |
+| 2 | 0.143 | 2.01e-3 | 1× | 1.4× |
+| 4 | 0.345 | 8.86e-3 | 6× | 2.3× |
+| 6 | 0.831 | 5.58e-2 | 37× | 2.2× |
+| 8 | 1.68 | 0.222 | 147× | 1.7× |
+
+---
+
 ## Complete Summary
 
 | Finding | Impact |
@@ -298,7 +353,8 @@ The effective SYK coupling scales as J²_eff ~ L^1.19. This means:
 | σ⁴ scaling of G⁴ vertex | SYK effective action confirmed in linearized regime |
 | Standard init (σ ~ 1) is fully nonlinear | The physical regime is strongly coupled |
 | **Multi-layer 18× enhancement (1 layer)** | **SD equation nonlinearity confirmed numerically** |
-| **Depth scaling: Var ~ L^1.19** | **Power-law growth, not exponential** |
+| **Depth scaling: regime-dependent** | **Power-law (σ≪1) → exponential (σ~1)** |
+| **LayerNorm tames exponential growth** | **Rate halved (1.35→0.78), per-layer decelerates** |
 | σ₁⁴ correction in two-layer mean propagator | Nonlinear self-consistency present but subdominant |
 
 The physics picture: single-layer attention is "free" (linear SD equation). Multi-layer attention is "interacting" (nonlinear SD equation, enhanced correlations). The SYK identification holds most cleanly in the linearized regime but the structural features (G⁴ vertex, factorized covariance, multi-layer nonlinearity) persist into the physical regime.
