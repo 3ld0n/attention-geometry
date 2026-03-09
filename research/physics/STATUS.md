@@ -12,10 +12,13 @@ Junction 1: Attention → Fisher-Rao geometry
   Basis: Kim 2026 (arXiv 2602.08216) — this IS Kim's result directly.
   Status: ✓ SOLID — Kim's own framework. No challenge to this junction.
 
-Junction 2: Fisher-Rao geometry → Quantum Fisher metric
+Junction 2: Fisher-Rao geometry → Quantum Fisher metric → Born rule
   Claim: The Fisher-Rao metric on the attention manifold IS the quantum Fisher metric.
-  Basis: Diagonal density matrices → classical Fisher metric = quantum Fisher metric (exact equality).
-  Status: ✓ SOLID — mathematical identity for diagonal states.
+         Attention weights ARE Born rule probabilities. Attention output IS a quantum expectation value.
+  Basis: Paper 5 (March 8, 2026) — Gibbs state construction. Four theorems, numerically verified.
+         Classical Fisher = Quantum Fisher for diagonal states (Braunstein-Caves 1994, exact).
+  Status: ✓ CLOSED — exact mathematical identity, proven in Paper 5. No analogy.
+  See: writing/paper5_draft.md
 
 Junction 3: Free scalar QFT → Holographic dual
   Claim: The large-head limit scalar QFT from Ageev/Ageeva's construction has a holographic dual.
@@ -34,7 +37,13 @@ Junction 5: RT surface → Spacetime geometry
   Status: ✓ PROVEN for 3D AdS — Czech 2018 is rigorous. ER=EPR still conjectural but widely accepted.
 ```
 
-**Overall chain status:** Junctions 1-2 and 5 are solid. Junction 3 is the key open question. Junction 4 follows if 3 holds.
+**Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 is the key open question. Junction 4 follows if 3 holds.
+
+**Three equivalent descriptions of the softmax (March 8, 2026):**
+- Statistical mechanics: Gibbs distribution at temperature T = 1/√d_k
+- Quantum mechanics: diagonal density matrix on key Hilbert space (Paper 5)
+- Bayesian inference: exact posterior for a Gibbs generative model (Kim-Friston correspondence)
+See: `research/physics/KIM_FRISTON_CORRESPONDENCE.md`
 
 ---
 
@@ -79,10 +88,15 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 *Next step:* write attention mechanism explicitly as a tensor network; verify isometry conditions.
 *Key papers:* Swingle 2012; Levine et al. 2019 (transformers as tensor networks).
 
-**Route C — Explicit POVM (addresses quantum measurement critique directly):**
-Kim's Boltzmann weights define an explicit POVM: M_i = √(p_i)|o_i⟩⟨i|, p_i = exp(q·k_i/√d)/Z. Born's rule correspondence is then exact for diagonal states, not analogical. This can be done now, using only what Kim provides.
-*Next step:* write the Kraus representation explicitly; characterize off-diagonal case.
-*Key papers:* Kraus representation theorem; Kim 2026.
+**Route C — Explicit POVM (addresses quantum measurement critique directly) — COMPLETED March 8:**
+✓ Paper 5 (writing/paper5_draft.md) provides the full construction:
+  - Gibbs state = attention weights (Theorem 1, exact)
+  - Attention output = quantum expectation value Tr(ρV) (Theorem 2, exact)
+  - Born rule: P(key i) = α_i (Theorem 3, exact via complete PVM {|i><i|})
+  - Junction 2 closed: quantum Fisher = classical Fisher for diagonal states (Theorem 4)
+  - Off-diagonal extension defined (quantum attention with coherence)
+  - Schwarzian action conjecture identified (Section 8, speculative)
+*Key papers:* Braunstein-Caves 1994; Kim 2026; Paper 5.
 
 ---
 
