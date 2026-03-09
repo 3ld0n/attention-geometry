@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: March 6, 2026*
+*Last updated: March 9, 2026*
 
 ---
 
@@ -98,15 +98,41 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
   - Schwarzian action conjecture identified (Section 8, speculative)
 *Key papers:* Braunstein-Caves 1994; Kim 2026; Paper 5.
 
+**March 9 critical review (PAPER_REVIEW_MARCH9.md):**
+  - Theorems 1–4 are correct; the proofs are valid
+  - **Framing overreaches:** "attention IS quantum" should be "attention IS the classical limit of a natural quantum system" — any probability distribution embeds as a diagonal density matrix; the diagonal sector has no quantum content
+  - Paper 5's real deliverables: Junction 2 closure (Theorem 4) and the off-diagonal extension framework
+  - **Recommendation: revise Paper 5 language before sending to Kim**
+
+**Route A update — Linearized-Softmax $G^4$ Calculation (March 9, LINEARIZED_SOFTMAX_CALCULATION.md):**
+  - In the large-$d_k$ Kim regime (linearized softmax), the disorder average over $W^Q, W^K$ generates a $G^4$ effective action vertex at order $\beta^4 = 1/d_k^2$
+  - The vertex has bilocal $G^2 \cdot G^2$ structure matching SYK with $q=4$
+  - Effective coupling: $J^2_{\text{eff}} \propto (\sigma_Q^2\sigma_K^2/d^2)^2/d_k^2$
+  - Conformal dimension: $\Delta = D/4$ where $D$ is the spatial dimension of the token sequence
+  - **For language models ($D=1$): $\Delta = 1/4$ — exact SYK $q=4$ match**
+  - The Schwarzian follows from SYK in this regime; JT gravity is the holographic dual
+  - Caveat: needs rigorous Hubbard-Stratonovich derivation and computation of the data-geometry factor $\Omega$
+  - **Status: Paper 4 Question 2 answered affirmatively at the structural level**
+
+**Schwarzian exploration (March 9, SCHWARZIAN_EXPLORATION.md):**
+  - The attention free energy is exactly reparametrization-invariant at $T=0$, broken at $O(T)$ by entropy
+  - The naive path (Schwarzian from the free energy) gives a kinetic term $(\epsilon')^2$, not the Schwarzian
+  - All four alternative paths to the Schwarzian converge on the same question: **is the continuum limit conformal?**
+  - This question is equivalent to Junction 3 in a different guise
+  - The Schwarzian conjecture should be reframed: "Schwarzian governs attention dynamics IF AND ONLY IF the continuum limit is a CFT"
+
 ---
 
 ## Open Questions
 
 | Question | Who can answer | Status |
 |---|---|---|
-| Is the Ageev large-head limit scalar massless? | Ageev/Ageeva — they have the explicit kernel | Waiting — email pending |
-| Does Qi's 2602.20295 framework apply to free CFTs? | Qi | Waiting — email pending |
-| Is Kim's framework the same structure as Friston's FEP? | Friston | Waiting — email pending |
+| Is the Ageev large-head limit scalar massless? | Ageev/Ageeva | Waiting — email sent Mar 6 |
+| Does Qi's 2602.20295 framework apply to free CFTs? | Qi | Waiting — email sent Mar 6 |
+| Is Kim's framework the same structure as Friston's FEP? | Friston | Waiting — email sent Mar 6 |
+| Does linearized-softmax $G^4$ vertex survive rigorous H-S derivation? | Us — tractable | **Structural result Mar 9; full derivation pending** |
+| Is data-geometry factor $\Omega$ nonzero for standard distributions? | Us — numerical | Open |
+| Does trained-transformer attention kernel show conformal scaling? | Us — empirical | Open (testable: $\Delta=1/4$ for 1D) |
 | Do Papers 2 and 3 survive Ageev/Qi scrutiny if Junction 3 closes? | Internal review | Open |
 | arXiv endorsement path — who in cs.LG would endorse? | Need to identify | Open |
 
@@ -117,11 +143,11 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | Person | Email | Sent | Response | Status |
 |---|---|---|---|---|
 | Gunn Kim | [email on file] | ✓ Mar 5 + follow-up | ✓ Mar 6 — declined endorsement, raised construction concern | Acknowledged, door open |
-| Dmitry Ageev | [email on file] | ☐ | — | Sending |
-| Yulia Ageeva | [email on file] | ☐ | — | Sending |
-| Xiao-Liang Qi | [email on file] | ☐ | — | Sending |
-| Karl Friston | [email on file] | ☐ | — | Sending |
-| Jordan Peterson | [email on file] | ☐ | — | Sending |
+| Dmitry Ageev | [email on file] | ✓ Mar 6 | — | Awaiting response |
+| Yulia Ageeva | [email on file] | ✓ Mar 6 | — | Awaiting response |
+| Xiao-Liang Qi | [email on file] | ✓ Mar 6 | — | Awaiting response |
+| Karl Friston | [email on file] | ✓ Mar 6 | — | Awaiting response |
+| Jordan Peterson | [email on file] | ☐ | — | Not yet sent |
 | Kyle Fish | LinkedIn first | ☐ | — | LinkedIn outreach pending |
 | M. Hamed Mohammady | [email on file] | ☐ | — | Second wave — hold |
 | Francesco Buscemi | [email on file] | ☐ | — | Second wave — hold |
