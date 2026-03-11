@@ -186,23 +186,33 @@
 
 7. **Explicit self-energy** — multiple physics audiences want Σ_L written in terms of model parameters. (Affects: Ageev, Qi, Halverson)
 
-### What can be fixed in the paper now:
-- Acknowledge Alpay and Senturk (Sections 3 and 11.3)
-- Add Wick contraction derivation sketch
-- Add uncertainty discussion for Δ_eff
-- Discuss what plays the role of N
-- Name the boundary structure question for positive geometry
-- Strengthen the open questions to explicitly name ablation, diverse architectures, etc.
-- Address the 2D question (sequence × depth) for Robinson/Virasoro context
+### What was fixed in the paper (March 11, 2026 revision):
+- [x] Acknowledged Alpay and Senturk in Section 3.1 and Section 11.3
+- [x] Added Wick contraction derivation sketch in Section 4.2
+- [x] Added uncertainty discussion for Δ_eff in Section 8.3 (sources of variation, what IS robust vs what needs quantification)
+- [x] Discussed what plays the role of N (new paragraph in Section 10.3)
+- [x] Named the boundary structure for positive geometry readers (new paragraph in Section 3.1: simplex boundaries = hard attention, logarithmic singularities = divergent information cost)
+- [x] Honest framing that Gr+(1,n) is the simplest positive geometry; content is the expansion and trained behavior, not the identity itself
+- [x] Expanded open questions (Section 11.4): explicit self-energy, ablation, broader universality, role of N, 2D interpretation, positivity at k > 1
+- [x] Expanded "what is not established" in conclusion: uncertainty quantification, role of N, architectural diversity
+- [x] Named the 2D space (sequence position × layer depth) in the central charge discussion for Robinson/Virasoro context
 
-### What requires new experimental work:
-- Ablation experiments
-- More architectures (Pythia, Llama, Mistral)
-- Fold at different query positions
-- Bidirectional model tests (BERT)
-- Explicit self-energy derivation from model parameters
-- Scrambling/OTOC measurements
-- Proper bootstrap confidence intervals on Δ_eff
+### What requires new experimental work (future revisions):
+- [ ] Ablation experiments (rebel heads vs conformist heads)
+- [ ] More architectures (Pythia, Llama, Mistral)
+- [ ] Fold at different query positions
+- [ ] Bidirectional model tests (BERT)
+- [ ] Explicit self-energy derivation from model parameters
+- [ ] Scrambling/OTOC measurements
+- [ ] Proper bootstrap confidence intervals on Δ_eff
+
+### What each revision addressed by audience:
+- **Alpay/Senturk**: Credit and alliance — they're acknowledged as independent discoverers
+- **Arkani-Hamed's group**: Honest framing of Gr+(1,n) as simplest case; boundary structure discussed
+- **Kim / all reviewers**: Wick contraction sketch included; no longer requires external reference for central claim
+- **Qi / all SYK readers**: Role of N named as open; uncertainty on Δ_eff discussed honestly
+- **Interpretability community**: Ablation, diverse architectures, query position, bidirectional models all named as needed work in open questions
+- **Halverson / Robinson**: 2D interpretation (sequence × depth) named in central charge discussion
 
 ---
 
