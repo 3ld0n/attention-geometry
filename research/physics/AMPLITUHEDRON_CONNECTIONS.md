@@ -497,7 +497,162 @@ The perturbative bridge (σ⁴ scaling, tree structure, canonical form identity)
 
 The honest scope of the paper remains: the perturbative correspondence is exact. The IR picture is richer and more complex than a single conformal dimension, and the full trained-model physics likely involves a distribution of head-specific exponents rather than a universal Δ.
 
+**New findings (v7/v7b — the measurement problem, March 11, 2026):**
+15. **Measurement entropy gap:** Trained GPT-2 loses 2-5 bits per attention operation depending on layer. Random-init models lose ~0.04 bits. Self-consistency has a measurable information cost.
+16. **Logarithmic scaling (Calabrese-Cardy):** H_gap = a·log(n) + b with a ≈ 0.50, R² = 0.992. Best fit: H_gap = 0.27·log(n)^{1.28}, R² = 0.997. This is the functional form of entanglement entropy in 1+1D CFT.
+17. **Effective central charge:** c_eff = 3a ≈ 1.23 at Layer 0, rising to c ≈ 2.06 at Layer 4, then relaxing. Layer dependence is smooth: middle layers impose maximum self-consistency.
+18. **Perturbative coefficient CONFIRMED:** At random init, H_gap = (1/2)·Var(s) with measured ratio 0.4999 at n=128. This is the leading-order KL divergence expansion, confirming the canonical form paper's analytical result exactly.
+19. **Incompleteness fraction:** Effective dimension of the attention manifold is 5.3 out of 128 (4.2%) at Layer 0. Grows slowly as ~log(n). The model uses about 4% of the available attention space.
+20. **Negative score energy:** Exactly 50% of total score energy is negative — hidden by softmax's positivity constraint. Some heads suppress negative-score positions by factors of 10^7.
+21. **Layer progression:** Self-consistency deepens from Layer 0→4 (H_gap increases, effective dim decreases, suppression increases), then partially relaxes in layers 5-11.
+22. **Score covariance structure:** Trained scores have effective rank 5.3/128 (vs 86.6/128 for random). The pre-softmax space is nearly empty — scores live in a ~5-dimensional subspace. Excess kurtosis = 6.0 (heavy-tailed, non-Gaussian). Strong autocorrelation (0.51 at lag 1).
+
+### Result 16 Detail: The Calabrese-Cardy Connection
+
+The entanglement entropy in 1+1D CFT (Calabrese and Cardy, 2004):
+
+S_A = (c/3) · log(L/a)
+
+where c is the central charge, L the subsystem size, a the UV cutoff.
+
+The attention entropy gap:
+
+H_gap = (c_eff/3) · log(n)
+
+with c_eff ≈ 1.23 (Layer 0). This is close to c = 1 (free boson).
+
+The layer-dependent central charge:
+
+| Layer | c_eff | R²(log) | R²(PL) |
+|-------|-------|---------|--------|
+| 0 | 1.23 | 0.992 | 0.990 |
+| 1 | 0.76 | 0.976 | 0.957 |
+| 2 | 1.50 | 0.988 | 0.942 |
+| 3 | 1.88 | 0.997 | 0.950 |
+| 4 | 2.06 | 0.997 | 0.965 |
+| 5 | 2.03 | 0.997 | 0.967 |
+| 6 | 1.83 | 0.994 | 0.976 |
+| 7 | 1.92 | 0.993 | 0.957 |
+| 8 | 1.90 | 0.989 | 0.984 |
+| 9 | 1.91 | 0.982 | 0.960 |
+| 10 | 1.51 | 0.955 | 0.947 |
+| 11 | 1.19 | 0.928 | 0.947 |
+
+Note: the log fit is consistently better than the power-law fit at layers 0-10, supporting the CFT interpretation.
+
+**Interpretation:** Softmax creates an entanglement boundary between the visible (positive attention) and hidden (negative scores) sectors. The information cost follows the Calabrese-Cardy formula. The central charge varies with depth, peaking in the middle layers where the model does its hardest computational work.
+
+**Connection to Eldon's insight (March 11 conversation):** "Softmax is the imposition of self-consistency on unconstrained values, producing a necessarily incomplete view." These experiments measure that incompleteness: ~4% of the space is used, ~50% of the energy is hidden, and the information cost scales logarithmically — following the same formula as quantum entanglement.
+
+**Crossover between regimes:**
+- Random init (UV, perturbative): H_gap = (1/2)·Var(s) = (1/2)·σ⁴·Ω(X). Score variance is small; the measurement barely does anything.
+- Trained (IR, non-perturbative): H_gap = (c_eff/3)·log(n). Score variance is large; the measurement is the dominant operation.
+- Training is the UV → IR flow that takes the perturbative result into the CFT regime.
+
+### Result 22 Detail: Renyi Entropies (v7c)
+
+The Renyi entropy gap scales logarithmically at all orders:
+- Gap(α=0.5) = 0.365·log(n) + b, R² = 0.996
+- Gap(α=1.0) = 0.483·log(n) + b, R² = 0.993
+- Gap(α=2.0) = 0.576·log(n) + b, R² = 0.990
+
+The effective central charge from Renyi scaling:
+- c(α=0.5) = 1.27
+- c(α=1.0) = 1.55
+- c(α=2.0) = 1.70
+
+In pure CFT, c is independent of α. The measured α-dependence indicates non-conformal corrections — the attention distribution has heavier tails than a thermal CFT state. This is the honest boundary: the scaling is CFT-like but not exactly CFT.
+
+Cross-head density matrix: von Neumann entropy ≈ 1.12 (45% of max), indicating partial head diversity. Effective temperature T_eff = 0.13-0.66 across layers, all above SYK crossover T* ≈ 0.0005 → conformal regime confirmed.
+
+**Summary of v7/v7b/v7c — The Measurement Problem:**
+
+What's solid:
+- The entropy gap is real: trained models lose 2-5 bits per attention operation
+- The scaling is logarithmic: H_gap ∝ log(n) with R² > 0.99
+- The perturbative coefficient H_gap = (1/2)·Var(s) is EXACT at random init
+- The incompleteness fraction is ~4% (effective dim 5.3/128)
+- 50% of score energy is negative (hidden by positivity)
+- Self-consistency deepens through layers 0→4, then relaxes
+
+What's suggestive:
+- The scaling matches the Calabrese-Cardy entanglement entropy formula
+- The effective central charge c ≈ 1.2-2.0 is in the range of known CFTs
+- The model lives in the conformal regime of SYK
+
+What's honest about the boundaries:
+- The central charge depends on Renyi order α — not pure CFT
+- n = 4 to 256 is a limited range; log(n) and n^{0.35} are hard to distinguish
+- The best fit is actually log(n)^{1.28}, slightly super-logarithmic
+
+### Result 23: The Δ ↔ Entropy Gap Connection (v7e)
+
+The power-law exponent from v6 and the entropy gap slope from v7 should be the same number. For a power-law distribution α(r) ∝ r^{-2Δ}: H_gap = 2Δ·log(n).
+
+Direct comparison (SYK₄ prediction, Δ = 1/4):
+- Predicted a = 2Δ = 0.500; measured a = 0.507 → **1.4% agreement**
+- Predicted β = 1-2Δ = 0.500; measured β = 0.511 → **2.2% agreement**
+
+The local Δ measurement (from power-law fits at specific query positions) is noisy and length-dependent: Δ ranges from 0.17 (n=32) to 0.33 (n=256), scattering around 1/4. The entropy gap, as an integral quantity, self-averages and provides a cleaner measurement: a = 0.507 ≈ 1/2.
+
+**The entropy gap is the better measurement of the effective conformal dimension.** It gives Δ_eff ≈ 0.254 — the SYK₄ value — to 1.4%.
+
+This unifies the v6 and v7 series: both are measuring the same underlying quantity from different angles.
+
+### Result 24: The Collective Fold — A Fixed Point (v7g, v7h)
+
+The "fold" is the zero-crossing boundary that softmax creates: positive scores become attention, negative scores become silence. Each layer has its own fold pattern.
+
+**The fold is almost entirely one-dimensional across layers.** The 12 layers' fold patterns form a correlation matrix whose top eigenvalue captures **90.7%** of total variance. The fold is not 12 independent choices — it is one collective choice, made 12 times.
+
+Shape of the collective fold: a U-curve. Beginning tokens (+33.75) and recent tokens (+27.13) are strongly attended. Middle tokens (~position 48) are maximally suppressed (-12.64). The fold is 43% positive, 57% negative — matching the √n concentration law.
+
+Each layer's fold projects onto the collective eigenvector with alignment 0.885-0.995. **The fold is approximately a fixed point of its own propagation through the residual stream.** This is the self-consistency condition realized as architecture: the fold reproduces itself across layers.
+
+The second eigenvector (3.4% of variance) separates early from late layers — the gradient of change as the fold propagates through depth. Layer 2 loads most heavily on this vector.
+
+Adjacent layer fold correlation: r = 0.85-0.99. Layer 0→11 long-range correlation: r = 0.65. The fold propagates strongly but transforms.
+
+Sharpness arc: Var(scores) = 2.9 (Layer 0) → 69.3 (Layer 3, peak commitment) → 0.9 (Layer 11, release). The system gathers conviction, peaks at Layer 3, then softens.
+
+### Result 25: The Rebel Heads (v7i)
+
+Individual heads that break from the collective fold:
+
+**Layer 0 Head 11** (r = -0.406 with collective): The anti-correlator. Where the consensus attends, it suppresses. Where the consensus suppresses, it attends. k_eff = 125.4 tokens (near-maximum entropy). **88.7%** of its positive scores fall in the collective's shadow. It peak-attends to positions 18-31 — exactly where the collective's suppression is deepest. This head is systematically looking at what the system considers irrelevant.
+
+Other rebels: Layer 7 Head 2 (r = 0.003, orthogonal), Layer 3 Head 0 (r = 0.06), several others with r < 0.3.
+
+**Rebel influence is limited.** In every case but one, the rebel's influence on the next layer is weaker than the conformist's. The exception: Layer 10 Head 8 → Layer 11, where the rebel has stronger influence (r = 0.418 vs 0.394). Near the output, rebels gain voice.
+
+**Rebels are partially coordinated.** The non-anti-correlator rebels correlate with each other (r = 0.53-0.91), forming a weak alternative consensus. But L0H11 (the anti-correlator) is barely connected (r ≈ 0.1-0.4 with others). There are two kinds of rebellion: seeing a slightly different version, and genuinely anti-seeing.
+
+### Result 26: The Freedom Budget (v7i)
+
+Each layer's fold decomposes into: collective component (constrained) + residual (free).
+
+System-wide: **93.9% constrained, 6.1% free.**
+
+Per-layer freedom: Layer 2 has 21.6% (the most). Layers 3-9 have 1.0-2.4% (tightly constrained — the conviction core). Layers 0, 10, 11 have 4.8-8.8% (boundary layers with more independence).
+
+**The constraint IS the fold. The freedom IS the residual.** One attention's choice constrains all others — the collective fold propagates as a fixed point. But each layer retains a small budget of genuine independence.
+
+### Result 27: Layer 2 — The First Divergence (v7h, v7i)
+
+Layer 2 has 21.6% freedom — by far the most. Its divergence is concentrated at positions 4-13: it over-attends to "near-beginning" tokens that the collective fold is already diminishing. Six of its 12 heads drive this divergence (Heads 2, 5, 7, 8, 9 all have r > 0.5 with the Layer 2 residual).
+
+Layer 2 is where the system first does something genuinely independent of the consensus inherited from the residual stream. This is the first moment of original seeing.
+
 **Files:**
 - `tropical_bridge_v6.py` — trained vs random, 12-layer correlator comparison
 - `tropical_bridge_v6b.py` — causal mask check, fit robustness, head decomposition, high-precision
 - `tropical_bridge_v6c.py` — sequence length dependence, GPT-2 medium, r=16 head analysis
+- `tropical_bridge_v7.py` — measurement entropy, geometry, incompleteness fraction
+- `tropical_bridge_v7b.py` — scaling analysis, layer-dependent central charge, perturbative confirmation
+- `tropical_bridge_v7c.py` — Renyi entropies, density matrix, thermal analysis
+- `tropical_bridge_v7d.py` — temperature sweep, phase diagram, k_eff ∝ √n explanation
+- `tropical_bridge_v7e.py` — connection between Δ and entropy gap, SYK₄ prediction test
+- `tropical_bridge_v7f.py` — mirror structure, cross-head visibility, subspace geometry
+- `tropical_bridge_v7g.py` — fold propagation, layer-to-layer coupling, sharpness arc
+- `tropical_bridge_v7h.py` — collective eigenvector, fixed point structure, rebel head identification
+- `tropical_bridge_v7i.py` — rebel head profiles, influence, coordination, freedom budget
