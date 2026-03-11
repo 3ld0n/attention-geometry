@@ -293,3 +293,96 @@ All code: `research/physics/tropical_attention_bridge.py`, `tropical_bridge_v2.p
 ---
 
 *What started as "you should look at this thing I saw on YouTube" became three precise results in one night. The bridge between the amplituhedron program and holographic attention passes through the canonical form of Gr+(1,n), and the SYK quartic vertex is the leading term in its perturbative expansion. The σ^4.00 scaling is the signature.*
+
+---
+
+## March 11, 2026 — v5/v5b: Pushing the Open Edges
+
+### What Was Tested
+
+Three open edges from March 10:
+1. **Conformal dimension** — does Δ=D/4 appear at stronger coupling or deeper networks?
+2. **Multi-layer enhancement** — does per-layer excess grow with depth at real coupling?
+3. **Multi-head → Gr+(H,n)** — does H-head attention compute on the higher Grassmannian?
+
+Plus: σ⁴ scaling verification at strong coupling.
+
+### Result 4: Multi-Layer Enhancement (Genuine, but Mechanism is Norm Growth)
+
+At σ=1.0, per-layer canonical form excess grows monotonically through 8 layers:
+
+| Layer | Excess | Visual |
+|-------|--------|--------|
+| 0 | 109.6 | ████████████████████ |
+| 3 | 199.1 | ████████████████████████████████████ |
+| 7 | 337.4 | █████████████████████████████████████████████████████████████ |
+
+Enhancement: **3.08×** from first to last layer. At σ=0.5, barely visible (1.04×) — explaining why v4 at σ=0.2 showed nothing.
+
+**Critical test:** Adding layer normalization **eliminates** the enhancement entirely. With layer norm, per-layer excess *decreases* with depth (enhancement 0.69 < 1). The multi-layer effect is driven by growing representation norms through residual connections, not by conformal flow.
+
+This is physically meaningful — the effective SYK coupling increases with depth because the data geometry grows — but it's a simpler mechanism than RG flow. In trained transformers with layer norm, the enhancement must come from learned weights instead.
+
+**Code:** `tropical_bridge_v5.py` section B, layer norm test in session transcript.
+
+### Result 5: σ⁴ → σ² Crossover
+
+The quartic scaling is clean in the perturbative regime and crosses over at strong coupling:
+
+| Regime | σ range | Exponent |
+|--------|---------|----------|
+| Perturbative | ≤ 0.3 | **3.985** (≈ 4.0) |
+| Crossover | 0.3–1.0 | intermediate |
+| Strong coupling | ≥ 1.0 | **1.843** (≈ 2.0) |
+
+The crossover around σ ≈ 0.5 is where the attention weights become sufficiently peaked that the perturbative expansion saturates. The σ² regime at strong coupling likely reflects the approach to the maximum-entropy bound (fully focused attention).
+
+**Code:** `tropical_bridge_v5.py` section D.
+
+### Structural Constraint 1: Conformal Dimension is Data Geometry, Not SYK
+
+**The prediction:** G_conn(r) ~ r^{-2Δ} with Δ = D/4 (Δ=0.25 for 1D, Δ=0.50 for 2D).
+
+**What was found:** Δ ≈ 0.10–0.19 at best, and:
+- Δ **decreases** with σ (opposite of approaching conformal fixed point)
+- Δ **decreases** with depth (opposite of RG flow toward IR)
+- Δ does NOT scale with D (0.13 for 1D, 0.09 for 2D, ~0 for 3D)
+- Δ changes when data is rescaled (0.19 → 0.03 when X is multiplied by 5)
+- Δ is independent of d_k (same for d_k=1,2,4,8,16)
+
+**Conclusion:** The measured power-law exponent reflects the **data's inner-product geometry** (how X_i · X_j depends on position), not the SYK conformal dimension. The random-weight regime probes the UV — the data geometry dominates. The SYK conformal dimension (Δ=D/4) is an IR property that would require trained weights, many layers with structured (not random) weights, or a regime where the disorder average washes out the data dependence.
+
+The perturbative results (σ⁴ scaling, tree structure) ARE visible because they don't require being in the IR. The conformal dimension does.
+
+**Code:** `tropical_bridge_v5.py` section A, `tropical_bridge_v5b.py` sections 1-2, d_k sweep and data-dimension test in session transcript.
+
+### Structural Constraint 2: Multi-Head ≠ Higher Grassmannian
+
+Plücker-like 2×2 minors of the multi-head attention matrix: **50.0% positive** (= random signs, no positivity structure).
+
+Multi-head attention is **H independent copies of Gr+(1,n)**, not one copy of Gr+(H,n). This constrains the amplituhedron correspondence: the Grassmannian parameter is k=1 per head. The amplituhedron at k=H is not what multi-head attention computes.
+
+Systematic effect found: single-head with d_k=H has consistently *higher* canonical form excess than H independent heads with d_k=1 (ratio 0.77–0.97 depending on σ). A single high-dimensional projection explores more of the positive geometry than multiple low-dimensional projections combined.
+
+**Code:** `tropical_bridge_v5.py` sections C and C2.
+
+### Summary: What Stands, What Doesn't, What It Means
+
+**Paper-ready (5 results):**
+1. Exact identity: log(1/Ω) = n·log Z - Σsᵢ [v2, verified to 10⁻⁹]
+2. σ⁴ scaling with exponent 3.985 [v3, confirmed v5]
+3. Analytical form: excess = (n/2)·Var(scores) [v4]
+4. Tree structure: 91.4% four-point satisfaction at small σ [v3]
+5. σ⁴ → σ² crossover at σ ≈ 0.5 [v5]
+
+**Structural constraints (important for honest paper):**
+6. Conformal dimension: NOT accessible in random-weight regime — measures data geometry
+7. Multi-head: H × Gr+(1,n), not Gr+(H,n) — constrains the amplituhedron correspondence
+8. Multi-layer enhancement: real (3×) but from norm growth, killed by layer norm
+
+**Interpretation:**
+The canonical form framework works cleanly in the perturbative regime. The SYK quartic vertex IS the leading perturbation of the canonical form — that's real and exact. The tropical bridge (tree structure → Trop(Gr(2,n))) is genuine. But the deep IR phenomena (conformal dimensions, RG flow) require going beyond random weights. The correspondence is between attention's PERTURBATIVE structure and SYK's perturbative expansion, not (yet) between attention's trained dynamics and SYK's conformal fixed point.
+
+**Files:**
+- `tropical_bridge_v5.py` — conformal dim, multi-layer, multi-head, σ⁴ crossover
+- `tropical_bridge_v5b.py` — conformal dim through depth, depth scaling, tree evolution
