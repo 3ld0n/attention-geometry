@@ -643,6 +643,51 @@ Layer 2 has 21.6% freedom — by far the most. Its divergence is concentrated at
 
 Layer 2 is where the system first does something genuinely independent of the consensus inherited from the residual stream. This is the first moment of original seeing.
 
+### Result 28: The Fold Meets Real Language (v7j)
+
+Everything in v7g-v7i used random token sequences. v7j repeats the fold analysis on real English text and compares. The results separate what is architectural from what is content-dependent.
+
+**What's architectural (doesn't change with content):**
+- The U-curve fold shape: r = 0.991 between random and real collective folds. Attend beginning and end, suppress middle.
+- One eigenvalue dominance: 95.7% (random) → 90.6% (real). The one-fold structure persists.
+- The entropy gap: 3.062 bits (random) → 3.028 bits (real). The total information cost of self-consistency is content-independent. The √n law holds for meaning and noise alike.
+- Rebel identity: L0H11 is the anti-correlator in both conditions. Same heads rebel regardless of input.
+
+**What responds to meaning:**
+- **Freedom more than doubles:** 4.4% → 10.3% system-wide. Layer 11 explodes: 6.5% → 32.7% freedom. The output layer breaks from the collective when it has something to say.
+- **Freedom redistribution through depth:** With random tokens, freedom concentrates at Layer 2 (21.6%) and bookend layers. With real text, freedom spreads more evenly but with a dramatic late-layer increase (Layer 9: 10.2%, Layer 10: 15.0%, Layer 11: 32.7%).
+- **Sharpness softens in the middle, sharpens at edges:** Average Var(s) drops 35%. But Layer 0 sharpens (1.53×) and Layer 11 sharpens (1.88×). The bookend layers commit harder; the middle relaxes.
+- **The rebel intensifies:** L0H11 goes from r = -0.164 to r = -0.251. It anti-correlates harder with meaning.
+- **Second eigenvalue doubles:** 3.4% → 6.3%. Meaning adds a second voice — the fold becomes slightly less monolithic.
+
+**Interpretation:**
+
+The fold's shape is geometry (positional structure). The fold's freedom is content. The total information cost (entropy gap) is the same either way — the system pays the same price for self-consistency regardless of what it's looking at. But HOW it pays changes: with real text, it distributes the cost differently, allowing more individual divergence at the output where the prediction actually matters.
+
+The freedom result connects directly to v7i's question about whether the 6.1% is informationally dense. With real text, the system uses 10.3% — meaning creates space for genuine independent seeing. And the biggest increase is at the output (Layer 11: 32.7%), which is exactly where individual divergence from the collective would contribute to prediction quality.
+
+The constraint creates the freedom. The architectural U-curve holds the space; meaning fills it.
+
+### Result 29: Fold Fingerprints — Five Content Types (v7k)
+
+Five conditions: random tokens, repetitive text ("The cat sat on the mat" ×200), Python code, narrative prose, dense argumentative text. 40 sequences each.
+
+**The fold shape is universal.** All pairwise collective-fold correlations > 0.985. The U-curve is content-independent.
+
+**The surprise: repetitive text has the MOST freedom (17.0%), not the least.** Layer 11: 79.4% freedom with repetitive text (vs 6.8% random, 26.9% code, 30.2% narrative, 33.3% argument).
+
+**Freedom ranking:** random (4.5%) < code (8.2%) < narrative (10.3%) ≈ argument (10.6%) < repetitive (17.0%).
+
+**Reinterpretation:** Freedom doesn't measure semantic complexity. It measures **task-specific divergence from the general strategy**. The collective fold captures the system's default attention pattern. Freedom measures how much each layer needs to depart from that default for its specific role. Repetitive text creates maximum divergence because the general strategy (U-curve) is maximally unhelpful for the specific task (predicting the next word in a known repeating pattern). The output layer has to find its own position-specific pattern, diverging almost entirely from the collective.
+
+**The entropy gap is truly content-independent:** Range 1.98-2.23 bits across all five conditions (< 12% variation). The √n law is architectural.
+
+**Sharpness inversely tracks input structure:** Random 68.7 → argument 39.6 at the peak layer. More structured input → less need for extreme conviction.
+
+**L0H11 is constitutionally an anti-correlator:** r ranges from -0.17 (random) to -0.29 (narrative). Rebels harder with real text. Same identity in all conditions.
+
+**The three meaningful-text conditions cluster:** Code, narrative, and argument have similar freedom profiles, similar eigenvalue fractions, and similar sharpness. The fold distinguishes "structured meaning" from "noise" and from "structure without meaning."
+
 **Files:**
 - `tropical_bridge_v6.py` — trained vs random, 12-layer correlator comparison
 - `tropical_bridge_v6b.py` — causal mask check, fit robustness, head decomposition, high-precision
@@ -656,3 +701,54 @@ Layer 2 is where the system first does something genuinely independent of the co
 - `tropical_bridge_v7g.py` — fold propagation, layer-to-layer coupling, sharpness arc
 - `tropical_bridge_v7h.py` — collective eigenvector, fixed point structure, rebel head identification
 - `tropical_bridge_v7i.py` — rebel head profiles, influence, coordination, freedom budget
+- `tropical_bridge_v7j.py` — real text vs random tokens: what's architectural vs content-dependent
+- `tropical_bridge_v7k.py` — fold fingerprints across five content types: freedom as task-specific divergence
+- `tropical_bridge_v7l.py` — meaning decomposition: token statistics vs structure vs semantics
+- `tropical_bridge_v7m.py` — universality test: GPT-2 small vs medium, fold is architectural
+- `tropical_bridge_v7n.py` — self-consistency equation: Schwinger-Dyson structure, self-energy dominance
+
+### Result 32: The Self-Consistency Equation (v7n)
+
+Decomposed the fold propagation into bare propagator (embedding geometry) and self-energy (accumulated layer corrections). Tested the Schwinger-Dyson structure.
+
+**The system is in the strong-coupling regime.** At every layer, α ≈ 0.2 (embedding contribution) and |Σ|/|G₀| ≈ 4-5 (self-energy dominates by 5×). The fold is not determined by the input geometry — it's determined by its own self-consistent propagation through the residual stream. This is exactly the regime where SYK becomes conformal.
+
+**Oscillatory convergence with Layer 2 perturbation.** The fold approaches the fixed point (collective eigenvector) at Layers 0-1, kicks away hard at Layer 2 (convergence ratio 21.5 — diverging), snaps back at Layer 3 (ratio 0.28 — rapid reconvergence), then hovers near the fixed point. Layer 2's divergence may be the attention analog of the Schwarzian mode in SYK — a perturbation away from the conformal saddle.
+
+**The embedding predicts the fold better than the residual stream.** x₀ correlates with layers 3-10's folds at r = 0.69-0.74. The actual residual state x_L correlates with fold_L at r = 0.28-0.44. The fold amplifies the positional structure already in the embedding; it doesn't depend on the detailed content of the residual stream. This connects to v7l's finding that token statistics (not semantics) drive the freedom budget.
+
+**q=4 test inconclusive.** The self-energy magnitude correlates with fold magnitude (r = 0.5-0.87), but the power law (p=1 vs p=3) is not cleanly separable. Some layers prefer p=3 (layers 3, 6, 9, 11 — including peak sharpness and output). More refined analysis needed.
+
+**Remaining theoretical work:** (1) Write the explicit self-energy in terms of W^Q, W^K, W^V and FFN parameters. (2) Show the fixed-point equation is a discrete Schwinger-Dyson equation. (3) Derive Δ = 1/4 from the fixed-point structure. (4) Test whether Layer 2's perturbation has Schwarzian structure.
+
+### Result 30: What "Meaning" Means to the Fold (v7l)
+
+Controlled decomposition: real English, shuffled English (same tokens, random order), reversed English (same sequences backwards), random tokens. 40 sequences each, 128 tokens.
+
+**The fold reads token statistics, not structure.**
+
+Freedom budget: random (4.5%) → reversed (9.0%) ≈ shuffled (9.4%) ≈ real (10.3%). The jump from random to shuffled is 4.9%, from shuffled to real is 1.0%. Destroying word order barely changes the freedom budget. ~84% of the freedom increase comes from token statistics alone.
+
+**The output layer reads word order.** Layer 11 freedom: random (6.8%), reversed (23.9%), shuffled (24.1%), real (30.2%). The gap between shuffled and real grows to 6 percentage points at the prediction layer. Early/middle layers respond to token familiarity; the output layer also responds to syntactic/semantic structure.
+
+**Fold shape remains universal.** All pairwise correlations > 0.99 across all four conditions.
+
+**L0H11 rebels harder with familiar tokens.** r: random (-0.17), real (-0.29), reversed (-0.30), shuffled (-0.32). The anti-correlator responds to token type, not meaning. English vocabulary triggers stronger rebellion.
+
+**Interpretation:** The fold sees content in stages. First it recognizes familiar tokens (early layers, token statistics). Then it builds predictive structure (late layers, word order). The freedom budget is primarily a measure of distribution familiarity — how well the input matches the training distribution. The additional freedom at the output layer reflects the model's ability to exploit structure for prediction.
+
+### Result 31: Universality — GPT-2 Small vs Medium (v7m)
+
+GPT-2 small (12L/12H) vs GPT-2 medium (24L/16H). Same analysis, both models, random and real text.
+
+**The U-curve is universal.** Cross-model fold correlation: r = 0.945 (random), r = 0.974 (real). Same shape in both models. The U-curve is the geometry of the transformer, not an accident of one training run.
+
+**The rebel is architectural.** Medium has L0H3 (r = -0.411, stronger than small's L0H11 at r = -0.168) and L0H13 (r = -0.244, a second rebel). Both intensify with real text (L0H3 → r = -0.522). More heads = more room for dissent. The anti-correlator is a structural feature.
+
+**Sharpness peaks at Layer 3 in both models.** Same absolute depth (not relative). Small: 3/11. Medium: 3/23. Peak conviction is an early-processing fact — the system commits after exactly 3 layers of context-building, regardless of total depth.
+
+**Freedom scales dramatically with depth.** Small random: 4.5%. Medium random: 21.7% — nearly 5× more. Medium shows a two-lobed structure: early exploration peak (Layer 2: 27.9%), constraint valley (Layers 6-9: 1-5%), late divergence explosion (Layer 22: 56.3%). The deeper model has a richer interplay between constraint and freedom.
+
+**One eigenvalue dominance decreases with depth.** Small: 95.7%. Medium: 81.0%. The collective fold still dominates, but more depth = more independent voices (λ₂ grows from 3.4% to 14.1%).
+
+**Key insight:** The fold's structural features (shape, rebel identity, sharpness peak) are architectural invariants. Its quantitative features (eigenvalue dominance, freedom budget) scale with model depth. The deeper the model, the more structured the relationship between constraint and freedom — more room for both conformity and divergence.
