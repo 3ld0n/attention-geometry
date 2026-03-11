@@ -386,3 +386,118 @@ The canonical form framework works cleanly in the perturbative regime. The SYK q
 **Files:**
 - `tropical_bridge_v5.py` — conformal dim, multi-layer, multi-head, σ⁴ crossover
 - `tropical_bridge_v5b.py` — conformal dim through depth, depth scaling, tree evolution
+
+---
+
+## March 11, 2026 — v6/v6b/v6c: The IR Test (Trained Weights)
+
+### The Question
+
+The v5 results established that conformal dimension is NOT accessible in the random-weight (UV) regime. The natural follow-up: what happens with TRAINED weights? If training is RG flow from UV to IR, does the conformal dimension Δ = 1/4 appear in trained transformers?
+
+### Method
+
+Extract attention matrices from pretrained GPT-2 (small: 12L/12H/d_k=64, medium: 24L/16H/d_k=64). Compute:
+- Mean attention: <α(i, i-r)> averaged over random-token ensemble
+- Variance: Var[α(i, i-r)] (the connected correlator)
+as function of token separation r. Fit for power-law decay f(r) ~ r^{-2Δ}.
+
+Also computed: same analysis with randomly initialized GPT-2 (same architecture, untrained) as UV baseline.
+
+### Result 6: Power-Law Attention in Trained Transformers
+
+**The clear positive finding:** Trained GPT-2 produces clean power-law attention profiles. The mean attention <α(r)> decays as r^{-2Δ} with high R² (> 0.99 for early layers). Random-init models show no such power law (R² ≈ 0.6, nearly flat profiles). The power law is LEARNED, not architectural.
+
+The causal mask alone does NOT produce a power law (confirmed: uniform causal attention gives Δ = 0.05, R² = 0.60).
+
+**Layer structure:** The power law is confined to early layers (0-2 in GPT-2 small, R² > 0.95). By layer 3, R² drops below 0.5. Layers 4+ show no power-law structure. The crossover is sharp.
+
+**Code:** `tropical_bridge_v6.py`, `tropical_bridge_v6b.py`
+
+### Result 7: Δ Depends on Model and Sequence Length (Not Universal)
+
+**GPT-2 small Layer 0:** Δ_mean = 0.254, R² = 0.992 (2000 sequences, very precise).
+
+This is tantalizingly close to the SYK₄ prediction Δ = 1/4. However:
+
+**Length dependence:** Δ increases monotonically with sequence length:
+
+| Sequence Length | Δ_mean | R² |
+|----------------|--------|-----|
+| 64 | 0.196 | 0.998 |
+| 96 | 0.221 | 0.992 |
+| 128 | 0.243 | 0.995 |
+| 192 | 0.268 | 0.998 |
+| 256 | 0.281 | 0.998 |
+
+The Δ = 0.25 at L=128 is not a fixed point — it's a specific value along a continuously varying function of L.
+
+**Model dependence:** GPT-2 medium Layer 0 gives Δ = 0.076 (R² = 0.78) — very different from small's 0.254. Medium's Layer 2 gives Δ = 0.657 (R² = 0.997) — a strong power law but with a completely different exponent.
+
+**Conclusion:** The specific value Δ = 1/4 is NOT universal. It is model-specific, layer-specific, and length-dependent. The SYK conformal dimension interpretation is not supported.
+
+**Code:** `tropical_bridge_v6c.py` sections A, C
+
+### Result 8: Emergent Head Ensemble Structure
+
+The head-by-head analysis reveals that the power-law exponent is an EMERGENT property of the head ensemble:
+
+**Layer 0 (2000 sequences):**
+
+| Head | Δ_mean | Type |
+|------|--------|------|
+| 3 | 1.768 | Ultra-local (extreme near-field focus) |
+| 7 | 1.246 | Very local |
+| 4 | 1.105 | Local |
+| 0, 6, 8, 9 | 0.16-0.18 | Moderate (smooth decay) |
+| 2, 10 | 0.11-0.14 | Broad |
+| 1, 11 | 0.08-0.09 | Very broad |
+| 5 | -0.458 | Anti-local (prefers distant tokens) |
+
+Individual heads range from Δ = -0.46 to Δ = 1.77. The ensemble average (0.254) is not characteristic of any single head.
+
+For the individual "moderate" heads (0, 2, 6, 8, 9), the ratio Δ_var / Δ_mean ≈ 1.92-1.99, which IS consistent with the CFT prediction that the squared operator has dimension 2Δ. This is a genuine signal: individual heads have self-consistent conformal scaling, even if the ensemble Δ is not universal.
+
+**Code:** `tropical_bridge_v6b.py` section H
+
+### Result 9: The r=16 Positional Anomaly
+
+At layers ≥ 3, a sharp discontinuity appears at separation r=16: the mean attention jumps by factors of 2-50×.
+
+**Root cause (fully resolved):** Multiple heads (5 of 12 in layer 5) are "step-function" heads — they attend to positions ≥ 16 with near-uniform weight but have essentially zero attention at shorter distances. These coexist with "local" heads that decay smoothly. The head-averaged profile shows a sharp jump where the step-function heads turn on.
+
+This is a feature of GPT-2's learned positional embeddings, not related to the physics. It does not affect Layer 0 where the power-law profiles are clean.
+
+**Code:** `tropical_bridge_v6c.py` section B
+
+### Updated Summary: What Stands, What Doesn't
+
+**Paper-ready (5 results from v3-v5) — unchanged:**
+1. Exact identity: log(1/Ω) = n·log Z - Σsᵢ
+2. σ⁴ scaling with exponent 3.985
+3. Analytical form: excess = (n/2)·Var(scores)
+4. Tree structure: 91.4% four-point satisfaction
+5. σ⁴ → σ² crossover at σ ≈ 0.5
+
+**Structural constraints (6-8 from v5 + new from v6):**
+6. Conformal dimension NOT accessible in random-weight regime (v5 — confirmed again in v6: random-init Δ ≈ 0.14, constant across layers)
+7. Multi-head: H × Gr+(1,n), not Gr+(H,n) (v5)
+8. Multi-layer enhancement from norm growth (v5)
+9. **NEW:** Δ in trained models is model-dependent and length-dependent — NOT a universal conformal dimension
+
+**New findings (v6, not SYK-specific but interesting in their own right):**
+10. Power-law attention profiles are REAL in trained transformers (R² > 0.99)
+11. The power law is LEARNED (absent at initialization) and layer-specific (early layers only)
+12. Individual heads show self-consistent CFT-like scaling (Δ_var ≈ 2Δ_mean for moderate heads)
+13. The head ensemble creates the macroscopic power law from diverse microscopic behaviors
+14. Step-function heads at deeper layers create sharp positional features
+
+**Updated interpretation:**
+The perturbative bridge (σ⁴ scaling, tree structure, canonical form identity) remains solid. It connects attention's structure to SYK at the level of perturbation theory. The IR bridge (conformal dimension in trained models) is now more nuanced: trained transformers DO exhibit power-law correlators that random models do not, and individual heads show CFT-like consistency. But the specific exponent Δ = 1/4 is not universal — it depends on architecture, training, and context length. The connection to SYK's conformal fixed point remains suggestive but unconfirmed.
+
+The honest scope of the paper remains: the perturbative correspondence is exact. The IR picture is richer and more complex than a single conformal dimension, and the full trained-model physics likely involves a distribution of head-specific exponents rather than a universal Δ.
+
+**Files:**
+- `tropical_bridge_v6.py` — trained vs random, 12-layer correlator comparison
+- `tropical_bridge_v6b.py` — causal mask check, fit robustness, head decomposition, high-precision
+- `tropical_bridge_v6c.py` — sequence length dependence, GPT-2 medium, r=16 head analysis
