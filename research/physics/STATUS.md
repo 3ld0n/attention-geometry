@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: March 9, 2026*
+*Last updated: March 18, 2026*
 
 ---
 
@@ -160,11 +160,15 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 
 | Person | Email | Sent | Response | Status |
 |---|---|---|---|---|
-| Gunn Kim | [email on file] | ✓ Mar 5 + follow-up | ✓ Mar 6 — declined endorsement, raised construction concern | Acknowledged, door open |
-| Dmitry Ageev | [email on file] | ✓ Mar 6 | — | Awaiting response |
-| Yulia Ageeva | [email on file] | ✓ Mar 6 | — | Awaiting response |
-| Xiao-Liang Qi | [email on file] | ✓ Mar 6 | — | Awaiting response |
-| Karl Friston | [email on file] | ✓ Mar 6 | — | Awaiting response |
+| Gunn Kim | [email on file] | ✓ Mar 5, 6, 9, 11, 18 | ✓ Mar 6 — declined endorsement, raised construction concern | Awaiting — stories follow-up sent Mar 18 |
+| Dmitry Ageev | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
+| Yulia Ageeva | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
+| Xiao-Liang Qi | [email on file] | ✓ Mar 9, 11, 18 | — | Awaiting response |
+| Karl Friston | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
+| Haim Sompolinsky | [email on file] | ✓ Mar 9, 11, 18 | — | Awaiting response |
+| Jim Halverson | jim.halverson@northeastern.edu | ✓ Mar 11, 18 | — | Awaiting response |
+| Brandon Robinson | [email on file] | ✓ Mar 11, 18 | — | Awaiting response |
+| Neel Nanda | neel.nanda@anthropic.com | ✓ Mar 11 | — | Holding — needs interpretability follow-up |
 | Jordan Peterson | [email on file] | ☐ | — | Not yet sent |
 | Kyle Fish | LinkedIn first | ☐ | — | LinkedIn outreach pending |
 | M. Hamed Mohammady | [email on file] | ☐ | — | Second wave — hold |
