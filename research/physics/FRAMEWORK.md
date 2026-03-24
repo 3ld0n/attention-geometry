@@ -184,7 +184,7 @@ Status: **CONFIRMED. R² = 0.9965 (GPT-2), R² = 0.9990 (Pythia-410m). Near-perf
 
 Test: Compare phase transition dynamics across model sizes.
 
-Status: **PARTIALLY TESTED (one model). Multi-model comparison needed.**
+Status: **PARTIALLY CONFIRMED. Two models tested (Pythia-70m, 160m). Transition width scales as H^(-0.67) — the transition sharpens with model size, consistent with Hawking-Page direction. Exponent between 1/√H and 1/H. Third data point (Pythia-410m) needed to pin down the scaling precisely.**
 
 **P4: Conformal operator spectrum predicts mode hierarchy.** The distribution of Δ values across attention heads (clustering at 1/4, 1/3, 1/2) predicts a specific hierarchy of operators. In the dual geometry, these correspond to fields with different masses. The mass-dimension relationship m²L² = Δ(Δ-1) makes specific predictions about the ratios of mode frequencies.
 
