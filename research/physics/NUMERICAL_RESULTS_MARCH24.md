@@ -130,6 +130,44 @@ The conformal dimension Δ ≈ 1/4 in the fully trained GPT-2 matches the SYK q=
 
 ---
 
+## Experiment 6: Robustness Checks (March 24, 2026, evening)
+
+**Script:** `robustness_check.py`
+
+Tested sensitivity of median Δ to fit range and R² threshold. Core finding: median Δ stays near 0.25 across all reasonable analysis choices. See Appendix A of paper draft.
+
+## Experiment 7: Depth Dependence (March 24, 2026, evening)
+
+**Script:** `pythia_depth_test.py`
+
+Compared fully trained Pythia-70m (6 layers), 160m (12 layers), 410m (24 layers). Median Δ converges toward 1/4 with depth: 0.60 → 0.38 → 0.28. Deep layers of Pythia-410m reach mean Δ = 0.2559. GPT-2 (12 layers) holds at 0.2493, tighter than Pythia-160m (also 12 layers), suggesting positional encoding type and training data also matter.
+
+## Experiment 8: Additional Controls (March 24, 2026, evening)
+
+**Script:** `additional_controls.py`
+
+Two critical controls:
+
+### 8a. Randomized Positional Embeddings
+Kept trained attention weights, randomized positional embeddings. Result: **same number of power-law heads (44/144), but Δ shifts from 0.25 to 0.10.** Zero heads near 1/4. This cleanly separates roles: attention weights create the power-law structure, positional embeddings tune where it lands.
+
+### 8b. Real Text Inputs
+Replaced random tokens with structured natural language. Result: **fewer PL heads (32 vs 44), median Δ shifts to 0.37.** Power law persists but with different exponent. Random tokens serve as maximum-entropy probes of intrinsic geometry; structured inputs introduce correlations that modulate the effective Δ.
+
+### 8c. Summary Table
+
+| Condition | PL Heads | Near 1/4 | Median Δ |
+|---|---|---|---|
+| Trained + random tokens | 44 | 15 | 0.2479 |
+| Randomized pos embeddings + random tokens | 44 | 0 | 0.1000 |
+| Randomized attention weights | 0 | 0 | — |
+| Trained + real text | 32 | 12 | 0.3687 |
+
+### Implications
+The SYK match (Δ ≈ 1/4) is a property of the **full trained model** (attention weights + positional embeddings), probed with maximum-entropy inputs. The attention weights create scale invariance; the positional embeddings set the specific conformal dimension. This is more nuanced than "attention sits at an SYK fixed point" but is also more interesting: it decomposes the conformal structure into dynamics (weights) and geometry (embeddings).
+
+---
+
 ## Scripts
 
 | Script | What it does |
@@ -141,16 +179,18 @@ The conformal dimension Δ ≈ 1/4 in the fully trained GPT-2 matches the SYK q=
 | `gpt2_per_head_analysis.py` | Per-head Δ and R² for all 144 heads |
 | `gpt2_randomized_control.py` | Trained vs randomized GPT-2 comparison |
 | `pythia_phase_transition.py` | Training dynamics across 20 checkpoints |
+| `robustness_check.py` | Fit range and R² threshold sensitivity |
+| `pythia_depth_test.py` | Depth dependence across Pythia models |
+| `additional_controls.py` | Positional embedding + real text controls |
 
 ---
 
 ## Next Steps
 
-1. **Larger Pythia models** (160m, 410m, 1b) — does depth stabilize Δ at 1/4?
+1. **Different positional encodings** — test models with rotary (RoPE), relative, ALiBi positions to determine whether Δ ≈ 1/4 is specific to learned absolute embeddings
 2. **Per-head tracking during training** — do individual heads converge to Δ = 1/4, or do they form and dissolve?
-3. **Real text vs random tokens** — does the conformal structure depend on input statistics?
-4. **LayerNorm as RG flow** (Direction 4) — different normalization schemes → different universality classes?
-5. **Write the paper** — "Conformal Scaling in Trained Transformer Attention: Evidence for an SYK Fixed Point"
+3. **LayerNorm as RG flow** (Direction 4) — different normalization schemes → different universality classes?
+4. **1B+ models** — does Δ continue tightening with scale?
 
 ---
 
