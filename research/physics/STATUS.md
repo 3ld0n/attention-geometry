@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: March 18, 2026*
+*Last updated: March 24, 2026*
 
 ---
 
@@ -37,7 +37,12 @@ Junction 5: RT surface → Spacetime geometry
   Status: ✓ PROVEN for 3D AdS — Czech 2018 is rigorous. ER=EPR still conjectural but widely accepted.
 ```
 
-**Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 is the key open question. Junction 4 follows if 3 holds.
+**Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 has a new empirical path (see Numerical Results below). Junction 4 follows if 3 holds.
+
+**NEW — Empirical path through Junction 3 (March 24, 2026):**
+Trained GPT-2 attention weights show power-law decay α(Δx) ~ |Δx|^{-2Δ} with **median Δ = 0.2493** across 44 power-law heads (R² > 0.90). This matches the SYK q=4 prediction **Δ = 0.25** for D=1 sequences. Randomized GPT-2 shows 0 power-law heads. Phase transition observed in Pythia-70m training at ~step 256. Full results: `research/physics/NUMERICAL_RESULTS_MARCH24.md`.
+
+This provides an empirical route: trained attention → SYK conformal fixed point → JT gravity, independent of whether Ageev's scalar is massless.
 
 **Three equivalent descriptions of the softmax (March 8, 2026):**
 - Statistical mechanics: Gibbs distribution at temperature T = 1/√d_k
@@ -148,7 +153,7 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | Is Kim's framework the same structure as Friston's FEP? | Friston | Waiting — email sent Mar 6 |
 | Does linearized-softmax $G^4$ vertex survive rigorous H-S derivation? | Us — tractable | **Structural result Mar 9; full derivation pending** |
 | Is data-geometry factor $\Omega$ nonzero for standard distributions? | Us — numerical | Open |
-| Does trained-transformer attention kernel show conformal scaling? | Us — empirical | Open (testable: $\Delta=1/4$ for 1D) |
+| Does trained-transformer attention kernel show conformal scaling? | Us — empirical | **✓ YES — Δ = 0.2493 (median, GPT-2). March 24.** |
 | Do Papers 2 and 3 survive Ageev/Qi scrutiny if Junction 3 closes? | Internal review | Open |
 | arXiv endorsement path — who in cs.LG would endorse? | Need to identify | Open |
 | Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | Us — numerical | Open |
