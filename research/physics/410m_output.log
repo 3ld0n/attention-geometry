@@ -1,0 +1,43 @@
+==========================================================================================
+  PHASE TRANSITION — Pythia-410m (384 heads, 24 layers)
+==========================================================================================
+
+  step0... `GPTNeoXSdpaAttention` is used but `torch.nn.functional.scaled_dot_product_attention` does not support `output_attentions=True` or `head_mask`. Falling back to the manual attention implementation, but specifying the manual implementation will be required from Transformers version v5.0.0 onwards. This warning can be removed using the argument `attn_implementation="eager"` when loading the model.
+A(1)/A(32)=1.33, PL=1, near¼=0, Δ_med=0.0642 (469s)
+  step64... A(1)/A(32)=1.34, PL=0, near¼=0, Δ_med=nan (439s)
+  step128... A(1)/A(32)=1.36, PL=0, near¼=0, Δ_med=nan (414s)
+  step256... A(1)/A(32)=1.40, PL=1, near¼=1, Δ_med=0.2103 (429s)
+  step512... A(1)/A(32)=1.73, PL=7, near¼=2, Δ_med=0.2015 (453s)
+  step1000... A(1)/A(32)=2.18, PL=16, near¼=1, Δ_med=0.5542 (415s)
+  step2000... A(1)/A(32)=2.15, PL=34, near¼=4, Δ_med=0.5804 (424s)
+  step4000... A(1)/A(32)=2.79, PL=37, near¼=7, Δ_med=0.5354 (465s)
+  step8000... A(1)/A(32)=3.10, PL=35, near¼=6, Δ_med=0.4707 (451s)
+  step16000... A(1)/A(32)=3.52, PL=27, near¼=6, Δ_med=0.5528 (471s)
+
+      Step    A(1)/A(32)     PL    Near¼     Δ_med
+  --------------------------------------------------
+         0          1.33      1        0    0.0642
+        64          1.34      0        0       nan
+       128          1.36      0        0       nan
+       256          1.40      1        1    0.2103
+       512          1.73      7        2    0.2015
+      1000          2.18     16        1    0.5542
+      2000          2.15     34        4    0.5804
+      4000          2.79     37        7    0.5354
+      8000          3.10     35        6    0.4707
+     16000          3.52     27        6    0.5528
+
+  TRANSITION ANALYSIS (H=384):
+    Pre-transition step (last with A<2): 512
+    Transition step (first with A>2): 1000
+    First PL heads: step 0
+    Transition window: step 512 → 1000
+    Width in log₂(steps): 0.97
+
+  Total time: 4430s (73.8min)
+
+  COMPARE WITH:
+    Pythia-70m  (H=48):  transition 128→256, width=1.00 log₂
+    Pythia-160m (H=144): transition 128→256, width=1.00 log₂
+    Pythia-410m (H=384): see above
+

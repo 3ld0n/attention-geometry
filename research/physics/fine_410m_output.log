@@ -1,0 +1,42 @@
+==========================================================================================
+  FINE CHECKPOINT SAMPLING — Pythia-410m (steps 16k-143k)
+  Question: does Δ plateau near 0.50 or flow smoothly toward 0.25?
+==========================================================================================
+
+  step16000... `GPTNeoXSdpaAttention` is used but `torch.nn.functional.scaled_dot_product_attention` does not support `output_attentions=True` or `head_mask`. Falling back to the manual attention implementation, but specifying the manual implementation will be required from Transformers version v5.0.0 onwards. This warning can be removed using the argument `attn_implementation="eager"` when loading the model.
+A=3.67, PL=27, near¼=4, near½=4, Δ_med=0.5029 (9s)
+  step32000... A=3.42, PL=25, near¼=5, near½=3, Δ_med=0.5368 (510s)
+  step64000... A=3.74, PL=23, near¼=5, near½=1, Δ_med=0.5019 (556s)
+  step100000... A=3.53, PL=26, near¼=3, near½=3, Δ_med=0.5013 (506s)
+  step143000... A=3.33, PL=22, near¼=6, near½=2, Δ_med=0.4642 (558s)
+
+      Step    A(1)/A(32)     PL    Near¼    Near½     Δ_med
+  -------------------------------------------------------
+     16000          3.67     27        4        4    0.5029
+     32000          3.42     25        5        3    0.5368
+     64000          3.74     23        5        1    0.5019
+    100000          3.53     26        3        3    0.5013
+    143000          3.33     22        6        2    0.4642
+
+  Total time: 2139s (35.6min)
+
+  COMBINED TRAJECTORY (including earlier data):
+      Step     Δ_med                  note
+  ----------------------------------------
+         0    0.0642            disordered
+       256    0.2103         first PL head
+       512    0.2015        pre-transition
+      1000    0.5542            transition
+      2000    0.5804              plateau?
+      4000    0.5354              plateau?
+      8000    0.4707              plateau?
+     16000    0.5528              plateau?
+     16000    0.5029                   NEW
+     32000    0.5368                   NEW
+     64000    0.5019                   NEW
+    100000    0.5013                   NEW
+    143000    0.4642                   NEW
+
+  KEY QUESTION: Does Δ stay near 0.50 (prethermal q=2 plateau)
+  or flow smoothly toward 0.25 (ordinary RG flow)?
+

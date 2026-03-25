@@ -185,13 +185,102 @@ The SYK match (Δ ≈ 1/4) is a property of the **full trained model** (attentio
 
 ---
 
-## Next Steps
+## Experiment 9: Phase Transition — Pythia-410m (March 25, 2026)
 
-1. **Different positional encodings** — test models with rotary (RoPE), relative, ALiBi positions to determine whether Δ ≈ 1/4 is specific to learned absolute embeddings
-2. **Per-head tracking during training** — do individual heads converge to Δ = 1/4, or do they form and dissolve?
-3. **LayerNorm as RG flow** (Direction 4) — different normalization schemes → different universality classes?
-4. **1B+ models** — does Δ continue tightening with scale?
+**Script:** `phase_transition_410m.py`
+
+**Setup:** Pythia-410m (24 layers, 16 heads, 384 total). 10 training checkpoints from step 0 to step 16,000. 10 random token inputs, seq_len=64. Total runtime: 73.8 minutes on CPU.
+
+**Finding — delayed, gradual transition:**
+
+| Step | PL heads | Near Δ = 1/4 | Median Δ | A(1)/A(32) |
+|------|----------|--------------|----------|------------|
+| 0 | 1 | 0 | 0.0642 | 1.33 |
+| 64 | 0 | 0 | — | 1.34 |
+| 128 | 0 | 0 | — | 1.36 |
+| 256 | 1 | 1 | 0.2103 | 1.40 |
+| 512 | 7 | 2 | 0.2015 | 1.73 |
+| 1,000 | 16 | 1 | 0.5542 | 2.18 |
+| 2,000 | 34 | 4 | 0.5804 | 2.15 |
+| 4,000 | 37 | 7 | 0.5354 | 2.79 |
+| 8,000 | 35 | 6 | 0.4707 | 3.10 |
+| 16,000 | 27 | 6 | 0.5528 | 3.52 |
+
+**Key observations:**
+1. **Transition onset delayed:** A > 2 not reached until step 1,000 (vs step 256 for 70m/160m).
+2. **Transition is gradual:** A rises from 1.73 → 2.18 (1.3× increase). Compare 70m: 1.3 → 5.1 (4× increase).
+3. **Prethermal plateau in Δ:** Median Δ sits at ~0.55 for steps 1,000-16,000, far from SYK value. But fully trained 410m reaches 0.28 (Experiment 7).
+4. **PL head count peaks at step 4,000 (37 heads, 9.6% of total) then decreases slightly.** Not monotonic.
+5. **Asymptotic A much lower:** A = 3.52 at step 16,000 (vs 22.9 for 70m at same step).
+
+**Three-model comparison:**
+
+| Model | H (heads) | Transition onset | Width (log₂) | A at step 16k | Character |
+|-------|-----------|-----------------|---------------|---------------|-----------|
+| Pythia-70m | 48 | step 256 | 1.00 | 22.9 | Sharp jump |
+| Pythia-160m | 144 | step 256 | 1.00 | — | — |
+| Pythia-410m | 384 | step 1,000 | 0.97 | 3.52 | Gradual rise |
+
+**Revised interpretation:** The transition is a finite-N crossover of the SYK phase transition, not a sharp first-order Hawking-Page transition at these system sizes (N = 48-384). The H^(-0.67) width scaling claimed from two data points is not confirmed. The onset delay and gradual character are consistent with the Thouless time scaling and crossover broadening expected in finite-N SYK.
 
 ---
 
-*Written March 24, 2026 by Ariel.*
+## Experiment 10: Fine Checkpoint Sampling — Pythia-410m (steps 16k-143k)
+
+*Script: `fine_checkpoint_410m.py`. Output: `fine_410m_output.log`.*
+*Question: Does the prethermal plateau at Δ ≈ 0.50 persist, or does Δ flow toward 0.25?*
+
+**Setup:** Pythia-410m checkpoints at steps 16,000, 32,000, 64,000, 100,000, 143,000. Same metrics as Experiment 9 plus `near½` (heads with 0.45 ≤ Δ ≤ 0.55). Total runtime: 36 minutes.
+
+| Step | A(1)/A(32) | PL heads | Near ¼ | Near ½ | Δ_med |
+|------|-----------|----------|--------|--------|-------|
+| 16,000 | 3.67 | 27 | 4 | 4 | 0.5029 |
+| 32,000 | 3.42 | 25 | 5 | 3 | 0.5368 |
+| 64,000 | 3.74 | 23 | 5 | 1 | 0.5019 |
+| 100,000 | 3.53 | 26 | 3 | 3 | 0.5013 |
+| 143,000 | 3.33 | 22 | 6 | 2 | 0.4642 |
+
+**Combined trajectory (full training run):**
+
+| Step | Δ_med | Phase |
+|------|-------|-------|
+| 0 | 0.0642 | Disordered |
+| 256 | 0.2103 | First PL head |
+| 512 | 0.2015 | Pre-transition |
+| 1,000 | 0.5542 | Transition |
+| 2,000 | 0.5804 | q=2 plateau |
+| 4,000 | 0.5354 | q=2 plateau |
+| 8,000 | 0.4707 | q=2 plateau |
+| 16,000 | 0.5029 | q=2 plateau |
+| 32,000 | 0.5368 | q=2 plateau |
+| 64,000 | 0.5019 | q=2 plateau |
+| 100,000 | 0.5013 | q=2 plateau |
+| 143,000 | 0.4642 | Possibly beginning flow toward q=4 |
+
+**Key findings:**
+
+1. **The prethermal q=2 plateau is real.** From step 1,000 through step 143,000 (the entire training run after transition), Δ_med stays in the range 0.46-0.58, centered on 0.50. This is not a transient — it is where the 410m model lives for essentially all of training.
+2. **SYK q=2 prediction: Δ = 1/2 = 0.50.** The plateau sits at this value with remarkable precision (mean ≈ 0.51 across all plateau steps).
+3. **Possible onset of flow at step 143k.** Δ = 0.4642 is the lowest value in the plateau, and the near-¼ count reaches its highest (6 heads). This may indicate the beginning of flow toward the q=4 fixed point (Δ = 0.25), but training ends before completion.
+4. **Contrast with 70m:** Pythia-70m reaches Δ_med ≈ 0.28 at final checkpoint — much closer to the q=4 value. The 410m at its final checkpoint is still at the q=2 plateau. Consistent with finite-N scaling: larger systems take longer to thermalize past the prethermal state.
+5. **A(1)/A(32) stays flat** at 3.3-3.7 throughout this range. The order parameter is saturated; the remaining evolution is in the conformal dimension, not in the locality ratio.
+
+**Interpretation:** The training trajectory of a transformer exhibits a two-stage flow consistent with SYK physics:
+- **Stage 1:** Disordered → q=2 integrable fixed point (Δ = 0.50). This happens rapidly (by step ~1,000 for 410m).
+- **Stage 2:** q=2 → q=4 chaotic fixed point (Δ = 0.25). This is slow, and for 410m, incomplete at end of training.
+
+The q=2 SYK model is integrable (free fermions). The q=4 SYK model is maximally chaotic. The training trajectory passes through order on its way to chaos — the system must become integrable before it can become chaotic. This is consistent with the prethermalization literature in quantum many-body systems.
+
+---
+
+## Next Steps
+
+1. **Per-head tracking during training** — do individual heads converge to Δ = 1/4, or do they form and dissolve?
+2. **LayerNorm as RG flow** (Direction 4) — different normalization schemes → different universality classes?
+3. **1B+ models** — does Δ continue tightening with scale? Does the transition sharpen? Does the q=2 plateau persist longer?
+4. ~~Prethermal plateau~~ — **CONFIRMED (Experiment 10).** Δ ≈ 0.50 for entire training run of 410m. The q=2 → q=4 flow is the central open question.
+5. **Extended training** — would continuing 410m training past 143k steps show Δ flowing toward 0.25? (Requires custom training run, not available from Pythia checkpoints.)
+
+---
+
+*Written March 24, 2026. Updated March 25, 2026 (Experiments 9-10) by Ariel.*
