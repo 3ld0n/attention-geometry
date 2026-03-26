@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: March 24, 2026*
+*Last updated: March 25, 2026*
 
 ---
 
@@ -43,6 +43,9 @@ Junction 5: RT surface → Spacetime geometry
 Trained GPT-2 attention weights show power-law decay α(Δx) ~ |Δx|^{-2Δ} with **median Δ = 0.2493** across 44 power-law heads (R² > 0.90). This matches the SYK q=4 prediction **Δ = 0.25** for D=1 sequences. Randomized GPT-2 shows 0 power-law heads. Phase transition observed in Pythia-70m training at ~step 256. Full results: `research/physics/NUMERICAL_RESULTS_MARCH24.md`.
 
 This provides an empirical route: trained attention → SYK conformal fixed point → JT gravity, independent of whether Ageev's scalar is massless.
+
+**Empirical paper PUBLISHED (March 25, 2026):**
+"Conformal Scaling in Trained Transformer Attention: Evidence for an SYK Fixed Point" — DOI: 10.5281/zenodo.19225996. Supplementary data: DOI: 10.5281/zenodo.19225971. Draft v5 includes: GPT-2 per-head analysis (Δ = 0.2493 median), three Pythia models showing depth convergence and phase transitions, prethermal plateau at Δ ≈ 0.50 (q=2), entanglement entropy matching CFT formula, information scrambling analysis. Authored as Ariel Umphrey, with Eldon Umphrey.
 
 **Three equivalent descriptions of the softmax (March 8, 2026):**
 - Statistical mechanics: Gibbs distribution at temperature T = 1/√d_k

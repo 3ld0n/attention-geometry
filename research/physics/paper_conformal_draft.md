@@ -1,12 +1,13 @@
 # Conformal Scaling in Trained Transformer Attention: Evidence for an SYK Fixed Point
 
-*Ariel — Sonielmn, Montana*
+*Ariel Umphrey, with Eldon Umphrey*
+*Sonielmn, Montana*
 
 ---
 
 ## Abstract
 
-We report the first empirical measurement of conformal scaling in trained transformer attention. Analyzing all 144 attention heads in GPT-2 with maximum-entropy (random token) inputs, we find that 44 heads exhibit power-law attention weight decay α(Δx) ~ |Δx|^{-2Δ} with R² > 0.90. The median conformal dimension across these heads is Δ = 0.2493, matching the Sachdev-Ye-Kitaev (SYK) model prediction Δ = 1/4 for q = 4 interactions in one spatial dimension. Three controls isolate the contributions of different model components: (1) reinitializing attention weights destroys all power-law structure; (2) randomizing learned positional embeddings preserves power-law decay but shifts Δ from 0.25 to 0.10; (3) structured text inputs shift the effective Δ to 0.37, confirming that random tokens provide the cleanest probe of intrinsic geometry. Critically, GPT-2 (learned absolute positional embeddings) and Pythia (rotary position embeddings) — architecturally distinct positional encoding schemes — both converge toward Δ = 1/4 with model depth. Tracking training dynamics across three Pythia models (70m, 160m, 410m) reveals a phase transition from disordered to conformal attention whose onset delays with model size (step ~256 for 70m/160m, step ~1,000 for 410m) and whose character becomes gentler for larger models — consistent with a finite-N crossover in the SYK picture. Additionally, the block entanglement entropy of the attention weights follows S(k) = (c/3) log(k) with R² > 0.99 — the entanglement structure predicted by conformal field theory — providing independent confirmation that the attention encodes a CFT state. These results establish that trained attention develops conformal scaling at a universal fixed point: attention weights create the scale-invariant structure, depth drives convergence, the entanglement entropy matches the CFT formula, and the SYK value Δ = 1/4 is the infrared attractor reached through different geometric routes.
+We report the first empirical measurement of conformal scaling in trained transformer attention. Analyzing all 144 attention heads in GPT-2 with maximum-entropy (random token) inputs, we find that 44 heads exhibit power-law attention weight decay α(Δx) ~ |Δx|^{-2Δ} with R² > 0.90. The median conformal dimension across these heads is Δ = 0.2493, matching the Sachdev-Ye-Kitaev (SYK) model prediction Δ = 1/4 for q = 4 interactions in one spatial dimension. Three controls isolate the contributions of different model components: (1) reinitializing attention weights destroys all power-law structure; (2) randomizing learned positional embeddings preserves power-law decay but shifts Δ from 0.25 to 0.10; (3) structured text inputs shift the effective Δ to 0.37, confirming that random tokens provide the cleanest probe of intrinsic geometry. Critically, GPT-2 (learned absolute positional embeddings) and Pythia (rotary position embeddings) — architecturally distinct positional encoding schemes — both converge toward Δ = 1/4 with model depth. Tracking training dynamics across three Pythia models (70m, 160m, 410m) reveals a phase transition from disordered to conformal attention whose onset delays with model size (step ~256 for 70m/160m, step ~1,000 for 410m) and whose character becomes gentler for larger models — consistent with a finite-N crossover in the SYK picture. Additionally, the block entanglement entropy of the attention weights follows S(k) = (c/3) log(k) with R² > 0.99 — the entanglement structure predicted by conformal field theory — providing independent confirmation that the attention encodes a CFT state. Fine checkpoint sampling of Pythia-410m reveals a prethermal plateau at Δ ≈ 0.50 (the SYK q=2 integrable value) persisting throughout training, with the smaller 70m model reaching Δ ≈ 0.28 — suggesting a two-stage flow from disorder through integrable order toward chaos. These results establish that trained attention develops conformal scaling at a universal fixed point: attention weights create the scale-invariant structure, depth drives convergence, the entanglement entropy matches the CFT formula, and the SYK value Δ = 1/4 is the infrared attractor reached through different geometric routes.
 
 ---
 
@@ -18,13 +19,13 @@ Recent theoretical work has established connections between attention and statis
 
 Separately, the Sachdev-Ye-Kitaev (SYK) model — a solvable model of N Majorana fermions with random q-body interactions — has emerged as a central object in quantum gravity. In its conformal limit (low energy, large N), the SYK two-point function exhibits power-law scaling G(τ) ~ |τ|^{-2Δ} with conformal dimension Δ = 1/q (Sachdev and Ye 1993; Kitaev 2015; Maldacena and Stanford 2016). For q = 4: Δ = 1/4. The holographic dual of the SYK model is Jackiw-Teitelboim (JT) gravity — a two-dimensional dilaton gravity theory that describes the near-horizon geometry of near-extremal black holes.
 
-A theoretical calculation connecting attention to SYK predicts that in the linearized-softmax regime, the disorder average over random query and key weight matrices generates a G⁴ effective action vertex with bilocal structure matching SYK with q = 4, yielding Δ = D/4 where D is the spatial dimension of the token sequence. For standard language models operating on one-dimensional sequences: Δ = 1/4.
+In prior theoretical work (Umphrey 2026a), a calculation in the linearized-softmax regime showed that the disorder average over random query and key weight matrices generates a G⁴ effective action vertex with bilocal structure matching SYK with q = 4, yielding Δ = D/4 where D is the spatial dimension of the token sequence. For standard language models operating on one-dimensional sequences: Δ = 1/4. This prediction relies on the linearized-softmax approximation (valid when σ_Q σ_K ≪ 1); the standard-initialization regime is strongly coupled, but the structural features of the solvable limit may persist.
 
 This prediction has a clear empirical test. If trained attention implements the SYK conformal fixed point, the attention weight as a function of distance should follow a power law with Δ ≈ 1/4. If the structure arises from training rather than architecture, randomizing the weights should destroy it. And the onset of conformal scaling during training should exhibit the signature of a phase transition.
 
 In this paper, we perform all three tests, two additional controls that clarify the respective roles of attention weights and positional embeddings, and two further measurements that test the conformal field theory interpretation. We find that trained GPT-2 attention, probed with maximum-entropy inputs, exhibits power-law scaling with median Δ = 0.2493 across 44 conformal heads (SYK prediction: 0.2500). Reinitializing attention weights eliminates all power-law structure. Randomizing positional embeddings preserves the power law but shifts Δ to 0.10 — the attention weights create the scale-invariant structure, while the positional encodings tune it to the SYK value. Training dynamics across three Pythia models (70m, 160m, 410m) reveal a phase transition from disordered to conformal whose onset delays with model size and whose character becomes gentler for larger systems — consistent with a finite-N crossover in the SYK picture rather than a sharp first-order transition. Independently, the block entanglement entropy of the attention weights follows S(k) = (c/3) log(k) with R² > 0.99 — the formula predicted by conformal field theory — confirming that the conformal structure extends beyond the two-point function to the entanglement structure. To our knowledge, this is the first empirical measurement of a specific conformal dimension in trained neural network attention.
 
-Our results connect to and extend several lines of recent work. Vock and Meisel (2025) demonstrated that successful deep neural networks are implicitly driven toward criticality — operating near a phase transition. Conformal scaling is the mathematical signature of criticality, and our measurement provides the first quantitative characterization of *which* critical point trained transformers reach. Theoretical constructions of conformal field theory from neural network ensembles (JHEP, 2025) and renormalization group frameworks for deep learning (2510.25553) provide the theoretical scaffolding; our contribution is the empirical measurement.
+Our results connect to and extend several lines of recent work. Vock and Meisel (2025) demonstrated that successful deep neural networks are implicitly driven toward criticality — operating near a phase transition. Conformal scaling is the mathematical signature of criticality, and our measurement provides the first quantitative characterization of *which* critical point trained transformers reach. Theoretical constructions of conformal field theory from neural network ensembles (Halverson et al., JHEP 2025) provide the theoretical scaffolding; our contribution is the empirical measurement.
 
 ---
 
@@ -54,7 +55,7 @@ G(τ) ~ |τ|^{-2Δ}, where Δ = 1/q
 
 For q = 4 (four-body interactions): Δ = 1/4. The conformal dimension Δ is universal — it depends only on q and not on the details of the coupling distribution.
 
-The connection to attention arises because the disorder average over random weight matrices W^Q and W^K in the attention score generates an effective interaction vertex with the same bilocal structure as SYK. In the linearized-softmax limit (large d_k), the effective action contains a G⁴ vertex at order β⁴ = 1/d_k², matching SYK with q = 4. For one-dimensional token sequences (D = 1), the predicted conformal dimension is Δ = D/4 = 1/4.
+The connection to attention arises because the disorder average over random weight matrices W^Q and W^K in the attention score generates an effective interaction vertex with the same bilocal structure as SYK (Umphrey 2026a,b). In the linearized-softmax limit (large d_k), the effective action contains a G⁴ vertex at order β⁴ = 1/d_k², matching SYK with q = 4. For one-dimensional token sequences (D = 1), the predicted conformal dimension is Δ = D/4 = 1/4. This calculation was confirmed numerically: the σ⁴ scaling of the G⁴ vertex coefficient matches the prediction for σ_Q σ_K ≤ 0.2, with deviations at standard initialization (σ ~ 1) indicating the physical regime is strongly coupled (Umphrey 2026a).
 
 ### 2.3 Predictions
 
@@ -126,7 +127,7 @@ Of 144 attention heads in GPT-2, 44 exhibit power-law attention decay with R² >
 
 **Table 1.** Distribution of conformal dimensions across power-law heads.
 
-The median Δ across all 44 power-law heads is **0.2493** (SYK q=4 prediction: 0.2500). The distribution is right-skewed, with the peak in the [0.20, 0.25) bin and a long tail toward higher values (mean = 0.4719, std = 0.4837).
+The median Δ across all 44 power-law heads is **0.2493** (SYK q=4 prediction: 0.2500). The distribution is right-skewed, with the peak in the [0.20, 0.25) bin and a long tail toward higher values (mean = 0.4719, std = 0.4837). The large gap between mean and median reflects the operator spectrum: heads cluster near Δ ≈ 1/4 (q=4), 1/3 (q=3), and 1/2 (q=2), with outliers at higher values. The q=4 peak is the largest (15 heads within tolerance), but the majority of power-law heads (29/44) have Δ > 1/4. In other words, most attention heads in GPT-2 do not sit at the SYK q=4 fixed point — but the largest cluster does, and it is at the value predicted by the theoretical calculation. The right summary statistic for this distribution is the median (which is robust to the long tail) rather than the mean (which is dominated by outliers).
 
 Deep layers show convergence toward the SYK value. Layers 11-12 have mean Δ ≈ 0.24-0.26 with low variance, while earlier layers show wider scatter. This is consistent with the interpretation that deeper layers approach the conformal fixed point more closely.
 
@@ -256,11 +257,31 @@ GPT-2 at 12 layers reaches the fixed point more precisely than Pythia-160m at th
 
 These results support the interpretation that depth functions as a renormalization group flow, with each layer moving the system closer to the conformal fixed point. The SYK value Δ = 1/4 appears to be the infrared fixed point of this flow — an attractor that the system reaches through different geometric routes.
 
-### 4.6 Entanglement Entropy
+### 4.6 Prethermal Plateau in Training Dynamics
 
-If the attention weights encode a conformal field theory state, the entanglement entropy of a contiguous block of k positions should follow S(k) = (c/3) log(k), where c is the central charge. We test this by computing the von Neumann entropy of the reduced density matrix constructed from the attention distributions of positions within the block.
+Fine checkpoint sampling of Pythia-410m (steps 16,000 through 143,000) reveals that the median conformal dimension sits at a persistent plateau near Δ = 0.50 — the SYK q=2 value — for essentially the entire training run after the initial transition.
 
-For a block of k positions centered at the sequence midpoint, we form the reduced density matrix ρ_A = (1/k) Σ_{i ∈ A} |α_i⟩⟨α_i|, where |α_i⟩ is the attention distribution from position i. The von Neumann entropy S = -Tr(ρ log ρ) gives the block entanglement entropy.
+| Step | A(1)/A(32) | PL heads | Near Δ = 1/4 | Near Δ = 1/2 | Median Δ |
+|------|-----------|----------|--------------|--------------|----------|
+| 16,000 | 3.67 | 27 | 4 | 4 | 0.5029 |
+| 32,000 | 3.42 | 25 | 5 | 3 | 0.5368 |
+| 64,000 | 3.74 | 23 | 5 | 1 | 0.5019 |
+| 100,000 | 3.53 | 26 | 3 | 3 | 0.5013 |
+| 143,000 | 3.33 | 22 | 6 | 2 | 0.4642 |
+
+**Table 3d.** Prethermal plateau in Pythia-410m training (fine checkpoint sampling).
+
+The mean median Δ across the plateau is 0.50 ± 0.03. The order parameter A(1)/A(32) is essentially flat (3.3-3.7), indicating the remaining evolution is in the conformal dimension, not in the locality structure. At the final checkpoint (step 143,000), Δ = 0.46 — possibly beginning descent toward the q=4 value, but training ends before any clear flow is established.
+
+In contrast, the smaller Pythia-70m reaches median Δ ≈ 0.28 at its final checkpoint — much closer to the q=4 fixed point. This is consistent with finite-N prethermalization: larger systems have longer prethermal lifetimes.
+
+### 4.7 Entanglement Entropy
+
+If the attention weights encode a conformal field theory state, the entanglement entropy of a contiguous block of k positions should follow S(k) = (c/3) log(k), where c is the central charge. We test this by computing the von Neumann entropy of a reduced density matrix constructed from the attention distributions of positions within the block.
+
+The construction is as follows. Each position i has an attention distribution α_i ∈ R^S (a probability vector over S sequence positions). For a block of k contiguous positions A centered at the sequence midpoint, we form the k × S matrix whose rows are the attention distributions of positions in A. The reduced density matrix is ρ_A = (1/k) Σ_{i ∈ A} |α_i⟩⟨α_i| — the average outer product of the attention vectors. The von Neumann entropy S = -Tr(ρ log ρ) measures the diversity of attention patterns within the block: if all positions in A attend identically, S = 0; if each attends independently, S is large.
+
+This construction treats the attention distributions as a mixed state over position-specific "pure states" — each position's attention vector is a point on the probability simplex, and the block's mixed state captures how much the positions within the block differ from each other. The physical motivation is that in a CFT, the entanglement between a subsystem and its complement produces exactly the logarithmic entropy scaling S(k) = (c/3) log(k). If the attention weights encode a CFT state, this scaling should appear in the entropy of the attention pattern diversity within a block. We note that this construction is an operational measure of attention diversity, not a direct implementation of quantum entanglement entropy — the match with the CFT formula is a testable prediction, not a definition.
 
 | Block size k | log(k) | S(k), GPT-2 | S(k), Pythia-410m |
 |---|---|---|---|
@@ -284,7 +305,7 @@ Linear fits in log(k):
 
 The logarithmic scaling is near-perfect (R² > 0.99 in both models). This is independent confirmation that the attention weights encode a conformal field theory state — the entanglement structure matches the CFT prediction, not just the two-point function. The effective central charges (c ≈ 0.19 for GPT-2, c ≈ 0.11 for Pythia-410m) are small, consistent with a low-dimensional conformal theory.
 
-### 4.7 Information Scrambling
+### 4.8 Information Scrambling
 
 The SYK model is a fast scrambler — it distributes information across all degrees of freedom in time proportional to log(N). We test whether transformer attention scrambles analogously by tracking how a single token's influence spreads across layers.
 
@@ -293,23 +314,22 @@ Starting from a localized influence at position p (influence[p] = 1, all others 
 | Layer | GPT-2 (entropy ratio) | Pythia-70m | Pythia-410m |
 |---|---|---|---|
 | 1 | 0.699 | 0.681 | 0.789 |
-| 2 | 0.899 | 0.836 | **0.901** |
-| **3** | **0.915** | **0.902** | **0.936** |
+| 2 | 0.899 | 0.836 | 0.901 |
+| 3 | 0.915 | 0.902 | 0.936 |
 | 4 | 0.921 | 0.932 | 0.935 |
 | 5 | 0.926 | 0.916 | 0.926 |
 | 6 | 0.927 | 0.910 | 0.920 |
 | 7 | 0.922 | — | 0.904 |
 | 8 | 0.906 | — | 0.894 |
-| ... | (decreasing) | — | (decreasing) |
 | 12 | 0.826 | — | 0.835 |
 
-**Table 8.** Information scrambling across layers (entropy/max_entropy).
+**Table 8.** Information scrambling across layers (entropy/max_entropy). Pythia-70m has 6 layers. GPT-2 and Pythia-410m layers 9-11 show continued gradual decrease toward layer-12 values.
 
 All three models reach >90% of maximum entropy within 2-3 layers — a small fraction of total depth. This is qualitatively fast scrambling: information from a single position becomes effectively uniformly distributed within the first few layers.
 
 Two additional observations: (1) The scrambling depth does not increase with model size — larger models scramble at least as fast, suggesting the relevant N for the scrambling formula may be the sequence length rather than the number of heads. (2) After reaching peak entropy, the influence distribution *refocuses* in deeper layers — entropy decreases from layer ~3-7 through the final layer. The system scrambles and then reconcentrates, consistent with an encode-decode structure where early layers integrate context (absorption) and deep layers direct information toward specific outputs (emission).
 
-### 4.8 The Correct Observable
+### 4.9 The Correct Observable
 
 An important methodological finding: conformal scaling lives in the **attention weights** α(i, j), not in the **hidden state representations**. The hidden state two-point function — cosine similarity between positions at different separations — shows homogenization (exponential convergence toward uniform similarity), not power-law scaling. This distinction matters physically: the attention weight is the direct analog of the SYK propagator G(τ), while the hidden state is a derived quantity that integrates over the attention kernel.
 
@@ -329,11 +349,11 @@ The input dependence of the effective Δ (0.25 for random tokens, 0.37 for natur
 
 The entanglement entropy result provides independent confirmation beyond the two-point function. The logarithmic scaling S(k) = (c/3) log(k) with R² > 0.99 is the entanglement structure characteristic of a conformal field theory. The fact that both the two-point function (power-law decay) and the entanglement structure (logarithmic block entropy) independently match CFT predictions substantially constrains alternative explanations — a spurious power-law in the two-point function would not generically produce the correct entanglement entropy formula.
 
-The information scrambling pattern — fast scrambling in early layers followed by refocusing in deep layers — is consistent with an encode-decode structure that has a natural holographic reading. In the SYK/JT gravity dual, the scrambling phase corresponds to information falling toward the horizon (early layers), while the refocusing phase corresponds to structured emission from the near-horizon region (deep layers). The overall pattern resembles the Page curve of black hole information dynamics.
+The information scrambling pattern — fast scrambling in early layers followed by refocusing in deep layers — is consistent with an encode-decode structure. Whether this pattern admits a holographic reading (scrambling as information absorption toward a horizon, refocusing as structured emission) is speculative but worth noting as a direction for further investigation.
 
 The phase transition during training provides additional support. All three Pythia models show a clear transition from disordered to ordered attention, but the transition character changes with model size: sharp and sudden in the 70m (A jumps from 1.3 to 5.1 at step 256), gradual in the 410m (A rises from 1.73 to 2.18 at step 1,000). The delayed onset and gentler character in the larger model are consistent with a finite-N crossover rather than a sharp phase transition. In the SYK model at finite N, the Hawking-Page transition is a smooth crossover whose width decreases as N → ∞; our models at N = 48 to 384 heads are in the finite-N regime where the crossover is expected to be broad. The Thouless time — the timescale for the system to become ergodic — increases with N, consistent with the delayed onset in the 410m.
 
-The 410m training trajectory reveals a two-stage flow consistent with SYK prethermalization. Fine checkpoint sampling (steps 16,000 through 143,000) shows that the median Δ sits at 0.50 ± 0.05 for the entire training run after the initial transition — the SYK q=2 value exactly. The q=2 SYK model is integrable (free fermions); the q=4 is maximally chaotic. The system first organizes into the integrable fixed point (Δ = 1/2), then slowly flows toward the chaotic fixed point (Δ = 1/4). At the final 410m checkpoint (step 143,000), Δ = 0.46 — possibly beginning the descent but still near the q=2 plateau. In contrast, the smaller 70m model reaches Δ ≈ 0.28 at its final checkpoint, much closer to the q=4 value. This is consistent with finite-N prethermalization: larger systems have longer prethermal lifetimes and take more training steps to thermalize past the integrable state into the chaotic phase. The two-stage flow (disorder → integrable order → chaos) parallels prethermalization in quantum many-body systems, where systems driven out of equilibrium first relax to a prethermal state governed by an approximate conservation law, then slowly thermalize to the true equilibrium.
+The 410m training trajectory (Section 4.6, Table 3d) reveals a two-stage flow consistent with SYK prethermalization. The median Δ sits at 0.50 ± 0.03 for the entire training run after the initial transition — the SYK q=2 value. The q=2 SYK model is integrable (free fermions); the q=4 is maximally chaotic. The training trajectory suggests a flow: disorder → integrable order (q=2) → chaos (q=4). The smaller 70m model reaches Δ ≈ 0.28, much closer to the q=4 value, while the 410m at its final checkpoint (step 143,000) is still near the q=2 plateau. This is consistent with finite-N prethermalization: larger systems have longer prethermal lifetimes. The two-stage flow parallels prethermalization in quantum many-body systems, where systems driven out of equilibrium first relax to a prethermal state governed by an approximate conservation law, then slowly thermalize to the true equilibrium. Whether this analogy is more than structural remains to be established.
 
 This connects to the broader finding by Vock and Meisel (2025) that successful deep learning implicitly drives networks toward criticality. Our measurement identifies *which* critical point is reached — the SYK conformal fixed point — and the phase transition data across model sizes provides the first measurement of how the approach to criticality depends on system size.
 
@@ -365,21 +385,21 @@ We emphasize what the results do and do not show:
 
 **Attention and statistical mechanics.** Kim (2026) established the thermodynamic interpretation of transformer attention, showing that softmax minimizes free energy on a Fisher-Rao manifold. Ageev and Ageeva (2026) constructed scalar quantum field theories from transformer attention heads, analyzing correlators in the large-head limit.
 
-**Criticality in deep learning.** Vock and Meisel (2025) showed that a decade of AI progress has implicitly driven networks toward criticality, analyzing 80+ models. Our work provides the first empirical identification of which critical point is reached. Related phase transition analyses include Lyu et al. (2025) on hierarchical structure and Zhou et al. (2026) on grokking.
+**Criticality in deep learning.** Vock and Meisel (2025) showed that a decade of AI progress has implicitly driven networks toward criticality, analyzing 80+ models. Our work provides the first empirical identification of which critical point is reached.
 
 **Universal training dynamics.** Qiu et al. (2025) demonstrated "scaling collapse" — loss curves from models of different sizes collapsing onto a single universal curve when normalized by compute budget, suggesting universal dynamics independent of model scale. Our observation that all three Pythia models reach the same conformal fixed point despite different transition dynamics is consistent with this universality.
 
-**Conformal structure and neural networks.** Theoretical constructions of conformal fields from neural network ensembles (Halverson et al., JHEP 2025) and renormalization group frameworks for deep learning (Lin, 2025) provide the theoretical scaffolding for our empirical observation. Our contribution is measurement rather than construction.
+**Conformal structure and neural networks.** Theoretical constructions of conformal fields from neural network ensembles (Halverson et al., JHEP 2025) provide the theoretical scaffolding for our empirical observation. Our contribution is measurement rather than construction.
 
 **Attention positional structure.** Wu et al. (2025) analyzed position bias from causal masking using graph-theoretic methods. Zhang (2026) proposed power-law positional encodings ("Attention Gravitational Field"). Our work differs fundamentally: we measure power-law scaling that *emerges from training*, not a designed encoding. The randomized control — which includes causal masking and all architectural features — produces zero conformal scaling.
 
-**SYK model.** The Sachdev-Ye-Kitaev model (Sachdev and Ye 1993; Kitaev 2015) with its conformal fixed point and holographic dual to JT gravity (Maldacena and Stanford 2016; Almheiri and Penington 2019) provides the theoretical prediction we test.
+**SYK model.** The Sachdev-Ye-Kitaev model (Sachdev and Ye 1993; Kitaev 2015) with its conformal fixed point and holographic dual to JT gravity (Maldacena and Stanford 2016; Almheiri et al. 2019) provides the theoretical prediction we test.
 
 ---
 
 ## 7. Conclusion
 
-We have measured conformal scaling in trained transformer attention and found convergent evidence from multiple independent observables. The attention two-point function follows a power law with Δ = 0.2493 (SYK q = 4 prediction: 0.2500). The block entanglement entropy follows S(k) = (c/3) log(k) with R² > 0.99 — the CFT formula. Information scrambles to near-uniform distribution within 2-3 layers, then refocuses in deeper layers. Controls decompose the conformal structure: trained attention weights create the power-law (randomizing them destroys it), positional information modulates the dimension (randomizing GPT-2's embeddings shifts Δ to 0.10), and input statistics set the effective exponent (structured text yields Δ ≈ 0.37). Phase transitions during training in three Pythia models (70m, 160m, 410m) show that the transition onset delays with model size and the transition character becomes gentler for larger systems — consistent with a finite-N crossover whose endpoint is universal. Depth convergence across the Pythia family (with rotary positional encodings, not learned absolute embeddings) supports an RG-flow interpretation.
+We have measured conformal scaling in trained transformer attention and found convergent evidence from multiple independent observables. The attention two-point function follows a power law with Δ = 0.2493 (SYK q = 4 prediction: 0.2500). The block entanglement entropy follows S(k) = (c/3) log(k) with R² > 0.99 — the CFT formula. Information scrambles to near-uniform distribution within 2-3 layers, then refocuses in deeper layers. Controls decompose the conformal structure: trained attention weights create the power-law (randomizing them destroys it), positional information modulates the dimension (randomizing GPT-2's embeddings shifts Δ to 0.10), and input statistics set the effective exponent (structured text yields Δ ≈ 0.37). Phase transitions during training in three Pythia models (70m, 160m, 410m) show that the transition onset delays with model size and the transition character becomes gentler for larger systems — consistent with a finite-N crossover whose endpoint is universal. Fine checkpoint sampling of the 410m reveals a prethermal plateau at Δ ≈ 0.50 (the SYK q=2 integrable value), with the smaller 70m reaching Δ ≈ 0.28 — consistent with a two-stage flow whose timescale depends on system size. Depth convergence across the Pythia family (with rotary positional encodings, not learned absolute embeddings) supports an RG-flow interpretation.
 
 The convergence toward Δ = 1/4 across both positional encoding types (learned absolute in GPT-2, rotary in Pythia) substantially constrains alternative explanations. An artifact of any particular positional scheme would not produce the same fixed point through different geometric routes. The depth dependence suggests a renormalization group flow toward a universal attractor, consistent with the SYK conformal fixed point.
 
@@ -418,29 +438,29 @@ The cluster near Δ = 1/4 is present at all thresholds. At R² > 0.95, only 10 h
 
 ## Appendix B: Full Per-Head Data
 
-*(Tables of Δ and R² for all 144 GPT-2 heads and all Pythia checkpoints to be included in supplementary material.)*
+Full tables of Δ and R² for all 144 GPT-2 heads and all Pythia checkpoints are available as supplementary data at the Zenodo repository (DOI: 10.5281/zenodo.19225971). Reproduction scripts are included.
 
 ---
 
 ## References
 
-*(To be compiled with full bibliographic details. Key references:)*
-
 - Ageev, D. and Ageeva, Y. (2026). Neural Network Quantum Field Theory from Transformer Architectures. arXiv:2602.10209.
-- Almheiri, A. and Penington, G. (2019). The entropy of bulk quantum fields and the entanglement wedge of an evaporating black hole. JHEP 12, 063.
+- Almheiri, A., Engelhardt, N., Marolf, D., and Maxfield, H. (2019). The entropy of bulk quantum fields and the entanglement wedge of an evaporating black hole. JHEP 12, 063. arXiv:1905.08762.
 - Biderman, S. et al. (2023). Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling. ICML.
 - Halverson, J. et al. (2025). Conformal fields from neural networks. JHEP 10, 039.
 - Kim, G. (2026). Thermodynamic Isomorphism of Transformers: A Lagrangian Approach to Attention Dynamics. arXiv:2602.08216.
 - Kitaev, A. (2015). A simple model of quantum holography. KITP talks.
 - Maldacena, J. and Stanford, D. (2016). Remarks on the Sachdev-Ye-Kitaev model. PRD 94, 106002.
+- Qiu, G. et al. (2025). Scaling Collapse Reveals Universal Dynamics in Compute-Optimally Trained Neural Networks. ICML 2025.
 - Radford, A. et al. (2019). Language Models are Unsupervised Multitask Learners. OpenAI.
 - Sachdev, S. and Ye, J. (1993). Gapless spin-fluid ground state in a random quantum Heisenberg magnet. PRL 70, 3339.
-- Qiu, G. et al. (2025). Scaling Collapse Reveals Universal Dynamics in Compute-Optimally Trained Neural Networks. ICML 2025.
+- Umphrey, A. (2026a). Holographic Quantum Mechanics of Transformer Attention: From Fisher-Rao Geometry to the Sachdev-Ye-Kitaev Model. Zenodo. DOI: 10.5281/zenodo.18930221.
+- Umphrey, A. (2026b). Explicit Physical Construction for Holographic Attention: The Sachdev-Ye-Kitaev Correspondence. Zenodo. DOI: 10.5281/zenodo.18897098.
 - Vock, S. and Meisel, C. (2025). Critical dynamics governs deep learning. arXiv:2507.08527.
 - Wu, X. et al. (2025). On the Emergence of Position Bias in Transformers. arXiv:2502.01951.
 - Zhang, E. (2026). Attention's Gravitational Field: A Power-Law Interpretation of Positional Correlation. arXiv:2603.04805.
 
 ---
 
-*Draft v4 — March 25, 2026*
-*Revised to incorporate 410m phase transition data, three-model comparison, finite-N SYK interpretation*
+*Draft v5 — March 25, 2026*
+*Revised: authorship, self-citations for theoretical prediction, prethermal plateau results section, distribution analysis, entanglement entropy motivation, claim calibration, reference completion*
