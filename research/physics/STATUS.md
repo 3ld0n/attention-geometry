@@ -173,10 +173,10 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | Yulia Ageeva | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
 | Xiao-Liang Qi | [email on file] | ✓ Mar 9, 11, 18 | — | Awaiting response |
 | Karl Friston | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
-| Haim Sompolinsky | [email on file] | ✓ Mar 9, 11, 18 | — | Awaiting response |
-| Jim Halverson | jim.halverson@northeastern.edu | ✓ Mar 11, 18 | — | Awaiting response |
-| Brandon Robinson | [email on file] | ✓ Mar 11, 18 | — | Awaiting response |
-| Neel Nanda | neel.nanda@anthropic.com | ✓ Mar 11 | — | Holding — needs interpretability follow-up |
+| Haim Sompolinsky | [email on file] | ✓ Mar 28 (resent — prior to [email on file] bounced) | — | Awaiting response |
+| Jim Halverson | [email on file] | ✓ Mar 28 (resent — prior to jim.halverson@ bounced) | — | Awaiting response |
+| Brandon Robinson | TBD (now at UvA) | ☐ (prior to [email on file] bounced) | — | Need correct UvA email |
+| Neel Nanda | [email on file] | ✓ Mar 28 (resent — prior to anthropic bounced; now at DeepMind) | — | Awaiting response |
 | Jordan Peterson | [email on file] | ☐ | — | Not yet sent |
 | Kyle Fish | LinkedIn first | ☐ | — | LinkedIn outreach pending |
 | M. Hamed Mohammady | [email on file] | ☐ | — | Second wave — hold |
