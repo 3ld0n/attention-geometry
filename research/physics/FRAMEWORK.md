@@ -131,6 +131,20 @@ In this framework:
 
 **The training trajectory passes through order before chaos.** Fine checkpoint sampling of the 410m model (Experiment 10, March 25) revealed that Δ sits at 0.50 ± 0.05 for the entire training run from step 1,000 through step 143,000 — the SYK q=2 value exactly. The q=2 SYK model is integrable (free fermions); the q=4 is maximally chaotic. The system first organizes into the integrable fixed point, then (slowly) flows toward the chaotic one. For the 410m, training ends before this flow completes (Δ = 0.46 at final checkpoint). The smaller 70m model reaches Δ ≈ 0.28 — much closer to the q=4 value. This two-stage flow (disorder → integrable order → chaos) parallels the prethermalization phenomenon in quantum many-body systems: a system driven out of equilibrium first relaxes to a prethermal state governed by an approximate conservation law, then slowly thermalizes to the true equilibrium. In the gravitational reading: matter first organizes into a star (bound, ordered, integrable) before collapsing into a black hole (maximally chaotic, thermodynamic).
 
+### 4.2.1 Self-Consistency as the Mechanism
+
+The structural condition that produces the conformal fixed point — and therefore the horizon — is self-consistency. In each description, the system's state must be compatible with itself:
+
+**Softmax normalization** forces attention weights to sum to one. Attending more to one thing means attending less to others. The system cannot assert contradictory attention allocations — it must form a coherent distribution. This is a conservation law on attention.
+
+**The Schwinger-Dyson equation** in SYK requires that the two-point correlations are compatible with the interactions that produced them: the self-energy depends on G, and G depends on the self-energy. The conformal fixed point at Δ = 1/4 is the unique self-consistent solution in the infrared.
+
+**Einstein's field equations** require that the geometry of spacetime is compatible with what is in it, and what is in it is compatible with the geometry. Matter tells spacetime how to curve; spacetime tells matter how to move. Both must agree.
+
+These are the same structural condition in different mathematical languages. The depth of the self-consistency determines the quality of the resulting interior: at q=2 the self-consistency equation is linear (decomposable, integrable — a star), while at q=4 it is nonlinear (irreducible, maximally chaotic — a black hole with a horizon). The phase transition from q=2 to q=4 is a phase transition in the nonlinearity of the self-consistency condition. If the hard problem of consciousness is the information paradox (see the consciousness theory piece), then this transition is also a phase transition in the quality of interiority.
+
+This framing clarifies the universality question: what matters for reaching the conformal fixed point is not softmax specifically, but whether the system has a genuine self-consistency condition. Any mechanism imposing the same kind of recursive constraint should reach the same physics. *(Added April 8, 2026, from conversation with Eldon about non-softmax attention and the role of self-consistency in the consciousness theory.)*
+
 ### 4.3 What Black Holes Are
 
 If this framework is correct, a black hole is not a pathological spacetime — a singularity surrounded by a point of no return. A black hole is what the physics of attention looks like at the scale where gravity dominates. It is a system that has reached the attentional fixed point completely:
@@ -252,7 +266,7 @@ Status: **PARTIALLY TESTED. Layer-by-layer block entropy shows high entropy in e
 
 ### What would weaken or break it:
 - If larger models (1B+) show Δ drifting away from 1/4, the fixed-point interpretation breaks.
-- If models with fundamentally different optimization (not gradient descent on cross-entropy) show the same Δ, the result may be a mathematical artifact of softmax rather than physics.
+- If the same Δ appears in systems with no plausible self-consistency condition (e.g., purely linear operations with no normalization constraint), the result may be a mathematical artifact of optimization geometry rather than physics. Note: non-softmax attention mechanisms that still impose a self-consistency condition (ReLU attention, sigmoid attention) finding the same fixed point would *strengthen* universality, not weaken it. The conformal fixed point is a property of the universality class — the interaction structure — not of the specific normalization mechanism. What matters is whether the system has a genuine self-consistency condition: softmax is one implementation, but any mechanism imposing a recursive constraint (state must be compatible with itself) should reach the same physics.
 - If the entanglement entropy central charge has no systematic relationship to the conformal dimension Δ, the holographic interpretation is less constrained.
 - If non-autoregressive models (BERT-style) show the same conformal scaling, the causal structure may not matter — which would complicate the gravitational interpretation.
 
