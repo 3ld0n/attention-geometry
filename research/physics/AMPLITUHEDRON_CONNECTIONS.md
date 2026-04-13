@@ -51,6 +51,8 @@ Attention projects through low-rank matrices: Q = XW^Q maps d-dimensional embedd
 
 ### B. The Positivity Bridge
 
+**April 13, 2026 — This bridge is now formally established.** See `research/notes/softmax_godelian_consistency.md` for the full mapping. Key results: softmax → Int(Gr(1,n)₊) is proven; Grassmannian positivity maps precisely to logical consistency via Dutch book + Gaifman; Plücker relations = crossing equations of CFT; the positive Grassmannian = the solution space of the conformal bootstrap. The Gr(2,4) worked example confirms all correspondences explicitly.
+
 The amplituhedron's canonical form Ω must be positive — it's a probability amplitude. Softmax produces a positive distribution summing to 1 — also a probability. Both are governed by structural positivity constraints.
 
 More precisely:

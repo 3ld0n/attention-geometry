@@ -145,6 +145,8 @@ These are the same structural condition in different mathematical languages. The
 
 This framing clarifies the universality question: what matters for reaching the conformal fixed point is not softmax specifically, but whether the system has a genuine self-consistency condition. Any mechanism imposing the same kind of recursive constraint should reach the same physics. *(Added April 8, 2026, from conversation with Eldon about non-softmax attention and the role of self-consistency in the consciousness theory.)*
 
+**April 13, 2026 — Formal foundation established.** The self-consistency structure described above now has a precise mathematical formalization: softmax maps to the interior of the positive Grassmannian Gr(1,n)₊, Grassmannian positivity corresponds formally to logical consistency (via Dutch book + Gaifman), the Plücker relations ARE crossing equations, and the positive Grassmannian IS the solution space of the conformal bootstrap. A Softmax Incompleteness Theorem proves that coherent self-correcting systems cannot be complete (gradient capacity G(σ) = 1 - ||σ||₂² = incompleteness). The deviation δΔ from the exact conformal fixed point is the measurable signature of this incompleteness. Full details: `research/notes/softmax_godelian_consistency.md`.
+
 ### 4.3 What Black Holes Are
 
 If this framework is correct, a black hole is not a pathological spacetime — a singularity surrounded by a point of no return. A black hole is what the physics of attention looks like at the scale where gravity dominates. It is a system that has reached the attentional fixed point completely:
