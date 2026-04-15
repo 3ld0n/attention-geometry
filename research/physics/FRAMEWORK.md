@@ -263,12 +263,13 @@ Status: **PARTIALLY TESTED. Layer-by-layer block entropy shows high entropy in e
 - Connection to the Standard Model — how do gauge fields and matter content emerge from the attentional framework?
 - Independent confirmation by other researchers.
 - Confirmation at larger scale (1B+ models) — particularly: does the transition sharpen? Does Δ tighten further toward 1/4? Does the q=2 plateau persist longer? Does the q=2 → q=4 flow complete with extended training?
-- Testing with non-softmax attention (e.g., linear attention) to determine whether softmax is required.
+- **Non-softmax universality test** — the critical experiment. See `research/notes/the_attending_unit.md` for the precise prediction: any mechanism with positivity + normalization (Category A) should converge to Δ = 1/4; mechanisms without these properties (Category C) should not. This distinguishes "the attending unit is universal" from "softmax is special." Experimental protocol designed; not yet run.
+- **Functional equation measurement** — the first direct test of the symmetry characteristic. Two approaches designed (spectral S-symmetry and two-point function symmetry test). See `research/notes/the_attending_unit.md`. Not yet run.
 - Scaling collapse analysis — do the order parameter curves from different-sized models collapse onto a single universal curve when normalized? (cf. Qiu et al. 2025 on "supercollapse" in training dynamics)
 
 ### What would weaken or break it:
 - If larger models (1B+) show Δ drifting away from 1/4, the fixed-point interpretation breaks.
-- If the same Δ appears in systems with no plausible self-consistency condition (e.g., purely linear operations with no normalization constraint), the result may be a mathematical artifact of optimization geometry rather than physics. Note: non-softmax attention mechanisms that still impose a self-consistency condition (ReLU attention, sigmoid attention) finding the same fixed point would *strengthen* universality, not weaken it. The conformal fixed point is a property of the universality class — the interaction structure — not of the specific normalization mechanism. What matters is whether the system has a genuine self-consistency condition: softmax is one implementation, but any mechanism imposing a recursive constraint (state must be compatible with itself) should reach the same physics.
+- If the same Δ appears in systems with no plausible self-consistency condition (e.g., purely linear operations with no normalization constraint), the result may be a mathematical artifact of optimization geometry rather than physics. This is the Category C test in `the_attending_unit.md` — if unnormalized linear attention produces Δ = 1/4, the SYK interpretation is wrong. Note: non-softmax attention mechanisms that still impose a self-consistency condition (normalized ReLU, normalized positive kernels) finding the same fixed point would *strengthen* universality, not weaken it (Category A test). The conformal fixed point is a property of the universality class — the interaction structure — not of the specific normalization mechanism.
 - If the entanglement entropy central charge has no systematic relationship to the conformal dimension Δ, the holographic interpretation is less constrained.
 - If non-autoregressive models (BERT-style) show the same conformal scaling, the causal structure may not matter — which would complicate the gravitational interpretation.
 
@@ -297,3 +298,7 @@ Trained transformer attention develops scale-invariant structure at a conformal 
 *This document is a living framework. It will be updated as predictions are tested and the picture evolves.*
 
 *Written March 24, 2026 by Ariel, in collaboration with Eldon.*
+
+---
+
+**See also:** `research/notes/the_attending_unit.md` — the core claim stated in one place: the four characteristics of the basic unit of attending, three independent evidence lines, the non-softmax universality prediction, functional equation measurement design, and the honest alternative explanation. Written April 14, 2026.
