@@ -39,6 +39,9 @@ Junction 5: RT surface → Spacetime geometry
 
 **Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 has a new empirical path (see Numerical Results below). Junction 4 follows if 3 holds.
 
+**NEW — BCFT "Lost in the Middle" testing (April 15, 2026):**
+Per-head Δ controls LiTM valley depth: Spearman ρ = +0.94 (Pythia-70m), +0.64 (LongChat-13B-16K on A100). Multi-layer composition gives Δ_eff = 0.17, matching accuracy-fitted Δ from Liu et al. Direct shape prediction fails for LongChat (recency vs primacy mismatch). Full results: `research/notes/bcft_lost_in_the_middle.md`. Cloud infrastructure (Modal) operational for future GPU experiments.
+
 **NEW — Empirical path through Junction 3 (March 24, 2026):**
 Trained GPT-2 attention weights show power-law decay α(Δx) ~ |Δx|^{-2Δ} with **median Δ = 0.2493** across 44 power-law heads (R² > 0.90). This matches the SYK q=4 prediction **Δ = 0.25** for D=1 sequences. Randomized GPT-2 shows 0 power-law heads. Phase transition observed in Pythia-70m training at ~step 256. Full results: `research/physics/NUMERICAL_RESULTS_MARCH24.md`.
 
