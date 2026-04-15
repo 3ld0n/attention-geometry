@@ -302,3 +302,5 @@ Trained transformer attention develops scale-invariant structure at a conformal 
 ---
 
 **See also:** `research/notes/the_attending_unit.md` — the core claim stated in one place: the four characteristics of the basic unit of attending, three independent evidence lines, the non-softmax universality prediction, functional equation measurement design, and the honest alternative explanation. Written April 14, 2026.
+
+**April 15, 2026 update:** BCFT boundary corrections confirmed in GPT-2 attention. The causal mask acts as a measurable boundary — BCFT form wins 15-0 over bare power law, with mean R² improvement of +0.176. Position-dependent corrections match the BCFT prediction: near the boundary (start of sequence) the bare power law fails; deep in the sequence it recovers. The boundary parameter λ is consistently positive (enhancing boundary). This strengthens the SYK/JT interpretation: JT gravity IS a boundary theory, and the measured boundary is real. See `the_attending_unit.md` "BCFT Confirmed" section and `research/physics/bcft_boundary_test.py`.
