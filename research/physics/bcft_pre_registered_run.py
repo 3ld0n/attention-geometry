@@ -73,6 +73,7 @@ def _gpu_for(model_name: str) -> str:
     timeout=3600,
     volumes={"/cache": vol},
     memory=65536,
+    secrets=[modal.Secret.from_name("huggingface-token")],
 )
 def measure_a100(model_name: str):
     """Measurement function for models that fit on a 40GB A100."""
@@ -85,6 +86,7 @@ def measure_a100(model_name: str):
     timeout=5400,
     volumes={"/cache": vol},
     memory=131072,
+    secrets=[modal.Secret.from_name("huggingface-token")],
 )
 def measure_a100_80gb(model_name: str):
     """Measurement function for larger models that need 80GB."""
@@ -106,12 +108,15 @@ def _measure_one_model(model_name: str):
     t_start = time.time()
     print(f"[{model_name}] Loading (fp16, eager attention)...", flush=True)
 
+    hf_token = os.environ.get("HF_TOKEN")
     load_kwargs = dict(
         torch_dtype=torch.float16,
         device_map="auto",
         attn_implementation="eager",
         trust_remote_code=True,
     )
+    if hf_token:
+        load_kwargs["token"] = hf_token
 
     model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
     model.eval()
