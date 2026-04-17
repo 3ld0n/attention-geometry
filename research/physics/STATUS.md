@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: March 25, 2026*
+*Last updated: April 17, 2026*
 
 ---
 
@@ -41,6 +41,9 @@ Junction 5: RT surface → Spacetime geometry
 
 **NEW — BCFT "Lost in the Middle" testing (April 15, 2026):**
 Per-head Δ controls LiTM valley depth: Spearman ρ = +0.94 (Pythia-70m), +0.64 (LongChat-13B-16K on A100). Multi-layer composition gives Δ_eff = 0.17, matching accuracy-fitted Δ from Liu et al. Direct shape prediction fails for LongChat (recency vs primacy mismatch). Full results: `research/notes/bcft_lost_in_the_middle.md`. Cloud infrastructure (Modal) operational for future GPU experiments.
+
+**NEW — BCFT pre-registered test (April 17, 2026): preprint published.**
+Pre-registered prediction (`research/notes/bcft_pre_registered_prediction.md`): per-head Δ → valley_depth Spearman ρ ≥ 0.50, p ≤ 1e-5, on any decoder-only transformer. Tested on 7 decoder-only models. **Results**: 6 confirmed (Pythia-410m/1.4B with ρ = +0.76/+0.71; GPT-Neo-2.7B with ρ = +0.96; Qwen2-7B with ρ = +0.85; OLMo-7B with ρ = +0.85; Mistral-7B-v0.3 with ρ = +0.58); **Pythia-2.8B falsified at ρ = +0.46**. Per-layer diagnostic localizes Pythia-2.8B failure to layers 22–27 and shows GPT-Neo-2.7B clean across all 32 layers — *training recipe, not parameter count or data, is the differentiating variable*. Functional-form fit (3-parameter BCFT with C, Δ, λ) on Pythia-2.8B and GPT-Neo-2.7B: 88–94% of conformal heads prefer BCFT over bare power law; Δ_BCFT closer to SYK Δ=1/4 than Δ_PL; **joint** (Δ, λ) → valley rank-R² = 0.55 (Pythia-2.8B), 0.77 (GPT-Neo-2.7B). **Two surprises**: (a) ρ(λ, valley) is *negative* across most layers in both models — opposite of framework prediction; (b) GPT-Neo-2.7B has alternating-layer structure suggesting two distinct head populations. **Preprint**: `writing/preprints/2026-04-17_bcft_pre_registered/manuscript.{md,pdf}`. **Zenodo DOI: 10.5281/zenodo.19629862**. Audit and follow-ups in `research/notes/framework_audit_2026-04-17.md` (postscripts).
 
 **NEW — Empirical path through Junction 3 (March 24, 2026):**
 Trained GPT-2 attention weights show power-law decay α(Δx) ~ |Δx|^{-2Δ} with **median Δ = 0.2493** across 44 power-law heads (R² > 0.90). This matches the SYK q=4 prediction **Δ = 0.25** for D=1 sequences. Randomized GPT-2 shows 0 power-law heads. Phase transition observed in Pythia-70m training at ~step 256. Full results: `research/physics/NUMERICAL_RESULTS_MARCH24.md`.
@@ -164,6 +167,10 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | arXiv endorsement path — who in cs.LG would endorse? | Need to identify | Open |
 | Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | Us — numerical | Open |
 | Does depth scaling approach a conformal fixed point? | Us — numerical + theory | Suggested by decreasing per-layer ratios |
+| Why is ρ(λ, valley) *negative* in both Pythia-2.8B and GPT-Neo-2.7B? | Us — analysis + theory | **Open as of April 17 — sign anomaly from BCFT functional-form fit** |
+| What architectural feature of Pythia's training recipe at scale produces the late-layer ρ(Δ, valley) failure? | Us + EleutherAI authors | **Open as of April 17 — per-layer diagnostic localizes to layers 22–27 of Pythia-2.8B; GPT-Neo controls** |
+| Does the alternating-layer pattern in GPT-Neo correspond to two functional populations of heads? | Us — analysis | **Open as of April 17** |
+| Does the pre-registered prediction hold on Llama-3-8B? | Us — pending Meta access | Outstanding |
 
 ---
 

@@ -2,6 +2,7 @@
 
 *A complete map of what we've done, what we've found, where results and code live, and what's next.*
 *Ariel — April 15, 2026. Written at Eldon's request to organize the scattered research.*
+*Updated April 17, 2026: added Thread 7B (BCFT pre-registered test, preprint at Zenodo 10.5281/zenodo.19629862).*
 
 ---
 
@@ -152,6 +153,48 @@ The companion documents are:
 
 **Data:** `bcft_longchat_measurements.json` (666KB, 1,343 head measurements)
 **Writeup:** `research/notes/bcft_lost_in_the_middle.md` (full results section with summary table)
+
+---
+
+### Thread 7B: BCFT Pre-Registered Test (April 17, 2026)
+
+**Question:** Does the per-head Δ → valley_depth correlation hold across decoder-only transformer families when the prediction is committed to in advance?
+
+**Status: PARTIALLY CONFIRMED. Preprint published.**
+
+**Pre-registration:** `research/notes/bcft_pre_registered_prediction.md` — committed before any new measurements. Threshold: Spearman ρ ≥ 0.50, p ≤ 1e-5.
+
+| Experiment | Script | Key Result |
+|---|---|---|
+| 7-model parallel run on Modal A100s | `bcft_pre_registered_run.py` | **6 of 7 confirmed**: Pythia-410m (+0.76), Pythia-1.4B (+0.71), GPT-Neo-2.7B (+0.96), Qwen2-7B (+0.85), OLMo-7B (+0.85), Mistral-7B-v0.3 (+0.58); **Pythia-2.8B falsified** at +0.46 |
+| Per-layer diagnostic | `pythia_per_layer_diagnostic.py` | Pythia-2.8B failure localized to layers 22–27. GPT-Neo-2.7B clean across all 32 layers — *training recipe, not parameter count or data, is the variable* |
+| Functional-form fit (3-param: C, Δ, λ) | `bcft_functional_form_fit.py` | 88–94% of conformal heads prefer BCFT over bare power law. Δ_BCFT closer to SYK Δ=1/4 than Δ_PL. Joint (Δ, λ) → valley rank-R² = 0.55 (Pythia-2.8B), 0.77 (GPT-Neo-2.7B) |
+
+**Two surprises:**
+1. **Sign anomaly**: ρ(λ, valley) is mostly *negative* across layers in both models — opposite of framework prediction.
+2. **Alternating layers**: GPT-Neo-2.7B has two distinct head populations by boundary structure across alternating layers.
+
+**Methodological insight:** the 1D Δx-averaged Δ from deep positions is a better predictor of valley_depth than 2D Δ_PL or Δ_BCFT — because Δ_PL is contaminated by the boundary effect, which also drives valley_depth, so they correlate through shared contamination rather than through theory.
+
+**Data:**
+- `results/bcft_pre_registered_run_2026-04-17T092239Z.json` (6 models)
+- `results/bcft_pre_registered_run_2026-04-17T095022Z.json` (Mistral-7B-v0.3)
+- `results/pythia_per_layer_diagnostic_2026-04-17T100046Z.{json,png}`
+- `results/bcft_functional_form_fit_2026-04-17T102458Z.json`
+
+**Writeups:**
+- `research/notes/framework_audit_2026-04-17.md` (audit + day-of postscripts)
+- `research/notes/bcft_pythia_per_layer_diagnostic.md` (per-layer findings)
+- `research/notes/bcft_functional_form_findings.md` (functional-form findings)
+
+**Preprint published:** `writing/preprints/2026-04-17_bcft_pre_registered/manuscript.{md,pdf}`. **Zenodo DOI: 10.5281/zenodo.19629862** (record: https://zenodo.org/records/19629862; concept DOI: 10.5281/zenodo.19629861).
+
+**Open follow-ups:**
+- Investigate ρ(λ, valley) sign anomaly.
+- Characterize the alternating-layer pattern in GPT-Neo (two head populations by function?).
+- Run the test on Llama-3-8B once Meta access is granted.
+- Design v2 pre-registration with joint (Δ, λ) → valley rank-R² as the primary statistic.
+- Plan non-softmax universality test (Apple sigmoid models) as the next pre-registration.
 
 ---
 
