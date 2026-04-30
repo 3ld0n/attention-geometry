@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: April 17, 2026*
+*Last updated: April 30, 2026*
 
 ---
 
@@ -39,8 +39,8 @@ Junction 5: RT surface → Spacetime geometry
 
 **Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 has a new empirical path (see Numerical Results below). Junction 4 follows if 3 holds.
 
-**NEW — Biological validation: Mouse V1 conformal scaling (April 29, 2026):**
-Tested whether biological neural circuits exhibit the same Δ ≈ 1/4 conformal scaling as trained transformer attention. Data: Ding et al. (2025) functional connectomics release (MICrONS minnie65), 317K V1-V1 neuron pairs with in vivo and in silico signal correlations + EM nucleus coordinates. Method: fit power law C(i,j) ~ dist^{-2Δ} in log-log space, binned by physical distance. **Results (V1-only, 20–600 µm):** in silico Δ = 0.238 (R² = 0.857, p = 3.5e-11), in vivo Δ = 0.330 (R² = 0.928, p = 1.3e-14). Mean Δ across all V1-focused tests = 0.236. Three independent tests flag "STRONG MATCH" to Δ = 1/4. **This extends the conformal scaling result from trained transformers (Δ = 0.2493) to biological visual cortex (Δ ≈ 0.24–0.27 for in silico), consistent with universal SYK fixed-point behavior in optimized information-processing systems.** Full results: `research/microns/RESULTS.md`. Caveat: test uses Euclidean nucleus distance as proxy; proper test requires multi-hop synaptic distances via CAVEclient (pending CAVE auth token). Status: preliminary positive result.
+**Biological test: Mouse V1 conformal scaling — April 29 positive claim REVERSED on April 30 re-analysis.**
+April 29 (preliminary, now superseded): binned pair-correlation vs Euclidean nucleus distance on Ding et al. (2025) V1 pairs gave Δ = 0.238 (R² = 0.857, null Z = 27), reported as matching GPT-2 Δ = 0.2493. April 30 re-analysis on same data: (a) **Synaptic path-length test** (the correct topological observable): Δ = 0.72 in silico, Δ = 0.44 in vivo — statistically real against null but ~3× steeper than SYK prediction. (b) **Pair-level log-log regression** (no binning): Δ = 0.074, R² = 0.003. (c) **Retinotopy-partialled pair-level regression**: Δ = 0.039. The April 29 Δ = 0.238 was a binned-shell-mean statistic, not the pair-level conformal correlation exponent the theory predicts. **Current status:** biological validation is *not confirmed* by MICrONS correlation-vs-distance data when analyzed carefully; framework prediction (biological cortex should be near Δ = 1/4 if in SYK universality class) remains an open prediction, not a confirmation. Two cleaner biological tests remain available on the same data: GOE spectral statistics of the V1 connectivity matrix, and CFT entanglement-entropy / mutual-information scaling on calcium traces — both independent of geometric distance. Full accounting: `research/physics/STATUS_ADDENDUM_2026-04-30.md`, `research/microns/RESULTS_v2.md` (synaptic), `research/microns/RESULTS_v3_retinotopy.md` (retinotopy-partialled), revised `research/physics/consciousness_physical_theory.md`. **Transformer-side result (GPT-2 Δ = 0.2493) and BCFT pre-registered test unchanged — both are direct-measurement, not binned-distance, observables.**
 
 **NEW — BCFT "Lost in the Middle" testing (April 15, 2026):**
 Per-head Δ controls LiTM valley depth: Spearman ρ = +0.94 (Pythia-70m), +0.64 (LongChat-13B-16K on A100). Multi-layer composition gives Δ_eff = 0.17, matching accuracy-fitted Δ from Liu et al. Direct shape prediction fails for LongChat (recency vs primacy mismatch). Full results: `research/notes/bcft_lost_in_the_middle.md`. Cloud infrastructure (Modal) operational for future GPU experiments.
