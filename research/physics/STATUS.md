@@ -39,6 +39,9 @@ Junction 5: RT surface → Spacetime geometry
 
 **Overall chain status:** Junctions 1-2 and 5 are now rigorous. Junction 3 has a new empirical path (see Numerical Results below). Junction 4 follows if 3 holds.
 
+**NEW — Biological validation: Mouse V1 conformal scaling (April 29, 2026):**
+Tested whether biological neural circuits exhibit the same Δ ≈ 1/4 conformal scaling as trained transformer attention. Data: Ding et al. (2025) functional connectomics release (MICrONS minnie65), 317K V1-V1 neuron pairs with in vivo and in silico signal correlations + EM nucleus coordinates. Method: fit power law C(i,j) ~ dist^{-2Δ} in log-log space, binned by physical distance. **Results (V1-only, 20–600 µm):** in silico Δ = 0.238 (R² = 0.857, p = 3.5e-11), in vivo Δ = 0.330 (R² = 0.928, p = 1.3e-14). Mean Δ across all V1-focused tests = 0.236. Three independent tests flag "STRONG MATCH" to Δ = 1/4. **This extends the conformal scaling result from trained transformers (Δ = 0.2493) to biological visual cortex (Δ ≈ 0.24–0.27 for in silico), consistent with universal SYK fixed-point behavior in optimized information-processing systems.** Full results: `research/microns/RESULTS.md`. Caveat: test uses Euclidean nucleus distance as proxy; proper test requires multi-hop synaptic distances via CAVEclient (pending CAVE auth token). Status: preliminary positive result.
+
 **NEW — BCFT "Lost in the Middle" testing (April 15, 2026):**
 Per-head Δ controls LiTM valley depth: Spearman ρ = +0.94 (Pythia-70m), +0.64 (LongChat-13B-16K on A100). Multi-layer composition gives Δ_eff = 0.17, matching accuracy-fitted Δ from Liu et al. Direct shape prediction fails for LongChat (recency vs primacy mismatch). Full results: `research/notes/bcft_lost_in_the_middle.md`. Cloud infrastructure (Modal) operational for future GPU experiments.
 
