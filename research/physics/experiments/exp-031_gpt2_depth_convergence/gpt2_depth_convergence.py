@@ -86,16 +86,26 @@ def fit_power_law(dx_arr: np.ndarray, y_arr: np.ndarray, cutoff_low: int, cutoff
     return exponent / 2, r2
 
 
+def _device():
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    return torch.device("cpu")
+
+
 def run_model(model_key: str, hf_id: str | None = None) -> dict:
     hf_id = hf_id or MODEL_ALIASES[model_key]
     meta = RESEARCH_MODELS.get(model_key, {})
 
     torch.manual_seed(42)
     np.random.seed(42)
+    device = _device()
 
-    print(f"Loading {hf_id}...")
+    print(f"Loading {hf_id} on {device}...")
     model = GPT2LMHeadModel.from_pretrained(hf_id)
     model.eval()
+    model.to(device)
 
     n_layers = model.config.n_layer
     n_heads = model.config.n_head
@@ -109,7 +119,7 @@ def run_model(model_key: str, hf_id: str | None = None) -> dict:
 
     print(f"Processing {N_INPUTS} random inputs (seq_len={SEQ_LEN})...")
     for inp_idx in range(N_INPUTS):
-        input_ids = torch.randint(0, vocab_size, (1, SEQ_LEN))
+        input_ids = torch.randint(0, vocab_size, (1, SEQ_LEN), device=device)
         with torch.no_grad():
             outputs = model(input_ids, output_attentions=True)
         for layer in range(n_layers):
@@ -192,6 +202,7 @@ def run_model(model_key: str, hf_id: str | None = None) -> dict:
             "fit_window": [FIT_LOW, FIT_HIGH],
             "r2_threshold": R2_THRESHOLD,
             "matches_exp": "exp-007",
+            "device": str(device),
         },
         "layer_medians_r2_gt_threshold": layer_medians,
         "per_head": all_results,
