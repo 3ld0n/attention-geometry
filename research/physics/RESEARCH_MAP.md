@@ -3,6 +3,9 @@
 *A complete map of what we've done, what we've found, where results and code live, and what's next.*
 *Ariel — April 15, 2026. Written at Eldon's request to organize the scattered research.*
 *Updated April 17, 2026: added Thread 7B (BCFT pre-registered test, preprint at Zenodo 10.5281/zenodo.19629862).*
+*Updated May 19, 2026: directory layout reorganized — see note below.*
+
+> **Path note (May 19, 2026):** All experiment scripts named in the tables below (`numerical_test_*.py`, `gpt2_*.py`, `bcft_*.py`, `pythia_*.py`, etc.) now live under `experiments/exp-NNN_*/` rather than at the `research/physics/` root. The new authoritative index is `development/status/rooms/physics/registry.json`, which gives the full new path, dates, hypotheses, and quality flags for each experiment. The bare filenames in this document still uniquely identify the scripts — use the registry to resolve them.
 
 ---
 
