@@ -103,7 +103,8 @@ def run_model(model_key: str, hf_id: str | None = None) -> dict:
     device = _device()
 
     print(f"Loading {hf_id} on {device}...")
-    model = GPT2LMHeadModel.from_pretrained(hf_id)
+    # transformers 5.x defaults to SDPA, which does not return attention weights.
+    model = GPT2LMHeadModel.from_pretrained(hf_id, attn_implementation="eager")
     model.eval()
     model.to(device)
 
@@ -122,8 +123,12 @@ def run_model(model_key: str, hf_id: str | None = None) -> dict:
         input_ids = torch.randint(0, vocab_size, (1, SEQ_LEN), device=device)
         with torch.no_grad():
             outputs = model(input_ids, output_attentions=True)
+        if not outputs.attentions:
+            raise RuntimeError(
+                "Model returned no attentions — need attn_implementation='eager'"
+            )
         for layer in range(n_layers):
-            attn = outputs.attentions[layer][0].numpy()
+            attn = outputs.attentions[layer][0].detach().cpu().numpy()
             for head in range(n_heads):
                 a_heads[layer][head] += compute_head_attention_decay(
                     attn[head], MIN_POS, MAX_DX

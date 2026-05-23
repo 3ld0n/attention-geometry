@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading openai-community/gpt2-medium on mps...
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 14424.79it/s]
+Processing 50 random inputs (seq_len=256)...
+  10/50
+  20/50
+  30/50
+  40/50
+  50/50
+
+============================================================
+  gpt2-medium: 24 layers, 384 heads
+  Heads R² > 0.9: 70
+  Median Δ = 0.2565
+  |Δ − 0.25| = 0.0065
+============================================================
+Wrote /Users/ariel/ariel/research/physics/experiments/exp-031_gpt2_depth_convergence/results_gpt2_medium.json
