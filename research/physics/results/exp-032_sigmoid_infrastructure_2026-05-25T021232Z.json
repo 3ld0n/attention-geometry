@@ -1,0 +1,60 @@
+{
+  "experiment": "exp-032",
+  "timestamp": "2026-05-25T021232Z",
+  "hypothesis": "Apple 7B sigmoid checkpoints are accessible locally for per-head \u0394 measurement.",
+  "verdict": "aborted",
+  "blockers": [
+    "gsutil not installed \u2014 cannot fetch GCS checkpoints without gcloud SDK.",
+    "axlearn[core,apple-silicon] pip install failed (tensorflow-io==0.37.3 unavailable on Python 3.12).",
+    "OpenELM-270M: transformers 5.8.1 + remote code \u2014 OpenELMConfig rejects use_cache in __post_init__."
+  ],
+  "attempts": [
+    {
+      "step": "gsutil availability",
+      "cmd": "which gsutil",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "step": "huggingface sigmoid search",
+      "note": "No apple/* sigmoid weights on HuggingFace (only OpenELM RoPE family)."
+    },
+    {
+      "step": "axlearn pip install (90s cap)",
+      "cmd": "/Users/ariel/ariel/.venv/bin/python3 -m pip install --ignore-installed axlearn[core,apple-silicon] git+https://github.com/apple/axlearn.git",
+      "error": "Command '['/Users/ariel/ariel/.venv/bin/python3', '-m', 'pip', 'install', '--ignore-installed', 'axlearn[core,apple-silicon]', 'git+https://github.com/apple/axlearn.git']' timed out after 90 seconds"
+    }
+  ],
+  "checkpoints_documented": {
+    "7b-sigmoid": {
+      "gcs": "gs://axlearn-public/experiments/gala-7B-sigmoid-hybridnorm-alibi-sprp-2024-12-03-1002/checkpoints/step_00250000",
+      "config": "gala-sigmoid-7B-4k-hybridnorm-alibi-sp-rp",
+      "pos_enc": "ALiBi (hybrid norm)",
+      "attention": "sigmoid (unnormalized per Apple ICLR 2025)"
+    },
+    "7b-softmax": {
+      "gcs": "gs://axlearn-public/experiments/gala-7B-hybridnorm-alibi-sprp-2024-12-02-1445/checkpoints/step_00250000",
+      "config": "gala-7B-hybridnorm-alibi-flash-sp-rp",
+      "pos_enc": "ALiBi",
+      "attention": "softmax"
+    }
+  },
+  "next_steps": [
+    "Install axlearn per ml-sigmoid-attention notebook (may need Python 3.11 venv \u2014 tensorflow-io pin fails on 3.12).",
+    "gcloud auth + download gs://axlearn-public/experiments/... checkpoints (~7B each).",
+    "Extract attention with AXLearn InferenceRunner; adapt exp-007 decay protocol.",
+    "Paired 7b-softmax baseline on same ALiBi stack for direct mechanism comparison."
+  ],
+  "openelm_probe": {
+    "model": "apple/OpenELM-270M",
+    "purpose": "infrastructure warm-up (RoPE, not sigmoid)",
+    "config_load": "failed: OpenELMConfig.__post_init__() got an unexpected keyword argument 'use_cache'"
+  },
+  "reference_protocol": "exp-007 / exp-031 (GPT-2 per-head, R\u00b2>0.90, median \u0394)",
+  "reference_softmax": {
+    "gpt2": 0.2493,
+    "gpt2-medium": 0.2589,
+    "gpt2-large_global": 0.2819
+  }
+}

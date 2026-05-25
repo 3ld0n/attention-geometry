@@ -7,4 +7,8 @@
 
 **Controls:** exp-007 gpt2 small Δ_med=0.2493 (44/144 heads). March exp-011 Pythia depth at L=12: 160m Δ≈0.38 (RoPE perturbation).
 
-**Status:** in progress
+**Status:** partial — medium confirms (Δ_med=0.259); large drifts (Δ_med=0.282).
+
+**Script:** `run_gpt2_depth_convergence.py` (requires `attn_implementation="eager"`).
+
+**Results:** `results.json`; analysis `notes/2026-05-24_gpt2-depth-convergence.md`.

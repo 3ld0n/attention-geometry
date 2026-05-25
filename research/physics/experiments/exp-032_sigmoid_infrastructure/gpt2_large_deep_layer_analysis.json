@@ -1,0 +1,189 @@
+{
+  "experiment": "exp-031-followup-deep-layers",
+  "parent": "exp-031",
+  "timestamp": "2026-05-25T021232Z",
+  "model": "gpt2-large",
+  "hypothesis": "Global \u0394_med\u22480.282 reflects deep-layer SYK drift upward.",
+  "finding": "Falsified for deep layers: layers 25\u201336 median \u0394\u22480.155 (below SYK), while shallow 1\u201312 median \u0394\u22480.379 pulls the global median up.",
+  "bands": {
+    "global": {
+      "layer_range": [
+        1,
+        36
+      ],
+      "n_heads": 176,
+      "median_delta": 0.28192875793227806,
+      "mean_delta": 0.4455212043500246,
+      "delta_minus_syk": 0.03192875793227806,
+      "within_0.05_of_syk": true
+    },
+    "shallow_1_12": {
+      "layer_range": [
+        1,
+        12
+      ],
+      "n_heads": 108,
+      "median_delta": 0.37860573884997917,
+      "mean_delta": 0.5482417156154398,
+      "delta_minus_syk": 0.12860573884997917,
+      "within_0.05_of_syk": false
+    },
+    "mid_13_24": {
+      "layer_range": [
+        13,
+        24
+      ],
+      "n_heads": 38,
+      "median_delta": 0.2483565997114239,
+      "mean_delta": 0.3635675795083998,
+      "delta_minus_syk": -0.0016434002885760968,
+      "within_0.05_of_syk": true
+    },
+    "deep_25_36": {
+      "layer_range": [
+        25,
+        36
+      ],
+      "n_heads": 30,
+      "median_delta": 0.15530338309091263,
+      "mean_delta": 0.17953528859392112,
+      "delta_minus_syk": -0.09469661690908737,
+      "within_0.05_of_syk": false
+    }
+  },
+  "per_layer_deep": {
+    "25": {
+      "layer_range": [
+        25,
+        25
+      ],
+      "n_heads": 1,
+      "median_delta": 0.16274480547259443,
+      "mean_delta": 0.16274480547259443,
+      "delta_minus_syk": -0.08725519452740557,
+      "within_0.05_of_syk": false
+    },
+    "26": {
+      "layer_range": [
+        26,
+        26
+      ],
+      "n_heads": 2,
+      "median_delta": 0.1948433239589019,
+      "mean_delta": 0.1948433239589019,
+      "delta_minus_syk": -0.05515667604109811,
+      "within_0.05_of_syk": false
+    },
+    "27": {
+      "layer_range": [
+        27,
+        27
+      ],
+      "n_heads": 1,
+      "median_delta": 0.23625825396739067,
+      "mean_delta": 0.23625825396739067,
+      "delta_minus_syk": -0.013741746032609331,
+      "within_0.05_of_syk": true
+    },
+    "28": {
+      "layer_range": [
+        28,
+        28
+      ],
+      "n_heads": 4,
+      "median_delta": 0.22135785808837305,
+      "mean_delta": 0.21886977624484852,
+      "delta_minus_syk": -0.02864214191162695,
+      "within_0.05_of_syk": true
+    },
+    "29": {
+      "layer_range": [
+        29,
+        29
+      ],
+      "n_heads": 3,
+      "median_delta": 0.19909448903086457,
+      "mean_delta": 0.18469966227641257,
+      "delta_minus_syk": -0.050905510969135426,
+      "within_0.05_of_syk": false
+    },
+    "30": {
+      "layer_range": [
+        30,
+        30
+      ],
+      "n_heads": 4,
+      "median_delta": 0.12529595942375246,
+      "mean_delta": 0.1581017936891032,
+      "delta_minus_syk": -0.12470404057624754,
+      "within_0.05_of_syk": false
+    },
+    "31": {
+      "layer_range": [
+        31,
+        31
+      ],
+      "n_heads": 1,
+      "median_delta": 0.3080620581144102,
+      "mean_delta": 0.3080620581144102,
+      "delta_minus_syk": 0.058062058114410176,
+      "within_0.05_of_syk": false
+    },
+    "32": {
+      "layer_range": [
+        32,
+        32
+      ],
+      "n_heads": 2,
+      "median_delta": 0.2178839643950446,
+      "mean_delta": 0.2178839643950446,
+      "delta_minus_syk": -0.032116035604955406,
+      "within_0.05_of_syk": true
+    },
+    "33": {
+      "layer_range": [
+        33,
+        33
+      ],
+      "n_heads": 5,
+      "median_delta": 0.1450752300791842,
+      "mean_delta": 0.16458218875610225,
+      "delta_minus_syk": -0.10492476992081581,
+      "within_0.05_of_syk": false
+    },
+    "34": {
+      "layer_range": [
+        34,
+        34
+      ],
+      "n_heads": 3,
+      "median_delta": 0.12962217801534695,
+      "mean_delta": 0.14361746519878657,
+      "delta_minus_syk": -0.12037782198465305,
+      "within_0.05_of_syk": false
+    },
+    "35": {
+      "layer_range": [
+        35,
+        35
+      ],
+      "n_heads": 3,
+      "median_delta": 0.09636777146553174,
+      "mean_delta": 0.12600933070671916,
+      "delta_minus_syk": -0.15363222853446826,
+      "within_0.05_of_syk": false
+    },
+    "36": {
+      "layer_range": [
+        36,
+        36
+      ],
+      "n_heads": 1,
+      "median_delta": 0.15976236549327322,
+      "mean_delta": 0.15976236549327322,
+      "delta_minus_syk": -0.09023763450672678,
+      "within_0.05_of_syk": false
+    }
+  },
+  "interpretation": "gpt2-large 'near SYK' at 0.282 is a depth-heterogeneous composite \u2014 not uniform capacity perturbation. Deep heads trend lower (toward trivial/ALiBi-like band)."
+}
