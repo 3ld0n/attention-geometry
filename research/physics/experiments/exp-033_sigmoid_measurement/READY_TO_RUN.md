@@ -25,14 +25,15 @@ Checkpoint paths (already documented):
 - Sigmoid: `gs://axlearn-public/experiments/gala-7B-sigmoid-hybridnorm-alibi-sprp-2024-12-03-1002/checkpoints/step_00250000`
 - Softmax baseline: `gs://axlearn-public/experiments/gala-7B-hybridnorm-alibi-sprp-2024-12-02-1445/checkpoints/step_00250000`
 
-### 2. axlearn needs Python 3.11 (tensorflow-io pin fails on 3.12)
+### 2. axlearn on Python 3.12 (updated May 26)
+Upstream axlearn requires `==3.12.*`. `pip install axlearn[core,...]` fails on `tensorflow-io==0.37.3`; use:
 ```bash
-# Create a dedicated 3.11 venv for this experiment
-python3.11 -m venv .venv311
-source .venv311/bin/activate
-pip install "axlearn[core,apple-silicon] @ git+https://github.com/apple/axlearn.git"
+.venv/bin/pip install tensorflow-io==0.37.1
+.venv/bin/pip install --no-deps "axlearn @ git+https://github.com/apple/axlearn.git"
+.venv/bin/pip install jax==0.8.3 jaxlib==0.8.3 flax chex optax aqtp seqio==0.0.20 nltk==3.9.2
+# Add deps as probe_infrastructure.py reports (e.g. tokamax)
 ```
-If Python 3.11 isn't installed: `brew install python@3.11`
+See `notes/2026-05-26_sigmoid-infrastructure-unblock.md`.
 
 ### 3. Alternative path: look for sigmoid weights elsewhere
 Before downloading 7B checkpoints (~14GB total), check:
@@ -64,5 +65,11 @@ The depth heterogeneity finding (exp-032 analysis of GPT-2 Large) is already in 
 Run: `brew install --cask google-cloud-sdk && gcloud auth login`
 
 Then check: `gsutil ls gs://axlearn-public/experiments/` to confirm access before downloading.
+
+**May 26 evening:** Partial download script ready:
+```bash
+bash research/physics/experiments/exp-033_sigmoid_measurement/download_gala_weights.sh
+```
+Default dest: `~/ariel-data/apple-gala-7b/`. Confirm ~50 GB before running.
 
 If the gcloud path is slow or blocked, explore whether a smaller sigmoid model can be loaded directly from a PyTorch implementation rather than the AXLearn checkpoint format.

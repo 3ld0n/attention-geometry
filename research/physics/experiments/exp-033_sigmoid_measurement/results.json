@@ -1,0 +1,47 @@
+{
+  "experiment": "exp-033",
+  "timestamp": "2026-05-26T180302Z",
+  "hypothesis": "Infrastructure for Apple 7B sigmoid/softmax \u0394 measurement is ready.",
+  "verdict": "infrastructure_ready_download_pending",
+  "corrections_from_exp_032": [
+    "gsutil IS installed (exp-032 reported missing \u2014 PATH or install changed since May 25)",
+    "axlearn loadable on Py3.12 with tensorflow-io 0.37.1 workaround (exp-032 cited Py3.11 only)"
+  ],
+  "remaining_blockers": [
+    "Download ~24.5 GB model weights per arm (sigmoid + softmax) from GCS; then InferenceRunner + exp-007 protocol"
+  ],
+  "checkpoint_sizes_bytes": {
+    "sigmoid_full_checkpoint": 72696058910,
+    "sigmoid_model_only_gda": 24456148609,
+    "note": "Notebook downloads tf_* + gda/model + index only (~model weights, not learner)"
+  },
+  "reference_delta": {
+    "gpt2": 0.2493,
+    "syk_prediction": 0.25
+  },
+  "attempts": [
+    {
+      "step": "gsutil",
+      "path": "/opt/homebrew/bin/gsutil"
+    },
+    {
+      "step": "gcs_list",
+      "cmd": "/opt/homebrew/bin/gsutil ls gs://axlearn-public/experiments/",
+      "returncode": 0,
+      "stdout": "gs://axlearn-public/experiments/gala-7B-hybridnorm-alibi-sprp-2024-12-02-1445/\ngs://axlearn-public/experiments/gala-7B-sigmoid-hybridnorm-alibi-sprp-2024-12-03-1002/\n",
+      "stderr": ""
+    }
+  ],
+  "gcs_access": true,
+  "axlearn": {
+    "import": "ok",
+    "trainer_configs": "7b-sigmoid and 7b-softmax load",
+    "install_note": "tensorflow-io==0.37.1 (not 0.37.3) + pip install --no-deps axlearn + jax/flax/aqtp manually on Python 3.12"
+  },
+  "next_commands": [
+    "mkdir -p research/physics/checkpoints && cd research/physics/checkpoints",
+    "# Follow apple/ml-sigmoid-attention pretrained/axlearn_load_pretrained.ipynb partial copy",
+    "gsutil -m cp -r gs://axlearn-public/experiments/gala-7B-sigmoid-hybridnorm-alibi-sprp-2024-12-03-1002/checkpoints/step_00250000/tf_* downloads/models/...",
+    "gsutil -m cp -r gs://axlearn-public/experiments/gala-7B-sigmoid-hybridnorm-alibi-sprp-2024-12-03-1002/checkpoints/step_00250000/gda/model downloads/models/.../gda/"
+  ]
+}
