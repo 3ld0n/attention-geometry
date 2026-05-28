@@ -1,0 +1,646 @@
+{
+  "experiment": "exp-039_olmo_mistral_bcft_profile",
+  "date": "2026-05-28",
+  "R2_threshold": 0.9,
+  "SYK_window": 0.05,
+  "hypothesis": {
+    "OLMo_7B_ALiBi": "\u0394_med (R\u00b2>0.90) > 0.249 (GPT-2 learned PE); expected 0.30\u20130.45 from exp-029 ALiBi toy",
+    "Mistral_7B_RoPE_SWA": "\u0394_med > 0.249; near Pythia-410m BCFT 0.358 if RoPE dominates; SWA may depress deep layers",
+    "GPT_Neo_ALiBi_partial": "tracks OLMo direction if ALiBi elevation consistent"
+  },
+  "references": {
+    "gpt2_small_exp007": {
+      "delta_med": 0.2493,
+      "n_layers": 12,
+      "pos_enc": "learned"
+    },
+    "gpt2_medium_exp031": {
+      "delta_med": 0.2589,
+      "n_layers": 24,
+      "pos_enc": "learned"
+    },
+    "gpt2_large_exp031": {
+      "delta_med": 0.2819,
+      "n_layers": 36,
+      "pos_enc": "learned"
+    },
+    "pythia_410m_exp036_bcft": {
+      "delta_med": 0.358,
+      "n_layers": 24,
+      "pos_enc": "RoPE"
+    }
+  },
+  "models": {
+    "OLMo-7B": {
+      "model": "allenai/OLMo-7B-hf",
+      "n_total_heads": 1024,
+      "n_good_R2_90": 194,
+      "frac_good": 0.1895,
+      "delta_med_global": 0.2654,
+      "delta_vs_syk": 0.0154,
+      "n_syk_near": 56,
+      "frac_syk": 0.0547,
+      "per_layer": [
+        {
+          "layer": 0,
+          "n_good": 10,
+          "delta_med": 0.14133322977225227
+        },
+        {
+          "layer": 1,
+          "n_good": 1,
+          "delta_med": 0.2274751027280858
+        },
+        {
+          "layer": 2,
+          "n_good": 11,
+          "delta_med": 0.33680966940653295
+        },
+        {
+          "layer": 3,
+          "n_good": 12,
+          "delta_med": 0.4235518950698
+        },
+        {
+          "layer": 4,
+          "n_good": 14,
+          "delta_med": 0.47115376812936727
+        },
+        {
+          "layer": 5,
+          "n_good": 7,
+          "delta_med": 0.28280083226448666
+        },
+        {
+          "layer": 6,
+          "n_good": 5,
+          "delta_med": 0.2874374299038904
+        },
+        {
+          "layer": 7,
+          "n_good": 3,
+          "delta_med": 0.2901681653197359
+        },
+        {
+          "layer": 8,
+          "n_good": 6,
+          "delta_med": 0.2508105589794232
+        },
+        {
+          "layer": 9,
+          "n_good": 4,
+          "delta_med": 0.24821322432048154
+        },
+        {
+          "layer": 10,
+          "n_good": 1,
+          "delta_med": 0.318791628247775
+        },
+        {
+          "layer": 11,
+          "n_good": 2,
+          "delta_med": 0.33296373284965364
+        },
+        {
+          "layer": 12,
+          "n_good": 2,
+          "delta_med": -0.06512165711141679
+        },
+        {
+          "layer": 13,
+          "n_good": 1,
+          "delta_med": 0.503096145373054
+        },
+        {
+          "layer": 14,
+          "n_good": 4,
+          "delta_med": 0.21329784830370313
+        },
+        {
+          "layer": 15,
+          "n_good": 2,
+          "delta_med": 0.10589822619850511
+        },
+        {
+          "layer": 16,
+          "n_good": 5,
+          "delta_med": 0.20604089116816957
+        },
+        {
+          "layer": 17,
+          "n_good": 11,
+          "delta_med": 0.33551280134954325
+        },
+        {
+          "layer": 18,
+          "n_good": 8,
+          "delta_med": 0.30172911581323314
+        },
+        {
+          "layer": 19,
+          "n_good": 12,
+          "delta_med": 0.3477220205573014
+        },
+        {
+          "layer": 20,
+          "n_good": 4,
+          "delta_med": 0.32547053878540005
+        },
+        {
+          "layer": 21,
+          "n_good": 6,
+          "delta_med": 0.23259061745989237
+        },
+        {
+          "layer": 22,
+          "n_good": 5,
+          "delta_med": 0.34587618758442445
+        },
+        {
+          "layer": 23,
+          "n_good": 1,
+          "delta_med": 0.08792424214846745
+        },
+        {
+          "layer": 24,
+          "n_good": 2,
+          "delta_med": 0.24033026430565654
+        },
+        {
+          "layer": 25,
+          "n_good": 7,
+          "delta_med": 0.03544814521617006
+        },
+        {
+          "layer": 26,
+          "n_good": 1,
+          "delta_med": 0.17649211128237657
+        },
+        {
+          "layer": 27,
+          "n_good": 7,
+          "delta_med": 0.24687198926576712
+        },
+        {
+          "layer": 28,
+          "n_good": 9,
+          "delta_med": 0.2472722294538397
+        },
+        {
+          "layer": 29,
+          "n_good": 12,
+          "delta_med": 0.20667257358287322
+        },
+        {
+          "layer": 30,
+          "n_good": 9,
+          "delta_med": 0.19488572141120908
+        },
+        {
+          "layer": 31,
+          "n_good": 10,
+          "delta_med": 0.21614220998277583
+        }
+      ],
+      "bands": {
+        "shallow": {
+          "range": [
+            0,
+            9
+          ],
+          "n_good": 73,
+          "delta_med": 0.33680966940653295
+        },
+        "mid": {
+          "range": [
+            10,
+            20
+          ],
+          "n_good": 52,
+          "delta_med": 0.30172911581323314
+        },
+        "deep": {
+          "range": [
+            21,
+            31
+          ],
+          "n_good": 69,
+          "delta_med": 0.2091892636275366
+        }
+      },
+      "pos_enc": "ALiBi",
+      "coverage_pct": 100.0
+    },
+    "Mistral-7B": {
+      "model": "mistralai/Mistral-7B-v0.3",
+      "n_total_heads": 1024,
+      "n_good_R2_90": 126,
+      "frac_good": 0.123,
+      "delta_med_global": 0.2984,
+      "delta_vs_syk": 0.0484,
+      "n_syk_near": 47,
+      "frac_syk": 0.0459,
+      "per_layer": [
+        {
+          "layer": 0,
+          "n_good": 2,
+          "delta_med": 0.2575914473822774
+        },
+        {
+          "layer": 1,
+          "n_good": 3,
+          "delta_med": 0.19536694839004956
+        },
+        {
+          "layer": 2,
+          "n_good": 12,
+          "delta_med": 0.23808537399160984
+        },
+        {
+          "layer": 3,
+          "n_good": 6,
+          "delta_med": 0.2442644687357372
+        },
+        {
+          "layer": 4,
+          "n_good": 16,
+          "delta_med": 0.3917483554908604
+        },
+        {
+          "layer": 5,
+          "n_good": 4,
+          "delta_med": 0.27173397316412445
+        },
+        {
+          "layer": 6,
+          "n_good": 6,
+          "delta_med": 0.3325893239869302
+        },
+        {
+          "layer": 7,
+          "n_good": 14,
+          "delta_med": 0.24905442978617856
+        },
+        {
+          "layer": 8,
+          "n_good": 5,
+          "delta_med": 0.3256327393568741
+        },
+        {
+          "layer": 9,
+          "n_good": 5,
+          "delta_med": 0.29373170988779373
+        },
+        {
+          "layer": 10,
+          "n_good": 7,
+          "delta_med": 0.6138287720873654
+        },
+        {
+          "layer": 11,
+          "n_good": 8,
+          "delta_med": 0.34507196631366455
+        },
+        {
+          "layer": 12,
+          "n_good": 3,
+          "delta_med": 0.6006939867468095
+        },
+        {
+          "layer": 13,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 14,
+          "n_good": 2,
+          "delta_med": 0.3080587409000305
+        },
+        {
+          "layer": 15,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 16,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 17,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 18,
+          "n_good": 2,
+          "delta_med": 0.4527606681367503
+        },
+        {
+          "layer": 19,
+          "n_good": 1,
+          "delta_med": 0.817604818650782
+        },
+        {
+          "layer": 20,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 21,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 22,
+          "n_good": 1,
+          "delta_med": 0.4375474053649883
+        },
+        {
+          "layer": 23,
+          "n_good": 1,
+          "delta_med": 0.6352818556798511
+        },
+        {
+          "layer": 24,
+          "n_good": 5,
+          "delta_med": 0.36424981822327446
+        },
+        {
+          "layer": 25,
+          "n_good": 5,
+          "delta_med": 0.3251185728295408
+        },
+        {
+          "layer": 26,
+          "n_good": 8,
+          "delta_med": 0.2519058694086293
+        },
+        {
+          "layer": 27,
+          "n_good": 3,
+          "delta_med": 0.3089854333533528
+        },
+        {
+          "layer": 28,
+          "n_good": 2,
+          "delta_med": 0.23945339363462004
+        },
+        {
+          "layer": 29,
+          "n_good": 2,
+          "delta_med": 0.32006108069968064
+        },
+        {
+          "layer": 30,
+          "n_good": 2,
+          "delta_med": 0.2795832968340331
+        },
+        {
+          "layer": 31,
+          "n_good": 1,
+          "delta_med": 0.3488725477711988
+        }
+      ],
+      "bands": {
+        "shallow": {
+          "range": [
+            0,
+            9
+          ],
+          "n_good": 73,
+          "delta_med": 0.2733518730708822
+        },
+        "mid": {
+          "range": [
+            10,
+            20
+          ],
+          "n_good": 23,
+          "delta_med": 0.4460484951552115
+        },
+        "deep": {
+          "range": [
+            21,
+            31
+          ],
+          "n_good": 30,
+          "delta_med": 0.3341564306604483
+        }
+      },
+      "pos_enc": "RoPE+SWA",
+      "coverage_pct": 100.0
+    },
+    "GPT-Neo-2.7B": {
+      "model": "EleutherAI/gpt-neo-2.7B",
+      "n_total_heads": 572,
+      "n_good_R2_90": 290,
+      "frac_good": 0.507,
+      "delta_med_global": 0.1259,
+      "delta_vs_syk": -0.1241,
+      "n_syk_near": 18,
+      "frac_syk": 0.0315,
+      "per_layer": [
+        {
+          "layer": 0,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 1,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 2,
+          "n_good": 0,
+          "delta_med": null
+        },
+        {
+          "layer": 3,
+          "n_good": 2,
+          "delta_med": 0.8593430874673547
+        },
+        {
+          "layer": 4,
+          "n_good": 2,
+          "delta_med": 0.08721393215986858
+        },
+        {
+          "layer": 5,
+          "n_good": 7,
+          "delta_med": 1.6116818045029913
+        },
+        {
+          "layer": 6,
+          "n_good": 4,
+          "delta_med": 1.6018355164425928
+        },
+        {
+          "layer": 7,
+          "n_good": 13,
+          "delta_med": 2.1345797271278384
+        },
+        {
+          "layer": 8,
+          "n_good": 9,
+          "delta_med": 0.8800511399423598
+        },
+        {
+          "layer": 9,
+          "n_good": 10,
+          "delta_med": 1.747793208009929
+        },
+        {
+          "layer": 10,
+          "n_good": 8,
+          "delta_med": 0.07572549198210975
+        },
+        {
+          "layer": 11,
+          "n_good": 4,
+          "delta_med": 1.7957610219543818
+        },
+        {
+          "layer": 12,
+          "n_good": 13,
+          "delta_med": 0.11490861036157443
+        },
+        {
+          "layer": 13,
+          "n_good": 7,
+          "delta_med": 1.8245952685093816
+        },
+        {
+          "layer": 14,
+          "n_good": 18,
+          "delta_med": 0.10000211452271865
+        },
+        {
+          "layer": 15,
+          "n_good": 14,
+          "delta_med": 0.36643205152963043
+        },
+        {
+          "layer": 16,
+          "n_good": 17,
+          "delta_med": 0.08622862731685033
+        },
+        {
+          "layer": 17,
+          "n_good": 13,
+          "delta_med": 0.318511776401701
+        },
+        {
+          "layer": 18,
+          "n_good": 18,
+          "delta_med": 0.08271114097344208
+        },
+        {
+          "layer": 19,
+          "n_good": 9,
+          "delta_med": 0.21424621936556756
+        },
+        {
+          "layer": 20,
+          "n_good": 15,
+          "delta_med": 0.09739047586686711
+        },
+        {
+          "layer": 21,
+          "n_good": 16,
+          "delta_med": 0.17464949324514772
+        },
+        {
+          "layer": 22,
+          "n_good": 13,
+          "delta_med": 0.09875638222367299
+        },
+        {
+          "layer": 23,
+          "n_good": 14,
+          "delta_med": 0.12060266097180875
+        },
+        {
+          "layer": 24,
+          "n_good": 16,
+          "delta_med": 0.10359921305168523
+        },
+        {
+          "layer": 25,
+          "n_good": 6,
+          "delta_med": 0.14656919865356402
+        },
+        {
+          "layer": 26,
+          "n_good": 12,
+          "delta_med": 0.1294985521467722
+        },
+        {
+          "layer": 27,
+          "n_good": 2,
+          "delta_med": 0.1399971104377175
+        },
+        {
+          "layer": 28,
+          "n_good": 15,
+          "delta_med": 0.10774898904176627
+        },
+        {
+          "layer": 29,
+          "n_good": 1,
+          "delta_med": 0.10824004816604525
+        },
+        {
+          "layer": 30,
+          "n_good": 10,
+          "delta_med": 0.10781566783916668
+        },
+        {
+          "layer": 31,
+          "n_good": 2,
+          "delta_med": 0.3361431519465865
+        }
+      ],
+      "bands": {
+        "shallow": {
+          "range": [
+            0,
+            9
+          ],
+          "n_good": 47,
+          "delta_med": 1.7389302985380624
+        },
+        "mid": {
+          "range": [
+            10,
+            20
+          ],
+          "n_good": 136,
+          "delta_med": 0.11455631418097531
+        },
+        "deep": {
+          "range": [
+            21,
+            31
+          ],
+          "n_good": 107,
+          "delta_med": 0.11539051512660589
+        }
+      },
+      "pos_enc": "ALiBi",
+      "coverage_pct": 89.4,
+      "coverage_note": "partial \u2014 L0-31 present but 89.4% of heads; deep-layer band may be incomplete"
+    }
+  },
+  "verdict": {
+    "OLMo_ALiBi_elevated_vs_GPT2": true,
+    "OLMo_delta_med": 0.2654,
+    "Mistral_RoPE_SWA_nearer_Pythia_than_GPT2": false,
+    "Mistral_delta_med": 0.2984,
+    "GPT_Neo_ALiBi_delta_med": 0.1259,
+    "hypothesis_1_OLMo": "partial",
+    "hypothesis_2_Mistral": "falsified",
+    "notes": ""
+  }
+}
