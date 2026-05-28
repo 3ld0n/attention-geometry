@@ -1,0 +1,320 @@
+{
+  "experiment": "exp-038_pythia_14b_fp16_probe",
+  "date": "2026-05-28",
+  "model": "EleutherAI/pythia-1.4b",
+  "seq_len": 512,
+  "hypothesis": "fp16 MPS attention goes all-NaN at layer L*; L* should align with BCFT JSON last valid layer (20) + 1 = 21.",
+  "fp16": {
+    "dtype": "torch.float16",
+    "device": "mps",
+    "n_layers": 24,
+    "n_heads": 16,
+    "first_all_nan_layer": 22,
+    "per_layer": [
+      {
+        "layer": 0,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 1,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 2,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 3,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 4,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 5,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 6,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 7,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 8,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 9,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 10,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 11,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 12,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 13,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 14,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 15,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 16,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 17,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 18,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 19,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 20,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 21,
+        "nan_fraction": 0.0001220703125,
+        "finite_fraction": 0.9998779296875,
+        "all_nan": false
+      },
+      {
+        "layer": 22,
+        "nan_fraction": 1.0,
+        "finite_fraction": 0.0,
+        "all_nan": true
+      },
+      {
+        "layer": 23,
+        "nan_fraction": 1.0,
+        "finite_fraction": 0.0,
+        "all_nan": true
+      }
+    ]
+  },
+  "fp32": {
+    "dtype": "torch.float32",
+    "device": "mps",
+    "n_layers": 24,
+    "n_heads": 16,
+    "first_all_nan_layer": null,
+    "per_layer": [
+      {
+        "layer": 0,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 1,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 2,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 3,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 4,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 5,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 6,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 7,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 8,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 9,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 10,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 11,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 12,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 13,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 14,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 15,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 16,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 17,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 18,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 19,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 20,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 21,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 22,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      },
+      {
+        "layer": 23,
+        "nan_fraction": 0.0,
+        "finite_fraction": 1.0,
+        "all_nan": false
+      }
+    ]
+  },
+  "alignment": {
+    "bcft_json_last_layer_with_heads": 20,
+    "expected_first_all_nan_layer": 21,
+    "fp16_first_all_nan_layer": 22,
+    "layers_match": false
+  },
+  "verdict": "partial"
+}
