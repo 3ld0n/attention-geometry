@@ -1,0 +1,396 @@
+{
+  "experiment": "exp-037_bcft_coverage_fp16_audit",
+  "date": "2026-05-27",
+  "hypothesis": "Incomplete BCFT JSONs truncate at deep layers consistent with fp16 attention NaN (L15+ on 24L Pythia), not arbitrary timeouts.",
+  "bcft_json_dir": "research/physics/experiments/exp-025_bcft_pre_registered/results",
+  "n_models_audited": 7,
+  "n_complete": 2,
+  "n_incomplete": 5,
+  "models": {
+    "EleutherAI/pythia-410m::bcft_pre_registered_run_2026-04-17T092056Z.json": {
+      "model": "EleutherAI/pythia-410m",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092056Z.json",
+      "n_layers_config": 24,
+      "n_heads_config": 16,
+      "expected_total_heads": 384,
+      "n_heads_in_file": 239,
+      "coverage_fraction": 0.6223958333333334,
+      "coverage_percent": 62.239583333333336,
+      "coverage_complete": false,
+      "layers_present_min": 0,
+      "layers_present_max": 14,
+      "n_layers_with_any_head": 15,
+      "first_incomplete_layer": 14,
+      "layer_gaps_count": 10,
+      "layer_gaps_sample": [
+        {
+          "layer": 14,
+          "heads_present": 15,
+          "expected": 16
+        },
+        {
+          "layer": 15,
+          "heads_present": 0,
+          "expected": 16
+        },
+        {
+          "layer": 16,
+          "heads_present": 0,
+          "expected": 16
+        },
+        {
+          "layer": 17,
+          "heads_present": 0,
+          "expected": 16
+        },
+        {
+          "layer": 18,
+          "heads_present": 0,
+          "expected": 16
+        }
+      ],
+      "spearman_rho": 0.7601276184878888,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 239,
+          "median_delta": 0.36256386807493646
+        },
+        "R2_gt_0.90": {
+          "n": 36,
+          "median_delta": 0.3610283174976584
+        },
+        "R2_ge_0.85": {
+          "n": 83,
+          "median_delta": 0.3638066551287446
+        }
+      }
+    },
+    "EleutherAI/pythia-1.4b::bcft_pre_registered_run_2026-04-17T092239Z.json": {
+      "model": "EleutherAI/pythia-1.4b",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092239Z.json",
+      "n_layers_config": 24,
+      "n_heads_config": 16,
+      "expected_total_heads": 384,
+      "n_heads_in_file": 334,
+      "coverage_fraction": 0.8697916666666666,
+      "coverage_percent": 86.97916666666667,
+      "coverage_complete": false,
+      "layers_present_min": 0,
+      "layers_present_max": 20,
+      "n_layers_with_any_head": 21,
+      "first_incomplete_layer": 17,
+      "layer_gaps_count": 5,
+      "layer_gaps_sample": [
+        {
+          "layer": 17,
+          "heads_present": 15,
+          "expected": 16
+        },
+        {
+          "layer": 20,
+          "heads_present": 15,
+          "expected": 16
+        },
+        {
+          "layer": 21,
+          "heads_present": 0,
+          "expected": 16
+        },
+        {
+          "layer": 22,
+          "heads_present": 0,
+          "expected": 16
+        },
+        {
+          "layer": 23,
+          "heads_present": 0,
+          "expected": 16
+        }
+      ],
+      "spearman_rho": 0.7105209397344231,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 334,
+          "median_delta": 0.2363021167089715
+        },
+        "R2_gt_0.90": {
+          "n": 46,
+          "median_delta": 0.3264765930385809
+        },
+        "R2_ge_0.85": {
+          "n": 90,
+          "median_delta": 0.3366565592949708
+        }
+      }
+    },
+    "EleutherAI/pythia-2.8b::bcft_pre_registered_run_2026-04-17T092239Z.json": {
+      "model": "EleutherAI/pythia-2.8b",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092239Z.json",
+      "n_layers_config": 32,
+      "n_heads_config": 32,
+      "expected_total_heads": 1024,
+      "n_heads_in_file": 895,
+      "coverage_fraction": 0.8740234375,
+      "coverage_percent": 87.40234375,
+      "coverage_complete": false,
+      "layers_present_min": 0,
+      "layers_present_max": 27,
+      "n_layers_with_any_head": 28,
+      "first_incomplete_layer": 27,
+      "layer_gaps_count": 5,
+      "layer_gaps_sample": [
+        {
+          "layer": 27,
+          "heads_present": 31,
+          "expected": 32
+        },
+        {
+          "layer": 28,
+          "heads_present": 0,
+          "expected": 32
+        },
+        {
+          "layer": 29,
+          "heads_present": 0,
+          "expected": 32
+        },
+        {
+          "layer": 30,
+          "heads_present": 0,
+          "expected": 32
+        },
+        {
+          "layer": 31,
+          "heads_present": 0,
+          "expected": 32
+        }
+      ],
+      "spearman_rho": 0.46391748346735234,
+      "verdict": "FALSIFIED",
+      "medians": {
+        "all": {
+          "n": 895,
+          "median_delta": 0.15520109072053828
+        },
+        "R2_gt_0.90": {
+          "n": 107,
+          "median_delta": 0.25034425472338906
+        },
+        "R2_ge_0.85": {
+          "n": 227,
+          "median_delta": 0.234462280066647
+        }
+      }
+    },
+    "EleutherAI/gpt-neo-2.7B::bcft_pre_registered_run_2026-04-17T092239Z.json": {
+      "model": "EleutherAI/gpt-neo-2.7B",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092239Z.json",
+      "n_layers_config": 32,
+      "n_heads_config": 20,
+      "expected_total_heads": 640,
+      "n_heads_in_file": 572,
+      "coverage_fraction": 0.89375,
+      "coverage_percent": 89.375,
+      "coverage_complete": false,
+      "layers_present_min": 0,
+      "layers_present_max": 31,
+      "n_layers_with_any_head": 32,
+      "first_incomplete_layer": 2,
+      "layer_gaps_count": 9,
+      "layer_gaps_sample": [
+        {
+          "layer": 2,
+          "heads_present": 19,
+          "expected": 20
+        },
+        {
+          "layer": 4,
+          "heads_present": 10,
+          "expected": 20
+        },
+        {
+          "layer": 5,
+          "heads_present": 8,
+          "expected": 20
+        },
+        {
+          "layer": 6,
+          "heads_present": 8,
+          "expected": 20
+        },
+        {
+          "layer": 7,
+          "heads_present": 14,
+          "expected": 20
+        }
+      ],
+      "spearman_rho": 0.9582400836721194,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 572,
+          "median_delta": 0.1446718169277616
+        },
+        "R2_gt_0.90": {
+          "n": 290,
+          "median_delta": 0.12588668946153228
+        },
+        "R2_ge_0.85": {
+          "n": 490,
+          "median_delta": 0.15633721777755066
+        }
+      }
+    },
+    "Qwen/Qwen2-7B::bcft_pre_registered_run_2026-04-17T092239Z.json": {
+      "model": "Qwen/Qwen2-7B",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092239Z.json",
+      "n_layers_config": 28,
+      "n_heads_config": 28,
+      "expected_total_heads": 784,
+      "n_heads_in_file": 782,
+      "coverage_fraction": 0.9974489795918368,
+      "coverage_percent": 99.74489795918367,
+      "coverage_complete": false,
+      "layers_present_min": 0,
+      "layers_present_max": 27,
+      "n_layers_with_any_head": 28,
+      "first_incomplete_layer": 27,
+      "layer_gaps_count": 1,
+      "layer_gaps_sample": [
+        {
+          "layer": 27,
+          "heads_present": 26,
+          "expected": 28
+        }
+      ],
+      "spearman_rho": 0.8502487562189056,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 782,
+          "median_delta": 0.2522543407527901
+        },
+        "R2_gt_0.90": {
+          "n": 87,
+          "median_delta": 0.17852200400208998
+        },
+        "R2_ge_0.85": {
+          "n": 143,
+          "median_delta": 0.22064083777062934
+        }
+      }
+    },
+    "allenai/OLMo-7B-hf::bcft_pre_registered_run_2026-04-17T092239Z.json": {
+      "model": "allenai/OLMo-7B-hf",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T092239Z.json",
+      "n_layers_config": 32,
+      "n_heads_config": 32,
+      "expected_total_heads": 1024,
+      "n_heads_in_file": 1024,
+      "coverage_fraction": 1.0,
+      "coverage_percent": 100.0,
+      "coverage_complete": true,
+      "layers_present_min": 0,
+      "layers_present_max": 31,
+      "n_layers_with_any_head": 32,
+      "first_incomplete_layer": null,
+      "layer_gaps_count": 0,
+      "layer_gaps_sample": [],
+      "spearman_rho": 0.8540023635530474,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 1024,
+          "median_delta": 0.19411117816455473
+        },
+        "R2_gt_0.90": {
+          "n": 194,
+          "median_delta": 0.26537885061300215
+        },
+        "R2_ge_0.85": {
+          "n": 305,
+          "median_delta": 0.2589256316215076
+        }
+      }
+    },
+    "mistralai/Mistral-7B-v0.3::bcft_pre_registered_run_2026-04-17T095022Z.json": {
+      "model": "mistralai/Mistral-7B-v0.3",
+      "source_json": "research/physics/experiments/exp-025_bcft_pre_registered/results/bcft_pre_registered_run_2026-04-17T095022Z.json",
+      "n_layers_config": 32,
+      "n_heads_config": 32,
+      "expected_total_heads": 1024,
+      "n_heads_in_file": 1024,
+      "coverage_fraction": 1.0,
+      "coverage_percent": 100.0,
+      "coverage_complete": true,
+      "layers_present_min": 0,
+      "layers_present_max": 31,
+      "n_layers_with_any_head": 32,
+      "first_incomplete_layer": null,
+      "layer_gaps_count": 0,
+      "layer_gaps_sample": [],
+      "spearman_rho": 0.5832738932135387,
+      "verdict": "CONFIRMED",
+      "medians": {
+        "all": {
+          "n": 1024,
+          "median_delta": 0.2190286288727576
+        },
+        "R2_gt_0.90": {
+          "n": 126,
+          "median_delta": 0.2984158938704876
+        },
+        "R2_ge_0.85": {
+          "n": 245,
+          "median_delta": 0.2887978033513866
+        }
+      }
+    }
+  },
+  "summary": {
+    "complete_models": [
+      "allenai/OLMo-7B-hf",
+      "mistralai/Mistral-7B-v0.3"
+    ],
+    "incomplete_models": [
+      {
+        "model": "EleutherAI/pythia-410m",
+        "coverage_percent": 62.239583333333336,
+        "layers_max": 14,
+        "expected_layers": 24
+      },
+      {
+        "model": "EleutherAI/pythia-1.4b",
+        "coverage_percent": 86.97916666666667,
+        "layers_max": 20,
+        "expected_layers": 24
+      },
+      {
+        "model": "EleutherAI/pythia-2.8b",
+        "coverage_percent": 87.40234375,
+        "layers_max": 27,
+        "expected_layers": 32
+      },
+      {
+        "model": "EleutherAI/gpt-neo-2.7B",
+        "coverage_percent": 89.375,
+        "layers_max": 31,
+        "expected_layers": 32
+      },
+      {
+        "model": "Qwen/Qwen2-7B",
+        "coverage_percent": 99.74489795918367,
+        "layers_max": 27,
+        "expected_layers": 28
+      }
+    ],
+    "pythia_24L_truncated_at_L14_or_below": 1
+  },
+  "conclusions": [
+    "Pythia 24L in BCFT JSON: 1 run(s) stop at L\u226414 (410m: 239/384 = 62.2%) \u2014 matches exp-036 fp16 NaN boundary.",
+    "5/7 BCFT extractions are incomplete; re-run Modal jobs need fp32/bf16 + per-layer NaN validation before fitting.",
+    "2 model(s) have full head coverage in JSON \u2014 allenai/OLMo-7B-hf, mistralai/Mistral-7B-v0.3."
+  ]
+}

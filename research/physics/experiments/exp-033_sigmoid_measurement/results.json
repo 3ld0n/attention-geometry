@@ -1,6 +1,6 @@
 {
   "experiment": "exp-033",
-  "timestamp": "2026-05-26T180302Z",
+  "timestamp": "2026-05-27T100311Z",
   "hypothesis": "Infrastructure for Apple 7B sigmoid/softmax \u0394 measurement is ready.",
   "verdict": "infrastructure_ready_download_pending",
   "corrections_from_exp_032": [
