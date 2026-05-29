@@ -1,0 +1,41 @@
+{
+  "experiment": "exp-041",
+  "timestamp": "2026-05-29T062446Z",
+  "hypothesis": "GALA-7B sigmoid \u0394_med \u2248 0.25 (same as softmax) \u2192 SYK fixed point mechanism-independent. If \u0394 differs: softmax normalization load-bearing.",
+  "protocol": {
+    "n_inputs": 50,
+    "seq_len": 512,
+    "fit_range": [
+      8,
+      256
+    ],
+    "R2_threshold": 0.9,
+    "input_type": "random_token_ids [0, 32767]",
+    "rng_seed": 42,
+    "alibi": "head-specific slopes 2^(-(8/n_heads)*(H+1))",
+    "normalization": "RMSNorm prenorm applied"
+  },
+  "reference_deltas": {
+    "gpt2_learned_pe": 0.2493,
+    "syk_q4_prediction": 0.25,
+    "olmo_alibi": 0.265,
+    "pythia_rope": 0.358
+  },
+  "sigmoid": {
+    "status": "download_incomplete",
+    "missing": [
+      "decoder/emb/token_emb/weight",
+      "decoder/transformer/repeat/layer/self_attention/attention/i_proj/qkv_proj/weight",
+      "decoder/transformer/repeat/layer/self_attention/prenorm/scale"
+    ]
+  },
+  "softmax": {
+    "status": "download_incomplete",
+    "missing": [
+      "decoder/emb/token_emb/weight",
+      "decoder/transformer/repeat/layer/self_attention/attention/i_proj/qkv_proj/weight",
+      "decoder/transformer/repeat/layer/self_attention/prenorm/scale"
+    ]
+  },
+  "verdict": "blocked_download_incomplete"
+}
