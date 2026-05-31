@@ -20,11 +20,17 @@ Architecture (from axlearn config, exp-033):
 Weight loading:
   Zarr format (orbax GDA, zarr v2, zstd) stored under:
     <arm_root>/gda/model/model/<param_path>/  (zarr v2 store per array)
-  Key arrays:
-    model/decoder/emb/token_emb/weight: (32768, 4096)
-    model/decoder/transformer/repeat/layer/self_attention/attention/i_proj/qkv_proj/weight: (32, 3, 4096, 32, 128)
-    model/decoder/transformer/repeat/layer/self_attention/prenorm/scale: (32, 4096)
-    model/decoder/transformer/repeat/layer/self_attention/attention/scale_key/norm/scale: (32, 32) if present
+    Key arrays (path: <arm_root>/gda/model/<param_path>):
+    decoder/emb/token_emb/weight: (32768, 4096)
+    decoder/transformer/repeat/layer/self_attention/attention/i_proj/qkv_proj/weight: (32, 3, 4096, 32, 128)
+    decoder/transformer/repeat/layer/self_attention/prenorm/scale: (32, 4096)
+    decoder/transformer/repeat/layer/self_attention/attention/scale_key/norm/scale: (32, 128)
+    decoder/transformer/repeat/layer/self_attention/attention/scale_query/norm/scale: (32, 128)
+
+QKNorm: Required. Without it, QK^T logits reach ~750, fully saturating sigmoid → flat profiles.
+  q_normed = RMSNorm(q, scale_query[head])
+  k_normed = RMSNorm(k, scale_key[head])
+  logits = (q_normed @ k_normed.T) / sqrt(d)
 
 ALiBi slopes:
   m_H = 2^(-(8/n_heads)*(H+1)) for H = 0, ..., n_heads-1
@@ -81,7 +87,7 @@ RNG_SEED = 42
 
 def check_zarr_complete(ckpt_root: Path, rel_path: str) -> bool:
     """Check if a zarr array directory exists and has no .gstmp temp files."""
-    arr_dir = ckpt_root / "gda/model/model" / rel_path
+    arr_dir = ckpt_root / "gda/model" / rel_path
     if not arr_dir.exists():
         return False
     if not (arr_dir / ".zarray").exists():
@@ -93,9 +99,9 @@ def check_zarr_complete(ckpt_root: Path, rel_path: str) -> bool:
 
 
 def load_zarr_array(ckpt_root: Path, rel_path: str) -> np.ndarray:
-    """Load a zarr v2 array from the checkpoint store."""
+    """Load a zarr array from the checkpoint store."""
     import zarr
-    store_path = str(ckpt_root / "gda/model/model" / rel_path)
+    store_path = str(ckpt_root / "gda/model" / rel_path)
     z = zarr.open(store_path, mode="r")
     return np.asarray(z)
 
@@ -106,6 +112,8 @@ def check_download_complete(ckpt_root: Path) -> tuple[bool, list[str]]:
         "decoder/emb/token_emb/weight",
         "decoder/transformer/repeat/layer/self_attention/attention/i_proj/qkv_proj/weight",
         "decoder/transformer/repeat/layer/self_attention/prenorm/scale",
+        "decoder/transformer/repeat/layer/self_attention/attention/scale_key/norm/scale",
+        "decoder/transformer/repeat/layer/self_attention/attention/scale_query/norm/scale",
     ]
     missing = [r for r in required if not check_zarr_complete(ckpt_root, r)]
     return len(missing) == 0, missing
@@ -141,12 +149,16 @@ def compute_attention_profile(
     token_emb: np.ndarray,       # (vocab, d_model)
     qkv_weights: np.ndarray,     # (n_layers, 3, d_model, n_heads, head_dim)
     prenorm_scale: np.ndarray,   # (n_layers, d_model)
+    scale_query: np.ndarray,     # (n_heads, head_dim) — QKNorm scale for Q
+    scale_key: np.ndarray,       # (n_heads, head_dim) — QKNorm scale for K
     token_ids: np.ndarray,       # (seq_len,)
     alibi: np.ndarray,           # (n_heads, seq_len, seq_len)
     use_sigmoid: bool,
 ) -> np.ndarray:
     """
     For one input sequence, compute per-head per-layer attention profiles.
+    Applies prenorm (RMSNorm before QKV projection) and QKNorm (RMSNorm on Q and K
+    per head after projection). QKNorm is required: without it, sigmoid saturates.
     Returns: (n_layers, n_heads, seq_len) — mean attention weight over query positions.
     """
     seq_len = len(token_ids)
@@ -155,7 +167,7 @@ def compute_attention_profile(
     profiles = np.zeros((N_LAYERS, N_HEADS, seq_len), dtype=np.float32)
 
     for layer in range(N_LAYERS):
-        # RMSNorm
+        # Prenorm: RMSNorm on input
         x_norm = rms_norm(x, prenorm_scale[layer])  # (seq_len, d_model)
 
         for head in range(N_HEADS):
@@ -164,20 +176,22 @@ def compute_attention_profile(
             W_k = qkv_weights[layer, 1, :, head, :]  # (d_model, head_dim)
             q = x_norm @ W_q   # (seq_len, head_dim)
             k = x_norm @ W_k   # (seq_len, head_dim)
+            # QKNorm: per-head RMSNorm on Q and K (prevents sigmoid saturation)
+            q = rms_norm(q, scale_query[head])  # (seq_len, head_dim)
+            k = rms_norm(k, scale_key[head])    # (seq_len, head_dim)
             # Attention logits
             logits = (q @ k.T) / SQRT_D  # (seq_len, seq_len)
             # Add ALiBi bias for this head
             logits = logits + alibi[head]  # (seq_len, seq_len)
             # Attention function
             if use_sigmoid:
-                att = 1.0 / (1.0 + np.exp(-logits))  # sigmoid
+                att = 1.0 / (1.0 + np.exp(-logits.astype(np.float64))).astype(np.float32)
             else:
                 # Softmax with causal masking (alibi already masks future via -1e9)
-                logits_max = logits.max(axis=-1, keepdims=True)
-                exp_logits = np.exp(logits - logits_max)
-                att = exp_logits / (exp_logits.sum(axis=-1, keepdims=True) + 1e-10)
-            # Mean attention profile over query positions: att_profile[k] = mean_i att[i, i-k]
-            # We compute the average diagonal at each lag
+                logits_shifted = logits - logits.max(axis=-1, keepdims=True)
+                exp_logits = np.exp(logits_shifted)
+                att = (exp_logits / (exp_logits.sum(axis=-1, keepdims=True) + 1e-10)).astype(np.float32)
+            # Mean attention profile over query positions: att_profile[lag] = mean_i att[i, i-lag]
             profile = np.zeros(seq_len, dtype=np.float32)
             for lag in range(seq_len):
                 diag = np.diag(att, k=-lag)  # query pos i attends to key pos i-lag
@@ -233,7 +247,16 @@ def measure_arm(ckpt_root: Path, arm_name: str, use_sigmoid: bool) -> dict:
         ckpt_root,
         "decoder/transformer/repeat/layer/self_attention/prenorm/scale",
     )
-    print(f"  [{arm_name}] token_emb: {token_emb.shape}, qkv: {qkv_weights.shape}, prenorm: {prenorm_scale.shape}")
+    scale_query = load_zarr_array(
+        ckpt_root,
+        "decoder/transformer/repeat/layer/self_attention/attention/scale_query/norm/scale",
+    )
+    scale_key = load_zarr_array(
+        ckpt_root,
+        "decoder/transformer/repeat/layer/self_attention/attention/scale_key/norm/scale",
+    )
+    print(f"  [{arm_name}] token_emb: {token_emb.shape}, qkv: {qkv_weights.shape}, "
+          f"prenorm: {prenorm_scale.shape}, scale_q: {scale_query.shape}, scale_k: {scale_key.shape}")
 
     # Build ALiBi bias matrix once (same for all inputs and layers)
     alibi = alibi_bias_matrix(N_HEADS, SEQ_LEN)
@@ -248,6 +271,7 @@ def measure_arm(ckpt_root: Path, arm_name: str, use_sigmoid: bool) -> dict:
         if inp_idx % 10 == 0:
             print(f"  [{arm_name}] input {inp_idx}/{N_INPUTS}...")
         prof = compute_attention_profile(token_emb, qkv_weights, prenorm_scale,
+                                          scale_query, scale_key,
                                           token_ids, alibi, use_sigmoid)
         accumulated += prof
     accumulated /= N_INPUTS  # mean profile over inputs
