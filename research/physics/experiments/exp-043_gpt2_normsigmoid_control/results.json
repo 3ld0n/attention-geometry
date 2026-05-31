@@ -1,0 +1,109 @@
+{
+  "experiment": "exp-043",
+  "timestamp": "2026-05-31T100835Z",
+  "hypothesis": "GPT-2 norm-sigmoid \u0394_SYK < 0.249 (softmax, exp-007) \u2192 normalization-function bracket is PE-type-universal.",
+  "protocol": {
+    "model": "gpt2",
+    "normalization": "\u03c3(logit) / \u03a3\u03c3(logit)  [row-wise, causal]",
+    "seq_len": 256,
+    "n_inputs": 50,
+    "fit_range": [
+      3,
+      50
+    ],
+    "R2_threshold": 0.9,
+    "rng_seed": 42,
+    "note": "Same parameters as exp-007 for direct comparison."
+  },
+  "reference": {
+    "exp007_gpt2_softmax": {
+      "conformal_heads": 44,
+      "total_heads": 144,
+      "delta_median": 0.2493,
+      "syk_near": 44,
+      "syk_near_median": 0.2493
+    },
+    "exp042_gala_normsigmoid": {
+      "conformal_heads": 378,
+      "total_heads": 1024,
+      "delta_median": 0.2653,
+      "syk_near": 210,
+      "syk_near_median": 0.2233
+    },
+    "exp041_gala_softmax": {
+      "conformal_heads": 121,
+      "total_heads": 1024,
+      "syk_near": 80,
+      "syk_near_median": 0.2604
+    }
+  },
+  "result": {
+    "conformal_heads_count": 44,
+    "total_heads": 144,
+    "delta_median": 0.25525837241052163,
+    "syk_near_count": 13,
+    "syk_near_median": 0.23404480990009344,
+    "per_layer": [
+      {
+        "layer": 0,
+        "conformal_heads": 7,
+        "delta_median": 0.25777529481969724
+      },
+      {
+        "layer": 1,
+        "conformal_heads": 11,
+        "delta_median": 0.4441287866044694
+      },
+      {
+        "layer": 2,
+        "conformal_heads": 3,
+        "delta_median": 0.9644131519946014
+      },
+      {
+        "layer": 3,
+        "conformal_heads": 0,
+        "delta_median": null
+      },
+      {
+        "layer": 4,
+        "conformal_heads": 2,
+        "delta_median": 0.6313817517376454
+      },
+      {
+        "layer": 5,
+        "conformal_heads": 1,
+        "delta_median": 0.20153694834615207
+      },
+      {
+        "layer": 6,
+        "conformal_heads": 1,
+        "delta_median": 0.2708535541123763
+      },
+      {
+        "layer": 7,
+        "conformal_heads": 2,
+        "delta_median": 0.18238053950026273
+      },
+      {
+        "layer": 8,
+        "conformal_heads": 2,
+        "delta_median": 0.3125335441403988
+      },
+      {
+        "layer": 9,
+        "conformal_heads": 2,
+        "delta_median": 0.2079982202915162
+      },
+      {
+        "layer": 10,
+        "conformal_heads": 6,
+        "delta_median": 0.23414011175893998
+      },
+      {
+        "layer": 11,
+        "conformal_heads": 7,
+        "delta_median": 0.16814129656494725
+      }
+    ]
+  }
+}
