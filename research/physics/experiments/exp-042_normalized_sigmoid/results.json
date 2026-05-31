@@ -1,0 +1,172 @@
+{
+  "experiment": "exp-042",
+  "timestamp": "2026-05-31T074232Z",
+  "hypothesis": "Normalized sigmoid (\u03c3(logit)/\u03a3\u03c3) \u0394_med \u2248 0.25-0.27 \u2192 QK geometry sufficient. \u0394 remains ~0 or large \u2192 exp() in softmax is essential.",
+  "protocol": {
+    "normalization": "sigmoid(logit) / sum_j(sigmoid(logit_j))  [row-wise, causal mask applied]",
+    "checkpoint": "sigmoid-step_00250000 (same QK geometry as exp-041 sigmoid arm)",
+    "n_inputs": 50,
+    "seq_len": 512,
+    "fit_range": [
+      8,
+      256
+    ],
+    "R2_threshold": 0.9,
+    "rng_seed": 42
+  },
+  "reference": {
+    "exp041_sigmoid_raw": {
+      "conformal_heads": 2,
+      "delta_median": 7.44,
+      "syk_near": 0
+    },
+    "exp041_softmax": {
+      "conformal_heads": 121,
+      "delta_median": 0.2739,
+      "syk_near": 80,
+      "syk_near_median": 0.2604
+    },
+    "exp007_gpt2": {
+      "conformal_heads": 44,
+      "delta_median": 0.2493,
+      "syk_near": 44
+    }
+  },
+  "result": {
+    "conformal_heads_count": 378,
+    "total_heads": 1024,
+    "delta_median": 0.26527707278728485,
+    "syk_near_count": 210,
+    "syk_near_median": 0.22333408147096634,
+    "per_layer": {
+      "0": {
+        "conformal_heads": 19,
+        "delta_median": 0.1970897614955902
+      },
+      "1": {
+        "conformal_heads": 14,
+        "delta_median": 0.20451092720031738
+      },
+      "2": {
+        "conformal_heads": 13,
+        "delta_median": 0.27973735332489014
+      },
+      "3": {
+        "conformal_heads": 12,
+        "delta_median": 0.2601405382156372
+      },
+      "4": {
+        "conformal_heads": 12,
+        "delta_median": 0.25727875530719757
+      },
+      "5": {
+        "conformal_heads": 12,
+        "delta_median": 0.2714420408010483
+      },
+      "6": {
+        "conformal_heads": 11,
+        "delta_median": 0.2699682414531708
+      },
+      "7": {
+        "conformal_heads": 12,
+        "delta_median": 0.2751297056674957
+      },
+      "8": {
+        "conformal_heads": 12,
+        "delta_median": 0.2762768268585205
+      },
+      "9": {
+        "conformal_heads": 11,
+        "delta_median": 0.2692215144634247
+      },
+      "10": {
+        "conformal_heads": 12,
+        "delta_median": 0.27577967941761017
+      },
+      "11": {
+        "conformal_heads": 12,
+        "delta_median": 0.270097941160202
+      },
+      "12": {
+        "conformal_heads": 11,
+        "delta_median": 0.2754599452018738
+      },
+      "13": {
+        "conformal_heads": 12,
+        "delta_median": 0.26906850934028625
+      },
+      "14": {
+        "conformal_heads": 11,
+        "delta_median": 0.27156203985214233
+      },
+      "15": {
+        "conformal_heads": 12,
+        "delta_median": 0.2689681649208069
+      },
+      "16": {
+        "conformal_heads": 11,
+        "delta_median": 0.276250958442688
+      },
+      "17": {
+        "conformal_heads": 10,
+        "delta_median": 0.2465944141149521
+      },
+      "18": {
+        "conformal_heads": 11,
+        "delta_median": 0.25993990898132324
+      },
+      "19": {
+        "conformal_heads": 11,
+        "delta_median": 0.2699558436870575
+      },
+      "20": {
+        "conformal_heads": 11,
+        "delta_median": 0.26705509424209595
+      },
+      "21": {
+        "conformal_heads": 11,
+        "delta_median": 0.26548996567726135
+      },
+      "22": {
+        "conformal_heads": 12,
+        "delta_median": 0.2630052864551544
+      },
+      "23": {
+        "conformal_heads": 12,
+        "delta_median": 0.25369444489479065
+      },
+      "24": {
+        "conformal_heads": 10,
+        "delta_median": 0.24096763134002686
+      },
+      "25": {
+        "conformal_heads": 11,
+        "delta_median": 0.27083560824394226
+      },
+      "26": {
+        "conformal_heads": 12,
+        "delta_median": 0.2794418931007385
+      },
+      "27": {
+        "conformal_heads": 12,
+        "delta_median": 0.26419249176979065
+      },
+      "28": {
+        "conformal_heads": 11,
+        "delta_median": 0.25564923882484436
+      },
+      "29": {
+        "conformal_heads": 12,
+        "delta_median": 0.26838260889053345
+      },
+      "30": {
+        "conformal_heads": 12,
+        "delta_median": 0.26330170035362244
+      },
+      "31": {
+        "conformal_heads": 11,
+        "delta_median": 0.25165796279907227
+      }
+    }
+  }
+}

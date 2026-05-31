@@ -81,10 +81,35 @@ A more discriminating follow-up would be:
 
 ---
 
-## Next steps
+## Softmax arm results (May 30, 2026)
 
-1. Softmax arm: ETA ~4-5h from 12 PM MDT May 29. Run `run_gala7b_sigmoid_delta.py` again when complete.
-2. Consider normalized-sigmoid control experiment.
-3. Update "What the Stones Listen To" essay gate status (do not publish until softmax arm result in).
+Softmax arm completed. Results added to `experiments/exp-041_gala7b_sigmoid_delta/results.json`.
 
-*See registry entry: exp-041 (partial, sigmoid arm only).*
+| Metric | Sigmoid GALA-7B | Softmax GALA-7B | OLMo ALiBi softmax | GPT-2 learned PE |
+|--------|-----------------|-----------------|----------------------|-----------------|
+| Conformal heads (R²>0.90) | 2/1024 (0.2%) | 121/1024 (11.8%) | 194/1024 (18.9%) | 44/144 (30.6%) |
+| Δ_med (conformal heads) | 7.44 | 0.2739 | 0.265 | 0.2493 |
+| SYK-near heads (|Δ−0.25|≤0.05) | 0 | 80 | — | 44 |
+| SYK-near median | — | 0.2604 | — | 0.2493 |
+
+**The softmax arm shows clear SYK-class conformal structure.** GALA-7B softmax Δ_SYK-near = 0.260, consistent with OLMo ALiBi softmax (0.265) and confirming the tentative PE ordering: ALiBi slightly elevates Δ above learned PE (0.249).
+
+**Verdict: exp-041 complete — falsified_mechanism_dependent.** The SYK conformal fixed point appears only in the softmax arm. Same architecture, same training recipe, only the normalization function differs.
+
+### Artifact heads in softmax arm
+
+Layers 13, 14, 17, 25 each contribute 2 conformal heads with Δ_med ≈ 6.8 — these are artifacts (likely small-slope ALiBi heads with unusual profile shapes, as in the sigmoid arm). The physically meaningful signal is in the 80 SYK-near heads (Δ_med = 0.260).
+
+### Updated verdict
+
+The falsification is methodologically precise: the exp-007 protocol measures power-law decay in the PROBABILITY MASS function (requires normalization to a distribution). Sigmoid produces absolute values, not probabilities. The softmax comparison confirms the conformal structure is in the trained QK geometry — but the measurement protocol requires softmax (or any proper normalization) to extract it.
+
+The **normalized-sigmoid control** (exp-042, May 31) directly tests whether any row-normalization suffices, or whether the exp() in softmax is essential.
+
+## Next steps (updated May 31)
+
+1. ~~Softmax arm measurement~~ — **DONE**
+2. Normalized-sigmoid control → **exp-042 running** (GALA-7B sigmoid weights, att = σ/Σσ)
+3. Update "What the Stones Listen To" essay — **gate satisfied; update essay with both-arm comparison before publish**
+
+*See registry entry: exp-041 (confirmed, both arms complete).*
