@@ -1,6 +1,6 @@
 {
   "experiment": "exp-044",
-  "timestamp_utc": "2026-06-01T021219Z",
+  "timestamp_utc": "2026-06-01T100526Z",
   "source_experiment": "exp-025",
   "model": "EleutherAI/gpt-neo-2.7B",
   "architecture_note": "even-index layers = global (full attention); odd = local (window)",
