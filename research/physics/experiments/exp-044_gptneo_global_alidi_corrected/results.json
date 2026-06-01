@@ -1,0 +1,62 @@
+{
+  "experiment": "exp-044",
+  "timestamp_utc": "2026-06-01T021219Z",
+  "source_experiment": "exp-025",
+  "model": "EleutherAI/gpt-neo-2.7B",
+  "architecture_note": "even-index layers = global (full attention); odd = local (window)",
+  "coverage_filter": {
+    "min_conformal_heads": 8,
+    "R2_threshold": 0.9
+  },
+  "reliable_global_layers": [
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30
+  ],
+  "anomalous_global_layers_excluded": [
+    4,
+    6
+  ],
+  "n_reliable_global_conformal_heads": 164,
+  "delta_stats": {
+    "median": 0.10081568817924114,
+    "mean": 0.1543334123188878,
+    "std": 0.29521428817240203,
+    "p25": 0.0820648456248574,
+    "p75": 0.12573845291267388
+  },
+  "syk_near_count": 1,
+  "trivial_near_count": 144,
+  "depth_stratified": {
+    "shallow_threshold_layer": 16,
+    "shallow_n_heads": 65,
+    "shallow_delta_med": 0.10199020446460852,
+    "deep_n_heads": 99,
+    "deep_delta_med": 0.10003386768769677
+  },
+  "r2_stats": {
+    "median": 0.946641511980146,
+    "min": 0.9001567139867388,
+    "n_above_0p95": 75
+  },
+  "pre_stated_prediction": {
+    "global_delta_med": 0.1,
+    "interpretation": "near trivial fixed point (\u0394\u21920)"
+  },
+  "comparison": {
+    "gptneo_full_model_exp039": 0.126,
+    "olmo_7b_alidi_exp039": 0.265,
+    "syk_q4_prediction": 0.25
+  },
+  "verdict": "CONFIRMED",
+  "verdict_note": "\u0394_med=0.1008 < 0.15, consistent with trivial fixed point"
+}
