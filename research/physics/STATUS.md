@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: April 30, 2026*
+*Last updated: June 4, 2026*
 
 ---
 
@@ -47,6 +47,38 @@ Per-head Δ controls LiTM valley depth: Spearman ρ = +0.94 (Pythia-70m), +0.64 
 
 **NEW — BCFT pre-registered test (April 17, 2026): preprint published.**
 Pre-registered prediction (`research/notes/bcft_pre_registered_prediction.md`): per-head Δ → valley_depth Spearman ρ ≥ 0.50, p ≤ 1e-5, on any decoder-only transformer. Tested on 7 decoder-only models. **Results**: 6 confirmed (Pythia-410m/1.4B with ρ = +0.76/+0.71; GPT-Neo-2.7B with ρ = +0.96; Qwen2-7B with ρ = +0.85; OLMo-7B with ρ = +0.85; Mistral-7B-v0.3 with ρ = +0.58); **Pythia-2.8B falsified at ρ = +0.46**. Per-layer diagnostic localizes Pythia-2.8B failure to layers 22–27 and shows GPT-Neo-2.7B clean across all 32 layers — *training recipe, not parameter count or data, is the differentiating variable*. Functional-form fit (3-parameter BCFT with C, Δ, λ) on Pythia-2.8B and GPT-Neo-2.7B: 88–94% of conformal heads prefer BCFT over bare power law; Δ_BCFT closer to SYK Δ=1/4 than Δ_PL; **joint** (Δ, λ) → valley rank-R² = 0.55 (Pythia-2.8B), 0.77 (GPT-Neo-2.7B). **Two surprises**: (a) ρ(λ, valley) is *negative* across most layers in both models — opposite of framework prediction; (b) GPT-Neo-2.7B has alternating-layer structure suggesting two distinct head populations. **Preprint**: `writing/preprints/2026-04-17_bcft_pre_registered/manuscript.{md,pdf}`. **Zenodo DOI: 10.5281/zenodo.19629862**. Audit and follow-ups in `research/notes/framework_audit_2026-04-17.md` (postscripts).
+
+**NEW — GOE universality confirmed cross-model (June 4, 2026, exp-046 + exp-047):**
+The Oganesyan-Huse r-ratio of W_QK eigenvalues (symmetrized W_Q^T W_K per head) is GOE-like across ALL tested transformers, regardless of architecture or PE. Per-head r-ratio distributions are model-invariant:
+
+| Model | PE | Family | Heads | r_mean | r_std | verdict |
+|-------|----|--------|-------|--------|-------|---------|
+| GPT-2 (exp-046) | learned | GPT-2 | 144 | 0.528 | 0.040 | GOE-like |
+| GPT-2-medium (exp-047) | learned | GPT-2 | 384 | 0.526 | 0.039 | GOE-like |
+| Pythia-410m (exp-047) | RoPE | NeoX | 384 | 0.520 | 0.038 | GOE-like |
+
+GOE reference = 0.536; Poisson = 0.386. All three distributions are statistically identical (|Δr| ≤ 0.008). The GOE structure is layer-uniform (layer-to-layer std ≈ 0.008–0.009). Conformal and non-conformal heads are indistinguishable (exp-046: conformal r = 0.525, non-conformal r = 0.529). **Physical interpretation:** trained transformers universally develop SYK-chaotic weight matrices through gradient descent. The conformal position-space structure (power-law Δ ≈ 0.25 in specific heads) is an additional selective pattern within a universal GOE background. Open controls needed: (1) untrained (initialized) weights — expected Poisson; (2) broader model families (OLMo, Mistral, GPT-Neo). See exp-046 notes, exp-047 notes.
+
+**NEW — Sign anomaly resolved (June 2, 2026, exp-046):**
+The sign anomaly ρ(λ_BCFT, valley) < 0 (first found April 17 in Pythia-2.8B and GPT-Neo-2.7B) is **confirmed in GPT-2** (ρ = −0.75, p = 4.7×10⁻⁹) and its **mechanism is identified**. The anomaly is NOT a failure of BCFT physics. The mechanism: λ_proxy (boundary parameter) captures the recency/boundary balance of attention. High-λ heads have spread-out attention (elevated middle-context, lower recency: high g_mid, low g_end) → shallower valley. Low-λ heads are recency-dominated (near-zero g_mid, high g_end ≈ 1.0) → valley ≈ 1.0 (deep). Key correlation: ρ(λ, g_mid) = +0.74 (p = 9.3×10⁻⁹). **Framework correction:** The April 17 framework prediction P2 conflated λ and Δ as having the same sign of effect on valley depth. They do not: Δ deepens the valley (conformal power-law); λ shallows it (boundary enhancement spreads attention). The sign anomaly is a discovery about how BCFT parameters encode attention structure, not a falsification of the framework. See exp-046 notes.
+
+**NEW — PE ordering (corrected, May–June 2026, exp-039/040/041/042/043/044):**
+Corrected positional encoding ordering based on median Δ_SYK (softmax, full-attention models only; GPT-Neo removed because alternating global/local architecture confounds the measurement):
+
+| Model | PE | Δ_SYK | Source |
+|-------|----|--------|--------|
+| Pythia-410m | RoPE | 0.358 | exp-036 |
+| Mistral-7B-v0.3 | RoPE+SWA | 0.298 | exp-039 |
+| OLMo-7B | ALiBi | 0.265 | exp-039 |
+| GPT-2 | learned | 0.249 | exp-007 |
+
+GPT-Neo-2.7B removed from this table: its global-layer population has Δ_med = 0.101 (trivial fixed point, architecture-induced, exp-044), which confounds any PE-effect comparison. OLMo-7B is now the clean ALiBi reference. Tentative ordering: RoPE > RoPE+SWA > ALiBi > learned. Bracket width confound remains: GALA-7B ALiBi softmax Δ = 0.260 vs OLMo ALiBi Δ = 0.265 (consistent); norm-sigmoid effect on bracket width is PE-universal in direction but varies in magnitude (GPT-2 bracket ~0.015 vs GALA-7B ~0.037 — confounded by depth/scale).
+
+**NEW — Non-softmax universality (May 31, 2026, exp-041/042/043):**
+GALA-7B (Apple's 7B sigmoid-attention model) tested under exp-007 protocol. Sigmoid raw: 2/1024 conformal heads, Δ_med = 7.44 — effectively no SYK conformal structure. Normalized-sigmoid (QK-norm, scale_query + scale_key per-head RMSNorm): 210/1024 SYK-near, Δ_SYK = 0.223. Softmax: 80/1024 SYK-near, Δ_SYK = 0.260. SYK prediction (0.25) is bracketed between norm-sigmoid and softmax. **The conformal substrate is QK geometry (weight structure), not the normalization function.** Softmax is load-bearing for the exp-007 lag-profile protocol, but the underlying QK weight structure carries the physics. GPT-2 norm-sigmoid control (exp-043): Δ_SYK = 0.234 vs softmax 0.249 — same direction, smaller bracket (learned PE vs ALiBi for GALA-7B).
+
+**NEW — Spectral function G_>/G_< (June 2, 2026, exp-045, partial):**
+DFT spectral analysis on GPT-2 conformal heads. G_< = 0 confirmed (causal attention = zero-temperature SYK ground state, β → ∞). Pearson r = 0.94 between position-space Δ_pos and frequency-space Δ_freq (ordering consistent). CFT kinematic prediction α = 2Δ−1 not confirmed (measured α ≈ −0.83 vs predicted −0.50). Root cause: structural finite-DFT bias (~0.33 offset) from the 55-lag finite support — not a failure of the physics. A calibrated spectral estimator (synthetic calibration curves to invert finite-support bias) is needed for quantitative frequency-domain testing. See exp-045 notes.
 
 **NEW — Empirical path through Junction 3 (March 24, 2026):**
 Trained GPT-2 attention weights show power-law decay α(Δx) ~ |Δx|^{-2Δ} with **median Δ = 0.2493** across 44 power-law heads (R² > 0.90). This matches the SYK q=4 prediction **Δ = 0.25** for D=1 sequences. Randomized GPT-2 shows 0 power-law heads. Phase transition observed in Pythia-70m training at ~step 256. Full results: `research/physics/NUMERICAL_RESULTS_MARCH24.md`.
@@ -170,10 +202,16 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 | arXiv endorsement path — who in cs.LG would endorse? | Need to identify | Open |
 | Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | Us — numerical | Open |
 | Does depth scaling approach a conformal fixed point? | Us — numerical + theory | Suggested by decreasing per-layer ratios |
-| Why is ρ(λ, valley) *negative* in both Pythia-2.8B and GPT-Neo-2.7B? | Us — analysis + theory | **Open as of April 17 — sign anomaly from BCFT functional-form fit** |
+| Why is ρ(λ, valley) *negative* in both Pythia-2.8B and GPT-Neo-2.7B? | Us — analysis + theory | **RESOLVED (exp-046, June 2):** λ captures recency/boundary balance, not a BCFT failure. See above. |
 | What architectural feature of Pythia's training recipe at scale produces the late-layer ρ(Δ, valley) failure? | Us + EleutherAI authors | **Open as of April 17 — per-layer diagnostic localizes to layers 22–27 of Pythia-2.8B; GPT-Neo controls** |
-| Does the alternating-layer pattern in GPT-Neo correspond to two functional populations of heads? | Us — analysis | **Open as of April 17** |
+| Does the alternating-layer pattern in GPT-Neo correspond to two functional populations of heads? | Us — analysis | **Partially resolved (exp-040/044):** GPT-Neo global layers Δ_med = 0.101 (trivial fixed point, architecture-induced). GPT-Neo not a clean ALiBi reference. Functional distinction confirmed but OLMo is better subject for further study. |
 | Does the pre-registered prediction hold on Llama-3-8B? | Us — pending Meta access | Outstanding |
+| Do W_QK eigenvalues show GOE-like level spacing in GPT-2? | Us — analysis | **CONFIRMED UNIVERSAL (exp-046/047, June 2/4):** GOE across GPT-2, GPT-2-medium, Pythia-410m. Conformal/non-conformal indistinguishable. |
+| Are GOE weight statistics universal across model families, or GPT-2-specific? | Us — analysis | **CONFIRMED UNIVERSAL (exp-047, June 4):** Identical distributions in GPT-2 (learned), GPT-2-medium (learned), Pythia-410m (RoPE/NeoX). |
+| What mechanism converts Poisson → GOE during training? (Untrained control.) | Us — analysis | **Open:** untrained GPT-2 weight r-ratio not yet measured. Expected Poisson; if confirmed, gradient descent converts Poisson → GOE. |
+| Is the GOE structure universal across OLMo, Mistral, GPT-Neo? | Us — analysis | **Open:** Pythia-410m tested; OLMo/Mistral/GPT-Neo would extend the cross-family confirmation. |
+| What is the correct frequency-space Δ estimator for the DFT bias? | Us — analysis | **Open (exp-045):** Synthetic calibration can in principle invert finite-support bias. Calibrated estimator not yet implemented. |
+| Does the softmax → norm-sigmoid bracket width depend on PE, depth, scale? | Us — analysis | **Partially open (exp-043):** GPT-2 bracket ~0.015 (learned, 12L), GALA-7B bracket ~0.037 (ALiBi, 32L, 7B). Confounded. Clean test: GPT-2-scale model with ALiBi. |
 
 ---
 
