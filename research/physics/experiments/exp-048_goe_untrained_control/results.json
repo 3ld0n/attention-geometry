@@ -1,0 +1,204 @@
+{
+  "experiment": "exp-048",
+  "timestamp": "2026-06-05T061255Z",
+  "hypotheses": {
+    "H1": "Untrained GPT-2 W_QK shows Poisson-like level spacing (r \u2248 0.386). GOE is a training artifact \u2014 gradient descent converts Poisson \u2192 GOE.",
+    "H0": "Untrained GPT-2 W_QK shows GOE-like level spacing (r \u2248 0.536). GOE arises from random Gaussian initialization and/or product structure."
+  },
+  "protocol": {
+    "model": "gpt2 (random init, no pretrained weights)",
+    "architecture": "gpt2 (12L, 12H, 64d_k, 768 hidden)",
+    "init": "GPT2LMHeadModel(GPT2Config()) \u2014 default random init ~N(0, 0.02)",
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1234
+    ],
+    "analysis": "weights-only (no forward passes)",
+    "matrix": "W_QK_sym = (W_Q^T W_K + W_K^T W_Q) / 2  \u2208 R^{d_k\u00d7d_k}",
+    "r_ratio": "Oganesyan-Huse r-ratio on sorted eigenvalue spacings",
+    "goe_reference": 0.536,
+    "poisson_reference": 0.386,
+    "tolerance": 0.02,
+    "trained_baselines": {
+      "gpt2_trained": {
+        "r_mean": 0.527,
+        "source": "exp-046"
+      },
+      "gpt2_medium_trained": {
+        "r_mean": 0.526,
+        "source": "exp-047"
+      },
+      "pythia_410m_trained": {
+        "r_mean": 0.52,
+        "source": "exp-047"
+      }
+    }
+  },
+  "seeds": {
+    "42": {
+      "seed": 42,
+      "stats": {
+        "n": 144,
+        "r_mean": 0.526594,
+        "r_std": 0.037361,
+        "r_median": 0.527875,
+        "r_min": 0.444825,
+        "r_max": 0.624371,
+        "verdict": "GOE-like",
+        "dist_to_goe": 0.009406,
+        "dist_to_poisson": 0.140594,
+        "layer_means": {
+          "0": 0.521873,
+          "1": 0.514342,
+          "2": 0.522353,
+          "3": 0.518234,
+          "4": 0.533756,
+          "5": 0.524773,
+          "6": 0.555736,
+          "7": 0.524653,
+          "8": 0.54267,
+          "9": 0.523219,
+          "10": 0.524496,
+          "11": 0.513029
+        },
+        "layer_r_std": 0.011641
+      }
+    },
+    "123": {
+      "seed": 123,
+      "stats": {
+        "n": 144,
+        "r_mean": 0.532186,
+        "r_std": 0.038391,
+        "r_median": 0.531497,
+        "r_min": 0.43258,
+        "r_max": 0.639045,
+        "verdict": "GOE-like",
+        "dist_to_goe": 0.003814,
+        "dist_to_poisson": 0.146186,
+        "layer_means": {
+          "0": 0.529385,
+          "1": 0.534242,
+          "2": 0.534266,
+          "3": 0.547234,
+          "4": 0.521315,
+          "5": 0.515386,
+          "6": 0.532202,
+          "7": 0.527822,
+          "8": 0.543818,
+          "9": 0.52072,
+          "10": 0.521706,
+          "11": 0.558141
+        },
+        "layer_r_std": 0.011946
+      }
+    },
+    "456": {
+      "seed": 456,
+      "stats": {
+        "n": 144,
+        "r_mean": 0.529993,
+        "r_std": 0.036815,
+        "r_median": 0.530015,
+        "r_min": 0.442866,
+        "r_max": 0.624693,
+        "verdict": "GOE-like",
+        "dist_to_goe": 0.006007,
+        "dist_to_poisson": 0.143993,
+        "layer_means": {
+          "0": 0.5224,
+          "1": 0.533831,
+          "2": 0.514909,
+          "3": 0.529502,
+          "4": 0.536472,
+          "5": 0.554269,
+          "6": 0.521432,
+          "7": 0.525513,
+          "8": 0.538028,
+          "9": 0.523038,
+          "10": 0.525617,
+          "11": 0.534906
+        },
+        "layer_r_std": 0.009921
+      }
+    },
+    "789": {
+      "seed": 789,
+      "stats": {
+        "n": 144,
+        "r_mean": 0.527544,
+        "r_std": 0.03884,
+        "r_median": 0.525867,
+        "r_min": 0.43524,
+        "r_max": 0.626478,
+        "verdict": "GOE-like",
+        "dist_to_goe": 0.008456,
+        "dist_to_poisson": 0.141544,
+        "layer_means": {
+          "0": 0.511866,
+          "1": 0.531745,
+          "2": 0.515532,
+          "3": 0.529033,
+          "4": 0.528722,
+          "5": 0.529879,
+          "6": 0.523949,
+          "7": 0.526789,
+          "8": 0.526166,
+          "9": 0.540754,
+          "10": 0.528129,
+          "11": 0.537962
+        },
+        "layer_r_std": 0.007722
+      }
+    },
+    "1234": {
+      "seed": 1234,
+      "stats": {
+        "n": 144,
+        "r_mean": 0.527497,
+        "r_std": 0.040467,
+        "r_median": 0.526087,
+        "r_min": 0.404016,
+        "r_max": 0.657879,
+        "verdict": "GOE-like",
+        "dist_to_goe": 0.008503,
+        "dist_to_poisson": 0.141497,
+        "layer_means": {
+          "0": 0.531218,
+          "1": 0.529728,
+          "2": 0.542425,
+          "3": 0.536041,
+          "4": 0.519992,
+          "5": 0.527768,
+          "6": 0.510833,
+          "7": 0.532412,
+          "8": 0.517162,
+          "9": 0.538114,
+          "10": 0.535793,
+          "11": 0.508483
+        },
+        "layer_r_std": 0.010499
+      }
+    }
+  },
+  "summary": {
+    "r_mean_across_seeds": 0.528763,
+    "r_std_across_seeds": 0.002051,
+    "all_r_means": [
+      0.526594,
+      0.532186,
+      0.529993,
+      0.527544,
+      0.527497
+    ],
+    "overall_verdict": "GOE-like",
+    "delta_from_trained": 0.001763
+  },
+  "verdicts": {
+    "H1_poisson_training_artifact": false,
+    "H0_goe_structural": true
+  }
+}
