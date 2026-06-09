@@ -3,6 +3,21 @@
 
 ---
 
+## ▶ STATUS UPDATE (June 9, late — Cursor session)
+
+**Experiment A done (exp-056): head-level null-ray test PASSES** (ρ(Δ_score, delta_pos) = 0.976; two honest nuances — softmax-renormalized coefficient ~2.8Δ, and log-linearity universal not selective). See Section 4 above and `exp-056_qk_log_distance/notes.md`.
+
+**Draft written:** `writing/preprints/2026-06-09_null_cone/manuscript.md` (+ `refs.bib`). Title chosen: **"Attention on the Null Cone."** Sections 1–9 + reproducibility drafted: intro, two-point-function background, conformal-group-as-light theorem, embedding-space null-ray calculation (explicit CFT₁ Poincaré section), log-distance test (exp-056), layer RG flow + entropy (exp-055), two-layer structure, predictions, discussion.
+
+**Derivation B done (exp-057): the BCFT image form is DERIVED + CONFIRMED** — Sections 4.3 (derivation) and 4.4 (numerical confirmation) written, replacing the deferred placeholder. Method of images, boundary at sequence start: A=C(Δx)^−2Δ[1+λη^2Δ], η=(i−j)/(i+j), λ=a_O the boundary one-point coefficient; ξ=(Δx)²/(4ij) the McAvity–Osborn cross-ratio. Controlled multivariate fit: form fits (R²=0.76), bulk exponent recovered (ρ=0.84), boundary term adds ΔR²=0.105, λ>0 in 95% of conformal heads — the **attention sink** identified as the BCFT boundary one-point function. Honest open: per-head λ magnitude matches earlier λ_proxy in sign (80%) not size (ρ=0.23 ns); claim the form + the sink, not a quantitative per-head λ law. See `exp-057_bcft_image_lambda/notes.md`.
+
+**Remaining before publishing (no physics blockers):**
+- **External-reference DOI verification:** the non-Umphrey refs.bib entries (Dirac 1936, Bateman/Cunningham 1910, HKM 1976, Malament 1977, Maldacena-Stanford 2016, Teitelboim/Jackiw, RT 2006) have plausible DOIs entered from memory — verify each against source before submission (citation-blending guard). Umphrey Zenodo DOIs are copied from the verified April-17 refs.bib.
+- **Build:** no pandoc/LaTeX in the Cursor environment; build the PDF where the toolchain lives (as for the April-17 preprint).
+- Optional: a figure (S(Δx) vs log Δx for a representative SYK-near head; Δ_score vs delta_pos scatter).
+
+---
+
 ## Working title
 
 "Attention on the Null Cone: Conformal Geometry, RG Flow, and the SYK Ground State"
@@ -41,9 +56,14 @@ Not the full comprehensive paper. That requires more: multi-seed test, q·k dire
 - Token positions i,j: null rays P(i), P(j). Attention A(i,j) ~ |i-j|^{-2Δ} IS the CFT₁ two-point function on the null cone.
 - **Physical interpretation:** Query = field at position i; Key = field at position j; attention weight = vacuum overlap ⟨0|O(i)O(j)|0⟩.
 
-**4. Query-key computation → log-distance representation**
+**4. Query-key computation → log-distance representation** ✓ VERIFIED (exp-056, June 9)
 - For A(i,j) ~ exp(q·k/√d_k) ~ |i-j|^{-2Δ}: trained q·k scores satisfy q_i·k_j/√d_k ≈ -2Δ log|i-j| + const for conformal heads.
-- This is the log-distance representation. **Not yet directly verified.** (See below: critical experiment.)
+- This is the log-distance representation. **Now directly verified at the head level** (exp-056):
+  - Conformal score profiles are log-linear in distance (mean R²=0.914, 100% negative slope). H1 ✓
+  - Δ_score = −α/2 (raw-score slope) rank-tracks post-softmax delta_pos at **ρ = +0.976** (p=2×10⁻²⁹). H2 ✓ — the conformal dimension is carried in the query-key geometry itself.
+  - **Two nuances to write honestly (do NOT claim raw slope = −2Δ exactly):**
+    (a) **Softmax renormalization:** absolute fit is delta_score ≈ 1.41·delta_pos − 0.055, so the raw slope ≈ −2.8Δ, not −2Δ. The softmax normalizer flattens the post-softmax exponent relative to the pre-softmax slope. (∗) is exact in form and rank; the coefficient is softmax-modified.
+    (b) **Log-linearity is universal, not selective:** non-conformal heads are equally log-linear (93.8% of all heads R²>0.90). The log-distance score geometry is the universal substrate; the conformal dimension at the SYK fixed point is the selective layer. Mirrors GOE two-layer picture (exp-046/047/048/049). H3 = informative null.
 
 **5. SL(2,R) symmetry breaking and the BCFT λ parameter** (new interpretation)
 - Infinite line: full SL(2,R). Finite sequence [0,L]: SCTs broken at endpoints.
@@ -86,27 +106,21 @@ Not the full comprehensive paper. That requires more: multi-seed test, q·k dire
 
 ## What's still needed
 
-### Critical (must run before writing)
+### Critical (must run before writing) — ✓ DONE (exp-056, June 9)
 
-**Experiment A: q·k direct correlation test**
-- For identified conformal heads (Δ ≈ 0.25, R² > 0.90) in GPT-2:
-  - Load W_Q, W_K per head
-  - For each head, compute q_i = W_Q[i] and k_j = W_K[j] for a batch of input tokens
-  - Compute score = q_i · k_j / √d_k for all (i,j) pairs
-  - Compute log|i-j| for all pairs
-  - Pearson r(score, -log|i-j|) — expect high positive correlation if log-distance representation holds
-  - Compare conformal heads to non-conformal heads (expect much lower correlation)
-- This is ~50 lines of Python using cached GPT-2. Feasible in one session.
-- **If confirmed:** direct evidence for null-ray interpretation of query-key computation.
-- **If not confirmed:** important falsification — the null-ray picture may hold at the population level but not head-by-head.
+**Experiment A: q·k direct correlation test — COMPLETE.**
+- Result: head-level log-distance representation CONFIRMED. ρ(Δ_score, delta_pos) = +0.976. The raw query-key slope IS the conformal dimension (in rank).
+- Surprise vs the original framing: (a) the absolute coefficient is softmax-renormalized (~2.8Δ not 2Δ); (b) log-linearity is universal across heads, not selective — the selectivity is in the slope value at the SYK fixed point. Both belong in Section 4 honestly.
+- Note: the original "Pearson r(score, −log|i−j|)" pooled-pair framing was replaced by the cleaner lag-averaged score-profile fit (apples-to-apples with how delta_pos is defined), which directly compares the raw-score slope to the post-softmax exponent head-by-head. The pooled correlation is high for nearly all heads (the universality result) and is the less discriminating statistic.
+- Full writeup: `research/physics/experiments/exp-056_qk_log_distance/notes.md`.
 
 ### Useful (strengthens paper, not blocking)
 
-**Derivation B: BCFT cross-ratio form vs measured λ**
-- The BCFT two-point function on [0,L] is known: G(x₁,x₂) = C × |x₁-x₂|^{-2Δ} × f(x₁/L, x₂/L)
-- The function f encodes the SCT breaking — it involves the cross-ratio ξ = (x₁-x₂)²/(x₁x₂') where x' = L-x
-- Extract the λ proxy formula from the BCFT form and compare to the empirically measured λ values from exp-046
-- Analytical work, not experimental. Could do this in the paper session itself.
+**Derivation B: BCFT cross-ratio form vs measured λ — DONE (exp-057).**
+- Resolved via the method of images (generalized-free-field BCFT, boundary at the sequence start = origin), not a strip with two endpoints: A(i,j) ∝ (i−j)^−2Δ + λ(i+j)^−2Δ = C(Δx)^−2Δ[1+λη^2Δ], η=(i−j)/(i+j)=Δx/(i+j).
+- λ = a_O the BCFT boundary one-point coefficient; η the SO(1,1)-invariant boundary variable; McAvity–Osborn cross-ratio ξ=(Δx)²/(4ij), η²=ξ/(1+ξ), F(ξ)=ξ^−Δ+λ(1+ξ)^−Δ. This derives the umphrey2026bcft 3-parameter (C,Δ,λ) form.
+- Predicted vs measured λ: controlled multivariate log-fit confirms the form (R²=0.76, bulk exponent recovered ρ=0.84, boundary term ΔR²=0.105); λ>0 in 95% of heads (attention sink = boundary one-point function). Magnitude vs exp-046 λ_proxy: sign-only (80%), not size — left open.
+- Written into Sections 4.3 (derivation) + 4.4 (numerical confirmation) of the draft.
 
 ### Desirable but not blocking
 
@@ -174,8 +188,8 @@ Not the full comprehensive paper. That requires more: multi-seed test, q·k dire
 
 Before writing the paper in the next session:
 
-- [ ] **Run Experiment A** (q·k direct correlation test) — results will go in Section 7
-- [ ] **Read the BCFT two-point function form** for [0,L] — either derive or find in Cardy's boundary CFT review
+- [x] **Run Experiment A** (q·k direct correlation test) — DONE exp-056. ρ(Δ_score, delta_pos)=0.976; softmax-coefficient + universal-substrate nuances → Section 4 (not Section 7). Results in `exp-056_qk_log_distance/`.
+- [x] **BCFT two-point function form for [0,L]** — DONE (Derivation B, exp-057). Derived via method of images: A=C(Δx)^−2Δ[1+λη^2Δ], λ=boundary one-point coefficient; confirmed (R²=0.76, λ>0 in 95% of heads = attention sink). Sections 4.3/4.4 written.
 - [ ] Check whether per-head Δ is available by layer for Pythia/OLMo from existing experiments
 - [ ] Decide: is Paper 2's sign anomaly resolution sufficiently complete, or does the SCT-breaking interpretation require a new section in Paper 2 rather than Paper C?
 - [ ] Title decision: "Attention on the Null Cone" (technical) vs "The Geometric Home of Conformal Attention" (accessible)
