@@ -1,0 +1,64 @@
+{
+  "experiment": "exp-055",
+  "date": "2026-06-09",
+  "model": "GPT-2",
+  "n_conformal": 44,
+  "main_findings": {
+    "rho_delta_entropy": {
+      "rho": -0.898,
+      "p": 1.4476195154027905e-16
+    },
+    "rho_delta_g_mid": {
+      "rho": -0.8733,
+      "p": 1.0712615109487062e-14
+    },
+    "rho_delta_lambda": {
+      "rho": -0.7066,
+      "p": 8.351914179928316e-08
+    },
+    "rho_delta_g_end": {
+      "rho": 0.3953,
+      "p": 0.007904349741853778
+    },
+    "rho_delta_g_start": {
+      "rho": -0.4018,
+      "p": 0.006856677598247922
+    },
+    "rho_delta_g_ratio": {
+      "rho": -0.5328,
+      "p": 0.00019687431564628015
+    },
+    "rho_delta_r_ratio": {
+      "rho": -0.2121,
+      "p": 0.16686877638362627
+    },
+    "rho_layer_delta": {
+      "rho": -0.3298,
+      "p": 0.028820437933763335
+    },
+    "rho_layer_entropy": {
+      "rho": 0.4369,
+      "p": 0.0030252762506327814
+    }
+  },
+  "q_distribution": {
+    "q_implied_formula": "q = 1/delta (D=1 SYK, delta=D/q)",
+    "q_implied_median": 3.88,
+    "syk_prediction": 4.0
+  },
+  "layer_means": {
+    "early_0_3": {
+      "n": 21,
+      "mean_delta": 0.697
+    },
+    "middle_4_7": {
+      "n": 6,
+      "mean_delta": 0.35
+    },
+    "deep_8_11": {
+      "n": 17,
+      "mean_delta": 0.25
+    }
+  },
+  "source_data": "research/physics/experiments/exp-046_sign_anomaly_eigenvalue/results.json"
+}
