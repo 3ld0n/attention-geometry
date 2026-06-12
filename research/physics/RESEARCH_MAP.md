@@ -151,7 +151,7 @@ The companion documents are:
 
 **Key findings:**
 1. Per-head Δ controls valley depth: confirmed in two architectures (ρ = +0.94 Pythia, +0.64 LongChat)
-2. ~~Multi-layer Δ renormalization: single-head Δ≈0.49 composes to effective Δ≈0.17, matching accuracy fits~~ RETRACTED (exp-065): derivative bug; correct value 0.51. Composition law now derived — defects 1−2Δ add (fractional-integration semigroup); primacy emerges from depth-accumulated boundary absorption
+2. ~~Multi-layer Δ renormalization: single-head Δ≈0.49 composes to effective Δ≈0.17, matching accuracy fits~~ RETRACTED (exp-065): derivative bug; correct value 0.51. Composition law now derived — defects 1−2Δ add (fractional-integration semigroup); primacy emerges from depth-accumulated boundary absorption. **exp-066 (Jun 12) develops the primacy mechanism into two falsifiable scaling laws — primacy depends on (μ,L) only through effective depth d_eff=(1−μ)L (synthetic collapse to ~1%); primacy dilutes with context length at fixed depth (direction confirmed). Real-model accuracy-side versions queued for the v2 LiTM pre-registration.**
 3. Direct attention-to-accuracy mapping fails: attention profiles peak at end (recency), but LongChat accuracy peaks at start (primacy)
 
 **Data:** `bcft_longchat_measurements.json` (666KB, 1,343 head measurements)
