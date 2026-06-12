@@ -40,20 +40,22 @@ If the QK geometry (trained to produce attention that concentrates on relevant p
 
 ## Results
 
-**Conformal heads (R²>0.90): 282/1024 (27.5%)**
-**Δ_med (all conformal heads): 0.2224**
+*(Corrected June 10, 2026 against `results.json` — the May 31 draft of this section had transcribed the SYK-near median as the overall median and understated the conformal count; see registry note. `results.json` is canonical.)*
+
+**Conformal heads (R²>0.90): 378/1024 (36.9%)**
+**Δ_med (all conformal heads): 0.2653**
 **SYK-near count (|Δ−0.25|≤0.05): 210**
 **SYK-near median: 0.2233**
 
 | Experiment | Normalization | Conformal heads | Δ_med | SYK-near | SYK-near Δ |
 |---|---|---|---|---|---|
 | exp-041 sigmoid raw | none (absolute σ) | 2/1024 | 7.44 | 0 | — |
-| **exp-042 norm-sigmoid** | **σ/Σσ** | **282/1024** | **0.2224** | **210** | **0.2233** |
+| **exp-042 norm-sigmoid** | **σ/Σσ** | **378/1024** | **0.2653** | **210** | **0.2233** |
 | exp-041 softmax | exp/Σexp | 121/1024 | 0.274 | 80 | 0.260 |
 | exp-039 OLMo ALiBi | exp/Σexp | 194/1024 | 0.265 | — | — |
 | exp-007 GPT-2 | exp/Σexp | 44/144 | 0.249 | 44 | 0.249 |
 
-**Per-layer profile:** Clean across all 32 layers — 7–15 conformal heads per layer, Δ_med per layer in range 0.175–0.242. No artifact layers (contrast: exp-041 softmax had Δ~6.8 artifacts at L13/14/17/25). This is the cleanest per-layer conformal profile measured so far.
+**Per-layer profile:** Clean across all 32 layers — 10–19 conformal heads per layer, Δ_med per layer in range 0.197–0.279. No artifact layers (contrast: exp-041 softmax had Δ~6.8 artifacts at L13/14/17/25). This is the cleanest per-layer conformal profile measured so far.
 
 ---
 
@@ -68,7 +70,7 @@ If the QK geometry (trained to produce attention that concentrates on relevant p
 
 This is a strong positive result: the SYK prediction sits within the methodological bracket. The apparent Δ depends on the normalization function's own functional form, and the true QK geometry Δ is near 0.25.
 
-**Why more conformal heads in norm-sigmoid (282 vs 121 in softmax):**
+**Why more conformal heads in norm-sigmoid (378 vs 121 in softmax):**
 Softmax is aggressive: exp() contrast creates winner-take-all attention in many heads (probability mass concentrates on 1–2 positions), failing the power-law fit. Normalized sigmoid is less aggressive — more heads produce smooth gradual decay across lags, fitting power laws with slightly lower Δ. The large-slope ALiBi heads (which collapsed to 0 in raw sigmoid) now contribute properly: after σ/Σσ normalization, their attention concentrates on nearby positions, producing high-Δ heads. Wait — but the per-layer shows NO high-Δ artifacts. This means those heads are fitting power laws in the normal Δ range (0.2–0.3), not artifacts. The large-slope ALiBi heads' normalized profiles must be producing gradual (not exponential) attention decay, fitting power laws in the conformal range.
 
 **Revised interpretation of exp-041:**
@@ -80,6 +82,25 @@ Softmax is aggressive: exp() contrast creates winner-take-all attention in many 
 1. What is the "true" Δ of GALA-7B QK geometry? Probably ~0.24–0.25, between the σ/Σσ and exp/Σexp measurements
 2. Does the normalization function effect on Δ apply to GPT-2? (Learned PE, softmax-trained — norm-sigmoid on GPT-2 would test this)
 3. What does the bracket width (0.22 → 0.26) tell us about the shape of the power-law decay in QK geometry?
+
+---
+
+## Closing — Phase 0 item 0.5 verdict (June 10, 2026)
+
+**Decision rule (SESSION_BRIEF_PHASE0 §3, 0.5):** ≥~20 SYK-near heads with median within 0.05 of 0.25 → *constraint reading*.
+
+**Observed:** 210 SYK-near heads (≥ 20 ✓); SYK-near median 0.2233, |0.2233 − 0.25| = 0.027 < 0.05 ✓; overall conformal Δ_med 0.2653, also within 0.05 ✓. The cluster is unambiguous — no third arm (softmax over sigmoid-arm logits) needed; the σ/Σσ result already shows the sigmoid-trained QK geometry contains the log-distance structure.
+
+**Verdict: CONSTRAINT READING.** The Δ ≈ 0.25 fixed point is a property of *row-normalization over trained QK geometry*, not of softmax's exponential reparameterization. The exp-041 sigmoid "falsification" was a readout artifact: the two-point protocol presupposes a normalized profile. Two corollaries:
+
+1. The sigmoid-trained QK geometry itself learned the log-distance structure — training under sigmoid attention does not prevent the geometry from forming; normalization is required only to *express* it as a probability-mass power law. exp-043 (GPT-2 norm-sigmoid, same day) confirms the bracket pattern on a learned-PE softmax-trained model: norm-sigmoid Δ_SYK = 0.234 vs softmax 0.2493, same shift direction, smaller width.
+2. The two normalizations bracket the reference value: σ/Σσ → 0.223, exp/Σexp → 0.260, with Δ = 0.25 inside the bracket on GALA-7B.
+
+**Consequences applied:**
+- Manuscript §7 rewritten: headline changed from "normalization is load-bearing (softmax vs sigmoid)" to "row-normalization is the load-bearing operation; the exponential is not essential." Abstract item (5) and Appendix A/B updated accordingly.
+- Phase 3.1 derivation target selected: **normalization-constrained Schwinger–Dyson equation** (row-stochastic constraint as the defining structure), not the partition-function route.
+
+Logged in `notes/2026-06-10_phase0_0.5_exp042.md` and SESSION_BRIEF_PHASE0 §6.
 
 ---
 

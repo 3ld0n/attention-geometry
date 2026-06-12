@@ -146,12 +146,12 @@ The companion documents are:
 | Fit to Liu et al. accuracy | `bcft_litm_liu_comparison.py` | R² = 0.88–0.99 with free parameters, but fitted Δ doesn't match measured Δ |
 | GPT-2 KV retrieval benchmark | `bcft_litm_gpt2_benchmark.py` | Task too easy — no LiTM signal in GPT-2 |
 | **LongChat-13B-16K on A100** | `bcft_cloud_comparison.py` | 1,343/1,600 conformal heads, median Δ=0.49, ρ(Δ, valley)=+0.637. Direct accuracy prediction: R²=0.02–0.07 |
-| Multi-layer composition | `bcft_multilayer_composition.py` | **Δ_eff = 0.1655 from composition, matching Liu accuracy-fitted Δ = 0.1711** |
+| Multi-layer composition | `bcft_multilayer_composition.py` | ~~Δ_eff = 0.1655 from composition, matching Liu accuracy-fitted Δ = 0.1711~~ **RETRACTED (exp-065, Jun 12 2026): factor-of-2 bug in the derivative; correct additive Δ_eff(dx=20) = 0.5115. No coincidence. See exp-065 for the derived composition law + primacy-from-depth finding.** |
 | Filtered composition | `bcft_composition_filtered.py` | Shape mismatch persists (best R²=0.19). Attention sinks dominate raw composite |
 
 **Key findings:**
 1. Per-head Δ controls valley depth: confirmed in two architectures (ρ = +0.94 Pythia, +0.64 LongChat)
-2. Multi-layer Δ renormalization: single-head Δ≈0.49 composes to effective Δ≈0.17, matching accuracy fits
+2. ~~Multi-layer Δ renormalization: single-head Δ≈0.49 composes to effective Δ≈0.17, matching accuracy fits~~ RETRACTED (exp-065): derivative bug; correct value 0.51. Composition law now derived — defects 1−2Δ add (fractional-integration semigroup); primacy emerges from depth-accumulated boundary absorption
 3. Direct attention-to-accuracy mapping fails: attention profiles peak at end (recency), but LongChat accuracy peaks at start (primacy)
 
 **Data:** `bcft_longchat_measurements.json` (666KB, 1,343 head measurements)
@@ -490,7 +490,7 @@ research/experiments/four_point_results.json  — Four-point correlator data
 8. **Randomized control:** 0 power-law heads in random weights (definitive)
 9. **Four-point correlator:** Free-theory fit R² = 0.94, crossing slope 0.957
 10. **Per-head Δ–valley depth correlation:** ρ = +0.942 (Pythia), +0.637 (LongChat-13B)
-11. **Multi-layer Δ renormalization:** Δ_eff = 0.17 from composition, matching accuracy-fitted Δ
+11. ~~**Multi-layer Δ renormalization:** Δ_eff = 0.17 from composition, matching accuracy-fitted Δ~~ — RETRACTED (exp-065, Jun 12 2026): factor-of-2 derivative bug; no coincidence. Replaced by the derived composition law (defect additivity) and the primacy-from-depth mechanism.
 
 ### Open / Negative Results
 - **GUE at single-matrix level:** Negative. Single-head logit matrices show GOE, not GUE. Need collective observable
@@ -547,8 +547,8 @@ research/experiments/four_point_results.json  — Four-point correlator data
 
 ### 7. Analytical Δ Renormalization Derivation
 **What:** Derive how per-layer Δ values compose to give the effective Δ governing task performance.
-**Why:** The numerical match (0.17 from composition ≈ 0.17 from accuracy) is striking but needs theoretical explanation.
-**Status:** Theoretical work needed.
+**Why:** ~~The numerical match (0.17 from composition ≈ 0.17 from accuracy) is striking but needs theoretical explanation.~~
+**Status: DONE — exp-065 (Jun 12, 2026).** The motivating numerical match was an artifact (factor-of-2 bug in the April derivative). The derivation was carried out anyway: defects δ = 1−2Δ combine as δ_comp = max(δ₁, δ₂, δ₁+δ₂) (fractional-integration semigroup on the addition branch; verified to 10⁻³ with parameter-free Beta/ζ coefficients). Corollaries: scrambling depth L* = 1/(1−2Δ); the q=2 plateau (Δ=1/2) is the non-mixing identity; depth-accumulated boundary absorption produces the primacy term of the LiTM U-shape. See `experiments/exp-065_composition_law/notes.md` and `notes/2026-06-12_composition_law_derivation.md`.
 
 ---
 

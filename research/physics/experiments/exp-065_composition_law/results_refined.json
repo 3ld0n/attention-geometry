@@ -1,0 +1,35 @@
+{
+ "P1_refined": {
+  "n_pairs": 30,
+  "n_checks": 150,
+  "max_abs_ratio_dev": 0.001067,
+  "median_abs_ratio_dev": 7.1e-05,
+  "verdict": "CONFIRMED (no-free-parameter coefficients)"
+ },
+ "P3_refined": {
+  "q4_acomp_by_L": [
+   0.5,
+   -0.1151,
+   -0.7372,
+   -1.3609,
+   -1.9833,
+   -2.6027
+  ],
+  "q4_pred_by_L": [
+   0.5,
+   0.0,
+   -0.5,
+   -1.0,
+   -1.5,
+   -2.0
+  ],
+  "longchat_acomp_L1_L10_L20_L40": [
+   0.9842,
+   -2.0419,
+   -5.7641,
+   -12.8699
+  ],
+  "longchat_pred_L40": 0.368,
+  "longchat_meas_L40": -12.8699
+ }
+}

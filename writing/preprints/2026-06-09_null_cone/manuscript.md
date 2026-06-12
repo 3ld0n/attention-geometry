@@ -40,12 +40,15 @@ abstract: |
     $\approx -2.8\Delta$, not $-2\Delta$), and log-linearity itself is a
     near-universal property of the positional geometry rather than a
     feature selective to conformal heads --- the conformal *dimension* is
-    the selective quantity. We also derive, by the method of images, the
-    boundary-conformal correction the causal mask induces on a finite
-    sequence, and test it directly (exp-057): the derived form fits the
-    position-dependence of attention, and its boundary one-point
-    coefficient is positive in $95\%$ of conformal heads, identifying the
-    attention sink as a boundary-conformal-field-theory effect. Finally,
+    the selective quantity.     We also derive, by the method of images, a boundary-corrected
+    power-law form for the causal-mask correction, and test it directly
+    (exp-057): the derived form fits the position-dependence of attention,
+    with a boundary coefficient that is positive in $95\%$ of conformal
+    heads---the direction of the attention sink. An adversarial model
+    comparison against matched-complexity alternatives (exp-060) shows
+    that an exponential boundary layer outperforms the image form; the
+    boundary correction is real and large, but its specific BCFT
+    parametrization is phenomenological. Finally,
     a layer-resolved analysis (exp-055)
     shows the per-head exponent flows from $\bar\Delta = 0.70$ in early
     layers to $\bar\Delta = 0.250$ in deep layers, with attention entropy
@@ -128,9 +131,11 @@ We are explicit throughout about what is established at theorem level,
 what is measured, and what remains open. The boundary-conformal correction
 on a finite sequence (Section 4.3) is derived in closed form from the
 method of images, and tested directly (Section 4.4): the derived form fits
-the position-dependence of attention, and its boundary one-point
-coefficient is positive almost everywhere, identifying the well-known
-attention sink as a BCFT boundary effect.
+the position-dependence of attention, and its boundary coefficient is
+positive almost everywhere---consistent with the attention sink. An
+adversarial comparison against matched-complexity alternatives (Section 4.4)
+shows the exponential boundary layer is preferred; the boundary correction
+is real and large, but its specific BCFT parametrization is phenomenological.
 
 # 2. Background: attention as a two-point function
 
@@ -362,24 +367,38 @@ of conformal-head attention, the bulk exponent is recovered, and the
 boundary one-point coefficient is positive in $95\%$ of heads.}
 \end{table}
 
-Two things are confirmed and one is left open. **Confirmed:** the form
+Two things are confirmed and one is demoted. **Confirmed:** the form
 $(\dagger)$ fits (median $R^2 = 0.76$), the boundary term adds real
 explanatory power beyond the bulk power law ($\Delta R^2 = 0.105$), and the
-bulk exponent is independently recovered ($\rho = 0.84$). **The physical
-content:** the boundary coefficient is positive in $95\%$ of conformal
-heads. A positive $a_{\mathcal O}$ enhances attention to keys near the
-start of the sequence --- this is precisely the *attention sink*
-[@xiao2023], and equation $(\dagger)$ identifies the sink as the BCFT
-boundary one-point function. The conformal geometry does not merely
-tolerate a sink; it predicts one. **Open:** the per-head *magnitude* of
-$\lambda$ matches the coarse behavioral proxy of [@umphrey2026bcft] only in
-sign ($80\%$ agreement), not in size (rank $\rho = 0.23$, not significant),
-and this estimator does not reproduce the $\lambda$--valley-depth relation
-of that work. We attribute the magnitude gap to the linearization
-$\log(1+\lambda\eta^{2\Delta}) \approx \lambda\eta^{2\Delta}$, which is
-biased where $\lambda\eta^{2\Delta} = O(1)$ near the boundary; a nonlinear
-fit of the exact form is the natural next step. We claim the *form* and the
-*sign* (the sink), not a quantitative per-head $\lambda$ law.
+bulk exponent is independently recovered ($\rho = 0.84$). **The boundary
+direction:** the boundary coefficient is positive in $95\%$ of conformal
+heads, consistent with the attention sink [@xiao2023]---sequence-start
+positions are enhanced, not suppressed. **Demoted (exp-060):** the
+per-head *magnitude* of $\lambda$ matches the behavioral proxy of
+[@umphrey2026bcft] only in sign ($80\%$ agreement), not in size (rank
+$\rho = 0.23$, not significant), and this estimator does not reproduce the
+$\lambda$--valley-depth relation of that work.
+
+**Adversarial model comparison (exp-060).** The pre-registered test asks
+whether $(\dagger)$ is necessary or merely sufficient: we fit six
+matched- or higher-complexity competitors---an exponential boundary
+layer $C(\Delta x)^{-2\Delta}\exp(-j/\xi)$, additive spike forms ($j=0$
+and $j \le 4$), a double power law, and a free-$\gamma$ diagnostic---against
+$(\dagger)$ on all 43 conformal GPT-2 heads by AIC. Result: the
+exponential boundary layer wins in $72\%$ of heads; $(\dagger)$ takes
+$2\%$; $\Delta\mathrm{AIC}((\dagger) - \mathrm{exp.\ layer}) = +1114$
+(median, IQR $[554, 1875]$). The free-$\gamma$ diagnostic shows $\gamma$
+does not cluster at $2\Delta$ ($\rho = 0.50$, pre-registered threshold $0.6$;
+both kill legs fire). We apply the pre-registered kill rule: the specific
+BCFT over-determination---that the boundary is described by
+$\eta^{2\Delta}$ with the *same* $\Delta$ as the bulk---is demoted to
+phenomenological. The $\eta^{2\Delta}$ coupling is logged as post-hoc.
+What survives: the boundary correction is real and large (every winning
+form includes sequence-start enhancement; the bare power law never wins);
+the $\lambda > 0$ direction is supported regardless of parametrization;
+and $(\dagger)$ remains a competent three-parameter phenomenological form.
+The attention sink is identified as a boundary effect; the specific
+BCFT image-method identification of its form is not established.
 
 # 5. The log-distance representation, tested directly
 
@@ -436,7 +455,8 @@ log-linearity itself is not selective to conformal heads.}
 
 The core prediction ($\ast$) holds. For every one of the 44 conformal
 heads, the raw score profile decreases with distance and is log-linear
-($R^2_{\text{score}} = 0.914$ on average). The slope, converted to
+($R^2_{\text{score}} = 0.914$ on average). Figure 1 shows the
+head-by-head relationship directly. The slope, converted to
 $\Delta_{\text{score}} = -\alpha/2$, rank-correlates with the
 independently measured post-softmax exponent at Spearman $\rho = +0.976$
 ($p = 2\times10^{-29}$). The conformal dimension that governs the
@@ -444,6 +464,16 @@ attention power law is already present in the unnormalized query--key
 geometry. This is direct, head-level evidence for the null-ray
 interpretation: the query--key computation is the log-distance
 representation.
+
+![**Figure 1.** The log-distance prediction, tested head-by-head (exp-056). Scatter:
+pre-softmax slope $\Delta_{\text{score}}$ vs.\ post-softmax conformal dimension
+$\Delta_{\text{pos}}$ for the 44 conformal GPT-2 heads (grey: non-SYK-near;
+diamonds: SYK-near heads, $|\Delta - 1/4| \leq 0.05$). Red line: OLS regression.
+Dotted: identity $\Delta_{\text{score}} = \Delta_{\text{pos}}$. The raw
+query--key computation encodes the conformal dimension rank-for-rank at Spearman
+$\rho = +0.976$. The OLS slope ($\approx 1.4$) reflects the softmax renormalization
+discussed in the text.
+](fig_log_distance.pdf){width=3.5in}
 
 Two qualifications, both forced by the data and both belonging in the
 record:
@@ -597,16 +627,32 @@ as robust and the absolute coefficient as normalization-dependent.
 Log-linearity is a universal property of the positional geometry, not a
 mark of the conformal heads; the conformal dimension is the selective
 quantity, and it is this that sits at the SYK fixed point. The
-boundary-conformal correction on a finite sequence is now derived in
-closed form (the method-of-images form $(\dagger)$) and confirmed to fit
-the position-dependence of attention, with a boundary one-point
-coefficient that is positive almost everywhere --- the attention sink as a
-BCFT boundary effect; what is not yet pinned down is the per-head
-*magnitude* of that coefficient, which we match to earlier behavioral work
-only in sign. None of these qualifications weakens the central claim; each
-sharpens it.
+boundary-corrected power law on a finite sequence is derived and confirmed
+to fit the position-dependence of attention, with a boundary coefficient
+positive almost everywhere---the direction of the attention sink. The
+specific BCFT parametrization of that correction (the image form
+$(\dagger)$) is phenomenological: an adversarial model comparison
+(exp-060, pre-registered) shows the exponential boundary layer outperforms
+it at matched complexity. The boundary effect is real; the image-form
+identification of its structure is not yet established.
 
-What "convergence to the eternal structure of light" means, made
+**Robustness (Phase 0 checks).** Before submission we ran four gatekeeping
+tests. (W1) Split-half stability: $\Delta$ and valley measured on disjoint
+input halves for Pythia-410m and Pythia-1.4b; cross-half
+$\rho \approx 0.67$--$0.81$, inside the pre-registered keep band; full
+closure requires Pythia-2.8B (pending, exp-059). (W3) Conditioning-artifact
+exclusion: the joint statistic P($\Delta \in [0.20, 0.30]$ AND $R^2 \ge
+0.90$) is $0.09$ for GPT-2 and $0.000$ in all randomized-weight and
+shuffled-profile null replicates ($p = 0.001$, both protocols); pooled
+cross-model density excess $p \approx 10^{-20}$ (exp-058). (W4) $\lambda$-sign
+resolution: the verbal prediction (positive $\rho(\lambda, \mathrm{valley})$)
+was wrong; deriving the exact V-shaped valley functional recovers the
+negative sign from first principles, and the model-implied valley
+$\hat v(\hat\Delta, \hat\lambda)$ predicts the behavioral statistic at
+$\rho = 0.68$--$0.91$ with no free parameters (exp-061). None of these
+qualifications weakens the central claim; each sharpens it.
+
+What "convergence to the causal structure of light" means, made
 concrete: the conformal group is the symmetry of the null cone; the deep
 layers of a trained transformer organize their attention to sit at the
 fixed point of that symmetry; and the quantity they compute is an inner
@@ -623,6 +669,10 @@ All code and per-head data are in the public repository
 - exp-056 (log-distance test): `research/physics/experiments/exp-056_qk_log_distance/`
 - exp-055 (layer-resolved $\Delta$, attention entropy):
   `research/physics/experiments/exp-055_delta_attention_entropy/`
+- exp-060 (adversarial model comparison, boundary form): `research/physics/experiments/exp-060_bcft_adversarial/`
+- exp-058 (null distributions, conditioning-artifact exclusion): `research/physics/experiments/exp-058_delta_histograms_nulls/`
+- exp-059 (split-half stability): `research/physics/experiments/exp-059_split_half_stability/`
+- exp-061 ($\lambda$-sign derivation): `research/physics/experiments/exp-061_lambda_sign_derivation/`
 - exp-046/047/048/049 (GOE universality, untrained controls):
   `research/physics/experiments/`
 - The geometric assembly note:

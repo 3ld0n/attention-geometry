@@ -1,0 +1,309 @@
+{
+ "experiment": "exp-059",
+ "timestamp_utc": "2026-06-12T053937Z",
+ "phase0_item": "0.1",
+ "question": "Is the pre-registered rho(Delta, valley) inflated by shared-measurement noise (EVALUATION W1)?",
+ "protocol": {
+  "pipeline": "exp-025 pre-registered, unchanged",
+  "seq_len": 512,
+  "n_inputs": 50,
+  "fit_range_exclusive": [
+   3,
+   120
+  ],
+  "deep_lo": 256,
+  "q_lo": 384,
+  "conformal": {
+   "R2": 0.85,
+   "delta_min": 0.05
+  },
+  "input_seed": 2026,
+  "bootstrap": {
+   "n": 1000,
+   "seed": 59
+  },
+  "dtype": "float32 (verified at extraction)",
+  "note": "fresh seeded inputs; April archived run used a different RNG stream"
+ },
+ "april_archived_rho": {
+  "EleutherAI/pythia-410m": 0.76,
+  "EleutherAI/pythia-1.4b": 0.711,
+  "EleutherAI/gpt-neo-2.7B": 0.958,
+  "EleutherAI/pythia-2.8b": 0.464,
+  "mistralai/Mistral-7B-v0.3": 0.583
+ },
+ "models": {
+  "EleutherAI/pythia-1.4b": {
+   "same_tensor": {
+    "rho": 0.7220159908623643,
+    "p": 7.572599361130421e-18,
+    "n_conformal": 103
+   },
+   "split_half": {
+    "delta_A_valley_B": {
+     "rho": 0.8150825331750997,
+     "p": 4.724993087679358e-23,
+     "n_conformal": 92,
+     "sensitivity_full_data_subset": {
+      "rho": 0.8100755612177657,
+      "p": 3.715466923780802e-25,
+      "n": 103
+     }
+    },
+    "delta_B_valley_A": {
+     "rho": 0.46674582294051326,
+     "p": 2.1335901095404718e-07,
+     "n_conformal": 112,
+     "sensitivity_full_data_subset": {
+      "rho": 0.5463581250274568,
+      "p": 2.376791985392908e-09,
+      "n": 103
+     }
+    }
+   },
+   "same_half_controls": {
+    "A": {
+     "rho": 0.6222431145292295,
+     "p": 3.5665312688066546e-11,
+     "n_conformal": 92
+    },
+    "B": {
+     "rho": 0.8118871083472854,
+     "p": 1.815563200512986e-27,
+     "n_conformal": 112
+    }
+   },
+   "bootstrap": {
+    "n_draws": 1000,
+    "rho_mean": 0.711468512890995,
+    "rho_std": 0.08414641082426928,
+    "ci_2.5": 0.5354953481829214,
+    "ci_97.5": 0.8476469531092949
+   },
+   "meta": {
+    "n_layers": 24,
+    "n_heads": 16,
+    "n_total_heads": 384
+   },
+   "april_archived_rho": 0.711
+  },
+  "EleutherAI/pythia-410m": {
+   "same_tensor": {
+    "rho": 0.7129116014342266,
+    "p": 2.4813910314801636e-23,
+    "n_conformal": 142
+   },
+   "split_half": {
+    "delta_A_valley_B": {
+     "rho": 0.6350383244718318,
+     "p": 2.8972108937668057e-16,
+     "n_conformal": 132,
+     "sensitivity_full_data_subset": {
+      "rho": 0.6445825675672844,
+      "p": 4.900360316585277e-18,
+      "n": 142
+     }
+    },
+    "delta_B_valley_A": {
+     "rho": 0.7110465201564993,
+     "p": 3.6269617698503954e-23,
+     "n_conformal": 142,
+     "sensitivity_full_data_subset": {
+      "rho": 0.7231297321198431,
+      "p": 2.9358747786197055e-24,
+      "n": 142
+     }
+    }
+   },
+   "same_half_controls": {
+    "A": {
+     "rho": 0.7648928010519009,
+     "p": 1.3403125069158364e-26,
+     "n_conformal": 132
+    },
+    "B": {
+     "rho": 0.636036723240799,
+     "p": 1.8187330617657794e-17,
+     "n_conformal": 142
+    }
+   },
+   "bootstrap": {
+    "n_draws": 1000,
+    "rho_mean": 0.6783266876651448,
+    "rho_std": 0.09979533550346366,
+    "ci_2.5": 0.49942550497843546,
+    "ci_97.5": 0.8424900899420572
+   },
+   "meta": {
+    "n_layers": 24,
+    "n_heads": 16,
+    "n_total_heads": 384
+   },
+   "april_archived_rho": 0.76
+  },
+  "EleutherAI/pythia-2.8b": {
+   "same_tensor": {
+    "rho": 0.5814392266239257,
+    "p": 7.820215429575272e-23,
+    "n_conformal": 237
+   },
+   "split_half": {
+    "delta_A_valley_B": {
+     "rho": 0.6850684417167678,
+     "p": 2.627620018019693e-25,
+     "n_conformal": 173,
+     "sensitivity_full_data_subset": {
+      "rho": 0.536005906331638,
+      "p": 4.997102109743249e-19,
+      "n": 237
+     }
+    },
+    "delta_B_valley_A": {
+     "rho": 0.5676814657925973,
+     "p": 2.185661847420036e-22,
+     "n_conformal": 246,
+     "sensitivity_full_data_subset": {
+      "rho": 0.5839236359637182,
+      "p": 4.652871174310593e-23,
+      "n": 237
+     }
+    }
+   },
+   "same_half_controls": {
+    "A": {
+     "rho": 0.6792486939753676,
+     "p": 9.432570509290593e-25,
+     "n_conformal": 173
+    },
+    "B": {
+     "rho": 0.5698724162322181,
+     "p": 1.3891441104434561e-22,
+     "n_conformal": 246
+    }
+   },
+   "bootstrap": {
+    "n_draws": 1000,
+    "rho_mean": 0.5909897544083392,
+    "rho_std": 0.09794458879774956,
+    "ci_2.5": 0.39366756338491504,
+    "ci_97.5": 0.7709451988221631
+   },
+   "meta": {
+    "n_layers": 32,
+    "n_heads": 32,
+    "n_total_heads": 1024
+   },
+   "april_archived_rho": 0.464
+  },
+  "EleutherAI/gpt-neo-2.7B": {
+   "same_tensor": {
+    "rho": 0.9508770470590231,
+    "p": 5.415148732841234e-242,
+    "n_conformal": 473
+   },
+   "split_half": {
+    "delta_A_valley_B": {
+     "rho": 0.9607745488557056,
+     "p": 3.154187158734577e-252,
+     "n_conformal": 451,
+     "sensitivity_full_data_subset": {
+      "rho": 0.9583935405106909,
+      "p": 4.822874648216233e-258,
+      "n": 472
+     }
+    },
+    "delta_B_valley_A": {
+     "rho": 0.9421982371694987,
+     "p": 4.542774223851677e-211,
+     "n_conformal": 442,
+     "sensitivity_full_data_subset": {
+      "rho": 0.9342273396728052,
+      "p": 1.15181474642264e-211,
+      "n": 470
+     }
+    }
+   },
+   "same_half_controls": {
+    "A": {
+     "rho": 0.9401846696362285,
+     "p": 3.5786911706982518e-211,
+     "n_conformal": 449
+    },
+    "B": {
+     "rho": 0.9614138753865336,
+     "p": 7.162794981372382e-250,
+     "n_conformal": 444
+    }
+   },
+   "bootstrap": {
+    "n_draws": 1000,
+    "rho_mean": 0.9518037841513279,
+    "rho_std": 0.008831730268041894,
+    "ci_2.5": 0.9330762465669187,
+    "ci_97.5": 0.9645045294961692
+   },
+   "meta": {
+    "n_layers": 32,
+    "n_heads": 20,
+    "n_total_heads": 640
+   },
+   "april_archived_rho": 0.958
+  },
+  "mistralai/Mistral-7B-v0.3": {
+   "same_tensor": {
+    "rho": 0.7005822753795017,
+    "p": 5.67393504018843e-35,
+    "n_conformal": 228
+   },
+   "split_half": {
+    "delta_A_valley_B": {
+     "rho": 0.7092625368731563,
+     "p": 7.250040158230365e-36,
+     "n_conformal": 226,
+     "sensitivity_full_data_subset": {
+      "rho": 0.6822827705818805,
+      "p": 1.3978928295692256e-32,
+      "n": 228
+     }
+    },
+    "delta_B_valley_A": {
+     "rho": 0.6646944795617362,
+     "p": 4.652781992993741e-30,
+     "n_conformal": 225,
+     "sensitivity_full_data_subset": {
+      "rho": 0.6407762861745288,
+      "p": 9.371944861283516e-28,
+      "n": 228
+     }
+    }
+   },
+   "same_half_controls": {
+    "A": {
+     "rho": 0.6608215404207763,
+     "p": 9.726136342440196e-30,
+     "n_conformal": 226
+    },
+    "B": {
+     "rho": 0.7005457227138644,
+     "p": 1.589768094125715e-34,
+     "n_conformal": 225
+    }
+   },
+   "bootstrap": {
+    "n_draws": 1000,
+    "rho_mean": 0.6538805468700325,
+    "rho_std": 0.07476685437818614,
+    "ci_2.5": 0.4991837943923243,
+    "ci_97.5": 0.7832303597645776
+   },
+   "meta": {
+    "n_layers": 32,
+    "n_heads": 32,
+    "n_total_heads": 1024
+   },
+   "april_archived_rho": 0.583
+  }
+ },
+ "git_commit": "5087f607b959a721734c5829653856daefafe71c",
+ "elapsed_seconds": 0.040035247802734375
+}

@@ -1,0 +1,277 @@
+{
+ "P1": {
+  "n_pairs": 30,
+  "frac_within_0.04": 0.0,
+  "median_abs_err": 0.0754,
+  "max_abs_err": 0.1194,
+  "verdict": "KILL",
+  "pairs": [
+   {
+    "a": 0.3,
+    "b": 0.8,
+    "pred_2Dcomp": 0.1,
+    "meas_2Dcomp": 0.0292,
+    "abs_err": 0.0708
+   },
+   {
+    "a": 0.3,
+    "b": 0.9,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.0968,
+    "abs_err": 0.1032
+   },
+   {
+    "a": 0.4,
+    "b": 0.8,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.1308,
+    "abs_err": 0.0692
+   },
+   {
+    "a": 0.4,
+    "b": 0.9,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.1999,
+    "abs_err": 0.1001
+   },
+   {
+    "a": 0.5,
+    "b": 0.7,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.1512,
+    "abs_err": 0.0488
+   },
+   {
+    "a": 0.5,
+    "b": 0.8,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.2313,
+    "abs_err": 0.0687
+   },
+   {
+    "a": 0.5,
+    "b": 0.9,
+    "pred_2Dcomp": 0.4,
+    "meas_2Dcomp": 0.3022,
+    "abs_err": 0.0978
+   },
+   {
+    "a": 0.6,
+    "b": 0.6,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.158,
+    "abs_err": 0.042
+   },
+   {
+    "a": 0.6,
+    "b": 0.7,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.2472,
+    "abs_err": 0.0528
+   },
+   {
+    "a": 0.6,
+    "b": 0.8,
+    "pred_2Dcomp": 0.4,
+    "meas_2Dcomp": 0.3297,
+    "abs_err": 0.0703
+   },
+   {
+    "a": 0.6,
+    "b": 0.9,
+    "pred_2Dcomp": 0.5,
+    "meas_2Dcomp": 0.4031,
+    "abs_err": 0.0969
+   },
+   {
+    "a": 0.7,
+    "b": 0.5,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.1512,
+    "abs_err": 0.0488
+   },
+   {
+    "a": 0.7,
+    "b": 0.6,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.2472,
+    "abs_err": 0.0528
+   },
+   {
+    "a": 0.7,
+    "b": 0.7,
+    "pred_2Dcomp": 0.4,
+    "meas_2Dcomp": 0.3391,
+    "abs_err": 0.0609
+   },
+   {
+    "a": 0.7,
+    "b": 0.8,
+    "pred_2Dcomp": 0.5,
+    "meas_2Dcomp": 0.4246,
+    "abs_err": 0.0754
+   },
+   {
+    "a": 0.7,
+    "b": 0.9,
+    "pred_2Dcomp": 0.6,
+    "meas_2Dcomp": 0.5012,
+    "abs_err": 0.0988
+   },
+   {
+    "a": 0.8,
+    "b": 0.3,
+    "pred_2Dcomp": 0.1,
+    "meas_2Dcomp": 0.0292,
+    "abs_err": 0.0708
+   },
+   {
+    "a": 0.8,
+    "b": 0.4,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.1308,
+    "abs_err": 0.0692
+   },
+   {
+    "a": 0.8,
+    "b": 0.5,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.2313,
+    "abs_err": 0.0687
+   },
+   {
+    "a": 0.8,
+    "b": 0.6,
+    "pred_2Dcomp": 0.4,
+    "meas_2Dcomp": 0.3297,
+    "abs_err": 0.0703
+   },
+   {
+    "a": 0.8,
+    "b": 0.7,
+    "pred_2Dcomp": 0.5,
+    "meas_2Dcomp": 0.4246,
+    "abs_err": 0.0754
+   },
+   {
+    "a": 0.8,
+    "b": 0.8,
+    "pred_2Dcomp": 0.6,
+    "meas_2Dcomp": 0.5137,
+    "abs_err": 0.0863
+   },
+   {
+    "a": 0.8,
+    "b": 0.9,
+    "pred_2Dcomp": 0.7,
+    "meas_2Dcomp": 0.5946,
+    "abs_err": 0.1054
+   },
+   {
+    "a": 0.9,
+    "b": 0.3,
+    "pred_2Dcomp": 0.2,
+    "meas_2Dcomp": 0.0968,
+    "abs_err": 0.1032
+   },
+   {
+    "a": 0.9,
+    "b": 0.4,
+    "pred_2Dcomp": 0.3,
+    "meas_2Dcomp": 0.1999,
+    "abs_err": 0.1001
+   },
+   {
+    "a": 0.9,
+    "b": 0.5,
+    "pred_2Dcomp": 0.4,
+    "meas_2Dcomp": 0.3022,
+    "abs_err": 0.0978
+   },
+   {
+    "a": 0.9,
+    "b": 0.6,
+    "pred_2Dcomp": 0.5,
+    "meas_2Dcomp": 0.4031,
+    "abs_err": 0.0969
+   },
+   {
+    "a": 0.9,
+    "b": 0.7,
+    "pred_2Dcomp": 0.6,
+    "meas_2Dcomp": 0.5012,
+    "abs_err": 0.0988
+   },
+   {
+    "a": 0.9,
+    "b": 0.8,
+    "pred_2Dcomp": 0.7,
+    "meas_2Dcomp": 0.5946,
+    "abs_err": 0.1054
+   },
+   {
+    "a": 0.9,
+    "b": 0.9,
+    "pred_2Dcomp": 0.8,
+    "meas_2Dcomp": 0.6806,
+    "abs_err": 0.1194
+   }
+  ]
+ },
+ "P2a": {
+  "cases": [
+   {
+    "a": 0.3,
+    "b": 0.7,
+    "meas_2Dcomp": -0.0477
+   },
+   {
+    "a": 0.5,
+    "b": 0.5,
+    "meas_2Dcomp": -0.0283
+   },
+   {
+    "a": 0.7,
+    "b": 0.3,
+    "meas_2Dcomp": -0.0477
+   }
+  ],
+  "verdict": "KEEP"
+ },
+ "P2b": {
+  "cases": [
+   {
+    "a": 0.3,
+    "L": 3,
+    "sum_d": 2.1,
+    "oldest_decile_mass": 0.429,
+    "middle_decile_mass": 0.0523,
+    "pileup": true
+   },
+   {
+    "a": 0.5,
+    "L": 4,
+    "sum_d": 2.0,
+    "oldest_decile_mass": 0.4733,
+    "middle_decile_mass": 0.0466,
+    "pileup": true
+   }
+  ],
+  "verdict": "KEEP"
+ },
+ "P3": {
+  "q4_entropy_by_layer_first6": [
+   0.9642,
+   0.9945,
+   0.9471,
+   0.8771,
+   0.7971,
+   0.7122
+  ],
+  "q4_first_layer_geq_90pct": 1,
+  "longchat_entropy_at_L40": 0.013,
+  "longchat_max_entropy_through_L40": 0.9969,
+  "P3a_verdict": "KEEP",
+  "P3b_verdict": "FAIL"
+ }
+}
