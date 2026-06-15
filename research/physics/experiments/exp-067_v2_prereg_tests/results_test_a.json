@@ -1,0 +1,45 @@
+{
+  "experiment": "exp-067-test-a",
+  "preregistration": "research/physics/notes/2026-06-14_v2_preregistration.md",
+  "timestamp_utc": "2026-06-15T04:05:57.940181+00:00",
+  "thresholds": {
+    "keep_a1_rho": 0.6,
+    "kill_a1_rho": 0.5,
+    "keep_p": 1e-05,
+    "min_n": 50
+  },
+  "diagnostic_models": {
+    "EleutherAI/pythia-2.8b": {
+      "rho_joint_implied": 0.683,
+      "note": "threshold-setter \u2014 not a confirmatory test"
+    },
+    "EleutherAI/gpt-neo-2.7B": {
+      "rho_joint_implied": 0.906,
+      "note": "threshold-setter \u2014 not a confirmatory test"
+    }
+  },
+  "confirmatory_tests": {
+    "EleutherAI/pythia-410m": {
+      "model": "EleutherAI/pythia-410m",
+      "source": "bcft_functional_form_fit_2026-04-17T101027Z.json",
+      "n_conformal_heads": 81,
+      "n_total_heads": 239,
+      "rho_joint_implied": {
+        "rho": 0.7527551942186088,
+        "p": 5.328455537528974e-16
+      },
+      "rho_delta_only": {
+        "rho": 0.7206865401987353,
+        "p": 3.311489762927649e-14
+      },
+      "improvement_a2": true,
+      "delta_rho": 0.032068654019873466,
+      "verdict_a1": "KEEP (A1 confirmed)"
+    },
+    "pending": [
+      "EleutherAI/pythia-1.4b",
+      "openai-community/gpt2-medium",
+      "mistralai/Mistral-7B-v0.3"
+    ]
+  }
+}

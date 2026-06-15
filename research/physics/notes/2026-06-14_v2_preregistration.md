@@ -175,13 +175,46 @@ The discipline is the same as the April pre-registration: confirmed results are 
 
 ## Section A-Results
 
-*(Append here after each fresh model run. Do not edit above.)*
+### Run 1 — June 14, 2026 (Pythia-410m, archived exp-026 data)
+
+Code: `experiments/exp-067_v2_prereg_tests/run_test_a.py`. Data source: `exp-026_bcft_functional_form/results/bcft_functional_form_fit_2026-04-17T101027Z.json`. Git commit at run time: 5687c6f4+ (post-pre-registration).
+
+| Metric | Value | Verdict |
+|---|---|---|
+| n_conformal_heads | 81 | ≥ 50 ✓ |
+| ρ(v̂(Δ̂,λ̂), valley_meas) | **+0.7528** (p = 5.33×10⁻¹⁶) | **KEEP (A1)** — ≥ 0.60 ✓ |
+| ρ(Δ̂, valley_meas) | +0.7207 | — |
+| Improvement A2 | Δρ = +0.0321 | **YES** |
+
+First fresh-model confirmation. The joint statistic outperforms Δ alone; λ adds predictive value.
 
 ---
 
 ## Section B-Results
 
-*(Append here after Test B runs. Do not edit above.)*
+### Run 1 — June 14, 2026 (Pythia-1.4b and GPT-2-medium)
+
+Code: `experiments/exp-067_v2_prereg_tests/run_test_b.py`. Models loaded from local cache. Git commit at run time: 5687c6f4+ (post-pre-registration).
+
+**P-B1 (Pythia-1.4b, depth sweep, N=512):**
+
+prim_decile by k: 0.013 / 0.036 / 0.114 / 0.209 / 0.495 / 0.678 / 0.955 / 0.998 / 1.000 / 1.000 (k = 1..24 at checkpoints)
+
+ρ(k, prim_decile) = **+1.0000** → **KEEP (P-B1)**
+
+**P-B2 (Pythia-1.4b, context sweep, full 24-layer depth):**
+
+prim_window(8) by N: N=256 → 0.99996; N=512 → 0.99967; N=1024 → 0.99820; N=2048 → 0.99347
+
+ρ(N, prim_window) = **−1.0000** → **KEEP (P-B2)**
+
+Honest note: all values near 1.0 (full saturation by 24 layers); the monotonicity is perfect but absolute effect size is small (range 0.0065). Informative test of direction; magnitude requires intermediate-depth follow-up.
+
+**P-B3 (GPT-2-medium, depth sweep, N=512):**
+
+prim_decile by k: 0.062 / 0.182 / 0.225 / 0.260 / 0.389 / 0.570 / 0.890 / 0.989 / 1.000 / 1.000
+
+ρ(k, prim_decile) = **+1.0000** → **KEEP (P-B3)**
 
 ---
 
