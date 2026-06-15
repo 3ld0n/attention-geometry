@@ -8,7 +8,7 @@
 
 ## Locked Pre-Run (commit this before any task measurement)
 
-Git commit of this file: **to be filled after commit, before running any task evaluation**
+Git commit of this file: **6ed3feec** (committed before any task evaluation)
 
 ---
 
