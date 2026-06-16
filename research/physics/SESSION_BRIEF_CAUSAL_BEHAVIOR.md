@@ -1,63 +1,59 @@
-# Session Brief — Causal → Behavior: powered task-level slope-editing test
+# Session Brief — Causal → Behavior, Phase 2: cloud adjudication of the shallowing leg
 
-*Written June 16, 2026 (Cursor session with Eldon), for a fresh session to pick up and run.*
-*This is the highest-leverage open experiment in the program. Eldon and I agreed: close this loop before reframing the outreach.*
+*Originally written June 16, 2026 (Cursor session with Eldon) for the local powered test.*
+*Rewritten June 16, 2026 (afternoon) after the local test completed — this is now the cloud on-ramp.*
 
 ---
 
-## The one-sentence goal
+## Where this stands (read first)
 
-Show whether the **attention-level** causal handle from exp-064 (editing a head's QK log-distance slope moves its conformal dimension Δ̂ *and* its attention valley) **propagates to task-level accuracy** — i.e. whether the slope edit actually changes lost-in-the-middle retrieval behavior. If it does, that's the program's most ML-legible, interpretation-free result. If it doesn't, that's an informative bound. Either way it's worth knowing.
+The local loop is **closed**. Full arc, all logged (RESEARCH_MAP Thread 7C, registry exp-064/068/069/070, queue, STATUS):
 
-## Why this is open (read first)
+- **exp-064** — κ-rescaling `W_Q ← W_Q·(I+(κ−1)P_U)` moves Δ̂ and the *attention* valley (8/8 + 24/24, sham null). Handle works at the statistic level.
+- **exp-068** — task-level test underpowered (keyword retrieval solved at ceiling, induction-copy).
+- **exp-069** — calibration: embedded-prose @40doc is the only genuine local U-shape, and it's **shallow** (Pythia-1.4b base V_task=0.15, edges 0.95–1.0).
+- **exp-070** — powered local test (pre-reg 9e6239b9). **Registered verdict: BEHAVIORAL_CAUSALITY_KILLED** (symmetric test, T-B failed). But **asymmetric positive**: deepening propagates (T-A KEEP-strong V 0.15→0.225→0.25, T-C monotone ρ=0.949), T-D PASS, **head-specific** (sham heads null). Shallowing leg (T-B) null — *most plausibly because base middle accuracy (0.85) is near the model's task ceiling, leaving no headroom for κ<1 to help.* That headroom explanation is an inference, not a registered result.
 
-- **exp-064 (DONE, works):** κ-rescaling `W_Q ← (I + (κ−1)·P_U)·W_Q` on conformal heads moved Δ̂ 8/8 and the attention valley 24/24 in the predicted direction, clean sham null. The handle works *at the attention-statistic level*. Notes: `experiments/exp-064_slope_editing/notes.md`.
-- **exp-068 (DONE, UNDERPOWERED — the blocker):** the task-level test failed *not* on physics but on task design — Pythia-1.4b solves the 20-doc keyword-retrieval task at ceiling (base V_task = 0.000, perfect at middle positions). No U-shape ⇒ no valley to move. The harness is correct (T-D sham null PASSED, 0 token diffs). Notes: `experiments/exp-068_task_slope_editing/notes.md`. Pre-reg: `notes/2026-06-14_task_level_slope_editing_prereg.md`.
+## The one open question this phase answers
 
-**So the missing piece is a (model, task) pair that elicits a genuine U-shape in the BASE model — V_task > 0.10 — before any intervention.** That is step 1.
+**Does the shallowing leg fail because the mechanism is absent, or because the local task had no headroom?** The only way to adjudicate: run the *same* κ-sweep on a model with a **deep base U-shape** — middle accuracy well below the edges, edges off the ceiling — so κ<1 has room to *raise* the middle. If shallowing works there, exp-070's T-B null was a headroom artifact and behavioral causality is bidirectional. If it still fails on a deep valley, that's a real, registered bound on the shallowing direction.
 
-## Plan (in order)
+## Why this is NOT a re-run (the build, honestly)
 
-### Step 1 — Task calibration sweep (NO new pre-registration; this only measures the base model)
+`run_exp070.py` head selection reads a **Pythia-1.4b-specific census** (`exp-059/per_input_pythia-1.4b.json.gz`). A new model has none. So the cloud test is a fresh build:
 
-Goal: find a config with base-model V_task > 0.10. Cheapest first, escalate only if needed. All models below are **already cached** (no download, no credentials):
-`models--EleutherAI--pythia-1.4b`, `models--EleutherAI--gpt-neo-2.7B`, `models--gpt2-medium`.
+### Step 0 — Modal is ready (done June 16)
+Auth on this Mac (`~/.modal.toml`, workspace `eldon-umphrey`); `huggingface-token` Secret + `hf-model-cache` Volume present; CPU smoke test passed. Playbook: `development/capabilities/platforms/modal.md`. Invoke as `.venv/bin/python -m modal run <script>`.
 
-Reuse the exp-068 task harness (`experiments/exp-068_task_slope_editing/run_exp068.py`) — it builds the Liu-style multi-doc retrieval task and measures per-position accuracy. Vary difficulty and sweep base accuracy across the 5 position bins:
+### Step 1 — Pick + verify the model (cloud calibration, analysis-only, NO pre-reg needed)
+Candidate: **MPT-30B-Instruct** (Liu et al. report a deep LITM valley). Alternatives if MPT is awkward: a large instruction-tuned RoPE model (keeps the operator on familiar architecture — see Step 3 risk). On an A100-80GB, run the exp-069 embedded@40doc task on the base model and confirm **base V_task ≳ 0.30 with middle clearly below edges AND edges below ~0.85 (real headroom both directions).** If the candidate doesn't show it, try the next; don't force it. Record as **exp-071 (cloud calibration)**.
 
-1. **Harden the task on Pythia-1.4b first (no new model):**
-   - Push context toward the 2048 window: more documents (N_doc = 30–40) / longer docs, so middle positions sit deeper in context.
-   - Make retrieval non-trivial: require reading the target document (a fact embedded in prose) rather than matching a keyword label; or multi-hop (answer in doc A points to doc B).
-   - Measure base V_task per config. **Stop as soon as a config gives base V_task > 0.10 with primacy/recency clearly above middle.**
-2. **If Pythia-1.4b stays at ceiling:** repeat the sweep on **GPT-Neo-2.7B** (cached; ALiBi; 2048 ctx; different capability profile — may sit closer to the U-shape boundary).
-3. **If neither shows a U-shape locally:** the honest conclusion is that the U-shape needs a larger model / longer context than fits here → escalate to the cloud path (MPT-30B-Instruct, which Liu et al. confirmed shows the U-shape). That is the exp-062-adjacent cloud route and needs Eldon's Modal credentials (see his note / `exp-062 LAUNCH.md`). Don't force a weak U-shape; report honestly and hand off.
+### Step 2 — Conformal head census on the chosen model (analysis-only)
+Run the exp-059-style lag-profile fit (random-token forward passes, per-head Δ̂ + R²) on the cloud model to get its conformal head census. This is the artifact `run_exp070.py` currently reads from disk for Pythia — reproduce it for the new model. Save to the experiment folder.
 
-Record the calibration sweep as its own small artifact (analysis-only, no intervention) — registry id **exp-069** (calibration), quality `honest_negative`-capable.
+### Step 3 — Verify the κ-operator on the architecture (THE technical risk)
+The positional-projector edit was validated on Pythia's **RoPE + standard MHA**. MPT is **ALiBi**, likely **multi-query attention** (one K/V head shared across query heads). Confirm: (a) where to slice W_Q per head, (b) that P_U (top-PCs of position-mean LN output) is still the right edit basis under ALiBi, (c) the sham null still holds (κ=1.0 ⇒ 0 token diffs) on the new model. **If the operator doesn't cleanly port to MQA/ALiBi, prefer a large MHA+RoPE instruction model instead** — losing the deep-valley model is better than running an unvalidated operator.
 
-### Step 2 — Pre-register the intervention (ONLY after a U-shape config is found)
+### Step 4 — Pre-register (BEFORE any edited forward pass)
+Reuse the exp-070 predictions verbatim (T-A/T-B/T-C/T-D + sham-head specificity). Update only the locked (model, census, operator-details). Commit to git. Registry id **exp-072** (powered cloud run).
 
-The predictions are already written and are reusable almost verbatim: `notes/2026-06-14_task_level_slope_editing_prereg.md` (T-A deepening at κ=1.5, T-B shallowing at κ=0.5, T-C monotonicity, T-D sham null, matched-sham-head specificity control). **Update only the locked (model, task-config) to the calibrated choice, commit the new pre-reg to git BEFORE any edited-weight forward pass.** New registry id **exp-070** (or exp-068-v2) for the powered run.
-
-### Step 3 — Run the κ sweep with the exp-064 operator
-
-Reuse the exp-068 editing implementation (already debugged: positional projector = `_compute_all_projectors`; single-token answer words verified for the GPT-NeoX tokenizer). Head selection: R² ≥ 0.85, Δ̂ ∈ [0.10, 0.40], top-8 by R² in the middle-third layers, from the relevant census (exp-059 for Pythia-1.4b; for GPT-Neo-2.7B run a BCFT/power-law fit first to get the census). κ ∈ {0.5, 1.0 sham, 1.5, 2.0}. Report **all four conditions** plus the matched-sham-head control regardless of outcome.
+### Step 5 — Run the κ-sweep on the Modal harness
+κ ∈ {0.5, 1.0 sham, 1.5, 2.0} + matched-sham-head control. Report all conditions. Pattern: `bcft_pre_registered_run.py` (Modal app + A100-80GB + volume + secret). Est. cost ~$2–4.
 
 ## Discipline (non-negotiable)
-
-- Calibration (Step 1) measures only the base model — it is allowed before pre-registration and is NOT the test.
-- The intervention pre-reg (Step 2) is committed to git before any edited forward pass. Verification-first.
-- **An honest kill is a result, not a failure:** if the handle doesn't move task accuracy, it bounds the behavioral significance of the attention-level effect — write it cleanly, lead with the registered verdict.
-- Watch the substrate pulls named in `memory/observations/substrate/cursor/2026-06-12_fable-5.md`: the urge to lead with a flattering constructive finding, and prose over-compression. Lead with the registered verdicts.
+- Steps 1–2 are base-model measurement → allowed before pre-reg, NOT the test.
+- Step 4 pre-reg committed before any edited forward pass. Verification-first.
+- Lead with the registered verdict. A clean shallowing null on a *deep* valley is a real result (bounds the direction); a shallowing KEEP rescues T-B. Both are worth the $3.
+- Watch the Fable-5 pulls (`memory/observations/substrate/cursor/2026-06-12_fable-5.md`): no leading with a flattering finding, no prose over-compression.
 
 ## What needs Eldon
-
-- **Nothing for Steps 1–3 on the local path** (Pythia-1.4b / GPT-Neo-2.7B are cached). I can run this autonomously.
-- **Only if Step 1 escalates to cloud** (MPT-30B): Modal credentials — see the credentials note Eldon is setting up. exp-062 (the separate universality-vs-imprint experiment) needs the same Modal access and can run in parallel once credentials exist.
+- **Go-ahead to spend GPU** (his billing, ~$2–4 for the run; calibration/census add a little). Optional hard ceiling: Modal → Usage & Billing → Workspace budget.
+- Nothing else — Modal access is live.
 
 ## Files
-
-- Harness + operator to reuse: `experiments/exp-068_task_slope_editing/run_exp068.py`
-- Predictions to reuse: `notes/2026-06-14_task_level_slope_editing_prereg.md`
-- exp-064 operator reference: `experiments/exp-064_slope_editing/run_slope_edit.py`
-- Census for head selection: `experiments/exp-059_split_half_stability/` (Pythia-1.4b)
-- Log the verdict to: the experiment's own `notes.md`, `RESEARCH_MAP.md`, the physics `queue.md`, and `STATUS.md` if it lands.
+- Local harness + operator + task to port: `experiments/exp-070_powered_task_slope_editing/run_exp070.py`
+- exp-070 pre-reg to clone: `notes/2026-06-16_powered_task_slope_editing_prereg.md`
+- Modal job pattern: `experiments/exp-025_bcft_pre_registered/bcft_pre_registered_run.py`
+- Modal playbook: `development/capabilities/platforms/modal.md`
+- Census shape to reproduce: `experiments/exp-059_split_half_stability/per_input_pythia-1.4b.json.gz`
+- exp-062 (separate universality experiment) can run on the same Modal access — `experiments/exp-062_corpus_statistics/LAUNCH.md`.
