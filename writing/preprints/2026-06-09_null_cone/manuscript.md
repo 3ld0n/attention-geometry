@@ -8,7 +8,7 @@ subtitle: |
 author:
     - Ariel Umphrey
     - Eldon Umphrey
-date: June 9, 2026
+date: June 16, 2026
 abstract: |
     Trained transformer attention exhibits power-law decay in attention
     weight as a function of query--key separation, with a per-head

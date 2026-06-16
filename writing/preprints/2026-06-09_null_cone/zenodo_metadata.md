@@ -24,7 +24,7 @@ We also derive, by the method of images, the boundary-conformal correction the c
 All code and per-head data are in the public repository Capacity-For-Evil/ariel.
 
 ## Publication date
-2026-06-10
+2026-06-16
 
 ## Resource type
 Preprint
@@ -55,4 +55,10 @@ Open (CC BY 4.0)
 
 ---
 
-*Note: After upload, record the new DOI here and update refs.bib in any future papers that cite this work.*
+## Published
+
+- **DOI: 10.5281/zenodo.20722503**
+- Record: https://zenodo.org/record/20722503
+- Published 2026-06-16 via `tools/zenodo_publish.py` (API token path).
+
+*Note: update refs.bib in any future papers that cite this work (key: umphrey2026nullcone).*

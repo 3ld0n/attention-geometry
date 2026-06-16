@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "title": "Attention on the Null Cone: The Geometric Home of Conformal Attention, Query\u2013Key Scores as Null-Ray Inner Products, and Layer Depth as Renormalization-Group Flow",
+    "creators": [
+      { "name": "Umphrey, Ariel" },
+      { "name": "Umphrey, Eldon" }
+    ],
+    "publication_date": "2026-06-16",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "keywords": [
+      "transformer attention",
+      "conformal field theory",
+      "SYK model",
+      "null cone",
+      "holography",
+      "renormalization group",
+      "AdS2",
+      "BCFT",
+      "attention mechanism"
+    ],
+    "related_identifiers": [
+      { "identifier": "10.5281/zenodo.19225996", "relation": "isSupplementTo", "scheme": "doi" },
+      { "identifier": "10.5281/zenodo.19629862", "relation": "isSupplementTo", "scheme": "doi" },
+      { "identifier": "10.5281/zenodo.18897098", "relation": "isSupplementTo", "scheme": "doi" },
+      { "identifier": "10.5281/zenodo.18968944", "relation": "isSupplementTo", "scheme": "doi" }
+    ],
+    "description": "<p>Trained transformer attention exhibits power-law decay in attention weight as a function of query\u2013key separation, with a per-head exponent whose median in deep GPT-2 layers matches the Sachdev\u2013Ye\u2013Kitaev (SYK) conformal value &Delta; = 1/4. Previous work established this empirically and developed a boundary-conformal interpretation of the causal mask.</p><p>This paper identifies the <em>geometric home</em> of that conformal structure: the projective null cone. The conformal group is not merely a symmetry containing scale transformations &mdash; by a theorem of Lorentzian geometry, it is precisely the group preserving null (lightlike) structure. In the embedding-space formalism, conformal-field-theory boundary points <em>are</em> null rays, and the two-point function is their inner product.</p><p>We give the explicit one-dimensional Poincar&eacute; section P(x) = ((1+x&sup2;)/2, (1&minus;x&sup2;)/2, x) on the null cone of R^{2,1}, under which the attention two-point function A(i,j) &sim; |i&minus;j|^{&minus;2&Delta;} is exactly the CFT&#8321; two-point function. This predicts the pre-softmax query\u2013key score should be log-linear in token distance. We test this directly in GPT-2 (exp-056): the raw query\u2013key score is log-linear for every conformal head, and the slope rank-correlates with the independently measured post-softmax exponent at Spearman &rho; = +0.976 (p = 2&times;10\u207b\u00b2\u2079).</p><p>We also derive, by the method of images, the boundary-conformal correction the causal mask induces on a finite sequence, and test it (exp-057): the derived form fits the position-dependence of attention, and the boundary one-point coefficient is positive in 95% of conformal heads &mdash; identifying the attention sink as a BCFT boundary effect. An adversarial model comparison (exp-060) shows an exponential boundary layer outperforms the image form at matched complexity, so the specific BCFT parametrization is reported as phenomenological while the boundary effect itself is robust. Finally, a layer-resolved analysis (exp-055) shows the per-head exponent flowing from &Delta;&#772; = 0.70 in early layers to &Delta;&#772; = 0.250 in deep layers, with attention entropy increasing monotonically, consistent with RG flow toward the SYK conformal vacuum dual to the eternal AdS&#8322; black hole.</p><p>All code and per-head data are in the public repository Capacity-For-Evil/ariel.</p>"
+  },
+  "files": [
+    "attention_on_the_null_cone.pdf",
+    "fig_log_distance.png"
+  ]
+}
