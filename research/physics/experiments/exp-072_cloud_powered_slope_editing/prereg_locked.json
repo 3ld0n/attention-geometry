@@ -1,0 +1,173 @@
+{
+ "experiment": "exp-072",
+ "model": "lmsys/vicuna-13b-v1.5",
+ "dims": {
+  "n_layers": 40,
+  "n_heads": 40,
+  "hidden": 5120,
+  "head_dim": 128,
+  "max_position_embeddings": 4096
+ },
+ "n_doc": 40,
+ "positions": [
+  0,
+  10,
+  20,
+  30,
+  39
+ ],
+ "base_calibration_V_task": 0.59375,
+ "base_calibration_acc": [
+  0.775,
+  0.65,
+  0.325,
+  0.525,
+  0.8
+ ],
+ "census_pipeline": "exp-025/exp-059 (L=512, 50 random inputs, fp32)",
+ "n_conformal_heads": 732,
+ "selection_band_layers": [
+  13,
+  33
+ ],
+ "n_selection_candidates": 298,
+ "target_heads": [
+  {
+   "layer": 24,
+   "head": 17,
+   "flat_head": 977,
+   "delta_1d": 0.33563,
+   "r2_1d": 0.99403,
+   "valley_census": 0.32376
+  },
+  {
+   "layer": 27,
+   "head": 18,
+   "flat_head": 1098,
+   "delta_1d": 0.31148,
+   "r2_1d": 0.98939,
+   "valley_census": 0.35581
+  },
+  {
+   "layer": 24,
+   "head": 2,
+   "flat_head": 962,
+   "delta_1d": 0.29049,
+   "r2_1d": 0.98891,
+   "valley_census": 0.36138
+  },
+  {
+   "layer": 25,
+   "head": 4,
+   "flat_head": 1004,
+   "delta_1d": 0.28243,
+   "r2_1d": 0.98791,
+   "valley_census": 0.30842
+  },
+  {
+   "layer": 26,
+   "head": 30,
+   "flat_head": 1070,
+   "delta_1d": 0.28815,
+   "r2_1d": 0.98787,
+   "valley_census": 0.41777
+  },
+  {
+   "layer": 22,
+   "head": 33,
+   "flat_head": 913,
+   "delta_1d": 0.35216,
+   "r2_1d": 0.98731,
+   "valley_census": 0.39151
+  },
+  {
+   "layer": 25,
+   "head": 30,
+   "flat_head": 1030,
+   "delta_1d": 0.36405,
+   "r2_1d": 0.98663,
+   "valley_census": 0.32589
+  },
+  {
+   "layer": 25,
+   "head": 33,
+   "flat_head": 1033,
+   "delta_1d": 0.29815,
+   "r2_1d": 0.98544,
+   "valley_census": 0.30716
+  }
+ ],
+ "sham_heads": [
+  {
+   "layer": 24,
+   "head": 25,
+   "flat_head": 985,
+   "delta_1d": 0.27321,
+   "r2_1d": 0.98471,
+   "valley_census": 0.37007
+  },
+  {
+   "layer": 21,
+   "head": 34,
+   "flat_head": 874,
+   "delta_1d": 0.26811,
+   "r2_1d": 0.9847,
+   "valley_census": 0.351
+  },
+  {
+   "layer": 26,
+   "head": 29,
+   "flat_head": 1069,
+   "delta_1d": 0.26126,
+   "r2_1d": 0.98389,
+   "valley_census": 0.42323
+  },
+  {
+   "layer": 15,
+   "head": 1,
+   "flat_head": 601,
+   "delta_1d": 0.38205,
+   "r2_1d": 0.98349,
+   "valley_census": 0.57182
+  },
+  {
+   "layer": 21,
+   "head": 0,
+   "flat_head": 840,
+   "delta_1d": 0.26296,
+   "r2_1d": 0.9832,
+   "valley_census": 0.3031
+  },
+  {
+   "layer": 25,
+   "head": 9,
+   "flat_head": 1009,
+   "delta_1d": 0.3458,
+   "r2_1d": 0.98318,
+   "valley_census": 0.41381
+  },
+  {
+   "layer": 29,
+   "head": 31,
+   "flat_head": 1191,
+   "delta_1d": 0.26825,
+   "r2_1d": 0.98312,
+   "valley_census": 0.29657
+  },
+  {
+   "layer": 17,
+   "head": 13,
+   "flat_head": 693,
+   "delta_1d": 0.27613,
+   "r2_1d": 0.98275,
+   "valley_census": 0.4518
+  }
+ ],
+ "kappas": [
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "note": "Locked from exp-071 cloud calibration BEFORE any edited forward pass. Operator: exp-064 W_Q<-W_Q(I+(k-1)P_U), Llama port (self_attn.q_proj per-head rows, input_layernorm basis)."
+}
