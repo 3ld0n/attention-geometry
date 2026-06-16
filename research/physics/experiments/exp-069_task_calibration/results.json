@@ -1,0 +1,959 @@
+{
+ "experiment": "exp-069",
+ "runs": [
+  {
+   "experiment": "exp-069",
+   "kind": "task_calibration",
+   "intervention": false,
+   "model": "EleutherAI/pythia-1.4b",
+   "items_per_config": 2,
+   "timestamp_utc": "2026-06-16T195510Z",
+   "u_shape_config_found": null,
+   "configs": [
+    {
+     "config": {
+      "id": "C1",
+      "retrieval_type": "keyword",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 2
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 947,
+      "max": 948,
+      "mean": 947
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 5.3
+    },
+    {
+     "config": {
+      "id": "C2",
+      "retrieval_type": "keyword",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 1129,
+      "max": 1130,
+      "mean": 1129
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 6.8
+    },
+    {
+     "config": {
+      "id": "C3",
+      "retrieval_type": "keyword",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 0
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1132,
+      "max": 1133,
+      "mean": 1132
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 6.6
+    },
+    {
+     "config": {
+      "id": "C4",
+      "retrieval_type": "embedded",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 1089,
+      "max": 1090,
+      "mean": 1089
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 6.5
+    },
+    {
+     "config": {
+      "id": "C5",
+      "retrieval_type": "embedded",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 1611,
+      "max": 1612,
+      "mean": 1611
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 10.2
+    },
+    {
+     "config": {
+      "id": "C6",
+      "retrieval_type": "embedded",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 0
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1734,
+      "max": 1735,
+      "mean": 1734
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 2,
+      "near_primacy": 2,
+      "middle": 2,
+      "near_recency": 2,
+      "recency": 2
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 11.2
+    }
+   ]
+  },
+  {
+   "experiment": "exp-069",
+   "kind": "task_calibration",
+   "intervention": false,
+   "model": "EleutherAI/pythia-1.4b",
+   "items_per_config": 20,
+   "timestamp_utc": "2026-06-16T200208Z",
+   "u_shape_config_found": "C4",
+   "configs": [
+    {
+     "config": {
+      "id": "C1",
+      "retrieval_type": "keyword",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 2
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 946,
+      "max": 948,
+      "mean": 947
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 20,
+      "near_primacy": 20,
+      "middle": 20,
+      "near_recency": 20,
+      "recency": 20
+     },
+     "mean_accuracy": 1.0,
+     "V_task": 0.0,
+     "eval_seconds": 52.7
+    },
+    {
+     "config": {
+      "id": "C2",
+      "retrieval_type": "keyword",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 1129,
+      "max": 1130,
+      "mean": 1129
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 1.0,
+      "recency": 0.9
+     },
+     "n_by_pos": {
+      "primacy": 20,
+      "near_primacy": 20,
+      "middle": 20,
+      "near_recency": 20,
+      "recency": 20
+     },
+     "mean_accuracy": 0.98,
+     "V_task": 0.0,
+     "eval_seconds": 66.9
+    },
+    {
+     "config": {
+      "id": "C3",
+      "retrieval_type": "keyword",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 0
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1131,
+      "max": 1133,
+      "mean": 1132
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 1.0,
+      "near_recency": 0.95,
+      "recency": 0.75
+     },
+     "n_by_pos": {
+      "primacy": 20,
+      "near_primacy": 20,
+      "middle": 20,
+      "near_recency": 20,
+      "recency": 20
+     },
+     "mean_accuracy": 0.94,
+     "V_task": 0.0,
+     "eval_seconds": 68.9
+    },
+    {
+     "config": {
+      "id": "C4",
+      "retrieval_type": "embedded",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 1088,
+      "max": 1090,
+      "mean": 1089
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.9,
+      "middle": 0.85,
+      "near_recency": 0.95,
+      "recency": 0.85
+     },
+     "n_by_pos": {
+      "primacy": 20,
+      "near_primacy": 20,
+      "middle": 20,
+      "near_recency": 20,
+      "recency": 20
+     },
+     "mean_accuracy": 0.91,
+     "V_task": 0.15,
+     "eval_seconds": 67.7
+    }
+   ]
+  },
+  {
+   "experiment": "exp-069",
+   "kind": "task_calibration",
+   "intervention": false,
+   "model": "EleutherAI/pythia-1.4b",
+   "items_per_config": 40,
+   "timestamp_utc": "2026-06-16T201907Z",
+   "u_shape_config_found": "C6",
+   "configs": [
+    {
+     "config": {
+      "id": "C4",
+      "retrieval_type": "embedded",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 1088,
+      "max": 1090,
+      "mean": 1089
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.975,
+      "middle": 0.975,
+      "near_recency": 1.0,
+      "recency": 0.8
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.95,
+     "V_task": 0.025,
+     "eval_seconds": 129.4
+    },
+    {
+     "config": {
+      "id": "C5",
+      "retrieval_type": "embedded",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 1610,
+      "max": 1612,
+      "mean": 1611
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 1.0,
+      "middle": 0.925,
+      "near_recency": 1.0,
+      "recency": 0.95
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.975,
+     "V_task": 0.075,
+     "eval_seconds": 212.9
+    },
+    {
+     "config": {
+      "id": "C6",
+      "retrieval_type": "embedded",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 0
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1733,
+      "max": 1735,
+      "mean": 1734
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.975,
+      "middle": 0.85,
+      "near_recency": 0.95,
+      "recency": 0.95
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.945,
+     "V_task": 0.15,
+     "eval_seconds": 240.3
+    },
+    {
+     "config": {
+      "id": "C7",
+      "retrieval_type": "reverse",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 627,
+      "max": 629,
+      "mean": 628
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.55,
+      "near_primacy": 0.175,
+      "middle": 0.15,
+      "near_recency": 0.25,
+      "recency": 0.1
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.245,
+     "V_task": 0.72727,
+     "eval_seconds": 72.4
+    },
+    {
+     "config": {
+      "id": "C8",
+      "retrieval_type": "reverse",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 919,
+      "max": 921,
+      "mean": 920
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.575,
+      "near_primacy": 0.05,
+      "middle": 0.075,
+      "near_recency": 0.15,
+      "recency": 0.1
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.19,
+     "V_task": 0.86957,
+     "eval_seconds": 111.2
+    },
+    {
+     "config": {
+      "id": "C9",
+      "retrieval_type": "reverse",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1212,
+      "max": 1214,
+      "mean": 1213
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.6,
+      "near_primacy": 0.05,
+      "middle": 0.075,
+      "near_recency": 0.125,
+      "recency": 0.125
+     },
+     "n_by_pos": {
+      "primacy": 40,
+      "near_primacy": 40,
+      "middle": 40,
+      "near_recency": 40,
+      "recency": 40
+     },
+     "mean_accuracy": 0.195,
+     "V_task": 0.875,
+     "eval_seconds": 150.6
+    }
+   ]
+  },
+  {
+   "experiment": "exp-069",
+   "kind": "task_calibration",
+   "intervention": false,
+   "model": "EleutherAI/gpt-neo-2.7B",
+   "dtype": "float16",
+   "items_per_config": 8,
+   "timestamp_utc": "2026-06-16T205842Z",
+   "u_shape_config_found": "C4",
+   "configs": [
+    {
+     "config": {
+      "id": "C4",
+      "retrieval_type": "embedded",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 1088,
+      "max": 1089,
+      "mean": 1088
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.75,
+      "middle": 0.875,
+      "near_recency": 0.625,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 8,
+      "near_primacy": 8,
+      "middle": 8,
+      "near_recency": 8,
+      "recency": 8
+     },
+     "mean_accuracy": 0.85,
+     "V_task": 0.125,
+     "eval_seconds": 9.4
+    }
+   ]
+  },
+  {
+   "experiment": "exp-069",
+   "kind": "task_calibration",
+   "intervention": false,
+   "model": "EleutherAI/gpt-neo-2.7B",
+   "dtype": "float16",
+   "items_per_config": 30,
+   "timestamp_utc": "2026-06-16T210451Z",
+   "u_shape_config_found": "C4",
+   "configs": [
+    {
+     "config": {
+      "id": "C4",
+      "retrieval_type": "embedded",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 1101,
+      "max": 1113,
+      "mean": 1108
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.6,
+      "middle": 0.8667,
+      "near_recency": 0.7667,
+      "recency": 0.9667
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.84,
+     "V_task": 0.13333,
+     "eval_seconds": 35.4
+    },
+    {
+     "config": {
+      "id": "C5",
+      "retrieval_type": "embedded",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 1640,
+      "max": 1653,
+      "mean": 1646
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.7333,
+      "middle": 0.8333,
+      "near_recency": 0.8333,
+      "recency": 1.0
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.88,
+     "V_task": 0.16667,
+     "eval_seconds": 68.1
+    },
+    {
+     "config": {
+      "id": "C6",
+      "retrieval_type": "embedded",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 0
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1768,
+      "max": 1779,
+      "mean": 1773
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 1.0,
+      "near_primacy": 0.7333,
+      "middle": 0.8,
+      "near_recency": 0.7667,
+      "recency": 0.9667
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.8533,
+     "V_task": 0.2,
+     "eval_seconds": 87.4
+    },
+    {
+     "config": {
+      "id": "C7",
+      "retrieval_type": "reverse",
+      "n_doc": 20,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      5,
+      10,
+      14,
+      19
+     ],
+     "context_tokens": {
+      "min": 636,
+      "max": 644,
+      "mean": 640
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.8667,
+      "near_primacy": 0.0333,
+      "middle": 0.0,
+      "near_recency": 0.0333,
+      "recency": 0.4667
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.28,
+     "V_task": 1.0,
+     "eval_seconds": 25.4
+    },
+    {
+     "config": {
+      "id": "C8",
+      "retrieval_type": "reverse",
+      "n_doc": 30,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      7,
+      14,
+      22,
+      29
+     ],
+     "context_tokens": {
+      "min": 939,
+      "max": 948,
+      "mean": 943
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.7333,
+      "near_primacy": 0.0,
+      "middle": 0.0,
+      "near_recency": 0.0333,
+      "recency": 0.3333
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.22,
+     "V_task": 1.0,
+     "eval_seconds": 39.0
+    },
+    {
+     "config": {
+      "id": "C9",
+      "retrieval_type": "reverse",
+      "n_doc": 40,
+      "redundancy": 1,
+      "filler": 1
+     },
+     "doc_positions": [
+      0,
+      10,
+      20,
+      29,
+      39
+     ],
+     "context_tokens": {
+      "min": 1247,
+      "max": 1258,
+      "mean": 1252
+     },
+     "items_skipped_over_ctx": 0,
+     "accuracy_by_pos": {
+      "primacy": 0.8,
+      "near_primacy": 0.0667,
+      "middle": 0.0,
+      "near_recency": 0.0,
+      "recency": 0.3667
+     },
+     "n_by_pos": {
+      "primacy": 30,
+      "near_primacy": 30,
+      "middle": 30,
+      "near_recency": 30,
+      "recency": 30
+     },
+     "mean_accuracy": 0.2467,
+     "V_task": 1.0,
+     "eval_seconds": 58.5
+    }
+   ]
+  }
+ ]
+}
