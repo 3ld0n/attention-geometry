@@ -205,20 +205,22 @@ The companion documents are:
 
 **Question:** The Δ→valley correlation (Threads 7/7B) is observational. Can we *intervene* on the QK log-distance slope of conformal heads and causally move (a) the attention-valley statistic, and (b) actual task accuracy?
 
-**Status: ATTENTION-LEVEL CONFIRMED (exp-064). TASK-LEVEL PARTIALLY CONFIRMED — deepening propagates, shallowing open (exp-070).**
+**Status: ATTENTION-LEVEL CONFIRMED (exp-064). TASK-LEVEL CONFIRMED, BIDIRECTIONAL on a deep valley (exp-072) — deepening strong, shallowing in the predicted direction (small margin).**
 
 | Experiment | Script / notes | Key Result |
 |---|---|---|
 | exp-064 — κ-rescaling pilot (attention statistic) | `experiments/exp-064_*` | **Handle works.** κ-rescale `W_Q ← W_Q·(I+(κ−1)P_U)` on conformal heads moves Δ̂ and the *attention* valley: 8/8 mechanical signs, 24/24 behavioral signs, ρ(Δv̂, Δvalley_meas)=0.818. Sham null (1.8e−8). Post-softmax Δ̂ responds sub-linearly to κ. Caveat: task-level retrieval not yet measured. |
 | exp-068 — task-level test (keyword retrieval) | `experiments/exp-068_*` | **UNDERPOWERED (ceiling).** Pythia-1.4b solves 20-doc exact-keyword retrieval at ceiling (V_task=0 all κ) — induction-copy. T-D sham PASS. Physics untested, not falsified. |
 | exp-069 — task calibration (analysis-only) | `experiments/exp-069_*` | Forward exact-key = ceiling; reverse-lookup = primacy-decay (wrong shape, capability-confounded); **embedded-prose @40doc = genuine but shallow U** (Pythia V_task=0.15, GPT-Neo 0.20). Locks the powered task. |
-| exp-070 — powered task-level test (embedded-prose U) | `experiments/exp-070_*` | Pre-reg 9e6239b9. **Registered verdict KILLED** (symmetric T-A∧T-B; T-B failed). **Asymmetric positive:** deepening propagates — T-A KEEP-strong (V 0.15→0.225→0.25, middle 0.85→0.775→0.75), T-C monotone ρ=0.949, T-D PASS, **sham-heads specificity PASS** (only conformal target heads deepen the valley). Shallowing null most plausibly headroom-bounded (base middle 0.85 near ceiling). First behavioral-level causal-propagation result. |
+| exp-070 — powered task-level test (embedded-prose U, Pythia-1.4b) | `experiments/exp-070_*` | Pre-reg 9e6239b9. **Registered verdict KILLED** (symmetric T-A∧T-B; T-B failed). **Asymmetric positive:** deepening propagates — T-A KEEP-strong (V 0.15→0.225→0.25, middle 0.85→0.775→0.75), T-C monotone ρ=0.949, T-D PASS, **specificity PASS**. Shallowing null most plausibly headroom-bounded (base middle 0.85 near ceiling) — inference, not registered. |
+| exp-071 — cloud calibration + census (analysis-only) | `experiments/exp-071_*` | Pivoted off MPT-30B (repo gone; ALiBi = mechanism mismatch for a W_Q operator) to RoPE+MHA. **vicuna-13b-v1.5 @ n_doc=40 = deep two-sided valley** (base V_task=0.594, middle 0.325, edges ≤0.80, off ceiling). 732 conformal heads; 8 target + 8 sham locked. |
+| exp-072 — powered cloud test (deep U, vicuna-13b-v1.5) | `experiments/exp-072_*` | Pre-reg e6fbaecf. **Registered verdict CONFIRMED.** Both legs move: T-A KEEP-strong (V 0.594→0.656, middle 0.325→0.275), **T-B KEEP** (V 0.594→0.576, middle 0.325→0.35 — the leg exp-070 couldn't test), T-D PASS (operator port correct), **specificity PASS** (matched sham heads at κ=1.5 do NOT deepen). T-C ρ=0.80 (boundary; only the pre-registered κ=2.0 reversal). **First bidirectional behavioral-causality result; resolves exp-070's T-B null as headroom-bounded.** Caveat: shallowing margin small (+1 item/40); single model/task/seed. |
 
-**The honest claim:** deepening the conformal-head QK slope deepens the lost-in-the-middle accuracy valley — monotonically and head-specifically. The shallowing direction was bounded by task headroom and remains open.
+**The honest claim:** rescaling the conformal-head QK distance-slope moves middle-position retrieval accuracy in **both** directions on a deep lost-in-the-middle valley — deepening strongly and head-specifically (exp-070 + exp-072), shallowing in the predicted direction (exp-072) but by a small margin credible mainly through the ordered κ→V pattern + specificity. exp-070's one-sided result was a task-headroom artifact, now adjudicated.
 
-**Open follow-up (the real next step):** repeat the exp-070 κ-sweep on a model with a deep base U-shape (MPT-30B-Instruct, V≈0.3–0.5, edges not at ceiling) so both legs have headroom and T-B can be adjudicated. Needs Modal credentials (exp-062 LAUNCH, same blocker).
+**Open follow-up (robustness, optional):** multiple seeds / a second deep-valley model (longchat-13b-16k) to put error bars on the shallowing delta. Cheaper in bf16 if the sham null is re-verified.
 
-**Pre-registrations:** `notes/2026-06-14_task_level_slope_editing_prereg.md` (exp-068, 6ed3feec), `notes/2026-06-16_powered_task_slope_editing_prereg.md` (exp-070, 9e6239b9). **Brief:** `research/physics/SESSION_BRIEF_CAUSAL_BEHAVIOR.md`.
+**Pre-registrations:** `notes/2026-06-14_..._prereg.md` (exp-068, 6ed3feec), `notes/2026-06-16_..._prereg.md` (exp-070, 9e6239b9), `experiments/exp-072_.../prereg.md` (exp-072, e6fbaecf). **Brief:** `research/physics/SESSION_BRIEF_CAUSAL_BEHAVIOR.md`.
 
 ---
 

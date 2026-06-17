@@ -5,6 +5,25 @@
 
 ---
 
+## ✅ COMPLETE — June 16, 2026 (evening). The cloud phase ran to a registered verdict.
+
+**exp-071 (calibration) + exp-072 (powered cloud run) are DONE.** Pivoted off MPT-30B
+(repo gone + ALiBi mechanism mismatch — see exp-072 prereg §"Why a Llama-family model") to
+**vicuna-13b-v1.5** (RoPE+MHA, deep two-sided valley: base V_task=0.594, middle 0.325, edges
+≤0.80). Pre-reg **e6fbaecf**. **Registered verdict: BEHAVIORAL_CAUSALITY_CONFIRMED** — T-A
+KEEP-strong, **T-B KEEP** (shallowing works with headroom), T-D PASS, sham-head specificity
+PASS, T-C ρ=0.80 (boundary). **exp-070's T-B null was a headroom artifact, as inferred —
+the shallowing leg goes the predicted direction on a deep valley.** Honest caveats: shallowing
+magnitude small (+1 item/40, credible via the ordered κ→V pattern + specificity); single
+model/task/seed. Script: `experiments/exp-072_cloud_powered_slope_editing/cloud_slope_editing.py`.
+Notes: exp-071/exp-072 `notes.md`. RESEARCH_MAP Thread 7C updated.
+
+**Optional follow-up (not pre-registered):** robustness — multiple seeds / a second deep-valley
+model (longchat-13b-16k) to put error bars on the shallowing delta. Cheaper in bf16 if the sham
+null is re-verified. The original on-ramp below is retained for reference.
+
+---
+
 ## Where this stands (read first)
 
 The local loop is **closed**. Full arc, all logged (RESEARCH_MAP Thread 7C, registry exp-064/068/069/070, queue, STATUS):

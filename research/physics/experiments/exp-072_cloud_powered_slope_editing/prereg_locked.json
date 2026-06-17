@@ -169,5 +169,6 @@
   1.5,
   2.0
  ],
- "note": "Locked from exp-071 cloud calibration BEFORE any edited forward pass. Operator: exp-064 W_Q<-W_Q(I+(k-1)P_U), Llama port (self_attn.q_proj per-head rows, input_layernorm basis)."
+ "note": "Locked from exp-071 cloud calibration BEFORE any edited forward pass. Operator: exp-064 W_Q<-W_Q(I+(k-1)P_U), Llama port (self_attn.q_proj per-head rows, input_layernorm basis).",
+ "preregistration_commit": "e6fbaecf"
 }
