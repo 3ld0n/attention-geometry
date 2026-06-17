@@ -258,7 +258,7 @@ def _batched_accuracy(model, items, tokenizer, device, n_positions, batch_size):
 
 
 @app.function(image=image, gpu="A100-80GB", timeout=14400, volumes={"/cache": vol},
-              memory=131072, secrets=[modal.Secret.from_name("huggingface-token")])
+              memory=65536, secrets=[modal.Secret.from_name("huggingface-token")])
 def run_robustness(model_name: str, n_doc: int, positions: list,
                    target_heads: list, sham_heads: list, seeds: list,
                    batch_size: int = 8):
@@ -397,6 +397,119 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
     vol.commit()
     print("  [persisted full result -> volume:/exp073_results.json]", flush=True)
     return result
+
+
+# ── per-seed worker: one container per seed (robust to client death) ──────────
+# Each spawned call runs ONE seed end-to-end and commits its own file
+# /cache/exp073_seed{seed}.json. One flaky-connection drop or one container
+# failure can no longer wipe out the other seeds, and seeds run concurrently
+# instead of 5.5 h serially. Compute path is identical to run_robustness.
+@app.function(image=image, gpu="A100-80GB", timeout=7200, volumes={"/cache": vol},
+              memory=65536, secrets=[modal.Secret.from_name("huggingface-token")])
+def run_one_seed(model_name: str, n_doc: int, positions: list,
+                 target_heads: list, sham_heads: list, seed: int,
+                 batch_size: int = 4):
+    import os
+    os.environ["HF_HOME"] = "/cache"
+    os.environ["TRANSFORMERS_CACHE"] = "/cache/transformers"
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    import time
+    import json as _json
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    tok = AutoTokenizer.from_pretrained(model_name)
+    if tok.pad_token_id is None:
+        tok.pad_token = tok.eos_token
+    tok.padding_side = "left"
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name, torch_dtype=torch.float32, attn_implementation="eager",
+    ).to("cuda").eval()
+    n_layers, n_heads, hidden, head_dim = _model_dims(model)
+    words = _select_words(tok)
+    n_pos = len(positions)
+    needed_layers = sorted(set(h["layer"] for h in target_heads + sham_heads))
+    print(f"[seed {seed}] {model_name} {n_layers}L×{n_heads}H; projectors {needed_layers}...",
+          flush=True)
+    projectors = _compute_projectors(model, needed_layers, "cuda")
+    torch.cuda.empty_cache()
+
+    KAPPA_CONDS = [("target", 1.0), ("target", 0.5), ("target", 1.5),
+                   ("target", 2.0), ("sham_heads", 1.5)]
+
+    def run_condition(items, edit_heads, kappa):
+        orig = {}
+        for h in edit_heads:
+            l, hd_i = h["layer"], h["head"]
+            W_orig = _get_wq(model, l, hd_i, head_dim).to("cuda")
+            P_U = torch.tensor(projectors[l], dtype=torch.float32, device="cuda")
+            _apply_edit(model, l, hd_i, head_dim, kappa, P_U, W_orig)
+            orig[(l, hd_i)] = W_orig
+        acc, correct, total, tokens = _batched_accuracy(
+            model, items, tok, "cuda", n_pos, batch_size)
+        for (l, hd_i), W_orig in orig.items():
+            _restore(model, l, hd_i, head_dim, W_orig)
+        return acc, correct, total, tokens
+
+    t0 = time.time()
+    items = _build_task(tok, n_doc, words, positions, seed)
+    base_acc, _, _, base_tokens = _batched_accuracy(
+        model, items, tok, "cuda", n_pos, batch_size)
+    print(f"  [seed {seed}] base done ({time.time()-t0:.0f}s) "
+          f"base={[round(a,3) for a in base_acc]}", flush=True)
+    conds = {}
+    for label, kap in KAPPA_CONDS:
+        tc = time.time()
+        heads = target_heads if label == "target" else sham_heads
+        acc, correct, total, tokens = run_condition(items, heads, kap)
+        print(f"    [seed {seed}] {label} k={kap}: V={_valley(acc):.4f} "
+              f"({time.time()-tc:.0f}s)", flush=True)
+        rec = {"label": label, "kappa": kap,
+               "accuracy_by_pos": [round(a, 4) for a in acc],
+               "correct_by_pos": correct, "total_by_pos": total,
+               "V_task": round(_valley(acc), 5)}
+        if label == "target" and kap == 1.0:
+            rec["token_diff_from_base"] = int(sum(
+                int(b != c) for b, c in zip(base_tokens, tokens)))
+        conds[f"{label}_k{kap}"] = rec
+
+    seed_record = {"seed": seed,
+                   "base_accuracy_by_pos": [round(a, 4) for a in base_acc],
+                   "conditions": conds}
+    with open(f"/cache/exp073_seed{seed}.json", "w") as f:
+        _json.dump(seed_record, f, indent=1)
+    vol.commit()
+    print(f"  [seed {seed} persisted -> volume:/exp073_seed{seed}.json "
+          f"({time.time()-t0:.0f}s)]", flush=True)
+    return seed_record
+
+
+@app.local_entrypoint()
+def spawn(seeds: str = "123,2024,99", batch_size: int = 4):
+    """Fire one independent container per seed (robust to client disconnects).
+    Returns immediately; poll the volume for /exp073_seed{seed}.json and then
+    run the `aggregate` entrypoint. Default seeds are the three missing after
+    the serial run banked 42 and 7."""
+    import json
+    import os
+
+    here = os.path.dirname(os.path.abspath(__file__))
+    lock_path = os.path.join(os.path.dirname(here),
+                             "exp-072_cloud_powered_slope_editing", "prereg_locked.json")
+    with open(lock_path) as f:
+        lock = json.load(f)
+    seed_list = [int(x) for x in seeds.split(",") if x.strip()]
+    print(f"=== exp-073 SPAWN per-seed: {lock['model']} seeds={seed_list} ===")
+    calls = []
+    for s in seed_list:
+        call = run_one_seed.spawn(
+            lock["model"], lock["n_doc"], lock["positions"],
+            lock["target_heads"], lock["sham_heads"], s, batch_size)
+        calls.append((s, call.object_id))
+        print(f"  spawned seed {s}: {call.object_id}", flush=True)
+    print("\nAll seeds spawned server-side. They will finish and commit "
+          "independently even if this client disconnects.")
+    print("Retrieve: modal volume get hf-model-cache /exp073_seed<seed>.json")
 
 
 @app.local_entrypoint()

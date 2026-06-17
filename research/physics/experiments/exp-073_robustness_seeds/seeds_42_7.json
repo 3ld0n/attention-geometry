@@ -1,0 +1,294 @@
+{
+ "seeds_done": [
+  42,
+  7
+ ],
+ "per_seed": [
+  {
+   "seed": 42,
+   "base_accuracy_by_pos": [
+    0.775,
+    0.65,
+    0.325,
+    0.525,
+    0.8
+   ],
+   "conditions": {
+    "target_k1.0": {
+     "label": "target",
+     "kappa": 1.0,
+     "accuracy_by_pos": [
+      0.775,
+      0.65,
+      0.325,
+      0.525,
+      0.8
+     ],
+     "correct_by_pos": [
+      31,
+      26,
+      13,
+      21,
+      32
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.59375,
+     "token_diff_from_base": 0
+    },
+    "target_k0.5": {
+     "label": "target",
+     "kappa": 0.5,
+     "accuracy_by_pos": [
+      0.775,
+      0.7,
+      0.35,
+      0.525,
+      0.825
+     ],
+     "correct_by_pos": [
+      31,
+      28,
+      14,
+      21,
+      33
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.57576
+    },
+    "target_k1.5": {
+     "label": "target",
+     "kappa": 1.5,
+     "accuracy_by_pos": [
+      0.775,
+      0.65,
+      0.275,
+      0.525,
+      0.8
+     ],
+     "correct_by_pos": [
+      31,
+      26,
+      11,
+      21,
+      32
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.65625
+    },
+    "target_k2.0": {
+     "label": "target",
+     "kappa": 2.0,
+     "accuracy_by_pos": [
+      0.775,
+      0.625,
+      0.275,
+      0.5,
+      0.775
+     ],
+     "correct_by_pos": [
+      31,
+      25,
+      11,
+      20,
+      31
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.64516
+    },
+    "sham_heads_k1.5": {
+     "label": "sham_heads",
+     "kappa": 1.5,
+     "accuracy_by_pos": [
+      0.775,
+      0.75,
+      0.35,
+      0.525,
+      0.825
+     ],
+     "correct_by_pos": [
+      31,
+      30,
+      14,
+      21,
+      33
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.57576
+    }
+   }
+  },
+  {
+   "seed": 7,
+   "base_accuracy_by_pos": [
+    0.75,
+    0.65,
+    0.275,
+    0.5,
+    0.8
+   ],
+   "conditions": {
+    "target_k1.0": {
+     "label": "target",
+     "kappa": 1.0,
+     "accuracy_by_pos": [
+      0.75,
+      0.65,
+      0.275,
+      0.5,
+      0.8
+     ],
+     "correct_by_pos": [
+      30,
+      26,
+      11,
+      20,
+      32
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.65625,
+     "token_diff_from_base": 0
+    },
+    "target_k0.5": {
+     "label": "target",
+     "kappa": 0.5,
+     "accuracy_by_pos": [
+      0.75,
+      0.65,
+      0.3,
+      0.5,
+      0.8
+     ],
+     "correct_by_pos": [
+      30,
+      26,
+      12,
+      20,
+      32
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.625
+    },
+    "target_k1.5": {
+     "label": "target",
+     "kappa": 1.5,
+     "accuracy_by_pos": [
+      0.725,
+      0.65,
+      0.275,
+      0.475,
+      0.75
+     ],
+     "correct_by_pos": [
+      29,
+      26,
+      11,
+      19,
+      30
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.63333
+    },
+    "target_k2.0": {
+     "label": "target",
+     "kappa": 2.0,
+     "accuracy_by_pos": [
+      0.725,
+      0.65,
+      0.275,
+      0.475,
+      0.75
+     ],
+     "correct_by_pos": [
+      29,
+      26,
+      11,
+      19,
+      30
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.63333
+    },
+    "sham_heads_k1.5": {
+     "label": "sham_heads",
+     "kappa": 1.5,
+     "accuracy_by_pos": [
+      0.75,
+      0.65,
+      0.325,
+      0.5,
+      0.825
+     ],
+     "correct_by_pos": [
+      30,
+      26,
+      13,
+      20,
+      33
+     ],
+     "total_by_pos": [
+      40,
+      40,
+      40,
+      40,
+      40
+     ],
+     "V_task": 0.60606
+    }
+   }
+  }
+ ]
+}

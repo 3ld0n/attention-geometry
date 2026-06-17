@@ -85,8 +85,78 @@ batched-inference change). Batched fp32 reproduces exp-072's unbatched fp32 to t
 | target κ=0.5 (shallow) | V=0.5758 | 0.576 |
 | target κ=1.5 (deepen)  | V=0.6562 | 0.656 |
 
-→ batched inference is faithful; the seed sweep is trustworthy. Seed 42 also shows
-both legs in the predicted direction (κ=0.5 shallows V by −0.018, κ=1.5 deepens by
-+0.062), as expected since seed 42 *is* exp-072. Error bars from seeds 7/123/2024/99
-*(pending — ~13 min/condition fp32; expect ~3 seeds complete within the 4 h window,
-banked incrementally to volume:/exp073_partial.json)*.
+→ batched inference is faithful; the seed sweep is trustworthy.
+
+### Metric correction (important): track MIDDLE accuracy, not V_task
+
+V_task = 1 − middle/max(primacy, recency) is a *ratio*, so it moves when either the
+middle OR the reference edges move. On seed 7 this bit hard: the κ=1.5 "deepening"
+edit left the middle bin unchanged (11/40 → 11/40) but lowered the *edges*
+(0.75/0.80 → 0.725/0.75), so V_task dropped — looking like an anti-deepening effect
+that was really just off-target edge degradation. **The direct, honest quantity is
+the middle-bin accuracy.** Re-reading both completed seeds on Δ(middle correct):
+
+| seed | base mid | shallow κ=0.5 Δmid | deepen κ=1.5 Δmid | κ=1.5 edge effect |
+|------|----------|--------------------|--------------------|-------------------|
+| 42   | 13/40    | **+1** (predicted) | **−2** (predicted) | edges unchanged — clean |
+| 7    | 11/40    | **+1** (predicted) | **0** (no effect)  | edges dropped 0.75/0.80→0.725/0.75 |
+
+Sham-head κ=1.5 did not deepen either seed (specificity holds: seed42 mid 13→14,
+seed7 11→13).
+
+### Honest read at n=2 (awaiting n=5 from seeds 123/2024/99)
+
+- **Effect sizes are at the noise floor**: ±1–2 items out of 40 per position.
+- **Shallowing (κ=0.5)** is the *consistent* leg so far: +1 middle item on both seeds.
+- **Deepening (κ=1.5)** is *seed-dependent*: clean on seed 42 (which IS exp-072),
+  null-on-middle + edge-damage on seed 7. This directly tempers exp-072's "strong
+  bidirectional control" headline — it did not cleanly transfer to a second seed.
+- This is the rounding-up the carry-forward warned against ("don't round 'deepening
+  propagates' up to 'we causally control LITM'"). The robustness check is earning
+  its keep by catching it.
+
+### FINAL status this session: n=2 complete, n=5 BLOCKED on Modal billing limit
+
+The seed sweep is **incomplete**. Seeds 42 and 7 completed and are aggregated
+(`results.json`, `seeds_42_7.json`). The remaining seeds 123/2024/99 were attempted
+three ways and all were defeated by infrastructure, the last fatally:
+
+1. Serial detached run — client ConnectionError; orphan container survived but later
+   reaped mid-seed-123 (ephemeral apps die when their client connection ends).
+2. `modal run ::spawn` per-seed — ephemeral app reaped the spawned calls on entrypoint exit.
+3. `modal deploy` (persistent app) + spawn — **correct pattern, and it worked**: all
+   three seeds ran concurrently and got past κ=1.0, but then hit
+   *"waiting to be scheduled on GPU_A100_80GB … memory=128.8GiB"* — the 128 GB host-RAM
+   request forced scarce oversized workers (preemption; restart-from-scratch with
+   retries=0). Dropped memory to 64 GB and went to redeploy →
+   **"workspace billing cycle spend limit reached."** Hard stop.
+
+**Root-cause lessons for the resumption:**
+- Use `modal deploy` + spawn-against-deployed-function (see `invoke_seeds.py`), NOT
+  `modal run`/detach — that's the connection-robust pattern.
+- `memory=131072` (128 GB) was self-inflicted scarcity; the model needs ~52 GB host.
+  Now set to 64 GB in both functions. This likely also caused tonight's preemption.
+- Resume needs Eldon: raise the Modal spend limit or wait for the billing cycle reset.
+  Then: `modal deploy robustness_sweep.py && python invoke_seeds.py 123,2024,99`,
+  poll `/exp073_seed<seed>.json`, then `python aggregate.py` for n=5.
+
+**Base valleys the blocked seeds DID produce (base + κ=1.0 only, from deployed logs):**
+| seed | base acc-by-pos | base middle | κ=1.0 V |
+|------|-----------------|-------------|---------|
+| 123  | [0.75, 0.6, 0.35, 0.475, 0.8]   | 14/40 | 0.5625 |
+| 2024 | [0.775, 0.725, 0.325, 0.575, 0.8] | 13/40 | 0.5938 |
+| 99   | [0.8, 0.675, 0.35, 0.525, 0.8]  | 14/40 | 0.5625 |
+
+→ the LITM valley itself is robust across all 5 seeds (middle 11–14/40, edges ~30–32/40).
+What we lack for 123/2024/99 are the EDIT deltas (κ=0.5/1.5), so the robustness verdict
+stands at **n=2**.
+
+### Verdict (n=2 — PRELIMINARY, underpowered)
+- **Shallowing (κ=0.5):** Δmiddle = +1, +1 (mean +1.0, 2/2 predicted sign). Consistent
+  but tiny (~1/40).
+- **Deepening (κ=1.5):** Δmiddle = −2, 0 (mean −1.0 ± 1.0, 1/2 predicted sign).
+  Seed-dependent; on seed 7 it didn't move the middle and instead degraded the edges.
+- **Headline:** at n=2 the bidirectional claim does NOT cleanly survive a single new
+  seed. Shallowing looks like the steadier (if small) leg; deepening is the fragile one
+  — the inverse of exp-072's framing. Effects sit at the per-item noise floor; n=5 with
+  proper error bars is required before any claim. Do NOT round this up.
