@@ -257,7 +257,7 @@ def _batched_accuracy(model, items, tokenizer, device, n_positions, batch_size):
     return acc, correct, total, tokens
 
 
-@app.function(image=image, gpu="A100-80GB", timeout=7200, volumes={"/cache": vol},
+@app.function(image=image, gpu="A100-80GB", timeout=14400, volumes={"/cache": vol},
               memory=131072, secrets=[modal.Secret.from_name("huggingface-token")])
 def run_robustness(model_name: str, n_doc: int, positions: list,
                    target_heads: list, sham_heads: list, seeds: list,
@@ -265,6 +265,10 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
     import os
     os.environ["HF_HOME"] = "/cache"
     os.environ["TRANSFORMERS_CACHE"] = "/cache/transformers"
+    # Reduce allocator fragmentation: vicuna-13b fp32 + eager attention on long
+    # prompts leaves large reserved-but-unallocated blocks (exp-073 first OOM).
+    # Must be set before the CUDA context is created (i.e. before torch import).
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     import time
     import numpy as np
     import torch
@@ -286,6 +290,11 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
     needed_layers = sorted(set(h["layer"] for h in target_heads + sham_heads))
     print(f"  computing projectors for layers {needed_layers}...", flush=True)
     projectors = _compute_projectors(model, needed_layers, "cuda")
+    # The 50 projector passes (output_hidden_states) leave a large cached/
+    # fragmented pool; release it before the memory-heavy batched forwards.
+    torch.cuda.empty_cache()
+    print(f"  cache cleared; reserved={torch.cuda.memory_reserved()/1e9:.1f}GB "
+          f"allocated={torch.cuda.memory_allocated()/1e9:.1f}GB", flush=True)
 
     KAPPA_CONDS = [("target", 1.0), ("target", 0.5), ("target", 1.5),
                    ("target", 2.0), ("sham_heads", 1.5)]
@@ -308,12 +317,18 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
     for seed in seeds:
         t0 = time.time()
         items = _build_task(tok, n_doc, words, positions, seed)
+        print(f"  [seed {seed}] {len(items)} items; running base...", flush=True)
         base_acc, _, _, base_tokens = _batched_accuracy(
             model, items, tok, "cuda", n_pos, batch_size)
+        print(f"  [seed {seed}] base done ({time.time()-t0:.0f}s) "
+              f"base={[round(a,3) for a in base_acc]}", flush=True)
         conds = {}
         for label, kap in KAPPA_CONDS:
+            tc = time.time()
             heads = target_heads if label == "target" else sham_heads
             acc, correct, total, tokens = run_condition(items, heads, kap)
+            print(f"    [seed {seed}] {label} k={kap}: V={_valley(acc):.4f} "
+                  f"({time.time()-tc:.0f}s)", flush=True)
             key = f"{label}_k{kap}"
             rec = {"label": label, "kappa": kap,
                    "accuracy_by_pos": [round(a, 4) for a in acc],
@@ -326,6 +341,13 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
         per_seed.append({"seed": seed,
                          "base_accuracy_by_pos": [round(a, 4) for a in base_acc],
                          "conditions": conds})
+        # Incremental persistence: keep completed seeds even if the run is
+        # interrupted mid-sweep (flaky connection / timeout).
+        import json as _json
+        with open("/cache/exp073_partial.json", "w") as f:
+            _json.dump({"seeds_done": [s["seed"] for s in per_seed],
+                        "per_seed": per_seed}, f, indent=1)
+        vol.commit()
         print(f"  seed {seed}: base={[round(a,3) for a in base_acc]} "
               f"k0.5 V={conds['target_k0.5']['V_task']:.4f} "
               f"k1.0 V={conds['target_k1.0']['V_task']:.4f} "
@@ -349,8 +371,7 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
                     - s["conditions"]["target_k1.0"]["V_task"] for s in per_seed]
     sd = np.array(shallow_delta); dd = np.array(deepen_delta)
 
-    vol.commit()
-    return {
+    result = {
         "model": model_name, "n_doc": n_doc, "positions": positions, "seeds": seeds,
         "batch_size": batch_size,
         "per_seed": per_seed,
@@ -368,10 +389,18 @@ def run_robustness(model_name: str, n_doc: int, positions: list,
             "n_predicted_sign": int((dd > 0).sum()),
         },
     }
+    # Persist the full result server-side on the volume, robust to a flaky client
+    # connection (the local entrypoint may never receive the return value).
+    import json as _json
+    with open("/cache/exp073_results.json", "w") as f:
+        _json.dump(result, f, indent=1)
+    vol.commit()
+    print("  [persisted full result -> volume:/exp073_results.json]", flush=True)
+    return result
 
 
 @app.local_entrypoint()
-def main(seeds: str = "42,7,123,2024,99", batch_size: int = 8):
+def main(seeds: str = "42,7,123,2024,99", batch_size: int = 4):
     import json
     import os
     from datetime import datetime, timezone
