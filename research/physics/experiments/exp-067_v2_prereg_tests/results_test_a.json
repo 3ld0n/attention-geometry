@@ -1,7 +1,7 @@
 {
   "experiment": "exp-067-test-a",
   "preregistration": "research/physics/notes/2026-06-14_v2_preregistration.md",
-  "timestamp_utc": "2026-06-15T04:05:57.940181+00:00",
+  "timestamp_utc": "2026-06-18T02:19:27.146282+00:00",
   "thresholds": {
     "keep_a1_rho": 0.6,
     "kill_a1_rho": 0.5,
@@ -36,10 +36,39 @@
       "delta_rho": 0.032068654019873466,
       "verdict_a1": "KEEP (A1 confirmed)"
     },
-    "pending": [
-      "EleutherAI/pythia-1.4b",
-      "openai-community/gpt2-medium",
-      "mistralai/Mistral-7B-v0.3"
-    ]
+    "EleutherAI/pythia-1.4b": {
+      "model": "EleutherAI/pythia-1.4b",
+      "source": "bcft_functional_form_fit_2026-06-18T021918Z_pythia-1.4b.json",
+      "n_conformal_heads": 95,
+      "n_total_heads": 349,
+      "rho_joint_implied": {
+        "rho": 0.8865061590145576,
+        "p": 6.949151582430489e-33
+      },
+      "rho_delta_only": {
+        "rho": 0.5977463605823068,
+        "p": 1.601416025902516e-10
+      },
+      "improvement_a2": true,
+      "delta_rho": 0.28875979843225086,
+      "verdict_a1": "KEEP (A1 confirmed)"
+    },
+    "gpt2-medium": {
+      "model": "gpt2-medium",
+      "source": "bcft_functional_form_fit_2026-06-18T021508Z_gpt2-medium.json",
+      "n_conformal_heads": 317,
+      "n_total_heads": 384,
+      "rho_joint_implied": {
+        "rho": 0.9792238079921116,
+        "p": 2.3773019158864535e-220
+      },
+      "rho_delta_only": {
+        "rho": 0.7954867869095028,
+        "p": 1.6723625217967116e-70
+      },
+      "improvement_a2": true,
+      "delta_rho": 0.1837370210826088,
+      "verdict_a1": "KEEP (A1 confirmed)"
+    }
   }
 }

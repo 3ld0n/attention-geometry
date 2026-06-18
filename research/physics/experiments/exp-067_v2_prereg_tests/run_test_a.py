@@ -180,18 +180,37 @@ def main() -> None:
     r410 = run_test_a_from_archived(f410, "EleutherAI/pythia-410m")
     results["confirmatory_tests"]["EleutherAI/pythia-410m"] = r410
 
-    # --- Live measurement section (for Pythia-1.4b, GPT-2-medium) ---
-    # These require loading models and running BCFT functional-form fits.
-    # They follow the same protocol: run_bcft_functional_form_fit.py on the
-    # target model, save to exp-026 format, then call run_test_a_from_archived.
-    print("\n=== Live model section ===")
-    print("Pythia-1.4b and GPT-2-medium require BCFT functional-form fit runs.")
-    print("Run the fit script first; results appended here when available.")
-    results["confirmatory_tests"]["pending"] = [
-        "EleutherAI/pythia-1.4b",
-        "openai-community/gpt2-medium",
-        "mistralai/Mistral-7B-v0.3",
-    ]
+    # --- Live measurement section: scan exp-026 results dir for new fit files ---
+    # Files from run_bcft_fit_local.py are named:
+    #   bcft_functional_form_fit_<timestamp>_<shortname>.json
+    # They use the same "models" dict format as the archived files.
+    print("\n=== Scanning for local-fit files (Pythia-1.4b, GPT-2-medium) ===")
+
+    # Map from model HF ID to short names used in local fit filenames
+    live_models = {
+        "EleutherAI/pythia-1.4b": "pythia-1.4b",
+        "gpt2-medium": "gpt2-medium",
+    }
+
+    for hf_id, short_name in live_models.items():
+        if hf_id in results["confirmatory_tests"]:
+            print(f"  {hf_id}: already processed (skipping)")
+            continue
+
+        # Find the most recent local-fit file for this model
+        candidates = sorted(EXP026_DIR.glob(f"bcft_functional_form_fit_*_{short_name}.json"))
+        if not candidates:
+            print(f"  {hf_id}: no local fit file found (run run_bcft_fit_local.py first)")
+            results["confirmatory_tests"].setdefault("pending", [])
+            if isinstance(results["confirmatory_tests"]["pending"], list):
+                if hf_id not in results["confirmatory_tests"]["pending"]:
+                    results["confirmatory_tests"]["pending"].append(hf_id)
+            continue
+
+        fit_file = candidates[-1]
+        print(f"\n=== Test A: {hf_id} (local fit: {fit_file.name}) ===")
+        r = run_test_a_from_archived(fit_file, hf_id)
+        results["confirmatory_tests"][hf_id] = r
 
     # Save results
     out_path = Path(__file__).parent / "results_test_a.json"

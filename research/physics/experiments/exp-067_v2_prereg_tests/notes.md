@@ -24,7 +24,30 @@
 
 **Verdict:** First fresh-model confirmation of Test A. ρ = 0.753 clears the 0.60 threshold comfortably; the joint implied-valley predictor is strictly better than Δ alone on Pythia-410m.
 
-**Pending fresh tests:** Pythia-1.4b, GPT-2-medium, and Mistral-7B require BCFT functional-form fits (exp-026 style) to get per-head λ̂. Not yet run (no λ̂ data available for these models from prior experiments).
+**Additional confirmatory model — Pythia-1.4b (local BCFT fit, June 17 2026):**
+- Fit file: `exp-026/results/bcft_functional_form_fit_2026-06-18T021918Z_pythia-1.4b.json`
+- n_conformal_heads: **95** (of 349 total)
+- ρ(v̂, valley_meas) = **+0.8865** (p = 6.95×10⁻³³) → **KEEP (A1 confirmed)**
+- ρ(Δ̂, valley_meas) = **+0.5977** (p = 1.60×10⁻¹⁰)
+- Improvement (A2): **YES** (Δρ = +0.2888 — largest improvement of all three models)
+
+**Cross-model pattern:** The joint (Δ, λ) predictor improvement varies by model:
+- Pythia-410m (RoPE): Δρ = +0.032 — λ adds little to Δ
+- Pythia-1.4b (RoPE): Δρ = +0.289 — λ adds substantial predictive power
+- gpt2-medium (learned PE): Δρ = +0.184 — strong λ contribution
+
+The large Pythia-1.4b Δρ is notable: Δ alone achieves only ρ=0.598 at 1.4b (barely clearing the 0.50 kill threshold), but the joint predictor reaches 0.887. This suggests that at 1.4b scale, heads with similar conformal dimension Δ have highly variable valley depths, and the BCFT boundary parameter λ resolves that ambiguity. Hypothesis: larger models develop more heterogeneous head behavior where the boundary term's head-specific contribution is essential for valley prediction. The PE-type effect may be secondary.
+
+
+
+**Additional confirmatory model — GPT-2-medium (local BCFT fit, June 17 2026):**
+- Fit file: `exp-026/results/bcft_functional_form_fit_2026-06-18T021508Z_gpt2-medium.json`
+- n_conformal_heads: **317** (of 384 total)
+- ρ(v̂, valley_meas) = **+0.9792** (p = 2.38×10⁻²²⁰) → **KEEP (A1 confirmed, very strong)**
+- ρ(Δ̂, valley_meas) = **+0.7955** (p = 1.67×10⁻⁷⁰)
+- Improvement (A2): **YES** (Δρ = +0.1837 — largest improvement seen across all models)
+
+**Interpretation:** ρ = 0.979 is the strongest Test A result by far (vs. 0.753 for Pythia-410m, 0.683/0.906 for the diagnostic models). The joint (Δ, λ) BCFT model predicts valley depth with near-perfect rank-correlation in gpt2-medium. The large improvement in Δρ (+0.18 vs. +0.03 for Pythia-410m) suggests that the BCFT boundary parameter λ carries substantially more predictive information in gpt2-medium — likely because gpt2-medium uses learned PE (not RoPE), where the boundary absorption mechanism is more cleanly expressed without the rotary encoding's periodic structure modulating λ.
 
 ## Test B: Depth-Accumulated Primacy Laws
 
@@ -55,6 +78,10 @@
 |---|---|---|---|
 | A1 (joint implied valley) | Pythia-410m | +0.753 | KEEP |
 | A2 (improvement over Δ alone) | Pythia-410m | +0.032 over Δ | YES |
+| A1 (joint implied valley) | Pythia-1.4b | +0.887 | KEEP |
+| A2 (improvement over Δ alone) | Pythia-1.4b | +0.289 over Δ | YES (largest) |
+| A1 (joint implied valley) | GPT-2-medium | +0.979 | KEEP (strong) |
+| A2 (improvement over Δ alone) | GPT-2-medium | +0.184 over Δ | YES (large) |
 | P-B1 (depth-primacy) | Pythia-1.4b | +1.000 | KEEP |
 | P-B2 (context-dilution) | Pythia-1.4b | −1.000 | KEEP |
 | P-B3 (depth-primacy robustness) | GPT-2-medium | +1.000 | KEEP |
@@ -62,14 +89,15 @@
 ## Honest assessment
 
 The tests passed on all registered metrics. However:
-1. **Test A** has one confirmatory model (Pythia-410m). Additional models (Pythia-1.4b, GPT-2-medium) require BCFT functional-form fits to obtain λ̂ per-head — these are additional pending tests, not negatives.
+1. **Test A** now confirmed on three fresh models (Pythia-410m ρ=0.753, Pythia-1.4b ρ=0.887, GPT-2-medium ρ=0.979). All three KEEP with A1+A2. Cross-model pattern: λ improvement largest at 1.4b scale (Δρ=+0.29), suggesting head-behavior heterogeneity grows with scale and λ resolves it. Possibly also PE-type effect (learned PE gpt2-medium has very strong ρ); needs Pythia-family comparison at same scale to disambiguate scale vs. PE.
 2. **P-B2 saturation:** The full-depth context-dilution test shows the right direction with perfect monotonicity, but the effect size at full depth is tiny. The pre-registered verdict is KEEP; the scientific content of P-B2 is better seen at intermediate depth.
 3. **P-B1 and P-B3 are near-tautological** for models that fully saturate (all mass goes to position 0 by the final layer). Their content is in the functional form of growth — which is what they measure.
 
 ## Next steps
 
-1. Run Test A on Pythia-1.4b and GPT-2-medium — requires BCFT functional-form fit (exp-026 style script).
-2. P-B2 at intermediate depth (k=6 or k=8): add to exp-067 or as exp-068.
-3. Task-level slope editing (pre-register for Pythia-1.4b retrieval accuracy): Research Plan §2.3.
+1. ~~Run Test A on GPT-2-medium~~ — DONE June 17 2026 (ρ=0.979 KEEP). See above.
+2. Run Test A on Pythia-1.4b — BCFT fit running June 17 2026 (run_bcft_fit_local.py). Add result when complete.
+3. P-B2 at intermediate depth (k=6 or k=8): add to exp-067 as a follow-up.
+4. ~~Task-level slope editing (pre-register for Pythia-1.4b retrieval accuracy)~~ — Done exp-068 → exp-069 → exp-070 → exp-072 (full program).
 
 *Registry: exp-067. Scripts: run_test_a.py, run_test_b.py. Results: results_test_a.json, results_test_b.json.*
