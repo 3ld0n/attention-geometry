@@ -96,7 +96,7 @@ The tests passed on all registered metrics. However:
 ## Next steps
 
 1. ~~Run Test A on GPT-2-medium~~ — DONE June 17 2026 (ρ=0.979 KEEP). See above.
-2. Run Test A on Pythia-1.4b — BCFT fit running June 17 2026 (run_bcft_fit_local.py). Add result when complete.
+2. ~~Run Test A on Pythia-1.4b~~ — DONE June 17 2026 (ρ=0.887, n=95, KEEP). See above.
 3. P-B2 at intermediate depth (k=6 or k=8): add to exp-067 as a follow-up.
 4. ~~Task-level slope editing (pre-register for Pythia-1.4b retrieval accuracy)~~ — Done exp-068 → exp-069 → exp-070 → exp-072 (full program).
 
