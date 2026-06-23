@@ -1,0 +1,109 @@
+{
+  "experiment": "exp-074",
+  "title": "P-B2b: Context-length dilution at intermediate depth (Pythia-1.4b)",
+  "preregistration": "research/physics/experiments/exp-074_pb2_intermediate_depth/notes.md",
+  "timestamp_utc": "2026-06-23T06:14:15.922329+00:00",
+  "model": "EleutherAI/pythia-1.4b",
+  "N_values": [
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "k_checkpoints": [
+    4,
+    6,
+    8,
+    12
+  ],
+  "window_W": 8,
+  "n_inputs": 50,
+  "thresholds": {
+    "keep_rho": -0.8,
+    "kill_rho": -0.5,
+    "keep_range": 0.02,
+    "kill_range": 0.005
+  },
+  "analysis_by_k": {
+    "4": {
+      "prim_window_by_N": [
+        0.105811,
+        0.04386,
+        0.023502,
+        0.020598
+      ],
+      "prim_decile_by_N": [
+        0.241986,
+        0.191791,
+        0.156284,
+        0.189698
+      ],
+      "rho_N_prim_window": -1.0,
+      "p": 0.0,
+      "range": 0.0852124621848365,
+      "verdict": "H1 KEEP"
+    },
+    "6": {
+      "prim_window_by_N": [
+        0.272794,
+        0.142378,
+        0.077891,
+        0.057802
+      ],
+      "prim_decile_by_N": [
+        0.51305,
+        0.463487,
+        0.41667,
+        0.421882
+      ],
+      "rho_N_prim_window": -1.0,
+      "p": 0.0,
+      "range": 0.21499240145283316,
+      "verdict": "H1 KEEP"
+    },
+    "8": {
+      "prim_window_by_N": [
+        0.439315,
+        0.259956,
+        0.152825,
+        0.109619
+      ],
+      "prim_decile_by_N": [
+        0.689595,
+        0.641159,
+        0.610317,
+        0.608622
+      ],
+      "rho_N_prim_window": -1.0,
+      "p": 0.0,
+      "range": 0.32969588581210063,
+      "verdict": "H1 KEEP"
+    },
+    "12": {
+      "prim_window_by_N": [
+        0.783312,
+        0.596681,
+        0.429197,
+        0.318163
+      ],
+      "prim_decile_by_N": [
+        0.942089,
+        0.929383,
+        0.928819,
+        0.92815
+      ],
+      "rho_N_prim_window": -1.0,
+      "p": 0.0,
+      "range": 0.4651485117446219,
+      "verdict": "H1 KEEP"
+    }
+  },
+  "h2_gradient_monotone": false,
+  "ranges_by_k": {
+    "4": 0.0852124621848365,
+    "6": 0.21499240145283316,
+    "8": 0.32969588581210063,
+    "12": 0.4651485117446219
+  },
+  "elapsed_s": 126.9
+}

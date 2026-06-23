@@ -55,12 +55,13 @@ spend on new models only to confirm.**
 ### Phase 1 — exhaust vicuna-13b (cheap: reuses locked heads + projectors, no new census)
 - **exp-073 — Robustness.** κ-sweep across ~5 task seeds → error bars on both legs. Converts the
   bidirectional claim from "one item" to "sign ± interval." Cheapest; do first. Spec below.
-- **exp-074 — Tradeoff.** Across the κ grid, measure broad capability (held-out LM perplexity +
-  a local/recency probe) alongside the middle-retrieval benefit. Clean win vs. redistribution.
-  Higher-information; both outcomes publishable. Spec below.
-- **exp-075 — Task generalization.** Add the two standard LITM tasks (key-value retrieval,
-  multi-doc QA à la Liu et al.) on the same heads. Answers "artifact of our synthetic prose task?"
-  (Spec when Phase 1 reaches it.)
+- **exp-075 — Tradeoff.** (Originally "exp-074"; renumbered 2026-06-23 when exp-074 was used for
+  P-B2b intermediate-depth analysis.) Across the κ grid, measure broad capability (held-out LM
+  perplexity + a local/recency probe) alongside the middle-retrieval benefit. Clean win vs.
+  redistribution. Higher-information; both outcomes publishable. Spec below.
+- **exp-076 — Task generalization.** (Originally "exp-075"; renumbered same session.) Add the two
+  standard LITM tasks (key-value retrieval, multi-doc QA à la Liu et al.) on the same heads.
+  Answers "artifact of our synthetic prose task?" (Spec when Phase 1 reaches it.)
 
 → Output: a sharpened, error-barred picture + the material to write a pre-registration.
 
@@ -137,7 +138,7 @@ job, not a loop of jobs.
 
 ---
 
-## Spec — exp-074 (Tradeoff)
+## Spec — exp-075 (Tradeoff) [originally exp-074; renumbered 2026-06-23]
 
 **Question:** Does flattening the conformal heads (κ<1) buy middle-retrieval at the cost of other
 capability — i.e. is distance-decay a shared resource? Clean win vs. redistribution.
