@@ -1,0 +1,146 @@
+{
+ "experiment": "exp-078",
+ "timestamp": "2026-07-04T093015Z",
+ "protocol": {
+  "hidden": 768,
+  "n_matrices": 144,
+  "seed": 42,
+  "matrix": "sym W_Q^T W_K, factors (768, d_k)",
+  "references": {
+   "GOE": 0.536,
+   "Poisson": 0.386,
+   "tol": 0.02
+  }
+ },
+ "estimator_control_goe64": {
+  "r_mean": 0.530298,
+  "r_std": 0.03719
+ },
+ "schemes_dk64": {
+  "gaussian_0.02": {
+   "r_mean": 0.531186,
+   "r_std": 0.034292,
+   "se": 0.002858,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.004814,
+   "dist_to_poisson": 0.145186
+  },
+  "gaussian_1.0": {
+   "r_mean": 0.528839,
+   "r_std": 0.041216,
+   "se": 0.003435,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.007161,
+   "dist_to_poisson": 0.142839
+  },
+  "xavier_uniform": {
+   "r_mean": 0.532371,
+   "r_std": 0.039478,
+   "se": 0.00329,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.003629,
+   "dist_to_poisson": 0.146371
+  },
+  "orthogonal": {
+   "r_mean": 0.534055,
+   "r_std": 0.038499,
+   "se": 0.003208,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.001945,
+   "dist_to_poisson": 0.148055
+  },
+  "student_t_nu3": {
+   "r_mean": 0.53037,
+   "r_std": 0.038817,
+   "se": 0.003235,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.00563,
+   "dist_to_poisson": 0.14437
+  },
+  "sparse_gaussian_p0.1": {
+   "r_mean": 0.523743,
+   "r_std": 0.036351,
+   "se": 0.003029,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.012257,
+   "dist_to_poisson": 0.137743
+  }
+ },
+ "dk_sweep_gaussian002": {
+  "4": {
+   "r_mean": 0.532908,
+   "r_std": 0.199146,
+   "se": 0.016596,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.003092,
+   "dist_to_poisson": 0.146908
+  },
+  "8": {
+   "r_mean": 0.532925,
+   "r_std": 0.126827,
+   "se": 0.010569,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.003075,
+   "dist_to_poisson": 0.146925
+  },
+  "16": {
+   "r_mean": 0.530994,
+   "r_std": 0.075211,
+   "se": 0.006268,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.005006,
+   "dist_to_poisson": 0.144994
+  },
+  "32": {
+   "r_mean": 0.526678,
+   "r_std": 0.063285,
+   "se": 0.005274,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.009322,
+   "dist_to_poisson": 0.140678
+  },
+  "64": {
+   "r_mean": 0.527846,
+   "r_std": 0.038394,
+   "se": 0.0032,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.008154,
+   "dist_to_poisson": 0.141846
+  },
+  "128": {
+   "r_mean": 0.527743,
+   "r_std": 0.027776,
+   "se": 0.002315,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.008257,
+   "dist_to_poisson": 0.141743
+  },
+  "256": {
+   "r_mean": 0.528921,
+   "r_std": 0.017778,
+   "se": 0.001482,
+   "n": 144,
+   "verdict": "GOE-like",
+   "dist_to_goe": 0.007079,
+   "dist_to_poisson": 0.142921
+  }
+ },
+ "verdicts": {
+  "H1": true,
+  "H2": true,
+  "H3": false,
+  "H4": true
+ }
+}
