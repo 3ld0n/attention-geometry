@@ -255,7 +255,7 @@ The companion documents are:
 **Key insight:** The SYK correspondence lives at the *scaling correlation* level, not the single-matrix spectral level. The right observable for GUE is collective: correlation matrix across layers, Jacobian spectrum, or effective transfer matrix across heads.
 
 **Data:** `results_eigenvalue/eigenvalue_comparison.json`, `results_eigenvalue/spectral_analysis.json`
-**Writeup:** `research/riemann_unprovability.md` §5 Problem 3, ACTIVE.md "Design many-body GUE experiment."
+**Writeup:** `research/riemann_unprovability.md` §5 Problem 3; "Design many-body GUE experiment" tracked in Notion (physics research program).
 
 ---
 
