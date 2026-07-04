@@ -152,7 +152,33 @@ n=144 per condition, seed 43 (fresh).
 
 ### Addendum results
 
-*(pending)*
+Run ~4:00 AM, 1 s. Exit 0.
+
+| fill p | nonzeros/column (≈768p) | r_mean ± SE | verdict |
+|---|---|---|---|
+| 0.100 | 76.8 | 0.5287 ± 0.0033 | GOE-like |
+| 0.030 | 23.0 | 0.5274 ± 0.0030 | GOE-like |
+| 0.010 | 7.7 | 0.5180 ± 0.0032 | GOE-like (depressed) |
+| 0.003 | 2.3 | 0.3082 ± 0.0046 | Poisson-tendency |
+| 0.001 | 0.8 | 0.0199 ± 0.0017 | collapsed (sub-Poisson) |
+
+- **HA1 CONFIRMED** — monotone decrease with p.
+- **HA2 CONFIRMED, point prediction hit** — crossover below 0.516 occurs at
+  p = 0.003, inside the committed band 0.003–0.01. The transition is *sharp*: from
+  0.518 (GOE-like) at ~8 nonzeros/column to 0.308 at ~2.3 to full collapse at ~0.8.
+  The r ≈ 0.02 endpoint is deep localization — the spectrum is dominated by
+  near-degenerate zero modes, making consecutive-spacing ratios collapse.
+
+**Interpretation.** The GOE substrate of W_QK requires connectivity of roughly
+O(10) nonzero couplings per feature dimension; below that, level statistics localize.
+This is the sparse-RMT connectivity threshold appearing exactly where the
+per-degree-of-freedom argument puts it. For real transformers (fully dense weights)
+this threshold is ~3 orders of magnitude away — the GOE substrate is unavoidable for
+any conventionally-parameterized attention layer. The only way to build a transformer
+*without* the SYK-chaotic weight substrate would be extreme structured sparsity
+(≲10 couplings per feature), which is exactly the regime of certain
+mixture/monosemantic architectures — a potential future contact point between this
+program and interpretability-motivated sparse architectures.
 
 ## Artifacts
 
