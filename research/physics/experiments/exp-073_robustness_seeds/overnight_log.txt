@@ -3,4 +3,24 @@
 [2026-07-04 03:44:31] === seed 42 starting ===
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
-Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [2:30:29<5:00:58, 9029.43s/it]Fetching 3 files: 100%|██████████| 3/3 [2:30:29<00:00, 3009.81s/it]  
+Loading weights:   0%|          | 0/363 [00:00<?, ?it/s]Loading weights:   7%|▋         | 24/363 [00:00<00:01, 229.96it/s]Loading weights:  13%|█▎        | 49/363 [00:00<00:01, 213.24it/s]Loading weights:  21%|██        | 76/363 [00:00<00:01, 222.89it/s]Loading weights:  27%|██▋       | 99/363 [00:00<00:01, 224.19it/s]Loading weights:  34%|███▎      | 122/363 [00:00<00:01, 207.80it/s]Loading weights:  40%|███▉      | 144/363 [00:00<00:01, 204.79it/s]Loading weights:  45%|████▌     | 165/363 [00:00<00:01, 176.86it/s]Loading weights:  51%|█████     | 184/363 [00:01<00:01, 146.29it/s]Loading weights:  55%|█████▌    | 200/363 [00:01<00:01, 146.26it/s]Loading weights:  60%|█████▉    | 216/363 [00:01<00:01, 139.12it/s]Loading weights:  64%|██████▎   | 231/363 [00:01<00:01, 127.56it/s]Loading weights:  68%|██████▊   | 247/363 [00:01<00:00, 128.11it/s]Loading weights:  72%|███████▏  | 263/363 [00:01<00:00, 133.40it/s]Loading weights:  76%|███████▋  | 277/363 [00:01<00:00, 130.21it/s]Loading weights:  80%|████████  | 292/363 [00:01<00:00, 122.21it/s]Loading weights:  85%|████████▍ | 308/363 [00:02<00:00, 128.11it/s]Loading weights:  89%|████████▊ | 322/363 [00:02<00:00, 127.95it/s]Loading weights:  93%|█████████▎| 337/363 [00:02<00:00, 122.69it/s]Loading weights:  97%|█████████▋| 353/363 [00:02<00:00, 131.86it/s]Loading weights: 100%|██████████| 363/363 [00:02<00:00, 150.32it/s]
+[transformers] The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[seed 42] lmsys/vicuna-13b-v1.5 40L×40H hd=128 loaded fp32 on MPS in 9042s
+[seed 42] computing projectors for layers [15, 17, 21, 22, 24, 25, 26, 27, 29]...
+    projector pass 10/50
+    projector pass 20/50
+    projector pass 30/50
+    projector pass 40/50
+    projector pass 50/50
+[seed 42] 200 items; running base...
+[seed 42] base done (2613s) base=[0.775, 0.65, 0.325, 0.525, 0.8] correct=[31, 26, 13, 21, 32]
+  [seed 42] target k=1.0: V=0.5938 correct=[31, 26, 13, 21, 32] (2620s)
+  [seed 42] target k=0.5: V=0.5758 correct=[31, 28, 14, 21, 33] (2793s)
+/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2026-07-04 21:34:00] seed relaunch (gate PASSED earlier today; caffeinate wrapper active)
+[2026-07-04 21:34:00] === seed 123 starting ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/363 [00:00<?, ?it/s]Loading weights:   0%|          | 1/363 [00:00<01:29,  4.03it/s]Loading weights:   4%|▎         | 13/363 [00:00<00:08, 38.99it/s]Loading weights:   6%|▌         | 22/363 [00:00<00:07, 46.64it/s]Loading weights:   9%|▊         | 31/363 [00:00<00:06, 49.05it/s]Loading weights:  11%|█         | 40/363 [00:00<00:06, 49.61it/s]Loading weights:  13%|█▎        | 49/363 [00:01<00:06, 50.48it/s]Loading weights:  16%|█▌        | 58/363 [00:01<00:05, 51.48it/s]Loading weights:  18%|█▊        | 67/363 [00:01<00:05, 50.69it/s]Loading weights:  21%|██        | 76/363 [00:01<00:05, 51.41it/s]Loading weights:  23%|██▎       | 85/363 [00:01<00:05, 51.44it/s]Loading weights:  26%|██▌       | 94/363 [00:01<00:05, 51.16it/s]Loading weights:  28%|██▊       | 103/363 [00:02<00:05, 51.56it/s]Loading weights:  31%|███       | 112/363 [00:02<00:04, 51.86it/s]Loading weights:  33%|███▎      | 121/363 [00:02<00:04, 51.56it/s]Loading weights:  36%|███▌      | 130/363 [00:02<00:04, 51.85it/s]Loading weights:  38%|███▊      | 139/363 [00:02<00:04, 53.57it/s]Loading weights:  41%|████      | 148/363 [00:02<00:04, 52.09it/s]Loading weights:  43%|████▎     | 157/363 [00:03<00:03, 52.10it/s]Loading weights:  46%|████▌     | 166/363 [00:03<00:03, 52.66it/s]Loading weights:  48%|████▊     | 175/363 [00:03<00:03, 51.75it/s]Loading weights:  51%|█████     | 184/363 [00:03<00:03, 52.16it/s]Loading weights:  53%|█████▎    | 193/363 [00:03<00:03, 52.95it/s]Loading weights:  56%|█████▌    | 202/363 [00:04<00:03, 52.05it/s]Loading weights:  58%|█████▊    | 211/363 [00:04<00:02, 51.75it/s]Loading weights:  61%|██████    | 220/363 [00:04<00:02, 52.56it/s]Loading weights:  63%|██████▎   | 229/363 [00:04<00:02, 51.68it/s]

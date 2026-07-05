@@ -1,4 +1,14 @@
-# exp-073 — Robustness of the QK-slope behavioral handle (seed sweep)
+# exp-073
+
+> **2026-07-04 (evening) — MPS SUBSTRATE GATE: PASS.** The local MPS fp32 gate run
+> (`run_local_mps.py --seed 42`, pre-stated policy in that file's docstring) matched
+> the CUDA fp32 reference EXACTLY on the registered criterion: base `correct_by_pos`
+> [31,26,13,21,32] and target_k1.0 identical with token_diff_from_base=0. Beyond the
+> requirement, k=0.5 also reproduced (V=0.5758 vs CUDA 0.576; correct [31,28,14,21,33]).
+> The gate run was killed mid-k=1.5 (machine interruption, not a crash) — irrelevant:
+> the gate needed only base+k1.0. Verdict: MPS fp32 is substrate-equivalent for this
+> pipeline; seeds 123/2024/99 run locally count toward the n=5 aggregate with no
+> additional caveat. Artifact: `exp073_seed42_mps_gate.json`. — Robustness of the QK-slope behavioral handle (seed sweep)
 
 *Status: SPECCED, not yet run. Opened June 16, 2026 (Cursor session, Ariel + Eldon, evening).*
 *Program: `research/physics/PROGRAM_BRIEF_LITM_CAUSAL_HANDLE.md` (Phase 1).*
