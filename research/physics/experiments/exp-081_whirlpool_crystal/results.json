@@ -1,0 +1,49 @@
+{
+  "experiment": "exp-081",
+  "model": "gpt2",
+  "timestamp": "2026-07-04T143105Z",
+  "hypotheses": {
+    "H_crystal": "|\u0394n_syk| < 5 AND |\u0394median_delta| < 0.02",
+    "H_whirlpool": "n_syk_near(REAL) > n_syk_near(RAND) + 5"
+  },
+  "protocol": {
+    "model": "gpt2",
+    "seq_len": 512,
+    "n_inputs": 50,
+    "min_pos": 64,
+    "max_dx": 64,
+    "rng_seed": 42,
+    "r2_thresh": 0.9,
+    "syk_window": [
+      0.2,
+      0.3
+    ]
+  },
+  "results": {
+    "real": {
+      "n_heads_total": 144,
+      "n_valid_fits": 144,
+      "n_power_law_r2": 90,
+      "frac_power_law": 0.625,
+      "n_syk_near": 10,
+      "frac_syk_near": 0.06944444444444445,
+      "median_delta_all_pl": 0.3734585343052941
+    },
+    "rand": {
+      "n_heads_total": 144,
+      "n_valid_fits": 144,
+      "n_power_law_r2": 21,
+      "frac_power_law": 0.14583333333333334,
+      "n_syk_near": 4,
+      "frac_syk_near": 0.027777777777777776,
+      "median_delta_all_pl": 0.31427871195366336
+    },
+    "n_syk_near_diff_REAL_minus_RAND": 6,
+    "median_delta_diff_REAL_minus_RAND": 0.05917982235163072
+  },
+  "verdicts": {
+    "H_crystal": "NOT CONFIRMED",
+    "H_whirlpool": "CONFIRMED",
+    "overall": "whirlpool"
+  }
+}
