@@ -1,0 +1,151 @@
+{
+ "seed": 99,
+ "substrate": "mps_fp32_local",
+ "base_accuracy_by_pos": [
+  0.8,
+  0.675,
+  0.35,
+  0.525,
+  0.8
+ ],
+ "base_correct_by_pos": [
+  32,
+  27,
+  14,
+  21,
+  32
+ ],
+ "conditions": {
+  "target_k1.0": {
+   "label": "target",
+   "kappa": 1.0,
+   "accuracy_by_pos": [
+    0.8,
+    0.675,
+    0.35,
+    0.525,
+    0.8
+   ],
+   "correct_by_pos": [
+    32,
+    27,
+    14,
+    21,
+    32
+   ],
+   "total_by_pos": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "V_task": 0.5625,
+   "token_diff_from_base": 0
+  },
+  "target_k0.5": {
+   "label": "target",
+   "kappa": 0.5,
+   "accuracy_by_pos": [
+    0.8,
+    0.675,
+    0.35,
+    0.525,
+    0.8
+   ],
+   "correct_by_pos": [
+    32,
+    27,
+    14,
+    21,
+    32
+   ],
+   "total_by_pos": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "V_task": 0.5625
+  },
+  "target_k1.5": {
+   "label": "target",
+   "kappa": 1.5,
+   "accuracy_by_pos": [
+    0.8,
+    0.675,
+    0.35,
+    0.5,
+    0.775
+   ],
+   "correct_by_pos": [
+    32,
+    27,
+    14,
+    20,
+    31
+   ],
+   "total_by_pos": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "V_task": 0.5625
+  },
+  "target_k2.0": {
+   "label": "target",
+   "kappa": 2.0,
+   "accuracy_by_pos": [
+    0.825,
+    0.675,
+    0.35,
+    0.5,
+    0.775
+   ],
+   "correct_by_pos": [
+    33,
+    27,
+    14,
+    20,
+    31
+   ],
+   "total_by_pos": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "V_task": 0.57576
+  },
+  "sham_heads_k1.5": {
+   "label": "sham_heads",
+   "kappa": 1.5,
+   "accuracy_by_pos": [
+    0.825,
+    0.675,
+    0.375,
+    0.575,
+    0.8
+   ],
+   "correct_by_pos": [
+    33,
+    27,
+    15,
+    23,
+    32
+   ],
+   "total_by_pos": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "V_task": 0.54545
+  }
+ }
+}

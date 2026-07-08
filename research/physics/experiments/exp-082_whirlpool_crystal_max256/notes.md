@@ -58,23 +58,59 @@ honest negative noted. H_whirlpool status becomes "protocol-sensitive, not confi
 
 ---
 
-## Results
-
-*(filled after running)*
+## Results (2026-07-06)
 
 | Condition | power-law heads (R²>0.90) | n_syk_near | frac_syk/total | median_Δ (pl) |
 |---|---|---|---|---|
-| REAL (coherent) | — | — | — | — |
-| RAND (random) | — | — | — | — |
+| REAL (coherent) | 29/144 | 8 | 5.6% | 0.276 |
+| RAND (random) | 19/144 | 5 | 3.5% | 0.380 |
 
-Δn_syk_near (REAL − RAND): —
-Δmedian_Δ (REAL − RAND): —
+Δn_syk_near (REAL − RAND): **+3**
+Δmedian_Δ (REAL − RAND): **−0.105**
 
-**H_robust: [PENDING]**
-**H_artifact: [PENDING]**
+**H_robust: NOT CONFIRMED** (Δn=+3 < threshold +5)
+**H_artifact: NOT CONFIRMED** (Δn=+3 > 0; REAL still > RAND)
+**Overall verdict: AMBIGUOUS**
+
+Diagnostic: RAND count (5/144) still far below exp-007 baseline (44/144) even at MAX_DX=256.
+The protocol discrepancy is not resolved by larger lag range.
 
 ---
 
 ## Interpretation
 
-*(filled after running)*
+**The exp-081 whirlpool finding (Δn=+6) does not robustly replicate at MAX_DX=256.** The
+margin shrinks from +6 to +3, below the pre-stated +5 threshold. This means the narrowly-
+confirmed whirlpool result was sensitive to the lag range parameter.
+
+However, **H_artifact is also not confirmed**: the REAL > RAND trend persists (+3 > 0). The
+signal is weakened but not reversed. Full retraction of the whirlpool hypothesis is not
+warranted by this result alone.
+
+**Why did power-law head counts DROP with larger MAX_DX?**
+The most likely mechanism: GPT-2 (ctx=1024) has a conformal range ξ ≈ 12–22 tokens
+(consistent with exp-063's finding that ξ ∝ training context for ctx-1024 models). Beyond
+that range, the attention profile is no longer cleanly power-law. Including lags up to MAX_DX=256
+adds a large "non-power-law tail" region that degrades the log-log fit R² and reduces the
+number of heads exceeding the 0.90 threshold. MAX_DX=64 was already at or beyond the edge
+of the conformal range; 256 goes well beyond it.
+
+REAL: 90→29 power-law heads (MAX_DX=64→256). RAND: 21→19 (barely changed).
+Interpretation: coherent text produces more consistent *short-range* attention patterns
+(dx ≤ 64) that look power-law; at longer lag ranges, the profiles break down similarly
+across conditions.
+
+**The unresolved discrepancy with exp-007 (44/144 RAND):**
+Even at MAX_DX=256, RAND is 5/144 — far below exp-007's 44/144. MAX_DX is not the explanation.
+The most plausible remaining cause: exp-007 used `cutoff_low=3` (excluding dx=1 and dx=2 from
+the fit), while exp-081/082 start from dx=1. The attention sink at dx=1 (position 0 absorption)
+creates a large outlier that distorts the log-log regression and reduces R². Excluding dx<3 as
+exp-007 did would remove this outlier and likely restore the 44/144-class counts.
+
+**Recommended follow-up (exp-083):** Re-run the whirlpool/crystal test using exp-007's exact
+fitting protocol (cutoff_low=3, or equivalently fitting G[3:MAX_DX]) to:
+(a) reconcile with the exp-007 RAND baseline
+(b) test whether the whirlpool signal survives on a protocol that sees 44/144 RAND heads
+
+Until that test runs, the whirlpool finding should be treated as preliminary and
+protocol-sensitive. exp-081's status remains "partial" in the registry.

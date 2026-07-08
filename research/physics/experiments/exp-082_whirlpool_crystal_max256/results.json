@@ -1,0 +1,54 @@
+{
+  "experiment": "exp-082",
+  "model": "gpt2",
+  "timestamp": "2026-07-06T085243Z",
+  "prereg_commit": "43fa2028",
+  "hypotheses": {
+    "H_robust": "n_syk_near(REAL) > n_syk_near(RAND) + 5",
+    "H_artifact": "\u0394n_syk \u2264 0"
+  },
+  "protocol": {
+    "model": "gpt2",
+    "seq_len": 512,
+    "n_inputs": 50,
+    "min_pos": 64,
+    "max_dx": 256,
+    "rng_seed": 42,
+    "r2_thresh": 0.9,
+    "syk_window": [
+      0.2,
+      0.3
+    ],
+    "cutoff_low": 1,
+    "note": "Same as exp-081 except MAX_DX=256; cutoff_low=1 (not 3 as in exp-007)"
+  },
+  "results": {
+    "real": {
+      "n_heads_total": 144,
+      "n_valid_fits": 144,
+      "n_power_law_r2": 29,
+      "frac_power_law": 0.2013888888888889,
+      "n_syk_near": 8,
+      "frac_syk_near": 0.05555555555555555,
+      "median_delta_all_pl": 0.2759004087179753
+    },
+    "rand": {
+      "n_heads_total": 144,
+      "n_valid_fits": 144,
+      "n_power_law_r2": 19,
+      "frac_power_law": 0.13194444444444445,
+      "n_syk_near": 5,
+      "frac_syk_near": 0.034722222222222224,
+      "median_delta_all_pl": 0.3803671359295308
+    },
+    "n_syk_near_diff_REAL_minus_RAND": 3,
+    "median_delta_diff_REAL_minus_RAND": -0.10446672721155553
+  },
+  "verdicts": {
+    "H_robust": "NOT CONFIRMED",
+    "H_artifact": "NOT CONFIRMED",
+    "crystal": "NOT CONFIRMED",
+    "overall": "ambiguous",
+    "diagnostic": "RAND<10: protocol discrepancy vs exp-007 persists even at MAX_DX=256"
+  }
+}

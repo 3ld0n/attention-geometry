@@ -24,13 +24,15 @@ here = os.path.dirname(os.path.abspath(__file__))
 
 def load_seeds():
     seeds = {}
+    # Load per-seed files first (MPS gate and new seeds)
+    for path in glob.glob(os.path.join(here, "exp073_seed*.json")):
+        s = json.load(open(path))
+        seeds[s["seed"]] = s
+    # Load seeds_42_7.json last so it wins for seeds 42 and 7 (Modal CUDA fp32 complete runs)
     sp = os.path.join(here, "seeds_42_7.json")
     if os.path.exists(sp):
         for s in json.load(open(sp))["per_seed"]:
             seeds[s["seed"]] = s
-    for path in glob.glob(os.path.join(here, "exp073_seed*.json")):
-        s = json.load(open(path))
-        seeds[s["seed"]] = s
     return [seeds[k] for k in sorted(seeds)]
 
 

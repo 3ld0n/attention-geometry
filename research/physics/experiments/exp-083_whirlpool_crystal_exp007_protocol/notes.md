@@ -88,10 +88,66 @@ uniform random tokens).
 
 ## Results
 
-*(To be filled after running.)*
+*Run: 2026-07-07T061442Z (MPS, GPT-2 cached). Pre-registration commit: b584006d.*
+
+| Condition | power-law heads (R²>0.90) | n_syk_near | frac_syk/total | median_Δ (pl) |
+|---|---|---|---|---|
+| REAL (coherent) | 37/144 | 7 | 4.9% | 0.391 |
+| RAND (random) | 42/144 | 15 | 10.4% | 0.282 |
+
+Δn_syk_near (REAL − RAND): **−8**
+
+| Hypothesis | Verdict |
+|---|---|
+| H_baseline: n_syk_near(RAND) ≥ 30/144 | **NOT CONFIRMED** (15/144) |
+| H_whirlpool: n_syk_near(REAL) > n_syk_near(RAND) + 5 | **NOT CONFIRMED** (−8 < +5) |
+| H_crystal: \|Δn_syk\| ≤ 5 AND \|Δmedian\| < 0.02 | **NOT CONFIRMED** (\|Δn\|=8 > 5) |
+| H_null: n_syk_near(REAL) ≤ n_syk_near(RAND) + 5 | **CONFIRMED** (−8 ≤ +5) |
+| Overall | **BASELINE_FAIL** |
 
 ---
 
 ## Interpretation
 
-*(To be filled after running.)*
+**H_baseline failed: cutoff_low=3 did not restore the exp-007 RAND count.**
+The main diagnostic hypothesis was that the exp-081/082 RAND shortfall (4–5/144 vs. exp-007's 44/144)
+was caused by fitting from dx=1. Using exp-007's cutoff_low=3 should have excluded the attention-sink
+outlier at dx=1 and restored the ~44/144 baseline. It did not: RAND = 15/144 with cutoff_low=3,
+still far below 44/144.
+
+The remaining discrepancy with exp-007 is unexplained. Candidates:
+1. **RNG difference:** exp-007 used `torch.randint`; this experiment used numpy rng seed=42.
+   Both generate uniform random token IDs, but different bit sequences — this could affect the
+   specific attention profiles measured.
+2. **N_INPUTS:** exp-007 used a different number of inputs (the original protocol; the count
+   isn't directly documented in the accessible notes). More inputs would smooth the fit and
+   potentially increase the number of heads meeting R²>0.90.
+3. **MIN_POS, alignment:** exp-007 may have had different position selection behavior with
+   its torch.randint RAND method vs. the current windowed sampling.
+
+Without resolving the baseline, the whirlpool/crystal verdict is deferred to a protocol
+that successfully reproduces exp-007's RAND baseline. This experiment is therefore informative
+but not conclusive.
+
+**The RAND > REAL reversal (Δn = −8) is striking.**
+Even granting the BASELINE_FAIL, the direction of the effect is reversed from exp-081:
+RAND (15) > REAL (7). If anything, random tokens produce MORE SYK-near heads than coherent text.
+This suggests a physical reason: without semantic structure, attention may spread more uniformly
+across positions — producing cleaner, more power-law profiles. Coherent text may activate
+semantic shortcuts (induction heads, pattern completion) that pull attention away from the
+uniform power-law baseline. This is the CRYSTAL prediction in its strongest form — but it
+cannot be taken as confirmed on a failed baseline.
+
+**Status of the whirlpool hypothesis:**
+- exp-081 (MAX_DX=64, cutoff_low=1): H_whirlpool narrowly CONFIRMED (Δn=+6)
+- exp-082 (MAX_DX=256, cutoff_low=1): AMBIGUOUS (Δn=+3, below threshold)
+- exp-083 (exp-007 protocol, cutoff_low=3): H_null CONFIRMED, Δn=−8
+
+The trend is clear: as the measurement protocol becomes more stringent, the whirlpool signal
+weakens and reverses. **The whirlpool finding from exp-081 should be treated as a protocol
+artifact**, not a robust physical signal. exp-081 status updated to "superseded" in registry.
+
+**Next step:** Resolve the exp-007 baseline discrepancy (run exp-007-identical: torch.randint,
+same N_INPUTS, same exact protocol). Until the RAND baseline is reproducible (~44/144), the
+whirlpool/crystal question cannot be cleanly tested. This is a lower-priority thread — the
+main finding is that whirlpool is not confirmed on stricter protocols.

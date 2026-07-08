@@ -170,3 +170,56 @@ stands at **n=2**.
   seed. Shallowing looks like the steadier (if small) leg; deepening is the fragile one
   — the inverse of exp-072's framing. Effects sit at the per-item noise floor; n=5 with
   proper error bars is required before any claim. Do NOT round this up.
+
+---
+
+## Final Verdict (n=5 — 2026-07-07)
+
+All five seeds complete (42, 7 from Modal CUDA fp32; 123, 2024, 99 from MPS fp32 local).
+The MPS substrate-equivalence gate PASSED on seed 42 (exact integer match at k=1.0).
+Aggregate computed via `aggregate.py`.
+
+**PRIMARY — Δ(middle correct out of 40):**
+
+| Leg | per-seed deltas | mean ± SE | n_predicted_sign |
+|-----|-----------------|-----------|------------------|
+| Shallow κ=0.5 (pred > 0) | [+1, +1, 0, 0, 0] | +0.4 ± 0.24 | 2/5 |
+| Deepen κ=1.5 (pred < 0) | [0, −2, 0, 0, 0] | −0.4 ± 0.40 | 1/5 |
+
+95% CI (±2SE): Shallow [−0.09, +0.89] — includes zero. Deepen [−1.20, +0.40] — includes zero.
+
+**SECONDARY — Δ(V_task):**
+
+| Leg | per-seed | mean ± SE | n_predicted_sign |
+|-----|----------|-----------|------------------|
+| Shallow κ=0.5 (pred < 0) | [−0.031, −0.018, 0.0, +0.013, −0.013] | −0.010 ± 0.008 | 3/5 |
+| Deepen κ=1.5 (pred > 0) | [−0.023, +0.063, 0.0, −0.014, 0.0] | +0.005 ± 0.015 | 1/5 |
+
+**n=5 registered verdict: PARTIAL / FRAGILE**
+
+The exp-072 bidirectional behavioral causality finding does NOT robustly generalize across
+seeds. The shallowing leg showed consistent direction in Modal seeds (2/2) but was absent in
+all three MPS seeds (0/3). The deepening leg was present in only 1/5 seeds (seed 42, which
+IS exp-072 itself). CI includes zero for both legs. Effects sit at ±0–2 items out of 40 —
+the noise floor for this task setup.
+
+**Interpretation:**
+The conformal QK-slope handle produces real behavioral effects under the right conditions
+(vicuna-13b-v1.5 embedded@40doc, the specific document set from seed 42). But those effects
+are not stable across different document random seeds. The effect size (~1/40 middle items)
+is too small to consistently emerge above within-seed variability.
+
+The n=2 warning was correct: "Do NOT round this up." The n=5 confirms fragility.
+
+**What this does NOT change:**
+- exp-072's bidirectional confirmation on a single seed+task still stands as a proof of existence.
+- The causal handle (exp-064) and its behavioral propagation exist. The question is power.
+- The LITM valley itself IS robust across all 5 seeds (middle 11–14/40, edges ~30–32/40).
+
+**What this does change:**
+- The behavioral causality claim should be stated as: "demonstrated on one model/task/seed;
+  not robustly reproducible at n=5 across document seeds."
+- Phase 1 is COMPLETE but verdict is PARTIAL. exp-075 (tradeoff) should still run — the
+  null-shallowing hypothesis there is different from the mean-effect question here.
+- The program needs a higher-powered experimental design (more items/condition, or a
+  task with larger base V_task) to cleanly detect ±1 item effects.
