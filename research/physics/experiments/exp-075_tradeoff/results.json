@@ -1,0 +1,102 @@
+{
+ "experiment": "exp-075",
+ "timestamp_utc": "2026-07-09T062728Z",
+ "model": "lmsys/vicuna-13b-v1.5",
+ "device": "mps",
+ "dtype": "bfloat16",
+ "prereg_commit": "e6fbaecf",
+ "n_passages": 50,
+ "seq_len": 512,
+ "dataset": "wikitext-103-v1 test (first 50 passages \u2265512 tokens)",
+ "flat_threshold": 0.05,
+ "perplexity": {
+  "nll_baseline_unedited": 2.191703,
+  "nll_by_kappa": {
+   "0.5": 2.193063,
+   "1.0": 2.191703,
+   "1.5": 2.191169,
+   "2.0": 2.191197
+  },
+  "delta_nll_vs_k10": {
+   "0.5": 0.00136,
+   "1.0": 0.0,
+   "1.5": -0.000534,
+   "2.0": -0.000506
+  },
+  "nll_sham_k15": 2.191126,
+  "delta_nll_sham_vs_k10": -0.000577
+ },
+ "litm_summary_from_exp072": {
+  "base_middle": 0.325,
+  "base_recency": 0.8,
+  "base_primacy": 0.775,
+  "base_V_task": 0.59375,
+  "by_kappa": {
+   "target_k1.0": {
+    "label": "target",
+    "kappa": 1.0,
+    "middle": 0.325,
+    "recency": 0.8,
+    "primacy": 0.775,
+    "V_task": 0.59375
+   },
+   "target_k0.5": {
+    "label": "target",
+    "kappa": 0.5,
+    "middle": 0.35,
+    "recency": 0.825,
+    "primacy": 0.775,
+    "V_task": 0.57576
+   },
+   "target_k1.5": {
+    "label": "target",
+    "kappa": 1.5,
+    "middle": 0.275,
+    "recency": 0.8,
+    "primacy": 0.775,
+    "V_task": 0.65625
+   },
+   "target_k2.0": {
+    "label": "target",
+    "kappa": 2.0,
+    "middle": 0.275,
+    "recency": 0.775,
+    "primacy": 0.775,
+    "V_task": 0.64516
+   },
+   "sham_heads_k1.5": {
+    "label": "sham_heads",
+    "kappa": 1.5,
+    "middle": 0.35,
+    "recency": 0.825,
+    "primacy": 0.775,
+    "V_task": 0.57576
+   }
+  }
+ },
+ "hypotheses": {
+  "H_flat": {
+   "description": "All |delta_NLL| <= 0.05 nats/tok",
+   "confirmed": true,
+   "delta_05": 0.00136,
+   "delta_15": 0.000534,
+   "delta_20": 0.000506
+  },
+  "H_redistribute": {
+   "description": "|delta_NLL(0.5)| > 0.05 nats/tok",
+   "confirmed": false
+  }
+ },
+ "sham_specificity": {
+  "confirmed": false,
+  "note": "|delta_sham| < |delta_target_k1.5| means the effect is head-specific",
+  "delta_target_k15": 0.000534,
+  "delta_sham_k15": 0.000577
+ },
+ "verdict": "CLEAN_WIN",
+ "verdict_components": {
+  "perplexity_holds": true,
+  "middle_improved": true,
+  "recency_maintained": true
+ }
+}

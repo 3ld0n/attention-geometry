@@ -36,7 +36,6 @@ N_PC = 8
 # ── wikitext selection ────────────────────────────────────────────────────────
 WIKI_N_PASSAGES = 50     # number of passages to use
 WIKI_SEQ_LEN = 512       # tokens per passage
-WIKI_MIN_CHARS = 600     # minimum char length to be a candidate passage
 
 # ── verdict threshold ─────────────────────────────────────────────────────────
 FLAT_THRESHOLD = 0.05    # |ΔNLL| ≤ this → H_flat confirmed
@@ -125,25 +124,36 @@ def _compute_projectors(model, needed_layers, device):
 # ════════════════════════════════════════════════════════════════════════════
 
 def _load_wikitext_passages(tokenizer):
-    """Load first WIKI_N_PASSAGES passages of ≥WIKI_MIN_CHARS from wikitext-103-v1 test."""
+    """Load first WIKI_N_PASSAGES non-overlapping 512-token chunks from wikitext-103-v1 test.
+
+    wikitext-103-v1 is stored per-line in HuggingFace. Standard practice is to
+    concatenate all test text, tokenize the full concatenation, then chunk into
+    fixed-length blocks. This matches the GPT-2 wikitext-103 evaluation protocol.
+    """
     from datasets import load_dataset
     print("Loading wikitext-103-v1 test split...", flush=True)
     ds = load_dataset("wikitext", "wikitext-103-v1", split="test")
-    passages = []
-    for ex in ds:
-        text = ex["text"].strip()
-        if len(text) < WIKI_MIN_CHARS:
-            continue
-        enc = tokenizer(text, return_tensors="pt", truncation=True,
-                        max_length=WIKI_SEQ_LEN, add_special_tokens=True)
-        if enc.input_ids.shape[1] < WIKI_SEQ_LEN:
-            continue
-        passages.append(enc.input_ids[:, :WIKI_SEQ_LEN])
-        if len(passages) >= WIKI_N_PASSAGES:
-            break
-    if len(passages) < WIKI_N_PASSAGES:
-        raise RuntimeError(f"Only found {len(passages)} passages of ≥{WIKI_SEQ_LEN} tokens "
+
+    # Concatenate all non-empty lines with newlines
+    full_text = "\n".join(ex["text"] for ex in ds if ex["text"].strip())
+    print(f"  concatenated test text: {len(full_text):,} chars", flush=True)
+
+    # Tokenize the full concatenation (no truncation)
+    enc = tokenizer(full_text, return_tensors="pt", add_special_tokens=False)
+    all_ids = enc.input_ids[0]  # shape (total_tokens,)
+    print(f"  total tokens: {all_ids.shape[0]:,}", flush=True)
+
+    # Chunk into non-overlapping WIKI_SEQ_LEN-token blocks
+    n_chunks = all_ids.shape[0] // WIKI_SEQ_LEN
+    if n_chunks < WIKI_N_PASSAGES:
+        raise RuntimeError(f"Only {n_chunks} full {WIKI_SEQ_LEN}-token chunks available "
                            f"in wikitext-103 test. Need {WIKI_N_PASSAGES}.")
+
+    passages = []
+    for i in range(WIKI_N_PASSAGES):
+        chunk = all_ids[i * WIKI_SEQ_LEN:(i + 1) * WIKI_SEQ_LEN].unsqueeze(0)
+        passages.append(chunk)
+
     print(f"  {len(passages)} passages selected (each {WIKI_SEQ_LEN} tokens)", flush=True)
     return passages
 

@@ -1,0 +1,59 @@
+Device: mps
+Model: lmsys/vicuna-13b-v1.5
+Target heads: 8 (layers [22, 24, 25, 26, 27])
+Sham heads:   8 (layers [15, 17, 21, 24, 25, 26, 29])
+
+Loading model in bf16...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/363 [00:00<?, ?it/s]Loading weights:   6%|▌         | 22/363 [00:00<00:01, 180.26it/s]Loading weights:  11%|█▏        | 41/363 [00:00<00:02, 153.24it/s]Loading weights:  16%|█▌        | 58/363 [00:00<00:02, 150.69it/s]Loading weights:  20%|██        | 74/363 [00:00<00:01, 152.28it/s]Loading weights:  25%|██▍       | 90/363 [00:00<00:01, 149.72it/s]Loading weights:  29%|██▉       | 105/363 [00:00<00:01, 137.32it/s]Loading weights:  33%|███▎      | 119/363 [00:00<00:01, 130.10it/s]Loading weights:  38%|███▊      | 139/363 [00:00<00:01, 145.94it/s]Loading weights:  42%|████▏     | 154/363 [00:01<00:01, 134.18it/s]Loading weights:  46%|████▋     | 168/363 [00:01<00:01, 121.71it/s]Loading weights:  51%|█████     | 184/363 [00:01<00:01, 129.94it/s]Loading weights:  55%|█████▍    | 198/363 [00:01<00:01, 121.47it/s]Loading weights:  61%|██████    | 222/363 [00:01<00:00, 150.64it/s]Loading weights:  66%|██████▌   | 238/363 [00:01<00:00, 148.22it/s]Loading weights:  70%|██████▉   | 254/363 [00:01<00:00, 144.94it/s]Loading weights:  75%|███████▍  | 271/363 [00:01<00:00, 148.42it/s]Loading weights:  79%|███████▉  | 287/363 [00:02<00:00, 145.38it/s]Loading weights:  83%|████████▎ | 302/363 [00:02<00:00, 141.00it/s]Loading weights:  88%|████████▊ | 319/363 [00:02<00:00, 137.26it/s]Loading weights:  93%|█████████▎| 337/363 [00:02<00:00, 143.01it/s]Loading weights:  97%|█████████▋| 353/363 [00:02<00:00, 142.41it/s]Loading weights: 100%|██████████| 363/363 [00:02<00:00, 143.55it/s]
+[transformers] The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  loaded in 149s
+Loading wikitext-103-v1 test split...
+  concatenated test text: 1,279,289 chars
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (331734 > 4096). Running this sequence through the model will result in indexing errors
+  total tokens: 331,734
+  50 passages selected (each 512 tokens)
+
+Computing projectors...
+    projector pass 10/50
+    projector pass 20/50
+    projector pass 30/50
+    projector pass 40/50
+    projector pass 50/50
+  done in 55s
+
+Measuring baseline NLL (unedited)...
+  baseline NLL=2.19170 nats/tok (45s)
+
+κ-sweep on target heads...
+  [target κ=0.5] NLL=2.19306 nats/tok (42s)
+  [target κ=1.0] NLL=2.19170 nats/tok (43s)
+  [target κ=1.5] NLL=2.19117 nats/tok (43s)
+  [target κ=2.0] NLL=2.19120 nats/tok (43s)
+
+Sham condition (κ=1.5)...
+  [sham κ=1.5] NLL=2.19113 nats/tok (43s)
+
+Wrote /Users/ariel/ariel/research/physics/experiments/exp-075_tradeoff/results.json
+
+============================================================
+EXP-075 RESULT: CLEAN_WIN
+============================================================
+  Baseline NLL (unedited): 2.19170 nats/tok
+  κ=1.0 (identity edit):   2.19170 (Δ=+0.00000)
+  κ=0.5 (flatten):         2.19306 (Δ=+0.00136)
+  κ=1.5 (sharpen):         2.19117 (Δ=-0.00053)
+  κ=2.0 (over-sharpen):    2.19120 (Δ=-0.00051)
+  κ=1.5 sham:              2.19113 (Δ=-0.00058)
+
+  H_flat confirmed: True
+  H_redistribute confirmed: False
+  Sham specificity: False
+
+  LITM at κ=0.5 (from exp-072):
+    Middle:  0.325 → 0.350 (↑)
+    Recency: 0.800 → 0.825 (↔/↑)
+
+  → VERDICT: CLEAN_WIN
+============================================================
