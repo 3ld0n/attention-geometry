@@ -23,6 +23,9 @@
 | 2026-06-11 | **Estimator amendment (pre-data, ground-truth validated):** plain log-log OLS on plug-in MI is biased on long-memory sequences (distance-independent excess floor flattens the decay; H=0.8 truth 0.804 measured as 0.59). β̂ of record is now the free-floor fit A·d^(−β)+c; plain OLS kept as diagnostic. Validated against analytic fGn MI: {0.387, 0.547, 0.838} recovered for truth {0.332, 0.515, 0.804} at 16M tokens. Logged in prereg addendum. No decision rule changed. |
 | 2026-06-11 | Generator smoke tests pass: fGn autocorrelation matches theory (var ≈ 1, ρ(d) within a few % at H=0.8); numba Markov walk 2M tokens / 0.3 s; quantile binning verified full 256-symbol range. |
 | 2026-06-11 | **C-NAT generator amendment (pre-training):** TinyStories-train holds only ~0.45B Pythia tokens < the 1.06B matched budget; `gen_natural` now wraps in re-shuffled epochs (~2.3 epochs) rather than failing. Token budget stays matched across corpora; repetition rate disclosed. No decision rule affected. |
+| 2026-07-09 | **CLOUD LAUNCH.** Modal payment method added by Eldon — block lifted after 28 days. Volume `exp062-data` created; corpora (sha256 manifest `corpora_sha256.txt`) + train.py/measure.py uploaded. Launcher `modal_exp062.py` written — transport only: runs the pre-registered train.py/measure.py verbatim from the volume; image pins local library versions (numpy 2.4.6, scipy 1.17.1, torch 2.12.0, transformers 5.8.1) so the data-seed batch stream is identical to what a local run would produce. Chain: remote sha256 verify → 7 parallel A100-40GB training runs (resumable from volume checkpoints) → fp32 measurement → results pulled local. No protocol parameter changed. |
+| 2026-07-09 | First train attempt OOM'd on A100-40GB (launcher had `--micro-batch 128`; the fused CE loss needs 12.3 GiB at that size). Fixed to the train.py default 64 (gradient accumulation only — effective batch unchanged at the pre-registered 1024) + `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`. Relaunched; runs that had saved step_0 resumed from it (byte-identical to fresh start: init save + deterministic data stream). No protocol parameter changed. |
+| 2026-07-09 | **All 7 runs trained + measured clean** (~75 min/run). `analyze.py` written after measurement, prereg formulas only. **Verdicts: 1.1 AMBIGUOUS (slope axis uninformative — no power-law corpus formed); 1.3 KEEP (seed range 0.017).** See Results. |
 
 ## Calibration log (H adjustments, pre-training only)
 
@@ -49,4 +52,58 @@ Observation (recorded before training, no decision-rule role): C-NAT's measured 
 
 ## Results
 
-*(at execution)*
+*Measured July 9, 2026 (cloud; 7 runs, A100-40GB, all losses converged: C-SR 10.92→3.70, C-PL15 →4.63, C-PL25 →5.07, C-PL40 →5.34, C-NAT →1.43). Decision statistics per prereg §6/§7 only — `analyze.py`, `results.json`.*
+
+### Formation (prereg §6.1: ≥ 10/48 conformal at step 2000)
+
+| Corpus | conformal heads | forms? | Δ̂_med (conformal) |
+|---|---|---|---|
+| C-SR | 0/48 | no | — |
+| C-PL15 | 2/48 | no | (1.39; n=2, not meaningful) |
+| C-PL25 | 0/48 | no | — |
+| C-PL40 | 5/48 | no | (0.45; n=5, not meaningful) |
+| C-NAT s0/s1/s2 | **15 / 11 / 13** /48 | **yes ×3** | **0.174 / 0.167 / 0.158** |
+
+### Verdict, Phase 1.1 (prereg §6.3): **AMBIGUOUS — slope axis uninformative**
+
+**No engineered power-law corpus reached the formation criterion.** The slope
+statistic b cannot be computed (0 of 3 power-law points; degenerate-formation
+guard applies a fortiori). Reported exactly as measured, no reframing.
+
+What the pattern does say, scored against the §2 row-level predictions:
+
+- **C-SR row: imprint's one confirmed cell.** The Markovian control formed
+  nothing, as the imprint hypothesis predicted (universality was silent on
+  formation).
+- **The imprint hypothesis's central mechanism fails on its home turf.**
+  Corpora *engineered to have* power-law MI at β = 0.34/0.49/0.79 — the exact
+  statistical property imprint says gets mirrored into attention — produced
+  essentially no conformal population (0–5 heads vs. 11–15 for natural text at
+  identical architecture, budget, and optimizer). Matching the two-point MI
+  statistics of language is not sufficient to induce the conformal phase.
+- **Neither hypothesis, as pre-registered, predicted this.** Imprint predicted
+  formation tracking β; universality predicted ≈ 0.25 *wherever heads form* and
+  was silent on formation — but the C-NAT Δ̂_med ≈ 0.166 is NOT within the
+  ±0.05 of 0.25 that a KEEP would have required had the slope been computable.
+  (Note: at this 70m/ctx-512/1B-token scale the SYK-near population may simply
+  not have matured; the conformal population that does form sits at Δ ~ 0.10–0.17
+  in layer 0 plus scattered steeper heads deeper — see per-head data.)
+- **Escalation (per §6.3):** the resolving experiment is a corpus point with
+  *hierarchical/compositional* structure but controlled statistics (imprint's
+  quantitative form is dead as stated; the live question is what property of
+  natural text — beyond pairwise MI decay — drives formation). A cheaper probe:
+  higher-order Markov / PCFG corpora at matched β̂.
+
+### Verdict, Phase 1.3 multi-seed (prereg §7): **KEEP (attractor)**
+
+Across-seed range of Δ̂_med = **0.017** ≤ 0.05, while conformal-head identities
+vary (Jaccard 0.37/0.56/0.41 across seed pairs — well below 1). The exponent
+value is seed-stable; the specific heads carrying it are not. The attractor
+reading survives its kill test.
+
+### Files
+
+- `results.json` — decision statistics (analyze.py, prereg formulas only)
+- `measurements/run_*_final.json` (+ per-input gzips) — frozen-protocol output
+- Volume `exp062-data`: all 16-step checkpoint trajectories for all 7 runs
+  (emergence trajectory analysis available without retraining)

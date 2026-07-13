@@ -1,0 +1,455 @@
+{
+ "checkpoint": "/vol/runs/run_CNAT_s2/step_2000",
+ "tag": "run_CNAT_s2_final",
+ "timestamp": "2026-07-09T14:42:11.171147+00:00",
+ "protocol": {
+  "seq_len": 512,
+  "deep_lo": 256,
+  "fit": [
+   8,
+   256
+  ],
+  "n_inputs": 50,
+  "seed": 42,
+  "alphabet_size": 50304
+ },
+ "n_heads_total": 48,
+ "n_conformal": 13,
+ "n_syk_near": 0,
+ "delta_median_conformal": 0.1579042082836841,
+ "forms": true,
+ "heads": [
+  {
+   "layer": 0,
+   "head": 0,
+   "delta": 0.1514343695556776,
+   "r2": 0.9786151424930595,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 1,
+   "delta": 0.12264721403287049,
+   "r2": 0.9339844102438022,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 2,
+   "delta": 0.1273064632186467,
+   "r2": 0.9451942630471841,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 3,
+   "delta": 0.13230641079276262,
+   "r2": 0.9804002260736183,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 4,
+   "delta": 0.17341083564493012,
+   "r2": 0.9356668089100774,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 5,
+   "delta": 0.1579042082836841,
+   "r2": 0.9853665315903393,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 6,
+   "delta": 0.14626351990507874,
+   "r2": 0.9483415686802956,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 0,
+   "head": 7,
+   "delta": 0.1371831783040047,
+   "r2": 0.9811031417617123,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 0,
+   "delta": 0.5588993918309807,
+   "r2": 0.8053644138946725,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 1,
+   "delta": 0.7928097844932537,
+   "r2": 0.5049766676152068,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 2,
+   "delta": 0.8369112929554233,
+   "r2": 0.8473829408720818,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 3,
+   "delta": 0.8784722746382179,
+   "r2": 0.8168381532955128,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 4,
+   "delta": 0.353112610385968,
+   "r2": 0.5904268355255771,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 5,
+   "delta": 0.7578450358898557,
+   "r2": 0.5455438895645937,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 6,
+   "delta": 0.6907161462845207,
+   "r2": 0.8026466550453214,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 1,
+   "head": 7,
+   "delta": 0.7441105281398127,
+   "r2": 0.6920249038060821,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 0,
+   "delta": 0.8200173367455602,
+   "r2": 0.43229069494980776,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 1,
+   "delta": 1.1913705263654133,
+   "r2": 0.8856674704514764,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 2,
+   "delta": 1.1270106420084323,
+   "r2": 0.652192834003223,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 3,
+   "delta": 1.2023869326594734,
+   "r2": 0.9140282586941069,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 4,
+   "delta": 0.641581064764658,
+   "r2": 0.8742488177655533,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 5,
+   "delta": 0.9304198297092803,
+   "r2": 0.6722140266811671,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 6,
+   "delta": 0.6175254548890167,
+   "r2": 0.7977872467229417,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 2,
+   "head": 7,
+   "delta": 0.9629912710352275,
+   "r2": 0.8459455060126725,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 0,
+   "delta": 0.6345655103391079,
+   "r2": 0.9154252052658165,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 1,
+   "delta": 0.9177603070439022,
+   "r2": 0.8678467005193075,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 2,
+   "delta": 0.6131522313972977,
+   "r2": 0.8802359333128587,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 3,
+   "delta": 0.9020856593883977,
+   "r2": 0.6635273623184645,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 4,
+   "delta": 0.9036779214386755,
+   "r2": 0.8951406168467825,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 5,
+   "delta": 0.3402125464419281,
+   "r2": 0.6071106248908049,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 6,
+   "delta": 0.6681798472905643,
+   "r2": 0.3524829458691131,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 3,
+   "head": 7,
+   "delta": 0.9608230176776275,
+   "r2": 0.7577845298299111,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 0,
+   "delta": 0.5257527539862864,
+   "r2": 0.7056410322061071,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 1,
+   "delta": 0.7733344327191094,
+   "r2": 0.9059678704806611,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 2,
+   "delta": 0.8628700947501987,
+   "r2": 0.8298899837182064,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 3,
+   "delta": 0.5068835364644901,
+   "r2": 0.7784194825799016,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 4,
+   "delta": 0.9020902302265801,
+   "r2": 0.9027384107931609,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 5,
+   "delta": 0.45569951941099723,
+   "r2": 0.7475302439200777,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 6,
+   "delta": 0.7127525797555824,
+   "r2": 0.9104488388366736,
+   "n_points": 249,
+   "conformal": true,
+   "syk_near": false
+  },
+  {
+   "layer": 4,
+   "head": 7,
+   "delta": 0.6276988139195284,
+   "r2": 0.8274535773428022,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 0,
+   "delta": 0.4271206543936661,
+   "r2": 0.8671157581557667,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 1,
+   "delta": 0.7723258864670703,
+   "r2": 0.7719600625361691,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 2,
+   "delta": 0.7090370544472856,
+   "r2": 0.8653175280921264,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 3,
+   "delta": 0.8633425794269219,
+   "r2": 0.6585865214560929,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 4,
+   "delta": 0.7623362710706704,
+   "r2": 0.7940764394853458,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 5,
+   "delta": 0.4789647911454751,
+   "r2": 0.7400948128978502,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 6,
+   "delta": 0.6678321097283073,
+   "r2": 0.8084609141377385,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  },
+  {
+   "layer": 5,
+   "head": 7,
+   "delta": 0.768099089052352,
+   "r2": 0.8986277046266598,
+   "n_points": 249,
+   "conformal": false,
+   "syk_near": false
+  }
+ ]
+}

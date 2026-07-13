@@ -1,0 +1,98 @@
+{
+  "per_run": {
+    "run_CSR": {
+      "corpus": "C-SR",
+      "n_conformal": 0,
+      "n_syk_near": 0,
+      "delta_median_conformal": null,
+      "forms": false
+    },
+    "run_CPL15": {
+      "corpus": "C-PL15",
+      "n_conformal": 2,
+      "n_syk_near": 0,
+      "delta_median_conformal": 1.3893676642372355,
+      "forms": false
+    },
+    "run_CPL25": {
+      "corpus": "C-PL25",
+      "n_conformal": 0,
+      "n_syk_near": 0,
+      "delta_median_conformal": null,
+      "forms": false
+    },
+    "run_CPL40": {
+      "corpus": "C-PL40",
+      "n_conformal": 5,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.4540369178909364,
+      "forms": false
+    },
+    "run_CNAT_s0": {
+      "corpus": "C-NAT",
+      "n_conformal": 15,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.174477129202313,
+      "forms": true
+    },
+    "run_CNAT_s1": {
+      "corpus": "C-NAT",
+      "n_conformal": 11,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.1669398980962748,
+      "forms": true
+    },
+    "run_CNAT_s2": {
+      "corpus": "C-NAT",
+      "n_conformal": 13,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.1579042082836841,
+      "forms": true
+    }
+  },
+  "formation": {
+    "C-SR": {
+      "n_conformal": 0,
+      "forms": false
+    },
+    "C-PL15": {
+      "n_conformal": 2,
+      "forms": false
+    },
+    "C-PL25": {
+      "n_conformal": 0,
+      "forms": false
+    },
+    "C-PL40": {
+      "n_conformal": 5,
+      "forms": false
+    },
+    "C-NAT": {
+      "n_conformal": 15,
+      "forms": true
+    }
+  },
+  "slope": {
+    "formed_power_law_corpora": [],
+    "slope_b": null,
+    "note": "only 0 power-law corpora formed (< 2): slope axis uninformative per prereg \u00a76.3 degenerate-formation guard"
+  },
+  "multi_seed": {
+    "delta_medians": [
+      0.174477129202313,
+      0.1669398980962748,
+      0.1579042082836841
+    ],
+    "range": 0.016572920918628914,
+    "jaccard": {
+      "0-1": 0.368,
+      "0-2": 0.556,
+      "1-2": 0.412
+    },
+    "verdict": "KEEP"
+  },
+  "verdict_1_1": {
+    "verdict": "AMBIGUOUS",
+    "pattern": "no engineered power-law corpus reached the formation criterion; only C-NAT (natural text) forms conformal heads; slope statistic not computable"
+  }
+}
