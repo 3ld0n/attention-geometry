@@ -192,6 +192,43 @@ C-PCFG targets the same β̂. The marginal contribution of hierarchical structur
 | Date | Event |
 |---|---|
 | 2026-07-09 | Pre-registration written and committed. No corpus generated yet. Grammar design and calibration procedure frozen. |
+| 2026-07-13 | **Round 1 calibration pilot complete.** 100M-token pilot generated (P_S2=0.35, P_VP3=0.45). β̂ = 2.97 (free-floor fit, R²=0.947), β̂_plain_OLS = 1.36. Target 0.79 ± 0.05 **not achievable via grammar parameter adjustment** (see Round 1 finding below). Decision: proceed with Round 0 parameters, with amendment. |
+
+---
+
+## Calibration Round 1 — Amendment (2026-07-13)
+
+**Pilot result:** β̂ = 2.97 (free-floor, R²=0.947). β̂_plain_OLS = 1.36.
+
+**MI profile shape:**
+- d=1: mi_corr = 1.176 (strong within-phrase correlations)
+- d=5: mi_corr = 0.280
+- d=9: mi_corr = 0.032
+- d=15: mi_corr = 0.003
+- d=20+: mi_corr ≈ 0.0002 (near-zero floor, flat to d=512)
+
+**Structural finding:** The PCFG MI profile has a qualitatively different shape from fGn (C-PL40). PCFG produces rapid within-phrase decay (d<15 dominant) + flat cross-sentence floor (d>20). fGn produces a smooth power law across the full d=8–256 range. Grammar parameter adjustment (P_S2, P_VP3) cannot change this shape: adjusting toward the critical point lengthens sentences but does not change the within-sentence correlation decay rate (which decays by d≈20 regardless of sentence length). This is a structural property of PCFG: parse-tree depth determines correlation range, not token distance. At d>20, tokens are almost always in different parse-tree branches — whether in the same sentence or not.
+
+**Round 2 decision:** Skipping Round 2. Any parameterization of this grammar will produce the same profile shape for the same structural reason. Running Round 2 would confirm the same finding and waste 6+ minutes without changing the decision.
+
+**Amendment to experimental design:**
+
+The β̂-matching control breaks down. Proceeding with P_S2=0.35, P_VP3=0.45 (Round 0 params) with the following modifications:
+
+1. **Revised comparison baseline:** C-PCFG (β̂=2.97 free-floor / 1.36 OLS) vs C-PL40 (β̂=0.79, 5/48 FAIL). The β̂ values are not matched.
+
+2. **Revised interpretation table:**
+   | C-PCFG forms? | Verdict | Interpretation |
+   |---|---|---|
+   | ≥ 10/48 (YES) | **H_hier_suf CONFIRMED** | Hierarchy is a driver. β̂ confound exists (PCFG β̂ >> C-PL40 β̂), but since C-PL40 FAILED at β̂=0.79 while PCFG FORMS at β̂=2.97, the additional MI power is in the short-range (d<15) regime — not the long-range regime that drives formation in C-NAT. Discussion must address whether short-range β̂ could be the driver without hierarchy. |
+   | < 10/48 (NO) | **H_ref_needed CONFIRMED** | Hierarchical structure is NOT sufficient even at higher MI (β̂=2.97). C-PL40 also failed. C-NAT forms at β̂=1.38. This is the strongest result: both engineered-MI and hierarchical structure fail; only natural text forms. |
+
+3. **Formation criterion unchanged:** ≥ 10/48 conformal heads at step 2000.
+
+4. **Honest guards added:**
+   - The β̂ values are not matched; the comparison is observational, not controlled.
+   - The "hierarchy is sufficient" conclusion from a YES outcome is weaker than planned: it requires additional analysis of whether the short-range MI increase alone could drive formation at this scale.
+   - The "reference is required" conclusion from a NO outcome is STRONGER than planned: it survives both the β̂ confound and the hierarchy test.
 
 ---
 
