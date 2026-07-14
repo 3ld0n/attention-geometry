@@ -1,0 +1,93 @@
+{
+ "model": "lmsys/vicuna-13b-v1.5",
+ "dtype": "torch.bfloat16",
+ "device": "mps",
+ "phase": "calibration (\u03ba=1.0 only, no model edits)",
+ "experiment": "exp-076",
+ "tasks": {
+  "kv": {
+   "accuracy_by_pi": [
+    0.775,
+    0.7,
+    0.4,
+    0.475,
+    1.0
+   ],
+   "correct_by_pi": [
+    31,
+    28,
+    16,
+    19,
+    40
+   ],
+   "total_by_pi": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "positions": [
+    0,
+    10,
+    20,
+    30,
+    39
+   ],
+   "V_task": 0.6,
+   "edges_max": 1.0,
+   "middle": 0.4,
+   "ctx_tokens_min": 1785,
+   "ctx_tokens_max": 1792,
+   "ctx_tokens_mean": 1788.1,
+   "gate_pass": true,
+   "gate_criteria": "V_task>=0.30 AND middle<=0.80 AND edges_max>=0.70",
+   "elapsed_s": 794.6
+  },
+  "narrative": {
+   "accuracy_by_pi": [
+    0.975,
+    1.0,
+    0.975,
+    1.0,
+    1.0
+   ],
+   "correct_by_pi": [
+    39,
+    40,
+    39,
+    40,
+    40
+   ],
+   "total_by_pi": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "positions": [
+    0,
+    10,
+    20,
+    30,
+    39
+   ],
+   "V_task": 0.025,
+   "edges_max": 1.0,
+   "middle": 0.975,
+   "ctx_tokens_min": 1554,
+   "ctx_tokens_max": 1554,
+   "ctx_tokens_mean": 1554.0,
+   "gate_pass": false,
+   "gate_criteria": "V_task>=0.30 AND middle<=0.80 AND edges_max>=0.70",
+   "elapsed_s": 666.0
+  }
+ },
+ "gate_summary": {
+  "passing_tasks": [
+   "kv"
+  ],
+  "note": "Proceed to Phase 2 pre-registration on passing tasks only. Revise context length / format for failing tasks before powered run."
+ }
+}

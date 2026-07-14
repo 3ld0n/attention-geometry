@@ -121,11 +121,43 @@ is "does it generalize to different task formats while using the same mechanism?
 
 ---
 
+## Calibration results (2026-07-14)
+
+**KV-retrieval (ctx 1785–1792 tokens): GATE PASS**
+
+```
+acc=[0.775, 0.700, 0.400, 0.475, 1.000]
+V_task = 0.600   (1 − 0.400/1.000)
+edges_max = 1.000
+middle = 0.400
+Gate: V_task≥0.30 ✓  middle≤0.80 ✓  edges_max≥0.70 ✓
+```
+
+Strong primacy-recency U-shape. Recency effect dominant (100% at last position). Middle positions 20 and 30 at 40–47.5%. Clear headroom for both deepening and shallowing. This task passes the gate and proceeds to Phase 2.
+
+**Narrative QA (ctx 1554 tokens): GATE FAIL**
+
+```
+acc=[0.975, 1.000, 0.975, 1.000, 1.000]
+V_task = 0.025
+edges_max = 1.000
+middle = 0.975
+Gate: FAIL (middle 0.975 > 0.80 — no valley)
+```
+
+Model solves the narrative format at 97.5–100% accuracy everywhere. No LITM effect at 1554 tokens. The continuous-prose format with 40 embedded one-sentence facts is too easy at this context length — facts are explicit and scannable. The multi-document format (exp-072) produces LITM at similar lengths because document boundaries create attention unit effects that continuous prose does not. Revision needed: either longer context (≥2500 tokens) or multi-document-style embedding. Not blocking Phase 2 — one gate-passing task is sufficient per the spec.
+
+**Phase 1 conclusion:** Proceed to Phase 2 pre-registration on KV task only. Narrative QA revision queued as optional (would enable FULL_GENERALIZATION verdict; current path yields at most PARTIAL_GENERALIZATION).
+
+---
+
 ## Status log
 
 | Date | Event |
 |---|---|
 | 2026-07-09 | Spec written. No calibration run yet. Phase 1 is the next action: run both tasks at κ=1.0 on vicuna-13b to check V_task gate. |
+| 2026-07-14 | Calibration run 1 (short format): KV 501-503 tokens (gate FAIL — model can't solve abstract pairs), Narrative 774 tokens (gate FAIL — no valley). Both too short or too abstract. |
+| 2026-07-14 | Calibration run 2 (revised format, 40-50 tok/entry): KV GATE PASS (V=0.600, 1785-1792 tokens), Narrative GATE FAIL (V=0.025, 1554 tokens — too easy). Phase 2 pre-registration written for KV task. |
 
 ---
 
