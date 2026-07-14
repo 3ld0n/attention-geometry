@@ -50,15 +50,17 @@ app = modal.App("exp085-generational-transmission")
 vol_062 = modal.Volume.from_name("exp062-data", create_if_missing=False)
 vol_085 = modal.Volume.from_name("exp085-data", create_if_missing=True)
 
-image = modal.Image.debian_slim(python_version="3.12").pip_install(
-    "numpy==2.4.6",
-    "scipy==1.17.1",
-    "torch==2.12.0",
-    "transformers==5.8.1",
+image = (
+    modal.Image.debian_slim(python_version="3.12")
+    .pip_install(
+        "numpy==2.4.6",
+        "scipy==1.17.1",
+        "torch==2.12.0",
+        "transformers==5.8.1",
+    )
+    .add_local_dir(str(EXP062_DIR), remote_path="/exp062")
+    .add_local_dir(str(SCRIPT_DIR), remote_path="/exp085")
 )
-
-exp062_mount = modal.Mount.from_local_dir(str(EXP062_DIR), remote_path="/exp062")
-exp085_mount = modal.Mount.from_local_dir(str(SCRIPT_DIR), remote_path="/exp085")
 
 # ─── constants (pre-registered in notes.md) ───────────────────────────────────
 CNAT_S0_CKPT = "runs/run_CNAT_s0/step_2000"  # path inside exp062-data volume
@@ -100,7 +102,6 @@ def _run_patched(script_path: str, out_override: str, argv: list[str]) -> None:
     timeout=7200,
     volumes={"/data062": vol_062, "/data085": vol_085},
     memory=32768,
-    mounts=[exp085_mount],
 )
 def generate_corpus():
     """Load C-NAT s0 step_2000 checkpoint and generate 1.1B tokens."""
@@ -137,7 +138,6 @@ def generate_corpus():
     timeout=10800,
     volumes={"/data085": vol_085},
     memory=32768,
-    mounts=[exp062_mount],
 )
 def train_model():
     """Train fresh GPTNeoX-70m on generated corpus (identical exp-062 protocol)."""
@@ -168,7 +168,6 @@ def train_model():
     timeout=3600,
     volumes={"/data085": vol_085},
     memory=32768,
-    mounts=[exp062_mount],
 )
 def measure_model():
     """
