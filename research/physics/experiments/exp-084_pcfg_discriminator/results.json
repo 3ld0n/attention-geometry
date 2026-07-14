@@ -1,0 +1,26 @@
+{
+  "experiment": "exp-084",
+  "amendment": "2026-07-13: \u03b2\u0302 not matched (PCFG \u03b2\u0302=2.97 vs C-PL40 \u03b2\u0302=0.79)",
+  "measurement": {
+    "tag": "run_CPCFG_final",
+    "n_total": 48,
+    "n_conformal": 0,
+    "n_syk_near": 0,
+    "delta_median_conformal": null,
+    "forms": false
+  },
+  "comparison_baseline": {
+    "C-PL40": {
+      "n_conformal": 5,
+      "n_syk_near": 0,
+      "forms": false
+    },
+    "C-NAT_s0": {
+      "n_conformal": 15,
+      "forms": true
+    }
+  },
+  "formation_criterion": ">= 10 conformal heads",
+  "verdict": "H_ref_needed CONFIRMED",
+  "interpretation": "C-PCFG formed 0/48 conformal heads (<10). Hierarchical structure at \u03b2\u0302=2.97 is NOT sufficient. C-PL40 (\u03b2\u0302=0.79) also failed (5/48). C-NAT (\u03b2\u0302=1.38) forms (11-15/48). Something beyond hierarchy and MI statistics \u2014 world-reference, semantic grounding, or both \u2014 is required. Reference driver survives this kill test."
+}

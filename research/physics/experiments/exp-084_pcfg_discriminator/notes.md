@@ -193,6 +193,9 @@ C-PCFG targets the same β̂. The marginal contribution of hierarchical structur
 |---|---|
 | 2026-07-09 | Pre-registration written and committed. No corpus generated yet. Grammar design and calibration procedure frozen. |
 | 2026-07-13 | **Round 1 calibration pilot complete.** 100M-token pilot generated (P_S2=0.35, P_VP3=0.45). β̂ = 2.97 (free-floor fit, R²=0.947), β̂_plain_OLS = 1.36. Target 0.79 ± 0.05 **not achievable via grammar parameter adjustment** (see Round 1 finding below). Decision: proceed with Round 0 parameters, with amendment. |
+| 2026-07-13 | **Full corpus generated.** C-PCFG_full.bin (2.12 GB). MI measurement: β̂=3.00 (free-floor), β̂_plain_OLS=2.03. Profile identical shape to pilot: rapid within-phrase decay (d<15) + flat floor (d>20). |
+| 2026-07-14 | **Training complete (Modal A100-40GB).** Resumed from step 1536, completed to step 2000. Loss flat at 3.719 throughout (no learning signal beyond phrase-level statistics). |
+| 2026-07-14 | **Measurement complete. VERDICT: H_ref_needed CONFIRMED.** C-PCFG formed **0/48 conformal heads** at step 2000 (formation criterion ≥10/48 not met). Results: `measurements/run_CPCFG_final.json`, `results.json`. |
 
 ---
 

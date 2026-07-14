@@ -1,7 +1,7 @@
 # exp-076 Phase 2 — Pre-Registration: KV-Retrieval Powered Intervention
 
 *Written and committed before any κ≠1.0 forward pass.*
-*Date: 2026-07-14. Commit this file before running any powered intervention.*
+*Date: 2026-07-14. Pre-registration commit: 02a1f3aa.*
 
 ---
 
