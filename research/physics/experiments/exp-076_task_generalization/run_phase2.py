@@ -105,6 +105,7 @@ def _apply_edit(model, layer, head, head_dim, kappa, P_U, W_orig):
 
 
 def _restore(model, layer, head, head_dim, W_orig):
+    import torch
     W = _q_proj_weight(model, layer)
     with torch.no_grad():
         W[head * head_dim:(head + 1) * head_dim, :] = W_orig
