@@ -58,7 +58,9 @@ image = (
         "torch==2.12.0",
         "transformers==5.8.1",
     )
-    .add_local_dir(str(EXP062_DIR), remote_path="/exp062")
+    # Only include the scripts needed from exp-062; NOT the corpus files (~11 GB).
+    .add_local_file(str(EXP062_DIR / "train.py"), remote_path="/exp062/train.py")
+    .add_local_file(str(EXP062_DIR / "measure.py"), remote_path="/exp062/measure.py")
     .add_local_dir(str(SCRIPT_DIR), remote_path="/exp085")
 )
 
