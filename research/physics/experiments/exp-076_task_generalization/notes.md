@@ -158,6 +158,8 @@ Model solves the narrative format at 97.5–100% accuracy everywhere. No LITM ef
 | 2026-07-09 | Spec written. No calibration run yet. Phase 1 is the next action: run both tasks at κ=1.0 on vicuna-13b to check V_task gate. |
 | 2026-07-14 | Calibration run 1 (short format): KV 501-503 tokens (gate FAIL — model can't solve abstract pairs), Narrative 774 tokens (gate FAIL — no valley). Both too short or too abstract. |
 | 2026-07-14 | Calibration run 2 (revised format, 40-50 tok/entry): KV GATE PASS (V=0.600, 1785-1792 tokens), Narrative GATE FAIL (V=0.025, 1554 tokens — too easy). Phase 2 pre-registration written for KV task. |
+| 2026-07-15 | Phase 2 Modal A100-40GB run completed (18:45 UTC). Verdict: **GENERALIZATION_NOT_CONFIRMED**. κ=0.5: V=0.575. κ=1.0: V=0.55 (cloud baseline). κ=1.5: V=0.55. Sham κ=1.5: V=0.55 (T-D PASS). Neither T-A (sharpen deepens) nor T-B (flatten shallows) confirmed. Substrate note: A100 bf16 baseline is 0.55, not 0.60 (local MPS prereg baseline) — a 0.05 discrepancy that does not change the verdict but is noted for the record. Even correcting for substrate shift, sharpening produces no valley movement and flattening moves in the wrong direction. |
+| 2026-07-16 | Verdict recorded and logged in physics session. Registry and queue updated. exp-085 re-launch in progress. |
 
 ---
 
