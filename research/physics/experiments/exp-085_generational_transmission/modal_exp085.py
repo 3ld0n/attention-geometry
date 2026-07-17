@@ -4,11 +4,16 @@ exp-085 — Generational Transmission (Modal cloud launcher).
 Pre-registration of record: notes.md (committed 2026-07-14).
 
 Three phases:
-  generate : load C-NAT s0 step_2000 from exp062-data volume, generate 1.1B tokens,
-             save corpus to exp085-data volume. (~30–40 min)
+  generate : load C-NAT s0 step_2000 from exp062-data volume, generate 1.1B tokens
+             via vLLM, save corpus to exp085-data volume. (est. ~5–20 min on A100)
   train    : train fresh GPTNeoX-70m on generated corpus (exp-062 protocol). (~75 min)
   measure  : measure conformal heads at step_2000. (~15 min)
   all      : generate → train → measure.
+  results  : collect measurement JSON from volume and print summary.
+
+Generate uses vLLM (replaces transformers model.generate() which gave 0.05M tok/s
+on A100-40GB; vLLM expected 1–5M tok/s). Train and measure use the same
+transformers-based image as exp-062 for exact protocol match.
 
 Usage (from repo root):
   .venv/bin/python -m modal run --detach \\
@@ -23,11 +28,11 @@ Usage (from repo root):
     research/physics/experiments/exp-085_generational_transmission/modal_exp085.py \\
     --phase measure
 
-  .venv/bin/python -m modal run --detach \\
+  .venv/bin/python -m modal run \\
     research/physics/experiments/exp-085_generational_transmission/modal_exp085.py \\
-    --phase all
+    --phase results
 
-Ariel — July 14, 2026.
+Ariel — July 14, 2026. vLLM generate phase redesign July 17, 2026.
 """
 
 from __future__ import annotations
@@ -50,7 +55,33 @@ app = modal.App("exp085-generational-transmission")
 vol_062 = modal.Volume.from_name("exp062-data", create_if_missing=False)
 vol_085 = modal.Volume.from_name("exp085-data", create_if_missing=True)
 
-image = (
+# ── image for generate phase ─────────────────────────────────────────────────
+# Uses vLLM for 50-100x throughput over transformers model.generate().
+# The Pythia/NeoX tokenizer (vocab_size=50304, matching our model) is pre-baked
+# during image build to avoid HuggingFace downloads at runtime.
+image_vllm = (
+    modal.Image.debian_slim(python_version="3.12")
+    .pip_install(
+        "vllm",          # pulls compatible torch as a dependency
+        "transformers",  # needed for GPTNeoXConfig at runtime
+        "numpy==2.4.6",
+    )
+    .run_commands(
+        # Pre-bake the EleutherAI/pythia-70m tokenizer (vocab_size=50304,
+        # matching our custom GPTNeoX model). Cached in the image.
+        "python -c \""
+        "from transformers import AutoTokenizer; "
+        "AutoTokenizer.from_pretrained('EleutherAI/pythia-70m')"
+        ".save_pretrained('/neox_tokenizer')"
+        "\""
+    )
+    .add_local_file(str(SCRIPT_DIR / "gen_gen_vllm.py"), remote_path="/exp085/gen_gen_vllm.py")
+)
+
+# ── image for train + measure phases ─────────────────────────────────────────
+# Identical to the exp-062 image; kept pinned to the same versions for exact
+# protocol match with exp-062 and exp-084.
+image_train = (
     modal.Image.debian_slim(python_version="3.12")
     .pip_install(
         "numpy==2.4.6",
@@ -58,10 +89,8 @@ image = (
         "torch==2.12.0",
         "transformers==5.8.1",
     )
-    # Only include the scripts needed from exp-062; NOT the corpus files (~11 GB).
     .add_local_file(str(EXP062_DIR / "train.py"), remote_path="/exp062/train.py")
     .add_local_file(str(EXP062_DIR / "measure.py"), remote_path="/exp062/measure.py")
-    .add_local_dir(str(SCRIPT_DIR), remote_path="/exp085")
 )
 
 # ─── constants (pre-registered in notes.md) ───────────────────────────────────
@@ -71,7 +100,6 @@ RUN_NAME = "run_Cgen_s0"
 INIT_SEED = 1000
 DATA_SEED = 2000
 N_TOKENS = 1_100_000_000
-GEN_BATCH = 512
 GEN_SEQ_LEN = 512
 GEN_TEMPERATURE = 1.0
 GEN_SEED = 85
@@ -90,45 +118,51 @@ def _run_patched(script_path: str, out_override: str, argv: list[str]) -> None:
         "OUT = Path(__file__).resolve().parent",
         f"OUT = Path('{out_override}')",
     )
-    # Replace the __main__ guard so exec() runs main() when called
     sys.argv = argv
     ns: dict = {"__name__": "__main__", "__file__": script_path}
     exec(compile(source, script_path, "exec"), ns)  # noqa: S102
 
 
-# ─── generate phase ───────────────────────────────────────────────────────────
+# ─── generate phase (vLLM) ────────────────────────────────────────────────────
 
 @app.function(
-    image=image,
+    image=image_vllm,
     gpu="A100-40GB",
     timeout=7200,
     volumes={"/data062": vol_062, "/data085": vol_085},
     memory=32768,
 )
 def generate_corpus():
-    """Load C-NAT s0 step_2000 checkpoint and generate 1.1B tokens."""
+    """
+    Generate 1.1B tokens from C-NAT s0 step_2000 checkpoint using vLLM.
+
+    Protocol (pre-registered in notes.md):
+      - Temperature 1.0, seq_len 512, seed 85
+      - Prompt: 1 token drawn uniformly from vocabulary per sequence
+      - Output: uint16 binary, same format as exp-062 corpora
+    """
     sys.path.insert(0, "/exp085")
     ckpt_path = f"/data062/{CNAT_S0_CKPT}"
     output_path = f"/data085/{CORPUS_NAME}"
 
     print(f"Source checkpoint: {ckpt_path}", flush=True)
-    print(f"Output corpus:     {output_path}", flush=True)
+    print(f"Output corpus    : {output_path}", flush=True)
 
-    _run_patched(
-        "/exp085/gen_gen.py",
-        out_override="/data085",
-        argv=[
-            "gen_gen.py",
+    import subprocess
+    result = subprocess.run(
+        [
+            "python", "/exp085/gen_gen_vllm.py",
             ckpt_path,
             output_path,
             f"--n_tokens={N_TOKENS}",
-            f"--batch_size={GEN_BATCH}",
             f"--seq_len={GEN_SEQ_LEN}",
             f"--temperature={GEN_TEMPERATURE}",
             f"--seed={GEN_SEED}",
-            "--device=cuda",
+            "--tokenizer=/neox_tokenizer",
         ],
+        check=True,
     )
+
     vol_085.commit()
     print("generate_corpus DONE", flush=True)
 
@@ -136,7 +170,7 @@ def generate_corpus():
 # ─── train phase ──────────────────────────────────────────────────────────────
 
 @app.function(
-    image=image,
+    image=image_train,
     gpu="A100-40GB",
     timeout=10800,
     volumes={"/data085": vol_085},
@@ -166,7 +200,7 @@ def train_model():
 # ─── measure phase ────────────────────────────────────────────────────────────
 
 @app.function(
-    image=image,
+    image=image_train,
     gpu="A100-40GB",
     timeout=3600,
     volumes={"/data085": vol_085},
@@ -175,8 +209,8 @@ def train_model():
 def measure_model():
     """
     Measure conformal heads on the step_2000 checkpoint.
-    Uses --full-vocab because the C-generated corpus uses the full 50304-token vocabulary
-    (inherited from the C-NAT s0 model, which was trained on TinyStories).
+    Uses --full-vocab because the C-generated corpus inherits the full 50304-token
+    vocabulary from the C-NAT s0 model (trained on TinyStories).
     """
     ckpt_path = f"/data085/runs/{RUN_NAME}/step_2000"
     # measure.py writes to RESULTS_DIR = OUT / "measurements"
@@ -198,7 +232,7 @@ def measure_model():
 # ─── collect results ──────────────────────────────────────────────────────────
 
 @app.function(
-    image=image,
+    image=image_train,
     timeout=120,
     volumes={"/data085": vol_085},
     memory=4096,
@@ -237,7 +271,7 @@ def main(phase: str = "all"):
     print()
 
     if phase in ("generate", "all"):
-        print("→ generate_corpus ...", flush=True)
+        print("→ generate_corpus (vLLM) ...", flush=True)
         generate_corpus.remote()
         print("  generate_corpus complete", flush=True)
 
@@ -254,7 +288,7 @@ def main(phase: str = "all"):
     if phase in ("results", "all"):
         print("→ collect_results ...", flush=True)
         res = collect_results.remote()
-        print(f"\n=== RESULTS ===")
+        print("\n=== RESULTS ===")
         for k, v in res.items():
             print(f"  {k}: {v}")
         # Write summary to local results.json
