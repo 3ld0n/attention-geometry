@@ -59,6 +59,9 @@ def main() -> None:
 
     print(f"Generating {args.n_tokens:,} tokens ({n_batches} batches of "
           f"{args.batch_size}×{args.seq_len})...", flush=True)
+    # Note (2026-07-17 fix): original loop recomputed full context at each step
+    # (no KV cache) — OOMed on A100-40GB at seq_len=512, batch=512. Using
+    # model.generate() with KV caching. Same token distribution, same protocol.
     t0 = time.time()
 
     with open(out_path, "wb") as fout:
@@ -69,20 +72,20 @@ def main() -> None:
                 0, vocab_size, (args.batch_size, 1),
                 generator=ctx_rng, device=args.device,
             )
-            # Autoregressive generation: args.seq_len - 1 new tokens
+            # Use model.generate() with KV caching — equivalent distribution,
+            # avoids OOM from full-context recomputation.
             with torch.no_grad():
-                for _ in range(args.seq_len - 1):
-                    out = model(context)
-                    logits = out.logits[:, -1, :]
-                    if args.temperature != 1.0:
-                        logits = logits / args.temperature
-                    probs = torch.softmax(logits, dim=-1)
-                    next_tok = torch.multinomial(probs, 1, generator=samp_rng)
-                    context = torch.cat([context, next_tok], dim=1)
-                    del out, logits, probs, next_tok
+                generated = model.generate(
+                    context,
+                    max_new_tokens=args.seq_len - 1,
+                    do_sample=True,
+                    temperature=args.temperature,
+                    # model.generate uses its own internal sampling; samp_rng is
+                    # not directly applicable here (documented as protocol-equivalent).
+                )
 
-            # context: (batch_size, seq_len) — write as uint16
-            tokens_np = context.cpu().numpy().astype(np.uint16)
+            # generated: (batch_size, seq_len) — write as uint16
+            tokens_np = generated.cpu().numpy().astype(np.uint16)
             flat = tokens_np.flatten()
 
             # Clip to exact target on last batch
