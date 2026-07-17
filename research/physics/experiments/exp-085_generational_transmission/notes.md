@@ -168,6 +168,8 @@ Volumes: read from `exp062-data` (C-NAT s0 checkpoint), write to `exp085-data`.
 | Date | Event |
 |---|---|
 | 2026-07-14 | Pre-registration written. Experiment queued as primary next probe. |
+| 2026-07-16 | Launched `--phase all` on Modal A100-40GB. Generate phase completed (C-generated_s0.bin on volume) but file was empty — original gen_gen.py loop caused OOM without KV caching. Train phase failed to start. |
+| 2026-07-17 | Diagnosed: original gen_gen.py manual autoregressive loop (511 steps without KV cache) OOMed at large batch sizes. Fixed: switched to model.generate() with KV caching (commit bcd4bb20). But throughput still only 0.05M tok/s (ETA ~21000s). Root cause: memory-bandwidth-bound generation; 1.1B-token corpus generation exceeds Modal 7200s timeout. **BLOCKED — engineering pipeline failure, not experiment failure.** Fix options: (a) vLLM on Modal (~50-100x throughput), (b) pre-generate corpus across multiple shorter Modal runs with resume logic. |
 
 ---
 

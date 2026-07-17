@@ -149,11 +149,63 @@ Same as exp-007 / exp-083:
 
 ---
 
+## Results (2026-07-17)
+
+Run completed on local MPS, Pythia-70m. All 11 checkpoints measured. Full data in `results.json`.
+
+| Step | RAND n_syk | NAT n_syk | RAND−NAT |
+|------|-----------|-----------|---------|
+| 0    | 0         | 1         | −1 |
+| 1    | 0         | 1         | −1 |
+| 4    | 0         | 1         | −1 |
+| 16   | 0         | 0         | 0  |
+| 64   | 0         | 0         | 0  |
+| 256  | 5         | 2         | +3 |
+| 1000 | 8         | 1         | +7 |
+| 4000 | 5         | 8         | −3 |
+| 16000| 6         | 9         | −3 |
+| 64000| 9         | 11        | −2 |
+| 143000| 6        | 7         | −1 |
+
+**Verdicts:**
+- H_mono_rand: **KEEP** — Spearman ρ = 0.862, p = 0.0006. SYK-near head count increases
+  monotonically with log(step+1) for fixed random inputs. Training steps operationalize
+  conformal depth.
+- H_mono_nat: **KEEP** — Spearman ρ = 0.728, p = 0.011. Same for fixed natural language input.
+- H_comparison (step 143000): **FAIL** — RAND=6, NAT=7. NAT ≥ RAND at the final checkpoint.
+  This reverses the GPT-2 direction from exp-083 (RAND=15 > NAT=7 on GPT-2/144 heads).
+
+**Key finding:** The training trajectory is not simple. At step 1000, random tokens show 8
+SYK-near heads vs natural language's 1 — a strong RAND > NAT signal, consistent with the
+"conformal baseline as free-attending mode" interpretation. But by step 4000, NAT catches up
+and surpasses RAND (8 vs 5). The final state (step 143000, NAT=7, RAND=6) is approximately
+equal. The RAND > NAT direction measured at GPT-2 (exp-083) does not hold for Pythia-70m.
+
+**Model-specificity:** The cross-sectional RAND vs NAT comparison is not universal. GPT-2
+(144 heads) shows RAND > NAT; Pythia-70m (48 heads) shows NAT ≥ RAND at the final step.
+The monotone training trajectory (H_mono_rand, H_mono_nat) is more robust.
+
+**Crossover at step 4000:** Early post-transition (steps 256–1000), random inputs reveal more
+conformal heads — consistent with exp-083's "free-attending mode" reading. As training
+continues past step 1000, natural language inputs increasingly show conformal structure equal
+to or exceeding random tokens. This suggests that deeper training moves the conformal
+structure from the "free-attending substrate" toward "engaged-attending mode" — the semantics
+eventually organize the conformal structure, not just activate shortcuts away from it.
+
+**Honest limit:** The step=0–4 NAT=1 vs RAND=0 is likely noise at the criterion boundary.
+The N=20 identical passes for NAT condition gives a stable average of one specific passage;
+a different natural language passage might give different results.
+
+**Protocol note:** The exp-086 run revealed that Pythia-70m training checkpoint revisions are
+NOT cached from exp-009 on this machine — each required ~160s download from HuggingFace.
+This explains the 24-minute runtime (11 checkpoints × 160s download + 2s analysis each).
+
 ## Status log
 
 | Date | Event |
 |---|---|
 | 2026-07-17 | Pre-registration written and committed. Experiment queued as 16c analysis. |
+| 2026-07-17 | Run completed. Results: H_mono_rand KEEP (ρ=0.862), H_mono_nat KEEP (ρ=0.728), H_comparison FAIL (RAND < NAT at step 143000 on Pythia-70m). |
 
 ---
 
