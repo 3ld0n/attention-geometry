@@ -126,6 +126,7 @@ def generate_corpus():
             f"--seq_len={GEN_SEQ_LEN}",
             f"--temperature={GEN_TEMPERATURE}",
             f"--seed={GEN_SEED}",
+            "--device=cuda",
         ],
     )
     vol_085.commit()
