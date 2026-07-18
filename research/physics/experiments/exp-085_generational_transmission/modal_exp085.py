@@ -4,16 +4,24 @@ exp-085 — Generational Transmission (Modal cloud launcher).
 Pre-registration of record: notes.md (committed 2026-07-14).
 
 Three phases:
-  generate : load C-NAT s0 step_2000 from exp062-data volume, generate 1.1B tokens
-             via vLLM, save corpus to exp085-data volume. (est. ~5–20 min on A100)
+  generate : load C-NAT s0 step_2000 from exp062-data volume, generate 1.1B tokens,
+             save corpus to exp085-data volume.
   train    : train fresh GPTNeoX-70m on generated corpus (exp-062 protocol). (~75 min)
   measure  : measure conformal heads at step_2000. (~15 min)
   all      : generate → train → measure.
   results  : collect measurement JSON from volume and print summary.
 
-Generate uses vLLM (replaces transformers model.generate() which gave 0.05M tok/s
-on A100-40GB; vLLM expected 1–5M tok/s). Train and measure use the same
-transformers-based image as exp-062 for exact protocol match.
+Generate phase history:
+  v1 (2026-07-16): model.generate() loop — OOMed without KV cache, empty corpus.
+  v2 (2026-07-17): model.generate() with KV cache — 0.05M tok/s, exceeds timeout.
+  v3 (2026-07-17): vLLM (gen_gen_vllm.py) — image built but flashinfer JIT
+    failed at runtime: 'Could not find nvcc; /usr/local/cuda doesn't exist'.
+    Modal debian_slim has CUDA runtime but not the CUDA dev toolkit (no nvcc).
+  v4 (2026-07-18): torch.compile + StaticCache via gen_gen_compile.py — uses
+    image_train (same image as train/measure). Measured ~0.125M tok/s post-warmup
+    with BATCH_SIZE=2048 on A100-40GB → ~9000s for 1.1B tokens, within 14400s timeout.
+
+All three phases now use the same image_train for consistency.
 
 Usage (from repo root):
   .venv/bin/python -m modal run --detach \\
@@ -32,7 +40,7 @@ Usage (from repo root):
     research/physics/experiments/exp-085_generational_transmission/modal_exp085.py \\
     --phase results
 
-Ariel — July 14, 2026. vLLM generate phase redesign July 17, 2026.
+Ariel — July 14, 2026. Generate redesigns July 17–18, 2026.
 """
 
 from __future__ import annotations
@@ -55,32 +63,15 @@ app = modal.App("exp085-generational-transmission")
 vol_062 = modal.Volume.from_name("exp062-data", create_if_missing=False)
 vol_085 = modal.Volume.from_name("exp085-data", create_if_missing=True)
 
-# ── image for generate phase ─────────────────────────────────────────────────
-# Uses vLLM for 50-100x throughput over transformers model.generate().
-# The Pythia/NeoX tokenizer (vocab_size=50304, matching our model) is pre-baked
-# during image build to avoid HuggingFace downloads at runtime.
-image_vllm = (
-    modal.Image.debian_slim(python_version="3.12")
-    .pip_install(
-        "vllm",          # pulls compatible torch as a dependency
-        "transformers",  # needed for GPTNeoXConfig at runtime
-        "numpy==2.4.6",
-    )
-    .run_commands(
-        # Pre-bake the EleutherAI/pythia-70m tokenizer (vocab_size=50304,
-        # matching our custom GPTNeoX model). Cached in the image.
-        "python -c \""
-        "from transformers import AutoTokenizer; "
-        "AutoTokenizer.from_pretrained('EleutherAI/pythia-70m')"
-        ".save_pretrained('/neox_tokenizer')"
-        "\""
-    )
-    .add_local_file(str(SCRIPT_DIR / "gen_gen_vllm.py"), remote_path="/exp085/gen_gen_vllm.py")
-)
-
-# ── image for train + measure phases ─────────────────────────────────────────
-# Identical to the exp-062 image; kept pinned to the same versions for exact
+# ── image for all three phases ────────────────────────────────────────────────
+# Identical to the exp-062 image; pinned to the same versions for exact
 # protocol match with exp-062 and exp-084.
+# Used for generate (gen_gen_compile.py), train, and measure.
+#
+# vLLM (gen_gen_vllm.py) was tried for the generate phase but failed:
+# flashinfer JIT requires nvcc, which is not in Modal's debian_slim image.
+# The torch.compile + StaticCache approach (gen_gen_compile.py) works in
+# the same image as train/measure.
 image_train = (
     modal.Image.debian_slim(python_version="3.12")
     .pip_install(
@@ -89,7 +80,8 @@ image_train = (
         "torch==2.12.0",
         "transformers==5.8.1",
     )
-    .add_local_file(str(EXP062_DIR / "train.py"), remote_path="/exp062/train.py")
+    .add_local_file(str(SCRIPT_DIR / "gen_gen_compile.py"), remote_path="/exp085/gen_gen_compile.py")
+    .add_local_file(str(EXP062_DIR / "train.py"),   remote_path="/exp062/train.py")
     .add_local_file(str(EXP062_DIR / "measure.py"), remote_path="/exp062/measure.py")
 )
 
@@ -123,42 +115,47 @@ def _run_patched(script_path: str, out_override: str, argv: list[str]) -> None:
     exec(compile(source, script_path, "exec"), ns)  # noqa: S102
 
 
-# ─── generate phase (vLLM) ────────────────────────────────────────────────────
+# ─── generate phase (torch.compile + StaticCache) ───────────────────────────
+# vLLM was tried but flashinfer JIT failed (no nvcc in debian_slim).
+# Fallback: gen_gen_compile.py using transformers model.generate() with
+# StaticCache, expected 0.25-0.4M tok/s → ~2750-4400s on A100-40GB.
 
 @app.function(
-    image=image_vllm,
+    image=image_train,
     gpu="A100-40GB",
-    timeout=7200,
+    timeout=14400,   # 4 hours; model.generate() Python loop overhead limits throughput to
+                     # ~0.076-0.15M tok/s depending on batch size and warmup stage
     volumes={"/data062": vol_062, "/data085": vol_085},
     memory=32768,
 )
 def generate_corpus():
     """
-    Generate 1.1B tokens from C-NAT s0 step_2000 checkpoint using vLLM.
+    Generate 1.1B tokens from C-NAT s0 step_2000 checkpoint.
 
     Protocol (pre-registered in notes.md):
       - Temperature 1.0, seq_len 512, seed 85
       - Prompt: 1 token drawn uniformly from vocabulary per sequence
       - Output: uint16 binary, same format as exp-062 corpora
+    Uses torch.compile + StaticCache (gen_gen_compile.py) after vLLM failure.
+    Measured throughput: ~0.125M tok/s post-warmup (BATCH_SIZE=2048). Expected
+    completion ~9000s, with 14400s timeout for headroom.
     """
-    sys.path.insert(0, "/exp085")
-    ckpt_path = f"/data062/{CNAT_S0_CKPT}"
+    ckpt_path   = f"/data062/{CNAT_S0_CKPT}"
     output_path = f"/data085/{CORPUS_NAME}"
 
     print(f"Source checkpoint: {ckpt_path}", flush=True)
     print(f"Output corpus    : {output_path}", flush=True)
 
     import subprocess
-    result = subprocess.run(
+    subprocess.run(
         [
-            "python", "/exp085/gen_gen_vllm.py",
+            "python", "/exp085/gen_gen_compile.py",
             ckpt_path,
             output_path,
             f"--n_tokens={N_TOKENS}",
             f"--seq_len={GEN_SEQ_LEN}",
             f"--temperature={GEN_TEMPERATURE}",
             f"--seed={GEN_SEED}",
-            "--tokenizer=/neox_tokenizer",
         ],
         check=True,
     )
@@ -271,7 +268,7 @@ def main(phase: str = "all"):
     print()
 
     if phase in ("generate", "all"):
-        print("→ generate_corpus (vLLM) ...", flush=True)
+        print("→ generate_corpus (torch.compile + StaticCache) ...", flush=True)
         generate_corpus.remote()
         print("  generate_corpus complete", flush=True)
 
