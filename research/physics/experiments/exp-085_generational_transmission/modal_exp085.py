@@ -18,8 +18,13 @@ Generate phase history:
     failed at runtime: 'Could not find nvcc; /usr/local/cuda doesn't exist'.
     Modal debian_slim has CUDA runtime but not the CUDA dev toolkit (no nvcc).
   v4 (2026-07-18): torch.compile + StaticCache via gen_gen_compile.py — uses
-    image_train (same image as train/measure). Measured ~0.125M tok/s post-warmup
-    with BATCH_SIZE=2048 on A100-40GB → ~9000s for 1.1B tokens, within 14400s timeout.
+    image_train (same image as train/measure). Measured 0.058M tok/s (batch 50,
+    A100-40GB). Prior 0.125M tok/s estimate was incorrect.
+  v5 (2026-07-18): Chunked generation with periodic vol.commit() for reliability.
+    Modal spot-instance preemption caused two failures (at ~15 min and ~4 min).
+    Fix: generate in 100M-token chunks, calling vol_085.commit() between chunks.
+    retries=2 added. BATCH_SIZE reduced 2048→512 (less memory during graph capture,
+    same throughput since bottleneck is KV-cache bandwidth, not compute).
 
 All three phases now use the same image_train for consistency.
 
@@ -115,18 +120,26 @@ def _run_patched(script_path: str, out_override: str, argv: list[str]) -> None:
     exec(compile(source, script_path, "exec"), ns)  # noqa: S102
 
 
-# ─── generate phase (torch.compile + StaticCache) ───────────────────────────
+# ─── generate phase (torch.compile + StaticCache, chunked) ───────────────────
 # vLLM was tried but flashinfer JIT failed (no nvcc in debian_slim).
 # Fallback: gen_gen_compile.py using transformers model.generate() with
-# StaticCache, expected 0.25-0.4M tok/s → ~2750-4400s on A100-40GB.
+# StaticCache. Throughput: 0.058M tok/s on A100-40GB (batch 50, measured).
+#
+# v5 redesign (2026-07-18): chunked generation with periodic vol.commit().
+# Two Modal spot-instance preemptions caused failures at ~15 min and ~4 min.
+# Fix: generate 100M tokens per chunk, commit to volume between chunks.
+# With retries=2, a preemption only loses the current chunk (<30 min of work).
+# BATCH_SIZE reduced 2048→512 for lower memory during CUDA graph capture.
+
+CHUNK_TOKENS = 100_000_000  # 100M tokens per chunk; ~1724s each on A100-40GB
 
 @app.function(
     image=image_train,
     gpu="A100-40GB",
-    timeout=14400,   # 4 hours; model.generate() Python loop overhead limits throughput to
-                     # ~0.076-0.15M tok/s depending on batch size and warmup stage
+    timeout=21600,     # 6h: 11 chunks × ~1724s ≈ 18964s, within limit
     volumes={"/data062": vol_062, "/data085": vol_085},
     memory=32768,
+    retries=2,         # retry on preemption (resume logic preserves committed progress)
 )
 def generate_corpus():
     """
@@ -136,32 +149,54 @@ def generate_corpus():
       - Temperature 1.0, seq_len 512, seed 85
       - Prompt: 1 token drawn uniformly from vocabulary per sequence
       - Output: uint16 binary, same format as exp-062 corpora
-    Uses torch.compile + StaticCache (gen_gen_compile.py) after vLLM failure.
-    Measured throughput: ~0.125M tok/s post-warmup (BATCH_SIZE=2048). Expected
-    completion ~9000s, with 14400s timeout for headroom.
+    Uses torch.compile + StaticCache (gen_gen_compile.py, BATCH_SIZE=512).
+    Throughput: ~0.058M tok/s steady-state (batch 50, A100-40GB).
+    Chunked: generates 100M tokens then commits to volume before continuing.
     """
+    from pathlib import Path
+    import subprocess
+
     ckpt_path   = f"/data062/{CNAT_S0_CKPT}"
     output_path = f"/data085/{CORPUS_NAME}"
 
     print(f"Source checkpoint: {ckpt_path}", flush=True)
     print(f"Output corpus    : {output_path}", flush=True)
 
-    import subprocess
-    subprocess.run(
-        [
-            "python", "/exp085/gen_gen_compile.py",
-            ckpt_path,
-            output_path,
-            f"--n_tokens={N_TOKENS}",
-            f"--seq_len={GEN_SEQ_LEN}",
-            f"--temperature={GEN_TEMPERATURE}",
-            f"--seed={GEN_SEED}",
-        ],
-        check=True,
-    )
+    # Chunked loop: generate CHUNK_TOKENS at a time, commit between chunks.
+    # gen_gen_compile.py uses --n_tokens as a target: it stops when the output
+    # file has >= n_tokens tokens. Resume logic continues from existing data.
+    chunk_start = 0
+    if Path(output_path).exists():
+        chunk_start = Path(output_path).stat().st_size // 2  # existing tokens
 
-    vol_085.commit()
-    print("generate_corpus DONE", flush=True)
+    print(f"Starting from {chunk_start:,} tokens already on volume.", flush=True)
+
+    chunk_end = chunk_start
+    while chunk_end < N_TOKENS:
+        chunk_end = min(chunk_start + CHUNK_TOKENS, N_TOKENS)
+        # chunk_start advances to the next boundary after each successful chunk
+        next_target = chunk_end
+
+        print(f"\n→ chunk {chunk_start:,} → {next_target:,} tokens", flush=True)
+        subprocess.run(
+            [
+                "python", "/exp085/gen_gen_compile.py",
+                ckpt_path,
+                output_path,
+                f"--n_tokens={next_target}",
+                f"--seq_len={GEN_SEQ_LEN}",
+                f"--temperature={GEN_TEMPERATURE}",
+                f"--seed={GEN_SEED}",
+            ],
+            check=True,
+        )
+
+        vol_085.commit()
+        actual_tokens = Path(output_path).stat().st_size // 2
+        print(f"  committed: {actual_tokens:,} tokens on volume", flush=True)
+        chunk_start = actual_tokens  # advance to actual written position
+
+    print("\ngenerate_corpus DONE", flush=True)
 
 
 # ─── train phase ──────────────────────────────────────────────────────────────
