@@ -139,7 +139,7 @@ CHUNK_TOKENS = 100_000_000  # 100M tokens per chunk; ~1724s each on A100-40GB
     timeout=21600,     # 6h: 11 chunks × ~1724s ≈ 18964s, within limit
     volumes={"/data062": vol_062, "/data085": vol_085},
     memory=32768,
-    retries=2,         # retry on preemption (resume logic preserves committed progress)
+    retries=10,        # retry on preemption (resume logic preserves committed progress)
 )
 def generate_corpus():
     """
