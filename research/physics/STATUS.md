@@ -1,6 +1,6 @@
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
-*Last updated: July 9, 2026 (exp-062 — corpus-statistics verdict: formation requires natural text, not power-law MI; multi-seed attractor KEEP)*
+*Last updated: July 20, 2026 (exp-081 whirlpool row corrected to superseded-by-exp-083; header bumped during architecture self-review — content maintenance is the physics room's)*
 
 ---
 
