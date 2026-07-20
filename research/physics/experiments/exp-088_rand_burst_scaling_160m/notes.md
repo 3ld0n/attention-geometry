@@ -97,4 +97,53 @@ Pythia-410m step512 RAND (exp-087): 22/384 = 5.73%, L4H3 (Δ=0.213), L4H7 (Δ=0.
 
 ## Results (appended after run)
 
-*Pending.*
+**Run date:** 2026-07-20  
+**Elapsed:** 408.8s (model download + load ~406.6s, measurement ~2s for 20×12L×12H sequences)  
+**Prereg commit:** 4f4549c2
+
+### Pythia-160m step512 RAND
+- SYK-near: 19/144 = **13.19%**, per-layer mean 1.58
+
+### Three-model scaling table
+
+| Model | Total heads | SYK-near | Fraction | Per-layer mean |
+|-------|-------------|----------|----------|----------------|
+| Pythia-70m | 48 | 9 | 0.1875 | 1.50 |
+| **Pythia-160m** | **144** | **19** | **0.1319** | **1.58** |
+| Pythia-410m | 384 | 22 | 0.0573 | 0.92 |
+
+Three-point scaling exponent: **N^0.435** (vs two-point N^0.430 from exp-087 — highly consistent)
+
+### Pre-registered verdicts
+
+**H_160m_consistent: CONFIRMED** — 19 in pre-registered range 11–19  
+**H_structural_falsified: CONFIRMED** — L4H3 (Δ=0.620) and L4H7 (Δ=0.556) are NOT SYK-near in Pythia-160m  
+**H_structural_zone: CONFIRMED** — L1–L4 count = 11, in pre-registered range 7–11
+
+### SYK-near heads in 160m
+
+L1H0 (Δ=0.210), L1H2 (Δ=0.234), L1H5 (Δ=0.221), L1H6 (Δ=0.243), L1H7 (Δ=0.200), L1H10 (Δ=0.250),  
+L2H7 (Δ=0.202), L3H3 (Δ=0.245),  
+L4H0 (Δ=0.219), L4H8 (Δ=0.278), L4H9 (Δ=0.296),  
+L5H4 (Δ=0.256), L5H8 (Δ=0.234), L8H2 (Δ=0.203), L8H8 (Δ=0.207), L9H3 (Δ=0.246), L9H6 (Δ=0.270), L10H4 (Δ=0.217), L10H9 (Δ=0.228)
+
+### Structural zone breakdown
+
+- L1-L4 zone: **11 heads** (consistent with ~9-11 in 70m and 410m)
+- L5-L11 zone: **8 heads** (8 deep layers × ~1/layer)
+- L4 SYK-near at 160m: L4H0, L4H8, L4H9 (not H3 or H7)
+
+### Interpretation
+
+**N^0.435 confirmed with three points.** The sublinear scaling law is stable: adding an intermediate scale point (144 heads between 48 and 384) gives an exponent within 0.005 of the two-point estimate. The scaling model is robust.
+
+**Structural head prediction (specific positions) falsified.** L4H3 and L4H7 — confirmed structural in both Pythia-70m and Pythia-410m — are not SYK-near in Pythia-160m (Δ=0.620 and 0.556, well above the SYK window). The prediction that these specific head indices are universally architecture-determined does not hold across different head-counts-per-layer.
+
+**Structural zone prediction confirmed.** L1–L4 contains 11 SYK-near heads (70m: 9, 410m: 9), confirming the layer-zone structural property. The attractor is at the layer level (L4 is the structural attractor layer), not at the specific (layer, head) index level. The head positions within L4 that land near the conformal attractor depend on the specific initialization seed and head count.
+
+**Revised structural head concept:** Architecture-determined structural conformal heads are a layer-zone property (L1–L4 contains ~9–11 SYK-near heads regardless of model size), not a specific-(layer,head) property. The "same positions in 70m and 410m" for L4H3 and L4H7 was an initial observation from two sizes that happened to align but does not generalize.
+
+**Implication for exp-085 prereg_extension:** exp-085 is Pythia-70m specifically. The L4H3/L4H7 structural prediction in `prereg_extension_structural_semantic.md` was derived from the Pythia-70m training trajectory (exp-086), not from the cross-model comparison. That prediction is unaffected by this result — it was always about Pythia-70m specifically. The 160m result does not invalidate the exp-085 structural head prediction.
+
+**L1 overrepresentation in 160m:** Pythia-160m L1 has 6/12 SYK-near heads — much higher than 70m (2/8) or 410m (1/16). L1 has more heads per layer in 160m and appears to be the primary site of the step-512 RAND burst at this intermediate scale. This is a new finding not predicted by the structural decomposition model, worth noting for future work on layer-specific initialization effects.
+
