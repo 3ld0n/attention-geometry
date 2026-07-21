@@ -29,13 +29,14 @@ abstract: |
     the best-performing natural-text model --- text that carries the
     full statistical fingerprint of a model that itself possessed the
     geometry ($15/48$ heads), produced at temperature 1.0 with no
-    truncation. The pre-registered formation criterion
+    truncation.     The pre-registered formation criterion
     ($\geq 10/48$) fails: the child model forms $7/48$ conformal heads,
-    zero in the SYK-near window under both the primary and the
-    pre-registered head-level criteria, with the deep steep-exponent
-    population largely missing. A same-day two-seed replication on the
-    identical corpus (declared before launch) confirms the failure is
-    seed-robust: $7$ and $3/48$, zero SYK-near at every seed --- a child
+    with the deep steep-exponent population largely missing (at this
+    formation scale no model, parent included, reaches the strict
+    SYK-near window --- formation count, not matured exponent, is the
+    discriminating observable; see \S 2). A same-day two-seed
+    replication on the identical corpus (declared before launch)
+    confirms the failure is seed-robust: $7$ and $3/48$ --- a child
     band of $3$--$7/48$ that does not overlap the natural-text band of
     $11$--$15/48$. Meanwhile the generated corpus itself
     has *more* long-range pairwise mutual information than the natural
