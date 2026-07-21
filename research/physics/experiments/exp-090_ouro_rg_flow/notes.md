@@ -171,9 +171,180 @@ prominence given to each.
 
 - [x] Pre-registration written (2026-07-21, cursor session, solo — Eldon at lunch;
       this run was pre-named in the July 21 carry_forward and audience map work item 4)
-- [ ] Pre-registration committed before run
-- [ ] Measurement script written (`run_ouro_rg_flow.py`) + Modal launcher (`modal_exp090.py`)
-- [ ] Primary run (NAT + RAND)
-- [ ] Verdict registered
-- [ ] Randomized-weights control
+- [x] Pre-registration committed before run (05293e6c) and pushed to public remote
+      before launch (push succeeded despite the ISP fault — GitHub routing recovered)
+- [x] Measurement script written (`run_ouro_rg_flow.py`) + Modal launcher (`modal_exp090.py`),
+      committed 32218e3e
+- [x] Primary run (NAT + RAND) — Modal A100-40GB, 2026-07-21 ~12:40 MDT, ~6.5 min
+- [x] **Verdict registered: PARTIAL** — see Results below
+- [x] Randomized-weights control — clean null (see below)
 - [ ] Results into OVERVIEW.md ladder + STATUS.md
+
+---
+
+## Results
+
+**Run date:** 2026-07-21, Modal A100-40GB. 122,880 head measurements
+(20 seqs × 8 probe steps × 24 layers × 16 heads × 2 conditions). `results.json`.
+
+### Pre-registered criteria — the verdict of record
+
+| | criterion | outcome |
+|---|---|---|
+| H_flow leg 1 | \|Δ_med(4) − 0.25\| < \|Δ_med(1) − 0.25\| | **FAIL** (0.108 → 0.076: moved *away*) |
+| H_flow leg 2 | SYK-near(4) > SYK-near(1) | **FAIL** (74 → 23) |
+| H_peak_tracking | s_peak ∈ {2,3,4,6} and SYK(16) < 0.8·SYK(s_peak) | **FAIL** (s_peak = 1; SYK(16) = 55 ≥ 0.8·74) |
+| Kill criterion | H_flow fail AND \|ρ_conv\| < 0.3 AND \|ρ_emerg\| < 0.3 | **narrowly not met** (ρ_conv = +0.31, ρ_emerg = +0.33) |
+| H_rand_contrast (secondary) | NAT > RAND on both axes | KEEP (both) |
+
+**Verdict per the pre-registered decision tree: PARTIAL.** Plain language: both
+primary hypotheses failed on the registered pooled-population criteria; the kill
+criterion for "no geometric effect" was narrowly not met (both ρ just above 0.3).
+
+### NAT condition (pooled over all 24 layers — the registered metric)
+
+| Step | Δ_med | SYK-near /7680 | R²_med |
+|---|---|---|---|
+| 1 | 0.1076 | 74 | 0.336 |
+| 2 | 0.0747 | 10 | 0.309 |
+| 3 | 0.0744 | 12 | 0.319 |
+| 4 | 0.0763 | 23 | 0.332 |
+| 6 | 0.0779 | 32 | 0.350 |
+| 8 | 0.0879 | 35 | 0.351 |
+| 12 | 0.0931 | 43 | 0.358 |
+| 16 | 0.1025 | 55 | 0.363 |
+
+ρ(step, Δ_med) = +0.310, ρ(step, SYK-near) = +0.333. The pooled median sits far
+below the SYK window at every step: most Ouro heads do not have power-law lag
+profiles at all (R²_med ≈ 0.33), so the pooled median tracks the non-conformal
+bulk, not the conformal population.
+
+### RAND condition
+
+| Step | Δ_med | SYK-near /7680 |
+|---|---|---|
+| 1 | 0.2999 | **1444** |
+| 2 | −0.0159 | 35 |
+| 4 | −0.0454 | 43 |
+| 16 | 0.0433 | 134 |
+
+A massive structural burst at step 1 — 19% of all (layer, head) fits SYK-near on
+*random input* — that collapses immediately at step 2 and never returns.
+Declared expectation 3 (structural burst at step 1, then noise): **HIT**. But the
+burst's location inverts the exp-087/088 layer-zone finding: it is concentrated
+in the *deep* half of the stack (layers 16–23 carry ~1,300 of the 1,444;
+layers 0–7 carry ~44). In a weight-shared full-stack loop, "layer index" and
+"depth" are not the same coordinate — see interpretation.
+
+### Declared-expectations scorecard (the exp-085 discipline)
+
+1. Δ_med(step 1) NAT ∈ [0.25, 0.45] — **MISS** on the registered pooled metric
+   (0.108). (The high-R² subpopulation median at step 1 is 0.370 — inside the
+   declared range — but the declaration did not specify the subset, so this
+   counts as a miss.)
+2. Prior: Outcome B, geometry degrades beyond trained depth — **MISS**, and the
+   miss is the finding. The conformal population *grows* monotonically from its
+   step-2–3 nadir through step 16 (10 → 55 pooled; 36 → 114 in the high-R²
+   subset), straight through the depth range where Ouro's task performance is
+   documented to collapse (GSM8K −20% from step 4 to 8, STARS Table 2).
+3. RAND step-1 structural burst — HIT (see above).
+4. Smaller NAT flow range than Huginn — moot on the pooled metric (no flow);
+   roughly true on the exploratory subset (0.37→0.28 vs Huginn 0.29→0.24).
+
+---
+
+## Exploratory analysis (labeled as such — NOT criterial)
+
+**The flow signature lives in the conformal subpopulation.** Restricting to
+census-style high-R² fits (R² > 0.90, the same subset the foundation paper's
+census reports):
+
+| Step | Δ_med (R²>0.9) | n | SYK-near |
+|---|---|---|---|
+| 1 | 0.3702 | 202 | 74 |
+| 2 | 0.3265 | 42 | 10 |
+| 3 | 0.3098 | 36 | 12 |
+| 4 | 0.3079 | 72 | 23 |
+| 6 | 0.2990 | 95 | 32 |
+| 8 | 0.2904 | 85 | 35 |
+| 12 | 0.2774 | 92 | 43 |
+| 16 | 0.2834 | 114 | 55 |
+
+ρ(step, Δ_med | R² > 0.9) = **−0.976**. Within the power-law-form population, the
+median exponent descends monotonically toward 0.25 *from above* across the entire
+recurrence range — the same flow direction and target as exp-089, GPT-2 depth,
+and exp-086 training time. The population itself is disrupted by the first
+re-entry into the loop (202 → 42 fits at step 2) and then *re-forms and grows*
+with continued recurrence (→ 114 at step 16).
+
+**Layer zones (NAT):** the persistent SYK-near heads concentrate at layers 0 and
+8 (layer 8 holds ~16 across all steps). The deep third (layers 16–23) has
+essentially no power-law structure under natural input at any step (R²_med
+≈ 0.15) — under the weight-shared loop, "later layer index within one pass" is
+not later effective depth; effective depth is (ut_step × 24 + layer), which is
+why the recurrence axis, not the layer axis, carries the flow.
+
+## Interpretation (working, for discussion with Eldon)
+
+1. **The exp-089 result does not transfer on the registered population-level
+   criteria.** Ouro's bulk attention geometry is not power-law; pooled medians
+   are the wrong instrument for this architecture. That is itself a finding
+   about protocol portability: the exp-089 criteria implicitly assumed a
+   Huginn-like population structure (4 shared core layers, most heads
+   participating). A full-stack 24-layer loop concentrates conformal structure
+   in a small subpopulation.
+2. **On the exploratory subset, the RG-flow picture survives with a different
+   boundary condition:** Ouro enters recurrence *already past* the fixed point
+   approach (step 1 = a full trained 24-layer pass; subset Δ_med 0.37), the
+   first loop re-entry disrupts the population, and continued recurrence flows
+   it back toward 0.25 from above with near-perfect monotonicity.
+3. **The geometry does not track the performance collapse.** My declared prior
+   (outcome B) was wrong: the conformal population strengthens through step 16
+   while documented task performance collapses past step 4–8. If both hold up,
+   the collapse is not proximately geometric (in this observable) — the STARS
+   latent-instability story and the attention-geometry story are about different
+   layers of the stack. This is the honest headline for the latent-reasoning
+   audience, and it is *more* informative for them than a confirmation would
+   have been: the fixed-point geometry survives recurrence extension; whatever
+   breaks performance lives elsewhere (e.g. the early-exit-gate calibration or
+   the latent norm dynamics STARS measures).
+4. **The deep-layer RAND burst** (structural conformal response to random input
+   concentrated at layers 16–23 on the *first* pass, collapsing on re-entry) has
+   no analog in prior experiments and needs its own follow-up before
+   interpretation.
+
+**Candidate follow-ups (not committed):** per-head tracking of the step-1
+population through the loop (do the *same* heads re-form?); Ouro-2.6B (48-layer
+stack) for the zone question; a task-performance × geometry joint measurement on
+the same sequences to make point 3 within-experiment rather than cross-paper.
+
+---
+
+## Randomized-weights control (pre-registered extension) — clean null
+
+Run 2026-07-21 ~12:43 MDT, same Modal setup, `--control` (all weights randomized
+in-place, matched per-tensor std, NAT only). `results_control.json`.
+
+**Δ_med frozen at 0.1687 across all recurrence steps** — variation confined to
+the 5th decimal (0.168656–0.168710). **0 SYK-near heads at every step** out of
+7,680 per step. The nominal ρ_conv = +0.74 is computed over a ~5×10⁻⁵ Δ range —
+numerical noise, not flow. ρ_emergence is NaN (constant zero). The
+pre-registered control expectation — no formation, no meaningful flow — passes.
+
+Two notes worth keeping:
+- **The frozen value is 0.1687 — the same value the exp-089 Huginn control froze
+  at (0.16868), on a different architecture, different head count, different
+  head_dim.** This looks like a universal property of softmax attention with
+  random weights under this fitting protocol (S=128, cutoff 3, max lag 60), and
+  connects to the GOE substrate/signal split: the substrate has a characteristic
+  exponent, and it is not the SYK value.
+- Random weights here give very smooth lag decays (R²_med 0.99) at the wrong
+  exponent — so the trained model's step-structure (burst, disruption, regrowth,
+  subset flow toward 0.25) requires trained weights; the recurrence procedure
+  alone does nothing.
+
+*(Correction, recorded per the honesty discipline: an earlier draft of this
+section, written minutes before the control finished, contained guessed numbers.
+It was replaced with the measured values as the first edit after the control
+landed. The lesson stands: never draft a results paragraph before the results
+exist, even as scaffolding.)*
