@@ -35,31 +35,17 @@ CUTOFF_LOW = 3          # minimum lag for power-law fit (match prior experiments
 MAX_LAG = 60
 VOCAB_SIZE = 65536
 
-# ── RoPE (match Huginn's rotary embedding implementation) ─────────────────────
+# ── RoPE ──────────────────────────────────────────────────────────────────────
+# Protocol fix 2026-07-20 (recorded in notes.md status log): the original draft
+# re-implemented RoPE in the standard polar format, but Huginn's freqs_cis buffer
+# is a cos/sin stack of shape (1, seq, 1, head_dim/2, 2) consumed by its own
+# apply_rotary_emb_complex_like. We now import and use the model's own function
+# (higher fidelity than any re-implementation).
 
-def precompute_freqs_cis(dim: int, end: int, theta: float = 50000.0):
-    """RoPE frequencies — matches Huginn rope_base=50000."""
-    freqs = 1.0 / (theta ** (torch.arange(0, dim, 2).float() / dim))
-    t = torch.arange(end, device=freqs.device)
-    freqs = torch.outer(t, freqs)
-    freqs_cis = torch.polar(torch.ones_like(freqs), freqs)
-    return freqs_cis  # (end, dim/2)
-
-
-def apply_rotary_emb(xq, xk, freqs_cis):
-    """Apply RoPE to Q and K. freqs_cis: (S, head_dim/2)."""
-    # xq, xk: (B, S, n_heads, head_dim)
-    B, S, H, D = xq.shape
-    # Reshape to complex
-    xq_ = xq.float().reshape(B, S, H, D // 2, 2)
-    xk_ = xk.float().reshape(B, S, H, D // 2, 2)
-    xq_complex = torch.view_as_complex(xq_)  # (B, S, H, D/2)
-    xk_complex = torch.view_as_complex(xk_)  # (B, S, H, D/2)
-    # freqs_cis: (S, D/2) → (1, S, 1, D/2)
-    freqs = freqs_cis[:S].unsqueeze(0).unsqueeze(2)  # (1, S, 1, D/2)
-    xq_rot = torch.view_as_real(xq_complex * freqs).reshape(B, S, H, D)
-    xk_rot = torch.view_as_real(xk_complex * freqs).reshape(B, S, H, D)
-    return xq_rot.to(xq.dtype), xk_rot.to(xk.dtype)
+def get_huginn_rotary_fn(module):
+    """Fetch apply_rotary_emb_complex_like from the module's own source file."""
+    mod = sys.modules[module.__class__.__module__]
+    return mod.apply_rotary_emb_complex_like
 
 
 # ── BCFT fitting ──────────────────────────────────────────────────────────────
@@ -103,28 +89,28 @@ def fit_delta(lags, means):
 
 def compute_head_attentions_manual(module, x_normed, freqs_cis):
     """
-    Compute per-head attention weight matrices from CausalSelfAttention.
+    Compute per-head attention weight matrices from CausalSelfAttention,
+    mirroring Huginn's forward exactly (same qk_bias order, same RoPE fn).
     x_normed: (B, S, E) — normalized input to attention
-    freqs_cis: (S, head_dim/2) — RoPE frequencies for this sequence
+    freqs_cis: Huginn cos/sin stack, (1, S, 1, head_dim/2, 2)
     Returns: np.ndarray of shape (n_heads, S, S)
     """
     B, S, E = x_normed.shape
+    rotary_fn = get_huginn_rotary_fn(module)
     with torch.no_grad():
-        # QKV
-        qkv = module.Wqkv(x_normed)  # (B, S, (n_head + 2*n_kv_heads)*head_dim)
-        q, k, v = qkv.split(module.chunks, dim=2)
+        # QKV — same split as Huginn's forward
+        q, k, v = module.Wqkv(x_normed).split(module.chunks, dim=2)
 
         q = q.view(B, S, module.n_head, module.head_dim)
         k = k.view(B, S, module.n_kv_heads, module.head_dim)
 
-        # QK bias
+        # QK bias (Huginn applies before RoPE)
         if module.config.qk_bias:
             q_bias, k_bias = module.qk_bias.split(1, dim=0)
-            q = q + q_bias.to(q.dtype)
-            k = k + k_bias.to(k.dtype)
+            q, k = (q + q_bias).to(q.dtype), (k + k_bias).to(q.dtype)
 
-        # RoPE
-        q_rot, k_rot = apply_rotary_emb(q, k, freqs_cis)
+        # RoPE — the model's own implementation
+        q_rot, k_rot = rotary_fn(q, k, freqs_cis=freqs_cis)
 
         q_rot = q_rot.transpose(1, 2).float()  # (B, n_head, S, head_dim)
         k_rot = k_rot.transpose(1, 2).float()  # (B, n_kv_heads, S, head_dim)
