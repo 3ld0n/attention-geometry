@@ -29,6 +29,15 @@ propagates to task behavior bidirectionally.
 | Training time | weights at every step | architecture | SYK-near count grows monotonically; q=2 plateau en route (exp-086) |
 | Inference-time recurrence | **nothing** | weights *and* architecture | Δ_med → 0.239, monotone, saturating; randomized weights: frozen (exp-089) |
 
+The inference-time axis was re-tested on a second looped architecture
+(Ouro-1.4B, full-stack weight-shared loop; exp-090, pre-registered July 21):
+**PARTIAL** — the pre-registered pooled criteria failed (Ouro's bulk attention
+is not power-law), while the high-R² subpopulation flows to 0.25 from above
+(ρ = −0.976, exploratory). Notably, the conformal population *grows* through
+the recurrence range where Ouro's task performance is documented to collapse —
+the geometry does not track that collapse. Both controls froze at the same
+substrate value (Δ_med ≈ 0.1687) across architectures.
+
 ## The formation ladder — what induces the geometry
 
 All rungs: identical architecture (70m GPT-NeoX, 6L/8H), optimizer, token
