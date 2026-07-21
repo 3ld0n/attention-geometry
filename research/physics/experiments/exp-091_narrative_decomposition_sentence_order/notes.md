@@ -370,6 +370,43 @@ still before results — see CORRECTION above):**
 **Cost:** ~$20/seed × 2, inside the pre-registered "+$40 if triggered"
 multi-seed budget.
 
+### Multi-seed RESULTS (registered 2026-07-21, ~5:35 PM MDT)
+
+Runs launched 4:15 PM in parallel (Modal A100-40GB, detached), completed
+~5:30 PM. `results_s1.json`, `results_s2.json` fetched local.
+
+| Run | init seed | n_conformal | SYK-near | Δ_med | L0 backbone | L3–L5 deep |
+|---|---:|---:|---:|---:|---:|---:|
+| run_CNATshuf_s0 | 1100 | 8/48 | 0 | 0.122 | 6 | 2 |
+| run_CNATshuf_s1 | 1101 | 9/48 | 0 | 0.137 | 6 | 2 |
+| run_CNATshuf_s2 | 1102 | 9/48 | 0 | 0.131 | 7 | 2 |
+
+**Count axis (primary): median 9 → in the 6–9 band → H_partial STANDS,
+seed-robust.** The shuffled band is 8–9/48: strictly above the C-generated
+band (3–7), strictly below the C-NAT band (11–15). Three non-overlapping
+bands — engineered ≤5, shuffled 8–9, natural 11–15 — on identical
+architecture, budget, and measurement.
+
+**SYK-near (demoted to observable): 0 at every seed** — consistent with
+every other rung at this scale, including C-NAT (see CORRECTION above).
+
+**Anatomy check (declared): REPLICATES, cleanly.** The layer-0 backbone is
+6–7 heads at every seed (Δ 0.10–0.17, C-NAT-like depths), and the deep
+population is **exactly 2 heads at every seed** — vs C-NAT's beyond-L0
+population of 7/4/5 across its three seeds and C-generated's 2. The deep
+head *identities* vary across seeds (L3H3/L4H2, L4H4/L5H2, L5H0/L5H3),
+consistent with exp-062's Phase 1.3 finding that head identities are
+seed-variable while the population-level structure is stable.
+
+**Reading:** destroying cross-sentence order reproducibly cuts the deep
+conformal population to ~2 heads — the same level as destroying
+world-grounding — while sentence-level world-reference keeps the count just
+above the fluent fake's band. Ordering is doing real, seed-robust work in
+deep-layer conformal formation; the pre-registered bands simply weren't
+spaced to call it "necessary" outright. The block-shuffle gradation
+follow-up now has a sharp, replicated target: at what preserved block size
+does the deep population recover from 2 toward 5–7?
+
 ---
 
 ## Interpretation context

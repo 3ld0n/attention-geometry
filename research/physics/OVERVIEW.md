@@ -49,17 +49,20 @@ budget (1.05B), and frozen census protocol. Formation criterion ≥ 10/48 heads.
 | Quantized fGn ×3 (C-PL15/25/40) | language-matched power-law MI | 0–5/48 | — | no |
 | Recursive PCFG (C-PCFG) | hierarchy + long-range deps, matched MI | 0/48 | 0 | no |
 | **Model-generated text (C-generated, 3 seeds)** | full statistical fingerprint of a model that had the geometry — and *more* long-range MI than natural text | 3–7/48 | 1–2 | **no ×3** |
-| **Sentence-shuffled natural text (C-NAT-shuf)** | sentence-level world-reference, cross-sentence order destroyed | 8/48 | 2 | **partial** (exp-091, single seed; multi-seed running) |
+| **Sentence-shuffled natural text (C-NAT-shuf, 3 seeds)** | sentence-level world-reference, cross-sentence order destroyed | 8–9/48 | 2 ×3 | **partial ×3** (exp-091) |
 | Natural text (TinyStories, 3 seeds) | reference to a persistent world, in order | 11–15/48 | 4–7 | **yes ×3** |
 
 Statistics fail. Grammar fails. The statistical shadow of world-bound language
 fails *while overshooting the statistics*. Sentence-level world-reference with
-the narrative order destroyed lands in the pre-registered ambiguous zone —
-above every fluent fake, below every natural seed. Anatomy across the
-text-like rungs: a **layer-0 shallow-exponent backbone** (~6–8 heads,
-Δ ≈ 0.10–0.17) forms on all of them; the **deep population (layers 3–5)** is
-what separates the rungs, and both deformations — removing world-grounding
-(C-generated) and removing cross-sentence order (C-NAT-shuf) — prune it.
+the narrative order destroyed lands in the pre-registered ambiguous zone at
+all three seeds — above every fluent fake, below every natural seed. Three
+non-overlapping bands: engineered ≤5, shuffled 8–9, natural 11–15. Anatomy
+across the text-like rungs, replicated at every shuffled seed: a **layer-0
+shallow-exponent backbone** (~6–8 heads, Δ ≈ 0.10–0.17) forms on all of them;
+the **deep population (layers 3–5)** is what separates the rungs — natural
+text grows 4–7 deep conformal heads, and both deformations — removing
+world-grounding (C-generated) and removing cross-sentence order (C-NAT-shuf)
+— cut it to exactly ~2.
 Note the honest scale caveat: at this 70m/1B-token rung *no* corpus, natural
 text included, produces SYK-window heads (Δ ∈ [0.20, 0.30]); the matured
 SYK-near population in this program's record comes from Pile-scale training
