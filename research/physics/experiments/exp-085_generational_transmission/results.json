@@ -2,8 +2,49 @@
  "run": "run_Cgen_s0",
  "corpus": "C-generated_s0.bin",
  "n_conformal": 7,
- "n_syk_near": 0,
+ "n_syk_near_primary": 0,
  "delta_median_conformal": 0.09857328895585937,
- "forms": false,
- "verdict": "H_transmission_no"
+ "forms_primary": false,
+ "verdict_primary": "H_transmission_no",
+ "n_syk_near_extension": 0,
+ "structural_heads_found": [],
+ "rand_type_heads_found": [],
+ "semantic_heads_found": [],
+ "unexpected_heads_found": [],
+ "n_semantic": 0,
+ "verdict_extension": "H_NO",
+ "multi_seed_extension": {
+  "declared": "2026-07-21 notes.md, before launch",
+  "runs": {
+   "run_Cgen_s0": {
+    "init_seed": 1000,
+    "data_seed": 2000,
+    "n_conformal": 7,
+    "n_syk_near": 0,
+    "delta_median_conformal": 0.09857328895585937,
+    "forms": false
+   },
+   "run_Cgen_s1": {
+    "init_seed": 1001,
+    "data_seed": 2001,
+    "n_conformal": 7,
+    "n_syk_near": 0,
+    "delta_median_conformal": 0.059538001178427405,
+    "forms": false
+   },
+   "run_Cgen_s2": {
+    "init_seed": 1002,
+    "data_seed": 2002,
+    "n_conformal": 3,
+    "n_syk_near": 0,
+    "delta_median_conformal": 0.660162826379225,
+    "forms": false
+   }
+  },
+  "formation_band": [
+   3,
+   7
+  ],
+  "verdict": "H_transmission_no robust to training seed (same corpus realization)"
+ }
 }

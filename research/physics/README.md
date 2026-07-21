@@ -45,6 +45,7 @@ research/physics/
 
 ## Where to look for what
 
+- **New here? Start with the one-screen program overview** → `OVERVIEW.md` — what was measured, what was killed, what stands, links to all five preprints and the replication kit
 - **What's the current question?** → `STATUS.md` + `development/status/rooms/physics/queue.md`
 - **What experiments have been run?** → `development/status/rooms/physics/registry.json` (structured index of all 29 experiments) and `RESEARCH_MAP.md` (narrative by thread)
 - **What does the theoretical framework say?** → `FRAMEWORK.md`

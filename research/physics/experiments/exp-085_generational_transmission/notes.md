@@ -212,6 +212,89 @@ volume) is future work.
 
 ---
 
+## Extension analysis + post-hoc corpus measurement (registered 2026-07-21, ~10 AM MDT)
+
+**Pre-registered structural/semantic sub-analysis** (`analyze_structural_semantic.py`,
+per prereg_extension_structural_semantic.md, run against the full per-head JSON on the
+volume): under the extension criteria (Δ ∈ [0.20, 0.30], R² ≥ 0.85) the child model has
+**0/48 SYK-near heads of any classification** — semantic 0/5 (**extension verdict: H_NO**,
+per the pre-registered decision rule), but also structural 0/3 and RAND-type 0/2. The
+pre-registered expectation that ~3 structural heads would form on any text-like input
+was **wrong** — nothing reached the SYK window at all. Caveat recorded: head identities
+were imported from Pile-trained Pythia-70m (exp-086) onto a different training
+distribution; exp-062 Phase 1.3 already showed head identities are seed-variable.
+Full output merged into `results.json`.
+
+**Per-head comparison** (measurements/run_Cgen_s0_final.json fetched local): the 7
+conformal heads are 5 in layer 0 (Δ 0.054–0.101, all at positions also conformal in the
+parent, but shallower than the parent's layer-0 band 0.09–0.17) + 2 deep steep heads
+(L3H7 Δ=0.76, L5H3 Δ=0.84) vs the parent's 7 deep heads across layers 3–5. The deep
+population is what fails to form.
+
+**Post-hoc MI measurement of C-generated** (`measure_mi_cgen.py`, exp-062's pre-registered
+estimator verbatim, labeled post hoc): **β̂ = 0.92** (free-floor fit, R² = 0.74 — knee-shaped
+profile, not clean power law), plain-OLS 0.94. The generated corpus has **more**
+shuffle-corrected MI than C-NAT (β̂ = 1.38) at essentially every distance d=2–360, often
+by an order of magnitude. Uptick at d=512 coincides with the generation sequence length
+(likely a position-alignment artifact of concatenated fixed-length sequences). Direction
+is the finding: **statistics up, formation down** — long-range pairwise MI cannot be the
+driver, a fortiori.
+
+**Preprint:** `writing/preprints/2026-07-21_generational_transmission/` — "The Geometry
+Does Not Transmit," addressed to the model-collapse / synthetic-data literature. Drafted
+2026-07-21; Zenodo upload pending (Zenodo unreachable during the morning's partial outage).
+
+---
+
+## Multi-seed extension (declared 2026-07-21, ~10:45 AM MDT, BEFORE launch)
+
+*Declared before any run. Addresses the "single seed" caveat in the primary results and
+the preprint's §6. This is a robustness extension, not a change to the primary verdict —
+the primary pre-registration's decision was single-run by design and is already registered.*
+
+**Design:** two additional training runs on the SAME generated corpus
+(`C-generated_s0.bin`), varying only the training seeds, matching exp-062's C-NAT
+multi-seed convention exactly:
+
+| Run | init seed | data seed |
+|---|---|---|
+| run_Cgen_s0 (done) | 1000 | 2000 |
+| run_Cgen_s1 | 1001 | 2001 |
+| run_Cgen_s2 | 1002 | 2002 |
+
+Training and measurement protocols identical to run_Cgen_s0 (exp-062 train.py/measure.py
+verbatim, --full-vocab). Launcher: `modal_exp085_multiseed.py` (train_and_measure chained
+remotely, detached, retries=10).
+
+**Declared expectations (before results):** if the transmission failure is
+seed-robust, both runs land below the 10/48 formation criterion, in the neighborhood of
+s0's 7/48 (C-NAT's across-seed formation range was 11–15; a comparable relative spread
+here would be roughly 5–9). Report the across-seed formation band and Δ_med range in the
+style of exp-062 Phase 1.3. If either seed FORMS (≥10/48), that is a material qualifier
+to the preprint's verdict and must be added to the paper before Zenodo upload.
+
+**Not varied (recorded):** generation seed / corpus realization (would cost a fresh
+1.1B-token generation; queued as future work alongside the generator-scale sweep).
+
+**RESULTS (registered 2026-07-21, ~12:00 PM MDT):** transmission failure is
+**seed-robust** — both replication seeds land below criterion:
+
+| Run | n_conformal | n_syk_near | Δ_med (conformal) | forms |
+|---|---:|---:|---:|---|
+| run_Cgen_s0 | 7/48 | 0 | 0.0986 | no |
+| run_Cgen_s1 | 7/48 | 0 | 0.0595 | no |
+| run_Cgen_s2 | 3/48 | 0 | 0.6602 (n=3) | no |
+
+Child across-seed formation band **3–7/48** vs C-NAT's 11–15/48 — non-overlapping.
+Zero SYK-near heads at any seed. Honest note against the declared expectation: the
+guessed neighborhood was 5–9; s2 (3/48) came in *below* it — the failure is deeper
+than declared, not shallower. Verdict H_transmission_no is robust to training seed
+(init/data), on the same corpus realization. Full measurement JSONs on volume
+(`measurements/run_Cgen_s1.json`, `run_Cgen_s2.json`); summaries merged into
+`results.json`. Preprint updated same day (multi-seed table + Limitations).
+
+---
+
 ## Status log
 
 | Date | Event |
@@ -236,4 +319,9 @@ volume) is future work.
 - `gen_gen_vllm.py` — generate corpus v3 (vLLM; failed due to nvcc JIT error)
 - `modal_exp085.py` — Modal launcher (generate → train → measure)
 - `run_until_done.py` — local wrapper: relaunches generate until 1.1B tokens, then chains train/measure/results
-- `results.json` — final decision statistics (written when results phase completes)
+- `results.json` — final decision statistics + extension analysis output
+- `analyze_structural_semantic.py` — pre-registered head-level sub-analysis (run 2026-07-21)
+- `fetch_full_measurement.py` — pulls full per-head JSON from volume → `measurements/`
+- `measure_mi_cgen.py` — post-hoc MI measurement of C-generated (exp-062 estimator verbatim)
+- `C-generated_s0.mi.json` — post-hoc MI profile of the generated corpus (β̂ = 0.92)
+- `measurements/run_Cgen_s0_final.json` — full frozen-protocol per-head output (local copy)
