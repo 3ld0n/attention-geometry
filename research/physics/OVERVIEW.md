@@ -2,7 +2,7 @@
 
 *A measurement program on the geometry of trained transformer attention.
 Every claim below is either a pre-registered measurement, a published kill, or
-labeled as interpretation. Last updated July 21, 2026.*
+labeled as interpretation. Last updated July 21, 2026 (evening: exp-091 added).*
 
 ---
 
@@ -43,18 +43,25 @@ substrate value (Δ_med ≈ 0.1687) across architectures.
 All rungs: identical architecture (70m GPT-NeoX, 6L/8H), optimizer, token
 budget (1.05B), and frozen census protocol. Formation criterion ≥ 10/48 heads.
 
-| Training corpus | Has | Conformal heads | Forms? |
-|---|---|---:|---|
-| Markov chain (C-SR) | short-range statistics | 0/48 | no |
-| Quantized fGn ×3 (C-PL15/25/40) | language-matched power-law MI | 0–5/48 | no |
-| Recursive PCFG (C-PCFG) | hierarchy + long-range deps, matched MI | 0/48 | no |
-| **Model-generated text (C-generated, 3 seeds)** | full statistical fingerprint of a model that had the geometry — and *more* long-range MI than natural text | 3–7/48 | **no ×3** |
-| Natural text (TinyStories, 3 seeds) | reference to a persistent world | 11–15/48 | **yes ×3** |
+| Training corpus | Has | Conformal heads | SYK-near | Forms? |
+|---|---|---:|---:|---|
+| Markov chain (C-SR) | short-range statistics | 0/48 | 0 | no |
+| Quantized fGn ×3 (C-PL15/25/40) | language-matched power-law MI | 0–5/48 | 0 | no |
+| Recursive PCFG (C-PCFG) | hierarchy + long-range deps, matched MI | 0/48 | 0 | no |
+| **Model-generated text (C-generated, 3 seeds)** | full statistical fingerprint of a model that had the geometry — and *more* long-range MI than natural text | 3–7/48 | 0 | **no ×3** |
+| **Sentence-shuffled natural text (C-NAT-shuf)** | sentence-level world-reference, cross-sentence order destroyed | 8/48 | 0 | **partial** (exp-091, single seed) |
+| Natural text (TinyStories, 3 seeds) | reference to a persistent world, in order | 11–15/48 | present | **yes ×3** |
 
 Statistics fail. Grammar fails. The statistical shadow of world-bound language
-fails *while overshooting the statistics*. The surviving candidate driver is
-**reference** — language bound to persistent external referents. (exp-062,
-exp-084, exp-085; each pre-registered with committed decision criteria.)
+fails *while overshooting the statistics*. Sentence-level world-reference with
+the narrative order destroyed lands in the pre-registered ambiguous zone on
+the count criterion — and at **zero** on the SYK-near criterion, same as the
+statistical shadow. The triangulation now reads: the fixed-point population
+requires **both** world-binding *and* cross-sentence order; neither alone
+produces it. (exp-062, exp-084, exp-085, exp-091; each pre-registered with
+committed decision criteria. exp-091 is single-seed so far and its formed
+heads have an unexplained layer-0 concentration — count comparisons tempered
+until multi-seed.)
 
 ## What stands (measured)
 

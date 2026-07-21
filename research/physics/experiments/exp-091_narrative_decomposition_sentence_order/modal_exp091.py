@@ -61,6 +61,14 @@ RUN_NAME    = "run_CNATshuf_s0"
 INIT_SEED   = 1100
 DATA_SEED   = 2100  # unused by measure.py but passed for consistency
 
+# Multi-seed extension (registered in notes.md before launch): seeds 1101/1102
+# on the SAME corpus (sentence-shuffle seed 9100 fixed) — isolates init variance.
+SEED_RUNS = {
+    1100: "run_CNATshuf_s0",
+    1101: "run_CNATshuf_s1",
+    1102: "run_CNATshuf_s2",
+}
+
 
 # ─── helper: exec a patched script in a clean namespace ──────────────────────
 
@@ -197,6 +205,49 @@ def train_and_measure():
     print("train_and_measure DONE", flush=True)
 
 
+# ─── multi-seed extension: train + measure one extra seed ────────────────────
+
+@app.function(
+    image=image_run,
+    gpu="A100-40GB",
+    timeout=14400,
+    volumes={"/data091": vol_091},
+    memory=32768,
+    retries=5,
+)
+def seed_run(init_seed: int):
+    """Train + measure one multi-seed replicate on the existing C-NAT-shuf
+    corpus (shuffle seed 9100 fixed). Registered in notes.md before launch."""
+    run_name = SEED_RUNS[init_seed]
+    corpus_path = f"/data091/{CORPUS_NAME}"
+    _run_patched(
+        "/exp062/train.py",
+        out_override="/data091",
+        argv=[
+            "train.py",
+            corpus_path,
+            run_name,
+            f"--init-seed={init_seed}",
+            f"--data-seed={DATA_SEED}",
+            "--micro-batch=64",
+            "--device=cuda",
+        ],
+    )
+    vol_091.commit()
+    _run_patched(
+        "/exp062/measure.py",
+        out_override="/data091",
+        argv=[
+            "measure.py",
+            f"/data091/runs/{run_name}/step_2000",
+            run_name,
+            "--full-vocab",
+        ],
+    )
+    vol_091.commit()
+    print(f"seed_run {init_seed} ({run_name}) DONE", flush=True)
+
+
 # ─── randomized-weights control (pre-registered, run after primary) ──────────
 
 @app.function(
@@ -272,31 +323,30 @@ def run_all():
     memory=4096,
 )
 def collect_results() -> dict:
-    """Read measurement JSON from volume and return summary."""
-    result_path = Path(f"/data091/measurements/{RUN_NAME}.json")
-    if not result_path.exists():
-        return {"error": f"{result_path} not found — run measure phase first"}
-    data = json.loads(result_path.read_text())
-    n_conf = data.get("n_conformal", "?")
-    n_syk  = data.get("n_syk_near", "?")
-    forms  = data.get("forms", None)
-    verdict = "H_ordering_incidental" if forms else "H_ordering_necessary"
-    return {
-        "run": RUN_NAME,
-        "corpus": CORPUS_NAME,
-        "n_conformal": n_conf,
-        "n_syk_near": n_syk,
-        "delta_median_conformal": data.get("delta_median_conformal", "?"),
-        "forms": forms,
-        "verdict": verdict,
-    }
+    """Read measurement JSONs (all seeds present) from volume and summarize."""
+    out: dict = {"corpus": CORPUS_NAME, "seeds": {}}
+    for seed, run_name in SEED_RUNS.items():
+        result_path = Path(f"/data091/measurements/{run_name}.json")
+        if not result_path.exists():
+            out["seeds"][run_name] = "not found"
+            continue
+        data = json.loads(result_path.read_text())
+        out["seeds"][run_name] = {
+            "init_seed": seed,
+            "n_conformal": data.get("n_conformal", "?"),
+            "n_syk_near": data.get("n_syk_near", "?"),
+            "delta_median_conformal": data.get("delta_median_conformal", "?"),
+            "forms": data.get("forms", None),
+        }
+    return out
 
 
 # ─── local entrypoint ─────────────────────────────────────────────────────────
 
 @app.local_entrypoint()
 def main(phase: str = "all"):
-    valid = {"generate", "train", "measure", "results", "all", "train_measure", "control"}
+    valid = {"generate", "train", "measure", "results", "all", "train_measure",
+             "control", "seeds"}
     if phase not in valid:
         print(f"phase must be one of: {valid}")
         raise SystemExit(1)
@@ -316,6 +366,13 @@ def main(phase: str = "all"):
 
     elif phase == "control":
         control_randomized.remote()
+
+    elif phase == "seeds":
+        # Multi-seed extension: seeds 1101/1102 in parallel (corpus exists).
+        print("Phase: seed runs 1101, 1102 (spawned, detach-safe)")
+        h1 = seed_run.spawn(1101)
+        h2 = seed_run.spawn(1102)
+        print(f"spawned: {h1.object_id}, {h2.object_id}")
 
     elif phase == "train_measure":
         train_and_measure.remote()

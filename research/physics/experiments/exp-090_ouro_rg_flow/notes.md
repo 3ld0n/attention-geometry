@@ -182,7 +182,9 @@ prominence given to each.
 - [x] Primary run (NAT + RAND) — Modal A100-40GB, 2026-07-21 ~12:40 MDT, ~6.5 min
 - [x] **Verdict registered: PARTIAL** — see Results below
 - [x] Randomized-weights control — clean null (see below)
-- [ ] Results into OVERVIEW.md ladder + STATUS.md
+- [x] Results into OVERVIEW.md (three-axes section, July 21 — done in the
+      afternoon session that ran the experiment; STATUS.md narrative update
+      deferred to the next physics room session)
 
 ---
 
