@@ -187,8 +187,139 @@ shuffle only within paragraph, not across paragraph; or shuffle n-sentence block
 - [x] Pre-registration committed (c2223105, pushed before any run)
 - [x] Corpus generation script written (`gen_cnat_shuf.py`)
 - [x] Modal training/measurement script written (`modal_exp091.py`)
-- [ ] Primary run complete (launched 2026-07-21 ~2:10 PM MDT, detached: generate → train_and_measure)
-- [ ] Verdict registered
+- [x] Primary run complete (launched 2026-07-21 ~2:14 PM MDT after a transport
+      fix in the generate phase — 6e2f1911; corpus 2.10 GB; train 4250 s on
+      A100-40GB, final loss 1.82; measured ~4:00 PM after a second transport
+      fix — the measure phase needed `--full-vocab` per the frozen protocol
+      §5.1 for C-NAT-lineage corpora, 89df760e. Both fixes were transport
+      only; generation/training/measurement protocol untouched.)
+- [x] Randomized-weights control run (pre-registered): **0/48 conformal,
+      0 SYK-near** on the same checkpoint with weights randomized in-place
+      (matched per-tensor std). Clean null. `results_s0_randcontrol` on volume.
+- [x] **Verdict registered: H_partial** — see Results below
+
+---
+
+## Results (registered 2026-07-21, ~4:15 PM MDT)
+
+**Run:** `run_CNATshuf_s0` (init seed 1100, sentence-shuffle seed 9100).
+`results_s0.json` in this directory; per-input profiles gzipped on the volume.
+
+### The pre-registered verdict: H_partial
+
+**8/48 conformal heads (R² ≥ 0.90), 0 SYK-near, Δ_med 0.122.**
+
+- H_ordering_necessary required 0–5/48: **not met** (8).
+- H_ordering_incidental required ≥10/48: **not met** (8).
+- 8 falls in the pre-registered ambiguous zone (6–9): **H_partial.**
+  Ordering contributes but the criteria cannot call it strictly necessary.
+- Kill criterion for the reference hypothesis (≥10/48 AND SYK-window match):
+  **not triggered** — nowhere close on either leg.
+
+**The sharper number is the zero.** C-NAT-shuf forms **0 SYK-near heads** —
+identical to C-generated (0 across 3 seeds) and unlike C-NAT (SYK-near
+population present at every seed). On the SYK-window criterion — the one the
+whole ladder is about — sentence-level world-reference without cross-sentence
+order transmits *nothing*, exactly as the statistical shadow transmitted
+nothing. The count criterion (8 vs the 10 threshold) is where the partial
+lives; the fixed-point population criterion is unambiguous.
+
+### Per-head anatomy
+
+| Head | Δ | R² |
+|---|---|---|
+| L0H1 | 0.101 | 0.90 |
+| L0H2 | 0.105 | 0.96 |
+| L0H3 | 0.150 | 0.94 |
+| L0H5 | 0.110 | 0.97 |
+| L0H6 | 0.133 | 0.97 |
+| L0H7 | 0.096 | 0.92 |
+| L3H3 | 0.743 | 0.90 |
+| L4H2 | 0.552 | 0.92 |
+
+Bimodal and strange: six of eight are **layer-0 heads at shallow exponents
+(Δ ≈ 0.10–0.15)** — near the substrate value (0.1687) territory, though these
+survive the randomized control (which forms 0/48), so they are trained
+structure, not substrate. Two mid-depth UV heads (Δ 0.55–0.74). Nothing in
+between. No SYK-window population.
+
+### Declared-expectations scorecard (report the miss)
+
+1. Count between C-generated and C-NAT, prior 3–8: **HIT** (8 — at the top of
+   the declared range, just above C-generated's best seed).
+2. Δ_med of formed heads in UV (> 0.30), structural heads L4H3/H6/H7
+   appearing: **MISS, doubly.** Δ_med is 0.122 (IR side, not UV), and the
+   specific structural heads did not form — L4H2 formed instead, and the
+   population is dominated by layer-0 shallow-exponent heads that no prior
+   rung produced in this shape. The prediction derived from the
+   structural/semantic distinction (formed count ≈ structural head count,
+   UV-locked) got the count roughly right and the anatomy wrong.
+3. RAND early-burst comparison: **not assessed** — this run measured the final
+   checkpoint only; no training-time checkpoint series was collected. The
+   expectation stands unevaluated, honestly noted rather than scored.
+
+### Ladder position
+
+| Corpus | Conformal | SYK-near |
+|---|---:|---:|
+| C-SR / C-PCFG | 0/48 | 0 |
+| C-PL15–40 | 0–5/48 | 0 |
+| C-generated (×3) | 3–7/48 | 0 |
+| **C-NAT-shuf** | **8/48** | **0** |
+| C-NAT (×3) | 11–15/48 | present |
+
+### Interpretation (working)
+
+1. **On the SYK-near criterion, ordering is necessary.** Sentence-level
+   world-reference alone leaves the fixed-point population at zero. Combined
+   with exp-085 (ordering + narrative form without world-grounding: also zero),
+   the triangulation now reads: *both* world-binding *and* cross-sentence
+   order are required for the SYK-window population. Neither alone produces it.
+2. **On the count criterion, sentence-level reference is worth something.**
+   8/48 sits above every engineered corpus and above the statistical shadow's
+   best seed. Whatever forms at layer 0 with shallow exponents is a response
+   to real sentences that no fluent fake has yet induced — but it is not the
+   conformal geometry the program tracks. It may be a local/positional
+   adaptation to the shuffled boundary structure; follow-up needed before any
+   claim.
+3. **The layer-0 anomaly is new.** No prior rung concentrated its formed heads
+   at layer 0 with Δ ≈ 0.10–0.15. This anatomy difference between C-NAT-shuf
+   and both C-NAT and C-generated is unexplained and should temper any use of
+   the raw count in cross-corpus comparisons.
+4. Per the pre-registration, H_partial motivates the finer-grained follow-up:
+   block-shuffle gradation (shuffle n-sentence blocks / within-paragraph only)
+   to locate where between "full order" and "no order" the SYK population
+   appears — and multi-seed on this rung before much weight is placed on 8
+   as a point estimate (exp-085's lesson: negatives need seeds).
+
+---
+
+## Multi-seed follow-up (registered 2026-07-21 evening, before launch)
+
+The pre-registered multi-seed plan named triggers for the two decisive outcomes
+but not for H_partial. Registering the H_partial extension now, before any
+follow-up run:
+
+**Runs:** seeds 1101 and 1102 (init), on the SAME C-NAT-shuf corpus (sentence-
+shuffle seed 9100 fixed). This isolates init-seed variance, matching how
+exp-062's three C-NAT seeds varied init on a fixed corpus. Corpus-realization
+variance (different shuffle seeds) is a separate axis, deferred — noted
+honestly as untested.
+
+**Decision rule (committed before launch):**
+- Primary axis — SYK-near: if 0 across all three seeds, register
+  **ordering-necessary-for-SYK** as a firm multi-seed result (same standard
+  exp-085 used for its negative). If any seed produces ≥1 SYK-near head,
+  the zero is seed-fragile and the claim stays at single-seed strength.
+- Count axis — median of the three seed counts against the original bands:
+  ≤5 → H_ordering_necessary, ≥10 → H_ordering_incidental, 6–9 → H_partial
+  stands.
+- Anatomy check (non-criterial, declared): does the layer-0 shallow-Δ
+  population (6/8 heads at Δ 0.10–0.15) replicate across seeds? Report
+  either way.
+
+**Cost:** ~$20/seed × 2, inside the pre-registered "+$40 if triggered"
+multi-seed budget.
 
 ---
 
