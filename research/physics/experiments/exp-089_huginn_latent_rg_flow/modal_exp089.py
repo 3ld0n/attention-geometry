@@ -41,7 +41,10 @@ image = (
         "numpy==2.4.6",
         "scipy==1.17.1",
         "torch==2.12.0",
-        "transformers==5.8.1",
+        # Huginn's trust_remote_code modeling (raven_modeling_minimal.py) declares
+        # _tied_weights_keys as a list; transformers v5 requires a dict there.
+        # Pin to 4.x — the API generation Huginn was written against.
+        "transformers==4.51.3",
         "datasets",
         "hf_transfer",
     )

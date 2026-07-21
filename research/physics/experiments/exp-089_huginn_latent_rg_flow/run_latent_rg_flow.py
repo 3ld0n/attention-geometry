@@ -186,9 +186,11 @@ def extract_per_step_deltas(model, input_ids, condition_label, freqs_cis_full):
 
     # Forward pass
     with torch.no_grad():
+        # num_steps as plain int: Huginn's iterate_forward calls len(num_steps)
+        # on anything with __len__; a 0-d tensor has the attr but raises TypeError.
         _ = model(
             input_ids.to(DEVICE),
-            num_steps=torch.tensor(max_steps),
+            num_steps=max_steps,
             output_details={"return_logits": False, "return_latents": False, "return_head": False, "return_stats": False},
         )
 
