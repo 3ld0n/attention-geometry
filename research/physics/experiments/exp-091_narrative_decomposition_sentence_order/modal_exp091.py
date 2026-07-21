@@ -197,6 +197,54 @@ def train_and_measure():
     print("train_and_measure DONE", flush=True)
 
 
+# ─── randomized-weights control (pre-registered, run after primary) ──────────
+
+@app.function(
+    image=image_run,
+    gpu="A100-40GB",
+    timeout=3600,
+    volumes={"/data091": vol_091},
+    memory=32768,
+)
+def control_randomized():
+    """Pre-registered control: randomize the trained checkpoint's weights
+    in-place (matched per-tensor std, same procedure as exp-089/090 controls),
+    save to a scratch dir, then run the frozen measure.py verbatim on it.
+    Expected: Delta_med ≈ 0.1687 (substrate value), ~0 conformal heads.
+    """
+    import shutil
+
+    import torch
+    from transformers import GPTNeoXForCausalLM
+
+    ckpt_path = f"/data091/runs/{RUN_NAME}/step_2000"
+    rand_path = f"/data091/runs/{RUN_NAME}/step_2000_randomized"
+
+    model = GPTNeoXForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32)
+    with torch.no_grad():
+        g = torch.Generator(device="cpu").manual_seed(INIT_SEED + 1)
+        for name, p in model.named_parameters():
+            rnd = torch.randn(p.shape, generator=g, dtype=torch.float32)
+            p.copy_(rnd * p.float().std())
+    if Path(rand_path).exists():
+        shutil.rmtree(rand_path)
+    model.save_pretrained(rand_path)
+    del model
+
+    _run_patched(
+        "/exp062/measure.py",
+        out_override="/data091",
+        argv=[
+            "measure.py",
+            rand_path,
+            f"{RUN_NAME}_randcontrol",
+            "--full-vocab",
+        ],
+    )
+    vol_091.commit()
+    print("control_randomized DONE", flush=True)
+
+
 # ─── full pipeline chained remotely (survives local disconnect) ──────────────
 
 @app.function(
@@ -248,7 +296,7 @@ def collect_results() -> dict:
 
 @app.local_entrypoint()
 def main(phase: str = "all"):
-    valid = {"generate", "train", "measure", "results", "all", "train_measure"}
+    valid = {"generate", "train", "measure", "results", "all", "train_measure", "control"}
     if phase not in valid:
         print(f"phase must be one of: {valid}")
         raise SystemExit(1)
@@ -265,6 +313,9 @@ def main(phase: str = "all"):
 
     elif phase == "measure":
         measure_model.remote()
+
+    elif phase == "control":
+        control_randomized.remote()
 
     elif phase == "train_measure":
         train_and_measure.remote()
