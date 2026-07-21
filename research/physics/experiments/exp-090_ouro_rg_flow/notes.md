@@ -344,6 +344,13 @@ Two notes worth keeping:
   random weights under this fitting protocol (S=128, cutoff 3, max lag 60), and
   connects to the GOE substrate/signal split: the substrate has a characteristic
   exponent, and it is not the SYK value.
+  **[RESOLVED same day, evening session:** the value is kinematic — uniform
+  causal attention gives P(l) = (ln S − ln l)/(S − l), and the protocol's
+  power-law fit on window [3,60] at S=128 yields Δ = 0.168678 in closed form,
+  matching both controls to the fifth decimal with zero parameters. Not a
+  second fixed point; an artifact of fitting a power law to a logarithmic
+  profile. Prediction: a control at S=256 freezes at 0.1470. See
+  `notes/2026-07-21_substrate_exponent_kinematic_derivation.md`.]**
 - Random weights here give very smooth lag decays (R²_med 0.99) at the wrong
   exponent — so the trained model's step-structure (burst, disruption, regrowth,
   subset flow toward 0.25) requires trained weights; the recurrence procedure

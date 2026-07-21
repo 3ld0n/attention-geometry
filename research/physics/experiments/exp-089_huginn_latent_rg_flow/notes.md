@@ -167,6 +167,11 @@ checks: no formation, no meaningful flow.)
 This establishes the trained-weights requirement: the inference-time RG flow is a property
 of trained Huginn, not of the recurrence procedure or the measurement pipeline.
 
+**[Addendum 2026-07-21: the frozen value 0.16868 is now derived in closed form —
+it is the kinematic exponent of uniform causal attention under this exact fit
+protocol (Δ_uniform(S=128, [3,60]) = 0.168678), matching to the fifth decimal
+with zero parameters. See `notes/2026-07-21_substrate_exponent_kinematic_derivation.md`.]**
+
 ## Two additional exploratory observations
 
 1. **The q=2 plateau appears at inference time.** RAND Δ_med at recurrence step 2 is
