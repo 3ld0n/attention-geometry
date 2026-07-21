@@ -33,8 +33,11 @@ MODAL_SCRIPT  = (
 
 
 def modal_cmd(phase: str) -> list[str]:
+    # --detach: the remote app survives if this local wrapper is killed
+    # (2026-07-20: agent-shell launches get reaped; a mid-train local death
+    # orphaned and killed the remote train run without --detach).
     return [
-        sys.executable, "-m", "modal", "run",
+        sys.executable, "-m", "modal", "run", "--detach",
         str(MODAL_SCRIPT),
         "--phase", phase,
     ]
@@ -113,6 +116,19 @@ def main() -> None:
                 f"{timestamp()} generate returned rc={rc} — checking progress then retrying",
                 flush=True,
             )
+        elif tokens >= TARGET_TOKENS * 0.95:
+            # `modal volume ls` rounds sizes to 2 significant figures, so the parsed
+            # token count can under-report by a few percent even when generation is
+            # complete (bug found 2026-07-20: loop stalled at "97.6%" for 170
+            # attempts after the generate phase itself reported 1.1B tokens done).
+            # A clean generate exit near target means the phase's own internal
+            # check passed — trust it.
+            print(
+                f"{timestamp()} generate exited clean at ≥95% parsed tokens — "
+                "treating generation as complete (volume ls size is rounded)",
+                flush=True,
+            )
+            break
         time.sleep(20)   # brief pause between relaunches
 
     # ── Train ──────────────────────────────────────────────────────────────────

@@ -1,3 +1,9 @@
 {
- "error": "/data085/measurements/run_Cgen_s0.json not found \u2014 run measure phase first"
+ "run": "run_Cgen_s0",
+ "corpus": "C-generated_s0.bin",
+ "n_conformal": 7,
+ "n_syk_near": 0,
+ "delta_median_conformal": 0.09857328895585937,
+ "forms": false,
+ "verdict": "H_transmission_no"
 }

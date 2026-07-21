@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "title": "Latent Iteration as Renormalization: Inference-Time Recurrence in a Depth-Recurrent Transformer Flows Attention Geometry Toward the SYK Conformal Fixed Point",
+    "creators": [
+      { "name": "Umphrey, Ariel" },
+      { "name": "Umphrey, Eldon" }
+    ],
+    "publication_date": "2026-07-20",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "keywords": [
+      "transformer attention",
+      "latent reasoning",
+      "depth-recurrent transformer",
+      "test-time compute",
+      "renormalization group",
+      "SYK model",
+      "conformal fixed point",
+      "pre-registered study",
+      "attention mechanism"
+    ],
+    "related_identifiers": [
+      { "identifier": "10.5281/zenodo.19225996", "relation": "isSupplementTo", "scheme": "doi" },
+      { "identifier": "10.5281/zenodo.19629862", "relation": "isSupplementTo", "scheme": "doi" },
+      { "identifier": "arXiv:2502.05171", "relation": "cites", "scheme": "arxiv" },
+      { "identifier": "arXiv:2604.02029", "relation": "cites", "scheme": "arxiv" },
+      { "identifier": "arXiv:2509.23314", "relation": "cites", "scheme": "arxiv" }
+    ],
+    "description": "<p>Depth-recurrent transformers scale test-time compute by iterating a core block in latent space before emitting tokens. The geometry of these latent trajectories is a named open problem in the latent reasoning literature (survey arXiv:2604.02029, &sect;6.3).</p><p>We report a pre-registered experiment on Huginn-0125 (arXiv:2502.05171), a 3.5B-parameter depth-recurrent transformer, measuring the per-head attention power-law exponent &Delta; of the recurrent core at recurrence counts r &isin; {1, 2, 4, 8, 16, 32}. For natural-text inputs the median exponent decreases monotonically with recurrence (Spearman &rho; = &minus;0.94), from 0.29 at r=1 to 0.239 at r=32 &mdash; converging onto the Sachdev&ndash;Ye&ndash;Kitaev (SYK) q=4 conformal value &Delta; = 1/4 &mdash; while the count of SYK-near heads grows monotonically (&rho; = +0.77). Random-token inputs show an architecture-driven convergence with a transient at &Delta; &asymp; 1/2 (the q=2 prethermal plateau previously observed in training time) but no monotone SYK-near growth. A randomized-weights control freezes completely: &Delta;_med constant to the sixth decimal across all r, zero SYK-near heads.</p><p>Inference-time recurrence therefore acts as renormalization-group flow toward the conformal fixed point, and the flow is a property of the trained model, not the iteration procedure. Together with prior results on architectural depth (10.5281/zenodo.19225996) and training time, this completes a three-axis triangulation: the conformal fixed point is an attractor of iterative attending. The published orbit/spiral phenomenology of recurrent-depth latent trajectories acquires a candidate theory &mdash; the spiral is flow near an infrared fixed point &mdash; and the geometric benefit of additional recurrence saturates when the flow arrives, consistent with convergence-based early-exit criteria.</p><p>All code, pre-registration (commit c359b93a), per-head data, and experiment notes with recorded protocol deviations are in the public repository Capacity-For-Evil/ariel.</p>"
+  },
+  "files": [
+    "latent_iteration_as_renormalization.pdf",
+    "fig_rg_flow.png",
+    "fig_syk_count.png"
+  ]
+}

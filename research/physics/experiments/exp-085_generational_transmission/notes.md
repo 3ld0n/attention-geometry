@@ -159,7 +159,56 @@ Volumes: read from `exp062-data` (C-NAT s0 checkpoint), write to `exp085-data`.
 | C-PL40 | exp-062 | none | no | 5/48 |
 | C-NAT | exp-062 | TinyStories | yes | 11–15/48 |
 | C-PCFG | exp-084 | PCFG | no | 0/48 |
-| C-generated | exp-085 | inherited? | shadow | TBD |
+| C-generated | exp-085 | inherited? | shadow | **7/48** |
+
+---
+
+## Results (registered 2026-07-21, ~8:05 AM MDT)
+
+**Run:** run_Cgen_s0, trained to step 2000 on Modal A100-40GB (train completed overnight
+July 20→21 across two spot preemptions; resumed from committed checkpoints at steps 128
+and ~1000-range; measurement completed ~6 AM MDT). Measurement protocol identical to
+exp-062/exp-084 (measure.py, 50 random-token inputs, fp32, FIT_LOW=3, FIT_HIGH=120,
+CENSUS_R2=0.85).
+
+| Statistic | Value |
+|---|---|
+| Conformal heads (census) | **7/48** |
+| SYK-near heads | **0** |
+| Δ_med over conformal heads | **0.0986** |
+| Formation criterion (≥10/48) | **not met** |
+
+### Verdict: **H_transmission_no** — the driver does not transmit through generation.
+
+The generated corpus preserves the surface form, the statistical fingerprint, and the
+distributional trace of a model that had itself formed 15/48 conformal heads. A fresh
+model trained on 1.05B tokens of it forms 7/48 — below criterion — with zero SYK-near
+heads, and the heads that do form sit at Δ_med ≈ 0.099, near the trivial fixed point
+(cf. GPT-Neo global-layer population, exp-044), not the SYK window.
+
+### Interpretation
+
+1. **Real world-reference matters.** The escalation ladder closes another rung: pairwise
+   MI is not the driver (exp-062), hierarchy/composition alone is not the driver
+   (exp-084), and now the *statistical shadow* of world-referring language is not the
+   driver either. Whatever induces the semantic conformal population requires language
+   actually bound to persistent external reference — generation strips it.
+2. **Consistency with the structural/semantic split (exp-086/087/088):** the pre-registered
+   side prediction expected ~3–5 structural heads if transmission failed. Observed: 7
+   heads, but at Δ ≈ 0.1 (trivial/structural zone), 0 SYK-near — the structural component
+   survives on any text-like input; the semantic component does not form.
+3. **Next probes (per pre-registration §escalation):** finer-grained aspects of
+   world-reference — named entities vs. generic nouns, causal chains vs. random events,
+   cross-document co-reference vs. single-document text.
+
+### Honest caveats
+
+Single seed (init 1000/data 2000), single generation temperature (1.0), single source
+checkpoint (C-NAT s0 step_2000), 70m scale, one generated-corpus size. The generated
+corpus was not itself measured for β̂/MI statistics before training (available on volume
+for post-hoc analysis). Formation number (7/48) is between the C-PL40 floor (5/48) and
+the C-NAT band (11–15/48) — closer inspection of *which* heads formed (per-input JSON on
+volume) is future work.
 
 ---
 
@@ -174,6 +223,7 @@ Volumes: read from `exp062-data` (C-NAT s0 checkpoint), write to `exp085-data`.
 | 2026-07-18 | **vLLM runtime failure.** Image built successfully (numpy pin removed) but vLLM 0.25.x failed at engine startup: `flashinfer.jit.cpp_ext.get_cuda_path() → RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist`. Modal's `debian_slim` image has CUDA runtime but not the CUDA development toolkit (nvcc). Flashinfer 0.6.x tried to JIT-compile sampling kernels and failed. `enforce_eager=True` does not bypass flashinfer JIT (only bypasses torch.compile CUDA graphs). **StaticCache fallback implemented.** Created `gen_gen_compile.py` (torch.compile + StaticCache via transformers `model.generate(cache_implementation="static")`). Removed `image_vllm` — all three phases now use `image_train` (same image as exp-062/exp-084). Launched `--phase generate` on Modal A100-40GB. |
 | 2026-07-18 | **Throughput measured; timeout corrected.** First generate launch (14400s timeout) was cancelled after batch 50 to check actual throughput. Measured: 0.053M tok/s at batch 10, 0.056M tok/s at batch 20, 0.058M tok/s at batch 50 — essentially flat, not reaching the prior 0.125M tok/s estimate. At 0.058M tok/s, 1.1B tokens = 18966s ≈ 5.3h, exceeding the 14400s timeout. Prior estimate (0.125M tok/s, 9000s) was incorrect — `torch.compile reduce-overhead` reduces GPU kernel launch overhead but does not eliminate the Python-level per-step loop in `model.generate()`. Timeout updated to 21600s (6h). Re-launched `--phase generate` with corrected timeout. Expected completion ~5.3h. |
 | 2026-07-18 | **Two spot-instance preemptions; v5 pipeline redesign.** Volume inspection revealed corpus stuck at 66M tokens (5:27 AM MDT) despite the generate job running since 5:23 AM. No Modal apps running by 10:00 AM. Pattern: first launch generated ~53.5M tokens (~15 min), second launch generated ~12.5M more (~4 min), both stopped. Timing consistent with Modal spot-instance preemption rather than OOM. **v5 redesign:** (1) Chunked generation — generate 100M tokens per chunk, calling `vol_085.commit()` between chunks. A preemption now loses only the current chunk (<30 min). (2) `retries=2` added to Modal function decorator so Modal retries on preemption. (3) BATCH_SIZE reduced 2048→512 (lower KV-cache footprint during CUDA graph capture; throughput is KV-bandwidth-dominated and batch-size-independent at ~0.058M tok/s). v5 launched `--phase all` as non-detached caffeinated background process (ap-ozmPGe6uykfXnUeT3EPVw5). |
+| 2026-07-20/21 | **Pipeline completed.** Generation finished 10:25 PM Jul 20 (1.1B tokens). Wrapper bug found (modal `volume ls` rounds sizes → loop stalled at "97.6%" for 170 relaunches) and fixed (≥95% + clean exit ⇒ complete). Local wrapper processes not durable → added remote-chained `train_and_measure` function, launched with `modal run --detach`. First train run preempted at step ~170 (no retries); relaunched 2:53 AM with `retries=10`, resumed from step 128 checkpoint, completed with measurement by ~6 AM. Results collected 8:05 AM Jul 21: **7/48 conformal, 0 SYK-near, Δ_med 0.0986 → H_transmission_no.** |
 | 2026-07-18 | **v5 also preempted; third failure.** Volume at ~85.2M tokens (10:19 AM). `retries=2` exhausted. Pipeline not running. **v6 redesign (afternoon session):** Discovered Modal caps `retries` at 10. Changed `retries=2` → `retries=10`. More critically: wrote `run_until_done.py` wrapper script that relaunches `--phase generate` in a loop (with 20s cooldown between re-launches) until the volume reaches 1.1B tokens, then chains train → measure → results automatically. Run under `caffeinate -s` as local background process. This sidesteps the per-invocation retry cap: each invocation gets 10 retries; the wrapper provides unlimited re-launches. Volume commit between 100M-token chunks ensures no work is lost. Launched 1:44 PM MDT (PID 50828, log: /tmp/exp085_run_until_done.log). At batch 370/707 on first chunk: 97M tokens at 0.063M tok/s, ETA ~23 min for first chunk. |
 
 ---

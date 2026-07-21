@@ -261,6 +261,29 @@ def measure_model():
     print("measure_model DONE", flush=True)
 
 
+# ─── train + measure in one remote function ──────────────────────────────────
+# Added 2026-07-20: local wrapper processes don't survive on the launching
+# machine, and `modal run --detach` only keeps the *currently running* remote
+# function alive after the local client dies — so a locally-chained
+# train → measure sequence breaks mid-pipeline. This function chains both
+# phases remotely in a single detached invocation.
+
+@app.function(
+    image=image_train,
+    gpu="A100-40GB",
+    timeout=14400,     # 4h: train ~75 min + measure ~15 min, generous margin
+    volumes={"/data085": vol_085},
+    memory=32768,
+    retries=10,        # spot preemption killed the 23:42 run at step ~170;
+                       # train.py resumes from the latest step_* checkpoint
+)
+def train_and_measure():
+    """Run train then measure in-process on one remote worker."""
+    train_model.local()
+    measure_model.local()
+    print("train_and_measure DONE", flush=True)
+
+
 # ─── collect results ──────────────────────────────────────────────────────────
 
 @app.function(
@@ -292,7 +315,7 @@ def collect_results() -> dict:
 
 @app.local_entrypoint()
 def main(phase: str = "all"):
-    valid = {"generate", "train", "measure", "results", "all"}
+    valid = {"generate", "train", "measure", "finish", "results", "all"}
     if phase not in valid:
         raise SystemExit(f"phase must be one of: {valid}. Got: {phase!r}")
 
@@ -311,6 +334,11 @@ def main(phase: str = "all"):
         print("→ train_model ...", flush=True)
         train_model.remote()
         print("  train_model complete", flush=True)
+
+    if phase == "finish":
+        print("→ train_and_measure (remote-chained, detach-safe) ...", flush=True)
+        train_and_measure.remote()
+        print("  train_and_measure complete", flush=True)
 
     if phase in ("measure", "all"):
         print("→ measure_model ...", flush=True)
