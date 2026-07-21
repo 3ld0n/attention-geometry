@@ -214,7 +214,12 @@ def extract_per_step_deltas(model, input_ids, condition_label, freqs_cis_full):
 
 
 def main():
-    print(f"exp-089: Huginn Latent-Iteration RG Flow")
+    # Randomized-weights control (pre-registered as extension in notes.md):
+    # randomize all weights in-place after load, re-run natural text only.
+    control_mode = "--control" in sys.argv
+
+    print(f"exp-089: Huginn Latent-Iteration RG Flow"
+          + (" [RANDOMIZED-WEIGHTS CONTROL]" if control_mode else ""))
     print(f"Device: {DEVICE_STR}")
     print(f"Probe steps: {PROBE_STEPS}")
     print(f"Seed: {SEED}")
@@ -234,6 +239,15 @@ def main():
     model.to(DEVICE)
     print(f"Model loaded. n_layers_in_recurrent_block={model.config.n_layers_in_recurrent_block}, "
           f"n_heads={model.config.n_heads}, head_dim={model.config.head_dim}")
+
+    if control_mode:
+        print("Randomizing all weight tensors in-place (control condition)...")
+        with torch.no_grad():
+            g = torch.Generator(device="cpu").manual_seed(SEED + 1)
+            for name, p in model.named_parameters():
+                rnd = torch.randn(p.shape, generator=g, dtype=torch.float32)
+                p.copy_((rnd * p.float().std().cpu()).to(p.dtype))
+        print("Weights randomized (matched per-tensor std).")
 
     # Precompute RoPE frequencies
     freqs_cis_full = model.freqs_cis  # already on device, shape (1, block_size, head_dim/2) or similar
@@ -297,13 +311,14 @@ def main():
         seq_results = extract_per_step_deltas(model, ids, "nat", freqs_cis_full)
         all_results.extend(seq_results)
 
-    print(f"\n--- Random token condition ---")
-    for seq_i in range(N_SEQS):
-        if seq_i % 5 == 0:
-            print(f"  Sequence {seq_i+1}/{N_SEQS}...")
-        ids = rand_input_ids[seq_i:seq_i+1]  # (1, SEQ_LEN)
-        seq_results = extract_per_step_deltas(model, ids, "rand", freqs_cis_full)
-        all_results.extend(seq_results)
+    if not control_mode:
+        print(f"\n--- Random token condition ---")
+        for seq_i in range(N_SEQS):
+            if seq_i % 5 == 0:
+                print(f"  Sequence {seq_i+1}/{N_SEQS}...")
+            ids = rand_input_ids[seq_i:seq_i+1]  # (1, SEQ_LEN)
+            seq_results = extract_per_step_deltas(model, ids, "rand", freqs_cis_full)
+            all_results.extend(seq_results)
 
     print(f"\nTotal head measurements: {len(all_results)}")
 
@@ -349,6 +364,27 @@ def main():
         }
 
     nat_summary = analyze_condition("nat")
+
+    if control_mode:
+        # Control expectation: no systematic flow. Report ρ values, no verdict logic.
+        print("\n=== CONTROL RESULT (randomized weights, natural text) ===")
+        print(f"rho_convergence = {nat_summary['rho_convergence']}")
+        print(f"rho_emergence   = {nat_summary['rho_emergence']}")
+        output = {
+            "experiment": "exp-089-control",
+            "model": MODEL_ID,
+            "date": datetime.now(timezone.utc).isoformat(),
+            "control": "randomized_weights_matched_std",
+            "nat_summary": nat_summary,
+            "raw_results": all_results,
+        }
+        control_file = RESULTS_FILE.parent / "results_control.json"
+        with open(control_file, "w") as f:
+            json.dump(output, f, indent=2)
+        print(f"\nControl results saved: {control_file}")
+        print(f"Verdict: CONTROL_DONE")
+        return
+
     rand_summary = analyze_condition("rand")
 
     # Verdict

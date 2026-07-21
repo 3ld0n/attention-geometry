@@ -83,7 +83,9 @@ If killed: the conformal structure in standard feedforward transformers requires
 
 ## Status
 
-- [x] Pre-registration written and committed (2026-07-20)
-- [ ] Model downloaded (`tomg-group-umd/huginn-0125`, ~16GB F32 → ~8GB bfloat16)
-- [ ] Script run
+- [x] Pre-registration written and committed (2026-07-20, commit c359b93a)
+- [ ] Model weights downloaded (~16GB F32; local download incomplete at 2.3GB — moved to Modal)
+- [x] **Device pivot to Modal** (2026-07-20 evening): local download stalled (~200 KB/s, ≈21h ETA). Modal billing unblocked same evening (Eldon). `modal_exp089.py` prepared.
+- [x] **RoPE bug found and fixed** (2026-07-20 ~9 PM MDT): 3 Modal runs failed with `RuntimeError: The size of tensor a (48) must match tensor b (2) at non-singleton dimension 6`. The original script re-implemented RoPE in standard polar format (`torch.view_as_complex`), but Huginn's `freqs_cis` buffer has shape `(1, block_size, 1, head_dim/2, 2)` — a cos/sin stack, not a complex tensor. Fix: import and call Huginn's own `apply_rotary_emb_complex_like` via `get_huginn_rotary_fn(module)`. Fix committed in `run_latent_rg_flow.py` (protocol deviation note at lines 39-43). Shape analysis confirmed: `freqs_cis = (1, S, 1, 48, 2)`, function unpacks correctly, returns `(B, S, 55, 96)` per head after split.
+- [ ] Script run successfully (pending Modal re-run with fixed script)
 - [ ] Results analyzed and verdict registered

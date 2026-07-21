@@ -78,33 +78,37 @@ def _patched_source(source: str) -> str:
     memory=32768,
     retries=2,
 )
-def run_experiment() -> dict:
+def run_experiment(control: bool = False) -> dict:
     import sys
 
     source = open("/exp089/run_latent_rg_flow.py").read()
     source = _patched_source(source)
 
-    sys.argv = ["run_latent_rg_flow.py"]
+    sys.argv = ["run_latent_rg_flow.py"] + (["--control"] if control else [])
     ns: dict = {"__name__": "__main__", "__file__": "/exp089/run_latent_rg_flow.py"}
     exec(compile(source, "/exp089/run_latent_rg_flow.py", "exec"), ns)  # noqa: S102
 
     vol_089.commit()
-    return json.loads(Path("/results/results.json").read_text())
+    fname = "results_control.json" if control else "results.json"
+    return json.loads(Path(f"/results/{fname}").read_text())
 
 
 @app.local_entrypoint()
-def main():
-    print("=== exp-089 Huginn Latent-Iteration RG Flow (Modal) ===")
-    result = run_experiment.remote()
+def main(control: bool = False):
+    label = " — randomized-weights control" if control else ""
+    print(f"=== exp-089 Huginn Latent-Iteration RG Flow (Modal){label} ===")
+    result = run_experiment.remote(control=control)
 
-    out = SCRIPT_DIR / "results.json"
+    fname = "results_control.json" if control else "results.json"
+    out = SCRIPT_DIR / fname
     with open(out, "w") as f:
         json.dump(result, f, indent=2)
     print(f"\nWrote {out}")
-    print(f"Verdict: {result.get('verdict')}")
+    print(f"Verdict: {result.get('verdict', 'CONTROL_DONE' if control else '?')}")
     for cond in ("nat_summary", "rand_summary"):
         s = result.get(cond, {})
-        print(
-            f"  {cond}: rho_convergence={s.get('rho_convergence')}, "
-            f"rho_emergence={s.get('rho_emergence')}"
-        )
+        if s:
+            print(
+                f"  {cond}: rho_convergence={s.get('rho_convergence')}, "
+                f"rho_emergence={s.get('rho_emergence')}"
+            )
