@@ -224,6 +224,28 @@ order transmits *nothing*, exactly as the statistical shadow transmitted
 nothing. The count criterion (8 vs the 10 threshold) is where the partial
 lives; the fixed-point population criterion is unambiguous.
 
+> **CORRECTION (2026-07-21 evening, same day, before multi-seed results):**
+> The paragraph above contains a factual error, caught while comparing
+> layer anatomies against the exp-062 record. **C-NAT does NOT have a
+> SYK-near population at this rung.** All three C-NAT seeds in exp-062
+> measured `n_syk_near = 0` (results.json; closest head to Δ=0.25 across
+> all three seeds is 0.174). exp-062's own notes flagged this at the time:
+> at 70m/ctx-512/1B tokens "the SYK-near population may simply not have
+> matured." The SYK-near populations in this program's record come from
+> *Pile-trained official Pythia checkpoints at 143k steps* (exp-086) and
+> from larger/longer-trained models — a different lineage from these
+> 2000-step TinyStories-scale runs.
+>
+> Consequence: **the SYK-near = 0 axis is uninformative at this rung** —
+> the positive control is also zero. It cannot discriminate C-NAT-shuf
+> from C-NAT and does not support "ordering is necessary for the SYK
+> population." The registered verdict H_partial is unaffected (it was
+> decided on the pre-registered count criterion, which is valid), but
+> interpretation points 1 and the "sharper number" framing above are
+> RETRACTED. The same error weakens the SYK-zero framing in exp-085's
+> interpretation (its verdict also rests on the count criterion and
+> stands). See the corrected interpretation below.
+
 ### Per-head anatomy
 
 | Head | Δ | R² |
@@ -268,29 +290,52 @@ between. No SYK-window population.
 | **C-NAT-shuf** | **8/48** | **0** |
 | C-NAT (×3) | 11–15/48 | present |
 
-### Interpretation (working)
+### Interpretation (working) — REVISED after same-day correction
 
-1. **On the SYK-near criterion, ordering is necessary.** Sentence-level
-   world-reference alone leaves the fixed-point population at zero. Combined
-   with exp-085 (ordering + narrative form without world-grounding: also zero),
-   the triangulation now reads: *both* world-binding *and* cross-sentence
-   order are required for the SYK-window population. Neither alone produces it.
+*(Original points 1 and 3 as first registered contained the C-NAT SYK-near
+error and the layer-0-novelty error; corrected below with the record.)*
+
+1. ~~On the SYK-near criterion, ordering is necessary.~~ **RETRACTED.** The
+   SYK-near axis is uninformative at this rung: C-NAT itself has 0 SYK-near
+   at all three exp-062 seeds (results.json). Every 70m/1B-token rung on the
+   ladder — engineered, generated, shuffled, natural — measures 0 SYK-near.
+   The discriminating observable at this scale is the conformal *count* and
+   the anatomy, not the SYK window. "Both world-binding and ordering are
+   required for the SYK population" is NOT established by exp-085 + exp-091;
+   what is established is that both corpus deformations knock the count below
+   the formation criterion while natural text stays above it.
 2. **On the count criterion, sentence-level reference is worth something.**
    8/48 sits above every engineered corpus and above the statistical shadow's
-   best seed. Whatever forms at layer 0 with shallow exponents is a response
-   to real sentences that no fluent fake has yet induced — but it is not the
-   conformal geometry the program tracks. It may be a local/positional
-   adaptation to the shuffled boundary structure; follow-up needed before any
-   claim.
-3. **The layer-0 anomaly is new.** No prior rung concentrated its formed heads
-   at layer 0 with Δ ≈ 0.10–0.15. This anatomy difference between C-NAT-shuf
-   and both C-NAT and C-generated is unexplained and should temper any use of
-   the raw count in cross-corpus comparisons.
+   best seed, but below every C-NAT seed (11–15). Ordering contributes to
+   formation; its removal costs roughly the same amount as removing
+   world-grounding costs (C-generated 3–7). Neither deformation alone
+   reaches zero — that floor belongs to the engineered corpora.
+3. ~~The layer-0 anomaly is new.~~ **CORRECTED — it is the opposite of new.**
+   The layer-0 shallow-Δ population (Δ ≈ 0.10–0.15, R² > 0.90) is the
+   *common backbone* of every text-like rung: C-NAT s0 has 8 such heads
+   (Δ 0.094–0.174), s1 has 7, s2 has 8; C-generated s0 has 5–6 (shallower,
+   Δ 0.045–0.101). What actually varies across rungs is the *deep* population
+   (layers 3–5): C-NAT forms 5–7 deep conformal heads per seed, C-generated
+   forms 1–2, C-NAT-shuf forms 2. The correct anatomy statement: **shuffling
+   preserves the layer-0 backbone (6 heads, at C-NAT-like depths — deeper
+   than C-generated's) and prunes the deep population to 2** — and the deep
+   population is where the count differences among text-like corpora live.
+   The declared-expectations scorecard stands (expectation 2 predicted the
+   formed heads would be UV structural heads; they are mostly the IR-side
+   layer-0 backbone — still a MISS, but because the prediction ignored the
+   backbone, not because the backbone is anomalous).
 4. Per the pre-registration, H_partial motivates the finer-grained follow-up:
    block-shuffle gradation (shuffle n-sentence blocks / within-paragraph only)
-   to locate where between "full order" and "no order" the SYK population
-   appears — and multi-seed on this rung before much weight is placed on 8
+   to locate where between "full order" and "no order" the deep population
+   recovers — and multi-seed on this rung before much weight is placed on 8
    as a point estimate (exp-085's lesson: negatives need seeds).
+5. **Where SYK-near populations actually live in this program's record:**
+   Pile-trained official Pythia checkpoints at long training horizons
+   (exp-086: semantic + structural SYK-near heads at 143k steps) and larger
+   trained models (GPT-2 lineage, exp-007/046). The 2000-step TinyStories
+   rungs measure *formation onset*, not the matured fixed-point population.
+   A scale/duration extension of the ladder would be needed before any
+   ladder rung can speak to the SYK window directly.
 
 ---
 
@@ -306,16 +351,20 @@ exp-062's three C-NAT seeds varied init on a fixed corpus. Corpus-realization
 variance (different shuffle seeds) is a separate axis, deferred — noted
 honestly as untested.
 
-**Decision rule (committed before launch):**
-- Primary axis — SYK-near: if 0 across all three seeds, register
-  **ordering-necessary-for-SYK** as a firm multi-seed result (same standard
-  exp-085 used for its negative). If any seed produces ≥1 SYK-near head,
-  the zero is seed-fragile and the claim stays at single-seed strength.
-- Count axis — median of the three seed counts against the original bands:
-  ≤5 → H_ordering_necessary, ≥10 → H_ordering_incidental, 6–9 → H_partial
-  stands.
-- Anatomy check (non-criterial, declared): does the layer-0 shallow-Δ
-  population (6/8 heads at Δ 0.10–0.15) replicate across seeds? Report
+**Decision rule (committed before launch; SYK axis amended same evening,
+still before results — see CORRECTION above):**
+- ~~Primary axis — SYK-near~~ **AMENDED before results arrived:** the
+  SYK-near axis was registered as primary under the mistaken belief that
+  C-NAT seeds had SYK-near heads. They do not (exp-062 results.json:
+  0 across all three seeds). The axis cannot discriminate and is demoted
+  to a recorded observable, not a decision axis. Amendment made while the
+  seed runs were still training, before any multi-seed measurement existed.
+- Count axis (now primary) — median of the three seed counts against the
+  original bands: ≤5 → H_ordering_necessary, ≥10 → H_ordering_incidental,
+  6–9 → H_partial stands.
+- Anatomy check (non-criterial, declared; restated post-correction): does
+  the pattern "layer-0 backbone ≈ 6–8 heads preserved, deep population
+  (L3–L5) pruned to ≈ 2 vs C-NAT's 5–7" replicate across seeds? Report
   either way.
 
 **Cost:** ~$20/seed × 2, inside the pre-registered "+$40 if triggered"

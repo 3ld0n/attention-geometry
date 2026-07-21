@@ -43,25 +43,29 @@ substrate value (Δ_med ≈ 0.1687) across architectures.
 All rungs: identical architecture (70m GPT-NeoX, 6L/8H), optimizer, token
 budget (1.05B), and frozen census protocol. Formation criterion ≥ 10/48 heads.
 
-| Training corpus | Has | Conformal heads | SYK-near | Forms? |
+| Training corpus | Has | Conformal heads | Deep (L3–L5) | Forms? |
 |---|---|---:|---:|---|
 | Markov chain (C-SR) | short-range statistics | 0/48 | 0 | no |
-| Quantized fGn ×3 (C-PL15/25/40) | language-matched power-law MI | 0–5/48 | 0 | no |
+| Quantized fGn ×3 (C-PL15/25/40) | language-matched power-law MI | 0–5/48 | — | no |
 | Recursive PCFG (C-PCFG) | hierarchy + long-range deps, matched MI | 0/48 | 0 | no |
-| **Model-generated text (C-generated, 3 seeds)** | full statistical fingerprint of a model that had the geometry — and *more* long-range MI than natural text | 3–7/48 | 0 | **no ×3** |
-| **Sentence-shuffled natural text (C-NAT-shuf)** | sentence-level world-reference, cross-sentence order destroyed | 8/48 | 0 | **partial** (exp-091, single seed) |
-| Natural text (TinyStories, 3 seeds) | reference to a persistent world, in order | 11–15/48 | present | **yes ×3** |
+| **Model-generated text (C-generated, 3 seeds)** | full statistical fingerprint of a model that had the geometry — and *more* long-range MI than natural text | 3–7/48 | 1–2 | **no ×3** |
+| **Sentence-shuffled natural text (C-NAT-shuf)** | sentence-level world-reference, cross-sentence order destroyed | 8/48 | 2 | **partial** (exp-091, single seed; multi-seed running) |
+| Natural text (TinyStories, 3 seeds) | reference to a persistent world, in order | 11–15/48 | 4–7 | **yes ×3** |
 
 Statistics fail. Grammar fails. The statistical shadow of world-bound language
 fails *while overshooting the statistics*. Sentence-level world-reference with
-the narrative order destroyed lands in the pre-registered ambiguous zone on
-the count criterion — and at **zero** on the SYK-near criterion, same as the
-statistical shadow. The triangulation now reads: the fixed-point population
-requires **both** world-binding *and* cross-sentence order; neither alone
-produces it. (exp-062, exp-084, exp-085, exp-091; each pre-registered with
-committed decision criteria. exp-091 is single-seed so far and its formed
-heads have an unexplained layer-0 concentration — count comparisons tempered
-until multi-seed.)
+the narrative order destroyed lands in the pre-registered ambiguous zone —
+above every fluent fake, below every natural seed. Anatomy across the
+text-like rungs: a **layer-0 shallow-exponent backbone** (~6–8 heads,
+Δ ≈ 0.10–0.17) forms on all of them; the **deep population (layers 3–5)** is
+what separates the rungs, and both deformations — removing world-grounding
+(C-generated) and removing cross-sentence order (C-NAT-shuf) — prune it.
+Note the honest scale caveat: at this 70m/1B-token rung *no* corpus, natural
+text included, produces SYK-window heads (Δ ∈ [0.20, 0.30]); the matured
+SYK-near population in this program's record comes from Pile-scale training
+(exp-086, exp-007/046). The ladder measures formation onset, not the matured
+fixed point. (exp-062, exp-084, exp-085, exp-091; each pre-registered with
+committed decision criteria.)
 
 ## What stands (measured)
 
