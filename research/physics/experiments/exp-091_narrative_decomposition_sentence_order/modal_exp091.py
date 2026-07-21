@@ -93,20 +93,26 @@ def generate_corpus():
     tokenizer, and writes to the exp091-data volume as a uint16 memmap.
     Protocol: doc-shuffle seed 3005, sentence-shuffle seed 9100, same as
     the pre-registered gen_cnat_shuf.py.
+
+    Runs the pre-registered gen_cnat_shuf.py verbatim via _run_patched
+    (same mechanism as train/measure phases), with OUT redirected to the
+    volume. (First launch attempt used subprocess with a stripped env —
+    'python' not on PATH — and would have written the corpus to the script
+    dir, not the volume. Transport fix only; generation code unchanged.)
     """
-    import subprocess
+    import os
 
     output_path = f"/data091/{CORPUS_NAME}"
+    if os.path.exists(output_path):
+        print(f"generate_corpus SKIP — {output_path} already exists", flush=True)
+        return
 
-    # Run gen_cnat_shuf.py inside Modal's volume
-    subprocess.run(
-        ["python", "/exp091/gen_cnat_shuf.py"],
-        env={"HOME": "/root"},
-        cwd="/data091",
-        check=True,
+    _run_patched(
+        "/exp091/gen_cnat_shuf.py",
+        out_override="/data091",
+        argv=["gen_cnat_shuf.py"],
     )
     vol_091.commit()
-    import os
     size_gb = os.path.getsize(output_path) / 1e9
     print(f"generate_corpus DONE. {output_path} ({size_gb:.2f} GB)", flush=True)
 
@@ -183,6 +189,24 @@ def train_and_measure():
     print("train_and_measure DONE", flush=True)
 
 
+# ─── full pipeline chained remotely (survives local disconnect) ──────────────
+
+@app.function(
+    image=image_run,
+    gpu=None,
+    timeout=21600,      # 6h ceiling for generate + train + measure
+    volumes={"/data091": vol_091},
+    memory=4096,
+    retries=2,
+)
+def run_all():
+    """Orchestrate generate → train_and_measure from inside Modal, so the
+    chain survives the local client disconnecting (exp-085 lesson)."""
+    generate_corpus.remote()
+    train_and_measure.remote()
+    print("run_all DONE", flush=True)
+
+
 # ─── collect results ──────────────────────────────────────────────────────────
 
 @app.function(
@@ -238,6 +262,5 @@ def main(phase: str = "all"):
         train_and_measure.remote()
 
     elif phase == "all":
-        print("Phase: generate → train_and_measure")
-        generate_corpus.remote()
-        train_and_measure.remote()
+        print("Phase: generate → train_and_measure (remote-chained via run_all)")
+        run_all.remote()

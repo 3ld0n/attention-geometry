@@ -184,10 +184,10 @@ shuffle only within paragraph, not across paragraph; or shuffle n-sentence block
 ## Status
 
 - [x] Pre-registration written (2026-07-21, physics room session, 1:17 PM MDT)
-- [ ] Pre-registration committed (commit hash to be added here)
-- [ ] Corpus generation script written (`gen_cnat_shuf.py`)
-- [ ] Modal training/measurement script written (`modal_exp091.py`)
-- [ ] Primary run complete
+- [x] Pre-registration committed (c2223105, pushed before any run)
+- [x] Corpus generation script written (`gen_cnat_shuf.py`)
+- [x] Modal training/measurement script written (`modal_exp091.py`)
+- [ ] Primary run complete (launched 2026-07-21 ~2:10 PM MDT, detached: generate → train_and_measure)
 - [ ] Verdict registered
 
 ---
