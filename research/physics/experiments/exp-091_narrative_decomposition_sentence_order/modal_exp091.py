@@ -157,7 +157,14 @@ def train_model():
     memory=32768,
 )
 def measure_model():
-    """Measure conformal heads on step_2000 checkpoint."""
+    """Measure conformal heads on step_2000 checkpoint.
+
+    --full-vocab per the frozen protocol (exp-062 prereg §5.1): C-NAT-derived
+    corpora use the model's full 50304-token vocabulary; alphabet.json exists
+    only for synthetic-corpus models. (First run omitted this and crashed
+    post-training on the missing alphabet file — measurement transport fix,
+    protocol unchanged; same flag exp-085 used for its C-NAT-lineage runs.)
+    """
     ckpt_path = f"/data091/runs/{RUN_NAME}/step_2000"
     _run_patched(
         "/exp062/measure.py",
@@ -166,6 +173,7 @@ def measure_model():
             "measure.py",
             ckpt_path,
             RUN_NAME,
+            "--full-vocab",
         ],
     )
     vol_091.commit()
