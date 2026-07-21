@@ -171,8 +171,12 @@ prominence given to each.
 
 - [x] Pre-registration written (2026-07-21, cursor session, solo — Eldon at lunch;
       this run was pre-named in the July 21 carry_forward and audience map work item 4)
-- [x] Pre-registration committed before run (05293e6c) and pushed to public remote
-      before launch (push succeeded despite the ISP fault — GitHub routing recovered)
+- [x] Pre-registration committed before run (05293e6c). Precise push timing, for
+      the record: the push to the public remote succeeded (GitHub routing recovered
+      mid-outage) ~1 minute *after* the Modal launch command, while the container
+      image was still building — i.e. before any model download or measurement,
+      but not strictly before launch. The local commit chain remains the
+      pre-registration of record.
 - [x] Measurement script written (`run_ouro_rg_flow.py`) + Modal launcher (`modal_exp090.py`),
       committed 32218e3e
 - [x] Primary run (NAT + RAND) — Modal A100-40GB, 2026-07-21 ~12:40 MDT, ~6.5 min
