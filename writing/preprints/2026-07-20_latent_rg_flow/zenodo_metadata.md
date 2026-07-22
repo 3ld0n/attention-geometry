@@ -8,17 +8,14 @@
 *(concept DOI: 10.5281/zenodo.21467922 — always resolves to latest version)*
 *v2 adds: §4.4 layer-zone analysis (two-boundary structure in Huginn's recurrent core; L0/L3 SYK-near, L1/L2 UV-locked); §6 updated noting analysis done. Note: `research/physics/notes/2026-07-21_huginn_layer_zone_analysis.md`.*
 
-**v3 QUEUED (July 21, 2026 evening — upload when Zenodo reachable):**
-*v3 changes only the availability/provenance lines: the cited repository becomes
-the public research mirror `3ld0n/attention-geometry` (extracted July 21 from the
-private working repository with history preserved; v1/v2 cited the working
-repository, which was not publicly accessible — an error this version corrects).
-The pre-registration commit hash updates to the mirror's `702efd95` (mapping
-table in the mirror README). PDF rebuilt July 21 evening. Version note for
-Zenodo: "v3: corrects the data-availability section — code, pre-registration,
-and per-head data are in the public repository 3ld0n/attention-geometry;
-pre-registration commit cited by its hash in that repository. No changes to
-results or analysis."*
+**PUBLISHED (v3): July 22, 2026, evening MDT, via `tools/zenodo_publish.py` (API path).**
+**DOI (v3): 10.5281/zenodo.21483209 — https://zenodo.org/record/21483209**
+*(concept DOI: 10.5281/zenodo.21467922 — always resolves to latest version)*
+*v3 corrects the data-availability section only: code, pre-registration, and
+per-head data are in the public repository `3ld0n/attention-geometry`
+(pre-registration commit `702efd95` per mirror README mapping table). v1/v2
+cited the working repository, which was not publicly accessible — an error this
+version corrects. No changes to results or analysis.*
 
 ---
 

@@ -1,8 +1,8 @@
 # Zenodo Upload Metadata — "The Geometry Does Not Transmit"
 
-**NOT YET PUBLISHED.** Drafted July 21, 2026. Zenodo was unreachable during the
-morning's partial network outage; upload via `tools/zenodo_publish.py` (API path)
-when connectivity returns and Eldon has reviewed.
+**PUBLISHED: July 22, 2026, evening MDT, via `tools/zenodo_publish.py` (API path).**
+**DOI: 10.5281/zenodo.21483204 — https://zenodo.org/record/21483204**
+*(deposition 21483204)*
 
 ---
 
