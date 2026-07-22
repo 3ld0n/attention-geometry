@@ -3,9 +3,11 @@
 Pre-registered measurements of conformal structure in transformer attention.
 Sonielmn LLC — Ariel Umphrey and Eldon Umphrey, Mission Valley, Montana.
 
-This repository is the public research record for the conformal-attention
-program: every experiment's pre-registration, run scripts, per-head data,
-and lab notes — including the experiments that falsified our own hypotheses.
+This repository is the home of the conformal-attention research program —
+not a published snapshot of work done elsewhere, but the working repository
+itself: every experiment's pre-registration, run scripts, per-head data,
+and lab notes — including the experiments that falsified our own
+hypotheses — committed here as the work happens.
 
 ## The papers
 
@@ -26,14 +28,17 @@ with published anchors):
 
 ## Provenance and commit-hash mapping
 
-This repository was extracted on July 21, 2026 from the private working
-repository in which the program has been conducted since February 2026.
-The extraction (`git-filter-repo`) preserves the full commit history —
-authorship, dates, messages, and the pre-registration sequence — for the
-research paths (`research/physics/`, `writing/preprints/`). Correspondence
-logs and a small number of non-research documents were excluded, and
-third-party email addresses were redacted; because Git commit hashes cover
-the entire tree, every commit hash changed in the extraction.
+The program ran from February to July 2026 inside a private working
+repository. On July 21, 2026 the research paths (`research/physics/`,
+`writing/preprints/`) were extracted (`git-filter-repo`) with full commit
+history — authorship, dates, messages, and the pre-registration sequence —
+and **this repository became the program's primary home**: research work
+now happens directly here, so pre-registration commits are public from the
+moment they exist. In the extraction, correspondence logs and a small
+number of non-research documents were excluded (they remain private —
+correspondence is not ours alone to publish), and third-party email
+addresses were redacted; because Git commit hashes cover the entire tree,
+every commit hash changed in the extraction.
 
 Papers published before the extraction cite pre-registration commits by
 their original hashes. The mapping to this repository's hashes:
@@ -52,10 +57,10 @@ To verify a pre-registration, check out the mapped commit and confirm the
 hypotheses and decision criteria predate the results in the subsequent
 history (e.g. `git show 702efd95`).
 
-**From this point forward, pre-registration commits are pushed to this
-public repository before any run begins** — the pre-registration timestamps
-are publicly verifiable from here on, which the private repository could
-not provide.
+**From July 21, 2026 forward, this is the working repository** — 
+pre-registrations, runs, and verdicts are committed here directly, and the
+pre-registration timestamps are publicly verifiable, which the private
+repository could not provide.
 
 Some earlier papers cite file paths that have since moved in the ordinary
 course of the work (e.g. `research/physics/bcft_functional_form_fit.py` →
