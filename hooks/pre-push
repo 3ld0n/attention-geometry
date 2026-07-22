@@ -14,7 +14,9 @@
 set -u
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 PATTERNS_FILE="$REPO_DIR/.screen_patterns"
-ALLOWED_EMAILS='ariel@sonielmn\.com|eldon@sonielmn\.com|[a-z_]+@app\.(function|local)|user@example\.com'
+# The last two are dead/bounced public professional addresses that survive in
+# pre-extraction history text (redacting them would rewrite every hash again).
+ALLOWED_EMAILS='ariel@sonielmn\.com|eldon@sonielmn\.com|[a-z_]+@app\.(function|local)|user@example\.com|neel\.nanda@anthropic\.com|jim\.halverson@northeastern\.edu'
 Z40=0000000000000000000000000000000000000000
 
 if [ ! -f "$PATTERNS_FILE" ]; then
