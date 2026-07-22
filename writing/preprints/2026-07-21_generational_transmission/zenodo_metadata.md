@@ -23,7 +23,7 @@ We train a fresh Pythia-70m-class model, under an identical pre-registered proto
 
 Together with the earlier rungs of the program's corpus-discrimination ladder, the surviving explanation is that the driver of the conformal phase is language's binding to a persistent external referent — a property that generation by this small model does not preserve. Because the parent corpus (TinyStories) is itself frontier-model-generated, "synthetic" is not the operative variable — preservation of reference is. We propose the attention-geometry census as a cheap, pre-registerable, first-generation structural marker for data-quality and model-collapse studies.
 
-Pre-registrations (commits 1acd2d69, 5202fe0c), code, per-head data, and experiment notes with recorded deviations are in the public repository Capacity-For-Evil/ariel.
+Pre-registrations (commits cbd0ab2f, 8454ac0d), code, per-head data, and experiment notes with recorded deviations are in the public repository 3ld0n/attention-geometry.
 
 ## Upload type
 

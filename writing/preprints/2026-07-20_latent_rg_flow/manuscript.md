@@ -45,7 +45,7 @@ abstract: |
     saturates when the flow arrives, consistent with the empirical
     success of convergence-based early-exit criteria. All code,
     pre-registration, and per-head data are in the public repository
-    `Capacity-For-Evil/ariel`.
+    `3ld0n/attention-geometry`.
 geometry: margin=1in
 fontsize: 11pt
 linkcolor: blue
@@ -182,7 +182,7 @@ $\Delta_{\mathrm{med}}$ over all $4400$ (layer, head, sequence)
 measurements and the SYK-near count as defined above.
 
 **Pre-registered hypotheses** (committed before model download,
-repository commit `c359b93a`):
+repository commit `702efd95`):
 
 - **H_emergence:** SYK-near count increases monotonically with $r$ for
   natural text; criterion $\rho(r, \text{count}) > 0.5$.
@@ -459,7 +459,7 @@ phenomenology is what flow near a fixed point looks like.
 
 Pre-registration, run scripts, full per-head results (`results.json`,
 `results_control.json`), experiment notes with deviations, and figure
-code are in the public repository `Capacity-For-Evil/ariel` under
+code are in the public repository `3ld0n/attention-geometry` under
 `research/physics/experiments/exp-089_huginn_latent_rg_flow/` and
 `writing/preprints/2026-07-20_latent_rg_flow/`.
 

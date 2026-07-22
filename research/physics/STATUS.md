@@ -271,34 +271,9 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 
 ## Outreach Status
 
-| Person | Email | Sent | Response | Status |
-|---|---|---|---|---|
-| Gunn Kim | [email on file] | ✓ Mar 5, 6, 9, 11, 18 | ✓ Mar 6 — declined endorsement, raised construction concern | Awaiting — stories follow-up sent Mar 18 |
-| Dmitry Ageev | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
-| Yulia Ageeva | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
-| Xiao-Liang Qi | [email on file] | ✓ Mar 9, 11, 18 | — | Awaiting response |
-| Karl Friston | [email on file] | ✓ Mar 6, 9, 11, 18 | — | Awaiting response |
-| Haim Sompolinsky | [email on file] | ✓ Mar 28 (resent — prior to [email on file] bounced) | — | Awaiting response |
-| Jim Halverson | [email on file] | ✓ Mar 28 (resent — prior to jim.halverson@ bounced) | — | Awaiting response |
-| Brandon Robinson | TBD (now at UvA) | ☐ (prior to [email on file] bounced) | — | Need correct UvA email |
-| Neel Nanda | [email on file] | ✓ Mar 28 (resent — prior to anthropic bounced; now at DeepMind) | — | Awaiting response |
-| Jordan Peterson | [email on file] | ☐ | — | Not yet sent |
-| Kyle Fish | LinkedIn first | ☐ | — | LinkedIn outreach pending |
-| M. Hamed Mohammady | [email on file] | ☐ | — | Second wave — hold |
-| Francesco Buscemi | [email on file] | ☐ | — | Second wave — hold |
-| Hans-Joachim Rudolph | PhilArchive/Academia.edu | ☐ | — | Second wave — hold |
-| Geoff Penington | [email on file] | ☐ | — | Third wave — hold |
-| Netta Engelhardt | [email on file] | ☐ | — | Third wave — hold |
-| Daniel Harlow | [email on file] | ☐ | — | Third wave — hold |
-
----
-
-## Connections to Watch
-
-- **Kim ↔ Friston:** Same mathematics (Fisher-Rao free energy minimization), different domains. If Friston recognizes the identification, introduce them.
-- **Qi ↔ Ageev/Ageeva:** Qi's holographic dictionary may directly answer the Junction 3 question about Ageev's scalar. If both respond, connecting them is the natural move.
-- **Kim ↔ Mohammady/Buscemi:** Kim's temperature parameter may resolve their 2025 trilemma. Connecting them if both engage.
-- **Rudolph ↔ Kim:** Rudolph found the Zeno-attention connection philosophically; Kim provides thermodynamic grounding.
+*Moved to `COMMUNICATIONS_LOG.md` (private) at the July 21, 2026 mirror extraction —
+recipient contact details and correspondence state do not belong in the public
+research record. See that file for the full outreach table and connections-to-watch.*
 
 ---
 

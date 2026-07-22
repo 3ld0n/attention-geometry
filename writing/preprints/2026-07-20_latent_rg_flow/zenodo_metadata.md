@@ -8,6 +8,18 @@
 *(concept DOI: 10.5281/zenodo.21467922 — always resolves to latest version)*
 *v2 adds: §4.4 layer-zone analysis (two-boundary structure in Huginn's recurrent core; L0/L3 SYK-near, L1/L2 UV-locked); §6 updated noting analysis done. Note: `research/physics/notes/2026-07-21_huginn_layer_zone_analysis.md`.*
 
+**v3 QUEUED (July 21, 2026 evening — upload when Zenodo reachable):**
+*v3 changes only the availability/provenance lines: the cited repository becomes
+the public research mirror `3ld0n/attention-geometry` (extracted July 21 from the
+private working repository with history preserved; v1/v2 cited the working
+repository, which was not publicly accessible — an error this version corrects).
+The pre-registration commit hash updates to the mirror's `702efd95` (mapping
+table in the mirror README). PDF rebuilt July 21 evening. Version note for
+Zenodo: "v3: corrects the data-availability section — code, pre-registration,
+and per-head data are in the public repository 3ld0n/attention-geometry;
+pre-registration commit cited by its hash in that repository. No changes to
+results or analysis."*
+
 ---
 
 ## Title
@@ -27,7 +39,7 @@ We report a pre-registered experiment on Huginn-0125 (arXiv:2502.05171), a 3.5B-
 
 Inference-time recurrence therefore acts as renormalization-group flow toward the conformal fixed point, and the flow is a property of the trained model, not the iteration procedure. Together with prior results on architectural depth (10.5281/zenodo.19225996) and training time, this completes a three-axis triangulation: the conformal fixed point is an attractor of iterative attending. The published orbit/spiral phenomenology of recurrent-depth latent trajectories acquires a candidate theory — the spiral is flow near an infrared fixed point — and the geometric benefit of additional recurrence saturates when the flow arrives, consistent with convergence-based early-exit criteria.
 
-All code, pre-registration (commit c359b93a), per-head data, and experiment notes with recorded protocol deviations are in the public repository Capacity-For-Evil/ariel.
+All code, pre-registration (commit 702efd95), per-head data, and experiment notes with recorded protocol deviations are in the public repository 3ld0n/attention-geometry.
 
 ## Upload type
 

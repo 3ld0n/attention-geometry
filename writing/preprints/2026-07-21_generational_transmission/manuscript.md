@@ -52,8 +52,8 @@ abstract: |
     operative variable --- preservation of reference is --- and propose
     the attention-geometry census as a cheap first-generation
     structural marker for data-quality and collapse studies. Code,
-    pre-registrations (commits `1acd2d69`, `5202fe0c`), and per-head
-    data are in the public repository `Capacity-For-Evil/ariel`.
+    pre-registrations (commits `cbd0ab2f`, `8454ac0d`), and per-head
+    data are in the public repository `3ld0n/attention-geometry`.
 geometry: margin=1in
 fontsize: 11pt
 linkcolor: blue
@@ -132,8 +132,8 @@ transmits: explanation (a) survives. If it does not, generation strips
 the driver: explanation (b) survives. Both outcomes were informative
 and the hypotheses, criteria, and protocol were pre-registered before
 any generation, training, or measurement (repository commit
-`1acd2d69`, July 14, 2026), with a head-level sub-analysis
-pre-registered separately before unblinding (commit `5202fe0c`,
+`cbd0ab2f`, July 14, 2026), with a head-level sub-analysis
+pre-registered separately before unblinding (commit `8454ac0d`,
 July 20, 2026).
 
 The verdict is transmission failure --- and the post-hoc corpus
@@ -208,7 +208,7 @@ distinct observables, and this experiment's criterion is formation.
 
 # 3. Methods
 
-All protocol elements below were pre-registered in commit `1acd2d69`
+All protocol elements below were pre-registered in commit `cbd0ab2f`
 (July 14, 2026) before any corpus generation, training, or
 measurement, except where explicitly marked *post hoc*.
 
@@ -241,7 +241,7 @@ Decision rule: $\geq 10/48$ conformal heads $\Rightarrow$
 H_transmission_yes; $< 10/48$ $\Rightarrow$ H_transmission_no.
 
 **Pre-registered head-level sub-analysis.** Committed July 20, 2026
-(`5202fe0c`), before results existed: a classification of specific
+(`8454ac0d`), before results existed: a classification of specific
 (layer, head) positions into *structural*, *RAND-type*, and *semantic*
 sets derived from Pythia-70m trajectory analysis (exp-086), with the
 prediction that under transmission failure the semantic set
@@ -517,11 +517,11 @@ do not.
 
 # Data and code availability
 
-Pre-registration (commit `1acd2d69`), head-level sub-analysis
-pre-registration (commit `5202fe0c`), generation/training/measurement
+Pre-registration (commit `cbd0ab2f`), head-level sub-analysis
+pre-registration (commit `8454ac0d`), generation/training/measurement
 scripts, full per-head results, corpus MI profiles, and experiment
 notes recording all engineering deviations with dates are in the
-public repository `Capacity-For-Evil/ariel` under
+public repository `3ld0n/attention-geometry` under
 `research/physics/experiments/exp-085_generational_transmission/` and
 `writing/preprints/2026-07-21_generational_transmission/`. Prior-rung
 data: `exp-062_corpus_statistics/`, `exp-084_pcfg_discriminator/`.

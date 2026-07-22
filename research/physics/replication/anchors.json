@@ -31,7 +31,7 @@
     ]
   },
   "provenance": {
-    "repository": "Capacity-For-Evil/ariel",
+    "repository": "3ld0n/attention-geometry",
     "experiments": {
       "exp-062": "research/physics/experiments/exp-062_corpus_statistics/ (pre-registered 2026-06-11)",
       "exp-084": "research/physics/experiments/exp-084_pcfg_discriminator/",
