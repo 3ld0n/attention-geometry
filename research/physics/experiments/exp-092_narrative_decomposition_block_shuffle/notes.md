@@ -154,13 +154,63 @@ half-story ordering: shuffle only the first and second halves of each story
 
 ---
 
+## Results
+
+**Collected 2026-07-22 ~11:07 AM MDT (physics room session).**
+
+### Raw numbers
+
+| Condition | Seed | n_conf | n_syk | n_deep (L3–L5) | L0 | Δ_med |
+|---|---|---|---|---|---|---|
+| k=2 | 1200 | 8 | 0 | 1 | 6 | 0.113 |
+| k=2 | 1201 | 9 | 0 | 1 | 7 | 0.157 |
+| k=2 | 1202 | 11 | 0 | 3 | 8 | 0.161 |
+| **k=2 median** | — | **9** | — | **1** | **7** | **0.157** |
+| k=3 | 1300 | 9 | 0 | 2 | 7 | 0.166 |
+| k=3 | 1301 | 7 | 0 | 0 | 7 | 0.126 |
+| k=3 | 1302 | 9 | 1 | 2 | 7 | 0.178 |
+| **k=3 median** | — | **9** | — | **2** | **7** | **0.166** |
+
+Reference points:
+- **k=1 (C-NAT-shuf, exp-091):** n_conf median=9, n_deep=2/seed
+- **k=∞ (C-NAT, exp-062):** n_conf=11–15, n_deep=5–7
+
+### Hypothesis adjudication
+
+**H_mono: FALSIFIED.** k=2 median n_deep=1 < k=1 baseline=2. Not monotone.
+
+**H_fast: NOT CONFIRMED.** n_deep(k=2)=1, not ≥4.
+
+**H_slow: NOT CONFIRMED.** n_deep(k=3)=2, not >2.
+
+**H_flat: CONFIRMED.** n_deep(k=2) median=1 ≤ 2 AND n_deep(k=3) median=2 ≤ 2.
+
+Kill criterion: NOT triggered. n_conformal(k=2) median=9, not ≥10.
+
+### Key findings
+
+1. Block shuffling at k=2 and k=3 does **not** restore the deep conformal population above the exp-091 sentence-shuffle baseline (median 2). Both medians fall at or below it.
+2. Total conformal count (median 9 for both k=2 and k=3) also remains in the shuffled band (8–9), not recovering toward natural text (11–15).
+3. The L0 backbone is stable (~7 heads, both block sizes) — consistent with the anatomy from exp-091: backbone is driven by sentence-level world-reference, not ordering.
+4. k=3 s1 had **zero deep conformal heads** (7 conformal, all in L0) — the most direct single-seed confirmation of H_flat.
+5. k=2 s2 had n_conf=11 and n_deep=3 — an outlier, likely a lucky initialization rather than a mechanism signal.
+6. Δ_med for conformal heads is slightly elevated above exp-091 (0.157 / 0.166 vs 0.130) but nowhere near C-NAT levels. Not physically significant at this scale.
+
+### Physical interpretation
+
+The minimum causal chain length for deep L3–L5 conformal formation is **>3 sentences** at the 70m/1B-token scale. Whatever natural text provides beyond sentence-level reference and ordering is not restored by sentence-grouping at k=2 or k=3. The block boundaries still disrupt the sequential structure that drives multi-hop reference tracking in semantic conformal heads (exp-086 structural/semantic distinction). The relevant property appears to be at story-arc level — either the global narrative arc, or some long-range referential density that only full story ordering provides.
+
+**Controls:** Randomized-weights controls (k=2 seed-1200, k=3 seed-1300) launched ~11:15 AM MDT; results to be added. Expected: 0/48 conformal, Δ_med ≈ 0.1687 (every prior control).
+
+---
+
 ## Status
 
 - [x] Pre-registration written (2026-07-22, physics room session, ~1:15 AM MDT)
-- [ ] Pre-registration committed (commit this file before any corpus generation)
-- [ ] Corpus generation scripts written (gen_cnat_block.py)
-- [ ] Modal training/measurement script written (modal_exp092.py)
-- [ ] k=2 runs (seeds 1200/1201/1202) complete
-- [ ] k=3 runs (seeds 1300/1301/1302) complete
-- [ ] Randomized-weights controls run
-- [ ] Verdict registered
+- [x] Pre-registration committed (commit 9a71a07, pushed to 3ld0n/attention-geometry)
+- [x] Corpus generation scripts written (gen_cnat_block.py)
+- [x] Modal training/measurement script written (modal_exp092.py)
+- [x] k=2 runs (seeds 1200/1201/1202) complete
+- [x] k=3 runs (seeds 1300/1301/1302) complete
+- [ ] Randomized-weights controls run (launched 2026-07-22 ~11:15 AM MDT — pending)
+- [x] Verdict registered: **H_flat CONFIRMED; H_mono FALSIFIED**

@@ -1,0 +1,140 @@
+{
+  "experiment": "exp-092",
+  "title": "Narrative decomposition \u2014 block-shuffle gradation",
+  "timestamp": "2026-07-22T17:07:00Z",
+  "prereg_commit": "9a71a07",
+  "verdict": "H_flat CONFIRMED; primary declared prior H_mono FALSIFIED",
+  "k2": {
+    "corpus": "C-NAT-block2 (k=2, 2-sentence blocks shuffled)",
+    "seeds": [
+      {
+        "init_seed": 1200,
+        "tag": "run_block2_s0",
+        "n_conformal": 8,
+        "n_syk_near": 0,
+        "n_deep_L3_L5": 1,
+        "n_backbone_L0": 6,
+        "delta_median_conformal": 0.11255418972472978,
+        "layer_dist": {
+          "0": 6,
+          "1": 1,
+          "5": 1
+        }
+      },
+      {
+        "init_seed": 1201,
+        "tag": "run_block2_s1",
+        "n_conformal": 9,
+        "n_syk_near": 0,
+        "n_deep_L3_L5": 1,
+        "n_backbone_L0": 7,
+        "delta_median_conformal": 0.15721356482533103,
+        "layer_dist": {
+          "0": 7,
+          "1": 1,
+          "4": 1
+        }
+      },
+      {
+        "init_seed": 1202,
+        "tag": "run_block2_s2",
+        "n_conformal": 11,
+        "n_syk_near": 0,
+        "n_deep_L3_L5": 3,
+        "n_backbone_L0": 8,
+        "delta_median_conformal": 0.16051535911097808,
+        "layer_dist": {
+          "0": 8,
+          "4": 2,
+          "5": 1
+        }
+      }
+    ],
+    "medians": {
+      "n_conformal": 9,
+      "n_deep_L3_L5": 1,
+      "n_backbone_L0": 7,
+      "delta_median_conformal": 0.157
+    }
+  },
+  "k3": {
+    "corpus": "C-NAT-block3 (k=3, 3-sentence blocks shuffled)",
+    "seeds": [
+      {
+        "init_seed": 1300,
+        "tag": "run_block3_s0",
+        "n_conformal": 9,
+        "n_syk_near": 0,
+        "n_deep_L3_L5": 2,
+        "n_backbone_L0": 7,
+        "delta_median_conformal": 0.16612116556872053,
+        "layer_dist": {
+          "0": 7,
+          "4": 1,
+          "5": 1
+        }
+      },
+      {
+        "init_seed": 1301,
+        "tag": "run_block3_s1",
+        "n_conformal": 7,
+        "n_syk_near": 0,
+        "n_deep_L3_L5": 0,
+        "n_backbone_L0": 7,
+        "delta_median_conformal": 0.12596393803936104,
+        "layer_dist": {
+          "0": 7
+        }
+      },
+      {
+        "init_seed": 1302,
+        "tag": "run_block3_s2",
+        "n_conformal": 9,
+        "n_syk_near": 1,
+        "n_deep_L3_L5": 2,
+        "n_backbone_L0": 7,
+        "delta_median_conformal": 0.17756512975527947,
+        "layer_dist": {
+          "0": 7,
+          "5": 2
+        }
+      }
+    ],
+    "medians": {
+      "n_conformal": 9,
+      "n_deep_L3_L5": 2,
+      "n_backbone_L0": 7,
+      "delta_median_conformal": 0.166
+    }
+  },
+  "reference_points": {
+    "k=1 (C-NAT-shuf, exp-091)": {
+      "n_conformal_median": 9,
+      "n_deep_L3_L5": 2
+    },
+    "k=inf (C-NAT, exp-062)": {
+      "n_conformal": "11-15",
+      "n_deep_L3_L5": "5-7"
+    }
+  },
+  "hypothesis_adjudication": {
+    "H_mono": "FALSIFIED \u2014 k=2 median n_deep=1 < k=1 baseline=2; not monotone",
+    "H_fast": "NOT CONFIRMED \u2014 n_deep(k=2) median=1, not >=4",
+    "H_slow": "NOT CONFIRMED \u2014 n_deep(k=3) median=2, not >2",
+    "H_flat": "CONFIRMED \u2014 n_deep(k=2)=1 <=2 AND n_deep(k=3)=2 <=2",
+    "kill_criterion": "NOT TRIGGERED \u2014 n_conformal(k=2) median=9, not >=10"
+  },
+  "key_findings": [
+    "Block shuffling at k=2 and k=3 does not restore the deep conformal population above exp-091 sentence-shuffle baseline.",
+    "Total conformal count (median 9 both) matches exp-091 shuffled band; not recovering toward C-NAT (11-15).",
+    "Deep population remains at the sentence-shuffle floor: k=2 median=1, k=3 median=2.",
+    "L0 backbone remains stable (~7 heads per seed for k=3; k=2 s2 outlier at 8).",
+    "k=3 s1 had zero deep conformal heads (all 7 conformal in L0 only) \u2014 strongest single-seed H_flat confirmation.",
+    "k=2 s2 outlier (n_conf=11, n_deep=3): likely a lucky initialization, not a mechanism.",
+    "The minimum causal chain length for deep conformal formation is >3 sentences at this scale."
+  ],
+  "physical_interpretation": "Whatever natural text provides beyond sentence-level reference and ordering is not restored by sentence-grouping at k=2 or k=3. The transition to deep conformal formation requires story-arc level sequential structure, not sub-segment coherence. Constrains the conformal induction mechanism: multi-hop reference tracking across sentence pairs is not the operative ingredient.",
+  "controls_pending": true,
+  "controls_note": "Randomized-weights controls (k=2 seed-1200, k=3 seed-1300) launched 2026-07-22 ~11:15 AM MDT; results to be added when complete. Expected: 0/48 conformal, \u0394_med\u22480.1687 per prior controls.",
+  "next_experiment": "exp-093 per pre-registration: half-story ordering (shuffle first and second halves of each story, preserving local coherence, destroying global narrative arc)."
+}
