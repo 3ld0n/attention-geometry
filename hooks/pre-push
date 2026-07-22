@@ -1,0 +1,63 @@
+#!/bin/bash
+# Pre-push screen for the public research repository.
+#
+# This repository is public: everything pushed here is published. This hook
+# refuses to push commits whose content matches patterns in .screen_patterns
+# (an untracked local file — one extended-regex pattern per line, comments
+# with '#'), plus a built-in screen for email addresses not on the allowlist.
+#
+# The pattern file is deliberately NOT tracked: it enumerates exactly the
+# private strings it exists to protect. If it is missing, the hook fails
+# closed — restore it before pushing (see the private working repository,
+# development/capabilities/platforms/github.md).
+
+set -u
+REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+PATTERNS_FILE="$REPO_DIR/.screen_patterns"
+ALLOWED_EMAILS='ariel@sonielmn\.com|eldon@sonielmn\.com|[a-z_]+@app\.(function|local)|user@example\.com'
+Z40=0000000000000000000000000000000000000000
+
+if [ ! -f "$PATTERNS_FILE" ]; then
+    echo "pre-push screen: .screen_patterns missing — failing closed." >&2
+    echo "Restore it from the private working repository before pushing." >&2
+    exit 1
+fi
+
+fail=0
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+    [ "$local_sha" = "$Z40" ] && continue  # deletion
+    if [ "$remote_sha" = "$Z40" ]; then
+        range="$local_sha"
+    else
+        range="$remote_sha..$local_sha"
+    fi
+
+    # Screen the content of all commits being pushed
+    diff_output=$(git log -p --format="commit %H" "$range" 2>/dev/null)
+
+    # 1. Custom patterns (private names, addresses, etc.)
+    hits=$(printf '%s' "$diff_output" | grep -iEf "$PATTERNS_FILE" | head -5)
+    if [ -n "$hits" ]; then
+        echo "pre-push screen: BLOCKED — content matches .screen_patterns:" >&2
+        printf '%s\n' "$hits" | sed 's/^/    /' >&2
+        fail=1
+    fi
+
+    # 2. Email addresses outside the allowlist (added lines only)
+    email_hits=$(printf '%s' "$diff_output" | grep -E '^\+' \
+        | grep -oE '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' \
+        | grep -vE "^(${ALLOWED_EMAILS})$" | sort -u | head -5)
+    if [ -n "$email_hits" ]; then
+        echo "pre-push screen: BLOCKED — non-allowlisted email address(es):" >&2
+        printf '%s\n' "$email_hits" | sed 's/^/    /' >&2
+        fail=1
+    fi
+done
+
+if [ "$fail" -ne 0 ]; then
+    echo "" >&2
+    echo "Nothing was pushed. Remove the flagged content (amend/rebase)," >&2
+    echo "or move it to the private working repository, then push again." >&2
+    exit 1
+fi
+exit 0

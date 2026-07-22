@@ -271,9 +271,9 @@ Multi-head attention has a natural tensor network representation. Swingle (2012)
 
 ## Outreach Status
 
-*Moved to `COMMUNICATIONS_LOG.md` (private) at the July 21, 2026 mirror extraction —
-recipient contact details and correspondence state do not belong in the public
-research record. See that file for the full outreach table and connections-to-watch.*
+*Moved to the private working repository (`research/physics_private/COMMUNICATIONS_LOG.md`)
+at the July 21, 2026 extraction of this public repository — recipient contact details
+and correspondence state do not belong in the public research record.*
 
 ---
 

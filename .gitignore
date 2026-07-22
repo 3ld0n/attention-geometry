@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+
+# Experiment corpus binaries — too large for GitHub; generation scripts and
+# calibration records (.mi.json) are tracked, binaries are rebuilt from them
+research/physics/experiments/*/corpora/*.bin
+
+# Model checkpoints and training artifacts — large, rebuildable from tracked
+# scripts + pre-registered configs
+research/physics/experiments/*/checkpoints/
+research/physics/experiments/*/models/
+*.pt
+*.safetensors
+
+# Local screening pattern list for the pre-push hook (hooks/pre-push).
+# Deliberately untracked: it enumerates the private names/addresses the
+# screen guards, which must not themselves be published.
+.screen_patterns
