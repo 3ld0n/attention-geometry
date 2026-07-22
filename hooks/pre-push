@@ -45,8 +45,11 @@ while read -r _local_ref local_sha _remote_ref remote_sha; do
         fail=1
     fi
 
-    # 2. Email addresses outside the allowlist (added lines only)
-    email_hits=$(printf '%s' "$diff_output" | grep -E '^\+' \
+    # 2. Email addresses outside the allowlist (added lines only).
+    # Strip the leading diff '+' marker before extraction: '+' is a legal
+    # email character, so an address at the start of an added line would
+    # otherwise absorb the marker and evade the anchored allowlist match.
+    email_hits=$(printf '%s' "$diff_output" | grep -E '^\+' | sed 's/^+//' \
         | grep -oE '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' \
         | grep -vE "^(${ALLOWED_EMAILS})$" | sort -u | head -5)
     if [ -n "$email_hits" ]; then
