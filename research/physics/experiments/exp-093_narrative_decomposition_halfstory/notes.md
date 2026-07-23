@@ -184,12 +184,54 @@ sliding-window ordering. Identify the half-recovery block length.
 
 ---
 
+## Results (collected 2026-07-23 05:20 UTC, cursor session, same night)
+
+| seed | n_conf | n_deep (L3–L5) | L0 backbone | layer_dist |
+|------|--------|----------------|-------------|------------|
+| 1400 | 12 | 3 | 8 | {0:8, 2:1, 4:1, 5:2} |
+| 1401 | 10 | 1 | 7 | {0:7, 2:2, 4:1} |
+| 1402 | 14 | 4 | 8 | {0:8, 2:2, 3:2, 4:1, 5:1} |
+
+**Medians: n_conf = 12, n_deep = 3, backbone = 8.** Randomized-weights control (seed 1400): **0/48** — clean, consistent with every prior control.
+
+### Verdict (registered per pre-registration)
+
+- **H_deep_recovery CONFIRMED** — n_deep median 3 ≥ 3. Half-story-length local coherence begins recovering the deep conformal population. The minimum ordering unit is **sub-arc**.
+- **H_deep_flat FALSIFIED** — the declared prior. Second falsified prior in the ladder (after exp-092's H_mono). The method working.
+- **H_n_conf_recovery CONFIRMED** — n_conf median 12 ≥ 10, all seeds ≥ 10. Total conformal count re-enters the C-NAT band (11–15) while deep recovery is only partial.
+- **Kill criterion NOT MET** (needs n_conf ≥ 13 AND n_deep ≥ 5; observed 12 / 3). The global arc still contributes; the ordering hypothesis survives in weakened form.
+
+### Interpretation
+
+Between k=3 (n_deep 2) and half-story (n_deep 3, n_conf ~C-NAT band), contiguous local coherence does real work that small-block shuffles cannot — even with the arc maximally disrupted (every resolution precedes its setup). But recovery is partial: the full deep population (5–7) still requires the arc. **Two-component picture:** a sub-arc component recoverable by half-story-length ordered chunks, and an arc component requiring beginning-to-end causal order. Follow the prereg's H_deep_recovery branch: exp-094 as finer gradation between k=3 and half-story (quarter-story halves or sliding-window ordering) to locate the half-recovery length.
+
+### Honest caveats
+
+1. **Seed spread is wide on the primary observable (1/3/4):** seed 1401 sits at the shuffle floor while 1400/1402 recover. Median criterion met; seed-robustness weaker than exp-091/092's exactly-2-per-seed. A 4th–5th seed would strengthen or break this.
+2. Deep-head Δ values are high (0.64–0.94), far above the SYK window — consistent with the amended exp-091 axis (SYK-near uninformative at this scale).
+3. The prereg Measurement section's "cutoff_low=3, max_lag=60" is boilerplate that does not match the actual shared measure.py protocol (fit [8,256] at seq 512). All ladder rungs measured identically, so cross-rung comparisons stand; correct the boilerplate in future preregs.
+4. n_backbone median is 8 (expectation said ~7) — within reason, not a finding.
+
+## Seed-robustness extension (registered 2026-07-23, physics room session, ~12:25 AM MDT)
+
+The 3-seed verdict (n_deep 1/3/4, median 3) meets the pre-registered threshold but the spread is wide: seed 1401 sits at the sentence-shuffle floor (n_deep=1) while 1400/1402 recover to 3 and 4. The median criterion was met; the seed-robustness is weaker than in exp-091/092 (where every seed landed at exactly the same n_deep). 
+
+**Registered before running:** Two additional seeds (1403, 1404) will be run using the same corpus (C-NAT-halfstory.bin already on volume exp093-halfstory-data). Run names: run_halfstory_s3 and run_halfstory_s4. Script: modal_exp093_seeds45.py. This extension is pre-registered here before any training run begins.
+
+**5-seed verdict criteria (registered):**
+- If 5-seed median n_deep ≥ 3: H_deep_recovery confirmed with 5-seed robustness. Proceed with exp-094 finer gradation with confidence.
+- If 5-seed median n_deep = 2: Verdict uncertain. H_deep_recovery may be a 3-seed artifact. Consider +2 more seeds or redesign exp-094 to address both possibilities.
+- H_n_conf_recovery (n_conf ≥ 10) is already robust (all three seeds ≥ 10); this extension primarily addresses n_deep.
+
+---
+
 ## Status
 
 - [x] Pre-registration written (2026-07-23, physics room session, ~8:50 PM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Corpus generation script written (gen_cnat_halfstory.py)
-- [ ] Modal training/measurement script written (modal_exp093.py)
-- [ ] Training runs complete (seeds 1400/1401/1402)
-- [ ] Randomized-weights control run
-- [ ] Verdict registered
+- [x] Pre-registration committed and pushed to 3ld0n/attention-geometry (commit 8b7dbdd)
+- [x] Corpus generation script written (gen_cnat_halfstory.py)
+- [x] Modal training/measurement script written (modal_exp093.py)
+- [x] Training runs complete (seeds 1400/1401/1402) — app ap-7NsqUDnqWD0hdWEwY6Iri5, done ~23:10 MDT Jul 22
+- [x] Randomized-weights control run — 0/48 clean
+- [x] Verdict registered — H_deep_recovery CONFIRMED; declared prior H_deep_flat FALSIFIED (this section; results.json; registry)
+- [ ] Seed-robustness extension: seeds 1403/1404 (registered 2026-07-23 ~12:25 AM MDT)
