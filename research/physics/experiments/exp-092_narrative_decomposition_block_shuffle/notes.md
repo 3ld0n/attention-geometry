@@ -200,7 +200,10 @@ Kill criterion: NOT triggered. n_conformal(k=2) median=9, not ≥10.
 
 The minimum causal chain length for deep L3–L5 conformal formation is **>3 sentences** at the 70m/1B-token scale. Whatever natural text provides beyond sentence-level reference and ordering is not restored by sentence-grouping at k=2 or k=3. The block boundaries still disrupt the sequential structure that drives multi-hop reference tracking in semantic conformal heads (exp-086 structural/semantic distinction). The relevant property appears to be at story-arc level — either the global narrative arc, or some long-range referential density that only full story ordering provides.
 
-**Controls:** Randomized-weights controls (k=2 seed-1200, k=3 seed-1300) launched ~11:15 AM MDT; results to be added. Expected: 0/48 conformal, Δ_med ≈ 0.1687 (every prior control).
+**Controls (2026-07-23 ~8:50–9:35 PM MDT):** Both controls confirmed.
+- k=2 seed-1200 randomized: 0/48 conformal, 0 SYK-near.
+- k=3 seed-1300 randomized: 0/48 conformal, 0 SYK-near.
+Consistent with every prior randomized-weights control. Trained signal is not substrate.
 
 ---
 
@@ -212,5 +215,5 @@ The minimum causal chain length for deep L3–L5 conformal formation is **>3 sen
 - [x] Modal training/measurement script written (modal_exp092.py)
 - [x] k=2 runs (seeds 1200/1201/1202) complete
 - [x] k=3 runs (seeds 1300/1301/1302) complete
-- [ ] Randomized-weights controls run (launched 2026-07-22 ~11:15 AM MDT — pending)
+- [x] Randomized-weights controls run (collected 2026-07-23, both 0/48 — CONFIRMED)
 - [x] Verdict registered: **H_flat CONFIRMED; H_mono FALSIFIED**

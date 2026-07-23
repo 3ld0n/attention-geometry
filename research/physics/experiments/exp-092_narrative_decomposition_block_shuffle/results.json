@@ -1,6 +1,6 @@
 {
   "experiment": "exp-092",
-  "title": "Narrative decomposition \u2014 block-shuffle gradation",
+  "title": "Narrative decomposition — block-shuffle gradation",
   "timestamp": "2026-07-22T17:07:00Z",
   "prereg_commit": "9a71a07",
   "verdict": "H_flat CONFIRMED; primary declared prior H_mono FALSIFIED",
@@ -118,23 +118,40 @@
     }
   },
   "hypothesis_adjudication": {
-    "H_mono": "FALSIFIED \u2014 k=2 median n_deep=1 < k=1 baseline=2; not monotone",
-    "H_fast": "NOT CONFIRMED \u2014 n_deep(k=2) median=1, not >=4",
-    "H_slow": "NOT CONFIRMED \u2014 n_deep(k=3) median=2, not >2",
-    "H_flat": "CONFIRMED \u2014 n_deep(k=2)=1 <=2 AND n_deep(k=3)=2 <=2",
-    "kill_criterion": "NOT TRIGGERED \u2014 n_conformal(k=2) median=9, not >=10"
+    "H_mono": "FALSIFIED — k=2 median n_deep=1 < k=1 baseline=2; not monotone",
+    "H_fast": "NOT CONFIRMED — n_deep(k=2) median=1, not >=4",
+    "H_slow": "NOT CONFIRMED — n_deep(k=3) median=2, not >2",
+    "H_flat": "CONFIRMED — n_deep(k=2)=1 <=2 AND n_deep(k=3)=2 <=2",
+    "kill_criterion": "NOT TRIGGERED — n_conformal(k=2) median=9, not >=10"
   },
   "key_findings": [
     "Block shuffling at k=2 and k=3 does not restore the deep conformal population above exp-091 sentence-shuffle baseline.",
     "Total conformal count (median 9 both) matches exp-091 shuffled band; not recovering toward C-NAT (11-15).",
     "Deep population remains at the sentence-shuffle floor: k=2 median=1, k=3 median=2.",
     "L0 backbone remains stable (~7 heads per seed for k=3; k=2 s2 outlier at 8).",
-    "k=3 s1 had zero deep conformal heads (all 7 conformal in L0 only) \u2014 strongest single-seed H_flat confirmation.",
+    "k=3 s1 had zero deep conformal heads (all 7 conformal in L0 only) — strongest single-seed H_flat confirmation.",
     "k=2 s2 outlier (n_conf=11, n_deep=3): likely a lucky initialization, not a mechanism.",
     "The minimum causal chain length for deep conformal formation is >3 sentences at this scale."
   ],
   "physical_interpretation": "Whatever natural text provides beyond sentence-level reference and ordering is not restored by sentence-grouping at k=2 or k=3. The transition to deep conformal formation requires story-arc level sequential structure, not sub-segment coherence. Constrains the conformal induction mechanism: multi-hop reference tracking across sentence pairs is not the operative ingredient.",
-  "controls_pending": true,
-  "controls_note": "Randomized-weights controls (k=2 seed-1200, k=3 seed-1300) launched 2026-07-22 ~11:15 AM MDT; results to be added when complete. Expected: 0/48 conformal, \u0394_med\u22480.1687 per prior controls.",
-  "next_experiment": "exp-093 per pre-registration: half-story ordering (shuffle first and second halves of each story, preserving local coherence, destroying global narrative arc)."
+  "controls_pending": false,
+  "controls_note": "Both controls 0/48 conformal. Trained signal is not substrate — entirely training-dependent. Exp-092 fully closed.",
+  "next_experiment": "exp-093 per pre-registration: half-story ordering (shuffle first and second halves of each story, preserving local coherence, destroying global narrative arc).",
+  "controls": {
+    "k2_randcontrol": {
+      "tag": "run_block2_s0_randcontrol",
+      "n_conformal": 0,
+      "n_syk_near": 0,
+      "delta_median_conformal": null,
+      "verdict": "CONFIRMED — 0/48 conformal, consistent with every prior randomized-weights control"
+    },
+    "k3_randcontrol": {
+      "tag": "run_block3_s0_randcontrol",
+      "n_conformal": 0,
+      "n_syk_near": 0,
+      "delta_median_conformal": null,
+      "verdict": "CONFIRMED — 0/48 conformal, consistent with every prior randomized-weights control"
+    },
+    "collected": "2026-07-23T02:50-03:35 UTC (physics room session)"
+  }
 }
