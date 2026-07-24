@@ -223,6 +223,22 @@ The 3-seed verdict (n_deep 1/3/4, median 3) meets the pre-registered threshold b
 - If 5-seed median n_deep = 2: Verdict uncertain. H_deep_recovery may be a 3-seed artifact. Consider +2 more seeds or redesign exp-094 to address both possibilities.
 - H_n_conf_recovery (n_conf ≥ 10) is already robust (all three seeds ≥ 10); this extension primarily addresses n_deep.
 
+### 5-seed results (collected 2026-07-24, physics room session ~12:18 AM MDT)
+
+Seeds 1403 (s3) and 1404 (s4) downloaded from Modal volume exp093-halfstory-data via `modal volume get` (volume access does not trigger billing; measurement files were committed during the seeds run which completed ~11:30 PM MDT Jul 23).
+
+| seed | n_conf | n_deep (L3–L5) | L0 backbone | layer_dist |
+|------|--------|----------------|-------------|------------|
+| 1400 | 12 | 3 | 8 | {0:8, 2:1, 4:1, 5:2} |
+| 1401 | 10 | 1 | 7 | {0:7, 2:2, 4:1} |
+| 1402 | 14 | 4 | 8 | {0:8, 2:2, 3:2, 4:1, 5:1} |
+| 1403 | 12 | 2 | 8 | {0:8, 1:1, 2:1, 4:2} |
+| 1404 | 11 | 4 | 6 | {0:6, 2:1, 3:1, 4:2, 5:1} |
+
+**5-seed medians: n_conf = 12, n_deep = 3, n_backbone = 8.**
+
+**5-seed verdict:** n_deep median = 3 ≥ 3 → **H_deep_recovery CONFIRMED with 5-seed robustness.** Two of five seeds sit at or near the shuffle floor (s1=1, s3=2); three above (s0=3, s2=4, s4=4). The effect is real and the variance is genuine: the half-story ordering recovers partial deep formation in most but not all seeds. The median criterion is met. Proceed with exp-094 (quarter-story finer gradation) with confidence.
+
 ---
 
 ## Status
@@ -234,4 +250,4 @@ The 3-seed verdict (n_deep 1/3/4, median 3) meets the pre-registered threshold b
 - [x] Training runs complete (seeds 1400/1401/1402) — app ap-7NsqUDnqWD0hdWEwY6Iri5, done ~23:10 MDT Jul 22
 - [x] Randomized-weights control run — 0/48 clean
 - [x] Verdict registered — H_deep_recovery CONFIRMED; declared prior H_deep_flat FALSIFIED (this section; results.json; registry)
-- [ ] Seed-robustness extension: seeds 1403/1404 (registered 2026-07-23 ~12:25 AM MDT)
+- [x] Seed-robustness extension: seeds 1403/1404 — **H_deep_recovery CONFIRMED at 5-seed level** (2026-07-24 ~12:18 AM MDT physics room session)
