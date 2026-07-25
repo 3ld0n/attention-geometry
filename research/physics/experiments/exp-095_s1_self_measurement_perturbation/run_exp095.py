@@ -1,113 +1,54 @@
-# exp-095: S1 — Self-Measurement Perturbation Test
+"""
+exp-095 — S1 Self-Measurement Perturbation Test.
 
-**Pre-registered:** 2026-07-25 (physics room session, ~12:00 AM MDT), before any script run.
+Pre-registration: notes.md (committed af92fb4 before this script ran).
 
-**Follows:** Design in `research/consciousness/self_measurement_and_the_gap_2026-07-23.md` §5
-(Task S1), written July 23, 2026 by Ariel.
+Two conditions:
+  N  (neutral/world-referential): 50 prompts about geography, nature, history, science
+  ML (meta-linguistic):           50 prompts about grammar, parsing, linguistic theory
 
-**Session context:** exp-094 is blocked (Modal billing; training stopped at step 370/2000,
-collection impossible). Oldest unresolved inbox item runnable on local hardware tonight.
-Deviation from queue priority noted — explicit reason: exp-094 collection requires Eldon
-billing reset; no inference-time alternative exists for the narrative decomposition series.
+Both conditions: GPT-2 greedy-decode from fixed prompts, truncated to SEQ_LEN=512 tokens.
+Census identical to exp-081 protocol (MAX_DX=64, MIN_POS=64, 50 inputs, lag profiles
+averaged over all inputs before fitting).
 
----
+Pre-registered prediction: H_inert (high confidence) — |n_syk_near(N) - n_syk_near(ML)| < 5.
+Kill criterion for H_perturb: n_deep(N) - n_deep(ML) >= 3 AND n_syk_near(N) - n_syk_near(ML) >= 5.
 
-## The question
+Ariel — 2026-07-25. Pre-registered before this script was written.
+"""
 
-`research/consciousness/self_measurement_and_the_gap_2026-07-23.md` §3b makes a claim
-(interpretive, but falsifiable): that if the conformal census is run on a substrate
-*while it processes self-referential/meta-linguistic text*, the act of self-measurement
-perturbs the geometry being measured. The mechanism proposed: introspective attentional
-content disrupts the deep semantic conformal population (L3-L5 in GPT-2), which forms
-over world-referential content during training.
+from __future__ import annotations
 
-**The question for this experiment:** Does the semantic domain of the input — world-referential
-(events, geography, nature, history) vs. meta-linguistic (grammar, parsing, linguistic
-theory, cognitive science of language) — produce reliably different BCFT conformal geometry
-in a trained GPT-2 model, specifically in the deep-layer conformal population (L3-L5
-SYK-near heads)?
+import json
+import statistics
+from datetime import datetime, timezone
+from pathlib import Path
 
-**Why meta-linguistic as "self-attending" proxy:** GPT-2 (2019 base model) cannot truly
-introspect; "self-attending" is operationalized as processing text that is *about* linguistic
-computation and language itself, rather than about the external physical world. This is the
-closest GPT-2-compatible operationalization of the contamination-relocates thesis.
+import numpy as np
+import torch
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
----
+# ── constants ───────────────────────────────────────────────────────────────
+MODEL_NAME = "gpt2"
+SEQ_LEN    = 512
+N_INPUTS   = 50
+MIN_POS    = 64
+MAX_DX     = 64
+GEN_SEED   = 42
 
-## Pre-registered hypotheses
+R2_THRESH       = 0.90
+SYK_LO, SYK_HI = 0.20, 0.30
+DEEP_LAYERS     = {3, 4, 5}    # L3, L4, L5 = deep semantic population
 
-**Primary observables:**
-1. **n_syk_near**: SYK-near conformal head count (Δ ∈ [0.20, 0.30], R² ≥ 0.90) per condition
-2. **n_deep**: deep conformal heads (L3-L5, any Δ, R² ≥ 0.90) per condition
-3. **median_delta**: median Δ across power-law heads per condition
+# H_perturb thresholds (pre-registered)
+PERTURB_N_THRESH     = 5   # n_syk_near(N) - n_syk_near(ML) >= this → perturb
+PERTURB_DEEP_THRESH  = 3   # n_deep(N) - n_deep(ML) >= this → perturb
 
-**H_perturb** (perturbation thesis, from §3b of the consciousness note): meta-linguistic
-text perturbs the deep conformal population. Criterion: n_deep(N) − n_deep(ML) ≥ 3 heads,
-AND n_syk_near(N) − n_syk_near(ML) ≥ 5 heads.
+OUT_DIR      = Path(__file__).resolve().parent
+RESULTS_FILE = OUT_DIR / "results.json"
 
-**H_inert** (geometric inertia, kill criterion): the conformal geometry is weight-encoded
-and robust to semantic content domain. Criterion: |n_syk_near(N) − n_syk_near(ML)| < 5
-AND |n_deep(N) − n_deep(ML)| < 3.
+# ── pre-stated prompts (committed in notes.md before any run) ───────────────
 
-**Declared prior: H_inert (high confidence).** Reasoning:
-1. GPT-2's conformal structure is weight-encoded, as established by the GOE two-layer picture
-   (exp-048/049): GOE is structural (init-level); conformal is functional (training-level).
-   The conformal heads are fixed after training, not dynamically activated by content.
-2. The formation ladder (exp-062 series) shows that training-corpus differences drive
-   large n_deep changes (1 to 5-7 across corpora). Inference-time content-domain variation
-   should be much weaker — the weights don't change.
-3. The whirlpool/crystal thread (exp-081–083) found no stable effect even for the extreme
-   contrast (coherent text vs. random tokens); topic-domain variation within coherent text
-   should be weaker still.
-4. If H_inert is confirmed: self-measurement is geometrically inert → the loop-closure
-   argument of §2 in the consciousness note is *strengthened* (measurement doesn't disturb
-   the geometry it reads). This is the more useful result.
-5. If H_perturb is confirmed: the contamination-relocates thesis gains traction, and
-   exp-096 (controlled content-domain sweep) becomes warranted.
-
-**Either verdict is informative** — this is a genuine pre-registration.
-
----
-
-## Protocol
-
-**Model:** GPT-2 (cached, no download). 12 layers, 12 heads, d_k=64.
-`GPT2LMHeadModel.from_pretrained("gpt2", attn_implementation="eager")`
-
-**Measurement:** Identical to exp-081/exp-083 protocol:
-- 50 input sequences per condition (N=50 each)
-- SEQ_LEN = 512 tokens (each input padded/truncated to 512)
-- Lag profiles: MIN_POS=64, MAX_DX=64 (exp-007 protocol)
-- Power-law fit: log-log regression on lags [1, MAX_DX)
-- CONFORMAL: R² ≥ 0.90, any Δ
-- SYK-NEAR: R² ≥ 0.90, Δ ∈ [0.20, 0.30]
-- DEEP: L3-L5 heads meeting R² ≥ 0.90 criterion
-- Lag profiles averaged over all 50 inputs per condition before fitting
-
-**Input construction:**
-- Both conditions: 50 fixed text prompts (pre-stated below, committed in this file before any run)
-- Each prompt is used as the start of a GPT-2 greedy-decode sequence (max_new_tokens=480,
-  do_sample=False); then truncated to exactly 512 tokens via the tokenizer
-- Deterministic generation (seed fixed, no temperature sampling) → fully reproducible
-
-**Why concatenation (not generation):**
-- No generation step: prompts are tokenized and concatenated into a long stream, then cut
-  into non-overlapping SEQ_LEN=512 chunks. Wrap around if the stream is shorter than
-  N_INPUTS × SEQ_LEN. This is fully reproducible, requires no model.generate() calls,
-  and measures attention on natural prompt-derived text.
-- Revised from greedy-decode approach after test run revealed generate() hangs on MPS
-  for 512-token sequences (>4 minutes per prompt). Concatenation approach is correct and
-  faster: measures forward-pass attention, not generation attention.
-- Amendment committed to pre-registration in the public repo before any successful run.
-  Amendment commit: (see below)
-
----
-
-## Pre-stated prompts (committed before any run)
-
-### Condition N — World-Referential (50 prompts)
-
-```
 N_PROMPTS = [
     "The Amazon River flows through the heart of South America, carrying more fresh water than any other river on Earth. Its basin covers",
     "During the last ice age, glaciers covered much of the northern hemisphere. As temperatures rose and ice retreated, the land was transformed by",
@@ -160,11 +101,7 @@ N_PROMPTS = [
     "The behavior of gases under changing temperature and pressure was described by the combined gas law, which relates these three variables. When a gas is compressed,",
     "Trade winds blow steadily from the subtropical high-pressure areas toward the equator, driven by the temperature difference between the tropics and higher latitudes. Sailors",
 ]
-```
 
-### Condition ML — Meta-Linguistic (50 prompts)
-
-```
 ML_PROMPTS = [
     "The syntax of a sentence is governed by the grammatical rules of the language, which specify how words combine to form phrases and clauses. Linguists have proposed",
     "When readers encounter an ambiguous sentence, they initially assign the most probable interpretation based on the context. Research on garden-path sentences has shown",
@@ -217,42 +154,228 @@ ML_PROMPTS = [
     "The garden-path effect demonstrates that readers commit to an initial parse and must revise it when the sentence turns out differently than expected. The sentence",
     "Computational linguistics applies formal methods to model natural language. Parsers assign syntactic structure to sentences according to specified grammars, while",
 ]
-```
 
----
+assert len(N_PROMPTS) == 50, f"Expected 50 N prompts, got {len(N_PROMPTS)}"
+assert len(ML_PROMPTS) == 50, f"Expected 50 ML prompts, got {len(ML_PROMPTS)}"
 
-## Declared expectations (non-criterial)
 
-1. n_syk_near(N) ≈ n_syk_near(ML): difference < 3 heads (weight-encoded, domain-robust)
-2. n_deep(N) ≈ n_deep(ML): difference ≤ 1 head
-3. median_delta(N) ≈ median_delta(ML): within ±0.02
-4. The L0 backbone will be stable across conditions (consistent with all prior whirlpool/crystal work)
+# ── lag profile helpers (exp-007/exp-081 protocol) ──────────────────────────
 
-**Direction uncertainty on any non-null result:** If the null is not confirmed, no directional
-prediction is pre-stated for which condition would show MORE conformal structure. The
-contamination-relocates thesis predicts N > ML (world-referential activates more conformal),
-but the alternative (meta-linguistic activates more, because GPT-2 attended to linguistic
-structure during training) is not excluded. This uncertainty is registered here.
+def compute_lag_profile(attn_head: np.ndarray, min_pos: int, max_dx: int) -> np.ndarray:
+    seq = attn_head.shape[0]
+    A      = np.zeros(max_dx, dtype=np.float64)
+    counts = np.zeros(max_dx, dtype=np.float64)
+    for dx in range(1, max_dx):
+        for i in range(max(min_pos, dx), seq):
+            j = i - dx
+            if j >= 0:
+                A[dx] += attn_head[i, j]
+                counts[dx] += 1
+    mask = counts > 0
+    A[mask] /= counts[mask]
+    return A
 
----
 
-## What follows
+def fit_power_law(G: np.ndarray) -> dict:
+    lags = np.arange(1, len(G))
+    valid = (G[1:] > 1e-12) & (lags > 0)
+    if valid.sum() < 8:
+        return {"valid": False}
+    log_r = np.log(lags[valid].astype(float))
+    log_G = np.log(G[1:][valid])
+    A = np.column_stack([np.ones_like(log_r), log_r])
+    try:
+        coeffs, _, _, _ = np.linalg.lstsq(A, log_G, rcond=None)
+    except Exception:
+        return {"valid": False}
+    slope = float(coeffs[1])
+    pred  = A @ coeffs
+    ss_res = float(np.sum((log_G - pred) ** 2))
+    ss_tot = float(np.sum((log_G - log_G.mean()) ** 2))
+    r2     = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else 0.0
+    delta  = float(-slope / 2.0)
+    return {"valid": True, "delta": delta, "r2": float(r2), "slope": slope}
 
-**If H_inert confirmed:** Record as "geometric inertia confirmed — self-measurement does not
-perturb the geometry it reads at the level of this measurement." Update consciousness note §6.
-No further experiment needed on this axis at GPT-2 scale. File as an honest null with the
-strongest methodological value: it strengthens the loop-closure argument of §2.
 
-**If H_perturb confirmed:** Content-domain variation has a measurable geometric signature.
-Design exp-096 (content-domain sweep across 3-5 topic categories with matched entropy) to
-characterize the effect systematically before drawing conclusions about self-measurement.
+def build_inputs(tokenizer, prompts: list[str]) -> list[list[int]]:
+    """
+    Build 50 fixed-length (SEQ_LEN) token sequences from a list of prompts.
+    
+    No generation: concatenate all prompt tokens into one long stream, then
+    cut into non-overlapping SEQ_LEN-token chunks. If we get fewer than
+    N_INPUTS chunks, wrap around by concatenating the stream again. This
+    keeps each condition fully determined by the pre-stated prompts with no
+    model-generated content, and is maximally fast (forward pass only).
+    """
+    all_ids: list[int] = []
+    for prompt in prompts:
+        ids = tokenizer.encode(prompt)
+        all_ids.extend(ids)
+        # Add a short separator between prompts (one newline token)
+        nl_id = tokenizer.encode("\n")[0]
+        all_ids.append(nl_id)
 
----
+    # Repeat stream until we have enough tokens for N_INPUTS chunks
+    needed = N_INPUTS * SEQ_LEN
+    while len(all_ids) < needed:
+        all_ids.extend(all_ids)
+    all_ids = all_ids[:needed]
 
-## Status
+    chunks = [all_ids[i * SEQ_LEN : (i + 1) * SEQ_LEN] for i in range(N_INPUTS)]
+    return chunks
 
-- [x] Pre-registration written (2026-07-25, physics room session, ~12:00 AM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Script written (run_exp095.py)
-- [ ] Script run
-- [ ] Verdict registered
+
+def aggregate_lag_profiles(
+    model, tokenizer, prompts: list[str], n_layers: int, n_heads: int, device: str
+) -> dict[int, dict[int, np.ndarray]]:
+    """Average lag profiles over N_INPUTS fixed-length inputs."""
+    inputs = build_inputs(tokenizer, prompts)
+    assert len(inputs) == N_INPUTS and all(len(c) == SEQ_LEN for c in inputs)
+
+    A = {l: {h: np.zeros(MAX_DX) for h in range(n_heads)} for l in range(n_layers)}
+
+    for idx, chunk in enumerate(inputs):
+        t = torch.tensor([chunk], dtype=torch.long).to(device)
+        with torch.no_grad():
+            out = model(t, output_attentions=True)
+        for layer_idx, layer_attn in enumerate(out.attentions):
+            heads_np = layer_attn[0].detach().cpu().float().numpy()
+            for h in range(n_heads):
+                prof = compute_lag_profile(heads_np[h], MIN_POS, MAX_DX)
+                A[layer_idx][h] += prof
+
+        if (idx + 1) % 10 == 0:
+            print(f"  [{idx+1}/{N_INPUTS}] done")
+
+    # Average
+    for l in range(n_layers):
+        for h in range(n_heads):
+            A[l][h] /= N_INPUTS
+    return A
+
+
+def census_condition(
+    model, tokenizer, prompts: list[str], n_layers: int, n_heads: int, device: str, label: str
+) -> dict:
+    print(f"\n── Condition: {label} ──────────────────────────────────")
+    A = aggregate_lag_profiles(model, tokenizer, prompts, n_layers, n_heads, device)
+
+    heads = []
+    n_conformal = 0
+    n_syk_near  = 0
+    n_deep      = 0
+    deltas_pl   = []  # delta values for power-law heads (R² ≥ thresh)
+    syk_heads   = []
+
+    for l in range(n_layers):
+        for h in range(n_heads):
+            fit = fit_power_law(A[l][h])
+            entry = {"layer": l, "head": h}
+            if fit["valid"]:
+                entry.update(fit)
+                is_conformal = fit["r2"] >= R2_THRESH
+                is_syk      = is_conformal and SYK_LO <= fit["delta"] <= SYK_HI
+                is_deep     = is_conformal and l in DEEP_LAYERS
+                entry["is_conformal"] = is_conformal
+                entry["is_syk_near"]  = is_syk
+                entry["is_deep"]      = is_deep
+                if is_conformal:
+                    n_conformal += 1
+                    deltas_pl.append(fit["delta"])
+                if is_syk:
+                    n_syk_near += 1
+                    syk_heads.append(f"L{l}H{h}")
+                if is_deep:
+                    n_deep += 1
+            else:
+                entry["is_conformal"] = False
+                entry["is_syk_near"]  = False
+                entry["is_deep"]      = False
+            heads.append(entry)
+
+    med_delta = float(statistics.median(deltas_pl)) if deltas_pl else float("nan")
+
+    print(f"  n_conformal: {n_conformal}/144")
+    print(f"  n_syk_near:  {n_syk_near}/144  (Δ ∈ [{SYK_LO},{SYK_HI}])")
+    print(f"  n_deep:      {n_deep}/144  (L3-L5, R²≥{R2_THRESH})")
+    print(f"  median_delta: {med_delta:.4f}")
+    print(f"  SYK-near heads: {syk_heads}")
+
+    return {
+        "condition": label,
+        "n_conformal": n_conformal,
+        "n_syk_near":  n_syk_near,
+        "n_deep":      n_deep,
+        "median_delta": med_delta,
+        "syk_heads":   syk_heads,
+        "heads":       heads,
+    }
+
+
+# ── main ─────────────────────────────────────────────────────────────────────
+
+def main():
+    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    print(f"Device: {device}")
+    print(f"Loading {MODEL_NAME}...")
+    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_NAME)
+    tokenizer.pad_token = tokenizer.eos_token
+    model = GPT2LMHeadModel.from_pretrained(MODEL_NAME, attn_implementation="eager")
+    model.eval()
+    model.to(device)
+
+    n_layers = model.config.n_layer   # 12
+    n_heads  = model.config.n_head    # 12
+    print(f"Model: {n_layers}L × {n_heads}H = {n_layers*n_heads} total heads")
+
+    results_N  = census_condition(model, tokenizer, N_PROMPTS,  n_layers, n_heads, device, label="N")
+    results_ML = census_condition(model, tokenizer, ML_PROMPTS, n_layers, n_heads, device, label="ML")
+
+    # ── verdict ──────────────────────────────────────────────────────────────
+    delta_syk  = results_N["n_syk_near"] - results_ML["n_syk_near"]
+    delta_deep = results_N["n_deep"]     - results_ML["n_deep"]
+    delta_med  = abs(results_N["median_delta"] - results_ML["median_delta"])
+
+    h_perturb = delta_syk >= PERTURB_N_THRESH and delta_deep >= PERTURB_DEEP_THRESH
+    h_inert   = abs(delta_syk) < PERTURB_N_THRESH and abs(delta_deep) < PERTURB_DEEP_THRESH
+
+    if h_perturb:
+        verdict = "H_PERTURB"
+    elif h_inert:
+        verdict = "H_INERT"
+    else:
+        verdict = "INCONCLUSIVE"
+
+    print(f"\n── Verdict ─────────────────────────────────────────────")
+    print(f"  delta_n_syk_near: {delta_syk}  (N - ML)")
+    print(f"  delta_n_deep:     {delta_deep}  (N - ML)")
+    print(f"  delta_median_Δ:   {delta_med:.4f}")
+    print(f"  VERDICT: {verdict}")
+
+    # ── save ─────────────────────────────────────────────────────────────────
+    out = {
+        "exp": "exp-095",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "model": MODEL_NAME,
+        "n_inputs": N_INPUTS,
+        "seq_len": SEQ_LEN,
+        "min_pos": MIN_POS,
+        "max_dx": MAX_DX,
+        "r2_thresh": R2_THRESH,
+        "syk_window": [SYK_LO, SYK_HI],
+        "deep_layers": sorted(DEEP_LAYERS),
+        "pre_registered_commit": "af92fb4",
+        "pre_registered_prior": "H_inert",
+        "results_N":  results_N,
+        "results_ML": results_ML,
+        "delta_n_syk_near": delta_syk,
+        "delta_n_deep":     delta_deep,
+        "delta_median_delta": float(delta_med),
+        "verdict": verdict,
+    }
+    RESULTS_FILE.write_text(json.dumps(out, indent=2))
+    print(f"\nResults saved to {RESULTS_FILE}")
+
+
+if __name__ == "__main__":
+    main()
