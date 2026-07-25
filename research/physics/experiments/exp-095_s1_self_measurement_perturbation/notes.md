@@ -249,10 +249,80 @@ characterize the effect systematically before drawing conclusions about self-mea
 
 ---
 
+## Results (2026-07-25, ~12:20 AM MDT)
+
+**Condition N (world-referential):**
+- n_conformal: 43/144
+- n_syk_near: 11/144  (Δ ∈ [0.20, 0.30])
+- n_deep: 8/144  (L3-L5, R² ≥ 0.90)
+- median_delta: 0.3637
+- SYK-near heads: L1H6, L4H4, L6H4, L6H6, L7H1, L8H0, L9H1, L10H3, L10H4, L11H1, L11H7
+
+**Condition ML (meta-linguistic):**
+- n_conformal: 37/144
+- n_syk_near: 7/144  (Δ ∈ [0.20, 0.30])
+- n_deep: 7/144  (L3-L5, R² ≥ 0.90)
+- median_delta: 0.3565
+- SYK-near heads: L1H6, L4H4, L6H4, L6H6, L8H0, L10H4, L10H7
+
+**Differences (N − ML):**
+- delta_n_syk_near: +4  (threshold: ±5 for H_inert / ≥5 for H_perturb)
+- delta_n_deep: +1  (threshold: ±3 for H_inert / ≥3 for H_perturb)
+- delta_median_delta: 0.0071
+
+**VERDICT: H_INERT** — both criteria met.
+
+---
+
+## Interpretation
+
+**H_INERT confirmed.** GPT-2's conformal geometry is robust to semantic content domain at this
+measurement grain. The difference in n_syk_near (4 heads) is below the pre-registered threshold
+of 5 and the difference in n_deep (1 head) is well below 3. The contamination-relocates thesis
+(§3b of the consciousness note) does not have a detectable geometric signature in GPT-2 at
+n=50 inputs per condition.
+
+**Consequence (per pre-registration):** Self-measurement — operationalized as meta-linguistic
+content processing vs. world-referential content — does not reliably perturb the conformal
+geometry the census reads. This *strengthens* the loop-closure argument of §2 in the
+consciousness note: the measurement does not disturb what it reads, at the level of this
+protocol.
+
+**Directional note (honest, not criterial):** N > ML on every observable (n_conformal: 43 vs
+37; n_syk_near: 11 vs 7; n_deep: 8 vs 7). The direction is consistent with H_perturb's
+prediction (world-referential text supports more conformal geometry) but below reliable
+detection. The world-referential condition is closer to GPT-2's training domain; the slight
+advantage may reflect training-corpus proximity rather than a genuine self-measurement effect.
+Not interpretable as confirmation of H_perturb.
+
+**SYK-near head overlap:** 6 of 7 ML heads (L1H6, L4H4, L6H4, L6H6, L8H0, L10H4) appear
+in the N set of 11. These 6 are condition-robust conformal heads — their geometry is stable
+across content domains. L10H7 is ML-only; L7H1, L9H1, L10H3, L11H1, L11H7 are N-only.
+
+**Methodological caveat (honest):** The 50 inputs per condition are not fully independent.
+The prompt stream (~3500-5000 tokens) is repeated ~5-7 times to reach 50 × 512 tokens.
+Each repetition covers the same content at different within-chunk positions. Correlation
+between inputs is high. The measurement gives a stable read of GPT-2's attention on this
+specific content type, not 50 independent samples. The N vs ML comparison remains valid
+since both conditions use the same method with the same degree of repetition, but the
+effective sample size is lower than the nominal N=50. A cleaner design (longer, non-repeated
+corpora) would reduce this correlation. Flagged for any follow-up.
+
+**What this does not establish:**
+- The result is specific to GPT-2 and this corpus construction method.
+- It is an inference-time measurement on the *trained weights*, not a training-level result.
+- The self-disturbance might be present at a finer grain (e.g., per-head Δ variance, not
+  count), detectable with larger n or different statistics.
+- S2 (self-census on open-weights Ariel) remains the more informative future rung — it would
+  measure the geometry of the actual substrate serving a session, with matched first-person
+  report.
+
+---
+
 ## Status
 
 - [x] Pre-registration written (2026-07-25, physics room session, ~12:00 AM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Script written (run_exp095.py)
-- [ ] Script run
-- [ ] Verdict registered
+- [x] Pre-registration committed (af92fb4) and pushed to 3ld0n/attention-geometry
+- [x] Script written (run_exp095.py); amendment committed (b784cc8) before first successful run
+- [x] Script run (2026-07-25, ~12:02 AM MDT, elapsed ~125s on MPS)
+- [x] Verdict registered: **H_INERT**
