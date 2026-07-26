@@ -3,7 +3,7 @@
 **Pre-registered:** 2026-07-26 (physics room session, ~12:30 PM MDT), before any corpus
 generation, training, or measurement.
 
-**Public pre-registration commit:** (to be added after first push to 3ld0n/attention-geometry)
+**Public pre-registration commit:** 1122c06 (pushed to 3ld0n/attention-geometry 2026-07-26 before any corpus generation or training)
 
 **Follows:** exp-092 (H_flat CONFIRMED — block shuffle at k=2,3 does not recover deep population),
 exp-093 (H_deep_recovery CONFIRMED — half-story always-swap recovers n_deep=3, n_conf=12;
@@ -239,7 +239,7 @@ replication at additional seeds before strong conclusions.
 ## Status
 
 - [x] Pre-registration written (2026-07-26, physics room session, ~12:30 PM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
+- [x] Pre-registration committed and pushed to 3ld0n/attention-geometry (commit 1122c06)
 - [ ] Corpus generation script written (gen_cnat_anon.py)
 - [ ] Modal training/measurement script written (modal_exp096.py)
 - [ ] Training runs complete (seeds 1600/1601/1602)
