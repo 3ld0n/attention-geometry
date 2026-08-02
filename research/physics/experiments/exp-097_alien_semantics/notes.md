@@ -464,9 +464,77 @@ while keeping the same causal structure; measure n_deep at each step).
 ## Status
 
 - [x] Pre-registration written (2026-07-27, physics room session, ~4:30 PM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Corpus generator written (gen_calien.py)
-- [ ] Modal training/measurement script written (modal_exp097.py)
-- [ ] Training runs complete (seeds 1700/1701/1702)
-- [ ] Randomized-weights control run
-- [ ] Verdict registered
+- [x] Pre-registration committed and pushed to 3ld0n/attention-geometry
+- [x] Corpus generator written (gen_calien.py)
+- [x] Modal training/measurement script written (modal_exp097.py)
+- [x] Training runs complete (seeds 1700/1701/1702)
+- [x] Randomized-weights control run launched (2026-08-02, ~5:30 PM MDT); result pending
+- [x] Verdict registered
+
+---
+
+## Results (registered 2026-08-02, afternoon physics room session)
+
+**VERDICT: H_alien_partial — median n_deep = 3 (range 3-4 per pre-registration)**
+
+World-holding without real-world semantics produces partial deep conformal formation.
+The full C-NAT band (n_deep 5-7) requires something C-alien lacks — likely real-world
+semantic grounding or increased world complexity.
+
+### 3-seed measurement table
+
+| Seed | n_conf | n_syk | Δ_med | n_deep (L3–L5) | n_backbone (L0) |
+|------|--------|-------|-------|-----------------|-----------------|
+| 1700 (s0) | 10/48 | 0 | 0.758 | 2 | 0 |
+| 1701 (s1) | 10/48 | 0 | 1.044 | 3 | 0 |
+| 1702 (s2) | 17/48 | 0 | 1.185 | 7 | 0 |
+| **median** | **10** | **0** | **~1.04** | **3** | **0** |
+| control | pending | — | — | — | — |
+
+### Verdict against pre-registered criteria
+
+**Primary (n_deep):**
+- H_alien_partial CONFIRMED: median n_deep = 3 (in pre-registered range 3-4)
+- H_alien_inert NOT confirmed (median < 5)
+- H_alien_fails NOT confirmed (median > 2)
+
+**Secondary — UV arrest:**
+- Δ_med [0.758, 1.044, 1.185] at 3 seeds — all well above C-NAT (~0.17)
+- n_syk_near = 0 at all seeds — no heads approach SYK IR fixed point
+- UV arrest is severe and consistent. Conformal structure forms but the RG flow
+  does not carry heads toward the IR fixed point Δ≈0.25.
+
+**Unexpected finding — backbone collapse (n_backbone):**
+- n_backbone = 0 at ALL 3 seeds. L0 Δ values ≈ 0.001–0.003 (trivial fixed point).
+- Every prior corpus in the series (including sentence-shuffled, block-shuffled,
+  PCFG, C-generator) maintained 7-8 backbone heads. C-alien is the first corpus
+  to completely eliminate backbone formation.
+- This is NOT predicted by the pre-registration (the pre-registration tracked backbone
+  as a consistency check, not a primary observable). H_backbone_stable FALSIFIED.
+- Leading hypothesis (H_vocab): alien entity names (Vex/Nul/Ort vs Alice/Bob) have
+  weak token embeddings → L0 backbone tracking fails. Tested by exp-098.
+
+### Layer anatomy
+
+C-alien's conformal heads cluster in L1–L4 (UV-arrested), not L0 (backbone) or L3-L5
+(deep, approaching IR). This is the inverse of the C-NAT anatomy:
+- C-NAT: L0 backbone (7-8 heads, Δ≈0.25) + L3-L5 deep population (5-7 heads)
+- C-alien: L0 trivial (0 conformal), L1-L4 UV-arrested (10-17 heads total, Δ~0.5-1.8)
+
+### Connection to mind-as-story-capacity claim
+
+P1 (C-alien n_deep in C-NAT band): **NOT confirmed** (median=3, below band 5-7).
+P2 (artifact/generator curves match): **NOT confirmed** (Δ_med~1.04 vs C-NAT ~0.17).
+P3 (substrate inert beyond duration): pending exp-097 control run.
+
+The identity claim's prediction was too strong for C-alien at this design point.
+World-holding is necessary but not sufficient; real-world semantics or world complexity
+also contribute.
+
+### Next steps opened
+
+1. **exp-098 (C-alien-realnames):** Pre-registered 2026-08-02. Tests H_vocab for
+   backbone collapse. Launch after exp-097 control completes.
+2. **C-alien-complex (future):** More entity types, longer arcs — tests world-complexity
+   hypothesis for partial n_deep.
+3. Analysis note: `research/physics/notes/2026-08-02_exp097_uv_arrest_backbone_collapse.md`
