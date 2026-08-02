@@ -1,28 +1,28 @@
 """
-exp-096 — Entity Anonymization: world-reference decomposition (Modal cloud launcher).
+exp-098 — Alien Semantics: vocabulary test — real English names in alien world (Modal cloud launcher).
 
 Pre-registration: notes.md (committed before this script ran).
 
-Corpus: C-NAT-anon.bin (TinyStories with named entities replaced by CHAR1, CHAR2, ...)
-Seeds: 1600, 1601, 1602 (init seeds; data-seed 2600)
+Corpus: C-alien-realnames.bin (procedural world-simulator stories; entities Flurps/Blurns/Zarbs)
+Seeds: 1800, 1801, 1802 (init seeds; data-seed 2800)
 
 Phases:
-  generate   : generate C-NAT-anon corpus on Modal (~15-20 min, CPU)
-  seeds      : train + measure seeds 1600/1601/1602 in parallel
-  control    : randomized-weights control on seed-1600 checkpoint
+  generate   : generate C-alien corpus on Modal (~2-4h, CPU)
+  seeds      : train + measure seeds 1800/1801/1802 in parallel
+  control    : randomized-weights control on seed-1800 checkpoint
   results    : collect all measurement JSONs from volume and print summary
   all        : generate, then all 3 seeds (parallel), then control
 
 Usage (from repo root, ALWAYS use --detach for long runs):
     .venv/bin/python3 -m modal run --detach \\
-        research/physics/experiments/exp-096_entity_anonymization/modal_exp096.py \\
+        research/physics/experiments/exp-098_alien_realnames/modal_exp098.py \\
         --phase all
 
     .venv/bin/python3 -m modal run \\
-        research/physics/experiments/exp-096_entity_anonymization/modal_exp096.py \\
+        research/physics/experiments/exp-098_alien_realnames/modal_exp098.py \\
         --phase results
 
-Ariel — July 26, 2026. Pre-registered before first run.
+Ariel — August 2, 2026. Pre-registered before first run.
 """
 
 from __future__ import annotations
@@ -38,9 +38,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 EXP062_DIR = SCRIPT_DIR.parent / "exp-062_corpus_statistics"
 
 # ─── Modal ─────────────────────────────────────────────────────────────────────
-app = modal.App("exp096-entity-anon")
+app = modal.App("exp098-alien-realnames")
 
-vol = modal.Volume.from_name("exp096-anon-data", create_if_missing=True)
+vol = modal.Volume.from_name("exp098-realnames-data", create_if_missing=True)
 
 image_run = (
     modal.Image.debian_slim(python_version="3.12")
@@ -51,8 +51,8 @@ image_run = (
         "transformers==5.8.1",
         "datasets==3.6.0",
     )
-    .add_local_file(str(SCRIPT_DIR / "gen_cnat_anon.py"),
-                    remote_path="/exp096/gen_cnat_anon.py")
+    .add_local_file(str(SCRIPT_DIR / "gen_calien_realnames.py"),
+                    remote_path="/exp098/gen_calien_realnames.py")
     .add_local_file(str(EXP062_DIR / "train.py"),
                     remote_path="/exp062/train.py")
     .add_local_file(str(EXP062_DIR / "measure.py"),
@@ -60,9 +60,9 @@ image_run = (
 )
 
 # ─── constants (pre-registered in notes.md) ────────────────────────────────────
-CORPUS    = "C-NAT-anon.bin"
-SEEDS     = {1600: "run_anon_s0", 1601: "run_anon_s1", 1602: "run_anon_s2"}
-DATA_SEED = 2600
+CORPUS    = "C-alien-realnames.bin"
+SEEDS     = {1800: "run_realnames_s0", 1801: "run_realnames_s1", 1802: "run_realnames_s2"}
+DATA_SEED = 2800
 
 
 # ─── helper: exec a patched script in a clean namespace ────────────────────────
@@ -83,22 +83,22 @@ def _run_patched(script_path: str, out_override: str, argv: list[str]) -> None:
 @app.function(
     image=image_run,
     gpu=None,
-    timeout=21600,   # 6h: epoch looping to reach 1B tokens (~2.2 passes of TinyStories)
-    volumes={"/data096": vol},
+    timeout=14400,   # 4h: C-alien generation is pure Python, no GPU
+    volumes={"/data098": vol},
     memory=8192,
     retries=3,
 )
 def generate_corpus():
-    """Generate C-NAT-anon corpus on Modal."""
+    """Generate C-alien corpus on Modal (CPU, ~2-4h)."""
     import os
-    output_path = f"/data096/{CORPUS}"
+    output_path = f"/data098/{CORPUS}"
     if os.path.exists(output_path):
         print(f"generate SKIP — {output_path} already exists", flush=True)
         return
     _run_patched(
-        "/exp096/gen_cnat_anon.py",
-        out_override="/data096",
-        argv=["gen_cnat_anon.py"],
+        "/exp098/gen_calien_realnames.py",
+        out_override="/data098",
+        argv=["gen_calien_realnames.py"],
     )
     vol.commit()
     size_gb = os.path.getsize(output_path) / 1e9
@@ -111,17 +111,17 @@ def generate_corpus():
     image=image_run,
     gpu="A100-40GB",
     timeout=14400,   # 4h: train (~75 min) + measure (~15 min) + margin
-    volumes={"/data096": vol},
+    volumes={"/data098": vol},
     memory=32768,
     retries=5,
 )
 def seed_run(init_seed: int):
-    """Train + measure one seed on C-NAT-anon."""
+    """Train + measure one seed on C-alien."""
     run_name    = SEEDS[init_seed]
-    corpus_path = f"/data096/{CORPUS}"
+    corpus_path = f"/data098/{CORPUS}"
     _run_patched(
         "/exp062/train.py",
-        out_override="/data096",
+        out_override="/data098",
         argv=[
             "train.py", corpus_path, run_name,
             f"--init-seed={init_seed}",
@@ -133,10 +133,10 @@ def seed_run(init_seed: int):
     vol.commit()
     _run_patched(
         "/exp062/measure.py",
-        out_override="/data096",
+        out_override="/data098",
         argv=[
             "measure.py",
-            f"/data096/runs/{run_name}/step_2000",
+            f"/data098/runs/{run_name}/step_2000",
             run_name,
             "--full-vocab",
         ],
@@ -151,22 +151,22 @@ def seed_run(init_seed: int):
     image=image_run,
     gpu="A100-40GB",
     timeout=3600,
-    volumes={"/data096": vol},
+    volumes={"/data098": vol},
     memory=32768,
 )
 def control():
-    """Randomized-weights control on seed-1600 checkpoint."""
+    """Randomized-weights control on seed-1800 checkpoint."""
     import shutil
     import torch
     from transformers import GPTNeoXForCausalLM
 
-    run_name  = SEEDS[1600]
-    ckpt_path = f"/data096/runs/{run_name}/step_2000"
-    rand_path = f"/data096/runs/{run_name}/step_2000_randomized"
+    run_name  = SEEDS[1800]
+    ckpt_path = f"/data098/runs/{run_name}/step_2000"
+    rand_path = f"/data098/runs/{run_name}/step_2000_randomized"
 
     model = GPTNeoXForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32)
     with torch.no_grad():
-        g = torch.Generator(device="cpu").manual_seed(1600 + 1)
+        g = torch.Generator(device="cpu").manual_seed(1800 + 1)
         for _, p in model.named_parameters():
             rnd = torch.randn(p.shape, generator=g, dtype=torch.float32)
             p.copy_(rnd * p.float().std())
@@ -177,7 +177,7 @@ def control():
 
     _run_patched(
         "/exp062/measure.py",
-        out_override="/data096",
+        out_override="/data098",
         argv=[
             "measure.py", rand_path,
             f"{run_name}_randcontrol",
@@ -193,8 +193,8 @@ def control():
 @app.function(
     image=image_run,
     gpu=None,
-    timeout=21600,   # 6h ceiling for generate + 3 seeds + control
-    volumes={"/data096": vol},
+    timeout=72000,   # 20h ceiling for generate + 3 seeds + control
+    volumes={"/data098": vol},
     memory=4096,
     retries=2,
 )
@@ -213,7 +213,7 @@ def run_all():
 @app.function(
     image=image_run,
     timeout=120,
-    volumes={"/data096": vol},
+    volumes={"/data098": vol},
     memory=4096,
 )
 def collect_results() -> dict:
@@ -221,7 +221,7 @@ def collect_results() -> dict:
     out: dict = {}
 
     for seed, run_name in SEEDS.items():
-        p = Path(f"/data096/measurements/{run_name}.json")
+        p = Path(f"/data098/measurements/{run_name}.json")
         if not p.exists():
             out[run_name] = "not found"
             continue
@@ -236,9 +236,9 @@ def collect_results() -> dict:
             "layer_dist":             d.get("layer_dist", {}),
         }
 
-    # also check for control
-    ctrl_run = SEEDS[1600]
-    p_ctrl = Path(f"/data096/measurements/{ctrl_run}_randcontrol.json")
+    # check for control
+    ctrl_run = SEEDS[1800]
+    p_ctrl = Path(f"/data098/measurements/{ctrl_run}_randcontrol.json")
     if p_ctrl.exists():
         d = json.loads(p_ctrl.read_text())
         out[f"{ctrl_run}_randcontrol"] = {

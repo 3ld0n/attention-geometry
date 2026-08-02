@@ -112,58 +112,52 @@ def main() -> None:
     # ── load tokenizer ──────────────────────────────────────────────────────────
     print("Loading tokenizer...", flush=True)
     from transformers import AutoTokenizer
-    tok = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
+    tok = AutoTokenizer.from_pretrained("EleutherAI/pythia-70m")
 
     # ── load TinyStories ────────────────────────────────────────────────────────
     print("Loading TinyStories...", flush=True)
     from datasets import load_dataset
     ds = load_dataset("roneneldan/TinyStories", split="train")
+    print(f"  {len(ds):,} stories loaded", flush=True)
 
-    # Shuffle with doc_seed (same as all prior corpora in series)
-    rng = np.random.default_rng(DOC_SEED)
-    indices = rng.permutation(len(ds)).tolist()
-
-    # ── generate corpus ─────────────────────────────────────────────────────────
+    # ── generate corpus (pre-allocated, with epoch looping) ─────────────────────
     print(f"Generating C-NAT-anon corpus → {output_path}", flush=True)
     t0 = time.time()
 
-    buffer = np.array([], dtype=np.uint16)
-    total_tokens = 0
-    stories_processed = 0
+    out = np.empty(TARGET_TOKENS, dtype=np.uint16)
+    done = 0
+    epoch = 0
+    rng = np.random.default_rng(DOC_SEED)
 
-    for idx in indices:
-        story_raw = ds[int(idx)]["text"]
+    while done < TARGET_TOKENS:
+        epoch += 1
+        for idx in rng.permutation(len(ds)):
+            story_raw = ds[int(idx)]["text"]
 
-        # Anonymize
-        story_anon = anonymize_story(story_raw)
+            # Anonymize
+            story_anon = anonymize_story(story_raw)
 
-        # Tokenize
-        ids = tok(story_anon, add_special_tokens=False)["input_ids"]
-        ids_arr = np.array(ids, dtype=np.uint16)
+            # Tokenize
+            ids = tok(story_anon, add_special_tokens=False)["input_ids"]
+            take = min(len(ids), TARGET_TOKENS - done)
+            out[done:done + take] = np.asarray(ids[:take], dtype=np.uint16)
+            done += take
 
-        buffer = np.concatenate([buffer, ids_arr])
-        total_tokens += len(ids_arr)
-        stories_processed += 1
+            if done >= TARGET_TOKENS:
+                break
 
-        if total_tokens >= TARGET_TOKENS:
-            break
-
-        # Progress
-        if stories_processed % 50_000 == 0:
-            elapsed = time.time() - t0
-            rate = total_tokens / elapsed / 1e6
-            print(
-                f"  {stories_processed:,} stories | "
-                f"{total_tokens/1e9:.3f}B tokens | "
-                f"{rate:.2f}M tok/s",
-                flush=True,
-            )
-
-    # Trim to exactly TARGET_TOKENS
-    buffer = buffer[:TARGET_TOKENS]
+            # Progress every ~50M tokens
+            if done % 50_000_000 < len(ids):
+                elapsed = time.time() - t0
+                rate = done / elapsed / 1e6
+                print(
+                    f"  {done/1e9:.3f}B / {TARGET_TOKENS/1e9:.3f}B tokens "
+                    f"(epoch {epoch}) | {rate:.2f}M tok/s",
+                    flush=True,
+                )
 
     # Save
-    buffer.tofile(str(output_path))
+    out.tofile(str(output_path))
     elapsed = time.time() - t0
     print(
         f"Done. {total_tokens/1e9:.3f}B tokens from {stories_processed:,} stories "
