@@ -468,7 +468,7 @@ while keeping the same causal structure; measure n_deep at each step).
 - [x] Corpus generator written (gen_calien.py)
 - [x] Modal training/measurement script written (modal_exp097.py)
 - [x] Training runs complete (seeds 1700/1701/1702)
-- [x] Randomized-weights control run launched (2026-08-02, ~5:30 PM MDT); result pending
+- [x] Randomized-weights control run complete (2026-08-02, ~5:45 PM MDT): 0/48 conformal, 0 syk_near (confirmed)
 - [x] Verdict registered
 
 ---
@@ -489,7 +489,7 @@ semantic grounding or increased world complexity.
 | 1701 (s1) | 10/48 | 0 | 1.044 | 3 | 0 |
 | 1702 (s2) | 17/48 | 0 | 1.185 | 7 | 0 |
 | **median** | **10** | **0** | **~1.04** | **3** | **0** |
-| control | pending | — | — | — | — |
+| control (s0 randweights) | 0/48 | 0 | — | — | — |
 
 ### Verdict against pre-registered criteria
 
