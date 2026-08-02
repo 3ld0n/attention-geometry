@@ -206,9 +206,27 @@ test the always-swap confound, and/or entity-anonymization to test world-referen
 ## Status
 
 - [x] Pre-registration written (2026-07-23, physics room session, ~10:30 AM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Corpus generation script written (gen_cnat_quarter.py)
-- [ ] Modal training/measurement script written (modal_exp094.py)
-- [ ] Training runs complete (seeds 1500/1501/1502)
-- [ ] Randomized-weights control run
-- [ ] Verdict registered
+- [x] Pre-registration committed and pushed to 3ld0n/attention-geometry
+- [x] Corpus generation script written (gen_cnat_quarter.py)
+- [x] Modal training/measurement script written (modal_exp094.py)
+- [x] Training runs complete (seeds 1500/1501/1502) — completed 2026-08-01
+- [x] Randomized-weights control run — 0/48 conformal (2026-08-02 ~12:25 PM MDT)
+- [x] Verdict registered — H_quarter_below CONFIRMED (2026-08-02)
+
+## Registered verdict
+
+**H_quarter_below CONFIRMED.** Median n_deep = 1 (seeds: [1, 3, 1]). Quarter-story blocks do not recover the deep conformal population above the shuffled baseline. The minimum chunk length for partial recovery is localized between ~2 sentences (quarter-story) and ~4–5 sentences (half-story, exp-093). Story-structural boundaries at the quarter scale do not compensate for short chunk length.
+
+**H_backbone_stable CONFIRMED.** Median n_backbone (L0) = 7, consistent with all prior shuffled/blocked conditions.
+
+**Control:** 0/48 conformal (randomized weights, seed 1500 checkpoint). Consistent with all prior controls in this series.
+
+Per-seed results:
+| Seed | n_conf | n_syk | Δ_med | n_deep | n_backbone | layer_dist |
+|------|--------|-------|-------|--------|------------|------------|
+| 1500 (s0) | 10/48 | 1 | 0.188 | 1 | 7 | {0:7, 2:2, 4:1} |
+| 1501 (s1) | 11/48 | 0 | 0.146 | 3 | 7 | {0:7, 1:1, 4:3} |
+| 1502 (s2) | 9/48  | 1 | 0.152 | 1 | 8 | {0:8, 4:1} |
+| control  | 0/48  | 0 | — | — | — | — |
+
+Full analysis: `notes/2026-08-02_exp094_verdict_exp097_preliminary.md`

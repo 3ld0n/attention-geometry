@@ -253,7 +253,7 @@ def collect_results() -> dict:
 
 @app.local_entrypoint()
 def main(phase: str = "all"):
-    valid = {"generate", "seeds", "control", "results", "all"}
+    valid = {"generate", "seeds", "seed_s0", "control", "results", "all"}
     if phase not in valid:
         print(f"phase must be one of: {valid}")
         raise SystemExit(1)
@@ -268,6 +268,11 @@ def main(phase: str = "all"):
     elif phase == "seeds":
         handles = [seed_run.spawn(s) for s in sorted(SEEDS)]
         print(f"Spawned seeds: {[h.object_id for h in handles]}")
+
+    elif phase == "seed_s0":
+        # Re-run seed 1700 only (resumes from latest checkpoint, step_1536 → step_2000)
+        h = seed_run.spawn(1700)
+        print(f"seed_s0 handle: {h.object_id}")
 
     elif phase == "control":
         control.remote()
