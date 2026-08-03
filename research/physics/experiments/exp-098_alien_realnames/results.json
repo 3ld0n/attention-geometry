@@ -1,0 +1,67 @@
+{
+  "experiment": "exp-098",
+  "description": "C-alien-realnames: vocabulary test for backbone collapse",
+  "date": "2026-08-02",
+  "seeds": {
+    "s0": {
+      "init_seed": 1800,
+      "n_conformal": 12,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.7268495399435807,
+      "n_deep_L3_L5": 7,
+      "n_backbone_L0": 0,
+      "layer_distribution": {
+        "1": 4,
+        "2": 1,
+        "3": 4,
+        "4": 3
+      }
+    },
+    "s1": {
+      "init_seed": 1801,
+      "n_conformal": 12,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.845332094463711,
+      "n_deep_L3_L5": 4,
+      "n_backbone_L0": 0,
+      "layer_distribution": {
+        "1": 5,
+        "2": 3,
+        "3": 3,
+        "5": 1
+      }
+    },
+    "s2": {
+      "init_seed": 1802,
+      "n_conformal": 10,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.6089231147951921,
+      "n_deep_L3_L5": 4,
+      "n_backbone_L0": 0,
+      "layer_distribution": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 1
+      }
+    }
+  },
+  "medians": {
+    "n_conformal": 12,
+    "n_syk_near": 0,
+    "delta_median": 0.7268495399435807,
+    "n_deep_L3_L5": 4,
+    "n_backbone_L0": 0
+  },
+  "control": {
+    "n_conformal": 0,
+    "n_syk_near": 0,
+    "note": "randomized weights on seed-1800 checkpoint"
+  },
+  "verdict": {
+    "primary": "H_backbone_absent CONFIRMED (median n_backbone=0 at all 3 seeds)",
+    "secondary_uv": "H_uv_unchanged PARTIAL (delta_med=0.727, below exp-097 median 1.04 but well above C-NAT ~0.17; UV arrest continues)",
+    "tertiary_deep": "H_deep_partial CONFIRMED (median n_deep=4, values [7,4,4])",
+    "h_vocab": "FALSIFIED: real English names do not restore backbone formation"
+  }
+}
