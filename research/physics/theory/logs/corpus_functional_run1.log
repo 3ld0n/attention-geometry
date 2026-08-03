@@ -1,0 +1,109 @@
+
+=== C-NAT (TinyStories valid)  (2000 contexts of 512 words) ===
+  per-context: R_PR=8.1  W=R_PR/n=0.0157  m1=0.0190  m2=0.000052
+  KCA Class III prediction from W: Delta_deep = 0.4924
+     l     PR(l)  PR/(n-l)   mean_var
+     1     293.2    0.5738     0.0013
+     2     374.6    0.7345     0.0069
+     4     380.5    0.7491     0.0140
+     8     380.2    0.7543     0.0189
+    16     377.4    0.7609     0.0212
+    32     366.5    0.7635     0.0207
+    64     350.0    0.7813     0.0189
+   128     308.0    0.8021     0.0172
+   256     219.0    0.8554     0.0158
+
+=== C-NAT-shuf (sentence shuffle)  (2000 contexts of 512 words) ===
+  per-context: R_PR=8.0  W=R_PR/n=0.0157  m1=0.0190  m2=0.000052
+  KCA Class III prediction from W: Delta_deep = 0.4924
+     l     PR(l)  PR/(n-l)   mean_var
+     1     293.7    0.5747     0.0013
+     2     371.2    0.7278     0.0063
+     4     385.9    0.7597     0.0127
+     8     383.5    0.7610     0.0183
+    16     378.4    0.7629     0.0207
+    32     367.4    0.7653     0.0199
+    64     349.0    0.7790     0.0191
+   128     308.9    0.8044     0.0169
+   256     218.4    0.8531     0.0160
+
+=== C-alien (exp-097 generator)  (2000 contexts of 512 words) ===
+  per-context: R_PR=5.8  W=R_PR/n=0.0113  m1=0.0425  m2=0.000316
+  KCA Class III prediction from W: Delta_deep = 0.4945
+     l     PR(l)  PR/(n-l)   mean_var
+     1     294.3    0.5760     0.0027
+     2     185.8    0.3643     0.0038
+     4     345.1    0.6793     0.0370
+     8     371.1    0.7363     0.0162
+    16     321.2    0.6476     0.0486
+    32     278.7    0.5807     0.0429
+    64     275.6    0.6152     0.0410
+   128     217.7    0.5668     0.0425
+   256     163.8    0.6400     0.0407
+
+=== rung-B cast4 stoch p=0.7 (steps 8)  (2000 contexts of 512 words) ===
+  per-context: R_PR=5.7  W=R_PR/n=0.0111  m1=0.0419  m2=0.000312
+  KCA Class III prediction from W: Delta_deep = 0.4946
+     l     PR(l)  PR/(n-l)   mean_var
+     1     292.2    0.5719     0.0027
+     2     189.5    0.3716     0.0037
+     4     348.2    0.6855     0.0342
+     8     367.7    0.7295     0.0144
+    16     308.6    0.6222     0.0502
+    32     281.0    0.5855     0.0425
+    64     275.3    0.6144     0.0399
+   128     222.0    0.5781     0.0410
+   256     163.9    0.6402     0.0407
+
+=== rung-C cast8 determ (steps 16)  (2000 contexts of 512 words) ===
+  per-context: R_PR=6.0  W=R_PR/n=0.0116  m1=0.0424  m2=0.000306
+  KCA Class III prediction from W: Delta_deep = 0.4943
+     l     PR(l)  PR/(n-l)   mean_var
+     1     296.5    0.5802     0.0025
+     2     177.4    0.3478     0.0037
+     4     340.3    0.6700     0.0394
+     8     373.4    0.7408     0.0156
+    16     334.9    0.6752     0.0442
+    32     255.7    0.5327     0.0448
+    64     260.0    0.5804     0.0410
+   128     228.0    0.5938     0.0413
+   256     161.2    0.6298     0.0402
+
+=== rung-D cast8 stoch p=0.7 (steps 16)  (2000 contexts of 512 words) ===
+  per-context: R_PR=6.0  W=R_PR/n=0.0117  m1=0.0419  m2=0.000297
+  KCA Class III prediction from W: Delta_deep = 0.4943
+     l     PR(l)  PR/(n-l)   mean_var
+     1     291.7    0.5709     0.0024
+     2     183.7    0.3603     0.0035
+     4     343.9    0.6769     0.0353
+     8     372.0    0.7381     0.0131
+    16     332.3    0.6700     0.0456
+    32     255.9    0.5330     0.0436
+    64     259.0    0.5782     0.0404
+   128     229.7    0.5982     0.0407
+   256     160.7    0.6277     0.0401
+
+=== rung-E cast12 stoch p=0.7 (steps 24)  (2000 contexts of 512 words) ===
+  per-context: R_PR=6.0  W=R_PR/n=0.0118  m1=0.0420  m2=0.000295
+  KCA Class III prediction from W: Delta_deep = 0.4942
+     l     PR(l)  PR/(n-l)   mean_var
+     1     290.6    0.5686     0.0024
+     2     182.7    0.3582     0.0034
+     4     342.7    0.6745     0.0358
+     8     372.7    0.7395     0.0128
+    16     334.5    0.6744     0.0452
+    32     254.4    0.5299     0.0430
+    64     255.1    0.5694     0.0409
+   128     222.4    0.5790     0.0409
+   256     149.9    0.5855     0.0411
+
+
+===== SUMMARY =====
+corpus                                        W Delta_pred  m2 (coupling)  F2 PR@64  F2 var@64
+C-NAT (TinyStories valid)                0.0157     0.4924       0.000052     350.0     0.0189
+C-NAT-shuf (sentence shuffle)            0.0157     0.4924       0.000052     349.0     0.0191
+C-alien (exp-097 generator)              0.0113     0.4945       0.000316     275.6     0.0410
+rung-B cast4 stoch p=0.7 (steps 8)       0.0111     0.4946       0.000312     275.3     0.0399
+rung-C cast8 determ (steps 16)           0.0116     0.4943       0.000306     260.0     0.0410
+rung-D cast8 stoch p=0.7 (steps 16)      0.0117     0.4943       0.000297     259.0     0.0404
+rung-E cast12 stoch p=0.7 (steps 24)     0.0118     0.4942       0.000295     255.1     0.0409

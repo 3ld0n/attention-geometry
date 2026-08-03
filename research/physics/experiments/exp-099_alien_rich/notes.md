@@ -248,6 +248,50 @@ If mean_rank(C-alien) ~ mean_rank(C-NAT): an alternative mechanism must explain 
 
 ---
 
+## Theory addendum — magnitude-gate prediction (2026-08-03, ~2:00 AM MDT)
+
+*Appended after the pre-registration above, before any corpus generation or
+training. The registered hypotheses above are untouched; this records a
+competing quantitative prediction from the finished theory session, so the
+experiment discriminates between two operationalizations of the same frame.*
+
+The pre-registration cites the melonic-threshold derivation as it stood
+mid-session (the rank/state-space reading: R_eff bounded by S). The finished
+note (`notes/2026-08-03_melonic_threshold_derivation.md` §6–§7) adds
+declared-discipline numerics that shift the emphasis: in the computable
+(IDF-weighted) proxy, the corpus functional that actually separates
+TinyStories from C-alien is the **coupling-magnitude gate**
+m₂ ∝ Tr[(KδK)²]/n⁴ (18× separation), not the rank/chaos gate (which barely
+moves). Provisional rungs spanning cast 4–12, stochasticity p=0.7, and longer
+episodes — bracketing this design — leave m₂ flat (0.68–0.78 vs TinyStories'
+13.2), because none of those axes enrich the *surface language* (template
+count / per-word surprisal).
+
+**Magnitude-gate prediction for THIS design (P-1 of the derivation note §7):**
+C-alien-rich stays UV-arrested — Δ_med ≥ 0.6, n_deep ≤ 4 (no improvement
+beyond exp-098), n_backbone ≈ 0. That assigns H_rich_above_window
+substantially *lower* probability (~5–10%) than the registered ~25%, and is
+more pessimistic than the registered 80% dose-response prior: even the
+Δ_med < 0.727 improvement is expected to be marginal at best, since the new
+templates for Glorf/Krelp and the "surprisingly/as expected" markers add only
+a small increment of surface-language richness.
+
+**Discrimination:** if exp-099 arrives (or shows strong dose-response), the
+S-rank reading wins and the magnitude-gate emphasis of the proxy numerics is
+wrong (or the one-hot/IDF proxy is too crude — exp-100's direct W_QK rank
+measurement then adjudicates). If it stays arrested at exp-098 levels, the
+magnitude gate wins and the next rung should enrich surface language at fixed
+S (more templates, larger vocabulary, freer phrasing) — the derivation note's
+P-2 pipeline: compute m₂ of the actual generated corpus *before* training via
+`research/physics/theory/corpus_functional.py` and register the number.
+
+(Pointer fix: the exp-100 protocol reference above says derivation note §6;
+in the finished note the numerics are §6, the exp-099 predictions §7, and the
+W_QK rank measurement is described in the physics inbox item and here, not in
+§6.)
+
+---
+
 ## Status
 
 - [x] Pre-registration written (2026-08-03, ~1:30 AM MDT)
