@@ -240,8 +240,51 @@ replication at additional seeds before strong conclusions.
 
 - [x] Pre-registration written (2026-07-26, physics room session, ~12:30 PM MDT)
 - [x] Pre-registration committed and pushed to 3ld0n/attention-geometry (commit 1122c06)
-- [ ] Corpus generation script written (gen_cnat_anon.py)
-- [ ] Modal training/measurement script written (modal_exp096.py)
-- [ ] Training runs complete (seeds 1600/1601/1602)
-- [ ] Randomized-weights control run
-- [ ] Verdict registered
+- [x] Corpus generation script written (gen_cnat_anon.py)
+- [x] Modal training/measurement script written (modal_exp096.py)
+- [x] Training runs complete (seeds 1600/1601/1602; s0 relaunched 2026-08-02 8:33 PM MDT
+      after generation bug fix, completed 2026-08-03 03:39 UTC)
+- [ ] Randomized-weights control run — **still outstanding** (expected 0/48, consistent
+      with every prior control in the series; verdict below is registered with this flagged)
+- [x] Verdict registered (2026-08-03, ~12:30 AM MDT, theory session — s0 collected on arrival)
+
+---
+
+## Results (registered 2026-08-03, ~12:30 AM MDT)
+
+**VERDICT: H_anon_partial — median n_deep = 4 (pre-registered range 3–4)**
+
+Cross-story entity grounding contributes but is not dominant. Removing name identity
+from full-arc natural text costs 1–3 deep heads relative to C-NAT (5–7) while
+preserving backbone and Δ_med.
+
+### 3-seed measurement table
+
+| Seed | n_conf | n_syk | Δ_med | n_deep (L3–L5) | n_backbone (L0) | layer_dist |
+|------|--------|-------|-------|-----------------|-----------------|------------|
+| 1600 (s0) | 14/48 | 0 | 0.382 | 5 | 7 | {0:7, 1:2, 3:2, 4:2, 5:1} |
+| 1601 (s1) | 14/48 | 0 | 0.139 | 4 | 8 | {0:8, 1:1, 2:1, 3:2, 4:1, 5:1} |
+| 1602 (s2) | 13/48 | 0 | 0.149 | 4 | 7 | {0:7, 1:1, 2:1, 3:2, 4:1, 5:1} |
+| **median** | **14** | **0** | **0.149** | **4** | **7** | — |
+
+### Verdict against pre-registered criteria
+
+- **H_anon_partial CONFIRMED**: median n_deep = 4 (in range 3–4)
+- H_anon_inert NOT confirmed (median < 5); H_anon_strong NOT confirmed (median > 2)
+- **H_backbone_stable**: CONFIRMED — n_backbone = 7 (median), unchanged from C-NAT's 7–8.
+  Sharp contrast with exp-097/098 (backbone collapse to 0): anonymization of a *real*
+  world preserves the backbone; an alien world destroys it even with real names.
+- **H_conf_preserved**: CONFIRMED — n_conf median 14, within the C-NAT range 11–15.
+
+### Note on s0's elevated Δ_med
+
+s0 shows Δ_med = 0.382 vs. 0.139/0.149 at s1/s2 — driven by its deep heads sitting at
+higher Δ (0.61–1.20). Median across seeds (0.149) is C-NAT-like. Seed-level variance in
+Δ_med is consistent with what exp-097 showed (0.758–1.185); flagged, not interpreted.
+
+### Placement in the series (see exp-098 note for the two-axis table)
+
+C-NAT-anon sits between C-NAT-half and C-NAT on the ordering axis while keeping the
+semantics axis intact: n_deep = 4, backbone 7–8, Δ_med ≈ 0.15. The within-story
+world-reference (persistent entities under anonymous tokens) is sufficient for backbone
+and near-C-NAT Δ_med; the cross-story name prototype contributes ~1–3 deep heads.

@@ -1,0 +1,69 @@
+{
+  "experiment": "exp-096",
+  "verdict": "H_anon_partial CONFIRMED",
+  "seeds": [
+    {
+      "seed": 1600,
+      "tag": "run_anon_s0",
+      "n_conformal": 14,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.3817,
+      "n_deep_L3_L5": 5,
+      "n_backbone_L0": 7,
+      "layer_dist": {
+        "0": 7,
+        "1": 2,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      }
+    },
+    {
+      "seed": 1601,
+      "tag": "run_anon_s1",
+      "n_conformal": 14,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.1395,
+      "n_deep_L3_L5": 4,
+      "n_backbone_L0": 8,
+      "layer_dist": {
+        "0": 8,
+        "1": 1,
+        "2": 1,
+        "3": 2,
+        "4": 1,
+        "5": 1
+      }
+    },
+    {
+      "seed": 1602,
+      "tag": "run_anon_s2",
+      "n_conformal": 13,
+      "n_syk_near": 0,
+      "delta_median_conformal": 0.1491,
+      "n_deep_L3_L5": 4,
+      "n_backbone_L0": 7,
+      "layer_dist": {
+        "0": 7,
+        "1": 1,
+        "2": 1,
+        "3": 2,
+        "4": 1,
+        "5": 1
+      }
+    }
+  ],
+  "medians": {
+    "n_conformal": 14,
+    "n_syk_near": 0,
+    "delta_median_conformal": 0.1491,
+    "n_deep_L3_L5": 4,
+    "n_backbone_L0": 7
+  },
+  "control": {
+    "status": "pending",
+    "app_id": "ap-HcQ89vkVcZkPpagSXMbnXF",
+    "expected": "0/48"
+  },
+  "notes": "Control launched 2026-08-03 ~12:25 AM MDT; expected 0/48 consistent with all prior series controls. s0 \u0394_med=0.382 elevated vs s1/s2 (0.139/0.149); flagged, not interpreted; median 0.149 is C-NAT-like (no UV arrest)."
+}
