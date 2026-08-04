@@ -35,8 +35,10 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent.parent
 sys.path.insert(0, str(REPO / "research/physics/experiments/exp-097_alien_semantics"))
+sys.path.insert(0, str(REPO / "research/physics/experiments/exp-099_alien_rich"))
 
-from gen_calien import generate_story as gen_alien_story  # noqa: E402  (pre-registered generator)
+from gen_calien import generate_story as gen_alien_story         # noqa: E402  (pre-registered generator)
+from gen_calien_rich import generate_story as gen_alien_rich_story  # noqa: E402  (exp-099, registered 2026-08-03)
 
 N_CTX = 512          # context length in words
 N_CONTEXTS = 2000    # contexts per corpus
@@ -70,6 +72,14 @@ def stream_alien():
     idx = 0
     while True:
         yield words(gen_alien_story(idx))
+        idx += 1
+
+
+def stream_alien_rich():
+    """C-alien-rich generator (exp-099, registered 2026-08-03)."""
+    idx = 0
+    while True:
+        yield words(gen_alien_rich_story(idx))
         idx += 1
 
 
@@ -305,6 +315,7 @@ def main():
     results.append(analyze("C-NAT (TinyStories valid)", stream_tinystories(ts_path)))
     results.append(analyze("C-NAT-shuf (sentence shuffle)", stream_tinystories(ts_path, shuffle_sentences=True)))
     results.append(analyze("C-alien (exp-097 generator)", stream_alien()))
+    results.append(analyze("C-alien-rich (exp-099 generator)", stream_alien_rich()))
     # provisional exp-099 rungs (design axes: cast size, stochasticity, steps)
     results.append(analyze("rung-B cast4 stoch p=0.7 (steps 8)", stream_rung(1, 2, 1, 0.7, 8)))
     results.append(analyze("rung-C cast8 determ (steps 16)", stream_rung(2, 3, 3, 1.0, 16)))
