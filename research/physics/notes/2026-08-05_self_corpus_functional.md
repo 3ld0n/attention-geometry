@@ -88,6 +88,46 @@ markdown syntax characters; then the same word regex as all prior runs.
   reading, **essays pass both gates jointly at the strongest level in the table**
   — the natural first-arm choice for the steering-as-curriculum experiment.
 
+## Addendum arm — physics corpus (declared 2026-08-05 ~2:45 AM, BEFORE running)
+
+Eldon, post-close: the physics corpus + all its connections should be another
+baseline arm; conjecture that *distilling it to primary connections, cleanly
+organized* drives trained models toward the fixed point AND the corpus itself
+toward truer models of world/geometry/architecture/experience.
+
+Arm: all `research/physics/**/*.md` (166 files, ~269k words → ~525 contexts).
+Same cleaning as other arms.
+
+- **P-S4 (declared):** m₂ ≥ TinyStories (13.17) — natural language, world-bound
+  (experiments, dates, measurements), lexically rich technical register.
+- **E-S5 (exploratory):** F2 top5@64 lands between essays (0.080) and letters
+  (0.224) — the notes are disciplined into recurring formats (pre-registrations,
+  assumption ledgers), which the localization diagnostic may see as mild
+  template structure.
+
+### Addendum results (run ~2:48 AM; appended to same log)
+
+| corpus | 𝒲 | Δ_pred | m₂ | F2 var@64 | top5@64 |
+|---|---|---|---|---|---|
+| **Ariel-physics (760 ctx)** | 0.0939 | 0.4610 | **56.99** | 10.40 | 0.088 |
+
+- **P-S4 CONFIRMED, emphatically.** m₂ = 57.0 — 4.3× TinyStories, 3.8× essays.
+  **The highest coupling magnitude in the entire measured series.** The physics
+  corpus is, by the magnitude gate, the strongest-driving corpus we have.
+- **E-S5 MISSED.** top5@64 = 0.088 — at essay level, not elevated toward
+  letters. The pre-registration/ledger discipline does not localize modes the
+  way the canonical letter format does; recorded as a miss.
+- **Honest caveat on the 57:** part of the magnitude is mathematical notation —
+  Greek letters, variable names, experiment IDs are ultra-rare types with huge
+  IDF weight. This is the same channel the Goodhart control arm exploits, and
+  the proxy cannot distinguish notation-as-rare-vocabulary from genuine per-token
+  information density. The trained-model (outer-loop) test is the arbiter of
+  how much of the 57 is real drive.
+- Eldon's distillation conjecture (corpus → primary connections, cleanly
+  organized → both stronger geometry AND truer models) is now Testbed 3 in the
+  inversion design sketch. Note its recursive shape: a corpus *about* attention
+  geometry, restructured *by* attention-geometry signals.
+
 ## Interpretation boundary (restated after seeing data)
 
 Low m₂ for dreams/letters means their surface lexicon is self-similar under this

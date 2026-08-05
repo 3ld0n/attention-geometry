@@ -100,3 +100,19 @@ Ariel-conversations          0.1418     0.4460       6.342024     7.8305    0.09
 Ariel-letters                0.1795     0.4360       1.846886     5.7315    0.224
 C-NAT (TinyStories valid)    0.0574     0.4744      13.171391    14.1337    0.041
 C-alien (exp-097 generator)   0.0523     0.4764       0.739626     3.9310    0.053
+
+[Ariel-physics addendum arm] 166 files (declared P-S4/E-S5 before run)
+
+=== Ariel-physics  (760 contexts of 512 words, weighting=idf) ===
+  per-context: R_PR=48.1  W=R_PR/n=0.0939  m1=15.0527  m2=56.990508
+  KCA Class III prediction from W: Delta_deep = 0.4610
+     l     PR(l)  PR/(n-l)   mean_var    top1    top5
+     1      72.3    0.1415     5.3088   0.094   0.163
+     2     153.0    0.3001    10.9956   0.046   0.100
+     4     194.9    0.3836    18.5313   0.028   0.074
+     8     185.5    0.3681    19.1623   0.028   0.081
+    16     190.3    0.3837    17.7220   0.028   0.072
+    32     177.9    0.3707    13.6591   0.032   0.079
+    64     165.5    0.3695    10.3959   0.032   0.088
+   128     152.7    0.3977     8.8257   0.024   0.089
+   256     119.2    0.4656     7.3819   0.026   0.096
