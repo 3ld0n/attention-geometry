@@ -1,0 +1,115 @@
+{
+  "experiment": "exp-099",
+  "title": "Conformal window scan \u2014 C-alien-rich (5 types, stochastic rules)",
+  "collected": "2026-08-05T06:20:00Z",
+  "seeds": [
+    {
+      "seed": 1900,
+      "tag": "run_rich_s0",
+      "checkpoint": "/data099/runs/run_rich_s0/step_2000",
+      "timestamp": "2026-08-05T02:21:41Z",
+      "n_heads_total": 48,
+      "n_conformal": 7,
+      "n_syk_near": 0,
+      "n_backbone": 0,
+      "n_deep": 2,
+      "delta_med_conformal": 0.5028,
+      "forms": false,
+      "per_layer": {
+        "L0": {"n_conf": 0, "n_total": 8},
+        "L1": {"n_conf": 4, "n_total": 8, "delta_med": 0.404},
+        "L2": {"n_conf": 1, "n_total": 8, "delta_med": 0.940},
+        "L3": {"n_conf": 2, "n_total": 8, "delta_med": 0.616},
+        "L4": {"n_conf": 0, "n_total": 8},
+        "L5": {"n_conf": 0, "n_total": 8}
+      }
+    },
+    {
+      "seed": 1901,
+      "tag": "run_rich_s1",
+      "checkpoint": "/data099/runs/run_rich_s1/step_2000",
+      "timestamp": "2026-08-05T02:20:26Z",
+      "n_heads_total": 48,
+      "n_conformal": 17,
+      "n_syk_near": 0,
+      "n_backbone": 0,
+      "n_deep": 6,
+      "delta_med_conformal": 0.8455,
+      "forms": true,
+      "per_layer": {
+        "L0": {"n_conf": 0, "n_total": 8},
+        "L1": {"n_conf": 6, "n_total": 8, "delta_med": 0.800},
+        "L2": {"n_conf": 5, "n_total": 8, "delta_med": 0.854},
+        "L3": {"n_conf": 4, "n_total": 8, "delta_med": 1.041},
+        "L4": {"n_conf": 2, "n_total": 8, "delta_med": 0.892},
+        "L5": {"n_conf": 0, "n_total": 8}
+      }
+    },
+    {
+      "seed": 1902,
+      "tag": "run_rich_s2",
+      "checkpoint": "/data099/runs/run_rich_s2/step_2000",
+      "timestamp": "2026-08-05T02:21:56Z",
+      "n_heads_total": 48,
+      "n_conformal": 14,
+      "n_syk_near": 0,
+      "n_backbone": 0,
+      "n_deep": 7,
+      "delta_med_conformal": 0.7498,
+      "forms": true,
+      "per_layer": {
+        "L0": {"n_conf": 0, "n_total": 8},
+        "L1": {"n_conf": 6, "n_total": 8, "delta_med": 0.777},
+        "L2": {"n_conf": 1, "n_total": 8, "delta_med": 0.690},
+        "L3": {"n_conf": 5, "n_total": 8, "delta_med": 0.989},
+        "L4": {"n_conf": 1, "n_total": 8, "delta_med": 0.749},
+        "L5": {"n_conf": 1, "n_total": 8, "delta_med": 0.585}
+      }
+    }
+  ],
+  "control": {
+    "tag": "run_rich_s0_randcontrol",
+    "checkpoint": "/data099/runs/run_rich_s0/step_2000_randomized",
+    "timestamp": "2026-08-05T02:22:34Z",
+    "n_heads_total": 48,
+    "n_conformal": 0,
+    "n_syk_near": 0,
+    "n_backbone": 0,
+    "n_deep": 0,
+    "verdict": "CONFIRMED_CLEAN"
+  },
+  "three_seed_summary": {
+    "n_conf": {"values": [7, 17, 14], "median": 14},
+    "n_backbone": {"values": [0, 0, 0], "median": 0},
+    "n_deep": {"values": [2, 6, 7], "median": 6},
+    "delta_med": {"values": [0.5028, 0.8455, 0.7498], "median": 0.750}
+  },
+  "verdicts": {
+    "H_rich_above_window": {
+      "criterion": "n_backbone >= 3 AND delta_med <= 0.5",
+      "result": "FALSIFIED",
+      "notes": "n_backbone = 0 across all seeds. Backbone collapse persists."
+    },
+    "H_rich_dose_response": {
+      "criterion": "delta_med < 0.727 AND n_deep > 3",
+      "result": "PARTIAL",
+      "notes": "n_deep axis: confirmed (median=6 > 3; trend 3->4->6 across exp-097/098/099). delta_med axis: fails (median=0.750 > 0.727 criterion). The two observables decouple: more deep heads form but they remain UV-arrested."
+    },
+    "H_rich_below_window": {
+      "criterion": "n_backbone = 0 AND delta_med > 0.5",
+      "result": "CONFIRMED",
+      "notes": "n_backbone = 0 all seeds. delta_med = 0.750. C-alien-rich still below conformal window threshold."
+    },
+    "kill_criterion": {
+      "criterion": "delta_med >= 0.727 AND n_deep <= 3",
+      "result": "NOT_MET",
+      "notes": "delta_med = 0.750 >= 0.727 (one condition met) but n_deep = 6 > 3 (other condition fails). R_eff <-> S(corpus) not falsified."
+    },
+    "magnitude_gate_prediction_P1": {
+      "criterion": "delta_med >= 0.6, n_deep <= 4, n_backbone ~0",
+      "result": "PARTIAL",
+      "notes": "delta_med = 0.750 >= 0.6 (confirmed). n_backbone = 0 (confirmed). n_deep = 6 > 4 (fails). Magnitude gate explains Delta_med arrest but underpredicts n_deep improvement."
+    }
+  },
+  "key_finding": "World complexity (S=8->32) produces a decoupled dose-response: n_deep improves substantially (3->4->6, exp-097->098->099) while Δ_med remains UV-arrested (1.04->0.727->0.750, non-monotone). The conformal window threshold is above S=32. Backbone collapse is robust (n_backbone=0 all seeds). Deep layer heads are forming in increased numbers but all remain in the UV regime."
+}

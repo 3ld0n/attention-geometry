@@ -295,9 +295,73 @@ W_QK rank measurement is described in the physics inbox item and here, not in
 ## Status
 
 - [x] Pre-registration written (2026-08-03, ~1:30 AM MDT)
-- [ ] Pre-registration committed and pushed to 3ld0n/attention-geometry
-- [ ] Corpus generator script written (gen_calien_rich.py)
-- [ ] Modal training/measurement script written (modal_exp099.py)
-- [ ] Training runs complete (seeds 1900/1901/1902)
-- [ ] Randomized-weights control
-- [ ] Verdict registered
+- [x] Pre-registration committed and pushed to 3ld0n/attention-geometry (commit 222d9d4; theory addendum 93b34dd)
+- [x] Corpus generator script written (gen_calien_rich.py) — 2026-08-04 physics room session
+- [x] Modal training/measurement script written (modal_exp099.py) — 2026-08-04 physics room session
+- [x] Pre-training corpus functional measured and note registered — 2026-08-04 (commit 529a69a)
+      m2(C-alien-rich)=0.687 vs C-alien=0.737 vs C-NAT=7.81; P-1 supported by proxy
+- [x] Launched on Modal: app ap-pmEN9gjsyDRotW5CrKtap0, handle fc-01KZ7JQR6MV0A7Q281G3777AY2
+      (2026-08-04 ~5:50 PM MDT; generate → 3 seeds → control, detached)
+- [x] Training runs complete (seeds 1900/1901/1902) — completed ~2:20 AM UTC Aug 5
+- [x] Randomized-weights control — 0/48 confirmed
+- [x] Verdict registered — 2026-08-05, physics room session
+
+---
+
+## Results (collected 2026-08-05, ~12:30 AM MDT)
+
+**3-seed summary:**
+
+| Seed | n_conf | n_backbone (L0) | n_deep (L3–L5) | Δ_med_conf |
+|------|--------|-----------------|----------------|------------|
+| s0 (1900) | 7 | 0 | 2 | 0.503 |
+| s1 (1901) | 17 | 0 | 6 | 0.846 |
+| s2 (1902) | 14 | 0 | 7 | 0.750 |
+| **median** | **14** | **0** | **6** | **0.750** |
+| control | 0 | 0 | 0 | — |
+
+**Reference (for dose-response comparison):**
+
+| Corpus | n_backbone | Δ_med | n_deep |
+|--------|-----------|-------|--------|
+| C-NAT | 7–8 | ~0.17 | 5–7 |
+| C-NAT-anon (exp-096) | 7 | 0.149 | 4 |
+| C-alien (exp-097) | 0 | 1.04 | 3 |
+| C-alien-realnames (exp-098) | 0 | 0.727 | 4 |
+| **C-alien-rich (exp-099)** | **0** | **0.750** | **6** |
+
+**Verdicts:**
+
+- **H_rich_above_window: FALSIFIED.** n_backbone = 0 across all seeds. Backbone collapse persists.
+- **H_rich_dose_response: PARTIAL.** n_deep axis: confirmed (median=6 > 3; trend 3→4→6 from exp-097→098→099). Δ_med axis: fails (median=0.750 > 0.727 criterion). The two observables decouple.
+- **H_rich_below_window: CONFIRMED.** n_backbone=0, Δ_med=0.750 > 0.5. C-alien-rich still below threshold.
+- **Kill criterion: NOT MET.** Δ_med ≥ 0.727 (one condition) but n_deep=6 > 3 (other condition fails).
+- **Magnitude-gate prediction (P-1): PARTIAL.** Δ_med=0.750 and n_backbone=0 confirmed; n_deep=6 exceeds the predicted ≤4.
+- **Control: CONFIRMED CLEAN.** 0/48 conformal at randomized weights.
+
+**Key finding — decoupled dose-response:**
+
+World complexity (S=8→32) produces a dissociation: n_deep improves substantially (3→4→6 across the series) while Δ_med remains UV-arrested and even rises slightly (1.04→0.727→0.750, non-monotone at the last step). The conformal window threshold lies above S=32.
+
+**Interpretation:**
+
+1. **Two decoupled observables.** n_deep tracks "how many deep-layer heads achieve power-law fit" — this responds to world complexity (S increases → more diverse world states → more structural positions for heads to specialize). Δ_med tracks "how close to the IR fixed point" — this does not respond to the same S increase. The heads that form in deep layers (n_deep=6) are UV-arrested conformal, not IR-approaching.
+
+2. **Backbone collapse is robust to this rung.** n_backbone=0 at all seeds confirms that the L0 trivial-fixed-point population requires something more than 4× world state-space expansion to restore. The world still doesn't have the diversity to support a backbone.
+
+3. **Magnitude gate vs. S-rank: magnitude gate explains Δ_med but not n_deep.** The corpus functional pre-measure (m₂=0.687, flat vs C-alien's 0.737) correctly predicted Δ_med would stay arrested. But it underpredicted n_deep improvement (actual: 6 vs predicted ≤4). This suggests the two observables respond to different corpus properties: n_deep to state-space expansion (S), Δ_med to coupling magnitude (m₂).
+
+4. **Upward scan continues.** The next rung needs to either (a) enrich surface language at fixed S (more templates, freer phrasing) to push m₂, or (b) continue S expansion (S=64–128). Both are informative in different directions.
+
+**Per-layer anatomy:**
+
+L0 (backbone): 0/8 conformal at all seeds — trivial fixed point dominates entry layer.
+L1: conformal heads form (4/8 at s0; 6/8 at s1 and s2); UV-arrested (Δ_med 0.40–0.80).
+L2: variable (1 at s0, 5 at s1, 1 at s2); Δ_med 0.69–0.94.
+L3: most informative layer (2/4/5 conformal); Δ_med 0.62–1.04, fully UV-arrested.
+L4: sparse (0/2/1); the few that form are also UV.
+L5: 0 at s0 and s1; 1 at s2 (Δ=0.585 — the closest to IR of any head in the experiment).
+
+**Caveat:** s0 is an outlier with n_conf=7 (vs 14–17 at s1/s2) and Δ_med=0.503 — this seed formed far fewer heads overall, but the ones that did form are the closest to IR. The seed spread is real; the median is not dominated by any one seed.
+
+**Implications for exp-100:** W_QK rank measurement now becomes the key diagnostic for the decoupling. If actual W_QK rank is higher in C-alien-rich than C-alien (proportional to S increase), that supports the S-rank reading for n_deep improvement. If rank does not track S, a different mechanism drives n_deep. Either result sharpens the window theory.

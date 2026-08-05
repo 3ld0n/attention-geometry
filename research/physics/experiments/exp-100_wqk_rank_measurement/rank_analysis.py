@@ -61,7 +61,7 @@ def modal_volume_get(volume: str, remote_path: str, local_path: Path) -> None:
     """Download a single file from a Modal volume."""
     local_path.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
-        ["python3", "-m", "modal", "volume", "get",
+        [sys.executable, "-m", "modal", "volume", "get",
          volume, remote_path, str(local_path)],
         capture_output=True, text=True,
     )
