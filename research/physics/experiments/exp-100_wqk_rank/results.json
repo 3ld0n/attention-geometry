@@ -1,0 +1,53 @@
+{
+  "experiment": "exp-100",
+  "title": "W_QK Effective Rank Measurement",
+  "collected": "2026-08-05T06:40:00Z",
+  "protocol": {
+    "d_k": 64,
+    "d_model": 512,
+    "n_layers": 6,
+    "n_heads": 8,
+    "rank_metric_primary": "participation_ratio (R_eff = (sum sigma_i)^2 / sum sigma_i^2)",
+    "rank_metric_secondary": "stable_rank (R_stable = sum sigma_i^2 / sigma_1^2)",
+    "checkpoint_seed": "s0 (first seed per corpus)"
+  },
+  "summary_table": {
+    "C-alien (S=8)":         {"mean_r_eff": 53.318, "median_r_eff": 53.700, "mean_r_stable": 8.761},
+    "C-NAT-anon (S>>d)":     {"mean_r_eff": 57.962, "median_r_eff": 57.039, "mean_r_stable": 15.768},
+    "C-alien-realnames":     {"mean_r_eff": 53.285, "median_r_eff": 53.118, "mean_r_stable": 9.048},
+    "C-alien-rich (S=32)":   {"mean_r_eff": 53.501, "median_r_eff": 53.631, "mean_r_stable": 9.034}
+  },
+  "comparisons": {
+    "rich_over_alien_r_eff":      1.003,
+    "anon_over_alien_r_eff":      1.087,
+    "anon_over_alien_r_stable":   1.800,
+    "S_ratio_prediction":         4.0
+  },
+  "secondary_analysis": {
+    "correlation_r_eff_vs_delta_alien_rich": 0.1612,
+    "note": "No anti-correlation between per-head effective rank and delta within C-alien-rich"
+  },
+  "verdicts": {
+    "H_rank_ordered": {
+      "criterion": "mean_r_eff: C-alien < C-alien-rich < C-NAT-anon (strict ordering)",
+      "result": "FALSIFIED",
+      "notes": "All corpora: mean_r_eff in [53.3, 58.0]. C-alien (53.3) < C-NAT-anon (58.0) technically holds but the 8% difference is not at the predicted scale. C-alien-rich (53.5) is not between them — it is equal to C-alien. Rank is effectively corpus-independent."
+    },
+    "H_rank_S": {
+      "criterion": "mean_r_eff(C-alien-rich) / mean_r_eff(C-alien) in [2.5, 5.5]",
+      "result": "FALSIFIED",
+      "notes": "Ratio = 1.003. Far from the S-ratio prediction of 4.0. W_QK rank does not track world state-space dimension S."
+    },
+    "H_rank_delta_correlated": {
+      "criterion": "Pearson r(R_eff, Delta_med) < -0.3 pooled across corpora",
+      "result": "FALSIFIED",
+      "notes": "Within C-alien-rich: r = +0.16. Not anti-correlated."
+    },
+    "H_rank_backbone": {
+      "result": "MIXED",
+      "notes": "L0 r_eff in C-alien (56.6) is not lower than C-NAT-anon (58.2) by a meaningful margin. Backbone collapse is not explained by lower W_K rank in L0."
+    }
+  },
+  "key_finding": "W_QK effective rank (participation ratio) is corpus-independent: all corpora produce mean_r_eff ~53-58 out of max 64. The low-rank SYK mechanism at the W_QK level is not operative. HOWEVER: stable rank (R_stable) shows a real 1.8x difference between C-NAT-anon (15.8) and alien corpora (~8.8-9.0). This indicates a spectral concentration effect: alien corpora produce W_K with a few very dominant singular values; C-NAT-anon distributes energy more evenly. The participation ratio is insensitive to this; stable rank captures it.",
+  "implication": "The relevant low-rank object in the SYK threshold derivation is NOT W_K itself but the INPUT-CONDITIONED ATTENTION KERNEL K(x_i, x_j) = x_i^T W_K^T W_Q x_j. Even a full-rank W_K produces a low-rank kernel when the input token distribution is concentrated (as in C-alien, where 8 world states produce clustered token representations). The correct next experiment: measure effective rank of the attention gram matrix on actual corpus tokens, not W_K in isolation."
+}
