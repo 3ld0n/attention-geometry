@@ -1,0 +1,65 @@
+========================================================================
+G1 fixed-point & stability — 2026-08-07 (run 5: dense spectra across beta*J and channel mixes)
+========================================================================
+
+[D1] TI SYK solver across beta*J (declared: Delta -> 0.25 from below-window fits, G(0+)~0.5 modulo edge ringing)
+  beta*J=   25: iters=260 res=9.74e-12 G(0+)=0.4362  Delta_fit=0.2155 (r2=1.00000)
+  beta*J=   50: iters=313 res=9.55e-12 G(0+)=0.4361  Delta_fit=0.2289 (r2=0.99993)
+  beta*J=  100: iters=40314 res=3.65e-01 G(0+)=0.5496  Delta_fit=0.2911 (r2=0.99393)
+  beta*J=  200: iters=80314 res=3.91e-01 G(0+)=0.5594  Delta_fit=0.2630 (r2=0.99642)
+
+[D2+D3] dense Jacobian spectra, N=96, pure q=4, beta*J sweep
+  declared: all eigenvalues real and <= ~1; top eigenvalues are doubly-degenerate reparam pairs;
+  gap of top pair shrinks with beta*J (~1/(beta*J)); most-negative -> -3pi/4 = -2.356 as window opens
+  beta*J=10 (1/J = 9.6 dt): fp residual 2.0e-10; Delta_fit=0.2500 (r2=0.0000); max|Im|=1.8e-18
+    spectrum: min=-1.0437 max=0.4757 count>0.9: 0  count>1.001: 0
+    top 8: 0.4757, 0.4757, 0.3591, 0.3591, 0.2837, 0.2837, 0.2322, 0.2322
+    top-8 reparam overlaps: 0.39, 0.39, 0.45, 0.45, 0.48, 0.48, 0.49, 0.49
+  beta*J=15 (1/J = 6.4 dt): fp residual 1.7e-10; Delta_fit=0.1843 (r2=0.9999); max|Im|=2.1e-18
+    spectrum: min=-1.2450 max=0.5973 count>0.9: 0  count>1.001: 0
+    top 8: 0.5973, 0.5973, 0.4810, 0.4810, 0.3973, 0.3973, 0.3354, 0.3354
+    top-8 reparam overlaps: 0.59, 0.59, 0.62, 0.62, 0.63, 0.63, 0.63, 0.63
+  beta*J=20 (1/J = 4.8 dt): fp residual 2.3e-10; Delta_fit=0.1959 (r2=0.9998); max|Im|=2.9e-18
+    spectrum: min=-1.3683 max=0.6738 count>0.9: 0  count>1.001: 0
+    top 8: 0.6738, 0.6738, 0.5658, 0.5658, 0.4825, 0.4825, 0.4174, 0.4174
+    top-8 reparam overlaps: 0.60, 0.60, 0.64, 0.64, 0.65, 0.65, 0.66, 0.66
+  beta*J=25 (1/J = 3.8 dt): fp residual 1.9e-10; Delta_fit=0.2155 (r2=1.0000); max|Im|=1.7e-18
+    spectrum: min=-1.4525 max=0.7258 count>0.9: 0  count>1.001: 0
+    top 8: 0.7258, 0.7258, 0.6271, 0.6271, 0.5474, 0.5474, 0.4826, 0.4826
+    top-8 reparam overlaps: 0.58, 0.58, 0.63, 0.63, 0.65, 0.65, 0.65, 0.65
+  beta*J=30 (1/J = 3.2 dt): fp residual 2.2e-10; Delta_fit=0.2199 (r2=1.0000); max|Im|=3.3e-18
+    spectrum: min=-1.5143 max=0.7632 count>0.9: 0  count>1.001: 0
+    top 8: 0.7632, 0.7632, 0.6732, 0.6732, 0.5980, 0.5980, 0.5351, 0.5351
+    top-8 reparam overlaps: 0.59, 0.59, 0.64, 0.64, 0.66, 0.66, 0.67, 0.67
+  trend summary: beta*J | k_top | gap*betaJ | k_min
+       10 | 0.4757 |   5.243 | -1.0437
+       15 | 0.5973 |   6.041 | -1.2450
+       20 | 0.6738 |   6.524 | -1.3683
+       25 | 0.7258 |   6.855 | -1.4525
+       30 | 0.7632 |   7.105 | -1.5143
+
+[D4] damped/residual map: lambda_damped = (1+k)/2 from the dense spectra above;
+  only k=1 is damping-invariant; all measured k<1 => damped map is a strict contraction, slowest along the reparam pair.
+
+[D5] dense spectra with q=2 admixture, N=96, beta*J4=20 (declared: soft-mode structure degrades with J2;
+  pure q=2 declared from MS eq. 3.77: ladder eigenvalue -1 for all h — no +1 mode. The Goldstone argument for the
+  q=2-covariant solution is the counter-hypothesis; the spectrum decides.
+  J2/J4=0.3: fp residual 1.6e-10; Delta_fit=0.2920 (r2=0.9995); max|Im|=2.4e-18
+    spectrum: min=-0.8921 max=0.5277 count>0.9: 0  count>1.001: 0
+    top 8: 0.5277, 0.5277, 0.4456, 0.4456, 0.3859, 0.3859, 0.3392, 0.3392
+    top-8 reparam overlaps: 0.43, 0.43, 0.49, 0.49, 0.52, 0.52, 0.53, 0.53
+  J2/J4=1.0: fp residual 1.6e-10; Delta_fit=0.4721 (r2=0.9999); max|Im|=4.2e-18
+    spectrum: min=-0.8553 max=0.7262 count>0.9: 0  count>1.001: 0
+    top 8: 0.7262, 0.7262, 0.6284, 0.6284, 0.5494, 0.5494, 0.5273, 0.5273
+    top-8 reparam overlaps: 0.14, 0.14, 0.21, 0.21, 0.24, 0.24, 0.00, 0.00
+  pure q=2 (beta*J2=20): fp residual 1.9e-10; Delta_fit=0.4775 (r2=1.0000); max|Im|=9.8e-18
+    spectrum: min=-0.8548 max=0.7320 count>0.9: 0  count>1.001: 0
+    top 8: 0.7320, 0.7320, 0.6302, 0.6302, 0.5468, 0.5468, 0.5397, 0.5397
+    top-8 reparam overlaps: 0.14, 0.14, 0.20, 0.20, 0.21, 0.21, 0.02, 0.02
+
+[D6] symmetric/attention-form variant (EXPLORATORY)
+  g4=   1.0: converged at iter 31;  effective IR mass^2 = 3.9833
+  g4=  10.0: converged at iter 42;  effective IR mass^2 = 3.8097
+  g4= 100.0: no convergence in 6000 iters (last res 3.43e+00);  effective IR mass^2 = 238.6593
+
+total time: 239.1s

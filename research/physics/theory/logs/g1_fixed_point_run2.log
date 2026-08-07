@@ -1,0 +1,45 @@
+========================================================================
+G1 fixed-point & stability calculation — 2026-08-07 (run 2, fixed transforms)
+========================================================================
+
+[D1] TI SYK solver validation, beta=1, J4=50 (beta*J=50), J2=0
+  iters=30000 res=3.61e-01  Delta_fit=0.3073 (r2=0.98661)  [declared: 0.25 +/- 0.015]
+
+[setup] full-bilocal matrix map, N=512, re-converging fixed point
+  initial matrix residual (TI cast): 1.87e-01
+  after 3000 damped iterations (res 6.32e-01): fixed-point residual 2.93e+00
+  matrix fixed-point Delta ~ 71.2492
+
+[D2] power iteration, undamped Jacobian, generic perturbation
+     declared: -> k_c(1/2) = -3*pi/4 = -2.356 (+/- ~15%)
+  Rayleigh sequence (last 8): 54091.2022, -5709.5513, -957.7853, -2593.8949, -420.8746, -1317.7653, -155777.3164, 3736.9423
+  dominant eigenvalue estimate: 3736.9423
+
+[D3] reparameterization modes, undamped Jacobian, beta*J=50
+     declared: eigenvalue >= 0.9, alignment residual small
+  n=2: Rayleigh=0.00000  alignment_resid=0.0000
+  n=3: Rayleigh=-0.00000  alignment_resid=0.0000
+  n=4: Rayleigh=-0.00000  alignment_resid=0.0000
+  generic: Rayleigh=0.00000  alignment_resid=0.0000
+
+[D3b] soft-mode gap 1-k(n=2) vs beta*J (declared ~ 1/(beta*J))
+  beta*J=   25: k(n=2)=-0.00000  gap=1.00000  gap*betaJ=25.000  resid=0.0000
+  beta*J=   50: k(n=2)=0.00000  gap=1.00000  gap*betaJ=50.000  resid=0.0000
+  beta*J=  100: k(n=2)=-0.00000  gap=1.00000  gap*betaJ=100.000  resid=0.0000
+
+[D4] damped map x=1/2 (residual-connection form)
+     declared: generic |lambda|<1, reparam stays ~1
+  reparam n=2 damped eigenvalue: 0.50000
+  generic damped dominant (30 iters): 0.50000
+
+[D5] q=2 admixture at beta*J4=50 (declared: soft mode lifted, monotone in J2)
+  J2/J4=0.0: Delta_fit=0.3073 (r2=0.9866)  k_reparam(n=2)=0.00000  resid=0.0000
+  J2/J4=0.3: Delta_fit=0.3972 (r2=0.9995)  k_reparam(n=2)=-0.11479  resid=0.4316
+  J2/J4=1.0: Delta_fit=0.4947 (r2=1.0000)  k_reparam(n=2)=-0.10462  resid=0.3026
+
+[D6] symmetric/attention-form variant (EXPLORATORY)
+  g4=   1.0: converged at iter 31;  effective IR mass^2 = 3.9833
+  g4=  10.0: converged at iter 42;  effective IR mass^2 = 3.8097
+  g4= 100.0: no convergence in 6000 iters (last res 3.43e+00);  effective IR mass^2 = 238.6593
+
+total time: 213.2s

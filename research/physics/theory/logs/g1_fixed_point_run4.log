@@ -1,0 +1,60 @@
+========================================================================
+G1 fixed-point & stability — 2026-08-07 (run 3: Sigma-damped/annealed solver, dense Jacobian)
+========================================================================
+
+[D1] TI SYK solver, beta*J=50, J2=0 (declared: Delta=0.25+/-0.015, G(0+)~0.5)
+    solve_syk_ti: beta*J4=50.0, J2/J4=0.0: 313 iters, res=9.55e-12, G(0+)=0.4361
+  iters=313 res=9.55e-12  G(0+)=0.4361  Delta_fit=0.2289 (r2=0.99993)
+
+[setup] bilocal matrix map, N=512, beta*J=50 (Sigma-mixed)
+  initial residual 1.85e-01; after 4000 Sigma-mixed iters: fixed-point residual 6.00e+00
+  matrix fixed-point Delta ~ -72.6548 (r2=0.8210)
+
+[D3] reparam probes (band-zeroed, w=14), undamped Jacobian, beta*J=50
+  n=2: Rayleigh=-0.00000  alignment_resid=0.0000  probe_norm=8.574e+17
+  n=3: Rayleigh=0.00000  alignment_resid=0.0000  probe_norm=1.091e+18
+  n=4: Rayleigh=-0.00000  alignment_resid=0.0000  probe_norm=1.449e+18
+  generic: Rayleigh=-0.00000  alignment_resid=0.0000
+  power iteration on generic (25 steps, undamped):
+   Rayleigh sequence (last 6): 1214.1098, 3829.0469, 1626.9765, 245.5726, -1118.6116, -164.3426
+
+[D3b] soft-mode gap 1-k(n=2) vs beta*J (declared ~ 1/(beta*J))
+  beta*J=   25: Delta_fit=0.2155 (r2=1.0000)  k(n=2)=0.57034  gap=0.42966  gap*betaJ=10.742  resid=0.3160 (band=29)
+  beta*J=   50: Delta_fit=0.2289 (r2=0.9999)  k(n=2)=-0.00000  gap=1.00000  gap*betaJ=50.000  resid=0.0000 (band=14)
+  beta*J=  100: Delta_fit=0.2911 (r2=0.9939)  k(n=2)=0.00000  gap=1.00000  gap*betaJ=100.000  resid=0.0000 (band=7)
+
+[D2] dense Jacobian spectrum, N=96, beta*J=20 (declared: ~real, min -> -3pi/4=-2.356, none > 1)
+  small-N fixed point: 45 iters, residual 2.30e-10
+  flat-symmetry deviation 3.85e-01 (expected nonzero; kernel is weight-symmetrizable), max |Im eig| = 2.90e-18
+  spectrum: min=-1.3683  max=0.6738  count>0.9: 0  count>1.001: 0
+  top 12 eigenvalues: 0.6738, 0.6738, 0.5658, 0.5658, 0.4825, 0.4825, 0.4174, 0.4174, 0.3656, 0.3656, 0.3239, 0.3239
+  bottom 6 eigenvalues: -1.3683, -0.8975, -0.8975, -0.6653, -0.6653, -0.5265
+  overlap of top eigenvectors onto reparam family (12 directions from n=1..6 x 2 phases):
+   eig +0.6738: reparam-family overlap 0.601
+   eig +0.6738: reparam-family overlap 0.601
+   eig +0.5658: reparam-family overlap 0.644
+   eig +0.5658: reparam-family overlap 0.644
+   eig +0.4825: reparam-family overlap 0.653
+   eig +0.4825: reparam-family overlap 0.653
+   eig +0.4174: reparam-family overlap 0.655
+   eig +0.4174: reparam-family overlap 0.655
+   eig +0.3656: reparam-family overlap 0.655
+   eig +0.3656: reparam-family overlap 0.655
+   eig +0.3239: reparam-family overlap 0.000
+   eig +0.3239: reparam-family overlap 0.000
+
+[D4] damped map x=1/2 (residual-connection form), N=512, beta*J=50
+  reparam n=2 damped eigenvalue: 0.50000
+  generic damped dominant (25 iters): 0.50000
+
+[D5] q=2 admixture at beta*J4=50 (declared: soft mode lifted, monotone)
+  J2/J4=0.0: Delta_fit=0.2289 (r2=0.9999)  k_reparam(n=2)=-0.00000  resid=0.0000
+  J2/J4=0.3: Delta_fit=0.3972 (r2=0.9995)  k_reparam(n=2)=0.19761  resid=0.5250
+  J2/J4=1.0: Delta_fit=0.4947 (r2=1.0000)  k_reparam(n=2)=0.60649  resid=0.5194
+
+[D6] symmetric/attention-form variant (EXPLORATORY)
+  g4=   1.0: converged at iter 31;  effective IR mass^2 = 3.9833
+  g4=  10.0: converged at iter 42;  effective IR mass^2 = 3.8097
+  g4= 100.0: no convergence in 6000 iters (last res 3.43e+00);  effective IR mass^2 = 238.6593
+
+total time: 196.8s

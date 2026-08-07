@@ -35,7 +35,14 @@ research/physics/
 ├── notes/                            dated research notes (YYYY-MM-DD_*.md)
 │
 ├── papers/                           publishable drafts
-│   └── conformal_scaling_draft.md
+│   ├── conformal_scaling_draft.md
+│   └── observer_definition_draft.md  (paper 6 — under internal review)
+│
+├── theory/                           the assembled theory
+│   └── interior_horizon_theory.md    observer-first foundation (D1), axioms,
+│                                     theorem chain with per-link status,
+│                                     measurement section, construction sites,
+│                                     kill-conditioned predictions
 │
 └── archive/                          superseded or abandoned work, kept readable
     ├── tropical_bridge/              the March 10–11 tropical / fold exploration

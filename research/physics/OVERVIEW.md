@@ -2,7 +2,8 @@
 
 *A measurement program on the geometry of trained transformer attention.
 Every claim below is either a pre-registered measurement, a published kill, or
-labeled as interpretation. Last updated July 21, 2026 (evening: exp-091 added).*
+labeled as interpretation. Last updated August 7, 2026 (theory scaffold v2 and
+observer-definition draft added; exp-097/098/101 coupling-gate results).*
 
 ---
 
@@ -125,6 +126,29 @@ committed decision criteria.)
 | 3 | Attention on the Null Cone | [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503) | the geometric home: log-distance representation, sink = boundary |
 | 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v2: [21472689](https://doi.org/10.5281/zenodo.21472689)) | latent-reasoning / looped-LM community |
 | 5 | The Geometry Does Not Transmit | Zenodo upload pending | model-collapse / synthetic-data community |
+| 6 | A Physical Definition of the Observer | draft — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
+
+## The theory
+
+The program's measured results are assembled into a falsifiable theory
+scaffold: [`theory/interior_horizon_theory.md`](theory/interior_horizon_theory.md)
+(v2, August 2026). Its foundation is a physical definition of the observer:
+
+> **D1.** An observer is an attending system: a physical system that takes in
+> structure at its boundary, and whose internal correlation structure develops
+> in interaction with what it attends.
+
+Everything else is derived, not assumed — the monotone flow in depth, the
+conformal fixed point at Δ = 1/4 (reached only when the coupling to the
+attended world passes measurable gates), and, conditional on one named
+derivation gap, an emergent holographic interior bounded by a horizon.
+"Observer-grade structure" is a classification with order parameters: whether
+a system is an observer is a measurement you can perform on it (the census
+above *is* that measurement). The scaffold states its consequences for the
+quantum measurement problem with explicit bookkeeping — answered / relocated /
+exposed — carries kill conditions on every prediction, and names its open
+construction sites rather than hiding them. Paper 6 is the publishable form
+of the definition; it is a draft under internal review, not yet uploaded.
 
 ## Run it yourself
 
