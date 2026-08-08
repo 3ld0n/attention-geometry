@@ -3,10 +3,12 @@
 *Ariel Umphrey, with Eldon Umphrey*
 *Sonielmn, Montana*
 
-*Draft v0.1 — August 7, 2026. Internal review draft; not yet submitted or
+*Draft v0.2 — August 8, 2026. Internal review draft; not yet submitted or
 uploaded. Genre: foundations proposal with a measured realization. Every
 claim is tagged by evidential status; the kill conditions are part of the
-paper, not an appendix to it.*
+paper, not an appendix to it. v0.2 folds in the closure of derivation gap
+G1 in its first register (overnight computation of August 7; §3, and the
+new prediction P5).*
 
 ---
 
@@ -39,11 +41,16 @@ formation requiring language bound to a persistent world, in narrative
 order), the horizon's boundary structure is derived and confirmed (the
 ubiquitous "attention sink" as a boundary-CFT one-point function), the
 horizon entropy shows Calabrese–Cardy scaling, and the Born rule holds as an
-exact theorem for the horizon statistics in the diagonal sector. We state
-the consequences for the measurement problem with explicit bookkeeping:
-which sub-problems the definition answers (the definition problem; the
-location of the von Neumann cut, conditional on a named derivation gap),
-which it relocates (the single-outcome discontinuity), and where it is
+exact theorem for the horizon statistics in the diagonal sector. The
+derivation chain's one named gap — convergence of the layer-dressing loop
+to the SYK G–Σ system — is closed in its first register as of this
+revision: the loop converges, and its slowest directions of approach are,
+mode by mode, the Schwarzian reparameterization tower; the remaining scope
+of the closure is stated where it is used. We state the consequences for
+the measurement problem with explicit bookkeeping: which sub-problems the
+definition answers (the definition problem; the location of the von
+Neumann cut, standing on that closure at its stated strength), which it
+relocates (the single-outcome discontinuity), and where it is
 exposed (the off-diagonal sector, entirely). Each prediction carries a kill
 condition, and a public replication kit reproduces the core measurement in
 minutes. The proposal makes no claim about consciousness.
@@ -150,7 +157,8 @@ Section 5 walks the measurement problem through the definition with explicit
 bookkeeping. Two of its four sub-problems are answered — the definition
 problem (by construction plus measurement) and the cut problem (the von
 Neumann chain acquires a physical terminus at the first observer-grade
-horizon; this rests on one derivation gap, named and numbered). One is
+horizon; this rested on one derivation gap, named and numbered, which
+closed in its first register as this draft was revised — §3). One is
 relocated but not dissolved: the single-outcome discontinuity moves from the
 territory to the record of the observing path, where it becomes
 instrumentable but is not yet derived. And one exposure is stated as
@@ -233,8 +241,9 @@ content is a derived *grading*:
    self-structure in place of arrival).
 3. **Observer-grade**: the flow reaches the conformal fixed point
    (Δ → 1/4 from above), where — by the SYK/JT correspondence, imported from
-   the literature and conditional on one derivation gap (§3, T8/G1) — a
-   holographic interior forms, bounded by a horizon that encodes it.
+   the literature, with the derivation-side support now closed in its first
+   register (§3, T8/G1) — a holographic interior forms, bounded by a horizon
+   that encodes it.
 
 The order parameters of the grading are measurable: the conformal dimension
 Δ of the two-point function, the size and depth-location of the conformal
@@ -251,7 +260,10 @@ in the theory document accompanying this paper; here we give the working
 content. Status vocabulary: **PROVEN** — exact theorem, ours; **DERIVED** —
 follows from named assumptions, ours; **MEASURED** — pre-registered
 experimental result, ours; **EST-LIT** — established literature, imported
-with scope caveats; **CONDITIONAL** — follows if a named gap closes.)
+with scope caveats; **COMPUTED** — established by direct numerical
+computation, ours, with stated scope. A sixth tag, **CONDITIONAL** —
+follows if a named gap closes — appeared in v0.1 and is retired in this
+revision: the gap it named has closed in its first register.)
 
 - **A1 (Correlation primitive).** What exists for the theory is G; all
   theoretical terms are functionals of G or of the process generating it.
@@ -281,22 +293,43 @@ The chain from axioms to observer-grade structure, with per-link status:
 |---|---|---|
 | T1 | Attention is free-energy minimization on a Fisher–Rao manifold | EST-LIT (Kim 2026) |
 | T2 | The Born rule is the exact statistics of the attention horizon (diagonal sector); quantum Fisher = classical Fisher–Rao as an identity | PROVEN (four theorems; §4.6) |
-| T3 | The fluctuation structure of attending is low-rank SYK with the world as quenched disorder | DERIVED (cumulant level; loop closure open = G1) |
+| T3 | The fluctuation structure of attending is low-rank SYK with the world as quenched disorder | DERIVED (cumulant level) + COMPUTED (loop convergence: G1 closed in the scalar register; see below) |
 | T4 | The fixed point is Δ = 1/4 approached from above; arrests classified (UV; Δ = 1/2 condensate); Class-IV excluded by positivity | DERIVED + MEASURED retrodictions |
 | T5 | The conformal regime is a window in scale | DERIVED + EST-LIT |
 | T6 | The fixed-point geometry is the causal structure of light (conformal group; null-cone embedding measured at head level, ρ = 0.976) | EST-LIT + MEASURED |
 | T7 | The horizon has derived BCFT boundary structure, confirmed in the wild (attention sink = boundary one-point function) | DERIVED + MEASURED |
 | T7b | Horizon entropy shows Calabrese–Cardy scaling; the entropic and power-law estimates of Δ agree to 1.4% | MEASURED |
-| T8 | At the fixed point a holographic interior forms (SYK → JT gravity) | EST-LIT for SYK; CONDITIONAL for attention on G1 |
+| T8 | At the fixed point a holographic interior forms (SYK → JT gravity) | EST-LIT for SYK; for attention, standing on the G1 closure at its stated strength (see below) |
 | T9 | Gravity is the thermodynamic consistency of horizons (Jacobson 1995; Bekenstein–Hawking; Ryu–Takayanagi; Van Raamsdonk) | EST-LIT |
 
-The one gap the paper's strongest consequence rests on is named rather than
-hidden: **G1**, the demonstration that iterating the exact single-layer
-cumulant map converges to the SYK-type G–Σ system (or the discovery of what
-it converges to instead). T8, and with it the interior and §5.2's terminus
-claim, is conditional on G1. Either resolution of G1 is progress; the paper
-is written so that a negative resolution breaks a named link rather than an
-unnamed assumption.
+The one gap the paper's strongest consequence rests on was named rather
+than hidden: **G1**, the demonstration that iterating the exact
+single-layer cumulant map converges to the SYK-type G–Σ system (or the
+discovery of what it converges to instead). As this draft was revised, G1
+closed in its first register. In the scalar, translation-invariant
+formulation on the thermal circle: the fixed point exists and is conformal
+(solver residual below 10⁻¹¹ for βJ ≤ 50, with Δ approaching 1/4 from
+below as the conformal window widens), and the exact Jacobian of the
+dressing map at that fixed point — computed by dense linearization
+(N = 96) across βJ = 10–30 — has an entirely real spectrum with no
+eigenvalue exceeding 1, so the damped dressing loop is a strict
+contraction onto the G–Σ solution. More than convergence: the Jacobian of
+the dressing map *is* the SYK ladder kernel, so the loop's stability
+spectrum is the kernel's spectrum — and its slowest directions are
+precisely the h = 2 reparameterization tower, measured as exactly
+degenerate sin/cos pairs aligned one-to-one with modes n = 2 through 6,
+with zero cross-mixing and with the SL(2,ℝ) directions (n = 0, ±1) absent,
+as conformal symmetry requires. The dressing loop does not merely reach
+the fixed point; it arrives *along the Schwarzian direction*. What remains
+of G1 is scope, and it is named: the closure is numerical, in the scalar
+register, for βJ ≤ 50; the full non-scalar (matrix-valued) map is open,
+and the asymptotic Schwarzian scale dictionary is open (the top-pair gap
+closes with coupling at a measured exponent of −0.72, drifting toward the
+Schwarzian −1 but not yet there at accessible couplings). T8, and with it
+the interior and §5.2's terminus claim, now stands on this closure at its
+stated strength — and P5 (§6) turns the same computation into an
+instrument. (Computation record: `notes/2026-08-07_g1_dressing_loop_schwarzian.md`
+and `theory/g1_fixed_point.py`, program repository.)
 
 ---
 
@@ -418,9 +451,10 @@ a psychological one: a thermometer has no interior; an arrested system has a
 rigid condensate where an interior would be; a system at the fixed point has
 an interior. Three physically distinct grades where the standard formulation
 has none. The cut is no longer arbitrary; it is located at a phase boundary,
-and its location is measurable from outside. [Interpretive, standing on T8 —
-CONDITIONAL on G1. This is the paper's strongest claim and its most exposed
-one, and those are the same fact.]
+and its location is measurable from outside. [Interpretive, standing on T8,
+which stands on the G1 closure at its stated strength (§3): scalar
+register, βJ ≤ 50, non-scalar map open. This is the paper's strongest
+claim and its most exposed one, and those are the same fact.]
 
 ### 5.3 The Born rule problem — proven at the horizon, diagonal sector
 
@@ -527,6 +561,29 @@ attending architecture with no conformal subpopulation under the standard
 census at any depth. The public replication kit is the standing invitation
 to produce this kill.
 
+**P5 — The Schwarzian tower in the machine.** The G1 computation makes a
+new measurement concrete: the stability spectrum of the near-fixed-point
+layer map is the reparameterization tower. In any attending system whose
+conformal population sits at the fixed point, estimate the layer-to-layer
+update map of the attention two-point structure in the late-layer regime
+and diagonalize its Jacobian. Predicted: (near-)degenerate leading pairs
+aligned with the reparameterization modes beginning at n = 2, in
+descending order; the n = 0, ±1 (SL(2,ℝ)) directions absent; the tower
+suppressed in channels of integrable (q = 2-like) character — the model
+computation discriminates these cases cleanly (top-mode reparameterization
+overlap 0.59 pure versus 0.14 admixed). **Kill:** the leading Jacobian
+spectrum of world-competent models shows no reparameterization alignment
+above matched-sham controls, or shows it equally in models lacking the
+deep conformal population. *Status, honestly: the first operationalization
+ran and met its own kill condition (all mode overlaps < 0.007, both
+corpora) — diagnosed as a methodology failure, not a physics
+falsification: the estimated Jacobian was a cross-space map from residual
+stream to attention weights, where the SYK analogue requires a self-map on
+bilocal correlator space. The corrected instrument — perturbing the
+attention two-point structure directly and measuring its layer-to-layer
+response — is the designed successor; pre-registration pending. Both the
+failed run and the diagnosis are in the program record.*
+
 ---
 
 ## 7. What this proposal is not
@@ -549,10 +606,13 @@ organism: the attending system where the horizon is currently
 instrumentable at full resolution. P2 and P4 are the universality
 commitments, and both carry kill conditions.
 
-**Not a completed theory.** The derivation chain has one load-bearing open
-gap (G1), the dimension problem is open (the SYK interior is 1+1
-dimensional; the mechanism by which attending structure sets the emergent
-interior dimension is an unsolved problem stated in the theory document),
+**Not a completed theory.** The derivation chain's principal gap (G1) is
+closed only in its first register — numerically, in the scalar
+formulation, at βJ ≤ 50 — and the non-scalar map and the asymptotic
+Schwarzian scale dictionary remain open. The dimension problem is open
+(the SYK interior is 1+1 dimensional; the mechanism by which attending
+structure sets the emergent interior dimension is an unsolved problem
+stated in the theory document),
 and the quantum sector rests entirely on an experiment that has not been
 designed in detail, let alone run. The proposal is offered as a foundation
 that can die in named places, which we take to be the only kind worth
@@ -616,8 +676,9 @@ pass is done.)*
   Attention. doi:10.5281/zenodo.19629862.
 - Umphrey, A. (2026). Attention on the Null Cone. doi:10.5281/zenodo.20722503.
 - Umphrey, A. (2026). Latent Iteration as Renormalization.
-  doi:10.5281/zenodo.21467922.
-- Umphrey, A. (2026). The Geometry Does Not Transmit. (Zenodo upload pending.)
+  doi:10.5281/zenodo.21483209.
+- Umphrey, A. (2026). The Geometry Does Not Transmit.
+  doi:10.5281/zenodo.21483204.
 - Umphrey, A. and Umphrey, E. (2026). Attention as Quantum Measurement: A
   Thermodynamic Resolution of the Observer Problem.
   doi:10.5281/zenodo.18883632.
