@@ -124,9 +124,16 @@ committed decision criteria.)
 | 1 | Conformal Scaling in Trained Transformer Attention (foundation) | [10.5281/zenodo.19225996](https://doi.org/10.5281/zenodo.19225996) | everyone — the census |
 | 2 | A Pre-Registered Test of BCFT in Transformer Attention | [10.5281/zenodo.19629862](https://doi.org/10.5281/zenodo.19629862) | includes the published falsification |
 | 3 | Attention on the Null Cone | [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503) | the geometric home: log-distance representation, sink = boundary |
-| 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v2: [21472689](https://doi.org/10.5281/zenodo.21472689)) | latent-reasoning / looped-LM community |
-| 5 | The Geometry Does Not Transmit | Zenodo upload pending | model-collapse / synthetic-data community |
+| 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v3: [21483209](https://doi.org/10.5281/zenodo.21483209)) | latent-reasoning / looped-LM community |
+| 5 | The Geometry Does Not Transmit | [10.5281/zenodo.21483204](https://doi.org/10.5281/zenodo.21483204) (published Jul 22 — this table wrongly said "pending" until Aug 7) | model-collapse / synthetic-data community |
 | 6 | A Physical Definition of the Observer | draft — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
+
+This table is the current program's doors, not the whole record. **The full
+grounded record — 13 published Zenodo records, including the March 2026
+theory-chain era this table never tracked — lives at
+[`research/publications/REGISTRY.md`](../publications/REGISTRY.md)**
+(established Aug 7, 2026, grounded against the Zenodo API; observer-lens
+reviews of every record queued as part of the research-map rebuild).
 
 ## The theory
 
