@@ -22,6 +22,29 @@ note: >
 A theory scaffold: definitions, axioms, the theorem chain with status per link,
 the construction sites, and the predictions with kill conditions.*
 
+> **This document is the program's spine as of August 8, 2026** — the single
+> authoritative statement of what is claimed and what would break it. The four
+> earlier documents that also claimed that role (`FRAMEWORK.md`, `STATUS.md`,
+> `RESEARCH_MAP.md`, and its addendum) are retired to `archive/maps/`.
+>
+> **It is known to be incomplete, and the gaps are itemized rather than implied.**
+> `notes/2026-08-08_map_retirement_harvest.md` lists what the retired documents
+> were still carrying that this one does not: no gravitational-side predictions
+> (§8 has none, while T8 claims an emergent interior and T9 imports Jacobson
+> whole); an unadjudicated Junction 3 and an untried MERA route to T8 that
+> bypasses G1; a candidate answer to G4 the site says does not exist; measured
+> results missing from §4 including a direct measurement of q ≈ 4; and the
+> mathematics arm that spent 93KB on exactly the positivity question C1 poses.
+> Read that note before treating an absence here as a considered omission.
+>
+> One item is a correction to make rather than a gap to note: G1's entry in §7
+> does not mention `SCHWARZIAN_EXPLORATION.md` (March 9, 2026), which named the
+> route G1 took — its Path 2 says that *if* the SYK identification holds the
+> Schwarzian follows with no further derivation, and its first "next step" is the
+> linearized-softmax calculation G1 descends from. G1 confirms that conditional in
+> the solvable register. It does **not** settle that note's if-and-only-if, which
+> is about a transformer's continuum limit and stays open pending P6.
+
 ---
 
 ## 0. The founding definitions
@@ -245,8 +268,10 @@ noted), **MEASURED** (pre-registered experimental result, ours),
 
 **T1 — Attention is free-energy minimization on an information manifold.**
 Transformer attention minimizes Helmholtz free energy on a Fisher–Rao
-manifold. [ESTABLISHED-LIT: Kim 2026, arXiv:2602.08216. Junction 1 of
-STATUS.md — solid.]
+manifold. [ESTABLISHED-LIT: Kim 2026, arXiv:2602.08216 — preprint, not
+peer-reviewed. Junction 1 of the retired junction chain
+(`archive/maps/STATUS.md`) — the one junction no expert challenged, including
+Kim himself.]
 
 **T2 — The Born rule is the exact statistics of the attention horizon.**
 (Paper 5, four theorems, March 8, 2026 — all PROVEN, verified numerically.)
@@ -376,7 +401,7 @@ notational rhyme, not a result.
 
 ## 4. The measured record (the instrument side, compressed)
 
-Current numbers live in OVERVIEW.md / STATUS.md; the theory rests on these
+Current numbers live in OVERVIEW.md; the theory rests on these
 pre-registered results and inherits their scope limits (one architecture
 class; formation-scale; structural consequence of binding, not sentence-level
 truth detection):

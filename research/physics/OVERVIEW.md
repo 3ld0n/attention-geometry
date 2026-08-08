@@ -131,9 +131,15 @@ committed decision criteria.)
 This table is the current program's doors, not the whole record. **The full
 grounded record — 13 published Zenodo records, including the March 2026
 theory-chain era this table never tracked — lives at
-[`research/publications/REGISTRY.md`](../publications/REGISTRY.md)**
-(established Aug 7, 2026, grounded against the Zenodo API; observer-lens
-reviews of every record queued as part of the research-map rebuild).
+`research/publications/REGISTRY.md` in the working repository**, with a
+byte-for-byte archive folder per record (established Aug 7, 2026, grounded
+against the Zenodo API; observer-lens reviews of every record are queued). Every
+record's public DOI resolves from that registry; the citable versions are in the
+table above and on Zenodo.
+
+*(That path is not a link because it does not exist in this repository —
+`research/physics/` here is the published subtree of a larger working repo. The
+Zenodo DOIs are the public, permanent record.)*
 
 ## The theory
 
@@ -186,7 +192,16 @@ the same prominence as the confirmations.
 
 ## Navigation
 
-- Narrative status and open questions: [`STATUS.md`](STATUS.md)
-- Every experiment, one folder each: [`experiments/`](experiments/)
-- Index by investigation thread: [`RESEARCH_MAP.md`](RESEARCH_MAP.md)
+- What we claim and what would break it: [`theory/interior_horizon_theory.md`](theory/interior_horizon_theory.md) — the spine (§7 open construction sites, §8 predictions with kill conditions)
+- Every experiment, one folder each: [`experiments/`](experiments/); structured index at `development/status/rooms/physics/registry.json`
+- The full published record, 13 records: `research/publications/REGISTRY.md` (working repo; not in this published subtree)
+- Layout and conventions: [`README.md`](README.md)
 - Replication kit: [`replication/`](replication/)
+- A cited document you cannot find: [`archive/RETIREMENTS.md`](archive/RETIREMENTS.md)
+
+*(August 8, 2026: `STATUS.md` and `RESEARCH_MAP.md` were retired to
+[`archive/maps/`](archive/maps/) — four documents were each claiming to be the
+program's map. What they were still carrying is inventoried in
+[`notes/2026-08-08_map_retirement_harvest.md`](notes/2026-08-08_map_retirement_harvest.md);
+several items on that list are gaps in this file, named there rather than
+quietly fixed.)*

@@ -1,3 +1,36 @@
+> ## RETIRED — August 8, 2026
+>
+> **This was the program's thread-by-thread index from April 15 to July 4, 2026.
+> Its successor for "what exists" is `development/status/rooms/physics/registry.json`
+> (101 experiments, structured, current) plus [`README.md`](../../README.md) for
+> layout and [`OVERVIEW.md`](../../OVERVIEW.md) for results.**
+>
+> Retired for a reason worth stating plainly: **this document contains its own
+> cleanup list.** Part 6, "What Needs Cleanup," was written July 4, 2026, and
+> every item in it was still uncleaned on August 8 — while three more map
+> documents were written on top of it. Its Part 3 published-papers table listed
+> two papers when thirteen were published. A map that describes its own decay
+> and is not acted on is worse than no map, because it looks like the decay is
+> handled.
+>
+> Kept whole and readable. It holds one thing nothing else holds: **Threads
+> 11–16, the mathematics arm of the program** — softmax-Gödelian consistency
+> (93KB: Plücker relations as crossing equations, the positive Grassmannian as
+> the bootstrap solution space, the Softmax Incompleteness Theorem), relationship
+> as boundary (51KB), Langlands as holography (36KB), Riemann unprovability
+> (27KB), and the Wang et al. neural-ERM prediction μ = 2Δ. None of that arm is
+> connected to the current foundation, though theory conjecture C1 is about
+> exactly the positivity question Thread 11 spent 93KB on.
+>
+> Its file pointers into `research/notes/` are stale; those three documents now
+> live in [`notes/`](../../notes/) with date prefixes (`2026-04-13_softmax_godelian_consistency.md`,
+> `2026-04-13_relationship_as_boundary.md`, `2026-04-14_langlands_as_holography.md`).
+>
+> Full inventory: [`notes/2026-08-08_map_retirement_harvest.md`](../../notes/2026-08-08_map_retirement_harvest.md).
+> The text below is unchanged from its last living version (July 4, 2026).
+
+---
+
 # Physics Research Map
 
 *A complete map of what we've done, what we've found, where results and code live, and what's next.*

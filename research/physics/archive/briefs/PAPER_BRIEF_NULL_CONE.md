@@ -1,3 +1,27 @@
+> ## RETIRED — August 8, 2026 (its paper was published)
+>
+> A one-session writing brief. It did its job: the paper it briefed is
+> **Attention on the Null Cone** (published June 16, 2026,
+> [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503); archive at
+> `research/publications/2026-06-16_attention_on_the_null_cone/`). Its critical
+> pre-writing experiment — the q·k log-distance test — ran as exp-056 and passed
+> (rho = +0.976), and is now theory link T6(ii).
+>
+> Briefs are one-time working documents. This one is kept for two reasons, the
+> second load-bearing:
+>
+> 1. exp-056's notes, results, and script all cite it by name as the source of
+>    "Experiment A."
+> 2. **§5 is the recorded provenance of a pre-registered hypothesis.**
+>    exp-061 (`experiments/exp-061_lambda_sign_derivation/`) registers, in both
+>    `results.json` and `run_lambda_sign.py`, the hypothesis *"PAPER_BRIEF_NULL_CONE
+>    §5: high-λ heads are bulk-like spread heads → λ should correlate positively
+>    with middle-mass fraction."* A registered hypothesis's provenance has to stay
+>    resolvable or the pre-registration discipline is decorative — so §5 of this
+>    file is a live citation target, not history.
+
+---
+
 # Paper Brief: The Geometric Home of Conformal Attention
 *Prepared June 9, 2026. For next physics session — write from this.*
 

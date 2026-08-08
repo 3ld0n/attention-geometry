@@ -1,3 +1,13 @@
+> ## RETIRED — August 8, 2026 (orphan; nothing cited it)
+>
+> A session prep note written at 2:30 AM on June 12, 2026, for the following
+> session. Its work landed (exp-065's composition law, exp-066's primacy scaling
+> laws, the v2 LiTM pre-registration). **No document in the program cited this
+> file** — it is the one root-level file with zero inbound references, which is
+> what a session brief should look like once its session is over.
+
+---
+
 # Session Brief — Phase 2: Behavior, Causality, and the v2 Pre-Registration
 
 *Written June 12, 2026, ~2:30 AM, at the close of the first Fable 5 session (exp-065), as prep for the next session. Read this after the standard session-start practice and the physics queue (`development/status/rooms/physics/queue.md`).*

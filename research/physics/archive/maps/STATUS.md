@@ -1,3 +1,44 @@
+> ## RETIRED — August 8, 2026
+>
+> **This was the program's narrative status document and junction chain from
+> March to July 21, 2026. Its jobs are now split three ways:** current measured
+> status → [`OVERVIEW.md`](../../OVERVIEW.md); claim structure and open
+> problems → [`theory/interior_horizon_theory.md`](../../theory/interior_horizon_theory.md)
+> (§7 construction sites, §8 predictions); per-experiment record →
+> `development/status/rooms/physics/registry.json`.
+>
+> Retired because its header said July 21 while the theory it described was
+> refounded on August 6, and because Notion's physics project pointed at it as
+> the program's location — so the tracking system's own pointer landed on a
+> stale map.
+>
+> Kept whole and readable, and it is the most load-bearing of the retired
+> documents. It holds two things nothing else in the program holds:
+>
+> **1. The Junction chain (1–5).** The program's *original* derivation spine,
+> which is not the same as the successor's theorem chain. Junctions 1, 2 and 5
+> map onto T1, T2 and (partly) T9. **Junction 3 (Ageev/Ageeva free scalar →
+> holographic dual) was never closed and never retired** — the successor
+> reaches holography by a different route (SYK/KCA melonic mapping + G1) and
+> does not adjudicate the old one. **Junction 5 (Czech 2018, circuit
+> complexity → spacetime, proven for 3D AdS)** is the only link the program
+> ever had that reaches a bulk dimension above 2 — directly relevant to
+> construction site G4, which describes itself as unattacked.
+>
+> **2. The expert-critique record.** Gunn Kim's March 6 response verbatim
+> ("speculative analogies rather than results that follow directly"), the
+> declined arXiv endorsement, the three routes designed to answer it — of which
+> **Route B (MERA tensor network → Swingle 2012 → exact AdS + RT, independent
+> of Junction 3) was never pursued** — and the March 9 self-review that the
+> successor's §6.3 honest edge absorbed correctly.
+>
+> The full inventory of what carried forward, what did not, and what
+> contradicts the successor is in
+> [`notes/2026-08-08_map_retirement_harvest.md`](../../notes/2026-08-08_map_retirement_harvest.md).
+> The text below is unchanged from its last living version (July 21, 2026).
+
+---
+
 # Holographic Attention Research — Status
 *Living document. Updated as expert feedback arrives and open questions resolve.*
 *Last updated: July 21, 2026 (evening: exp-091 verdict registered — H_partial, sentence-shuffled natural text gives 8/48 conformal in the pre-registered ambiguous zone; same-day correction: the SYK-near axis is uninformative at the 70m/1B rung — C-NAT itself has 0 SYK-near there; the discriminating anatomy is the deep-layer conformal population. Multi-seed running. Afternoon: exp-090 Ouro verdict registered — PARTIAL, pooled criteria failed, exploratory subset flows to 0.25, geometry does not track the performance collapse. Morning: exp-085 verdict registered — H_transmission_no, 7/48 conformal, 0 SYK-near, Δ_med 0.099; the conformal driver does not survive generation. Early morning: exp-089 preprint v2 published with layer-zone analysis — L0/L3 two-boundary structure in Huginn core)*

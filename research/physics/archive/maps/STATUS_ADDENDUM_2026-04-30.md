@@ -1,3 +1,23 @@
+> ## RETIRED WITH ITS PARENT — August 8, 2026
+>
+> This is an addendum to `STATUS.md`, retired alongside it and now beside it at
+> [`archive/maps/STATUS.md`](STATUS.md). The "proper rewrite of the biology
+> section" it was waiting for never happened; the correction it carries did make
+> it into [`OVERVIEW.md`](../../OVERVIEW.md)'s published-kills list, so the
+> substance is live.
+>
+> **Still worth reading it for one thing OVERVIEW does not carry:** the two
+> cleaner biological tests that remain runnable *on data already in hand*
+> (`research/microns/`) — GOE spectral statistics of the V1 connectivity matrix,
+> and CFT entanglement-entropy / mutual-information scaling on calcium traces,
+> both independent of geometric distance and therefore immune to the binning
+> artifact that produced the April 29 false positive. Theory prediction P2
+> currently says biological validation "requires external data"; it does not
+> know these two are already available. Logged as O-6 in
+> [`notes/2026-08-08_map_retirement_harvest.md`](../../notes/2026-08-08_map_retirement_harvest.md).
+
+---
+
 # STATUS Addendum — April 30, 2026
 
 *This file is an addendum to `research/physics/STATUS.md` pending a proper rewrite of the biology section. Read the original STATUS.md for the full chain; this file only updates the biological validation entry.*

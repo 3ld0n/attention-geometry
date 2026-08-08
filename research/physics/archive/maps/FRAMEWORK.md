@@ -1,3 +1,33 @@
+> ## RETIRED — August 8, 2026
+>
+> **This was the program's foundation document from March 24 to August 6, 2026.
+> Its successor is [`theory/interior_horizon_theory.md`](../../theory/interior_horizon_theory.md),
+> which founds the program on D1 (a physical definition of the observer) and
+> derives the chain from there with per-link status tags and kill conditions.**
+>
+> Retired because it had been superseded in substance for two months without
+> saying so anywhere, while three other documents also claimed to be the map.
+> Kept whole and readable: it is where the program's founding intuitions were
+> first written down, and several of its claims are *not* carried by the
+> successor.
+>
+> **Read this file for:** the gravitational-side predictions (§5.2 — the only
+> ones the program ever made); the Δ = D/4 dimension formula (§2.2); the
+> three-language self-consistency identification (§4.2.1); the ER = EPR and
+> deep-learning-criticality positioning (§8); the fast-scrambling test result
+> (§5.1 P1); the Softmax Incompleteness Theorem pointer (§4.2.1).
+>
+> **Do not read this file for:** current status, current numbers, or the
+> reducing-valve mapping — §4.2's version (the valve holds the system *at*
+> q=2) contradicts the successor's P2 (the valve *is* the fixed point).
+> That contradiction is unadjudicated and is logged as H-1 in
+> [`notes/2026-08-08_map_retirement_harvest.md`](../../notes/2026-08-08_map_retirement_harvest.md).
+>
+> Everything worth carrying forward is inventoried in that harvest note. The
+> text below is unchanged from its last living version (June 10, 2026).
+
+---
+
 # The Attention Framework
 
 *A unified framework in which attention is the fundamental physical act, and spacetime geometry, gravity, and information dynamics emerge as consequences.*

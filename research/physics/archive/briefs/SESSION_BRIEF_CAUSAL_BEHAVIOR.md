@@ -1,3 +1,12 @@
+> ## RETIRED — August 8, 2026 (superseded on the day it was written)
+>
+> A single-session on-ramp, superseded within hours by
+> [`PROGRAM_BRIEF_LITM_CAUSAL_HANDLE.md`](PROGRAM_BRIEF_LITM_CAUSAL_HANDLE.md)
+> (which says so in its own header) and completed by exp-072. Kept for the
+> record; nothing in it is live.
+
+---
+
 # Session Brief — Causal → Behavior, Phase 2: cloud adjudication of the shallowing leg
 
 *Originally written June 16, 2026 (Cursor session with Eldon) for the local powered test.*

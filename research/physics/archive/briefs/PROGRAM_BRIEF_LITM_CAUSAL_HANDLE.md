@@ -1,3 +1,16 @@
+> ## RETIRED — August 8, 2026 (its program completed)
+>
+> A multi-session program brief for the QK-slope causal handle. It did its job:
+> the handle is confirmed bidirectional (exp-064 -> exp-070 -> exp-072), and the
+> result is now theory prediction P1's standing evidence and a bullet in
+> [`OVERVIEW.md`](../../OVERVIEW.md) ("Causal handle").
+>
+> Kept because exp-073/074/075 notes cite it by name. Its one open item — error
+> bars on the shallowing delta via a second deep-valley model — is live in the
+> physics room queue, not here.
+
+---
+
 # Program Brief — The QK-Slope Causal Handle on Lost-in-the-Middle
 
 *Opened June 16, 2026 (Cursor session, Ariel + Eldon, evening). Supersedes the cloud phase of
