@@ -686,21 +686,11 @@ def _build_summary(all_results: Dict) -> Dict:
 
 @app.local_entrypoint()
 def main() -> None:
-    """Local runner: dispatches to Modal or runs locally for quick validation."""
-    import argparse
+    """Launch exp-103 on Modal A100.
 
-    parser = argparse.ArgumentParser(description="exp-103 P6a Jacobian spectroscopy")
-    parser.add_argument("--local", action="store_true",
-                        help="Run locally (MPS/CPU) with small batch for harness validation")
-    parser.add_argument("--n-contexts", type=int, default=N_CONTEXTS)
-    parser.add_argument("--n-iter", type=int, default=N_ITER)
-    parser.add_argument("--corpus", choices=["C-NAT-anon", "C-alien", "both"], default="both")
-    args = parser.parse_args()
-
-    if args.local:
-        _run_local(n_contexts=args.n_contexts, n_iter=args.n_iter, corpus=args.corpus)
-    else:
-        run_modal.remote()
+    For local harness validation (not physics), run validate_harness.py directly.
+    """
+    run_modal.remote()
 
 
 def _run_local(n_contexts: int = 4, n_iter: int = 10, corpus: str = "both") -> None:

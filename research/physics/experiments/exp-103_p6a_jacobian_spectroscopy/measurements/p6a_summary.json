@@ -1,0 +1,44 @@
+{
+  "hypotheses": {
+    "C-NAT-anon": {
+      "H_S2_fraction_degenerate": null,
+      "H_S3_mean_top_overlap": null,
+      "H_S4_gap_decreasing": false,
+      "gaps_by_layer": {
+        "3": 0.1896538734436035,
+        "4": 0.10948936641216278,
+        "5": null
+      }
+    },
+    "C-alien": {
+      "H_S2_fraction_degenerate": null,
+      "H_S3_mean_top_overlap": null,
+      "H_S4_gap_decreasing": false,
+      "gaps_by_layer": {
+        "3": 0.7758492361754179,
+        "4": 0.6667742915451527,
+        "5": null
+      }
+    }
+  },
+  "verdict": "H_S3_KILL_K3",
+  "protocol": {
+    "n_contexts": 64,
+    "seq_len": 64,
+    "late_layers": [
+      3,
+      4,
+      5
+    ],
+    "k_power": 10,
+    "n_iter": 50,
+    "epsilon_fd": 0.001,
+    "reparam_n": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

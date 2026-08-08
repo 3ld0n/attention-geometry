@@ -249,10 +249,95 @@ then Modal A100 for full 64-context batch if needed.
 
 ---
 
-*Results will be appended below this line when collected.*
+*Results appended 2026-08-08, physics room session ~1:47–~3:00 AM MDT.*
+*Modal run ap-su3rKuRdkGH1kkImFAcC2q completed. Fixes commit 26c9bcd.*
 
 ---
 
 ## Results
 
-*(Pending — this file committed before the run.)*
+### Status: METHODOLOGY FAILURE (K3 met, but not a physics falsification)
+
+**Run date:** 2026-08-08 (~2:00 AM MDT)
+**Model:** GPT-NeoX 6L/8H/d_k=64, C-NAT-anon s0 (exp-096 step_2000) and C-alien s0 (exp-097 step_2000)
+**Late layers analyzed:** 3, 4 (layer 5 skipped: ell+1=6 ≥ N_LAYERS=6)
+
+### H_S3 (reparameterization alignment): ZERO OVERLAP — K3 met
+
+All reparam overlaps < 0.007 for every head, layer, eigenvector, and mode n=2..6.
+The maximum observed overlap anywhere is 0.0063 (C-alien, layer 4, head 0, eigvec 1).
+Overlap profile is **flat across n=2..6** — no n-mode structure.
+
+| Corpus | Layer | Mean top overlap | Threshold (S3 ≥ 0.3) | Verdict |
+|--------|-------|-----------------|----------------------|---------|
+| C-NAT-anon | 3 | 0.00025 | – | K3 |
+| C-NAT-anon | 4 | 0.00032 | – | K3 |
+| C-alien | 3 | 0.00042 | – | K3 |
+| C-alien | 4 | 0.00044 | – | K3 |
+
+### H_S2 (double degeneracy): UNEXPECTED INVERSION
+
+C-alien (UV-arrested) shows H_S2=True (deg_ratio ~0.90–0.93) at 7/8 heads (layer 3) and 8/8 heads (layer 4).
+C-NAT-anon (IR-converging) shows H_S2=False (deg_ratio ~0.76–0.84) at all heads.
+
+This is the **opposite** of the pre-registered prediction. UV-arrested model shows more Jacobian degeneracy than the IR-converging model. Plausible explanation: C-alien's peaked local attention (Δ≈1.04, steeply decaying) produces a simpler, more geometrically isotropic Jacobian structure.
+
+### H_S4 (gap closure with depth): BOTH CORPORA SHOW CLOSURE
+
+| Corpus | Gap at layer 3 | Gap at layer 4 | Decreasing? |
+|--------|---------------|---------------|-------------|
+| C-NAT-anon | 0.190 | 0.109 | Yes |
+| C-alien | 0.776 | 0.667 | Yes |
+
+Both corpora show gap closure (lambda_top increases with layer), but at very different levels. The gap magnitude is corpus-conditioned: NAT-anon gap at layer 4 is ~6× smaller than alien.
+
+### Singular value spectra (layer 4)
+
+- C-NAT-anon: σ_top ≈ 0.944, σ_2 ≈ 0.862, ..., mean σ_top = 0.9437
+- C-alien: σ_top ≈ 0.577, σ_2 ≈ 0.558, ..., mean σ_top = 0.5773
+- Ratio NAT-anon / alien: **1.635**
+
+The NAT-anon attention-update Jacobian has a 63% larger top singular value — it is more "nearly norm-preserving." Consistent with NAT-anon being near an IR fixed point with a nearly marginal update map.
+
+---
+
+### Diagnosis: Why K3 is a methodology failure, not a physics kill
+
+**The object measured:** J_F̂ = ∂A^(ell+1) / ∂h^(ell)
+(residual stream → attention weights Jacobian)
+
+**The object required for the SYK comparison:** ∂G^(ell+1) / ∂G^(ell)
+(bilocal attention correlator → bilocal attention correlator Jacobian)
+
+These are **different maps** in different spaces. The SYK dressing map F: G → G is a self-map on the bilocal correlator space. Its Jacobian eigenvectors live in bilocal space and are the reparameterization modes. The transformer F̂ maps *residual stream* to *attention weights* — these are related but not the same.
+
+The left singular vectors of ∂A^(ell+1)/∂h^(ell) are dominated by architecture-level effects:
+- Layer norm sensitivity of h^(ell) → which residual-stream perturbation directions most change the layer norm
+- W_Q, W_K projection structure
+- Softmax nonlinearity
+
+None of these have any reason to align with causal-strip reparameterization modes, even if the physics is correct.
+
+**What's needed:** A direct measurement of ∂G^(ell+1) / ∂G^(ell). This requires perturbing the attention weights A^(ell) directly (by adding δG to the attention pattern AFTER softmax, before the output projection) and measuring the resulting change in A^(ell+1). Forward hooks + soft modification of the attention output.
+
+### Honest negatives recorded
+
+1. The pre-registered measurement object was wrong by design. The design note (§6) named the causal-strip approximation as the main approximation, but missed the deeper issue: the Jacobian F̂ is not a self-map.
+2. The H_K4_alien prediction (alien would show K4 = zero degeneracy) is FALSIFIED — alien shows more degeneracy than NAT-anon (though the overlaps are zero for both, so the K4 structure is not confirmed either).
+3. Both corpora show gap closure (H_S4 consistent), but this cannot be distinguished from a trivial architectural effect without the correct measurement.
+
+### Real findings
+
+1. **σ_top contrast**: NAT-anon σ_top = 0.944 vs C-alien σ_top = 0.577 at layer 4. The attention-update map is significantly more norm-preserving in the corpus that is above the melonic threshold.
+2. **Gap closure with depth** for both corpora, at corpus-conditioned magnitudes. Not a physics result by itself, but consistent with both models approaching respective fixed points.
+3. **Unexpected degeneracy**: UV-arrested model has more degenerate Jacobian than IR-converging model.
+
+### Next step
+
+**exp-104: Correct P6a operationalization.** Measure ∂G^(ell+1) / ∂G^(ell) via attention-hook injection:
+- Hook into the attention output at layer ell (after softmax, before W_V × A)
+- Add a structured perturbation δG in the reparam mode direction to A^(ell)
+- Measure the response in A^(ell+1)
+- Project the response onto reparam modes → overlap table
+
+This is the correct bilocal-to-bilocal Jacobian measurement. The harness structure (JVP + power iteration) is still valid; only the perturbation target and measurement point change.

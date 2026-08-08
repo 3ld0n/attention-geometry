@@ -1,0 +1,88 @@
+{
+  "experiment": "exp-103",
+  "date": "2026-08-08",
+  "title": "P6a — Transformer-Side Jacobian Spectroscopy (Schwarzian soft mode)",
+  "status": "methodology_failure",
+  "verdict": "K3_methodology",
+  "note": "K3 kill condition met (reparam overlaps < 0.001 for all n=2..6, both corpora). But this is a methodology failure: the measured Jacobian object (partial A^(ell+1) / partial h^(ell), residual-stream to attention-weight) is not the correct analog of the SYK dressing-map Jacobian (partial G^(ell+1) / partial G^(ell), bilocal-to-bilocal). Zero overlap is expected when the measured object is wrong, regardless of physics. Not a falsification of P6a.",
+
+  "protocol": {
+    "models": "GPT-NeoX 6L/8H/d_k=64: C-NAT-anon s0 (exp-096, step_2000) and C-alien s0 (exp-097, step_2000)",
+    "late_layers": [3, 4],
+    "n_heads": 8,
+    "k_power": 10,
+    "n_iter": 50,
+    "epsilon_fd": 0.001,
+    "n_contexts": 64,
+    "seq_len": 64,
+    "reparam_n": [2, 3, 4, 5, 6],
+    "delta_C_NAT_anon": 0.15,
+    "delta_C_alien": 1.04,
+    "fallback_texts": true,
+    "note": "Layer 5 skipped (ell+1=6 >= N_LAYERS=6). Fallback corpus texts used (no text files in Modal volumes). Summary_builder queried layer 5 (null); actual data is at layers 3,4."
+  },
+
+  "results": {
+    "H_S1_stability": "UNTESTABLE",
+    "H_S2_degeneracy": {
+      "C-NAT-anon_layer3": false,
+      "C-NAT-anon_layer4": false,
+      "C-alien_layer3": true,
+      "C-alien_layer4": true,
+      "note": "Unexpected: C-alien (UV-arrested) shows more degeneracy than NAT-anon (IR-converging). C-alien deg_ratio ~0.90-0.93; NAT-anon ~0.76-0.84. Plausibly due to UV-arrested attention's simpler local geometry producing a more symmetric Jacobian."
+    },
+    "H_S3_reparam_overlap": {
+      "max_overlap_anywhere": 0.0063,
+      "mean_top_overlap_NAT_anon_layer4": 0.00032,
+      "mean_top_overlap_alien_layer4": 0.00043,
+      "threshold": 0.3,
+      "verdict": "ZERO_OVERLAP",
+      "note": "All overlaps < 0.007, far below kill threshold < 0.1. Overlap flat across n=2..6 (no n-structure). This is consistent with the measurement object being wrong, not with physics falsification."
+    },
+    "H_S4_gap_closure": {
+      "C_NAT_anon_gap_layer3": 0.190,
+      "C_NAT_anon_gap_layer4": 0.109,
+      "C_alien_gap_layer3": 0.776,
+      "C_alien_gap_layer4": 0.667,
+      "gap_decreasing_NAT_anon": true,
+      "gap_decreasing_alien": true,
+      "note": "Both corpora show gap closure with depth (consistent with approach to fixed point for both). NAT-anon gap much smaller than alien at same layer (0.109 vs 0.667 at layer 4) — consistent with NAT-anon being nearer to the fixed point."
+    },
+    "H_K4_alien": {
+      "verdict": "NOT_CONFIRMED",
+      "note": "C-alien does NOT show the K4 pattern (it shows H_S2=True, not collapsed overlaps from zero degeneracy). C-alien shows unexpected degeneracy."
+    }
+  },
+
+  "real_findings": {
+    "sigma_top_comparison_layer4": {
+      "C_NAT_anon": 0.9437,
+      "C_alien": 0.5773,
+      "ratio": 1.635,
+      "interpretation": "NAT-anon's attention-update Jacobian has a much larger top singular value (63% larger than alien). Means the map is more nearly norm-preserving in NAT-anon — consistent with being closer to a non-trivial fixed point."
+    },
+    "gap_closure_with_depth": {
+      "C_NAT_anon": {"layer3": 0.190, "layer4": 0.109},
+      "C_alien": {"layer3": 0.776, "layer4": 0.667},
+      "interpretation": "Both corpora show increasing lambda_top with depth. The corpus-conditioned gap structure is different: NAT-anon is 6x smaller gap than alien at layer 4, reflecting fundamentally different spectral regimes."
+    },
+    "unexpected_degeneracy_inversion": {
+      "C_alien_more_degenerate_than_NAT_anon": true,
+      "interpretation": "UV-arrested model (C-alien, peaked local attention) has more degenerate Jacobian than IR-converging model. Possibly reflects that peaked local attention creates a nearly-isotropic Jacobian in head-space."
+    }
+  },
+
+  "diagnosis": {
+    "why_zero_overlap": "The measured Jacobian J = partial A^(ell+1) / partial h^(ell) maps from residual stream R^{seq x d_model} to attention weight space R^{n_heads x seq x seq}. Its left singular vectors (in output=attention space) are determined by which attention patterns respond most to residual-stream perturbations. These are architecture-dominated (layer norm, W_Q, W_K structure) and have no reason to align with the theoretical causal-strip reparameterization modes. The correct SYK Jacobian is partial G^(ell+1) / partial G^(ell) — a bilocal-to-bilocal map where both input and output are attention weights. This cannot be computed directly from the residual-stream Jacobian without inverting the QKV mechanism.",
+    "not_a_physics_falsification": true,
+    "redesign_needed": "exp-104: measure partial G^(ell+1) / partial G^(ell) via attention-hook injection: perturb attention weights at layer ell directly (by adding a small delta_G to A^(ell) before the output projection), measure change in A^(ell+1). This operationalizes the dressing-map Jacobian correctly."
+  },
+
+  "run_info": {
+    "modal_app_id": "ap-su3rKuRdkGH1kkImFAcC2q",
+    "device": "A100",
+    "runtime_estimate_seconds": 140,
+    "commit_fixes": "26c9bcd",
+    "prereg_commit": "4f8bf35"
+  }
+}
