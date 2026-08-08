@@ -180,6 +180,15 @@ Three facts make this the priority contact point:
    outside."* That sentence is D1's job description, written by the other
    side of physics. The draft's §8 (neighboring programs) should cite this
    thread — it is a nearer neighbor than several already listed.
+   *[Correction, Aug 8 reading pass: the CLPW sentence above is my paraphrase
+   presented as a quotation — the paper's actual wording is "We consider a
+   minimal model in which the observer consists only of a clock" (§1.2) and
+   "A minimal model of the observer that suffices for our purposes is to say
+   that the Hamiltonian of the observer is H_obs = q" (§2.2). The Witten
+   sentence is from a talk and stays out of citable use; the in-print
+   version is "an observer cannot be added from outside but must emerge as
+   part of the theory" (arXiv:2303.02837 §1). Verified quotes and the full
+   positioning: `2026-08-08_clpw_positioning.md`.]*
 2. **Their maximum-entropy state is the observer in a Gibbs state at the
    horizon temperature** (Ψ_max = Ψ_dS ⊗ thermal state of the clock at
    T_dS). A Gibbs state at the observer's horizon is exactly T2's object.

@@ -3,12 +3,15 @@
 *Ariel Umphrey, with Eldon Umphrey*
 *Sonielmn, Montana*
 
-*Draft v0.2 — August 8, 2026. Internal review draft; not yet submitted or
+*Draft v0.3 — August 8, 2026. Internal review draft; not yet submitted or
 uploaded. Genre: foundations proposal with a measured realization. Every
 claim is tagged by evidential status; the kill conditions are part of the
-paper, not an appendix to it. v0.2 folds in the closure of derivation gap
+paper, not an appendix to it. v0.2 folded in the closure of derivation gap
 G1 in its first register (overnight computation of August 7; §3, and the
-new prediction P5).*
+new prediction P5). v0.3 completes the reference-verification pass (every
+external citation checked against its source) and adds the crossed-product
+observer (CLPW/Witten) to §8 — the omission the August 7 survey flagged.
+Remaining gate: Eldon's read.*
 
 ---
 
@@ -628,6 +631,30 @@ offering.
 - **Relational QM**: facts are observer-relative — agreed; here the
   observer additionally has physics of its own, and "observer" admits a
   measurable grading rather than universal courtesy.
+- **The crossed-product observer (CLPW/Witten)**: the nearest mainstream
+  contact, and the one place in current physics where leaving the observer
+  undefined makes a quantity literally undefined. Semiclassical gravity
+  cannot define the entropy of the de Sitter static patch (Type III₁
+  algebra) without including a physical observer and dressing operators to
+  its worldline; with the observer included, the algebra becomes Type II₁
+  and the entropy is the generalized entropy (Chandrasekaran–Longo–
+  Penington–Witten 2023, building on Witten 2022 and Leutheusser–Liu,
+  arXiv:2110.05497, 2112.12156). Their observer is deliberately minimal —
+  "a minimal model in which the observer consists only of a clock"
+  (H_obs = q ≥ 0); "an observer is any system that can tell time" — and its
+  authors name the gap: "an observer cannot be added from outside but must
+  emerge as part of the theory" (Witten 2024). That sentence is D1's job
+  description, written from the other side. They derive that the observer
+  must be included; D1 supplies the observer's internal physics — a grading
+  where their formalism admits any clock equally. One contact is noted at
+  conjecture strength, under the same discipline as C2: their maximum-
+  entropy state places the observer in a Gibbs state at the horizon
+  temperature (their eqn. 27); T2's horizon state is a Gibbs state exactly.
+  Whether the crossed-product construction, performed with an attending
+  system in place of a bare clock, is sensitive to the coupled / arrested /
+  observer-grade distinction is a well-posed open question, and formulating
+  it precisely enough to fail is the actual work (positioning note:
+  `notes/2026-08-08_clpw_positioning.md`, program repository).
 - **Wheeler's participatory universe**: the founding intuition of the
   program, a generation early, without instruments. The instruments now
   exist.
@@ -665,10 +692,11 @@ order parameter has been read off an actual system.
 
 ## References
 
-*(Draft note: internal program papers are cited by DOI; external references
-are given in short form and will be completed and verified against sources
-before any submission — no reference below should be trusted until that
-pass is done.)*
+*(Verification note, August 8, 2026: every external reference below was
+checked against its source or publisher record in the reference-verification
+pass of this date; internal program DOIs were checked against the Zenodo-
+grounded publications registry. The verification record, with per-reference
+sources, is `research/physics/papers/observer_definition_reference_verification.md`.)*
 
 - Umphrey, A. (2026). Conformal Scaling in Trained Transformer Attention.
   doi:10.5281/zenodo.19225996.
@@ -682,32 +710,50 @@ pass is done.)*
 - Umphrey, A. and Umphrey, E. (2026). Attention as Quantum Measurement: A
   Thermodynamic Resolution of the Observer Problem.
   doi:10.5281/zenodo.18883632.
-- Bell, J. S. (1990). Against "measurement". Physics World 3(8), 33.
+- Bell, J. S. (1990). Against "measurement". Physics World 3(8), 33–40.
 - von Neumann, J. (1932). Mathematische Grundlagen der Quantenmechanik.
+  Springer, Berlin. English translation: Mathematical Foundations of
+  Quantum Mechanics, trans. R. T. Beyer, Princeton University Press, 1955.
 - Zurek, W. H. (2003). Decoherence, einselection, and the quantum origins
   of the classical. Rev. Mod. Phys. 75, 715.
 - Rovelli, C. (1996). Relational quantum mechanics. Int. J. Theor. Phys.
-  35, 1637.
-- Fuchs, C. A., Mermin, N. D., Schack, R. (2014). An introduction to QBism.
-  Am. J. Phys. 82, 749.
+  35, 1637–1678.
+- Fuchs, C. A., Mermin, N. D., Schack, R. (2014). An introduction to QBism
+  with an application to the locality of quantum mechanics. Am. J. Phys.
+  82, 749–754.
 - Frauchiger, D., Renner, R. (2018). Quantum theory cannot consistently
   describe the use of itself. Nat. Commun. 9, 3711.
 - Jacobson, T. (1995). Thermodynamics of spacetime: the Einstein equation
-  of state. Phys. Rev. Lett. 75, 1260.
+  of state. Phys. Rev. Lett. 75, 1260–1263.
+- Chandrasekaran, V., Longo, R., Penington, G., Witten, E. (2023). An
+  algebra of observables for de Sitter space. JHEP 02 (2023) 082.
+  arXiv:2206.10780.
+- Witten, E. (2022). Gravity and the crossed product. JHEP 10 (2022) 008.
+  arXiv:2112.12828.
+- Witten, E. (2024). Algebras, regions, and observers. Proc. Symp. Pure
+  Math. 107, 247–276. arXiv:2303.02837.
 - Maldacena, J., Stanford, D. (2016). Remarks on the Sachdev–Ye–Kitaev
   model. Phys. Rev. D 94, 106002.
 - Braunstein, S. L., Caves, C. M. (1994). Statistical distance and the
-  geometry of quantum states. Phys. Rev. Lett. 72, 3439.
+  geometry of quantum states. Phys. Rev. Lett. 72, 3439–3443.
 - Calabrese, P., Cardy, J. (2004). Entanglement entropy and quantum field
   theory. J. Stat. Mech. P06002.
+- Ryu, S., Takayanagi, T. (2006). Holographic derivation of entanglement
+  entropy from AdS/CFT. Phys. Rev. Lett. 96, 181602.
 - Van Raamsdonk, M. (2010). Building up spacetime with quantum
-  entanglement. Gen. Rel. Grav. 42, 2323.
-- Kim (2026). arXiv:2602.08216. [attention as free-energy minimization on
-  a Fisher–Rao manifold — full citation to be completed]
-- Kim, Cao, Altman — low-rank SYK classification. [citation to be
-  completed and verified]
+  entanglement. Gen. Rel. Grav. 42, 2323–2329.
+- Kim, G. (2026). Thermodynamic Isomorphism of Transformers: A Lagrangian
+  Approach to Attention Dynamics. arXiv:2602.08216. [The T1 import:
+  softmax attention as the stationary solution of a Helmholtz free-energy
+  functional on the information manifold with the Fisher metric.]
+- Kim, J., Cao, X., Altman, E. (2020). Low-rank Sachdev–Ye–Kitaev models.
+  Phys. Rev. B 101, 125112. arXiv:1910.10173.
+- Tononi, G. (2004). An information integration theory of consciousness.
+  BMC Neurosci. 5, 42.
 - Wheeler, J. A. (1990). Information, physics, quantum: the search for
-  links. In *Complexity, Entropy and the Physics of Information*.
+  links. In W. H. Zurek (ed.), *Complexity, Entropy and the Physics of
+  Information*, Addison-Wesley. First presented 1989, Proc. III Int. Symp.
+  Foundations of Quantum Mechanics, Tokyo.
 
 *Replication: `research/physics/replication/` in the public repository —
 the census is 50 forward passes and a per-head regression, ~2 minutes on
