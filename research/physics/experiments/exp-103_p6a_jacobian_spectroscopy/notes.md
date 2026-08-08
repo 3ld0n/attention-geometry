@@ -2,6 +2,7 @@
 
 *Pre-registration: this file is committed to 3ld0n/attention-geometry BEFORE
 the analysis script runs. Data access and results are appended afterward.*
+*Pre-registration commit: 4f8bf35, pushed 2026-08-07T22:20 UTC (before any run).*
 
 *Design document: `notes/2026-08-07_p6a_transformer_instrument.md` (Aug 7 session).*
 *Theoretical grounding: `notes/2026-08-07_tau_chaos_product_formula.md` (same session);

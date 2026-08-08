@@ -136,64 +136,63 @@ def build_reparam_modes(n_seq: int, delta: float, n_values: List[int]) -> np.nda
 
 # ─── Jacobian estimation ───────────────────────────────────────────────────────
 
+def compute_attn_weights_explicit(
+    hidden_states: torch.Tensor,
+    model,
+    layer_idx: int,
+    n_heads: int = N_HEADS,
+    head_size: int = D_K,
+) -> torch.Tensor:
+    """Compute attention weight matrix explicitly: A = softmax(QK^T / sqrt(d_k)).
+
+    Uses the layer's QKV projection directly; applies causal mask.
+    Avoids output_attentions=True, which has NaN bugs in transformers 5.x
+    eager mode. This approach is always differentiable.
+
+    Returns: [batch, n_heads, seq, seq]
+    """
+    layer  = model.gpt_neox.layers[layer_idx]
+    normed = layer.input_layernorm(hidden_states)
+    qkv    = layer.attention.query_key_value(normed)  # [batch, seq, 3*d_model]
+
+    q, k, _ = qkv.chunk(3, dim=-1)
+    batch, seq, _ = q.shape
+    q = q.view(batch, seq, n_heads, head_size).transpose(1, 2)  # [b, h, seq, d_k]
+    k = k.view(batch, seq, n_heads, head_size).transpose(1, 2)
+
+    scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(head_size)
+    causal = torch.tril(torch.ones(seq, seq, device=hidden_states.device)).bool()
+    scores = scores.masked_fill(~causal, float('-inf'))
+    return torch.softmax(scores, dim=-1)  # [batch, n_heads, seq, seq]
+
+
 def get_attention_at_layer(
     hidden_states: torch.Tensor,
     model,
     ell: int,
-    attention_mask: Optional[torch.Tensor],
-    device: torch.device,
+    position_embeddings: Tuple[torch.Tensor, torch.Tensor],
 ) -> torch.Tensor:
     """Run from residual stream at layer ell to attention weights at layer ell+1.
 
     This defines the map F̂: hidden_states^(ell) → A^(ell+1)_{ij}.
-    One full layer (attention + MLP of layer ell) followed by the attention
-    sublayer of layer ell+1.
+    Uses the standard layer forward (which handles rotary embeddings correctly),
+    then computes attention at layer ell+1 explicitly via QK^T softmax.
 
     Returns:
         attn_weights: shape [batch, n_heads, seq, seq]
     """
-    layer_ell  = model.gpt_neox.layers[ell]
-    layer_ell1 = model.gpt_neox.layers[ell + 1]
+    layer_ell = model.gpt_neox.layers[ell]
 
-    # Layer ell: pre-norm → attention → residual
-    normed     = layer_ell.input_layernorm(hidden_states)
-    attn_out_ell = layer_ell.attention(
-        normed,
-        attention_mask=attention_mask,
-        output_attentions=False,
+    # Full layer ell forward — handles rotary embeddings internally
+    h_out = layer_ell(
+        hidden_states=hidden_states,
+        attention_mask=None,
+        position_embeddings=position_embeddings,
     )
-    # attn_out_ell may be a tuple; take the first element (hidden states)
-    if isinstance(attn_out_ell, tuple):
-        attn_out_ell = attn_out_ell[0]
-    h_mid = attn_out_ell + hidden_states
+    h_ell1 = h_out[0] if isinstance(h_out, tuple) else h_out
 
-    # MLP sublayer of layer ell
-    mlp_normed = layer_ell.post_attention_layernorm(h_mid)
-    mlp_out    = layer_ell.mlp(mlp_normed)
-    h_ell1     = mlp_out + h_mid  # residual stream at layer ell+1
-
-    # Layer ell+1 attention only (we want the attention weights)
-    normed_ell1 = layer_ell1.input_layernorm(h_ell1)
-    attn_result  = layer_ell1.attention(
-        normed_ell1,
-        attention_mask=attention_mask,
-        output_attentions=True,
-    )
-    # Extract attention weights: position depends on model version
-    # Common: tuple (attn_output, attn_weights) or (attn_output, attn_weights, past_kv)
-    if isinstance(attn_result, tuple):
-        # Find the tensor with shape [batch, heads, seq, seq]
-        for item in attn_result:
-            if isinstance(item, torch.Tensor) and item.dim() == 4:
-                if item.shape[-2] == hidden_states.shape[1]:  # seq_len check
-                    attn_weights = item
-                    break
-        else:
-            raise ValueError(f"Could not find attention weights in output: {[x.shape if isinstance(x,torch.Tensor) else type(x) for x in attn_result]}")
-    else:
-        raise ValueError(f"Unexpected attention output type: {type(attn_result)}")
-
-    return attn_weights  # [batch, heads, seq, seq]
+    # Explicit attention at layer ell+1 (avoids output_attentions=True NaN bug)
+    return compute_attn_weights_explicit(h_ell1, model, ell + 1)
 
 
 def jvp_fd(fn, x: torch.Tensor, v: torch.Tensor, eps: float = EPSILON_FD) -> torch.Tensor:
@@ -299,15 +298,17 @@ def compute_overlaps(
     n_mode_pairs = len(REPARAM_N_VALUES)
     overlaps = np.zeros((k, n_mode_pairs), dtype=np.float32)
 
-    modes_torch = torch.from_numpy(modes)  # [2*n_mode_pairs, seq, seq]
+    # Move modes to same device as left_vectors
+    device = left_vectors[0].device if left_vectors else torch.device("cpu")
+    modes_torch = torch.from_numpy(modes).to(device)  # [2*n_mode_pairs, seq, seq]
 
     for i, v in enumerate(left_vectors):
         # v: [batch, n_heads, seq, seq] — average over batch
-        v_mean = v.mean(dim=0)  # [n_heads, seq, seq]
+        v_mean = v.detach().float().mean(dim=0)  # [n_heads, seq, seq]
 
         for n_idx in range(n_mode_pairs):
-            cos_mode = modes_torch[2 * n_idx]      # [seq, seq]
-            sin_mode = modes_torch[2 * n_idx + 1]  # [seq, seq]
+            cos_mode = modes_torch[2 * n_idx].float()      # [seq, seq]
+            sin_mode = modes_torch[2 * n_idx + 1].float()  # [seq, seq]
 
             best_overlap = 0.0
             for h in range(n_heads):
@@ -327,7 +328,7 @@ def compute_overlaps(
 def analyze_head(
     model,
     x_star: torch.Tensor,
-    attention_mask: torch.Tensor,
+    position_embeddings: Tuple[torch.Tensor, torch.Tensor],
     layer_ell: int,
     head_idx: int,
     delta_h: float,
@@ -343,7 +344,7 @@ def analyze_head(
     modes = build_reparam_modes(seq_len, delta_h, REPARAM_N_VALUES)  # [2*5, seq, seq]
 
     def fn(h):
-        return get_attention_at_layer(h, model, layer_ell, attention_mask, device)
+        return get_attention_at_layer(h, model, layer_ell, position_embeddings)
 
     # Power iteration on J J^T
     sing_vals, left_vecs = power_iteration_singular_vectors(
@@ -396,15 +397,17 @@ def _overlaps_for_head(
     k = len(left_vecs)
     n_mode_pairs = len(REPARAM_N_VALUES)
     overlaps = np.zeros((k, n_mode_pairs), dtype=np.float32)
-    modes_torch = torch.from_numpy(modes)
+
+    device = left_vecs[0].device if left_vecs else torch.device("cpu")
+    modes_torch = torch.from_numpy(modes).to(device)
 
     for i, v in enumerate(left_vecs):
-        v_mean = v.mean(dim=0)  # [n_heads, seq, seq]
+        v_mean = v.detach().float().mean(dim=0)  # [n_heads, seq, seq]
         vh = v_mean[head_idx]
         vh_norm = vh / (torch.norm(vh) + 1e-12)
         for n_idx in range(n_mode_pairs):
-            cos_mode = modes_torch[2 * n_idx]
-            sin_mode = modes_torch[2 * n_idx + 1]
+            cos_mode = modes_torch[2 * n_idx].float()
+            sin_mode = modes_torch[2 * n_idx + 1].float()
             cos_overlap = (vh_norm * cos_mode).sum().item() ** 2
             sin_overlap = (vh_norm * sin_mode).sum().item() ** 2
             overlaps[i, n_idx] = max(cos_overlap, sin_overlap)
@@ -428,13 +431,6 @@ def run_analysis(
     model = model.to(device)
     model.eval()
 
-    # Build causal attention mask
-    causal_mask = torch.tril(torch.ones(seq_len, seq_len, device=device)).bool()
-    causal_mask = causal_mask.unsqueeze(0).unsqueeze(0)  # [1, 1, seq, seq]
-    # Convert to additive mask (0 = attend, -inf = mask)
-    attn_mask = torch.zeros(1, 1, seq_len, seq_len, device=device)
-    attn_mask = attn_mask.masked_fill(~causal_mask, float('-inf'))
-
     # Sample contexts
     rng = np.random.default_rng(RNG_SEED)
     contexts_used = []
@@ -447,7 +443,6 @@ def run_analysis(
     input_ids = torch.cat(contexts_used, dim=0)  # [n_contexts, seq_len]
 
     # Get baseline residual streams at each layer via forward pass
-    # We'll use the batch mean as x_star for Jacobian estimation
     with torch.no_grad():
         outputs = model(
             input_ids,
@@ -456,6 +451,13 @@ def run_analysis(
         )
         hidden_states_per_layer = outputs.hidden_states
         # hidden_states_per_layer: tuple of [batch, seq, d_model] for each layer
+
+    # Pre-compute rotary position embeddings (required by GPT-NeoX layers)
+    position_ids = torch.arange(seq_len, device=device).unsqueeze(0)
+    with torch.no_grad():
+        position_embeddings = model.gpt_neox.rotary_emb(
+            hidden_states_per_layer[0][:1], position_ids
+        )
 
     results_by_layer_head = []
 
@@ -477,7 +479,7 @@ def run_analysis(
                 result = analyze_head(
                     model=model,
                     x_star=x_star,
-                    attention_mask=attn_mask,
+                    position_embeddings=position_embeddings,
                     layer_ell=ell,
                     head_idx=h,
                     delta_h=delta_h,
@@ -702,57 +704,52 @@ def main() -> None:
 
 
 def _run_local(n_contexts: int = 4, n_iter: int = 10, corpus: str = "both") -> None:
-    """Minimal local run for harness validation — uses gpt2 as model proxy."""
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    """Minimal local run for harness validation — uses pythia-70m as GPT-NeoX proxy.
 
-    print("Local validation mode: using GPT-2 as model proxy (harness check only).")
-    print("  NOTE: GPT-2 is not the trained corpus model; overlaps are not meaningful.")
-    print("  This validates the JVP/power-iteration harness only.")
+    This is a harness check only. overlaps are not meaningful since pythia-70m
+    was not trained on C-NAT-anon or C-alien. Full validation: validate_harness.py.
+    """
+    from transformers import GPTNeoXForCausalLM, AutoTokenizer
+
+    print("Local validation mode: pythia-70m as GPT-NeoX proxy (harness check only).")
+    print("  NOTE: physics results require Modal run against exp-096/097 checkpoints.")
 
     device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     print(f"  Device: {device}")
 
-    model_id = "gpt2"
+    model_id = "EleutherAI/pythia-70m"
     print(f"  Loading {model_id}...")
-    model     = AutoModelForCausalLM.from_pretrained(model_id)
+    model     = GPTNeoXForCausalLM.from_pretrained(model_id)
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-
-    # Use GPT-2's architecture (12 layers, 12 heads, d_k=64) — different from experiment
-    # but sufficient for harness validation
-    n_layers_gpt2 = 12
-    n_heads_gpt2  = 12
-    late_layers_gpt2 = [9, 10]  # scaled for 12-layer model
+    model = model.to(device)
+    model.eval()
 
     corpus_texts = [
-        "The quick brown fox jumped over the lazy dog near the riverbank.",
-        "Attention is the process by which neural networks weight input tokens.",
-        "A child ran across the field toward the old oak tree on the hill.",
+        "The cat sat on the mat and looked at the window. "
+        "A child ran across the green field toward the old oak tree.",
+        "The dog ran through the park and jumped over the fence.",
+        "A student opened their notebook and began to write the answer.",
     ] * (n_contexts + 1)
 
-    # Minimal delta_per_head (use default 0.25 for all)
-    delta_per_head = {}
+    delta_per_head: Dict[Tuple[int, int], float] = {}
 
-    # Monkey-patch constants for local run
-    global LATE_LAYERS, N_HEADS, N_LAYERS, K_POWER, N_ITER, D_K
-    _orig = (LATE_LAYERS, N_HEADS, N_LAYERS, K_POWER, N_ITER, D_K)
-    LATE_LAYERS = late_layers_gpt2
-    N_HEADS     = n_heads_gpt2
-    N_LAYERS    = n_layers_gpt2
-    K_POWER     = 4
-    N_ITER      = n_iter
-    D_K         = 64
+    # Monkey-patch constants for local run (pythia-70m: 6L/8H/d_k=64 — same as exp model)
+    global K_POWER, N_ITER
+    _orig = (K_POWER, N_ITER)
+    K_POWER = 4
+    N_ITER  = n_iter
 
     try:
         result = run_analysis(
             model=model,
             tokenizer=tokenizer,
             corpus_texts=corpus_texts,
-            corpus_name="GPT2-validation",
+            corpus_name="pythia-70m-validation",
             delta_per_head=delta_per_head,
             device=device,
-            seq_len=32,  # shorter for speed
+            seq_len=32,
             n_contexts=n_contexts,
         )
         print("\n=== Local validation result ===")
@@ -762,7 +759,7 @@ def _run_local(n_contexts: int = 4, n_iter: int = 10, corpus: str = "both") -> N
         }, indent=2))
         print("Harness OK — power iteration and overlap computation executed.")
     finally:
-        (LATE_LAYERS, N_HEADS, N_LAYERS, K_POWER, N_ITER, D_K) = _orig
+        (K_POWER, N_ITER) = _orig
 
 
 if __name__ == "__main__":
