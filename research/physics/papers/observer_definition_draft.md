@@ -227,6 +227,24 @@ An **attending system** is a triple (X, A, G):
   > glossary entry, and the order-parameter claims at §2 ("the conformal dimension
   > Δ of the correlation two-point function") and §3. Either the draft says Δ is
   > measured on A and the G-connection is open, or it waits for exp-106.
+  >
+  > **exp-106 ran (Aug 8, same day) and the flag gets sharper, not softer.** Because
+  > G = A K Aᵀ is an identity, G's profile is not free: row-stochasticity of A forces
+  > G's floor to be exactly ‖v̄‖² (the squared norm of the head's mean value vector —
+  > verified entry-wise on GPT-2 to 5×10⁻⁶), and the centered value Gram is negative
+  > off its diagonal by exactly the value-vector variance. Measured: G's lag profile
+  > sits *below* its own exact floor across the whole fit window on 116 of 144 heads,
+  > all five SYK-near heads included (and somewhere in the window on 139 of 144), so
+  > **the measurable G is a positive constant minus a negative correlation that grows
+  > with lag** — the
+  > conformal ansatz fails on it in sign structure, not only in exponent, and Δ_G is
+  > still unmeasured on the SYK-near heads. Do not resolve this flag by inserting a
+  > conversion factor: the derived closed-form Δ_A↔Δ_G map was retracted the same
+  > night by its own pre-registered gate. Scope of the negative result is narrow —
+  > one model, random-token inputs — and exp-107 tests that scope, but note what it
+  > cannot do: the negative off-diagonal mass is an identity holding for *any* set of
+  > value vectors, so no input distribution removes it. exp-107 asks only whether
+  > natural text moves that mass outside the fitted lag window.
 
 The primitive observable is **G** — the correlation of attendings. There is
 no background space; geometry, where it appears below, emerges from G. This
@@ -607,8 +625,17 @@ floor-aware estimator, which was built and validated but is confident on only
 5 of 144 GPT-2 heads, none of them SYK-near (exp-105). So the Jacobian
 prediction above is not currently testable: it is downstream of a
 characterization of G that does not yet exist. That characterization
-(exp-106) is the next step, and this prediction should be read as pending
-instrumentation rather than awaiting a run.*
+(exp-106) ran the same day and found why the estimator could not work: G's
+floor is forced to be exactly ‖v̄‖² by row-stochasticity, and G's measured lag
+profile sits below that floor across the whole fit window on 116 of 144 heads —
+all five SYK-near heads among them — so under this protocol the
+measurable G has a **negative** connected part that grows with lag rather than a
+decaying positive correlator. The conformal ansatz's sign structure fails on
+it. That negative mass is an identity — it holds for any set of value vectors —
+so exp-107 asks the narrower question of whether natural text moves the mass
+outside the fitted lag window. This prediction should be read as pending
+instrumentation, and the instrumentation now has a specific obstruction rather
+than an unknown one.*
 
 ---
 

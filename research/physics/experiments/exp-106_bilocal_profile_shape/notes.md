@@ -255,3 +255,241 @@ No training, no cloud, no API credits.
 
 *Pre-registration ends here. Validation results, then application results,
 appended below after the run.*
+
+---
+
+## Validation results — the gate FAILED, K1 fired, and the failure is explained
+
+Run 2026-08-08 night, local, `validate_derivation.py` → `validation_derivation.json`.
+Pre-registration commit `a144b56`, before any script in this folder existed.
+
+| Criterion | Verdict |
+|---|---|
+| V1 — the closed-form map is recovered at the census window | **FAIL** (4 of 8 cells) |
+| V2 — Proposition 1 is exact | **PASS** (max relative deviation 3.6×10⁻¹⁶) |
+| V3 — Δ_G increases with K's decay exponent q | **PASS** (monotone at both Δ_A) |
+| V4 — arm 2 reproduces arm 1 on a TI-built A | **FAIL** (3.1×10⁻² vs a 10⁻¹⁰ criterion) |
+
+**K1 therefore fires, and per the pre-registration nothing was applied to model data
+until the discrepancy was explained.** Both failures now have explanations that were
+themselves tested.
+
+### V1: the census window is not in the asymptotic regime, and the closed-form map is retracted
+
+Proposition 2 requires 1 ≪ s ≪ U, where U = i − s is the number of key positions
+summed over. Under the census protocol U ∈ [256 − s, 511 − s], so at the top of the
+fit window U collapses toward zero. Prediction if that is the whole story: growing n
+at a fixed fit window should drive the measurement toward the closed form.
+`diagnose_v1_failure.py` → `diagnose_v1_failure.json`:
+
+| Δ_A | closed form | n=512 | n=1024 | n=2048 | n=4096 |
+|---:|---:|---:|---:|---:|---:|
+| 0.10 | 0.000 | 0.0334 | 0.0256 | 0.0191 | 0.0139 |
+| 0.25 | 0.000 | 0.1279 | 0.1144 | 0.1023 | 0.0916 |
+| 0.30 | 0.100 | 0.1748 | 0.1629 | 0.1522 | 0.1430 |
+| 0.55 | 0.550 | 0.4772 | 0.4785 | 0.4790 | 0.4792 |
+| 0.75 | 0.750 | 0.7124 | 0.7136 | 0.7140 | 0.7141 |
+
+Regimes I and II converge toward the prediction, slowly, as the logarithmic
+corrections at the marginal point require. Regime III does **not** converge: it
+plateaus 0.036–0.071 below the prediction, which is a UV effect (the correction to
+(m+s)^{−p} ≈ s^{−p} is O(m/s), a small-m contribution that does not vanish with n).
+
+**Consequence, recorded as a retraction rather than a repair.** Proposition 2 of
+`notes/2026-08-08_bilocal_from_attention_derivation.md` is correct as a leading
+asymptotic and **is not usable at the census's protocol**. Any statement of the form
+"Δ_A = 1/4 implies Δ_G = 0" is wrong by 0.13 at n = 512. A correction block has been
+added at the top of the derivation note; the original §3 text is left standing
+beneath it, per this program's rule against back-editing dated documents.
+
+**What replaces it:** the same map computed numerically at the census protocol
+(`build_numerical_map.py` → `numerical_map.json`), which is what the forward model
+uses anyway:
+
+| Δ_A | 0.10 | 0.20 | 0.25 | 0.30 | 0.35 | 0.40 | 0.45 | 0.50 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Δ_G (K = I, n = 512) | 0.033 | 0.089 | **0.128** | 0.175 | 0.229 | 0.288 | 0.351 | 0.414 |
+
+Inverting: **Δ_G = 1/4 requires Δ_A = 0.368**, and **Δ_A = 1/4 gives Δ_G = 0.128**.
+Both figures are for K = I, and §"Application" below establishes that K = I is the
+wrong K, so these are statements about the dressing map and not conversion factors
+for published numbers.
+
+*A bug caught in passing, recorded because it nearly became a result:* the first
+version of `build_numerical_map.py` profiled A instead of A Aᵀ and returned
+Δ_G = Δ_A at R² = 1.0000 for every cell — a perfect, beautiful, meaningless
+identity that would have "rescued the bridge." It was caught because R² = 1.0000
+across nineteen cells is not what a finite-size numerical map looks like. Fixed
+before anything downstream used it.
+
+### V4: arm 2's ceiling is 3%, and it is a property of the census profile
+
+`build_numerical_map.py` also tested the explanation. prof_A(u)/f(u) is constant to
+2.2×10⁻¹⁶ for u ≤ 256 and drifts by up to 5.6% for u > 256 — because the census
+averages over a fixed query block (i ∈ [256, 511]) only for lags ≤ 256, and those
+large-lag entries feed each row's normalization. Rebuilding from the *true* f
+reproduces A exactly (max abs diff 0.0). So arm 2 carries an intrinsic ~3% error
+even in the ideal case; the pre-registered 10⁻¹⁰ criterion was simply wrong, and V4
+is recorded as failed-as-written with the cause established rather than the
+criterion relaxed after the fact.
+
+---
+
+## Application results — GPT-2, `apply_forward_model.py` → `applied_gpt2.json`
+
+**Reproduction check passed exactly:** this script's A and G_out profiles equal
+exp-104's saved profiles to `0.000e+00` max absolute difference, so the pipeline is
+provably the same instrument.
+
+| Subset | n | census 2-param R² on G | arm 1a R²_log | arm 1b R²_log | arm 2 R²_log |
+|---|---:|---:|---:|---:|---:|
+| All heads | 144 | 0.740 | 0.690 | 0.537 | 0.274 |
+| Conformal | 20 | 0.698 | 0.808 | **0.960** | 0.589 |
+| SYK-near | 5 | 0.536 | 0.964 | **0.944** | 0.400 |
+
+### K3 fires for arm 1a: the K = I forward model is *anti*-correlated with G
+
+Negative α in (†): arm 1a **5/5** on the SYK-near heads and **87/144** overall.
+Arm 1a's R² = 0.964 on the SYK-near heads is therefore exactly the case K3 was
+written to catch — a high R² produced by a fit running the wrong way. It is not
+reported as support for anything. Arm 1b has 0/5 negative on SYK-near and 1/20 on
+the conformal set; arm 2 likewise.
+
+### The finding: G's profile sits BELOW its own exact floor
+
+Proposition 1 says G's floor is exactly ‖v̄‖², the squared norm of the head's mean
+value vector — computable with no fit. `verify_prop1.py` confirms both halves
+entry-wise on real data: mean(K_V) = ‖v̄‖² to 3.6×10⁻¹⁶, and
+G = ‖v̄‖² + A K̃ Aᵀ to 5.2×10⁻⁶ relative (fp32 forward-pass noise).
+
+Then the measurement:
+
+| Head (SYK-near) | Δ_A | P_G(8) | P_G(256) | exact floor ‖v̄‖² |
+|---|---:|---:|---:|---:|
+| L2 H1 | 0.2683 | 1.911 | 1.648 | **2.287** |
+| L5 H0 | 0.2279 | 7.411 | 6.800 | **10.205** |
+| L7 H11 | 0.2123 | 8.416 | 7.249 | **10.530** |
+| L10 H8 | 0.2902 | 11.828 | 9.154 | **19.910** |
+
+Over all 144 heads, ‖v̄‖²/P_G(8) has median **2.05**, IQR [1.13, 6.30]. **The
+connected part P_G(s) − ‖v̄‖² is negative somewhere in the fit window on 139 of 144
+heads.** The stronger form holds on **116 of 144**: there the floor already exceeds
+the profile at the *shortest* fitted lag, so the connected part is negative across
+the entire window rather than crossing zero inside it. **All five SYK-near heads are
+in that stronger set** (‖v̄‖²/P_G(8) = 1.20, 1.75, 1.38, 1.25, 1.68). When quoting
+this result downstream, quote 116/144 for "negative throughout" and 139/144 for
+"negative somewhere" — they are different claims and the stronger one is the one that
+kills the fit.
+
+So G_out's lag profile is not a decaying positive correlator on a positive floor. It
+is **a large positive constant minus a negative correlation that grows with lag.**
+Across the entire fit window (lags 8 → 256, a factor of 32) the SYK-near profiles
+fall by only 10–23%; a Δ = 1/4 power law would fall by 82%.
+
+**This has a structural cause, not a GPT-2-specific one.** Since K̃ is K minus its
+own mean, Σ_{a,b} K̃_{ab} = 0, hence
+
+  **Σ_{a≠b} K̃_{ab} = −Tr K̃ = −Σ_a ‖v_a − v̄‖²  ≤ 0.**   [EXACT]
+
+The centered value Gram is negative on average off its diagonal, by exactly the
+total variance of the value vectors. G's connected part inherits that sign whenever
+the diagonal contribution Σ_a A_{ia}A_{ja}K̃_{aa} is small relative to the
+off-diagonal sum, which holds for spread attention (Σ_a A_{ia}A_{ja} = O(1/n) for
+near-uniform rows). So a bilocal built by row-stochastic averaging of *any* value
+vectors is expected to sit below its floor off the diagonal. `[EXACT + DERIVED]`
+
+![G's profile against its exact floor](fig_floor_above_profile.png)
+
+### What this resolves
+
+exp-105's closing position was: *"the floor hypothesis is dead as an explanation …
+Δ_G is small there for some other reason, and finding that reason is the next
+question."* **The reason is now established:** the floor is not merely present, it
+*exceeds the profile*, and the connected part has the opposite sign from the one the
+fitted model assumes. A model c + b·s^{−2Δ} with b > 0 cannot represent
+floor-minus-negative-growth at any parameter values, which is why the optimizer
+settled on ratio = 0.00 and R² = 0.36–0.69 rather than finding the floor it was
+built to find. **exp-105's estimator was not defective on those heads. Its model
+was.**
+
+### Verdicts on the pre-registered hypotheses
+
+- **H1 (forward model describes G's shape): MET, but only through arm 1b.** Arm 1b —
+  real A with the value Gram replaced by its own measured lag profile — reaches
+  R²_log = 0.944 (SYK-near) and 0.960 (conformal) with α > 0, against 0.536 and
+  0.698 for the census's own 2-parameter fit, and with **zero free exponents**. Arm
+  1a (K = I) is disqualified by K3. So the honest statement is narrower than H1 as
+  written: **G's lag profile is determined by A together with the value Gram's lag
+  profile. It is not determined by A alone, and not by A's lag profile alone.**
+- **H2 (forward model fails; K dominates): PARTIALLY, and the two halves separate.**
+  The forward model does not fail — but K is not a spectator either. K = I is
+  anti-correlated with the truth, so "K's structure does essential work" is
+  confirmed while "the forward model fails" is not.
+- **H3 (translation invariance is the damage): SUPPORTED.** R²_log gap between
+  arm 1 and arm 2 is 0.54 on the SYK-near heads and 0.37 on the conformal set, both
+  beyond the registered 0.20. Reconstructing A from its lag profile destroys the
+  prediction, so the sink and the causal boundary are load-bearing for G in a way
+  they are not for A. This retroactively weakens every lag-profile treatment of G,
+  including Proposition 2, which is derived under T1 — a second, independent reason
+  the closed form should not be used.
+- **H4 (Proposition 2 predicts exp-105's exponents): NOT SUPPORTED. [POST-HOC.]**
+  Both the closed form and the numerical map overpredict substantially (e.g. L10 H6:
+  measured 0.024, closed form 0.421, numerical map 0.364). Consistent with the
+  finding above — exp-105's Δ_G values are fits of a wrong-sign model and are not
+  measurements of a connected exponent at all.
+
+### Honest limits on the above
+
+1. **The residual is structured, and R² flatters it.** Median longest same-sign
+   residual run for arm 1b: **110 of 249 lags** (SYK-near), 140 of 249 (conformal).
+   This is the outcome limit 4 of the pre-registration named as most likely to fool
+   me, and it happened. R²_log ≈ 0.95 means the forward model captures the
+   gross shape; it does not mean the residual is noise.
+2. **Refitting the connected part does not rescue an exponent.** Using Proposition 1
+   as an estimator — subtract the *computed* floor, then apply the census fit —
+   leaves a non-positive profile on **8 of 20** conformal heads, including **all five
+   SYK-near heads**, so no power law can be fitted there at all. On the 12 that do
+   fit, median R² = 0.577 and median(measured − numerical map) = −0.094. There is
+   still no measured Δ_G on the population carrying the program's claim.
+3. **Random-token inputs are now the load-bearing caveat.** With random tokens the
+   value vectors are near-independent draws, so a negative centered off-diagonal
+   Gram is close to the null expectation. Whether natural text produces a *positive*
+   connected correlation is exactly the question, and it is unanswered. This limit
+   was named in exp-104 and exp-105 and inherited three times without being
+   addressed; it is now the blocking item rather than a footnote.
+4. **One model, one PE type, one scale.** GPT-2, 144 heads.
+5. **G_out is the trained-W^V object.** exp-104 falsified H4 (ensemble ≈ trained),
+   so the theory's ensemble G and this measurable G are two objects, and the
+   derivation is written for the ensemble one.
+6. **The secondary arm (exp-105's two deferred estimator fixes) was not run.** The
+   primary result makes it moot for the SYK-near heads — their profiles are
+   non-positive after exact floor removal, so no acceptance threshold would help —
+   but the fixes remain owed for the general case and are carried forward.
+
+### Net position
+
+1. **Proposition 1 is the durable result of this experiment**, and it is exact: the
+   bilocal's floor is the squared norm of the head's mean value vector, computable
+   without fitting. That closes a real gap — the program had a fitted floor
+   parameter with no independent meaning.
+2. **The conformal ansatz's *sign structure*, not only its exponent, fails on G_out
+   under the census protocol.** That is a stronger and more uncomfortable statement
+   than "the bridge is underived," and it should be recorded at exactly that scope:
+   one model, random-token inputs, the trained-W^V object.
+3. **The closed-form exponent map is retracted at the census window** and survives
+   only asymptotically. The numerical map is available but describes the K = I
+   dressing, which is not the dressing the data has.
+4. **The blocking question has changed for the third time in two days, and is now
+   cheap.** It is no longer "what shape is G's profile" — it is *"is the negative
+   connected correlation an artifact of random-token inputs?"* That is one forward
+   pass on natural text under an otherwise frozen protocol. **exp-107.**
+5. **Still true, and unaffected:** the census as a measurement of A, the three depth
+   axes, the formation ladder, every published kill, the causal handle, D1.
+
+*Files: `validate_derivation.py` + `validation_derivation.json` (the gate),
+`diagnose_v1_failure.py` + `.json` (why V1 failed), `build_numerical_map.py` +
+`numerical_map.json` (the replacement map, and the V4 cause),
+`apply_forward_model.py` + `applied_gpt2.json` + `profiles_forward_gpt2.npz`
+(the three arms), `analyze.py` + `analysis_gpt2.json` (per-head, kill checks,
+Proposition 1 as an estimator), `verify_prop1.py` + `verify_prop1.json` +
+`fig_floor_above_profile.png` (the exact verification and the figure).*

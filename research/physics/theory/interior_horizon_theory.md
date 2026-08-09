@@ -149,9 +149,44 @@ with the predictions and they are the discipline.
   > Δ_G is **not currently measurable** — the assumed profile form reaches only
   > R² = 0.36–0.69 there (exp-104, exp-105). Consequences: every Δ in §4 and every
   > Δ-to-theory comparison below describes **A**, and whether it also describes
-  > **G** is open. P6 is blocked on this, not on instrumentation. Next step is
-  > exp-106 — characterize G's lag-profile *shape* before fitting any exponent to
-  > it, since P(dx) = c + b·dx^(−2Δ) is measured not to describe it.
+  > **G** is open. P6 is blocked on this, not on instrumentation.
+  >
+  > **Sharpened, same day (exp-106): the conformal ansatz's *sign structure* fails
+  > on the measurable G, not only its exponent.** Two exact results now hold. (i)
+  > Row-stochasticity of A forces G's floor: for any μ, G = μ𝟙𝟙ᵀ + A(K − μ𝟙𝟙ᵀ)Aᵀ,
+  > and for the value Gram mean(K_V) = ‖v̄‖² — so the floor is the squared norm of
+  > the head's mean value vector, computable with no fit (verified entry-wise on
+  > GPT-2 to 5×10⁻⁶). (ii) Σ_{a≠b}(K − mean K)_{ab} = −Σ_a‖v_a − v̄‖² ≤ 0, so the
+  > centered value Gram is negative off its diagonal by exactly the value-vector
+  > variance. **Measured consequence:** G's lag profile sits *below* its own exact
+  > floor — across the entire fit window on **116 of 144** GPT-2 heads (including all
+  > five SYK-near ones), and somewhere in the window on 139 of 144; median
+  > ‖v̄‖²/P_G(8) = 2.05. Across the fit window (lags 8→256, a factor of 32) the
+  > SYK-near profiles fall by only 10–23%, where Δ = 1/4 requires 82%. So G is a large
+  > positive constant minus a *negative* correlation that grows with lag, and
+  > c + b·s^{−2Δ} with b > 0 cannot represent it at any parameters — which is why
+  > exp-105's estimator found floor ratio 0.00 rather than the floor it was built
+  > to find. After exact floor removal the connected profile is non-positive on all
+  > five SYK-near heads, so **Δ_G is still unmeasured there.** Scope, and it is
+  > narrow: one model, random-token inputs (the frozen census protocol), the
+  > trained-W^V object.
+  >
+  > **The blocking question, stated correctly (exp-107, pre-registered, not yet
+  > run).** It is *not* whether the negative correlation is an artifact of
+  > random-token inputs: the identity above holds for any set of value vectors, so no
+  > input distribution can remove the negative mass. What the input distribution
+  > controls is *where in lag that mass sits.* A positive connected profile over the
+  > census window requires K̃ to carry a positive near-diagonal band with the
+  > compensating negative mass pushed outside the fitted lags — and with random tokens
+  > the value vectors are near-exchangeable, so K̃ has no reason to band. Relatedly and
+  > exactly: Σ_{ij}(A K̃ Aᵀ)_{ij} = ‖Σ_a m_a v_a‖² − ‖Σ_a v_a‖² with m = Aᵀ𝟙 is **not**
+  > sign-definite, and is strongly positive under an attention sink — so the
+  > A-weighting can flip the total's sign even though K̃'s cannot flip. **exp-107 is
+  > one forward pass on natural text measuring K̃'s own lag profile alongside G's.** A
+  > closed-form Δ_A↔Δ_G map was derived and retracted the same
+  > night by its own pre-registered gate (no scale separation at n = 512); see
+  > `notes/2026-08-08_bilocal_from_attention_derivation.md` (correction block at the
+  > top) and `experiments/exp-106_bilocal_profile_shape/notes.md`.
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);

@@ -594,6 +594,22 @@ convenience, and steps 0 and 0b apply to every step after them:
    (identifiability criterion misfiring when c ≈ 0; noise envelope calibrated on
    multiplicative noise only, so it cannot distinguish noise from structured
    misfit).
+
+   **DONE, same night. Item 1 is now exp-107 and it is one forward pass.** exp-106
+   found that G's floor is exactly ‖v̄‖² (forced by row-stochasticity, verified
+   entry-wise on GPT-2 to 5×10⁻⁶) and that **G's measured profile sits below that
+   floor across the whole fit window on 116 of 144 heads**, all five SYK-near heads
+   included — so under the census protocol G is a positive
+   constant minus a *negative* correlation that grows with lag, and the conformal
+   ansatz fails on it in sign structure rather than exponent. A closed-form Δ_A↔Δ_G
+   map was derived and retracted the same night by its own pre-registered gate (no
+   scale separation at n = 512). The remaining question is narrow and cheap, and
+   writing its pre-registration sharpened it: the negative mass is an identity for
+   *any* set of value vectors, so no input distribution removes it — what natural
+   text can do is move it outside the fitted lag window. That is exp-107, one forward
+   pass with the protocol otherwise frozen, pre-registered the same night. **Item 1's
+   upstream position is unchanged — everything below still waits on it — but the
+   cost of clearing it dropped from an experiment to a run.**
 2. **J-1b** — pre-register the PE-controlled census. Still the strongest *new*
    experiment on the list: a prediction named five months before the matching
    measurement, and the formation-ladder protocol already does everything except

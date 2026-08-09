@@ -3,7 +3,7 @@
 *A measurement program on the geometry of trained transformer attention.
 Every claim below is either a pre-registered measurement, a published kill, or
 labeled as interpretation. Last updated August 8, 2026 (the A↔G bridge is open —
-see "Which object does Δ describe?" under The theory; exp-104/105).*
+see "Which object does Δ describe?" under The theory; exp-104/105/106).*
 
 ---
 
@@ -177,7 +177,35 @@ so this is "the bridge is unsupported and largely uncheckable," not "the bridge 
 refuted." This does not touch the
 measured A-results or the kills; it means the bridge from those numbers to SYK's
 Δ = 1/4 is an open empirical debt rather than a settled step, and Paper 6 is
-blocked on it. Next: exp-106, characterizing G's profile shape before fitting it.
+blocked on it.
+
+**Why G's profile is not fittable (exp-106, same day).** G = A K Aᵀ is an identity,
+so G's profile is not an independent unknown, and two exact results follow from
+row-stochasticity alone. G's floor is **‖v̄‖²** — the squared norm of the head's mean
+value vector, computable with no fit (verified entry-wise on GPT-2 to 5×10⁻⁶). And
+the centered value Gram is negative off its diagonal by exactly the value-vector
+variance: Σ_{a≠b}(K − mean K)_{ab} = −Σ_a‖v_a − v̄‖². Measured: **G's lag profile
+sits below its own exact floor across the entire fit window on 116 of 144 GPT-2
+heads** — all five SYK-near heads among them — and below it somewhere in the window
+on 139 of 144 (median ratio 2.05). Across the fit window — lags 8→256, a factor of
+32 — the SYK-near profiles fall by only 10–23%, where Δ = 1/4 requires 82%. G is a
+positive constant minus a *negative* correlation that grows with lag, so it is the
+conformal ansatz's **sign structure**, not only its exponent, that fails on the
+measurable G — and after exact floor removal Δ_G remains unmeasured on the SYK-near
+heads. Scope is narrow: one model, random-token inputs, the trained-W^V object. (A
+closed-form Δ_A↔Δ_G exponent map was derived the same night and retracted by its own
+pre-registered gate — no scale separation at n = 512; the two exact results above are
+what survived.)
+
+**Next: exp-107** — pre-registered, not yet run. The question is *not* whether the
+negative correlation is a random-token artifact: the identity above holds for any set
+of value vectors, so **no input distribution can remove the negative mass.** What the
+input distribution controls is *where in lag that mass sits* — a positive connected
+profile over the census window requires the centered value Gram to carry a positive
+near-diagonal band, with the compensating negative mass pushed outside the fitted
+lags. Random tokens make the value vectors near-exchangeable, so it has no reason to
+band. One forward pass on natural text, protocol otherwise frozen, measuring the value
+Gram's own lag profile alongside G's.
 
 ## Run it yourself
 

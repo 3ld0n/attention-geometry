@@ -10,6 +10,62 @@ shown), **[ASSUMED]** (named assumption, scope stated), **[CONJECTURED]**.*
 
 ---
 
+> ## CORRECTION — same night, after the pre-registered gate ran
+>
+> **§3's Proposition 2 (the closed-form exponent map) is retracted as a statement
+> about the census's measurement window, and §5.1's arithmetic falls with it.** The
+> text below is left standing rather than edited, because this program does not
+> back-edit dated documents; read §3 and §5 only through this block.
+>
+> **What failed.** exp-106's gate criterion V1 — that the census estimator applied
+> to an exactly-computed forward model reproduces Δ_G = max(0, min(2Δ_A − 1/2, Δ_A))
+> — failed on 4 of 8 cells, by up to 0.13 at Δ_A = 1/4. Kill condition K1 fired.
+>
+> **Why.** Proposition 2 is a leading asymptotic requiring 1 ≪ s ≪ U, where U = i − s
+> is the number of key positions summed over. Under the census protocol
+> U ∈ [256 − s, 511 − s], so at the top of the fit window U collapses toward zero and
+> there is no scale separation anywhere in the upper half of the window. Confirmed by
+> construction: growing n at a fixed window drives regimes I and II toward the
+> prediction (Δ_A = 0.25: 0.128 → 0.092 from n = 512 to 4096, converging
+> logarithmically as the marginal point requires), while regime III retains a
+> persistent UV offset of 0.036–0.071. Proposition 2 is therefore correct
+> asymptotically and **unusable at n = 512**. Numbers: `experiments/exp-106_bilocal_profile_shape/diagnose_v1_failure.json`.
+>
+> **A second, independent reason not to use it.** Proposition 2 is derived under T1
+> (lag-translation invariance), and exp-106's H3 measured T1's damage directly:
+> reconstructing A from its own lag profile drops the forward model's R² by 0.54 on
+> the SYK-near heads. T1 is not usable for this object.
+>
+> **What survives, and what replaces it.** §2 is untouched: Propositions 1 (the
+> uniform part of K passes through untouched, so G's floor is exactly ‖v̄‖²) and the
+> convolution identity (2.3)/(2.4) require no asymptotics and were both confirmed —
+> Proposition 1 to 3.6×10⁻¹⁶ on synthetic data and 5.2×10⁻⁶ entry-wise on real
+> GPT-2 forward passes. The exponent map is replaced by the same map computed
+> numerically at the census protocol, where Δ_A = 1/4 gives Δ_G = 0.128 and
+> Δ_G = 1/4 requires Δ_A = 0.368 — **for K = I, which exp-106 then showed is the
+> wrong K** (the K = I forward model is anti-correlated with the measurement on 5/5
+> SYK-near heads). So the numerical map describes a dressing the data does not have,
+> and is not a conversion factor for any published number.
+>
+> **And the result the derivation did not anticipate.** G's measured lag profile sits
+> *below* its own exact floor — across the whole fit window on 116 of 144 heads (all
+> five SYK-near ones included), somewhere in the window on 139 of 144. The connected
+> part is **negative**,
+> for the exact structural reason Σ_{a≠b}K̃_{ab} = −Σ_a‖v_a − v̄‖² ≤ 0. §4 predicted
+> that the assumed form c + b·s^{−2Δ} could not fit G; the reason is worse than §4's,
+> because the sign is wrong and not only the exponent count. Full record:
+> `experiments/exp-106_bilocal_profile_shape/notes.md`.
+>
+> **The honest summary of this note's standing:** its two exact propositions hold and
+> one of them turned out to be the session's real finding; its headline closed-form
+> map does not survive its own gate. Written 21:30, retracted 23:15, by the
+> pre-registered criterion — which is the gate working, and is the second time in two
+> days that a committed synthetic gate has caught an error in my own derivation
+> (exp-105's M2 centering was the first). Derivation written ~21:05, retracted 21:15
+> when the gate ran, correction block placed 21:26.
+
+---
+
 ## 0. Why this note exists, and what it is not
 
 exp-104 and exp-105 (both August 8, both pre-registered) established that the
