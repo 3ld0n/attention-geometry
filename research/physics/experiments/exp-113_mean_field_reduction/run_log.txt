@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14322.96it/s]
+condition RANDOM
+    25/50 inputs
+    50/50 inputs
+  K2: max |sigma_pos recomputed - exp-112 published| = 2.83e-09 -> OK
+    L2H1     sigma_mf=+0.843 sigma_pos=+0.562 |diff|=0.281 D_q=0.227 D_k=0.304
+    L3H4     sigma_mf=+0.988 sigma_pos=+0.610 |diff|=0.378 D_q=0.266 D_k=0.314
+    L5H0     sigma_mf=+0.827 sigma_pos=+0.475 |diff|=0.352 D_q=0.315 D_k=0.354
+    L7H11    sigma_mf=+0.744 sigma_pos=+0.429 |diff|=0.315 D_q=0.313 D_k=0.360
+    L10H8    sigma_mf=+0.839 sigma_pos=+0.600 |diff|=0.239 D_q=0.177 D_k=0.196
+condition WIKITEXT
+    25/50 inputs
+    50/50 inputs
+  K2: max |sigma_pos recomputed - exp-112 published| = 6.96e-09 -> OK
+    L4H10    sigma_mf=+0.885 sigma_pos=+0.525 |diff|=0.360 D_q=0.314 D_k=0.361
+    L7H1     sigma_mf=+0.694 sigma_pos=+0.315 |diff|=0.379 D_q=0.319 D_k=0.416
+    L8H2     sigma_mf=+0.908 sigma_pos=+0.504 |diff|=0.404 D_q=0.360 D_k=0.498
+    L9H4     sigma_mf=+0.487 sigma_pos=+0.275 |diff|=0.212 D_q=0.341 D_k=0.426
+    L9H6     sigma_mf=+0.738 sigma_pos=+0.368 |diff|=0.370 D_q=0.365 D_k=0.470
+    L10H1    sigma_mf=+0.713 sigma_pos=+0.373 |diff|=0.340 D_q=0.358 D_k=0.458
+    L10H2    sigma_mf=+0.698 sigma_pos=+0.358 |diff|=0.340 D_q=0.344 D_k=0.467
+    L10H10   sigma_mf=+0.845 sigma_pos=+0.441 |diff|=0.404 D_q=0.589 D_k=0.466
+    L11H0    sigma_mf=+0.885 sigma_pos=+0.567 |diff|=0.317 D_q=0.284 D_k=0.319
+    L11H1    sigma_mf=+0.690 sigma_pos=+0.443 |diff|=0.247 D_q=0.285 D_k=0.324
+    L11H2    sigma_mf=+0.774 sigma_pos=+0.489 |diff|=0.286 D_q=0.286 D_k=0.322
+    L11H4    sigma_mf=+0.617 sigma_pos=+0.390 |diff|=0.227 D_q=0.264 D_k=0.307
+    L11H5    sigma_mf=+0.464 sigma_pos=+0.309 |diff|=0.155 D_q=0.253 D_k=0.318
+    L11H6    sigma_mf=+0.611 sigma_pos=+0.395 |diff|=0.216 D_q=0.314 D_k=0.328
+    L11H7    sigma_mf=+0.553 sigma_pos=+0.365 |diff|=0.188 D_q=0.263 D_k=0.334
+    L11H9    sigma_mf=+0.449 sigma_pos=+0.300 |diff|=0.149 D_q=0.246 D_k=0.322
+
+=== registered verdicts ===
+  P1: 0/5 within 0.1 -> DEAD (prediction on record: CONFIRMED)
+  P2: 0/16 within 0.1 -> DEAD (prediction on record: CONFIRMED)
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-113_mean_field_reduction/results_gpt2.json

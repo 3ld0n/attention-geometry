@@ -1,0 +1,53 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15077.16it/s]
+condition RANDOM
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1a: max |A_rec - A_model| = 0.000e+00 -> OK
+  K1b: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+condition TINYSTORIES
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1a: max |A_rec - A_model| = 0.000e+00 -> OK
+  K1b: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+condition WIKITEXT
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1a: max |A_rec - A_model| = 0.000e+00 -> OK
+  K1b: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+
+=== registered verdicts ===
+  P1 L2H1     full=+0.555 pos=+0.562 cov=-0.007 (SE 0.001) -> confirm
+  P1 L3H4     full=+0.608 pos=+0.610 cov=-0.002 (SE 0.001) -> confirm
+  P1 L5H0     full=+0.468 pos=+0.475 cov=-0.007 (SE 0.002) -> confirm
+  P1 L7H11    full=+0.427 pos=+0.429 cov=-0.002 (SE 0.001) -> confirm
+  P1 L10H8    full=+0.600 pos=+0.600 cov=-0.000 (SE 0.001) -> confirm
+  P1 -> CONFIRMED (5/5 confirm, 0/5 deny; prediction on record: CONFIRMED)
+  P2 L4H10    full=+0.550 pos=+0.525 cov=+0.025 (SE 0.005) -> deny
+  P2 L7H1     full=+0.531 pos=+0.315 cov=+0.216 (SE 0.018) -> deny
+  P2 L8H2     full=+0.567 pos=+0.504 cov=+0.063 (SE 0.012) -> deny
+  P2 L9H4     full=+0.513 pos=+0.275 cov=+0.238 (SE 0.019) -> ambiguous
+  P2 L9H6     full=+0.556 pos=+0.368 cov=+0.189 (SE 0.017) -> deny
+  P2 L10H1    full=+0.573 pos=+0.373 cov=+0.200 (SE 0.018) -> deny
+  P2 L10H2    full=+0.539 pos=+0.358 cov=+0.181 (SE 0.015) -> deny
+  P2 L10H10   full=+0.595 pos=+0.441 cov=+0.154 (SE 0.016) -> deny
+  P2 L11H0    full=+0.651 pos=+0.567 cov=+0.084 (SE 0.008) -> deny
+  P2 L11H1    full=+0.613 pos=+0.443 cov=+0.170 (SE 0.014) -> deny
+  P2 L11H2    full=+0.611 pos=+0.489 cov=+0.122 (SE 0.014) -> deny
+  P2 L11H4    full=+0.495 pos=+0.390 cov=+0.105 (SE 0.011) -> deny
+  P2 L11H5    full=+0.471 pos=+0.309 cov=+0.162 (SE 0.014) -> deny
+  P2 L11H6    full=+0.510 pos=+0.395 cov=+0.115 (SE 0.012) -> deny
+  P2 L11H7    full=+0.552 pos=+0.365 cov=+0.187 (SE 0.016) -> deny
+  P2 L11H9    full=+0.491 pos=+0.300 cov=+0.190 (SE 0.017) -> deny
+  P2 -> DEAD (0/16 confirm, 15/16 deny, 0 guard; prediction on record: CONFIRMED)
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-112_score_drift_decomposition/results_gpt2.json
