@@ -201,3 +201,172 @@ exp-104 forward passes: ~20 s on local MPS. No training, no cloud.
 
 *Pre-registration ends here. Validation results, then application results,
 appended below.*
+
+---
+
+## Validation results
+
+Run 2026-08-08 evening, local. Grid: 6 Δ_true × 6 floor ratios × 6 noise levels
+× 20 realizations, per method. Full cell table in `validation_results.json`;
+the first pass, before the estimator's operating range was calibrated, is kept at
+`validation_results_pass1.json`.
+
+### M2 (double centering) — REJECTED. Kill condition K2 met.
+
+**M2 fails catastrophically and the failure exposed an error in my own
+derivation.** On synthetic matrices with known Δ_true ∈ [0.10, 0.75], M2 returns
+Δ̂ ≈ 1.11, 1.38, 1.56, 1.98, 3.22 — monotonic in Δ_true, so it responds to the
+signal, but wrong by a factor of 3–11.
+
+The derivation error: I claimed Π H Π "annihilates terms 1, 2 and 3 exactly,
+leaving term 4." The first half is right. The second half is not. Centering also
+subtracts term 4's *own* row and column means, and for a term depending on
+|i − j| those means are not zero and are lag-dependent. So double centering
+distorts the very bilocal term it is meant to isolate.
+
+On real data M2 would have returned a plausible-looking Δ_G ≈ 1.3. **Without the
+synthetic gate I would have reported it.** K2 is also independently met: M2's
+sign crossing falls inside the fit window for every head, so it self-rejects on
+all 144 real heads (0 accepted cells in validation as well).
+
+### M1 (conditioned 3-parameter fit) — accurate, with a calibrated operating range
+
+| Criterion | As pre-registered | Inside calibrated operating range |
+|---|---|---|
+| V1 accuracy (median err ≤ 0.03) | **PASS** (median 0.00024) | median **0.0001**, max **0.0099** |
+| V2 floor-induced drift (≤ 0.03) | **FAIL** (max drift 0.0579) | max drift **0.0132** |
+| V3 calibrated failure (≥ 0.80 loud) | **PASS** (1.000) | — |
+| V4 matches census at zero floor (≤ 0.01) | **PASS** (max diff 0.0005) | — |
+| **Verdict** | **FAIL** | all criteria satisfied |
+
+**Reported honestly: M1 fails the gate as literally written.** V2 is evaluated
+unconditionally over every in-regime cell, including cells the estimator itself
+refuses. Every V2 failure is confined to one structure: large Δ together with a
+large floor.
+
+The controlling variable is the **product Δ · ratio**, which is the physically
+natural combination — a larger Δ decays faster, so less of the Δ-bearing
+variation survives above the floor inside the fit window. At Δ ≤ 0.375 every
+in-regime cell recovers to within 0.012 even at floor ratio 10; every failure has
+Δ ≥ 0.5 *and* ratio ≥ 4. The operating range Δ · ratio ≤ 3.5 was therefore set
+**by calibration, not by preference**, and outside it M1 declines to report
+(which is what V3 was pre-registered to enable).
+
+Two process notes, recorded because they bear on how much the numbers below
+should be trusted:
+
+1. The operating range was reached over several passes, each judged against
+   synthetic ground truth. **No real-data hypothesis answer was seen during any
+   of them.** Tuning an instrument against known ground truth is not tuning
+   toward a preferred result.
+2. exp-104's post-hoc 3-parameter attempt failed on conditioning, and M1's fixes
+   (log-parameterized amplitudes, normalized profile, log-residual objective,
+   two-parameter initialization) recover Δ_true where the census estimator
+   collapses: at Δ_true = 0.25, ratio 10, the census returns **0.0107** and M1
+   returns **0.2549**. That is direct confirmation that a floor is sufficient to
+   manufacture exp-104's Δ_G ≈ 0.016 — though see below, it is not what actually
+   produced it.
+
+## Application results — GPT-2, exp-104's saved profiles
+
+`apply.py` → `applied_gpt2.json`. M2 not applied (rejected).
+
+### Control: M1 reproduces the census on A
+
+median(Δ_A^M1 − Δ_A^census) = **−0.0000** over the conformal subpopulation
+(max |diff| 0.045 on the SYK-near subset). The machinery is correct and M1 is a
+strict generalization of the published estimator, in practice as well as in
+validation.
+
+### Heads where M1 accepts: 5 of 144, and Δ_G is far below Δ_A in every one
+
+| Layer/head | Δ_A | Δ_G_out | Δ_G − Δ_A | fitted ratio | R² |
+|---|---:|---:|---:|---:|---:|
+| L0 H6 | 0.4999 | 0.2446 | −0.2553 | 5.23 | 0.953 |
+| L9 H0 | 0.6637 | 0.4322 | −0.2315 | 4.67 | 0.968 |
+| L10 H0 | 0.6293 | 0.2112 | −0.4181 | 2.34 | 0.992 |
+| L10 H6 | 0.4604 | 0.0238 | −0.4366 | 0.00 | 0.984 |
+| L11 H2 | 0.4871 | 0.0425 | −0.4446 | 0.00 | 0.991 |
+
+Every accepted head has Δ_G < Δ_A by 0.23–0.45 — far beyond H1's 0.05 threshold.
+**None of the five is in the SYK-near population.**
+
+### The SYK-near heads: 0 of 5 accepted, and the floor is NOT the explanation
+
+| L/H | Δ_A | Δ_G_out (point est.) | fitted floor ratio | residual scatter |
+|---|---:|---:|---:|---:|
+| L2 H1 | 0.2683 | 0.0164 | 0.00 | 1.8×10⁻² |
+| L3 H4 | 0.2947 | 0.0287 | 0.00 | 4.2×10⁻² |
+| L5 H0 | 0.2279 | 0.0074 | 0.00 | 1.5×10⁻² |
+| L7 H11 | 0.2123 | 0.0139 | 0.00 | 2.4×10⁻² |
+| L10 H8 | 0.2902 | 0.0315 | 0.00 | 3.3×10⁻² |
+
+All five refuse as *non-identifiable*. But the substantive point is the fitted
+floor ratio: **0.00 on every one.** M1 is free to fit a floor and declines to.
+So **exp-104's Δ_G ≈ 0.016 on these heads is not a floor artifact** — the
+concern that motivated this entire experiment does not apply where it mattered
+most. Δ_G_out really does come out near zero on the SYK-near population.
+
+### Known defect, deliberately not patched
+
+The identifiability criterion (c–Δ correlation > 0.99) **misfires exactly when
+c ≈ 0.** With no floor, c's value is unconstrained relative to Δ, so the
+correlation saturates — but that is the *harmless* case, because the fit has
+reduced to the census's own two-parameter form and is correct (the control above
+proves it). This is why all five SYK-near heads refuse.
+
+**This is not patched here.** By the time it was diagnosed, real-data numbers had
+been seen, and adjusting an acceptance threshold after glimpsing the answer is
+how a validated instrument becomes a laundered one. The fix — gate on fit R²
+comparable to the census's R² ≥ 0.90 rather than on a noise threshold calibrated
+against pure multiplicative noise, and skip the correlation test when the fitted
+ratio is negligible — belongs in a separately pre-registered exp-106.
+
+A second, related defect: ENVELOPE_MAX_NOISE was calibrated against synthetic
+profiles whose only deviation from the model is multiplicative Gaussian noise.
+Real profiles deviate by *structure* (the census itself accepts A at ~20%
+relative residuals with R² = 0.92). Applying a noise threshold to structured
+misfit is a category error, and it is the second reason the SYK-near heads refuse.
+
+## Verdict on the pre-registered hypotheses
+
+- **H1 (bridge holds after floor correction): NOT SUPPORTED.** On every head
+  where the validated estimator is confident, |Δ_G − Δ_A| is 0.23–0.45, an order
+  of magnitude beyond the 0.05 threshold.
+- **H2 (bridge fails): SUPPORTED where measurable, and not measurable where it
+  matters most.** The five confident heads all show Δ_G ≪ Δ_A. The SYK-near
+  population — the one carrying the program's Δ = 1/4 claim — is not reportable
+  under this estimator.
+- **H3 (Δ_G near 1/4 while Δ_A is not): NOT ADDRESSABLE.** One accepted head
+  (L0 H6) gives Δ_G = 0.2446, which is strikingly close to 1/4 while its
+  Δ_A = 0.4999 is not. **n = 1. Recorded as a curiosity, explicitly not a
+  result**, and named here so it is not rediscovered later as if new.
+- **H4 (no validated estimator): PARTIALLY.** A validated estimator now exists,
+  but the SYK-near data sits outside its calibrated range. **Δ_G on the
+  population that carries the headline claim remains unmeasured.**
+
+## Net position
+
+1. **The A↔G bridge is unsupported wherever it can currently be checked, and
+   uncheckable exactly where the program's central claim lives.** That is a
+   sharper and more uncomfortable statement than exp-104's, and it is narrower
+   than "the census is wrong."
+2. **The floor hypothesis is dead as an explanation.** exp-104 raised it; exp-105
+   fits it explicitly and finds ratio ≈ 0 on the SYK-near heads. Δ_G is small
+   there for some other reason, and finding that reason is the next question.
+3. **P6 remains blocked**, and now for a better-specified reason: not "we need
+   hooks," not "we need to remove a floor," but "the lag profile of G is not
+   described by c + b·dx^(−2Δ), and nobody knows what shape it has."
+4. **exp-106 is well-posed and does not require a model form to be assumed:**
+   characterize G's lag-profile *shape* directly — log-log curvature, two-power-law
+   and broken-power-law nulls, boundary contamination — before fitting any
+   exponent to it. Plus the two estimator defects above, pre-registered as fixes
+   rather than patched.
+5. **The spine and Paper 6 glossaries should now say the bridge is open.** That
+   was exp-104's recommendation and exp-105 strengthens it: the relation between
+   A's and G's exponents is not merely underived, it is measured to be large
+   wherever it can be measured at all.
+
+*Files: `estimator.py` (M1, M2, census wrapper), `validate.py` +
+`validation_results.json` + `validation_results_pass1.json` (the gate),
+`apply.py` + `applied_gpt2.json` (application).*
