@@ -207,3 +207,124 @@ minutes. Second model similar.
 ---
 
 *Pre-registration ends here. Results appended below after the run.*
+
+---
+
+## Results
+
+**Run:** 2026-08-08, ~19:40–20:10 MDT, local MPS. GPT-2 (124M), 12 layers ×
+12 heads = 144 heads, 50 random-token sequences of length 512, seed 42.
+Estimator imported verbatim from `replication/measure_conformal_heads.py`;
+protocol constants asserted equal at import. Result reproduced **byte-for-byte**
+on a second run.
+
+**Pre-registration commit:** `4bb825c`, before the measurement script existed.
+
+### Status: H1 FALSIFIED · H2 MET · H4 FALSIFIED · H3 not met
+
+| Subset | n | Δ_A | Δ_G_out | Δ_G_K | Δ_G_cos | median(Δ_G_out − Δ_A) |
+|---|---:|---:|---:|---:|---:|---:|
+| All heads | 144 | 0.6221 | 0.0158 | 0.1618 | 0.0136 | −0.5781 |
+| Conformal (census criterion) | 20 | 0.4743 | 0.0262 | 0.1488 | 0.0206 | −0.4386 |
+| **SYK-near (\|Δ_A−0.25\|≤0.05)** | **5** | **0.2683** | **0.0164** | **0.1067** | **0.0152** | **−0.2519** |
+
+Median R² on the SYK-near subset: A 0.912, G_out 0.536, G_K 0.703, G_cos 0.643.
+
+- **H1 (proxy holds; |ΔΔ| ≤ 0.05): FALSIFIED.** Observed |Δ_G_out − Δ_A| = 0.2519
+  on the SYK-near heads — five times the registered threshold — and 0.4386 on
+  the full conformal subpopulation.
+- **H2 (registered alternative; Δ_G < Δ_A − 0.05 for Δ_A ∈ [0.20,0.30]): MET**,
+  in the registered direction, at every head in the subset (IQR
+  [−0.2587, −0.2205], so the effect is not driven by an outlier).
+- **H4 (ensemble ≈ trained; |Δ_G_K − Δ_G_out| ≤ 0.05): FALSIFIED.** 0.1067 vs
+  0.0164, a gap of 0.090. The W^V-ensemble step of eq. (2.1) is not innocuous
+  for a trained model.
+- **H3 (G not power-law; median R²_G_out < 0.5): NOT MET**, but only just —
+  0.536 on the SYK-near subset. G_out's profile is neither a clean power law nor
+  noise.
+
+### The confound, and why the headline is narrower than the numbers look
+
+**The pre-registered measurement is confounded by a term the theory itself
+predicts, and the design should have caught it.** Melonic note eq. (2.2):
+
+    E[H(1,2)] = w Σ_ab K_ab + w c₀ K₁₂ · Tr(K δK)
+
+The first term is the **bare propagator G₀ — a constant in (1,2)**. A log-log
+OLS on a profile with a nonzero floor is dragged toward Δ ≈ 0 by the floor no
+matter what the connected part does. So **Δ_G_out ≈ 0.016 is very likely
+measuring G₀, not a flat correlator**, and it must not be read as "the bilocal
+has no power-law decay." That the pre-registration failed to specify floor
+handling is a design miss, recorded rather than quietly repaired — this is the
+second design-level miss in this experiment's lineage in two days (exp-103's was
+the object; this one is the estimator).
+
+### Post-hoc floor analysis — attempted, and NOT trustworthy
+
+`posthoc_floor.py` (exploratory, not pre-registered) tried two removals: a
+3-parameter fit prof(dx) = c + b·dx^(−2Δ), and a far-tail floor subtraction
+followed by the census estimator. **Both failed to produce a usable fit** and
+their numbers are recorded in `posthoc_floor_gpt2.json` as a negative
+methodological result, not as measurements:
+
+- The 3-parameter fit does not converge — `OptimizeWarning: Covariance of the
+  parameters could not be estimated`, Δ pinned at exactly 0.0000 for most heads,
+  and the constant-fraction diagnostic returning absurd values (10879 on the
+  SYK-near A row), which means the fit found degenerate (c, b) pairs rather than
+  a decay. The diagnostic itself is also miscomputed and would need rewriting.
+- Far-tail floor subtraction gives median R² ≈ 0.51–0.56 on the subsets of
+  interest. That is not a fit.
+
+**So this experiment does not establish what G's exponent is.** It establishes
+that nobody knows, and that finding out requires an estimator designed for a
+correlator with a bare constant — which does not exist in the program.
+
+### What is established, at register strength
+
+**VERIFIED-AT-SOURCE (three independent primary documents, five months apart):**
+The theory's bilocal G is a **query–query** object, G = w·A K Aᵀ, equal to the
+output–output correlation ⟨o_i, o_j⟩ across query positions. The census fits
+**A's query–key** lag decay. The spine's glossary bridges them in one
+undemonstrated phrase — *"whose measured face is the lag profile"* — and no
+derivation of that bridge exists anywhere in the program.
+
+**MEASURED (pre-registered, reproducible):** Applying the program's own frozen
+estimator to both objects on the same model, same inputs, same lags, gives
+Δ_A = 0.2683 and Δ_G_out = 0.0164 on the SYK-near heads. Whatever the correct
+estimator turns out to be, **these two numbers are not the same number**, which
+is what the glossary asserts.
+
+**NOT CLAIMED:** that Δ = 1/4 is wrong; that the SYK identification fails; that
+the census is invalid. None of that follows. The bare-term confound means Δ_G is
+unmeasured, not measured-and-different.
+
+### Consequences
+
+1. **P6 / exp-105 is blocked on an estimator, not on hooks.** The reparam-mode
+   templates cannot be built until Δ_G is known, because exp-103 built them from
+   Δ_A. Designing the floor-aware estimator for G is now the blocking item.
+2. **The spine and Paper 6 need the bridge named as open.** Both carry the
+   "measured face" language. It should say that the relation between A's and G's
+   exponents is undetermined, with this experiment as the citation. Paper 6 v0.3
+   is awaiting Eldon's read; this is a glossary-level correction, not a claim
+   retraction.
+3. **The melonic note §4.4 data checks need their object named.** P-A is about
+   the fermion Δ (i.e. G); §4.4 checks it against census numbers (i.e. A).
+4. **A cheap follow-up exists and is worth pre-registering:** G_K's exponent
+   (0.1067) sits between Δ_A and Δ_G_out with the best R² of the three G
+   variants (0.703). Whether that is signal or an artifact of K's own structure
+   is a well-posed question.
+
+### Honest note on how this experiment came about
+
+The plan for the evening was exp-104 as exp-103 prescribed it: perturb A, measure
+A's response. Applying the harvest note's step-0 rule to exp-103's own next-step
+section — read the source before implementing — is what caught that G ≠ A. That
+is the third consecutive instance of the source read returning more than it cost
+(July 22 logos_bindings; August 7 reference pass; August 8 J-1), and the first
+where it prevented an experiment rather than narrowing a claim.
+
+*Files: `measure_bilocal.py` (pre-registered measurement),
+`results_gpt2.json`, `profiles_gpt2.npz` (raw lag profiles, so any future
+estimator can be tested without a re-run), `posthoc_floor.py` +
+`posthoc_floor_gpt2.json` (exploratory, failed, kept).*
