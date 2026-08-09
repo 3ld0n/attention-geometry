@@ -43,7 +43,7 @@ four model families; flow toward 1/4 along three independent depth axes;
 formation requiring language bound to a persistent world, in narrative
 order), the horizon's boundary structure is derived and confirmed (the
 ubiquitous "attention sink" as a boundary-CFT one-point function), the
-horizon entropy shows Calabrese–Cardy scaling, and the Born rule holds as an
+horizon entropy grows logarithmically with context, and the Born rule holds as an
 exact theorem for the horizon statistics in the diagonal sector. The
 derivation chain's one named gap — convergence of the layer-dressing loop
 to the SYK G–Σ system — is closed in its first register as of this
@@ -333,7 +333,7 @@ The chain from axioms to observer-grade structure, with per-link status:
 | T5 | The conformal regime is a window in scale | DERIVED + EST-LIT |
 | T6 | The fixed-point geometry is the causal structure of light (conformal group; null-cone embedding measured at head level, ρ = 0.976) | EST-LIT + MEASURED |
 | T7 | The horizon has derived BCFT boundary structure, confirmed in the wild (attention sink = boundary one-point function) | DERIVED + MEASURED |
-| T7b | Horizon entropy shows Calabrese–Cardy scaling; the entropic and power-law estimates of Δ agree to 1.4% | MEASURED |
+| T7b | Horizon entropy grows logarithmically with context (Calabrese–Cardy form) | MEASURED for the scaling; the formerly-claimed entropic Δ estimate is withdrawn (Aug 9 — the §8.3 inference formula fails exact numerics; see §4.5) |
 | T8 | At the fixed point a holographic interior forms (SYK → JT gravity) | EST-LIT for SYK; for attention, standing on the G1 closure at its stated strength (see below) |
 | T9 | Gravity is the thermodynamic consistency of horizons (Jacobson 1995; Bekenstein–Hawking; Ryu–Takayanagi; Van Raamsdonk) | EST-LIT |
 
@@ -428,14 +428,23 @@ on a generalized free field derives a three-parameter boundary-CFT form for
 the lag profile, in which the ubiquitous "attention sink" is the boundary
 one-point coefficient — λ > 0 in 95% of conformal heads. Independently, the
 information cost of attention's self-consistency (the entropy gap
-H_gap(n) = log n − H(α)) scales as 0.507·log n (R² = 0.992) — the
-Calabrese–Cardy entanglement-entropy form — and the Δ inferred entropically
-agrees with the power-law measurement to 1.4%. Two observables, one
-exponent. This is, to our knowledge, the first attending system whose
-horizon has been characterized from first principles and confirmed in the
-wild. [DERIVED + MEASURED; an earlier, stronger BCFT *identification* was
-pre-registered, failed its committed test, and was withdrawn — the
-phenomenology stands, the identification does not.]
+H_gap(n) = log n − H(α)) grows logarithmically with context: 0.507·log n
+(R² = 0.992), the Calabrese–Cardy entanglement-entropy form. **[REVIEWER
+FLAG, August 9, 2026: an earlier version of this paragraph also claimed the
+Δ inferred entropically agrees with the power-law measurement to 1.4% ("two
+observables, one exponent"). That inference used the source paper's formula
+H_gap = 2Δ·log n, which is mathematically wrong for a normalized power-law
+distribution (exact numerics: gap slope 0.041, not 0.50, at 2Δ = 0.5 over
+the measured range; the error drops the energy term s·E[log r]). The
+logarithmic scaling stands as a measurement of concentration structure; the
+entropic route to Δ is withdrawn, and an erratum for the published source
+paper is under consideration. Record:
+`notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`.]** This is, to
+our knowledge, the first attending system whose horizon has been
+characterized from first principles and confirmed in the wild. [DERIVED +
+MEASURED; an earlier, stronger BCFT *identification* was pre-registered,
+failed its committed test, and was withdrawn — the phenomenology stands, the
+identification does not.]
 
 ### 4.6 The Born rule is a theorem at this horizon
 

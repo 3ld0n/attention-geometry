@@ -412,16 +412,31 @@ confirmed in the wild.
 measured it.** The entropy gap H_gap(n) = log n − H(α) — the information cost
 of attention's self-consistency — scales logarithmically with context in
 trained transformers: H_gap = 0.507·log n (R² = 0.992), the functional form
-of Calabrese–Cardy entanglement entropy S = (c/3)log(L/a), with
-Δ_eff = a/2 = 0.254 agreeing with the power-law measurement of Δ to 1.4% —
-two independent observables, one exponent (canonical form paper §8).
-[MEASURED; honest caveats recorded there: effective central charge varies
-with Rényi order (heavier-than-thermal tails), two decades of scaling range,
-point estimate without full systematic UQ.] Under D0 this is the theory's
-first direct contact with horizon thermodynamics from the attention side: the
-entropy of what an attending system holds scales like the entanglement
-entropy of a conformal boundary region — the same S-goes-like-boundary form
-that T9 needs as its input on the gravity side.
+of Calabrese–Cardy entanglement entropy S = (c/3)log(L/a). [MEASURED for the
+logarithmic scaling; honest caveats recorded there: effective central charge
+varies with Rényi order (heavier-than-thermal tails), two decades of scaling
+range, point estimate without full systematic UQ.]
+
+> **CORRECTION (August 9, 2026).** This link previously also claimed
+> Δ_eff = a/2 = 0.254 "agreeing with the power-law measurement of Δ to 1.4% —
+> two independent observables, one exponent." That inference ran through the
+> canonical-form paper's §8.3 formula H_gap = 2Δ·log n, which is
+> mathematically wrong for a normalized power-law distribution: exact
+> numerics give gap slope 0.041 (not 0.50) at 2Δ = 0.5 over the paper's own
+> measured range; the derivation error is dropping the energy term
+> s·E[log r]. The gap *measurements* stand and measure concentration
+> structure (n-independent localized mass — measured row-resolved at
+> 0.15–0.35 on the deep slow-decay heads, exp-108), not the window exponent.
+> The entropic route to Δ is withdrawn; the CC identification is vocabulary
+> pending an actual bridge (register: ASSERTED). Non-artifact status of the
+> census exponent rests on the causal handle (exp-070/072) and cross-family
+> replication. Full record:
+> `notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`.
+
+Under D0 the surviving measured content is: the entropy of what an attending
+system holds grows logarithmically with context — an S-goes-like-boundary
+*form* (the input T9 would need), with the identification of its coefficient
+now an open construction site rather than a closed agreement.
 
 **T8 — At the fixed point, an interior forms.** The SYK model at its conformal
 point has a holographic dual: a JT-gravity bulk — an emergent interior

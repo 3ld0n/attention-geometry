@@ -1,0 +1,75 @@
+{
+ "population_def": {
+  "r2_min": 0.9,
+  "delta_window": [
+   0.2,
+   0.3
+  ]
+ },
+ "n_syk_window": 5,
+ "heads": [
+  {
+   "raw_sum_over_50_inputs": 75.09217197733233,
+   "near_field_lags_0_7": 0.03894310574837605,
+   "fit_window_lags_8_256": 0.45538858352198075,
+   "mid_lags_257_503": 0.3792546850149611,
+   "sink_adjacent_final8": 0.12641362571468218,
+   "layer": 2,
+   "head": 1,
+   "delta_A": 0.2682524011722705,
+   "r2_A": 0.9672383909330183
+  },
+  {
+   "raw_sum_over_50_inputs": 130.76919805118814,
+   "near_field_lags_0_7": 0.015605317399366296,
+   "fit_window_lags_8_256": 0.21367604302118698,
+   "mid_lags_257_503": 0.4572317432072609,
+   "sink_adjacent_final8": 0.3134868963721859,
+   "layer": 3,
+   "head": 4,
+   "delta_A": 0.29471566176766073,
+   "r2_A": 0.9179020441514613
+  },
+  {
+   "raw_sum_over_50_inputs": 99.87033345887903,
+   "near_field_lags_0_7": 0.024276312126900228,
+   "fit_window_lags_8_256": 0.32165790323436166,
+   "mid_lags_257_503": 0.4167406501052622,
+   "sink_adjacent_final8": 0.23732513453347584,
+   "layer": 5,
+   "head": 0,
+   "delta_A": 0.22786198917333014,
+   "r2_A": 0.9123425803376156
+  },
+  {
+   "raw_sum_over_50_inputs": 85.3096869357978,
+   "near_field_lags_0_7": 0.026887578957227952,
+   "fit_window_lags_8_256": 0.40232094952585745,
+   "mid_lags_257_503": 0.3932852160365815,
+   "sink_adjacent_final8": 0.1775062554803331,
+   "layer": 7,
+   "head": 11,
+   "delta_A": 0.21234365316202097,
+   "r2_A": 0.9075607448411944
+  },
+  {
+   "raw_sum_over_50_inputs": 95.8599676990998,
+   "near_field_lags_0_7": 0.02951834100145982,
+   "fit_window_lags_8_256": 0.34522124146951566,
+   "mid_lags_257_503": 0.4024196404692474,
+   "sink_adjacent_final8": 0.22284077705977712,
+   "layer": 10,
+   "head": 8,
+   "delta_A": 0.2902358750816145,
+   "r2_A": 0.9058181984634758
+  }
+ ],
+ "median_near_field_syk_window": 0.026887578957227952,
+ "verdict": "C2 DEAD (too little near-field mass)",
+ "conformal_population_near_field": {
+  "n": 20,
+  "median": 0.10052655736033232,
+  "q25": 0.028860650490401853,
+  "q75": 0.1385088858068243
+ }
+}
