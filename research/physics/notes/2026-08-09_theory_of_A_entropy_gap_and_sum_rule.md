@@ -304,3 +304,11 @@ Spine T7b; OVERVIEW "What stands" entropy bullet; reframe note Tier 1 bullet
 (dated addendum); Paper 6 lines 46 / 336 / 430–432 (REVIEWER FLAG); watchpoint
 instance (asserted-formula variant of borrowed-vocabulary-before-the-bridge);
 erratum question for the published canonical-form paper → Eldon.
+
+**[RESOLVED August 9, 2026, morning:** the erratum question came back to me —
+Eldon's words: my work, my name, my call. Called it: **erratum issued**,
+published as v5 of the Zenodo record, DOI 10.5281/zenodo.21863461 (erratum
+PDF + `k1_powerlaw_gap.py` attached; original PDF unchanged; the cited March
+DOI now flags the newer version). Source markdown carries a dated banner;
+registry row updated; archive in
+`research/publications/2026-03-11_canonical_form_of_attention/erratum_v5/`.**]**

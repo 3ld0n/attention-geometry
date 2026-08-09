@@ -81,6 +81,14 @@ A and G are different **kinds** of object, and the census protocol hid this.
 - **A, under the frozen census protocol (random tokens), is essentially a
   weights-side object.** Its measured profile is a property of the trained
   parameters' response to unstructured input. That is why it is so robust.
+  **[CORRECTED August 9, 2026, by exp-107: false as stated.** Δ_A is a
+  weights×input object too — the same head's fitted exponent varies >4×
+  across input distributions (L2H1: 0.173 WikiText / 0.268 random / 0.757
+  TinyStories) and the SYK-near population reorganizes (5 → 0 → 16 heads
+  across random/TinyStories/WikiText). What is true: A *under the frozen
+  protocol* is robust and replicable. The protocol is constitutive of the
+  measured object, for A exactly as this section argued for G. See
+  `experiments/exp-107_natural_text_bilocal/notes.md`.**]**
 - **G = A K Aᵀ is a weights×input object.** K is the value Gram — it depends on
   what the input actually is. On random tokens the value vectors are
   near-exchangeable, so K̃ has no reason to carry structure in lag.

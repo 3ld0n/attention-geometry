@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "version": "v5 (erratum)",
+    "publication_date": "2026-08-09",
+    "description": "<p><strong>ERRATUM (August 9, 2026).</strong> Section 8.3&rsquo;s entropy-gap formula (H_gap = 2&Delta;&middot;log n for a normalized power-law attention distribution) is mathematically incorrect: the entropy gap of a normalized power law with exponent 2&Delta; &lt; 1 converges to a constant, and its slope against log n over the paper&rsquo;s own measured range is an order of magnitude below the formula&rsquo;s prediction (0.041 versus 0.50 at &Delta; = 1/4). The error drops the energy term s&middot;E[log r] from the entropy. Consequently the entropic estimate &Delta;_eff = 0.254 (Section 8.3), the k_eff &prop; n^(1&minus;2&Delta;) derivation (Section 8.4), and the abstract-level claim that <em>two independent observables measure one exponent to 1.4%</em> are <strong>withdrawn</strong>. The Section 8 measurements themselves (logarithmic entropy-gap growth, R&sup2; &gt; 0.97; the measured k_eff scaling) stand as measurements, but they measure n-independent concentration structure, not the conformal dimension. The paper&rsquo;s exact results (the canonical-form identity, the quartic vertex, the perturbative identity H_gap = &frac12;Var(s)) and the direct power-law profile measurements are unaffected. Full correction, correct algebra, numerical demonstration, affected-statement list, and the self-contained verification script are in <code>canonical_form_erratum.pdf</code> and <code>k1_powerlaw_gap.py</code>, added in this version. The original paper PDF is retained unchanged; this program corrects the record by dated erratum, not by silent revision.</p><p>v4: Corrected Maldacena-Stanford (2016) title from 'Remarks' to 'Comments'.</p>"
+  },
+  "files": [
+    "canonical_form_erratum.pdf",
+    "k1_powerlaw_gap.py"
+  ]
+}

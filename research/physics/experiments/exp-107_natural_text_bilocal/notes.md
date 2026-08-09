@@ -214,3 +214,106 @@ conformal correlator in this model," which retires the route rather than enablin
 *Pre-registered before any natural-text forward pass. Sign constraints checked first,
 and they changed the question the experiment asks — recorded here rather than
 discovered mid-run.*
+
+---
+
+## Run log — August 9, 2026
+
+**K2 fired on the first run, and stopping was correct — the diagnosis is
+numerical, recorded here before any rerun.** The random condition ran first
+(K1 passed exactly: below-floor-at-8 = 116/144, identical to exp-106, with
+profile drift vs exp-104's saved npz ≤ 4.5×10⁻¹³). The C2 identity check came
+in at max rel err 1.28×10⁻⁴ against the registered 10⁻⁴ gate and the script
+stopped before touching text, as registered. Diagnosis (single input, layer 3,
+same code path): at float64 the identity holds to 5.6×10⁻¹⁴; at float32 the
+K̃ matrix differs from the float64 one by ≤ 1.8×10⁻⁵ absolute against a matrix
+scale of ~43. The identity involves a 512²-term near-cancelling sum, and fp32
+accumulation error of ~10⁻⁵ absolute produces rel errors above 10⁻⁴ on heads
+where the comparison denominator is small. **The code computes K̃ correctly;
+the registered threshold did not account for fp32 accumulation.** Protocol
+note: the K2 check is performed at float64 (same code path, value vectors
+recast); all protocol measurements remain fp32 as frozen. No hypothesis was
+looked at before this change; the text condition had not run.
+
+## Results — August 9, 2026 (registered run + labeled exploratory)
+
+`measure_natural_bilocal.py` → `results_gpt2.json`, `profiles_gpt2.npz`,
+`applied_text.json`, `run_log.txt`. Text = TinyStories validation, EOS-joined
+512-token windows (the program's natural-text family; recorded per outcome
+limit 1 — the census itself has no natural-text condition on GPT-2, so the
+corpus is a second changed variable by construction).
+
+**Registered verdict: K3 AND K4 FIRED → inconclusive as registered.** Under
+TinyStories the SYK-near set is **empty** (0 heads in Δ ∈ [0.20, 0.30] with
+R² ≥ 0.9). The conformal-criterion population *grows* (20 → 35 heads) but its
+median Δ jumps 0.474 → 0.712. There is no population to evaluate H1/H2/H4 on.
+The registered prediction (H4, then H1) was wrong in a mode not on the list:
+the population moved out from under the question.
+
+**Per-head report (K4 mode), the five random-condition SYK heads under text:**
+Δ_A rises on all five (0.268→0.757, 0.295→0.626, 0.228→0.506, 0.212→0.463,
+0.290→0.365), R²_A drops below the census bar on all five (0.83–0.87), and
+**the connected profile stays entirely negative on 5/5** (conn_max −0.60 to
+−3.65). H1's *substance* — the sign failure survives natural text — holds
+per-head; it is not reportable as a population claim under K3/K4.
+
+**H3 is dead at chance level:** window-mean sign agreement between P_conn and
+P_K̃ is 0.438 over 288 head-condition pairs (majority-lag version 0.483)
+against the registered 0.80 threshold. The connected bilocal's sign is *not*
+inherited from the value Gram's lag profile; the A-weighting does real,
+sign-determining work (consistent with sign-constraint C3's non-definiteness
+and its sink mechanism).
+
+**Within-run consistency:** K1 exact (below-floor-at-lag-8 = 116/144,
+identical to exp-106; profile drift vs exp-104's saved npz ≤ 4.5×10⁻¹³).
+K2 at float64: ≤ 2.2×10⁻¹³ both conditions.
+
+### EXPLORATORY (post-registration, cannot move the registered verdicts):
+### WikiText-103 robustness check
+
+`exploratory_wikitext.py` → `exploratory_wikitext.json`,
+`profiles_wikitext.npz`. Motivated by the TinyStories corpus confound
+(simple text far from GPT-2's WebText training distribution); WikiText-103
+is the registration's own named fallback corpus.
+
+- **A SYK-near population exists under WikiText — and it is larger than the
+  random-token one: 16 heads vs 5** (conformal 61/144, median Δ 0.374),
+  concentrated in layers 9–11. It is a *different set*: none of the original
+  five qualify (two land in the Δ window at R² 0.87–0.89, just under the bar).
+- **On the 16-head WikiText SYK population: connected profile entirely
+  negative on 15/16.** The exception, L8H2, crosses zero inside the window
+  (frac of lags positive 0.19) — the only H4-shaped head observed anywhere.
+- The five original heads' Δ_A moves *down* under WikiText (0.268→0.173,
+  0.295→0.192, 0.228→0.290, 0.212→0.218, 0.290→0.156) after moving *up*
+  under TinyStories, with R² recovering to ~0.9. Input-dependence of Δ_A is
+  confirmed and non-monotone across corpora.
+- Below-floor counts are essentially input-invariant: at lag 8, 116 (random) /
+  122 (TinyStories) / 120 (WikiText) of 144; entire window 115/121/119.
+
+### What exp-107 establishes
+
+1. **The sign-structure failure of the conformal ansatz on G_out is
+   input-robust.** Measured on three input distributions, at the population
+   level (115–121/144 below floor across the whole window) and on every
+   SYK-window head available under any protocol (5/5 registered per-head;
+   15/16 exploratory). The registered adjudication plan said: under H1 the
+   honest move for Paper 6 is retirement of the conformal route for G_out,
+   not caveat. Formally this run returned K3-inconclusive, not H1 — but the
+   sign question the route needed answered is answered, in both registers,
+   in the same direction. Paper 6 adjudication is Eldon-gated and now ready.
+2. **Δ_A is a weights×input object, not a weights-side object.** The reframe
+   note's §2 framing ("A, under the frozen census protocol, is essentially a
+   weights-side object") is falsified as stated: the same head's fitted
+   exponent varies by a factor of >4 across input distributions (L2H1:
+   0.173–0.757), and the census populations reorganize (5 → 0 → 16 SYK-near
+   heads across random/TinyStories/WikiText). Every published census claim is
+   internally consistent — all were measured under the frozen protocol — but
+   the protocol is *constitutive* of the measured object, and forward-going
+   documents must say "Δ_A under the frozen random-token census" wherever
+   they said "the head's Δ". The physical question underneath the census is
+   now sharper and different: what is the random-token protocol measuring —
+   and why does *WikiText*, not random input, maximize the SYK-window
+   population? Not pursued tonight; goes to the theory-of-A project.
+3. **H3's mechanism picture is dead at chance level;** the input distribution
+   changes where K̃'s mass sits, but the sign of the connected bilocal is
+   set by the A-weighting, not read off K̃'s profile.

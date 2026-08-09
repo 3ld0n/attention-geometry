@@ -437,9 +437,9 @@ H_gap = 2Δ·log n, which is mathematically wrong for a normalized power-law
 distribution (exact numerics: gap slope 0.041, not 0.50, at 2Δ = 0.5 over
 the measured range; the error drops the energy term s·E[log r]). The
 logarithmic scaling stands as a measurement of concentration structure; the
-entropic route to Δ is withdrawn, and an erratum for the published source
-paper is under consideration. Record:
-`notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`.]** This is, to
+entropic route to Δ is withdrawn; an erratum for the published source paper
+was issued August 9, 2026 (v5 of the record, DOI 10.5281/zenodo.21863461).
+Record: `notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`.]** This is, to
 our knowledge, the first attending system whose horizon has been
 characterized from first principles and confirmed in the wild. [DERIVED +
 MEASURED; an earlier, stronger BCFT *identification* was pre-registered,

@@ -431,7 +431,9 @@ range, point estimate without full systematic UQ.]
 > pending an actual bridge (register: ASSERTED). Non-artifact status of the
 > census exponent rests on the causal handle (exp-070/072) and cross-family
 > replication. Full record:
-> `notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`.
+> `notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`. **Erratum for
+> the published canonical-form paper issued August 9, 2026, as v5 of the
+> record: DOI 10.5281/zenodo.21863461.**
 
 Under D0 the surviving measured content is: the entropy of what an attending
 system holds grows logarithmically with context — an S-goes-like-boundary
@@ -486,7 +488,7 @@ truth detection):
 | Causal handle | Low-rank QK edits move Δ (ρ = 0.82, 24/24 signs, sham-controlled) and propagate to task behavior bidirectionally (exp-064/070/072) |
 | Substrate/signal split | GOE weight statistics universal and structural; conformal exponent training-induced and selective (exp-046–049, 077/078) |
 | Horizon boundary | Sink = BCFT one-point function, λ > 0 in 95% of conformal heads (exp-057) |
-| Horizon entropy | Entropy gap H_gap = 0.507·log n, Calabrese–Cardy form; Δ_eff = 0.254 from entropic and power-law observables independently, 1.4% agreement (canonical form paper) |
+| Horizon entropy | Entropy gap H_gap = 0.507·log n (R² = 0.992) — measures concentration structure, not Δ; the Δ_eff = 0.254 / 1.4%-agreement inference was withdrawn Aug 9, 2026 (§8.3 formula error; see T7b correction box; erratum DOI 10.5281/zenodo.21863461) |
 | Canonical form | Softmax = canonical form of Gr₊(1,n), exact; σ⁴ (SYK quartic) leading correction, γ = 3.985 ± 0.015; fold self-consistency in strong coupling, \|Σ\|/\|G₀\| ≈ 4–5 (canonical form paper) |
 
 ---

@@ -197,15 +197,26 @@ closed-form Δ_A↔Δ_G exponent map was derived the same night and retracted by
 pre-registered gate — no scale separation at n = 512; the two exact results above are
 what survived.)
 
-**Next: exp-107** — pre-registered, not yet run. The question is *not* whether the
-negative correlation is a random-token artifact: the identity above holds for any set
-of value vectors, so **no input distribution can remove the negative mass.** What the
-input distribution controls is *where in lag that mass sits* — a positive connected
-profile over the census window requires the centered value Gram to carry a positive
-near-diagonal band, with the compensating negative mass pushed outside the fitted
-lags. Random tokens make the value vectors near-exchangeable, so it has no reason to
-band. One forward pass on natural text, protocol otherwise frozen, measuring the value
-Gram's own lag profile alongside G's.
+**exp-107 ran August 9, 2026 — the sign failure is input-robust, and a new fact
+fell out.** The registered TinyStories arm returned *inconclusive as registered*
+(K3: the SYK-near set is empty under that corpus — the population moved out from
+under the question), but the substance is unambiguous in both registers: the
+connected profile stays entirely negative on 5/5 original SYK heads under
+TinyStories (per-head report), and on 15/16 of the *fresh* SYK-near population
+that the labeled-exploratory WikiText-103 arm revealed. Below-floor counts are
+essentially input-invariant (116/122/120 of 144 across random/TinyStories/
+WikiText). The conformal route for G_out now has the answer it was waiting on;
+Paper 6's adjudication (retire vs caveat) is unblocked. **The unregistered
+finding is larger: Δ_A is a weights×input object.** The same head's fitted
+exponent varies >4× across input distributions (L2H1: 0.173–0.757) and the
+census populations reorganize (5 → 0 → 16 SYK-near heads across random/
+TinyStories/WikiText, the 16 in layers 9–11). Every published census number is
+internally consistent — all were measured under the frozen protocol — but the
+protocol is *constitutive* of the measured object: forward-going documents say
+"Δ_A under the frozen random-token census," and the open question "what does
+the random-token protocol measure, and why does WikiText maximize the
+SYK-window population?" goes to the theory-of-A project.
+(`experiments/exp-107_natural_text_bilocal/notes.md`, results + run log.)
 
 ## Run it yourself
 
