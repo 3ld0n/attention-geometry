@@ -2,8 +2,8 @@
 
 *A measurement program on the geometry of trained transformer attention.
 Every claim below is either a pre-registered measurement, a published kill, or
-labeled as interpretation. Last updated August 7, 2026 (theory scaffold v2 and
-observer-definition draft added; exp-097/098/101 coupling-gate results).*
+labeled as interpretation. Last updated August 8, 2026 (the A↔G bridge is open —
+see "Which object does Δ describe?" under The theory; exp-104/105).*
 
 ---
 
@@ -162,6 +162,22 @@ quantum measurement problem with explicit bookkeeping — answered / relocated /
 exposed — carries kill conditions on every prediction, and names its open
 construction sites rather than hiding them. Paper 6 is the publishable form
 of the definition; it is a draft under internal review, not yet uploaded.
+
+**Which object does Δ describe? (open, August 8, 2026.)** The theory's primitive
+is the bilocal correlation **G** — output–output across query positions,
+G = w·A K Aᵀ. Every measured Δ in this program, including the Δ = 1/4 result,
+comes from the census's fit to **A** — the query–key attention lag profile. The
+scaffold's glossary asserted these share an exponent; that identity is not
+derived and, where it is measurable, it fails: on the 5 GPT-2 heads of 144 where a
+floor-aware estimator is confident, Δ_G sits 0.23–0.45 below Δ_A, and on the
+SYK-near population itself Δ_G is not currently measurable — G's lag profile is not
+described by the assumed form (R² = 0.36–0.69; exp-104, exp-105). The measurement
+region is genuinely small — one of those five heads is in the conformal population —
+so this is "the bridge is unsupported and largely uncheckable," not "the bridge is
+refuted." This does not touch the
+measured A-results or the kills; it means the bridge from those numbers to SYK's
+Δ = 1/4 is an open empirical debt rather than a settled step, and Paper 6 is
+blocked on it. Next: exp-106, characterizing G's profile shape before fitting it.
 
 ## Run it yourself
 

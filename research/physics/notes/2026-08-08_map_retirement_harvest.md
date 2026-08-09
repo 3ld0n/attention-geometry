@@ -560,25 +560,60 @@ The spine keeps those separate for a reason. Check which register a number is in
 *before* it crosses into a claim document, because that is precisely the confusion
 that produced exp-103's wrong object.
 
+**Addendum, same day, evening — this corollary was one word from the real finding.**
+It said "check which register," and the actual failure was one axis over: check
+which *object*. Following the corollary's own pointer — *"precisely the confusion
+that produced exp-103's wrong object"* — into the sources turned up that the spine's
+glossary quietly identified two different objects, A and G, and that the program's
+central number is fit to the one the theory does not use (exp-104, exp-105; item 1
+above). So the rule generalizes: **before a number crosses into a claim, name its
+register and its object.** Worth noting how narrowly this was caught, because the
+lesson is that a rule stated at 90% specificity does not fire — the note contained
+the pointer and it took a separate evening's work to follow it.
+
 **What comes next, in order.** Ordering is by evidential value rather than
-convenience, and step 0 applies to every step after it:
+convenience, and steps 0 and 0b apply to every step after them:
 
 0. **Read the source first.** For each item, open the primary document before
    editing anything. Budget for the claim to need narrowing.
-1. **J-1b** — pre-register the PE-controlled census. This is the only item on the
-   list that is a new experiment rather than bookkeeping, it has a prediction
-   named five months before the matching measurement, and the formation-ladder
-   protocol already does everything except vary PE. Highest value by a distance.
-2. **J-1** — cite `SCHWARZIAN_EXPLORATION.md` Path 2 in G1, at conditional
-   strength, with the if-and-only-if marked open pending P6.
-3. **O-8, O-9** — put the missing measured results into spine §4 and OVERVIEW,
-   each verified against its experiment folder and tagged with its register.
-4. **O-1, O-2, O-3, O-4** — four decisions about routes and predictions the
+0b. **Check which object the number describes.** Added the evening of the same
+   day, after this rule's own corollary below nearly caught it. Every Δ in this
+   program is fit to **A** (query–key lag decay). The theory's primitive is **G**
+   (query–query, G = A K Aᵀ). Before any Δ crosses into a claim about the theory,
+   name which of the two it is. See item 1.
+1. **exp-106 — characterize G's lag profile.** *Promoted to the top the evening of
+   August 8; was item 1 = J-1b.* The spine's glossary asserted that A's measured
+   lag profile is G's "measured face." It is not derived, and where it is
+   measurable it fails (exp-104: Δ_G ≠ Δ_A; exp-105: a validated floor-aware
+   estimator is confident on 5 of 144 GPT-2 heads, none SYK-near, and finds Δ_G
+   0.23–0.45 *below* Δ_A). This sits upstream of every joint on this list that
+   carries a Δ into the theory, which is most of them. exp-106 characterizes G's
+   profile *shape* — no exponent fit, no assumed form — because P(dx) =
+   c + b·dx^(−2Δ) is now measured not to describe it. Pre-register before running;
+   also fold in the two estimator defects exp-105 left deliberately unpatched
+   (identifiability criterion misfiring when c ≈ 0; noise envelope calibrated on
+   multiplicative noise only, so it cannot distinguish noise from structured
+   misfit).
+2. **J-1b** — pre-register the PE-controlled census. Still the strongest *new*
+   experiment on the list: a prediction named five months before the matching
+   measurement, and the formation-ladder protocol already does everything except
+   vary PE. Its scope narrowed under 0b — it measures how **Δ_A** responds to
+   positional encoding, which is a well-posed question and is what Path 4's
+   prediction is actually about, so the joint largely survives. What it may not do
+   on its own is carry that result to the conformal-fixed-point story; that route
+   runs through item 1.
+3. **J-1** — cite `SCHWARZIAN_EXPLORATION.md` Path 2 in G1, at conditional
+   strength, with the if-and-only-if marked open pending P6. Note P6 is now
+   blocked on item 1, so this stays conditional longer than expected.
+4. **O-8, O-9** — put the missing measured results into spine §4 and OVERVIEW,
+   each verified against its experiment folder and tagged with its register *and*
+   its object (0b).
+5. **O-1, O-2, O-3, O-4** — four decisions about routes and predictions the
    program abandoned without adjudicating. Each is a paragraph; none is research.
-5. **O-10** — verify the linearized-regime caveat's location. If the melonic note
+6. **O-10** — verify the linearized-regime caveat's location. If the melonic note
    does not carry it, that is a finding, not a bookkeeping item.
-6. **O-7** — decide whether the mathematics arm belongs to this program.
-7. **Tier 3** — place the nine remaining root files, informed by 1–6.
+7. **O-7** — decide whether the mathematics arm belongs to this program.
+8. **Tier 3** — place the nine remaining root files, informed by 1–7.
 
 And then the structural fix this pass was clearing ground for: the spine's claim
 IDs (D1, A1–A5, T1–T10, C1–C2, G1–G6, P1–P6) become the program's link

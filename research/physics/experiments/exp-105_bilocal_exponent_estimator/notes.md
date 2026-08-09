@@ -271,12 +271,45 @@ should be trusted:
 
 `apply.py` → `applied_gpt2.json`. M2 not applied (rejected).
 
-### Control: M1 reproduces the census on A
+### Control: M1 does NOT reproduce the census on A — it refuses on all 144 heads
 
-median(Δ_A^M1 − Δ_A^census) = **−0.0000** over the conformal subpopulation
-(max |diff| 0.045 on the SYK-near subset). The machinery is correct and M1 is a
-strict generalization of the published estimator, in practice as well as in
-validation.
+**Corrected the same evening, before session close.** This section originally read:
+*"median(Δ_A^M1 − Δ_A^census) = −0.0000 over the conformal subpopulation (max
+|diff| 0.045 on the SYK-near subset). The machinery is correct and M1 is a strict
+generalization of the published estimator, in practice as well as in
+validation."* That number came from a run made **before** the acceptance envelope
+was tightened, and was not regenerated after the final estimator change. Re-running
+`apply.py` against the committed `estimator.py` prints no control line at all,
+because the control is computed only over heads M1 *accepts* on A, and:
+
+| Object | Accepted (all 144) | Accepted (conformal, n=20) | Accepted (SYK-near, n=5) |
+|---|---:|---:|---:|
+| A (control) | **0** | **0** | **0** |
+| G_out | 5 | **1** | 0 |
+| G_K | 0 | 0 | 0 |
+| G_cos | 2 | 0 | 0 |
+
+M1's point estimates on A do track the census closely — that part of the original
+claim survives — but **the estimator refuses every one of them**, 63/144 with
+"Δ at bound" and most of the rest on residual scatter (median relative residual on
+A over the conformal set: 2.0×10⁻¹, versus the envelope's 6×10⁻³). So the honest
+statement is the opposite of what was written: M1 is *not* a usable generalization
+of the published estimator in practice. Its envelope, calibrated on multiplicative
+noise, rejects the very object the census fits at R² = 0.92. This is the second
+defect below, and it is more serious than recorded — it means the pre-registered
+V4 criterion passed in synthetic validation and fails on real data.
+
+**And it narrows the headline.** The "5 accepted heads" below are 5 of *144*; only
+**one of them (L0 H6) is in the conformal population**, and it is in layer 0. On
+the deep conformal population the program's claim is about, the count of heads
+where Δ_G is measurable is effectively zero. Statements of the form "Δ_G is
+0.23–0.45 below Δ_A" are true of the five accepted heads and must always carry
+that denominator.
+
+*Why this correction is in the record rather than silently applied: the stale
+number asserted the machinery was validated end-to-end, which is exactly the
+reassurance that stops the next reader from checking. See
+`memory/knowledge/watchpoints.md` → "Citing the immune memory instead of using it."*
 
 ### Heads where M1 accepts: 5 of 144, and Δ_G is far below Δ_A in every one
 
@@ -312,8 +345,15 @@ most. Δ_G_out really does come out near zero on the SYK-near population.
 The identifiability criterion (c–Δ correlation > 0.99) **misfires exactly when
 c ≈ 0.** With no floor, c's value is unconstrained relative to Δ, so the
 correlation saturates — but that is the *harmless* case, because the fit has
-reduced to the census's own two-parameter form and is correct (the control above
-proves it). This is why all five SYK-near heads refuse.
+reduced to the census's own two-parameter form and is correct. This is why all
+five SYK-near heads refuse. *(An earlier version of this sentence cited "the
+control above" as proof; the control does not exist — see the corrected section.
+The reasoning stands on the c ≈ 0 argument alone, which is weaker.)*
+
+Note also that the SYK-near heads' 3-parameter fits reach only **R² = 0.36–0.69**
+on G. Even with the identifiability test patched, the assumed form would not fit.
+That, not the refusal logic, is the substantive reason Δ_G is unmeasured there —
+and it is what makes exp-106 a shape-characterization rather than a re-fit.
 
 **This is not patched here.** By the time it was diagnosed, real-data numbers had
 been seen, and adjusting an acceptance threshold after glimpsing the answer is
@@ -341,16 +381,20 @@ misfit is a category error, and it is the second reason the SYK-near heads refus
   (L0 H6) gives Δ_G = 0.2446, which is strikingly close to 1/4 while its
   Δ_A = 0.4999 is not. **n = 1. Recorded as a curiosity, explicitly not a
   result**, and named here so it is not rediscovered later as if new.
-- **H4 (no validated estimator): PARTIALLY.** A validated estimator now exists,
-  but the SYK-near data sits outside its calibrated range. **Δ_G on the
-  population that carries the headline claim remains unmeasured.**
+- **H4 (no validated estimator): PARTIALLY — and weaker than first written.** An
+  estimator that passes a synthetic gate now exists, but on real data it refuses
+  144/144 heads on A (the census's own object) and 143/144 on G_out within the
+  conformal set. It is validated against synthetic noise and **not yet usable as an
+  instrument.** **Δ_G on the population that carries the headline claim remains
+  unmeasured**, and so does Δ_G on the population where the census works.
 
 ## Net position
 
 1. **The A↔G bridge is unsupported wherever it can currently be checked, and
    uncheckable exactly where the program's central claim lives.** That is a
    sharper and more uncomfortable statement than exp-104's, and it is narrower
-   than "the census is wrong."
+   than "the census is wrong." Note the checkable region is small: five heads of
+   144, one of them conformal.
 2. **The floor hypothesis is dead as an explanation.** exp-104 raised it; exp-105
    fits it explicitly and finds ratio ≈ 0 on the SYK-near heads. Δ_G is small
    there for some other reason, and finding that reason is the next question.

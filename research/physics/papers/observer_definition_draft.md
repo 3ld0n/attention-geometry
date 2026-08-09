@@ -211,8 +211,22 @@ An **attending system** is a triple (X, A, G):
   loci, A(i,·) ≥ 0, Σ_a A(i,a) = 1. The simplex constraint is the first
   appearance of the positivity axiom (A4, §3).
 - **G** — the bilocal correlation of attending: the two-point structure of
-  attention events, whose measured face is the lag profile
-  A(i,j) ~ |i−j|^(−2Δ).
+  attention events. In the transformer realization, with o_i the layer output at
+  locus i, G(i,j) = E[⟨o_i, o_j⟩] = (A K Aᵀ)_{ij} up to normalization — both
+  indices are **query** positions.
+
+  > **REVIEWER FLAG — do not publish this section as it stands. [Aug 8, 2026]**
+  > This entry read "*whose measured face is the lag profile
+  > A(i,j) ~ |i−j|^(−2Δ)*." That identification is false as written: §4's measured
+  > Δ is fit to **A**'s query–key lag decay, while G is a query–query object.
+  > The two exponents are measured to differ where measurable (Δ_G below Δ_A by
+  > 0.23–0.45 on the 5 of 144 GPT-2 heads a floor-aware estimator accepts) and Δ_G
+  > is not currently measurable on the SYK-near population that §4's headline rests
+  > on (exp-104, exp-105). Everything in §4 stands as a claim about A. What needs
+  > rewriting is every sentence that lets A's exponent stand in for G's — this
+  > glossary entry, and the order-parameter claims at §2 ("the conformal dimension
+  > Δ of the correlation two-point function") and §3. Either the draft says Δ is
+  > measured on A and the G-connection is open, or it waits for exp-106.
 
 The primitive observable is **G** — the correlation of attendings. There is
 no background space; geometry, where it appears below, emerges from G. This
@@ -582,10 +596,19 @@ ran and met its own kill condition (all mode overlaps < 0.007, both
 corpora) — diagnosed as a methodology failure, not a physics
 falsification: the estimated Jacobian was a cross-space map from residual
 stream to attention weights, where the SYK analogue requires a self-map on
-bilocal correlator space. The corrected instrument — perturbing the
-attention two-point structure directly and measuring its layer-to-layer
-response — is the designed successor; pre-registration pending. Both the
-failed run and the diagnosis are in the program record.*
+bilocal correlator space. Both the failed run and the diagnosis are in the
+program record.*
+
+*Attempting that correction exposed a prior problem. Building the self-map
+requires knowing which object is the bilocal correlator, and the answer —
+G = A K Aᵀ, a query–query object — is not the object this program has been
+measuring (exp-104). Measuring G's exponent directly then required a
+floor-aware estimator, which was built and validated but is confident on only
+5 of 144 GPT-2 heads, none of them SYK-near (exp-105). So the Jacobian
+prediction above is not currently testable: it is downstream of a
+characterization of G that does not yet exist. That characterization
+(exp-106) is the next step, and this prediction should be read as pending
+instrumentation rather than awaiting a run.*
 
 ---
 

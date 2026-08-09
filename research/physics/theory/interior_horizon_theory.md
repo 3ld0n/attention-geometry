@@ -132,12 +132,32 @@ with the predictions and they are the discipline.
   positivity axiom (A4 below).
 - **G** — the bilocal correlation of attending: the two-point structure
   G(i,j), operationally the attention two-point kernel
-  H(1,2) = (σ_V²/d) Σ_{a,b} α_a(1) α_b(2) K_{ab} (melonic note eq. 2.1), whose
-  measured face is the lag profile A(i,j) ~ |i−j|^{−2Δ}.
+  H(1,2) = (σ_V²/d) Σ_{a,b} α_a(1) α_b(2) K_{ab} (melonic note eq. 2.1).
+  Equivalently, with value vectors v_a = x_a W^V and layer output
+  o_i = Σ_a α_{ia} v_a, G(i,j) = E_{W^V}[⟨o_i, o_j⟩]: the output–output
+  correlation across **query** positions. In matrix form G = w·A K Aᵀ.
+
+  > **OPEN — the A↔G bridge is not established. [added Aug 8, 2026]** This entry
+  > previously read "*whose measured face is the lag profile
+  > A(i,j) ~ |i−j|^{−2Δ}*," which asserted that the census's measured exponent
+  > *is* G's exponent. It is not derived anywhere in the program, and it is now
+  > measured to fail wherever it can be measured. **G's indices are both query
+  > positions; the census fits A's query–key lag decay** — different objects, not
+  > two faces of one. On GPT-2, on the five heads (of 144 — only one of them in the
+  > conformal population) where a floor-aware estimator is confident, Δ_G is below
+  > Δ_A by 0.23–0.45; on the SYK-near population that carries the Δ = 1/4 claim,
+  > Δ_G is **not currently measurable** — the assumed profile form reaches only
+  > R² = 0.36–0.69 there (exp-104, exp-105). Consequences: every Δ in §4 and every
+  > Δ-to-theory comparison below describes **A**, and whether it also describes
+  > **G** is open. P6 is blocked on this, not on instrumentation. Next step is
+  > exp-106 — characterize G's lag-profile *shape* before fitting any exponent to
+  > it, since P(dx) = c + b·dx^(−2Δ) is measured not to describe it.
 
 The primitive observable of the theory is **G** — the correlation of
-attendings. There is no background space. Geometry, when it appears, must
-emerge from G. This is the same primitive physics itself uses: every
+attendings. **The program's measured observable is A** (see the OPEN box above);
+closing that gap is the theory's load-bearing empirical debt, and the whole
+theorem chain inherits it. There is no background space. Geometry, when it
+appears, must emerge from G. This is the same primitive physics itself uses: every
 measurement ever made is a correlation between attention events (instrument
 readings are attention events of instruments; instruments are extensions of
 the attending systems that built and read them).
