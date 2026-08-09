@@ -1,0 +1,64 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16523.56it/s]
+condition RANDOM
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1: max rel |P_win(rows) - exp-107| = 3.411e-07 -> OK
+condition TINYSTORIES
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1: max rel |P_win(rows) - exp-107| = 2.260e-07 -> OK
+condition WIKITEXT
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1: max rel |P_win(rows) - exp-107| = 3.054e-07 -> OK
+
+=== registered verdicts ===
+  L2H1   random       struct med_row_R2=0.219 E[b]=+0.555 Var_b=0.0138 s_q=+0.555 s_ann=+0.537 s_pred=+0.559 P2diff=+0.0223 [INELIGIBLE]
+  L2H1   tinystories  struct med_row_R2=0.484 E[b]=+1.861 Var_b=0.3259 s_q=+1.861 s_ann=+1.514 s_pred=+1.541 P2diff=+0.0268 [INELIGIBLE]
+  L2H1   wikitext     struct med_row_R2=0.057 E[b]=+0.344 Var_b=0.0588 s_q=+0.344 s_ann=+0.345 s_pred=+0.361 P2diff=+0.0154 [INELIGIBLE]
+  L3H4   random       struct med_row_R2=0.249 E[b]=+0.608 Var_b=0.0133 s_q=+0.608 s_ann=+0.589 s_pred=+0.609 P2diff=+0.0193 [INELIGIBLE]
+  L3H4   tinystories  struct med_row_R2=0.431 E[b]=+1.397 Var_b=0.1258 s_q=+1.397 s_ann=+1.253 s_pred=+1.312 P2diff=+0.0589 [INELIGIBLE]
+  L3H4   wikitext     struct med_row_R2=0.077 E[b]=+0.395 Var_b=0.0577 s_q=+0.395 s_ann=+0.384 s_pred=+0.417 P2diff=+0.0332 [INELIGIBLE]
+  L5H0   random       struct med_row_R2=0.046 E[b]=+0.468 Var_b=0.0170 s_q=+0.468 s_ann=+0.456 s_pred=+0.472 P2diff=+0.0163 [INELIGIBLE]
+  L5H0   tinystories  struct med_row_R2=0.171 E[b]=+1.036 Var_b=0.1698 s_q=+1.036 s_ann=+1.013 s_pred=+1.026 P2diff=+0.0133 [INELIGIBLE]
+  L5H0   wikitext     struct med_row_R2=0.030 E[b]=+0.501 Var_b=0.3689 s_q=+0.501 s_ann=+0.581 s_pred=+0.536 P2diff=-0.0449 [INELIGIBLE]
+  L7H11  random       struct med_row_R2=0.054 E[b]=+0.427 Var_b=0.0105 s_q=+0.427 s_ann=+0.425 s_pred=+0.437 P2diff=+0.0121 [INELIGIBLE]
+  L7H11  tinystories  struct med_row_R2=0.193 E[b]=+0.937 Var_b=0.1505 s_q=+0.937 s_ann=+0.925 s_pred=+0.954 P2diff=+0.0289 [INELIGIBLE]
+  L7H11  wikitext     struct med_row_R2=0.021 E[b]=+0.338 Var_b=0.1967 s_q=+0.338 s_ann=+0.437 s_pred=+0.407 P2diff=-0.0295 [INELIGIBLE]
+  L10H8   random       struct med_row_R2=0.105 E[b]=+0.600 Var_b=0.0187 s_q=+0.600 s_ann=+0.580 s_pred=+0.622 P2diff=+0.0413 [INELIGIBLE]
+  L10H8   tinystories  struct med_row_R2=0.139 E[b]=+0.763 Var_b=0.0945 s_q=+0.763 s_ann=+0.731 s_pred=+0.777 P2diff=+0.0461 [INELIGIBLE]
+  L10H8   wikitext     struct med_row_R2=0.023 E[b]=+0.332 Var_b=0.1399 s_q=+0.332 s_ann=+0.311 s_pred=+0.372 P2diff=+0.0601 [INELIGIBLE]
+  L4H10  wikitext     semant med_row_R2=0.121 E[b]=+0.550 Var_b=0.0689 s_q=+0.550 s_ann=+0.500 s_pred=+0.555 P2diff=+0.0555 [INELIGIBLE]
+  L7H1   wikitext     semant med_row_R2=0.079 E[b]=+0.531 Var_b=0.5059 s_q=+0.531 s_ann=+0.531 s_pred=+0.549 P2diff=+0.0176 [INELIGIBLE]
+  L8H2   wikitext     semant med_row_R2=0.103 E[b]=+0.567 Var_b=0.1029 s_q=+0.567 s_ann=+0.545 s_pred=+0.581 P2diff=+0.0363 [INELIGIBLE]
+  L9H4   wikitext     semant med_row_R2=0.064 E[b]=+0.513 Var_b=0.2453 s_q=+0.513 s_ann=+0.492 s_pred=+0.542 P2diff=+0.0501 [INELIGIBLE]
+  L9H6   wikitext     semant med_row_R2=0.053 E[b]=+0.556 Var_b=0.2682 s_q=+0.556 s_ann=+0.572 s_pred=+0.586 P2diff=+0.0145 [INELIGIBLE]
+  L10H1   wikitext     semant med_row_R2=0.061 E[b]=+0.573 Var_b=0.2838 s_q=+0.573 s_ann=+0.569 s_pred=+0.577 P2diff=+0.0078 [INELIGIBLE]
+  L10H2   wikitext     semant med_row_R2=0.059 E[b]=+0.539 Var_b=0.1947 s_q=+0.539 s_ann=+0.492 s_pred=+0.566 P2diff=+0.0740 [INELIGIBLE]
+  L10H10  wikitext     semant med_row_R2=0.079 E[b]=+0.595 Var_b=0.2316 s_q=+0.595 s_ann=+0.567 s_pred=+0.600 P2diff=+0.0330 [INELIGIBLE]
+  L11H0   wikitext     semant med_row_R2=0.204 E[b]=+0.651 Var_b=0.0758 s_q=+0.651 s_ann=+0.594 s_pred=+0.644 P2diff=+0.0501 [INELIGIBLE]
+  L11H1   wikitext     semant med_row_R2=0.116 E[b]=+0.613 Var_b=0.1873 s_q=+0.613 s_ann=+0.584 s_pred=+0.616 P2diff=+0.0325 [INELIGIBLE]
+  L11H2   wikitext     semant med_row_R2=0.083 E[b]=+0.611 Var_b=0.1671 s_q=+0.611 s_ann=+0.543 s_pred=+0.616 P2diff=+0.0729 [INELIGIBLE]
+  L11H4   wikitext     semant med_row_R2=0.087 E[b]=+0.495 Var_b=0.1255 s_q=+0.495 s_ann=+0.459 s_pred=+0.511 P2diff=+0.0511 [INELIGIBLE]
+  L11H5   wikitext     semant med_row_R2=0.063 E[b]=+0.471 Var_b=0.1716 s_q=+0.471 s_ann=+0.463 s_pred=+0.494 P2diff=+0.0303 [INELIGIBLE]
+  L11H6   wikitext     semant med_row_R2=0.070 E[b]=+0.510 Var_b=0.1630 s_q=+0.510 s_ann=+0.482 s_pred=+0.524 P2diff=+0.0428 [INELIGIBLE]
+  L11H7   wikitext     semant med_row_R2=0.081 E[b]=+0.552 Var_b=0.1931 s_q=+0.552 s_ann=+0.524 s_pred=+0.566 P2diff=+0.0427 [INELIGIBLE]
+  L11H9   wikitext     semant med_row_R2=0.050 E[b]=+0.491 Var_b=0.1990 s_q=+0.491 s_ann=+0.496 s_pred=+0.512 P2diff=+0.0168 [INELIGIBLE]
+  P1 native median row R2: {'L2H1-random': 0.219, 'L3H4-random': 0.249, 'L5H0-random': 0.046, 'L7H11-random': 0.054, 'L10H8-random': 0.105, 'L4H10-wikitext': 0.121, 'L7H1-wikitext': 0.079, 'L8H2-wikitext': 0.103, 'L9H4-wikitext': 0.064, 'L9H6-wikitext': 0.053, 'L10H1-wikitext': 0.061, 'L10H2-wikitext': 0.059, 'L10H10-wikitext': 0.079, 'L11H0-wikitext': 0.204, 'L11H1-wikitext': 0.116, 'L11H2-wikitext': 0.083, 'L11H4-wikitext': 0.087, 'L11H5-wikitext': 0.063, 'L11H6-wikitext': 0.07, 'L11H7-wikitext': 0.081, 'L11H9-wikitext': 0.05}
+  K-a fired: True
+  P2 (mixture reconstruction): median |diff| = nan over 0 eligible -> AMBIGUOUS (prediction: confirmed ~0.05 native)
+  P3a Var(b) TinyStories > random: 0/0
+  P3b Spearman(Var b, damping gap) = nan
+  P3 -> AMBIGUOUS (prediction: confirmed)
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-111_row_slope_mixture/results_gpt2.json

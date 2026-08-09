@@ -1,0 +1,43 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14505.70it/s]
+condition RANDOM (frozen census protocol, within-run rerun)
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+Using the latest cached version of the dataset since roneneldan/TinyStories couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /Users/ariel/.cache/huggingface/datasets/roneneldan___tiny_stories/default/0.0.0/f54c09fd23315a6f9c86f9dc80f725de7d8f9c64 (last modified on Thu Jun 11 02:47:22 2026).
+
+  [random] conformal 20/144, SYK-near 5 | below floor at lag 8: 116/144, entire window: 115/144, somewhere: 139/144
+  median Delta_A (conformal): 0.4743
+    SYK L2H1 dA=0.268 conn[min,max]=[-6.384e-01,-3.755e-01] frac+=0.00 Kt_mean=+1.181e-03
+    SYK L3H4 dA=0.295 conn[min,max]=[-3.971e+00,-3.121e+00] frac+=0.00 Kt_mean=-3.012e-02
+    SYK L5H0 dA=0.228 conn[min,max]=[-3.406e+00,-2.761e+00] frac+=0.00 Kt_mean=-2.005e-02
+    SYK L7H11 dA=0.212 conn[min,max]=[-3.282e+00,-2.112e+00] frac+=0.00 Kt_mean=+2.045e-01
+    SYK L10H8 dA=0.290 conn[min,max]=[-1.076e+01,-8.082e+00] frac+=0.00 Kt_mean=+5.141e-01
+
+  K1: below-floor-at-8 116 vs exp-106's 116 -> OK
+  profile drift vs exp-104 saved: {'A': 3.552713678800501e-15, 'G_out': 4.547473508864641e-13}
+  K2 (random): C2 identity max rel err 2.19e-13 -> OK
+
+condition TEXT (TinyStories validation, EOS-joined windows)
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+
+  [text] conformal 35/144, SYK-near 0 | below floor at lag 8: 122/144, entire window: 121/144, somewhere: 136/144
+  median Delta_A (conformal): 0.7123
+  K2 (text): C2 identity max rel err 7.30e-14 -> OK
+
+=== verdicts ===
+  K3 (no SYK-near population under text): FIRED
+  K4 (<3 SYK-near heads in either condition; per-head only): FIRED
+  H1 (negative connected profile survives text, all SYK heads): False
+  H2 (positive over window, majority): False
+  H4 (sign change inside window, majority): False
+  H3 (sign inherited from Ktilde): mean-sign agreement 0.438, majority-lag agreement 0.483 -> not (threshold 0.80)
+  registered prediction was: H4, then H1
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-107_natural_text_bilocal/results_gpt2.json

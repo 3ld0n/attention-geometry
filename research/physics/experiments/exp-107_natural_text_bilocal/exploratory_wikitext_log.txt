@@ -1,0 +1,37 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15751.66it/s]
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-103-v1' at /Users/ariel/.cache/huggingface/datasets/wikitext/wikitext-103-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Thu Jul  9 00:18:26 2026).
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+
+  [wikitext (EXPLORATORY)] conformal 61/144, SYK-near 16 | below floor at lag 8: 120/144, entire window: 119/144, somewhere: 138/144
+  median Delta_A (conformal): 0.3744
+    SYK L4H10 dA=0.250 conn[min,max]=[-1.449e+00,-1.279e+00] frac+=0.00 Kt_mean=-6.238e-02
+    SYK L7H1 dA=0.266 conn[min,max]=[-3.811e+00,-2.863e+00] frac+=0.00 Kt_mean=-7.841e-02
+    SYK L8H2 dA=0.272 conn[min,max]=[-7.001e-01,+1.893e-01] frac+=0.19 Kt_mean=+5.997e-02
+    SYK L9H4 dA=0.246 conn[min,max]=[-4.947e+00,-4.418e+00] frac+=0.00 Kt_mean=+2.702e-02
+    SYK L9H6 dA=0.286 conn[min,max]=[-6.707e+00,-6.055e+00] frac+=0.00 Kt_mean=+1.914e-01
+    SYK L10H1 dA=0.285 conn[min,max]=[-9.036e+00,-7.094e+00] frac+=0.00 Kt_mean=+1.169e-01
+    SYK L10H2 dA=0.246 conn[min,max]=[-6.570e+00,-4.622e+00] frac+=0.00 Kt_mean=-3.746e-02
+    SYK L10H10 dA=0.283 conn[min,max]=[-1.465e+01,-1.292e+01] frac+=0.00 Kt_mean=+1.622e-01
+    SYK L11H0 dA=0.297 conn[min,max]=[-8.919e+00,-1.426e+00] frac+=0.00 Kt_mean=+2.465e+00
+    SYK L11H1 dA=0.292 conn[min,max]=[-1.453e+01,-1.229e+01] frac+=0.00 Kt_mean=+6.605e-01
+    SYK L11H2 dA=0.271 conn[min,max]=[-1.296e+01,-1.075e+01] frac+=0.00 Kt_mean=+6.937e-01
+    SYK L11H4 dA=0.230 conn[min,max]=[-7.430e+00,-5.196e+00] frac+=0.00 Kt_mean=+4.898e-01
+    SYK L11H5 dA=0.232 conn[min,max]=[-1.051e+01,-9.000e+00] frac+=0.00 Kt_mean=+2.656e-01
+    SYK L11H6 dA=0.241 conn[min,max]=[-1.725e+01,-1.565e+01] frac+=0.00 Kt_mean=+5.240e-01
+    SYK L11H7 dA=0.262 conn[min,max]=[-1.011e+01,-8.602e+00] frac+=0.00 Kt_mean=+3.433e-01
+    SYK L11H9 dA=0.248 conn[min,max]=[-8.686e+00,-7.103e+00] frac+=0.00 Kt_mean=+7.879e-02
+  C2 identity max rel err 8.14e-14
+
+  five random-condition SYK heads: random -> tinystories -> wikitext
+    L2H1: dA 0.268 -> 0.757 -> 0.173   r2 0.967 -> 0.846 -> 0.970   conn_max_wt -3.192e-01 (all-neg: True)
+    L3H4: dA 0.295 -> 0.626 -> 0.192   r2 0.918 -> 0.826 -> 0.919   conn_max_wt -5.958e-01 (all-neg: True)
+    L5H0: dA 0.228 -> 0.506 -> 0.290   r2 0.912 -> 0.837 -> 0.875   conn_max_wt -1.263e+00 (all-neg: True)
+    L7H11: dA 0.212 -> 0.463 -> 0.218   r2 0.908 -> 0.842 -> 0.890   conn_max_wt -1.797e+00 (all-neg: True)
+    L10H8: dA 0.290 -> 0.365 -> 0.156   r2 0.906 -> 0.871 -> 0.911   conn_max_wt -3.715e+00 (all-neg: True)
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-107_natural_text_bilocal/exploratory_wikitext.json

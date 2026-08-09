@@ -21,3 +21,7 @@ research/physics/experiments/*/models/
 # Deliberately untracked: it enumerates the private names/addresses the
 # screen guards, which must not themselves be published.
 .screen_patterns
+
+# exp-111 raw per-row fit arrays (84MB): regenerable bit-identically by
+# measure_row_slopes.py (MPS-deterministic, K1-gated); summaries in results_gpt2.json
+research/physics/experiments/exp-111_row_slope_mixture/rowfits_gpt2.npz

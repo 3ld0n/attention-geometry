@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15112.77it/s]
+condition RANDOM
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+/Users/ariel/ariel/research/physics/experiments/exp-110_annealed_quenched_decomposition/measure_moments.py:114: RuntimeWarning: divide by zero encountered in log
+  sl_ann, r2_ann = ols_slope(np.log(pA), lags)
+/Users/ariel/ariel/research/physics/experiments/exp-110_annealed_quenched_decomposition/measure_moments.py:94: RuntimeWarning: invalid value encountered in subtract
+  ss = float(np.sum((y - y.mean()) ** 2))
+  K1: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+condition TINYSTORIES
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+condition WIKITEXT
+    10/50 inputs
+    20/50 inputs
+    30/50 inputs
+    40/50 inputs
+    50/50 inputs
+  K1: max |P_A - exp-107 saved| = 0.000e+00 -> OK
+
+=== registered verdicts ===
+  pairs: 15 (0 K2-contaminated, dropped)
+    L2H1     random       2D_meas=+0.537 s_q=+0.555 2D_pred=+0.543 gap=-0.0061
+    L2H1     tinystories  2D_meas=+1.514 s_q=+1.861 2D_pred=+1.577 gap=-0.0625
+    L2H1     wikitext     2D_meas=+0.345 s_q=+0.344 2D_pred=+0.357 gap=-0.0117
+    L3H4     random       2D_meas=+0.589 s_q=+0.608 2D_pred=+0.596 gap=-0.0067
+    L3H4     tinystories  2D_meas=+1.253 s_q=+1.397 2D_pred=+1.367 gap=-0.1144
+    L3H4     wikitext     2D_meas=+0.384 s_q=+0.395 2D_pred=+0.395 gap=-0.0114
+    L5H0     random       2D_meas=+0.456 s_q=+0.468 2D_pred=+0.470 gap=-0.0139
+    L5H0     tinystories  2D_meas=+1.013 s_q=+1.036 2D_pred=+1.139 gap=-0.1261
+    L5H0     wikitext     2D_meas=+0.581 s_q=+0.501 2D_pred=+0.548 gap=+0.0330
+    L7H11    random       2D_meas=+0.425 s_q=+0.427 2D_pred=+0.436 gap=-0.0116
+    L7H11    tinystories  2D_meas=+0.925 s_q=+0.937 2D_pred=+0.989 gap=-0.0638
+    L7H11    wikitext     2D_meas=+0.437 s_q=+0.338 2D_pred=+0.403 gap=+0.0334
+    L10H8    random       2D_meas=+0.580 s_q=+0.600 2D_pred=+0.571 gap=+0.0093
+    L10H8    tinystories  2D_meas=+0.731 s_q=+0.763 2D_pred=+0.791 gap=-0.0604
+    L10H8    wikitext     2D_meas=+0.311 s_q=+0.332 2D_pred=+0.327 gap=-0.0154
+  P1 (Gaussian truncation): median |gap| = 0.0154 -> CONFIRMED (prediction on record: confirmed at ~0.05)
+    L2H1     range(s_q)=1.517 range(2D_meas)=1.169 quenched stabler: False
+    L3H4     range(s_q)=1.003 range(2D_meas)=0.869 quenched stabler: False
+    L5H0     range(s_q)=0.567 range(2D_meas)=0.557 quenched stabler: False
+    L7H11    range(s_q)=0.599 range(2D_meas)=0.500 quenched stabler: False
+    L10H8    range(s_q)=0.431 range(2D_meas)=0.419 quenched stabler: False
+  P2 (quenched slope more input-stable): 0/5 -> DEAD (prediction on record: confirmed)
+
+wrote /Users/ariel/attention-geometry/research/physics/experiments/exp-110_annealed_quenched_decomposition/results_gpt2.json
