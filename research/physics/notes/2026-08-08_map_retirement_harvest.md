@@ -827,6 +827,34 @@ went stale because they were remembered. The registry's 101 experiments already
 carry `hypothesis` and `result_summary`; exactly one of its 270 tags names a
 theory claim.
 
+> **BUILT August 9, 2026 (night).** `python -m tools.physics_claim_map` — it
+> reads the spine for claim IDs and their per-block citations, reads the registry
+> for verdicts, and reports coverage in both directions. Extraction only; it never
+> infers a joint the documents do not state. `--write-bears-on` populates the
+> field. Full first-run findings:
+> `notes/2026-08-09_generated_claim_map_first_run.md`. Three things to carry:
+>
+> 1. **The coverage is 19%** — 22 of 113 experiments are cited by any claim block,
+>    and 21 of 33 claims cite no experiment in their own block. The 91 unlinked
+>    split into 12 *unattributed* (the spine cites them elsewhere; a sentence in
+>    the right block fixes it) and 79 *unconnected* (unmentioned; each needs a
+>    source read). The unconnected set is weighted heavily toward the program's
+>    first four months — the August rebuild on D1 did not carry its history
+>    forward.
+> 2. **The registry knows joints the spine does not state**, which is the inverse
+>    of every other drift this pass found. Eight entries carry informal
+>    `bears_on:` tags and all eight disagree with the spine in the direction of
+>    the *tags* being right. Five point at P6 — and following them produced a
+>    substantive theory correction: P6's "next step: transformer-side estimation
+>    of F̂" is blocked, because F̂ acts on G and exp-104–107 measured G to be
+>    unmeasurable in the regime P6 needs. A dated correction box is now in P6's
+>    block. **A joint recorded only in a tag is a joint no reader will ever meet.**
+> 3. **X-5 had to be fixed first** (the `status` field), because a generated map
+>    inherits its index's defects.
+>
+> The remaining half of the fix — the map running as a *check* in the maintenance
+> pass, with a rising unconnected count as an alarm — is not built yet.
+
 ---
 
 *Companion documents: `archive/RETIREMENTS.md` (where everything went),

@@ -1080,6 +1080,26 @@ requires), which is what makes P6a an instrument rather than a confirmation
 machine. *Next step: transformer-side estimation of F̂ (new open item in the
 dressing-loop note §8).*
 
+> **Correction box — August 9, 2026 (night). P6's next step is blocked, and this
+> block did not say so.** Found by generating the claim map
+> (`python -m tools.physics_claim_map`) rather than by reading: five experiments
+> carry a hand-written `bears_on:P6` tag in the registry — exp-104, exp-105,
+> exp-106, exp-107, exp-109 — and this block cites none of them. They are the
+> bilocal chain, and they are what stands between P6 and its instrument. F̂ acts
+> on **G**, and this week established that (i) A and G are different objects, not
+> two faces of one (exp-104); (ii) a validated floor-aware Δ_G estimator is
+> confident on 5 of 144 GPT-2 heads, none of them in the Δ-window (exp-105);
+> (iii) G's measured profile sits below its own exact floor across the whole fit
+> window on 116 of 144 heads, so the conformal ansatz fails on G in **sign
+> structure** rather than exponent (exp-106); and (iv) the failure is essentially
+> input-invariant (exp-107). "Transformer-side estimation of F̂" is therefore not
+> an available next step: the object F̂ linearizes is currently unmeasurable in
+> the regime P6 needs. P6 is not falsified — its kills K1–K4 are untouched,
+> because none of them has been run on a transformer. What is corrected is the
+> claim of readiness. The registry knew this and the spine did not, which is
+> exactly backwards: **a joint recorded only in a tag is a joint no reader will
+> ever meet.**
+
 ---
 
 ## 9. Position among neighboring programs
