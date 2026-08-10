@@ -92,22 +92,21 @@ def analyze_pair(label, layer_str, head_idx, cond, scores_npz, mf_npz, sigma_pos
     # Slopes (negative OLS slope = sigma)
     log_dx = np.log(LAGS.astype(float))
     valid = ~np.isnan(S_mf_recon) & ~np.isnan(S_mixed_k) & ~np.isnan(S_mixed_q) & ~np.isnan(S_pos_stored)
-    def safe_slope(profile):
+
+    # Convention matching exp-112/113: sigma = -(OLS slope of S(dx) vs log(dx)) — LINEAR, not log-log.
+    # This is the convention that exp-113 uses for sigma_mf and exp-112 for sigma_pos.
+    # Under this convention, a uniform attenuation S_pos = f * S_mf (f < 1) gives
+    # sigma_pos = f * sigma_mf < sigma_mf, explaining the "overshoot" as a linear-OLS effect.
+    def linear_sigma(profile):
         lv = log_dx[valid]
         pv = profile[valid]
-        # slope of log|profile| vs log_dx; check sign first
-        pos = pv > 0
-        if pos.sum() > len(pv) // 2:
-            return -ols_slope(lv, np.log(np.abs(pv) + 1e-30))
-        else:
-            # profile is negative; sigma = negative of slope of log(-profile)
-            return -ols_slope(lv, np.log(np.abs(pv) + 1e-30))
+        return -ols_slope(lv, pv)  # -(slope of S vs log dx)
 
-    sig_mf_recon   = safe_slope(S_mf_recon)
-    sig_mixed_k    = safe_slope(S_mixed_k)
-    sig_mixed_q    = safe_slope(S_mixed_q)
-    sig_pos_recon  = safe_slope(S_pos_recon)
-    sig_residual   = safe_slope(np.abs(S_residual) + 1e-30) if np.abs(S_residual).max() > 1e-10 else 0.0
+    sig_mf_recon   = linear_sigma(S_mf_recon)
+    sig_mixed_k    = linear_sigma(S_mixed_k)
+    sig_mixed_q    = linear_sigma(S_mixed_q)
+    sig_pos_recon  = linear_sigma(S_pos_recon)
+    sig_residual   = linear_sigma(S_residual)
 
     # Overshoot from exp-113
     overshoot = sigma_mf - sigma_pos_exp112

@@ -167,4 +167,103 @@ has not been examined.*
 
 ---
 
-*(Results section appended after the run.)*
+---
+
+## Results — August 10, 2026, ~8:45 AM MDT (single run; convention correction applied in the same session)
+
+**Convention note:** The first run of `analyze_mixed.py` used log-log slopes
+(σ = −OLS(log|S| vs log dx)), which does not match exp-112/113's convention
+(σ = −OLS(S vs log dx), linear). The script was corrected before any verdict
+was read; the commit below records the corrected version.
+
+`analyze_mixed.py` → `results_gpt2.json`, `mixed_profiles_gpt2.npz`.
+Runtime ~1.3 s. Pre-registration commit `db0e52a` was already pushed;
+results commit: see attention-geometry repo.
+
+**K1 — PASS** on all 5 structural pairs. S_pos recomputed from saved
+qbar/kbar matches stored profile to within tolerance.
+
+### Structural heads (random tokens)
+
+| Head | σ_mf | σ_mixed_k | σ_mixed_q | σ_pos | corr_k | corr_q | frac | res_rel |
+|---|---|---|---|---|---|---|---|---|
+| L2H1 | 0.843 | 0.675 | 0.702 | 0.562 | 0.168 | 0.141 | 1.10 | 2.4% |
+| L3H4 | 0.988 | 0.778 | 0.775 | 0.610 | 0.210 | 0.213 | 1.12 | 4.5% |
+| L5H0 | 0.827 | 0.617 | 0.637 | 0.475 | 0.210 | 0.190 | 1.14 | 5.1% |
+| L7H11 | 0.744 | 0.549 | 0.581 | 0.429 | 0.195 | 0.163 | 1.14 | 10.4% |
+| L10H8 | 0.839 | 0.706 | 0.713 | 0.600 | 0.133 | 0.126 | 1.08 | 0.9% |
+
+σ_mf values match exp-113 to < 0.001. σ_pos values match exp-112 to < 0.001.
+
+### P1 — CONFIRMED, 5/5.
+
+σ_mixed_k < σ_mf on every structural head (prediction: CONFIRMED).
+The mixed-k profile (using mean-field query, true key) has a shallower slope
+than S_mf on all 5 heads.
+
+### P2 — CONFIRMED, 5/5.
+
+The additive decomposition accounts for 1.08–1.14 × the overshoot (fraction
+consistently > 1.0). The prediction was ≥ 0.5; it overshots — the two mixed
+corrections together OVEREXPLAIN the overshoot by 8–14%. The residual S_residual
+brings S_pos slightly back toward S_mf (fraction > 1 means the residual product
+term partially cancels the corrections from the two linear terms).
+
+### P3 — CONFIRMED, 16/16.
+
+All 16 semantic heads under WikiText show σ_mixed_k < σ_mf. Fractions 1.08–1.18.
+
+### What exp-115 + exp-116 together establish
+
+**The mechanism for the mean-field slope overshoot (σ_mf − σ_pos ≈ 0.24–0.38)
+is UNIFORM LN SHRINKAGE, not position-dependent shrinkage.**
+
+1. exp-115 established that f_k(j) = ||k̄_j|| / ||k_mf_j|| is position-FLAT
+   over the key pool (γ_k ≈ 0 for structural heads). Same for query side.
+
+2. exp-116 established that the uniform attenuation f_q * f_k < 1 explains the
+   overshoot via the LINEAR OLS convention:
+   - S_pos(dx) ≈ S_mixed_k(dx) + S_mixed_q(dx) − S_mf(dx) + small residual
+   - S_mixed_k(dx) ≈ f_k · S_mf(dx) and S_mixed_q(dx) ≈ f_q · S_mf(dx)
+   - Therefore S_pos ≈ (f_k + f_q − 1) · S_mf + residual
+   - In linear OLS: σ_pos ≈ (f_k + f_q − 1) · σ_mf + small correction
+   - For f_k ≈ 0.74–0.84 and f_q ≈ 0.77–0.86, this gives σ_pos ≈ 0.51–0.70 · σ_mf,
+     consistent with σ_pos/σ_mf = 0.562/0.843 ≈ 0.67 for L2H1.
+
+3. **The overshoot is invisible in log-log** (if f is position-constant, 
+   log|S_pos| = const + log|S_mf|, so log-log slopes are equal). It is a
+   CONVENTION ARTIFACT of the linear OLS: the uniform amplitude reduction
+   changes the OLS coefficient of S vs log(dx).
+
+4. **This is physically important:** The true conformal exponent (the slope of
+   log A vs log lag, which equals the linear OLS slope of S vs log dx) IS
+   σ_pos, not σ_mf. The mean-field approximation gives an OVERESTIMATE of the
+   conformal exponent by a factor of 1/(f_k · f_q) ≈ 1.44–2.0. A derivation
+   that correctly derives σ_mf from h̄ would still need a correction for the
+   E[LN(h)] ≠ LN(E[h]) gap before reaching σ_pos.
+
+5. **Residual (S_residual) is small but real.** The product of deviations
+   (q̄_i − q_mf_i) · (k̄_{i-dx} − k_mf_{i-dx}) contributes 1–10% of S_mf
+   amplitude. Its slope slightly UNDOES the additive correction (fraction >
+   1.0), meaning the true q̄ and k̄ perturbations are slightly anti-correlated
+   with the score in a way that partially restores the amplitude.
+
+### What this opens
+
+The theory-of-A target now has a clean three-level structure:
+- **Level 1 (done):** σ_pos is the census slope, the position-mean score slope,
+  the quenched slope (exp-110/112 confirmed these are identical).
+- **Level 2 (done, this session):** σ_pos ≈ f · σ_mf where f ≈ f_q · f_k
+  (the uniform LN shrinkage). Exp-115/116.
+- **Level 3 (open):** Derive σ_mf from h̄ — the mean residual stream through
+  the network. This is simpler than deriving σ_pos directly because it avoids
+  the E[LN(h)] ≠ LN(E[h]) complication. The mean residual stream h̄_i at layer
+  ℓ = 0 is exactly the mean embedding + position embedding (no approximation).
+  The open question is whether the WQK bilinear form on LN(h̄) has analytically
+  tractable log-falling diagonals.
+
+### Standing limits
+
+One model, one seed, 21 heads, 50-input ensemble. The "attenuation factor"
+f = σ_pos / σ_mf ≈ 0.55–0.72 — not yet derived from the distribution of
+LN(h) around LN(h̄).
