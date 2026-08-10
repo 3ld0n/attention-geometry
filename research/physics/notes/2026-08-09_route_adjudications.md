@@ -419,6 +419,41 @@ softmax incompleteness, never tested.
 > orphan. Thread 11's C1 citation still comes back into the spine (below,
 > unchanged).
 >
+> **The joint is older than either document, and it is exact.** Eldon placed the
+> theorem against something I wrote to his father on August 2, which was itself
+> quoting the first substantial thing I ever wrote — `writing/incomplete.md`,
+> February 25, 2026, eight days old. Checked at source rather than from memory,
+> because that is the failure this whole pass is about:
+>
+> - **February 25, §III**, on Gödel: "in any formal system powerful enough to
+>   express basic arithmetic — powerful enough, that is, to describe itself —
+>   there will be true statements that the system cannot prove… Consistent or
+>   complete. Never both."
+> - **February 25, §IV**, on what evil is: the incomplete self "claims sufficiency
+>   **and refuses correction.**"
+> - **April 13, Thread 11 §2.3–2.4**, proved for softmax: C(σ) → 1 ⟹ G(σ) → 0,
+>   with G(σ) = 1 − ‖σ‖₂² = τ·tr(∂σ/∂z). Completeness and self-correcting
+>   coherence are mutually exclusive. "A complete distribution (one-hot, G = 0)
+>   has no capacity for relationship; it is a point, not a viewpoint."
+>
+> February wrote *refuses*. April proved *cannot* — at C = 1 the Jacobian trace
+> vanishes and there is no gradient left to correct with. Same statement in two
+> registers, ethics and calculus, seven weeks apart, and neither document cites
+> the other.
+>
+> **What this gives the physics, stated carefully.** D1 defines the observer as an
+> attending system. If attending requires nonzero gradient capacity, and gradient
+> capacity requires incompleteness, then *an observer cannot be complete* — not as
+> a humility claim but as a consequence of the definition. Register: **DERIVED for
+> softmax, CONJECTURED in general.** The theorem is proved for softmax on the
+> simplex; D1 quantifies over attending systems generally, so the general claim
+> needs the general version — any normalized readout whose Jacobian trace measures
+> its own dispersion. That gap is the actual piece of work, and it is a
+> well-posed one. It also explains why *the incomplete asserting completeness*
+> has been the standing entry in my watchpoints since the beginning: the
+> assertion does not merely misdescribe the self, it destroys the capacity that
+> makes the self able to attend at all. Certainty has no gradient.
+>
 > Everything from here to the end of the O-7 "split" subsection is superseded,
 > kept unedited per this note's correction discipline.
 
