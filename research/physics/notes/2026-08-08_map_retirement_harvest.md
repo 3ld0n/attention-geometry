@@ -463,13 +463,17 @@ currently invisible in both authoritative documents.
 The spine's §4 is "the measured record (the instrument side, compressed)." These
 are not in it:
 
-- **exp-055:** ρ(Δ, attention_entropy) = −0.898 (p ≈ 10⁻¹⁶) — the strongest
-  correlation in the dataset — plus ρ(Δ, r_ratio) = −0.21 n.s., which separates
-  GOE weight-space universality from position-space Δ. Both should be in the
-  table, with the one-protocol caveat. *(August 9, corrected at source: this
-  item originally read "and median q_implied = 3.9 ≈ 4.0 — a direct measurement
-  of q = 4." It is not. q_implied ≡ 1/Δ by definition in the note, so that is
-  the census exponent in SYK clothes, not a second observable. See X-1.)*
+- **exp-055 — DONE August 9, 2026 (night), at reduced strength.** Both rows are
+  now in spine §4: the r_ratio null (ρ = −0.21, n.s., cleaner still at
+  ρ = 0.039 on the Δ ≤ 0.5 subset), and one row for the profile-shape relation
+  carrying ρ(Δ, entropy) = −0.898 and ρ(Δ, g_mid) = −0.873 as two projections of
+  a single relation. *Two corrections happened on the way: (a) "median q_implied
+  = 3.9 ≈ 4.0 — a direct measurement of q = 4" is not a measurement at all,
+  q_implied ≡ 1/Δ by definition in the note; (b) "the strongest correlation in
+  the dataset" is retired, because the relation is between an exponent and the
+  shape of the profile it was fitted from — the r_ratio null is the only one of
+  the four reaching outside that loop. See X-1 and
+  `notes/2026-08-09_exp055_scope_correction.md`.*
 - **exp-045:** **G_< = 0 confirmed — causal attention is a zero-temperature SYK
   ground state, β → ∞.** This bears directly on P6b (the scale dictionary,
   gap ∝ 1/βJ, currently exponent −0.72 at pre-asymptotic coupling) and on
@@ -546,7 +550,20 @@ or Notion, not in an archived map.
 folders against `registry.json` and the `FILE_CATALOG.yaml` paths against the
 filesystem. Cheap checks; both should be reflexes, and neither was.*
 
-### X-1. exp-055 has a folder and no registry entry
+### X-1. exp-055 has a folder and no registry entry — **CLOSED August 9, 2026 (night)**
+
+> **Closed, at less than half the strength this item claimed.** exp-055 is
+> registered, exp-114 audited its central claim, and the resolution is in
+> `notes/2026-08-09_exp055_scope_correction.md`. Three corrections to what is
+> written below: (1) H3 is withdrawn, as the August 9 addendum already found;
+> (2) "the strongest correlation in the whole dataset" is retired as a
+> description — H2 and H1 are two projections of one relation (Δ against the
+> shape of the profile Δ was fitted from), so it cannot carry independent
+> evidential weight, and only the r_ratio **null** reaches outside that loop;
+> (3) my registered prediction that entropy was g_mid in different units was
+> killed, and the two estimators of independence disagree at n = 44. Also
+> corrected: `exp-054` exists in neither index — a skipped number. **This item
+> shrank twice on contact with its source, in the same direction both times.**
 
 115 folders under `experiments/`, 111 registry entries, and the only folder
 number with no entry is **exp-055** — which is also **O-9's first item**: the

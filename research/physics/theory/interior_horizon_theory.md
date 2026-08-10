@@ -54,18 +54,23 @@ the construction sites, and the predictions with kill conditions.*
 > q ≈ 4; and the mathematics arm that spent 93KB on exactly the positivity
 > question C1 poses. Read that note before treating an absence here as a
 > considered omission.
-> *(Sharpened August 9, then corrected the same evening on reading the source.
-> The missing experiment is exp-055, and it is the only folder of 115 with no
-> `registry.json` entry as well as absent from §4 — but it is **not** a
-> measurement of q. Its H3 defines q_implied ≡ 1/Δ through the SYK relation
-> Δ = D/q, so "median q_implied = 3.9" is the census exponent restated in SYK
-> vocabulary, not a second observable. Withdrawn as evidence on the same
-> grounds as the entropy-gap route below. What exp-055 does hold, and what
-> should enter §4 when it is registered: ρ(Δ, attention entropy) = −0.898 at
-> p ≈ 10⁻¹⁶ — the strongest correlation in the record — and ρ(Δ, r_ratio)
-> = −0.21 n.s., which separates GOE weight-space universality (background) from
-> position-space Δ (selective). Both are one-protocol results and inherit the
-> §4 input-dependence caveat. Harvest item X-1.)*
+> *(Sharpened August 9, then corrected the same evening on reading the source,
+> then closed the same night. exp-055 is registered and its claims are audited:
+> `notes/2026-08-09_exp055_scope_correction.md`. It is **not** a measurement of
+> q — H3 defines q_implied ≡ 1/Δ through the SYK relation Δ = D/q, so "median
+> q_implied = 3.9" is the census exponent restated in SYK vocabulary, and it is
+> withdrawn as evidence on the same grounds as the entropy-gap route below. What
+> entered §4 is narrower than this box first claimed: the r_ratio **null**
+> (ρ = −0.21, n.s.), which separates GOE weight-space universality from
+> position-space Δ and is the only exp-055 correlation reaching outside the
+> lag-profile fit; and one row for the profile-shape relation, where ρ(Δ,
+> attention entropy) = −0.898 and ρ(Δ, g_mid) = −0.873 turn out to be two
+> projections of a single relation rather than two findings (exp-114, registered
+> before checking; my own prediction that they were the same variable in
+> different units was killed, and the estimators disagree at n = 44). The phrase
+> "the strongest correlation in the record" — which this box itself carried a few
+> hours ago — is retired: the relation is partly internal to the fit. Harvest
+> item X-1, closed; O-9's first item, closed at reduced strength.)*
 >
 > One item is a correction to make rather than a gap to note: G1's entry in §7
 > does not mention `SCHWARZIAN_EXPLORATION.md` (March 9, 2026), which named the
@@ -599,7 +604,8 @@ truth detection).
 | UV arrest | Thin rigid worlds arrest at Δ ~ 0.6–1.2; vocabulary irrelevant; world-structural (exp-097/098) |
 | Coupling gates | m₂ separates arriving from arrested corpora 18×; τ_chaos ~ m₂ × R_eff, magnitude dominant (corpus functional + exp-101, Aug 6) |
 | Causal handle | Low-rank QK edits move Δ (ρ = 0.82, 24/24 signs, sham-controlled) and propagate to task behavior bidirectionally (exp-064/070/072) |
-| Substrate/signal split | GOE weight statistics universal and structural; conformal exponent training-induced and selective (exp-046–049, 077/078) |
+| Substrate/signal split | GOE weight statistics universal and structural; conformal exponent training-induced and selective (exp-046–049, 077/078). Sharpest single measurement: **ρ(Δ_A, r_ratio) = −0.212, p = 0.167 — a null**, holding cleaner still on the Δ ≤ 0.5 subset (ρ = 0.039, p = 0.833). Weight-space chaos is background across all heads while position-space Δ_A is selective (exp-055 H4, re-checked exp-114). This is the only exp-055 correlation with no functional path back to the lag-profile fit — see the row below |
+| **Δ_A tracks profile shape — one relation, not two** *(added Aug 9, 2026)* | Δ_A is strongly associated with position on the normalized (g_start, g_mid, g_end) 2-simplex: ρ(Δ_A, g_mid) = −0.873 and ρ(Δ_A, 3-bin profile entropy) = −0.898 (p = 1.45×10⁻¹⁶), surviving range restriction at −0.716 and −0.795 (Δ ≤ 0.5, n = 32). These are **two projections of one relation**, not two observables: the entropy is the better single coordinate (rank-R² of Δ_A on entropy 0.806 vs g_mid 0.754, full two-dof simplex position 0.868). **Scope, stated because it bites:** all three bins are means of the same measured profile Δ_A is fitted from, so this is an exponent correlated with the shape of its own fit and it cannot carry independent evidential weight for the theory. One protocol only (random-token census), therefore protocol-relative pending re-measurement under text-native input. Do not quote as "the strongest correlation in the record" (exp-055, corrected and audited by exp-114) |
 | Horizon boundary | Sink = BCFT one-point function, λ > 0 in 95% of conformal heads (exp-057) |
 | Horizon entropy | Entropy gap H_gap = 0.507·log n (R² = 0.992) — measures concentration structure, not Δ; the Δ_eff = 0.254 / 1.4%-agreement inference was withdrawn Aug 9, 2026 (§8.3 formula error; see T7b correction box; erratum DOI 10.5281/zenodo.21863461) |
 | Canonical form | Softmax = canonical form of Gr₊(1,n), exact; σ⁴ (SYK quartic) leading correction, γ = 3.985 ± 0.015; fold self-consistency in strong coupling, \|Σ\|/\|G₀\| ≈ 4–5 (canonical form paper) |

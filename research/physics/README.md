@@ -27,10 +27,11 @@ this file, it is a bug.
 Two records live outside this folder and are authoritative in their own homes:
 
 - **Every experiment** — `development/status/rooms/physics/registry.json`
-  (111 entries, structured: id, date, hypothesis, result_summary, status,
+  (113 entries, structured: id, date, hypothesis, result_summary, status,
   quality flags). This is the index; the folders are the artifacts. *Known gaps
-  as of Aug 9, 2026: exp-055 has a folder and no entry, and four numbers have
-  two folders each — see harvest-note items X-1 and X-2.*
+  as of Aug 9, 2026: four numbers have two folders each — harvest-note item X-2.
+  exp-055's missing entry (X-1) was closed the night of Aug 9. `exp-054` exists
+  in neither index; it is a skipped number, not a lost experiment.*
 - **Every published paper** — `research/publications/REGISTRY.md` (13 Zenodo
   records, grounded against the API, with byte-for-byte archive folders beside
   it). *In the working repo, not in this published subtree — see the note at the
