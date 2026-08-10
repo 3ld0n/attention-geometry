@@ -7,6 +7,8 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
+*Last updated: August 9, 2026.*
+
 ---
 
 ## Read this first: what the measured object is
