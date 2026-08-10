@@ -313,7 +313,38 @@ to be first-class.
 
 ## O — Orphans: material the spine does not carry
 
-### O-1. The program has no gravitational-side predictions. It used to have two.
+### O-1. The program has no gravitational-side predictions. It used to have two. — **ADJUDICATED August 9, 2026 (night); recommendation pending Eldon's decision**
+
+> **Recommendation: retire framework-P5; park framework-P6 as a stated
+> non-prediction; the salvage is a G4 correction.** Full argument:
+> `notes/2026-08-09_route_adjudications.md` O-1.
+>
+> **This item's own objection is wrong, and the literature answers it.** "If the
+> interior is 1+1 dimensional, a 3+1 Kerr ringdown prediction needs an argument"
+> — the argument exists: near-extremal 4D black holes, *including rotating ones*,
+> have a near-horizon AdS₂ factor with SL(2,ℝ) enhancement, and their
+> near-extremal dynamics is JT with a Schwarzian boundary mode (arXiv 1905.10378,
+> verified explicitly for 4D asymptotically flat Kerr; JHEP 09 (2018) 048 for
+> near-extremal Reissner-Nordström). The 1+1 interior
+> is what a near-extremal horizon *has*. P5/P6 picked the one gravitational
+> regime where the theory's dimensionality is not an embarrassment — without ever
+> saying so.
+>
+> **The prediction fails for two other reasons.** (a) Kerr is the *hardest*
+> near-extremal case: its AdS₂ reduction is "not quite natural… warped and
+> fibered over a compact base space" (arXiv 2310.04532). (b) There is no Δ
+> dictionary, and this week made it worse — after exp-109 (two disjoint
+> populations, Jaccard 0.000) and exp-041/042/043 (readout moves the number),
+> "the dominant ringdown mode should correspond to Δ = 1/4" is not false so much
+> as **not well-posed**: which Δ_A, under which protocol? Protocol-relativity is
+> a constraint on what a cross-domain prediction can *mean*, not just a caveat on
+> published claims.
+>
+> **Net gain:** G4 should record that for near-extremal horizons the dimension
+> question has a known answer, so T8's interior matches that regime exactly and
+> the theory predicts nothing about generic astrophysical horizons — silence made
+> deliberate. §8 should state "no gravity-side predictions, and here is why" in
+> one sentence.
 
 `FRAMEWORK.md` §5.2:
 
@@ -340,7 +371,31 @@ March-era overreach to be retired explicitly. Either is progress; silence is not
 Note the honest tension with G4 (below): if the interior is 1+1 dimensional,
 a 3+1 Kerr ringdown prediction needs an argument, and P5/P6 never gave one.
 
-### O-2. Junction 3 was never closed and never retired
+### O-2. Junction 3 was never closed and never retired — **ADJUDICATED August 9, 2026 (night); recommendation pending Eldon's decision**
+
+> **Recommendation: retire the junction, promote the identity.** Full argument:
+> `notes/2026-08-09_route_adjudications.md` O-2.
+>
+> The answer was already in the same file, five months ago. `STATUS.md` line 177,
+> March 24: the empirical result (median Δ = 0.2493 over 44 heads) "provides an
+> empirical route: trained attention → SYK conformal fixed point → JT gravity,
+> **independent of whether Ageev's scalar is massless.**" The gate was bypassed in
+> the document that still marks it conditionally open.
+>
+> **What to keep, and it is more than this item claims.** The Ageev structural
+> identity is a *second derivation with non-overlapping regime assumptions* — it
+> does not need linearization, and T3's linearized-softmax G⁴ route does. Both of
+> T3's own caveats have since moved: Ω is closed in closed form (J-2 below,
+> Tr[(KδK)²], γ = 3.985 ± 0.015 over four decades) and the H-S rigor question is
+> partially answered by G1's August 7 closure (J-4 below). So T3 rests on the
+> route with the surviving assumption while the assumption-free one sits in a
+> retired file. Promote it into T3, tagged **ASSERTED-structural** — it is a
+> form-match, and after this week a form-match does not get to wear the word
+> "derivation" untagged.
+>
+> **Also:** record the March 6 emails as *closed*, not waiting. Five months, no
+> response, and the questions no longer gate anything. "Waiting" on a dead email
+> makes the board look alive where it isn't.
 
 `STATUS.md`'s Junction chain has **Junction 3 (Ageev/Ageeva free scalar →
 holographic dual) marked ⚠ CONDITIONALLY OPEN** since March 6, 2026, with two
@@ -363,7 +418,46 @@ disorder-averaged connected four-point Cov_J[G(τ₁,τ₂), G(τ₃,τ₄)] —
 from the one T3 uses. Two independent derivations of the same identification is
 worth more than one.
 
-### O-3. Junction 5 is the only link the program ever had that reaches a bulk dimension above 2 — and G4 doesn't know
+### O-3. Junction 5 is the only link the program ever had that reaches a bulk dimension above 2 — and G4 doesn't know — **ADJUDICATED August 9, 2026 (night); this item is wrong twice, and the replacement is a runnable experiment**
+
+> **Recommendation: G4 gains two sentences; pre-register the vision measurement.**
+> Full argument: `notes/2026-08-09_route_adjudications.md` O-3.
+>
+> **Junction 5 does not apply, and the reason is instructive.** Czech 2018
+> (PRL 120, 031601) works *because* 3D gravity has no propagating degrees of
+> freedom — in his words, "locally, all these solutions are pure AdS₃ because
+> three-dimensional gravity has no propagating degrees of freedom. Thus, the
+> content of Einstein's equations… is to impose the locally AdS₃ condition." Czech
+> names higher dimensions as an open goal, obstructed by exactly the loss of that
+> simplification. **The feature that makes his derivation possible is the absence
+> of the local bulk dynamics G4 needs.** It is an anti-route — worth one sentence
+> in G4 because it says what a dimension-raising mechanism must supply.
+>
+> **This item conflates boundary and bulk dimension.** Read at source
+> (`LINEARIZED_SOFTMAX_CALCULATION.md` Step 5), the D in Δ = D/4 is the spatial
+> dimension of the *token sequence*; the document is explicit that for D > 1 "the
+> holographic dual would be a different gravitational theory." So it is not a
+> forgotten answer G4 already had — it is a **candidate answer to the question G4
+> itself poses and lists second** ("the dimension of the world coupled through
+> A2"). The data manifold's dimension sets D, D sets Δ, Δ sets the dual.
+>
+> **And the source writes out a row the program has never touched:** vision, 2D
+> image patches, **Δ = 1/2**. There is no vision experiment in the registry —
+> 113 experiments, every one on 1D sequences, while the program's own derivation
+> says a ViT should sit at twice the headline number. This is the sharpest untested
+> prediction in the retired material, and it tests T3's derivation out-of-sample:
+> Δ = D/4 is the melonic derivation's *only* dimension-dependent output. Design
+> constraint from this week: after exp-109 the measurement must name its
+> population and run in the native regime (natural images), with matched-protocol
+> 1D as control.
+>
+> **Second runnable item.** Line 201 of the same file states the test as applying
+> "at random initialization," which contradicts the program's measured zero
+> power-law heads at init. Likely resolution: J²_eff ∝ (σ_Q²σ_K²)²/(d⁴d_k²)·Ω is
+> tiny at init (free regime), and training grows it into strong coupling. That is
+> a prediction, not a hand-wave — J²_eff is computable from checkpoint weights with
+> Ω already in closed form, and the program measured a formation transition at
+> ~step 256 in Pythia-70m. Existing checkpoints, no training.
 
 `STATUS.md` Junction 5: *"RT surface area encodes circuit complexity; circuit
 complexity generates spacetime. Basis: Czech 2018; ER=EPR. Status: ✓ **PROVEN for
@@ -384,7 +478,44 @@ retired documents while G4 says the question is unattacked. It is very likely
 March-era overreach — but "likely overreach" and "unattacked" are different
 statuses, and G4 currently claims the second.
 
-### O-4. Route B — MERA — is a route to T8 that bypasses G1 entirely, and was never taken
+### O-4. Route B — MERA — is a route to T8 that bypasses G1 entirely, and was never taken — **ADJUDICATED August 9, 2026 (night): dead, and the reason it was chosen is the reason it fails**
+
+> **Recommendation: retire Route B with both reasons written down.** Full
+> argument: `notes/2026-08-09_route_adjudications.md` O-4.
+>
+> **The cited theorem is a conjecture, and Swingle says so.** Route B was ranked
+> "most general for holography" on the strength of "holography follows from
+> Swingle **as a theorem, not an analogy**." Swingle 2012 (PRD 86, 065007)
+> describes "a *generalized notion* of holography *inspired by* holographic
+> dualities," "*hinting at* a possible connection"; the companion arXiv 1209.3304
+> calls MERA "a kind of *skeleton* for an emergent holographic space." Milsted &
+> Vidal call it what "Swingle *conjectured*."
+>
+> **And the specific geometric reading was refuted in 2018.** Milsted & Vidal
+> (arXiv 1812.00529): MERA on the real line is a *light cone* — degenerate
+> signature, neither hyperbolic plane nor de Sitter. Bao et al. (PRD 91, 125036):
+> "a MERA necessarily describes geometry on super-AdS length scales; moreover,
+> there is no redefinition of the MERA coordinates that results in the proper
+> distance between MERA sites mapping to any sub-AdS length scale." So the March
+> 2026 entry was wrong about a 2012 paper, and had been publicly wrong since 2018.
+>
+> **Independent obstruction from our side.** MERA's defining structure is
+> coarse-graining — each layer halves the lattice and the extra dimension *is*
+> scale. Transformer layers preserve token count; there is no coarse-graining of
+> the sequence anywhere in the stack, and depth is not an RG direction in MERA's
+> sense. Also, MERA needs isometry/unitarity per tensor and causal softmax
+> attention with a residual stream is neither. A tensor-network *representation*
+> exists (Levine et al. 2019, cited in the same entry) — but a tensor network is
+> not a MERA, and the whole argument turned on the MERA-specific isometry
+> conditions. Stated as an argument, not a calculation. (T10's measured flow with
+> depth is real; it is a flow in kernel space, not a coarse-graining.)
+>
+> **Meta-lesson, which is the more useful output:** Route B outranked Route A
+> *because* it promised theorem-strength, and the promise came from a one-line
+> paraphrase nobody re-read. Five months of not pursuing it was accidentally
+> correct. **Prioritizing by the remembered strength of a citation is how a program
+> spends five months on the wrong ranking.** Any route ranked by "X proves Y" gets
+> X re-read before the ranking counts.
 
 `STATUS.md`, Route B, March 6: *"Multi-head attention has a natural tensor
 network representation. Swingle (2012) proves MERA tensor networks → exact AdS
@@ -439,7 +570,46 @@ repository.
 from "two V1 tests are runnable now." The second is an experiment I could
 pre-register this week.
 
-### O-7. The entire mathematics arm is disconnected from the foundation — including the part C1 is about
+### O-7. The entire mathematics arm is disconnected from the foundation — including the part C1 is about — **ADJUDICATED August 9, 2026 (night): split it; the stranded prediction fails, and the failure is the deliverable**
+
+> **Recommendation: Threads 12–14 become a separate program; Thread 11 partially
+> returns; the watchpoint is the real output.** Full argument:
+> `notes/2026-08-09_route_adjudications.md` O-7.
+>
+> **Threads 12–14** (relationship-as-boundary, Langlands-as-holography,
+> Riemann-unprovability) have no attending system in them. D1 defines the observer
+> as an attending system; that is this theory's foundation. Attaching 207KB by
+> adjacency is how formal work comes to look like part of a physics program without
+> answering to any of its claims. Give them their own home and front matter, stating
+> explicitly that they do not depend on D1 and D1 does not depend on them. **This is
+> the item where the decision is genuinely Eldon's** — it is about scope and
+> identity, not evidence.
+>
+> **Thread 11 is genuinely about softmax**, and two things come back. (a) C1 cites
+> the 9-of-10 positivity↔bootstrap result and states which of its two faces those
+> links touch. (b) The stranded measurable — δΔ as "the measurable signature of
+> incompleteness," related to gradient capacity G(σ) = 1 − ‖σ‖₂² — **is retired,
+> for an arithmetic reason.** For a normalized power-law row with exponent 2Δ, the
+> L2 norm is a deterministic function of Δ. The conjecture proposes to measure
+> incompleteness with a quantity its own decay exponent already fixes. The note's
+> own bridge line makes the dependence explicit — H₂(σ) = −log(1 − G(σ)) — and
+> nobody noticed.
+>
+> **Which makes this the third instance in three days of one specific error, and
+> that pattern is the real output of O-7:** (1) canonical-form §8.3's
+> H_gap = 2Δ·log n, falsified August 8 — the entropy gap of a normalized power law
+> is flat; (2) exp-055 H2's ρ(Δ, 3-bin entropy) = −0.898 claimed independent of
+> g_mid, corrected tonight by exp-114; (3) Thread 11 §3.3, found now. Three
+> independent reaches for the same object — **a spread measure of a normalized
+> attention profile, treated as an independent observable of that profile's own
+> exponent.** It recurs because the object is seductive from three directions at
+> once (thermodynamics, SYK ground-state entropy, Gödelian incompleteness), so each
+> time it felt like physics arriving from outside rather than a quantity already in
+> hand. Recorded with a mechanical test in `memory/knowledge/watchpoints.md`:
+> compute the analytic baseline for an exact normalized power law *first*, and
+> report every such measurement as a deviation from it, never as a raw correlation.
+> Three independent generations means recognition will not catch the fourth; the
+> baseline computation will.
 
 `RESEARCH_MAP.md` Threads 11–14, roughly 207KB of formal development, none of it
 connected to D1:
