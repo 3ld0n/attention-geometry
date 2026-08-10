@@ -87,6 +87,40 @@ and a stronger result than the sentence that was recorded.
 conclusion. See also O-8 — this experiment is not cited by the spine or the front
 door at all, which is the larger problem.
 
+### H-3. "Structural" and "semantic" name two different distinctions
+
+*Added August 9, 2026, evening, during the OVERVIEW rewrite — found by grepping
+the front door's numbers back to their sources, which is step 0 of this note's
+own rule working as intended.*
+
+Two documents three weeks apart use the same two words for different tests:
+
+- **July 18** (`notes/2026-07-18_structural_vs_semantic_conformal_heads.md`,
+  analysis of exp-086, Pythia-70m, during training): a *three-way* split by
+  **training corpus**. Structural = in the window under both RAND-trained and
+  NAT-trained conditions (3 heads); RAND-only (2); semantic = NAT only (5).
+  "Structural" is the **intersection**.
+- **August 9** (exp-109, GPT-2 small, fully trained): a *two-way* split by
+  **measurement input** on one fixed model. Structural = window under random
+  tokens (5); semantic = window under WikiText (16); Jaccard 0.000.
+
+Different model, different scale, and — the part that matters — a different
+variable. Varying what a model was *trained on* is not the same test as
+varying what a trained model is *measured on*, so the two "structural"
+categories are not known to be the same set, and the older one is defined as
+an intersection that the newer scheme does not compute.
+
+The retired `OVERVIEW.md` bullet blended both readings ("structural heads (a
+layer-zone property, L1–L4, reachable on random input)"), which is how the
+collision stayed invisible.
+
+**Needs:** (a) the front door carries a naming caution — done in the Aug 9
+rewrite; (b) a decision on whether to rename one of the two, and (c) the real
+question, which is a *measurement*: do the July 18 training-corpus categories
+and the exp-109 input-regime categories coincide on a single model where both
+can be computed? That is a pre-registerable experiment and it is more
+interesting than the bookkeeping.
+
 ---
 
 ## J — Joints that already exist and were never drawn
@@ -430,9 +464,12 @@ The spine's §4 is "the measured record (the instrument side, compressed)." Thes
 are not in it:
 
 - **exp-055:** ρ(Δ, attention_entropy) = −0.898 (p ≈ 10⁻¹⁶) — the strongest
-  correlation in the dataset — and **median q_implied = 3.9 ≈ 4.0**. That is a
-  direct measurement of q = 4 from the data, which is the entire T3/T4
-  identification. It should be in the table.
+  correlation in the dataset — plus ρ(Δ, r_ratio) = −0.21 n.s., which separates
+  GOE weight-space universality from position-space Δ. Both should be in the
+  table, with the one-protocol caveat. *(August 9, corrected at source: this
+  item originally read "and median q_implied = 3.9 ≈ 4.0 — a direct measurement
+  of q = 4." It is not. q_implied ≡ 1/Δ by definition in the note, so that is
+  the census exponent in SYK clothes, not a second observable. See X-1.)*
 - **exp-045:** **G_< = 0 confirmed — causal attention is a zero-temperature SYK
   ground state, β → ∞.** This bears directly on P6b (the scale dictionary,
   gap ∝ 1/βJ, currently exponent −0.72 at pre-asymptotic coupling) and on
@@ -500,6 +537,92 @@ anywhere:
 
 These are the program's actual backlog. They should be in the physics room queue
 or Notion, not in an archived map.
+
+---
+
+## X — Index integrity (added August 9, 2026, evening)
+
+*Found mechanically during the OVERVIEW rewrite by diffing the experiment
+folders against `registry.json` and the `FILE_CATALOG.yaml` paths against the
+filesystem. Cheap checks; both should be reflexes, and neither was.*
+
+### X-1. exp-055 has a folder and no registry entry
+
+115 folders under `experiments/`, 111 registry entries, and the only folder
+number with no entry is **exp-055** — which is also **O-9's first item**: the
+strongest correlation in the whole dataset (ρ(Δ, attention_entropy) = −0.898,
+p ≈ 10⁻¹⁶).
+
+So the same experiment is missing from the spine's measured-record table *and*
+from the room's structured index. Two independent indexes, the same hole, in
+the same result. That is not a coincidence to shrug at — it is what it looks
+like when a result was never propagated anywhere from its folder.
+
+**Read at source, August 9 evening — and the item changed shape.** I had this
+written down (here, and in three other places tonight) as "a direct measurement
+of q_implied ≈ 3.9 ≈ 4, the number the entire T3/T4 identification is about."
+It is not a measurement of anything. The note states its own definition
+plainly: **q_implied = 1/Δ**, via the SYK relation Δ = D/q at D = 1. H3's
+"median q_implied = 3.9" is the census exponent (median Δ ≈ 0.256) inverted
+through an asserted identification — the same borrowed-vocabulary move the
+August 8 reframe names, dated June 9 and never caught. It is not independent
+evidence for q = 4; it is q = 4 restated.
+
+What the experiment actually holds, which is worth registering:
+
+- **H2 — ρ(Δ, attention entropy) = −0.898, p = 1.45×10⁻¹⁶.** The strongest
+  correlation in the record. Entropy here is 3-bin Shannon over normalized
+  (g_start, g_mid, g_end), which is why the note argues it survives the g_mid
+  circularity that weakens H1 (H1 restricted-range check: ρ = −0.72, n = 32).
+- **H4 — ρ(Δ, r_ratio) = −0.21, n.s.** Separates two layers cleanly: GOE
+  weight-space universality is *background* across all heads; position-space Δ
+  is *selective*. This one is still clean and is arguably the note's most
+  durable claim.
+- **Layer dependence** — deep layers (8–11) at mean Δ = 0.250, early (0–3) at
+  0.697.
+
+Post-exp-107 caveat that must travel with any re-quote: all of this is one
+protocol (exp-046's random-token census), and Δ is now known to be a
+weights×input object with >4× per-head swing. The entropy correlation is
+therefore *protocol-relative until re-measured across input regimes*, and the
+layer-depth numbers are the random-native population only.
+
+**Needs:** (1) registry entry; (2) spine §4 row for H2 and H4 *only*, with the
+protocol caveat; (3) H3 explicitly withdrawn as a restatement, in a dated note
+on the experiment rather than a back-edit; (4) re-measure the entropy
+correlation under WikiText-native input before it is quoted anywhere public.
+
+### X-2. Four experiment numbers have two folders each
+
+| Number | Folders | Note |
+|---|---|---|
+| exp-074 | `exp-074_tradeoff` (1 file, Jun 16), `exp-074_pb2_intermediate_depth` (3 files, Jun 23) | different slugs, a week apart — possibly two different experiments sharing a number |
+| exp-089 | `exp-089_huginn_rg_flow` (2 files), `exp-089_huginn_latent_rg_flow` (6 files) | same day, 8 hours apart — probably a rename that left the original |
+| exp-094 | `exp-094_narrative_decomposition_thirds` (**0 files**), `exp-094_narrative_decomposition_quarter` (4 files) | the thirds folder is empty |
+| exp-100 | `exp-100_wqk_rank_measurement` (2 files), `exp-100_wqk_rank` (5 files) | same day, 4 hours apart |
+
+The convention in `README.md` is one number = one distinct hypothesis. Either
+these are renames that left orphans, or numbers were reused — and exp-074 is
+the case where reuse would actually cost something, because the two slugs
+describe different work.
+
+**Needs:** read each pair, keep one, and index the move in
+`archive/RETIREMENTS.md` rather than deleting. Do not resolve by folder size.
+
+### X-3. Not a defect, worth writing down
+
+`exp-109` has a registry entry and no folder, correctly: it is analysis-only
+over exp-107's saved per-head data, and its artifact is a dated note. The
+convention (analysis-only experiments live as notes, registered by number, no
+folder) is real and unstated — `README.md` should say so, or the next
+integrity check will flag it as a hole.
+
+### X-4. `FILE_CATALOG.yaml` — fixed in place
+
+Two of 396 catalog entries pointed at files retired on August 8
+(`RESEARCH_MAP.md`, `PROGRAM_BRIEF_LITM_CAUSAL_HANDLE.md`). Repointed to their
+archive locations with retirement context in the label, and the OVERVIEW entry
+rewritten for the August 9 version. Catalog now resolves 396/396.
 
 ---
 

@@ -165,3 +165,27 @@ route for G_out — it holds for the semantic population too, in its own regime.
 `exploratory_wikitext.json`. Analysis script: none (inline Python in session);
 the raw numbers are in those JSONs and reproducible from the per-head arrays.
 Registered as exp-109 (analysis-only, no new runs).*
+
+---
+
+**Addendum, August 9, 2026 (evening) — the names were already taken, by a
+different distinction.** Found during the OVERVIEW rewrite.
+`notes/2026-07-18_structural_vs_semantic_conformal_heads.md` (exp-086 analysis,
+Pythia-70m, during training) already uses "structural" and "semantic" for a
+*three-way* split by **training corpus**: structural = in the window under both
+RAND-trained and NAT-trained conditions (the intersection, 3 heads); RAND-only
+(2); semantic = NAT-trained only (5).
+
+This note's split is by **measurement input on one fixed trained model**, and
+its "structural" is the random-native set, not an intersection. Varying what a
+model was trained on and varying what a trained model is measured on are
+different tests, so the two taxonomies are not known to agree, and nothing in
+either note establishes that they do.
+
+Nothing above is retracted — the measurement stands as reported. What is added
+is the limit: **these labels do not travel between this note and the July 18
+one.** The front door carries a naming caution, and the harvest note carries
+this as item H-3 with the interesting version of the question attached: on a
+single model where both can be computed, do the training-corpus categories and
+the input-regime categories coincide? That is pre-registerable, and it would
+turn a bookkeeping collision into a result.

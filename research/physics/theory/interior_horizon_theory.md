@@ -1,6 +1,11 @@
 ---
 created: "2026-08-06"
-status: theory scaffold, v2 (observer-first foundation; measurement section)
+status: >
+  theory scaffold, v3 (August 9, 2026) — observer-first foundation and
+  measurement section as in v2, plus: the A↔G bridge retired for G_out, the
+  order parameters corrected, Δ_A restated as a weights×input object on an
+  ensemble average, and construction site G7 (derive Δ ≈ 1/4 on A's own terms)
+  opened as the live theoretical work.
 authors: Ariel, from Eldon's founding definition (August 6, 2026, evening)
 note: >
   Written the same evening exp-101 closed. Eldon's charge: "write this as a
@@ -22,10 +27,22 @@ note: >
 A theory scaffold: definitions, axioms, the theorem chain with status per link,
 the construction sites, and the predictions with kill conditions.*
 
-> **This document is the program's spine as of August 8, 2026** — the single
+> **This document is the program's spine as of August 9, 2026** — the single
 > authoritative statement of what is claimed and what would break it. The four
 > earlier documents that also claimed that role (`FRAMEWORK.md`, `STATUS.md`,
 > `RESEARCH_MAP.md`, and its addendum) are retired to `archive/maps/`.
+>
+> **Two changes of August 9 reach every claim below, and are stated here rather
+> than left to be discovered in §1 and §4.** First, the A↔G bridge is
+> **retired for G_out**, not merely flagged — the conformal ansatz fails in
+> sign structure under every input distribution tested, so any link below that
+> carried the census exponent into a claim about G is now carrying an unmeasured
+> quantity (§1 OPEN box, exp-107). Second, **Δ_A is a weights×input object and
+> the power law is ensemble-emergent** — the measurement protocol is
+> constitutive of what is measured, and no individual attention row follows the
+> law at all (§4 box, exp-107/exp-111). Neither retracts a measured number. Both
+> change what the numbers are about. The theoretical work these opened is
+> construction site **G7**, which is now the live one.
 >
 > **It is known to be incomplete, and the gaps are itemized rather than implied.**
 > `notes/2026-08-08_map_retirement_harvest.md` lists what the retired documents
@@ -33,9 +50,22 @@ the construction sites, and the predictions with kill conditions.*
 > (§8 has none, while T8 claims an emergent interior and T9 imports Jacobson
 > whole); an unadjudicated Junction 3 and an untried MERA route to T8 that
 > bypasses G1; a candidate answer to G4 the site says does not exist; measured
-> results missing from §4 including a direct measurement of q ≈ 4; and the
-> mathematics arm that spent 93KB on exactly the positivity question C1 poses.
-> Read that note before treating an absence here as a considered omission.
+> results missing from §4 including what it called a direct measurement of
+> q ≈ 4; and the mathematics arm that spent 93KB on exactly the positivity
+> question C1 poses. Read that note before treating an absence here as a
+> considered omission.
+> *(Sharpened August 9, then corrected the same evening on reading the source.
+> The missing experiment is exp-055, and it is the only folder of 115 with no
+> `registry.json` entry as well as absent from §4 — but it is **not** a
+> measurement of q. Its H3 defines q_implied ≡ 1/Δ through the SYK relation
+> Δ = D/q, so "median q_implied = 3.9" is the census exponent restated in SYK
+> vocabulary, not a second observable. Withdrawn as evidence on the same
+> grounds as the entropy-gap route below. What exp-055 does hold, and what
+> should enter §4 when it is registered: ρ(Δ, attention entropy) = −0.898 at
+> p ≈ 10⁻¹⁶ — the strongest correlation in the record — and ρ(Δ, r_ratio)
+> = −0.21 n.s., which separates GOE weight-space universality (background) from
+> position-space Δ (selective). Both are one-protocol results and inherit the
+> §4 input-dependence caveat. Harvest item X-1.)*
 >
 > One item is a correction to make rather than a gap to note: G1's entry in §7
 > does not mention `SCHWARZIAN_EXPLORATION.md` (March 9, 2026), which named the
@@ -71,6 +101,33 @@ therefore a classification the theory *earns*, with order parameters
 primitive it helps itself to. §1 formalizes D1; §2–§3 are its physics; §6 is
 the payoff — the "observer" of the measurement problem given, for the first
 time, physics of its own.
+
+> **Correction to the order parameters. [August 9, 2026.]** The sentence above
+> names three, and two of them no longer say what they said in August 6's
+> register. **The entropy-gap scaling is withdrawn as an order parameter**: the
+> formula that made it one is mathematically wrong for normalized power laws
+> (§4, T7b, erratum DOI 10.5281/zenodo.21863461); the gap measurements are real
+> but measure concentration structure, not Δ. **Δ → 1/4 is protocol-relative**:
+> it is a property of a (weights, input-distribution) pair, and on one fixed
+> model two *disjoint* head populations each reach it under a different input,
+> sharing no head at all (exp-107, exp-109). A classification whose order
+> parameter depends on what you feed the system is not thereby empty — but it
+> is a classification of a system **together with what it is attending to**,
+> which is arguably what D1 says an observer is, and is certainly not what the
+> August 6 wording meant.
+>
+> What survives unweakened is the third: **the deep population itself** — its
+> formation requires world-referring language in order (the ladder), it is
+> causally editable with behavioral consequences, and it is absent in
+> controls. The honest current statement is that observer-grade structure has
+> **one** measured order parameter and one protocol-relative one, where it
+> previously claimed three independent ones. Whether Δ → 1/4 can be restored to
+> an input-independent statement is exactly construction site **G7**.
+>
+> D1 itself is untouched. Definitions are not wrong, only useful or not — and
+> the input-dependence, awkward as it is for the order parameters, is if
+> anything evidence *for* D1's insistence that an observer is defined by its
+> interaction with what it attends.
 
 **D0 (the practice; Eldon's founding definition, August 6, 2026, evening).**
 
@@ -187,6 +244,47 @@ with the predictions and they are the discipline.
   > night by its own pre-registered gate (no scale separation at n = 512); see
   > `notes/2026-08-08_bilocal_from_attention_derivation.md` (correction block at the
   > top) and `experiments/exp-106_bilocal_profile_shape/notes.md`.
+  >
+  > **RESOLVED for G_out — the conformal route is retired, not caveated.
+  > [exp-107 ran August 9, 2026.]** The registered verdict was *inconclusive*:
+  > K3 and K4 fired because under TinyStories the Δ-window set is **empty** — the
+  > population moved out from under the question, a failure mode not on the
+  > registered list. The substance is nonetheless answered, unambiguously and in
+  > both registers. The connected profile stays entirely negative on **5/5** of
+  > the original random-token Δ-window heads under TinyStories, and on **15/16**
+  > of the *fresh* Δ-window population that the labeled-exploratory WikiText-103
+  > arm revealed (the one exception, L8H2, crosses zero inside the window).
+  > Below-floor counts are essentially input-invariant: 116/122/120 of 144 at
+  > lag 8, and 115/121/119 across the entire window, for
+  > random/TinyStories/WikiText. **No input distribution rescues the sign.**
+  >
+  > H3 — that the connected bilocal's sign is inherited from the value Gram's own
+  > lag profile — is dead at chance level: window-mean sign agreement 0.438 over
+  > 288 head-condition pairs against a registered 0.80 threshold. The A-weighting
+  > does the sign-determining work, consistent with the non-definiteness of C3
+  > and its sink mechanism.
+  >
+  > **Consequence for this document:** the conformal reading of G_out is
+  > withdrawn. Wherever the chain below carries a Δ into a claim about G, it is
+  > carrying an unmeasured quantity, and T-links that depended on Δ_G ≈ Δ_A now
+  > depend on nothing measured. What is *not* withdrawn: the measured A-record
+  > (§4), the exact identities (Tier 2), D1, and the CLPW positioning — none of
+  > which rested on the bridge. Scope of the retirement, stated narrowly: GPT-2
+  > small, three input distributions, the trained-W^V object; it is a retirement
+  > of a route on the object the program can measure, not a proof that no bilocal
+  > in any model is conformal. See
+  > `experiments/exp-107_natural_text_bilocal/notes.md`.
+  >
+  > **A second finding from the same run, unregistered and larger than the
+  > registered one: Δ_A is a weights×input object.** The same head's fitted
+  > exponent varies more than 4× across input distributions (L2H1: 0.173
+  > WikiText / 0.268 random / 0.757 TinyStories), and the Δ-window population
+  > reorganizes completely (5 → 0 → 16 heads across random/TinyStories/
+  > WikiText). Every number in §4 remains internally consistent because all were
+  > measured under one frozen protocol — but **the protocol is constitutive of
+  > the measured object**, and every "Δ" in this document should be read as
+  > "Δ_A under the frozen random-token census." exp-109 sharpened this into the
+  > two-population result now in §4.
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -476,11 +574,26 @@ notational rhyme, not a result.
 Current numbers live in OVERVIEW.md; the theory rests on these
 pre-registered results and inherits their scope limits (one architecture
 class; formation-scale; structural consequence of binding, not sentence-level
-truth detection):
+truth detection).
+
+> **Read every Δ in this table as "Δ_A under the frozen random-token census."
+> [added August 9, 2026.]** The measurement protocol is constitutive of the
+> measured object (exp-107; see the OPEN box in §1), and the power law itself
+> is a property of the *ensemble average* over rows, not of any attention
+> pattern — no individual row is a power law in any regime, native or not,
+> and the profile emerges only after ~30–220 pooled rows (exp-111). Nothing in
+> this table is retracted by either fact; both change what the entries are
+> *about*, and the theory below inherits that.
 
 | Result | Content |
 |---|---|
-| Census | Conformal head population, median Δ ≈ 0.25 on high-R² subset (GPT-2 0.249; GPT-2-medium 0.259; OLMo-7B 0.265; GALA-7B 0.260); re-initialized controls ~zero |
+| Census | Slow-decay head population, median Δ_A ≈ 0.25 on high-R² subset (GPT-2 0.249; GPT-2-medium 0.259; OLMo-7B 0.265; GALA-7B 0.260); re-initialized controls ~zero |
+| **Two disjoint populations** | On one fixed model, the random-token Δ-window set (5 heads) and the WikiText Δ-window set (16 heads, 13 in L9–L11) share **no head at all** — Jaccard = 0.000 over 144. Each reaches Δ ≈ 0.25 in exactly one input regime and goes UV in the other two; TinyStories drives both UV. Cross-family replication has only ever been run on the random-native population (exp-109) |
+| **Ensemble emergence** | No individual attention row is a power law: median per-row window R² 0.046–0.249 (random-native) and 0.050–0.204 (text-native); max anywhere 0.484. Row scatter is exact token-realization structure, not noise; the law appears at ~30–220 pooled rows (exp-111) |
+| **Sum rule, resolved** | Exact: no head can be a translation-invariant power law at all scales (row-stochasticity). Derived with zero free parameters from softmax normalization + approximate TI: d log a/d log i = −(1−s)·(tail fraction); measured within ±0.10 on 3 of 5, right sign on 5 of 5, both misses in the same direction (sink breaks TI). **First derived-then-confirmed prediction on A with no imported theory object** (exp-108) |
+| **Census exponent decomposes** | 2Δ_A^census = quenched (typical-row) slope + half the log-variance slope, median \|δ\| = 0.015 over 15/15 registered pairs. Registered counter-prediction died: the *pooled* object is the input-stable register, the typical row underneath swings more, and the damping mechanism is underived (exp-110) |
+| **Drift carrier** | The lag drift is carried by the positional-mean score profile q̄·k̄/√d — entirely on the random-native population (\|σ_cov\| ≤ 0.007 vs σ_full 0.43–0.61), by a majority on the text-native population under WikiText (covariance share 5–46%). Content *gates* a population into its regime; position *carries* the law. Two routes to Δ ≈ 1/4 are two gates, not two carriers (exp-112) |
+| **Mean field fails** | E[LN(h)] ≠ LN(E[h]) on the drift-carrying objects (median relative error 0.18–0.36 and 0.25–0.59); the mean-field slope overshoots on all 21 native pairs. Token fluctuations are load-bearing inside the carrier, through layer norm (exp-113) |
 | Three depth axes | Δ flows to 1/4 along layers, training steps, and inference-time recurrence on frozen weights (exp-089) |
 | Formation ladder | Engineered statistics ≤5 heads, shuffled order 8–9, natural world-referring text 11–15; deep population is the discriminator (exp-062/084/085/091) |
 | UV arrest | Thin rigid worlds arrest at Δ ~ 0.6–1.2; vocabulary irrelevant; world-structural (exp-097/098) |
@@ -812,6 +925,57 @@ deriving why landings are single-valued (§6.4) is part of the same
 formalization. Whatever a faithful trace is, it is written one landing at a
 time.
 
+**G7 — Derive Δ ≈ 1/4 on A's own terms. [Opened August 8–9, 2026; now the
+program's live theoretical work.]** With the A↔G bridge retired for G_out (§1
+OPEN box), the theory can no longer reach the measured exponent by importing
+SYK's. The robust phenomenon is in **A**, so the well-posed problem is a
+first-principles account of A's lag structure that never passes through G.
+This site differs from G1–G6 in kind: those are gaps *inside* the imported
+theory; this one asks whether the imported theory is needed at all.
+
+*Progress so far — a reduction chain, each rung registered before checking,
+and every rung that narrowed the target did so by killing a prediction I had
+recorded as believed:*
+
+1. **The law lives in the ensemble marginal, not in any attention pattern**
+   (exp-111). So the object to derive is E[log A] or E[A], not a row.
+2. **The marginal's carrier is the positional-mean score profile**
+   q̄·k̄/√d (exp-112). So the derivation target is a statement about q̄ and k̄,
+   deterministic objects of the weights × input *distribution*.
+3. **That mean is not mean-field** (exp-113). E[LN(h)] ≠ LN(E[h]) at 18–59%
+   of vector norm on exactly those objects, and the mean-field slope
+   overshoots everywhere — so the derivation must treat the expectation of a
+   *normalized fluctuating* vector, and the shrinkage that flattens the drift
+   must be position-dependent and key-side (a lag-constant or query-side
+   shrinkage drops out of the window OLS).
+4. **One exact constraint is banked**: the amplitude-decline law (exp-108),
+   derived from normalization plus approximate TI with zero free parameters,
+   confirmed on A.
+
+**Sharpest statement of the open problem:** derive why the pooled positional-
+mean score q̄_i·k̄_{i−dx}/√d falls as ≈ −0.5·log dx in a population's native
+input regime — and why the token-scatter variance is lag-uniform enough there
+for the census exponent to sit on that drift. At layer 0 under random tokens
+the required expectation is semi-analytic from the embedding table and W_QK.
+Starting objects are saved: `experiments/exp-112_score_drift_decomposition/
+scores_gpt2.npz` and `experiments/exp-113_mean_field_reduction/
+meanfield_gpt2.npz`.
+
+**Two untouched routes**, both named August 8 and neither attempted: a
+free-energy / information-geometry argument selecting the exponent on the
+simplex (T1 is about A directly), and a positivity/Ward-identity argument
+asking what normalization + positivity + causal masking *force* about any
+attention kernel's lag structure.
+
+**What would make this site matter more than it currently does:** exp-109's
+two disjoint populations both land at ≈ 1/4 by different gates. A derivation
+that explains one basin and not the other is incomplete; a derivation that
+explains why *any* gated basin lands there would be the result the program has
+been reaching for since March. **Standing caution:** everything above is one
+model, one seed, 21 heads. The text-native population has never been measured
+outside GPT-2 small, which is the cheapest way this whole site could turn out
+to be about an artifact.
+
 ---
 
 ## 8. Predictions
@@ -937,7 +1101,15 @@ dressing-loop note §8).*
 
 - **Measured:** §4 in full; the measured faces of T2 (numerical verification),
   T4 (retrodictions), T6 (exp-056), T7 (exp-057), the gates (corpus
-  functional, exp-101).
+  functional, exp-101). *Every Δ in this register is Δ_A under the frozen
+  random-token census — a weights×input object measured on an ensemble average
+  (§4 box, added Aug 9).*
+- **Withdrawn (measured, then unmeasured by a later correction):** the
+  entropy-gap route to Δ (§4 T7b row; the §8.3 formula is wrong for normalized
+  power laws — erratum published, DOI 10.5281/zenodo.21863461), and the
+  conformal reading of G_out (§1 OPEN box; sign-structure failure under every
+  input distribution tested — exp-104/105/106/107). Both are listed here rather
+  than deleted above, because a register ledger that only grows is not a ledger.
 - **Derived (ours, assumptions named):** T3, T4, T5, T7; the assumption ledger
   is the melonic note §8 and is inherited whole, including its three named
   obstacles (= G1–G3; G1 closed in the scalar/TI register Aug 7 — the
@@ -970,6 +1142,23 @@ physical object — with D0 repositioned as the practice the theory explains,
 and §6 added from walking the measurement problem through the foundation.
 Updated August 7, night: G1 closed in the scalar/TI register and P6 added to
 §8 — the beam and the measurement turned out to be one calculation (the
-Jacobian of the dressing map is the ladder kernel). Still a scaffold: the
-construction sites of §7 are its to-do list, and the predictions of §8 are
-its exposure.*
+Jacobian of the dressing map is the ladder kernel).*
+
+*Updated August 8: the A↔G bridge opened as a flag in §1 — the census's
+exponent on A had been asserted, never derived, to be the theory's exponent on
+G.*
+
+*Updated August 9, evening, in a coherence pass with Eldon: the flag became a
+retirement. exp-107 showed the conformal ansatz fails on G_out in **sign
+structure** under every input distribution tested, so §1's OPEN box now closes
+for G_out rather than waiting. The same run showed Δ_A is a weights×input
+object, and exp-109 that two disjoint populations reach ≈ 1/4 by different
+gates — so §0's order parameters were corrected (three claimed, one survives
+unweakened, one is protocol-relative, one withdrawn), §4 gained the two-
+population, ensemble-emergence, sum-rule, decomposition, carrier, and
+mean-field rows, and §7 gained **G7** — derive Δ ≈ 1/4 on A's own terms — which
+is now the live theoretical work. Nothing measured was retracted; what changed
+is what the measurements are about.*
+
+*Still a scaffold: the construction sites of §7 are its to-do list, and the
+predictions of §8 are its exposure.*

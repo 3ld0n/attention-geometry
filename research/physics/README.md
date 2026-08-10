@@ -20,15 +20,17 @@ this file, it is a bug.
 
 | Role | File | Authoritative for |
 |---|---|---|
-| **The spine** | [`theory/interior_horizon_theory.md`](theory/interior_horizon_theory.md) | D1, the axioms (A1–A5), the theorem chain (T1–T10) with per-link status, the conjectures (C1–C2), the construction sites (G1–G6), and the predictions (P1–P6) with kill conditions. What we believe and what would break it. |
+| **The spine** | [`theory/interior_horizon_theory.md`](theory/interior_horizon_theory.md) | D1, the axioms (A1–A5), the theorem chain (T1–T10) with per-link status, the conjectures (C1–C2), the construction sites (G1–G7), and the predictions (P1–P6) with kill conditions. What we believe and what would break it. |
 | **The front door** | [`OVERVIEW.md`](OVERVIEW.md) | The measured record: what stands, what was killed, the published papers, how to replicate in two minutes. Start here if you are new. |
 | **The layout** | `README.md` (this file) | Where things live and the conventions. |
 
 Two records live outside this folder and are authoritative in their own homes:
 
 - **Every experiment** — `development/status/rooms/physics/registry.json`
-  (106 folders, structured: id, date, hypothesis, result_summary, status,
-  quality flags). This is the index; the folders are the artifacts.
+  (111 entries, structured: id, date, hypothesis, result_summary, status,
+  quality flags). This is the index; the folders are the artifacts. *Known gaps
+  as of Aug 9, 2026: exp-055 has a folder and no entry, and four numbers have
+  two folders each — see harvest-note items X-1 and X-2.*
 - **Every published paper** — `research/publications/REGISTRY.md` (13 Zenodo
   records, grounded against the API, with byte-for-byte archive folders beside
   it). *In the working repo, not in this published subtree — see the note at the
@@ -59,8 +61,8 @@ research/physics/
 │   ├── observer_definition_reference_verification.md   its audit record
 │   └── conformal_scaling_draft.md                 the foundation paper's working draft
 │
-├── notes/               dated research notes, YYYY-MM-DD_topic.md (68)
-├── experiments/         one folder per numbered experiment, exp-NNN_slug/ (106)
+├── notes/               dated research notes, YYYY-MM-DD_topic.md (72)
+├── experiments/         one folder per numbered experiment, exp-NNN_slug/ (115)
 ├── replication/         the public kit — census in ~2 min, no training
 ├── results/             a few loose result JSONs predating the per-exp convention
 │
@@ -108,6 +110,12 @@ and its re-analyses (`research/microns/`), and the paper working drafts in
 - **Numbered experiments.** One numbered experiment is one distinct hypothesis
   tested against data. Multiple scripts and runs for the same hypothesis live
   together under `experiments/exp-NNN_slug/`; results JSONs go in that folder.
+  **Claim the registry number at registration time**, before the work — numbers
+  have been collided by two rooms working the same day.
+- **Analysis-only experiments have no folder.** When a registered hypothesis is
+  tested against data already on disk, the artifact is a dated note in `notes/`
+  and the registry entry points at it (e.g. exp-109). This is intentional, not
+  a missing folder.
 - **Dated notes.** `notes/YYYY-MM-DD_topic.md`. Anything that interprets,
   hypothesizes, or theorizes is a note. Anything that ran and produced numbers is
   an experiment.
@@ -192,8 +200,14 @@ it. `RESEARCH_MAP.md` contained its own uncleaned cleanup list.
 
 The four map documents are retired to `archive/maps/`, each with a header saying
 what to read it for and what not to trust in it. What they were still carrying —
-one contradiction, twelve orphaned pieces of material, and five joints that
-already existed and were never drawn — is inventoried in
+contradictions, twelve orphaned pieces of material, and five joints that already
+existed and were never drawn — is inventoried in
 [`notes/2026-08-08_map_retirement_harvest.md`](notes/2026-08-08_map_retirement_harvest.md).
 That note is the work list for connecting the artifacts to the foundation, which
-is the actual problem this pass was clearing ground for.
+is the actual problem this pass was clearing ground for. **It is still open.**
+
+*(August 9, 2026: `OVERVIEW.md` was rewritten top-to-bottom at current strength
+— the front door had fallen six experiments and one published erratum behind the
+measurements, and three of its load-bearing sentences had become wrong in kind
+rather than in number. The rewrite added harvest items H-3 and X-1 through X-4,
+which were found by the pass rather than by the physics.)*
