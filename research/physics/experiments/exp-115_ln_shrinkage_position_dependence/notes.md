@@ -230,4 +230,90 @@ pair), `run_log.txt`.
 
 ---
 
-*(Results section appended after the run.)*
+---
+
+## Results — August 10, 2026, ~8:10 AM MDT (single run, no reruns)
+
+`analyze_shrinkage.py` → `results_gpt2.json`, `shrinkage_gpt2.npz`. Runtime ~0.7 s.
+Commit `db0e52a` (pre-registration) pushed before run.
+
+**K1 — PASS.** All 5 structural pairs pass integrity gate (S_pos reconstructed
+from saved qbar/kbar arrays matches stored profile to max diff well within 1e-3
+on all 249 lags per pair).
+
+### P1 — DEAD, 0/5 within threshold (prediction on record: DEAD).
+
+Structural heads under random: γ_k is near zero on ALL 5 heads — and positive
+on 4/5:
+
+| Head | γ_k | f_k mean (key pool) | cos_k median |
+|---|---|---|---|
+| L2H1 | +0.019 | 0.752 | 0.9961 |
+| L3H4 | +0.004 | 0.761 | 0.9995 |
+| L5H0 | +0.0004 | 0.739 | 0.9994 |
+| L7H11 | −0.008 | 0.742 | 0.9982 |
+| L10H8 | +0.004 | 0.835 | 0.9996 |
+
+The norm shrinkage f_k(j) is essentially POSITION-FLAT over the key pool
+j ∈ [8, 256] on all structural heads. P1 dead on the criterion and dead in
+substance: there is no position gradient in the key-side norm shrinkage.
+
+### P2 — DEAD, 0/5 (prediction on record: DEAD — conditional on P1).
+
+The correction profile C_k(dx) has γ_C near zero and mostly negative (wrong
+sign) on 4/5 heads. The p2 fraction (what fraction of the overshoot γ_C
+accounts for) is 0.3–9% — two orders of magnitude below what would be needed.
+The key-side norm gradient does not explain the overshoot.
+
+### P3 — CONFIRMED, 16/16 (prediction on record: CONFIRMED).
+
+All 16 semantic heads under WikiText show γ_k < 0 (f_k decreasing with j).
+The magnitudes are −0.016 to −0.037 — consistent in direction but small in
+magnitude. The correction fractions p2_frac are 0.002–0.035 (0.2–3.5% of the
+overshoot). P3 confirmed in sign, but the semantic-head f_k gradient is also
+nowhere near sufficient to explain the overshoot.
+
+### What exp-115 establishes
+
+1. **The key-side norm shrinkage is POSITION-FLAT for structural heads.**
+   f_k(j) = ||k̄_j|| / ||k_mf_j|| ≈ 0.74–0.84 is approximately constant over
+   j ∈ [8, 256] under random tokens (γ_k ≈ 0 on all 5 heads). The direction
+   alignment is near-perfect (cos_k ≈ 0.996–0.9996). Under these conditions,
+   k̄_j ≈ f_k · k_mf_j (constant scalar times the mean-field key, same at
+   every position), so the slope of S_pos should equal the slope of S_mf —
+   but it does not (overshoot 0.24–0.38). The contradiction pins the
+   overshoot mechanism elsewhere.
+
+2. **The mechanism is in the CROSS-POSITION structure, not the
+   per-position structure.** The objects f_k(j) and cos_k(j) describe
+   k̄_j relative to k_mf_j at the SAME position j. They are position-flat.
+   The overshoot must therefore live in how k̄_{i-dx} projects onto q_mf_i
+   (or q̄_i onto k_mf_{i-dx}) as a function of the LAG dx — a 2D (i, j) object
+   that the per-position analysis cannot see.
+
+3. **The natural decomposition for the next experiment:** write the score
+   decomposition:
+   - S_mf(dx) = mean_i [q_mf_i · k_mf_{i-dx}] / √d
+   - S_mixed_k(dx) = mean_i [q_mf_i · k̄_{i-dx}] / √d   (mf query, true key)
+   - S_mixed_q(dx) = mean_i [q̄_i · k_mf_{i-dx}] / √d   (true query, mf key)
+   - S_pos(dx) = mean_i [q̄_i · k̄_{i-dx}] / √d
+   
+   By expansion: S_pos ≈ (S_mixed_k − S_mf) + (S_mixed_q − S_mf) + S_mf
+   + residual (product of deviations). The slopes of S_mixed_k and S_mixed_q
+   can be computed from the SAME saved arrays (q_mf from meanfield_npz, k̄
+   from scores_npz, q̄ from scores_npz, k_mf from meanfield_npz) — no new
+   forwards needed. This is exp-116 (pre-register before computing).
+
+4. **For semantic heads (WikiText):** f_k(j) does decrease with j (P3
+   confirmed), but the contribution is ~1–4% of the overshoot. The cross-
+   position mechanism dominates there too.
+
+5. **Three registered predictions died today** (P1, P2, P3 partial): the
+   norm-gradient story was wrong. The record stands.
+
+### Standing limits
+
+One model (GPT-2 small), one seed, 21 heads, analysis-only from exp-112/113
+arrays (50-input ensembles). The per-position norm ratio f_k(j) is computed
+from the same pooled means that the score profile uses; sampling error at
+n = 50 is the same throughout.
