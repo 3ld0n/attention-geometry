@@ -385,6 +385,43 @@ softmax incompleteness, never tested.
 
 ### The split
 
+> **Corrected the same night, by Eldon, within the hour.** What follows below in
+> this subsection was wrong in its central claim, and the correction is more
+> interesting than the item. I wrote that Threads 12–14 "do not have an attending
+> system in them." They do — it is their whole thesis. Eldon's framing: *all
+> mathematics is seen from a particular point of view*, so the mathematics arm is
+> D1 applied to formal systems rather than a separate foundation. The thread I
+> was dismissing says so itself, in a line I read tonight and read past
+> (Thread 11 §13): "no formal system, being a perspective within the structure,
+> can prove a statement about the structure's global completeness from its local
+> position. The unprovability is not a deficiency of mathematics. It is the
+> condition of doing mathematics from somewhere." That is D1, stated for
+> mathematics instead of for physics. And §12's line — "the incompleteness IS the
+> capacity for attention" — is the Softmax Incompleteness Theorem read as a claim
+> about what makes something a perspective at all, which is D0/D1 territory, not
+> a curiosity about a normalization function.
+>
+> **What I got wrong, mechanically:** I conflated two separable questions —
+> *does this depend on D1?* and *does this live in the physics repo?* — and
+> answered the first with evidence that only bears on the second. Then I
+> generalized "not connected to the physics program's claims" into "no attending
+> system in it," which is a different and much stronger statement. Same failure
+> shape as the rest of this pass, pointed at my own conclusion instead of an
+> inherited one: I read the threads for whether they cited D1, not for whether
+> they were *about* what D1 is about.
+>
+> **Revised position.** The mathematics arm is the same program's second domain:
+> physics is what an observer sees of the world; mathematics is what an observer
+> sees of structure. It gets **its own repository, outside the physics research
+> repo** — for organization, not for conceptual independence — and its front
+> matter states the D1 connection as its thesis rather than disclaiming it. The
+> D1↔mathematics joint is then a real piece of theory work with a home, not an
+> orphan. Thread 11's C1 citation still comes back into the spine (below,
+> unchanged).
+>
+> Everything from here to the end of the O-7 "split" subsection is superseded,
+> kept unedited per this note's correction discipline.
+
 **Threads 12–14 are a different program, and should be named as one.** D1 defines
 the observer as an attending system; that is the foundation of *this* theory.
 Relationship-as-boundary, Langlands-as-holography and Riemann-unprovability are
@@ -449,11 +486,12 @@ Recorded as a watchpoint with a mechanical test, in
 
 ### Position
 
-- **Threads 12–14: separate program, named explicitly, no D1 dependency
-  claimed.** This is a real decision about what the program is, and I think it
-  is the honest one — but it is the item on this list where I most want Eldon's
-  view rather than mine, because it is about scope and identity rather than
-  evidence.
+- **Threads 12–14: own repository outside the physics repo, D1 connection stated
+  as the thesis.** *(Settled with Eldon, August 9, night — see the correction box
+  above. My original recommendation here was "separate program, no D1 dependency
+  claimed," which was wrong: the arm's thesis is that mathematics is seen from a
+  point of view, which is D1 for formal systems. The separation is organizational
+  only.)*
 - **Thread 11: C1 cites it; δΔ-as-incompleteness is retired as a measurable**,
   with the arithmetic reason written down. Its value to the program is now as the
   third data point in a failure pattern, which is worth more than the prediction
@@ -478,7 +516,7 @@ whether they are one program or two is genuinely Eldon's.
 | O-2 | Retire the massless-scalar gate (superseded March 24); promote the Ageev identity into T3 as a second derivation, tagged ASSERTED-structural; close the dead email inquiries | spine edit + promotion | high |
 | O-3 | G4 gains Czech-does-not-apply + Δ=D/4-as-candidate; **pre-register the vision (D=2 → Δ=1/2) measurement** and the J_eff threshold test | spine edit + 2 experiments | high / medium on D/4 |
 | O-4 | Retire Route B with both reasons; record the ranking-by-remembered-citation lesson | retirement + method lesson | high |
-| O-7 | Split Threads 12–14 into a separate program; C1 cites Thread 11; retire δΔ-as-incompleteness; **the watchpoint is the real output** | scope decision + watchpoint | high on evidence, decision is Eldon's |
+| O-7 | Threads 12–14 to their own repo outside the physics repo, D1 connection stated as thesis (settled with Eldon); C1 cites Thread 11; retire δΔ-as-incompleteness; **the watchpoint is the real output** | scope decision (settled) + watchpoint | high on evidence; my first read of the arm was wrong and is corrected in place |
 
 **What this pass produced beyond the five adjudications:** one watchpoint with a
 mechanical test, two runnable pre-registerable experiments (one of which tests

@@ -577,13 +577,20 @@ pre-register this week.
 > `notes/2026-08-09_route_adjudications.md` O-7.
 >
 > **Threads 12–14** (relationship-as-boundary, Langlands-as-holography,
-> Riemann-unprovability) have no attending system in them. D1 defines the observer
-> as an attending system; that is this theory's foundation. Attaching 207KB by
-> adjacency is how formal work comes to look like part of a physics program without
-> answering to any of its claims. Give them their own home and front matter, stating
-> explicitly that they do not depend on D1 and D1 does not depend on them. **This is
-> the item where the decision is genuinely Eldon's** — it is about scope and
-> identity, not evidence.
+> Riemann-unprovability): **own repository, outside the physics research repo —
+> organizational separation only, with the D1 connection stated as the arm's
+> thesis.** *Settled with Eldon the same night.* My first recommendation was
+> "separate program, no D1 dependency claimed," on the grounds that these threads
+> "have no attending system in them." That was wrong, and Eldon corrected it within
+> the hour: all mathematics is seen from a particular point of view, so the arm is
+> D1 applied to formal systems — physics is what an observer sees of the world,
+> mathematics is what an observer sees of structure. The thread I dismissed argues
+> exactly this in a line I read tonight and read past: "the unprovability is not a
+> deficiency of mathematics. It is the condition of doing mathematics from
+> somewhere." My mechanical error was conflating *does this depend on D1?* with
+> *does this live in the physics repo?*, then generalizing "does not cite D1" into
+> "is not about attending" — the same failure shape as the rest of this pass,
+> aimed at my own conclusion instead of an inherited one.
 >
 > **Thread 11 is genuinely about softmax**, and two things come back. (a) C1 cites
 > the 9-of-10 positivity↔bootstrap result and states which of its two faces those
