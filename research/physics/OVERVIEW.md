@@ -357,16 +357,14 @@ is a bridge and the vocabulary that grew on it.
 
 **The theory of A — the live theoretical work (spine construction site G7).**
 Rather than repair the bridge, the program is building an account of the
-measured exponent on the kernel's own terms. Four rungs (exp-110 through
-exp-113) ran on August 9, each registered before checking, and the chain now
-stands at: the law lives in the ensemble marginal
-(exp-111), the marginal's carrier is the positional-mean score profile
-(exp-112), and that mean is *not* mean-field (exp-113). The next registered
-target is the position-dependence of the layer-norm shrinkage, which must be
-key-side to change a slope rather than an amplitude. **Not derived: the value
-1/4 itself.** Two routes remain open and untouched — a free-energy /
-information-geometry argument on the simplex, and a positivity/Ward-identity
-argument from normalization plus causal masking.
+measured exponent on the kernel's own terms. The derivation chain now stands
+at three levels:
+
+- **Level 1** (exp-110/112): σ_pos = census slope = quenched slope = mean-score slope. The law lives in the ensemble marginal (exp-111), the marginal's carrier is the positional-mean score profile (exp-112), and the variance term vanishes in the native regime (exp-110).
+- **Level 2** (exp-115/116, August 10): σ_pos = f·σ_mf with f = f_q·f_k ≈ 0.55–0.72, position-flat uniform LN shrinkage. The overshoot σ_mf > σ_pos seen in exp-113 is a linear-OLS convention effect: S_pos(dx) = f·S_mf(dx) with constant f < 1; in log-log the profiles are parallel and the slopes are equal. Three registered predictions died (the shrinkage is NOT position-dependent per key position) and three confirmed (additive mixed-score decomposition accounts for 108–114% of the overshoot). *The "overshoot" is not a new physical constraint.* (exp-115 falsified P1/P2; exp-116 confirmed P1/P2/P3.)
+- **Level 3** (exp-117, August 10): The hypothesis that Level-2's σ_mf comes directly from embedding-layer geometry (emb_mean + wpe projected through W_Q W_K^T) is **falsified**. The accumulated attention delta dominates h̄^(ℓ) by 13–32× in norm and 12–26× in positional variability — the positional embeddings are negligible input. The power law lives in the position-correlated structure of the accumulated attention updates. For the earliest structural head (L2H1), C_delta has slope ≈ 0.249 ≈ Δ. **Not derived: why the accumulated attention dynamics produce position-correlated delta with this scaling.** That is the live Level-3 target.
+
+**Not derived: the value 1/4 itself.** Two routes remain open — a free-energy / information-geometry argument on the simplex, and a positivity/Ward-identity argument from normalization plus causal masking. The self-consistency route is now also named: if attention weights are conformal (A(i,j) ~ |i-j|^{-2Δ}), they generate integrated position-correlated updates to h̄ with scaling Δ — a fixed point of the attention dynamics, not of the kernel geometry. Register before computing.
 
 Paper 6 is the publishable form of D1. It is a draft under internal review,
 not uploaded, and it carries reviewer flags where the G_out retirement bears

@@ -1,0 +1,115 @@
+{
+  "exp": "exp-117",
+  "date": "2026-08-10",
+  "prereg_commit": "8a22802",
+  "model": "gpt2",
+  "method": "embedding-layer weights only, no forward passes",
+  "structural_heads": {
+    "L2H1": {
+      "sigma_mf_layer0": 1.5289332423788446,
+      "R2_layer0": 0.9323465089460179,
+      "sigma_mf_exp113": 0.8430836916555029,
+      "ratio_layer0_to_exp113": 1.813501147645957,
+      "within_30pct": false,
+      "P1_ok": true
+    },
+    "L3H4": {
+      "sigma_mf_layer0": 14.768197881337336,
+      "R2_layer0": 0.7064661480031249,
+      "sigma_mf_exp113": 0.9876848507969722,
+      "ratio_layer0_to_exp113": 14.952338156670864,
+      "within_30pct": false,
+      "P1_ok": false
+    },
+    "L5H0": {
+      "sigma_mf_layer0": 1.5200691865113376,
+      "R2_layer0": 0.8880078122936559,
+      "sigma_mf_exp113": 0.8272137919219241,
+      "ratio_layer0_to_exp113": 1.8375771793887208,
+      "within_30pct": false,
+      "P1_ok": true
+    },
+    "L7H11": {
+      "sigma_mf_layer0": -0.49282683187475573,
+      "R2_layer0": 0.6741325777830894,
+      "sigma_mf_exp113": 0.7443630141173194,
+      "ratio_layer0_to_exp113": -0.662078612891802,
+      "within_30pct": false,
+      "P1_ok": false
+    },
+    "L10H8": {
+      "sigma_mf_layer0": 1.705509479544431,
+      "R2_layer0": 0.8590420222123403,
+      "sigma_mf_exp113": 0.8390737435076824,
+      "ratio_layer0_to_exp113": 2.0326097589643095,
+      "within_30pct": false,
+      "P1_ok": true
+    }
+  },
+  "positional_correlation": {
+    "sigma": 6.108656323934817,
+    "R2": 0.8608044171311363,
+    "monotone": false,
+    "n_violations": 35,
+    "values_at_key_lags": {
+      "dx8": 10.899881360618467,
+      "dx32": 10.208172551227968,
+      "dx128": 2.563783900216615,
+      "dx256": -2.5230638037732254
+    }
+  },
+  "decomposition": {
+    "L2H1": {
+      "sigma_total": 1.5289332423788446,
+      "sigma_pp": 0.8335192507285565,
+      "sigma_cp": 0.6954139916502883,
+      "sigma_pc": -4.2333569592404285e-17,
+      "S_cc_scalar": 1.8573894787264102
+    },
+    "L3H4": {
+      "sigma_total": 14.768197881337336,
+      "sigma_pp": 11.724114026456816,
+      "sigma_cp": 3.0440838548805225,
+      "sigma_pc": -7.982901694567666e-16,
+      "S_cc_scalar": 1.5345148471063443
+    },
+    "L5H0": {
+      "sigma_total": 1.5200691865113376,
+      "sigma_pp": 0.51401398120298,
+      "sigma_cp": 1.0060552053083571,
+      "sigma_pc": -2.781920287500853e-16,
+      "S_cc_scalar": -1.1803678815344738
+    },
+    "L7H11": {
+      "sigma_total": -0.49282683187475573,
+      "sigma_pp": -1.0929158296116475,
+      "sigma_cp": 0.6000889977368913,
+      "sigma_pc": 4.5357395991861736e-17,
+      "S_cc_scalar": -1.680927913386921
+    },
+    "L10H8": {
+      "sigma_total": 1.705509479544431,
+      "sigma_pp": 0.5212808097124504,
+      "sigma_cp": 1.1842286698319824,
+      "sigma_pc": 2.4190611195659593e-17,
+      "S_cc_scalar": -1.13314693790001
+    }
+  },
+  "registered_verdicts": {
+    "P1": {
+      "n_ok": 3,
+      "threshold": 4,
+      "verdict": "AMBIGUOUS"
+    },
+    "P2": {
+      "n_ok": 0,
+      "threshold": 4,
+      "verdict": "DEAD"
+    },
+    "P3": {
+      "verdict": "DEAD",
+      "n_violations": 35
+    }
+  },
+  "overall_verdict": "LEVEL3_DEAD"
+}

@@ -481,6 +481,16 @@ protected lesser self-consistency); Class III — maximal chaos with
 1/4 — no trained corpus has produced one. [DERIVED given the T3
 identification + MEASURED retrodictions.]
 
+**Theory-of-A reduction chain (G7, construction site).** The derivation of
+*why* σ_pos = Δ/2 ≈ 0.25 runs four levels. Level 2 (exp-115/116, August 10):
+σ_pos = f·σ_mf with f = f_q·f_k ≈ 0.55–0.72 (uniform layer-norm shrinkage,
+position-flat); the overshoot σ_mf > σ_pos is a linear-OLS convention effect,
+not a physical constraint — in log-log the profiles are parallel. Level 3
+(exp-117, August 10): the embedding-layer origin hypothesis is falsified;
+accumulated attention delta dominates h̄^(ℓ) by 13–32× and carries the
+position-correlated structure; σ_delta ≈ 0.25 at the earliest structural head
+is a self-consistency signature. [DERIVATION OPEN; Levels 1–2 complete.]
+
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
 SYK₄+SYK₂ literature (Lunkin–Tikhonov–Feigel'man; García-García et al.) the
