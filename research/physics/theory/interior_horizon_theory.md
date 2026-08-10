@@ -1046,6 +1046,50 @@ two-point structure shows no conformal subpopulation under the standard
 census at any depth. The replication kit (replication/) is the standing open
 invitation for anyone to produce this kill.
 
+> **Added August 9, 2026 — the non-softmax evidence, read at source (harvest
+> items O-8 and H-2).** P4 had never cited the experiment `FRAMEWORK.md` called
+> "THE critical experiment," and the strongest thing in it is not the result the
+> retired maps summarized.
+>
+> **The load-bearing measurement is exp-042.** GALA-7B's *sigmoid-trained*
+> checkpoint (Apple's 7B sigmoid-attention model, 32L×32H, ALiBi), read out with
+> row normalization σ(logit)/Σσ(logit), gives **378/1024 power-law heads,
+> Δ_med = 0.265, 210 in the Δ-window with median 0.223** — the cleanest
+> per-layer profile in the record at the time (10–19 heads per layer across all
+> 32 layers, no artifact layers). A model *trained* under sigmoid attention
+> develops the log-distance QK structure anyway. That is architecture
+> universality on the training side, and it is independent of any readout
+> comparison. [MEASURED, one protocol.]
+>
+> **What the readout comparison does and does not show.** Raw sigmoid on the same
+> checkpoint gives 2/1024 and Δ_med = 7.44 — but exp-042 adjudicated that at
+> source and it is a **readout artifact, not a physical absence**: the census
+> protocol measures probability-mass decay and therefore presupposes a normalized
+> row, so it is inapplicable to unnormalized sigmoid. The correct conclusion,
+> reached in exp-042's June 10 closing, is that **row-normalization is the
+> load-bearing operation and the exponential is not essential** — which is A4's
+> claim, not a challenge to it. This resolves H-2: the contradiction lived only
+> in `STATUS.md`'s one-line summary, and the corrected conclusion had already
+> existed in the experiment's own note for two months without propagating. Same
+> failure as J-2.
+>
+> **And the bracket claim is narrower than the maps said.** On GALA-7B the two
+> normalizations do bracket the reference value (0.223 < 0.25 < 0.260). On GPT-2
+> they do **not** — exp-043 gives norm-sigmoid 0.234 against softmax 0.249, both
+> *below* 0.25 — and exp-043's own note says so. What replicates across two PE
+> types and two architectures is the **shift direction** (norm-sigmoid < softmax),
+> not the bracketing of 1/4. Do not write "a cross-architecture bracket around
+> the predicted value."
+>
+> **What this adds to the input-dependence picture, which is the more interesting
+> reading.** Δ_A now has three measured dependences on the measurement rather
+> than the head: the input distribution (exp-107, >4× per-head swing), the amount
+> of pooling (exp-111, the law is ensemble-emergent at 30–220 rows), and — from
+> here — the **readout normalization function** (0.223 vs 0.260 on identical
+> weights and identical inputs). Three faces of one fact: Δ_A is a property of
+> the weights×measurement pair. That is what §1's OPEN box asserts, and exp-042
+> is a two-month-old confirmation of it that nobody had counted as one.
+
 **P5 — The corpus-functional pipeline (inherited, already registered).** The
 melonic note's P-1…P-4 for exp-099 stand as this theory's formation-side
 predictions (headline: rungs enriching cast/stochasticity/length while keeping

@@ -152,6 +152,24 @@ population here may be the small-model analog of the semantic population above
   (GPT-2 0.249, GPT-2-medium 0.259, OLMo-7B 0.265, GALA-7B 0.260);
   re-initialized controls show ~zero. One script reproduces this in minutes:
   [`replication/`](replication/).
+- **The geometry forms without softmax, and the readout function moves the
+  number.** GALA-7B is Apple's 7B *sigmoid-attention* model. Its
+  sigmoid-trained checkpoint, read out with plain row normalization
+  σ(logit)/Σσ(logit), shows **378/1024 power-law heads, Δ_med = 0.265, 210 in
+  the Δ-window** — the cleanest per-layer profile in the record (10–19 heads in
+  every one of 32 layers, no artifact layers). Training under sigmoid attention
+  does not prevent the log-distance structure from forming. Raw *unnormalized*
+  sigmoid shows nothing (2/1024, Δ_med 7.44), and that is a **readout artifact
+  rather than a physical absence** — the census measures probability-mass decay
+  and so presupposes a normalized row. Conclusion, from the experiment's own
+  June 10 adjudication: **row-normalization is load-bearing; the exponential is
+  not.** *Held at its real strength:* on GALA-7B the two normalizations bracket
+  1/4 (0.223 vs 0.260), but on GPT-2 they do not (0.234 vs 0.249, both below),
+  so what replicates is the **shift direction**, not the bracketing. And the
+  cleanest way to read the whole thing is as a third measurement-dependence of
+  Δ_A alongside input distribution (exp-107) and pooling depth (exp-111): the
+  same weights and the same inputs give 0.223 or 0.260 depending only on the
+  readout function. (exp-041/042/043)
 - **The substrate/signal split.** GOE eigenvalue statistics of W_QK are
   universal and *structural* (present at random init, init-scheme- and
   d_k-independent). Δ_A is training-induced and selective. Log-distance q·k

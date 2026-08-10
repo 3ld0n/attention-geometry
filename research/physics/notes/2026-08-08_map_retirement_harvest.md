@@ -66,7 +66,36 @@ exists. Its retirement header now carries the warning.
 respectively, which is how the divergence stayed invisible — each document cited
 the source that agreed with it.)*
 
-### H-2. Normalization vs. QK geometry as the mechanism — the recorded conclusion fights its own data
+### H-2. Normalization vs. QK geometry as the mechanism — **RESOLVED August 9, 2026 (night): it was already answered at source, on June 10**
+
+> **Not a live contradiction.** Reading exp-041/042/043 at their sources shows
+> exp-042's own closing section, dated **June 10, 2026**, reaches exactly the
+> resolution this item proposes, in its own words: *"Verdict: CONSTRAINT
+> READING. The Δ ≈ 0.25 fixed point is a property of row-normalization over
+> trained QK geometry, not of softmax's exponential reparameterization,"* and
+> *"row-normalization is the load-bearing operation; the exponential is not
+> essential."* It also records that the exp-041 sigmoid "falsification" was a
+> **readout artifact** — the census protocol measures probability-mass decay and
+> therefore presupposes a normalized row, so it cannot be applied to
+> unnormalized sigmoid at all.
+>
+> So `STATUS.md`'s one-line summary was the only place the contradiction lived,
+> and the corrected conclusion sat in the experiment's own note for two months
+> without propagating anywhere. **This is J-2's failure exactly** — a question
+> answered and never carried back to where the question was recorded — and it is
+> the second instance found in this pass.
+>
+> **Two corrections to the text below, both from the source:** (a) exp-042's
+> normalization is `σ(logit)/Σσ(logit)` row-wise, **not** "per-head QK RMSNorm"
+> as written below — RMSNorm is the model's prenorm and is present in every arm,
+> so the description misidentifies the manipulation; (b) "removing normalization
+> destroys the structure" is too strong: it makes the structure *unmeasurable by
+> this protocol*, and exp-042 demonstrated the structure was in the
+> sigmoid-trained weights all along.
+>
+> Landed in spine P4's added box and in `OVERVIEW.md` "What stands" (see O-8).
+
+### H-2 (original text, kept unedited)
 
 `FRAMEWORK.md` §4.2.1 argues self-consistency — concretely, softmax
 normalization — is the mechanism that produces the fixed point, and the spine
@@ -443,7 +472,33 @@ the mathematics arm is part of this program or a separate one. Worth deciding
 explicitly rather than by neglect. Minimum viable step: C1 cites Thread 11 and
 states what the 9-of-10 result does and does not give it.
 
-### O-8. The non-softmax universality result is in neither the spine nor the front door
+### O-8. The non-softmax universality result is in neither the spine nor the front door — **DONE August 9, 2026 (night), and the headline changed**
+
+> **Landed in spine P4 (added box) and `OVERVIEW.md` "What stands," at a
+> different emphasis than this item proposed.** Three corrections from the source
+> read:
+>
+> 1. **The strongest result here is not the bracket — it is that a
+>    sigmoid-*trained* model forms the geometry.** exp-042 measured GALA-7B's
+>    sigmoid-trained checkpoint and found 378/1024 power-law heads, Δ_med 0.265,
+>    210 in the window, with the cleanest per-layer profile in the record (10–19
+>    heads in every one of 32 layers, no artifact layers). That is architecture
+>    universality evidence on the *training* side and it needs no readout
+>    comparison at all. This item never mentioned it.
+> 2. **The bracket claim does not replicate.** It holds on GALA-7B
+>    (0.223 < 0.25 < 0.260) and fails on GPT-2, where exp-043 gives 0.234 vs
+>    0.249 — both *below* 1/4. exp-043's own note says so plainly. What
+>    replicates across two PE types is the **shift direction**, not the
+>    bracketing of the predicted value, so "a cross-architecture,
+>    cross-normalization bracket around the predicted value" overstates it.
+> 3. **The better frame is measurement-dependence.** Identical weights and
+>    identical inputs give Δ = 0.223 or 0.260 depending only on the readout
+>    normalization. That makes this a third measured dependence of Δ_A on the
+>    measurement rather than the head — alongside input distribution (exp-107)
+>    and pooling depth (exp-111) — and therefore a two-month-old confirmation of
+>    what §1's OPEN box now asserts, which nobody had counted as one.
+
+### O-8 (original text, kept unedited)
 
 exp-041/042/043 (May 31, GALA-7B — Apple's 7B sigmoid-attention model, tested
 under the exp-007 protocol) was what `FRAMEWORK.md` called *"THE critical
