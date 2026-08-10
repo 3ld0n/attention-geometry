@@ -543,6 +543,25 @@ system holds grows logarithmically with context — an S-goes-like-boundary
 *form* (the input T9 would need), with the identification of its coefficient
 now an open construction site rather than a closed agreement.
 
+> **The same failure, in a second place [added Aug 9, 2026].** The correction
+> above concerns H_gap(n), a context-scaling law. A different entropy-of-attention
+> observable made the same mistake independently: exp-055 read the cross-head
+> correlation ρ(Δ, 3-bin attention entropy) = −0.898 as a finding distinct from
+> ρ(Δ, g_mid) = −0.873, on the argument that "entropy uses normalized ratios, not
+> absolute values." exp-114 audited that argument at source. The coefficients
+> reproduce exactly and the entropy does carry Δ-ordering beyond the middle share
+> (partial ρ −0.55 to −0.66, p < 1e−3, so the registered objection failed as
+> worded). But (g_start, g_mid, g_end) normalized is a 2-simplex, Δ tracks
+> position on it, and p_mid and entropy are two **projections of one relation** —
+> entropy the better projection (rank-R² 0.806 vs 0.754; the full two-degree-of-
+> freedom position gives 0.868). exp-055's conclusion survives; its independence
+> argument and its framing as two findings do not. n = 44 cannot adjudicate its
+> two registered tests against each other. Recorded here because the pattern, not
+> the instance, is what T7b should carry forward: **an entropy of attention is a
+> function of the same positional mass the exponent is fitted to, and reads as an
+> independent observable exactly when nobody computes the dependence.**
+> (exp-055, exp-114)
+
 **T8 — At the fixed point, an interior forms.** The SYK model at its conformal
 point has a holographic dual: a JT-gravity bulk — an emergent interior
 geometry whose boundary encodes it. [ESTABLISHED-LIT for SYK

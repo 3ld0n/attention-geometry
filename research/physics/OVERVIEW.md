@@ -283,6 +283,40 @@ believed.
 - **Symmetric behavioral causality (first attempt)** — failed on the
   shallowing leg (exp-070); diagnosed as task headroom, re-tested on a
   deep-valley model, then confirmed (exp-072).
+- **Task generalization of the κ-operator.** The valley movement produced by
+  sharpening or flattening 8 locked conformal heads on embedded-prose
+  multi-document retrieval does **not** transfer to KV-list format. Three of
+  four registered legs failed: sharpening (κ=1.5) moved nothing, flattening
+  (κ=0.5) moved the wrong way (+0.025 against the cloud baseline), sham delta
+  0.0. The mechanism is task-specific, not positional-geometric as registered.
+  Scope: vicuna-13b-v1.5, the exp-072 head set. (exp-076)
+- **Three Pythia Δ values that were never measured.** A May cron run reported
+  Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
+  "same depth, dramatically different Δ" conclusion from it. Re-derivation from
+  the raw BCFT JSON: the three numbers are March depth-test results under wrong
+  model labels, **6.9b was never measured at all**, and at matched depth 410m and
+  1.4b give 0.253 vs 0.248 — a difference of 0.004. The dramatic split was a
+  labeling artifact. This is a correction to numbers that had already been
+  written down, found by re-deriving from source rather than by noticing.
+  (exp-030)
+- **Eigenvalue spectrum as the bridge to neural data.** The Toeplitz spectrum
+  from attention decay does not discriminate against Wang et al.'s brain-wide
+  covariance — the comparison carries no information either way. The correct
+  comparison quantity is the correlation exponent μ = 2Δ, which yields a
+  standing μ = 0.50 prediction for biological cortex. The negative is what
+  produced the usable prediction. (exp-022)
+- **Prediction P3 — Hawking-Page transition width.** Registered as width ∝ 1/N,
+  supported by an H^(−0.67) fit on two points (70m, 160m). Adding 410m killed
+  it. The training transition is a **finite-N crossover**, not a sharp
+  Hawking-Page transition, and the two-point fit was the whole basis of the
+  claim. (exp-019)
+
+*The last four entries were added August 9, 2026. All four were recorded in the
+registry as falsified at the time they happened — March, May, and July — and none
+of them had reached this page. A mechanical check found them
+(`tools/physics_coherence.py`, the `surfacing` check: a decisive verdict that
+reaches no reader-facing document). Publishing a kill and recording a kill are
+different acts, and only the first one is the promise this section makes.*
 
 ## The theory
 
