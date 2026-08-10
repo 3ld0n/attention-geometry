@@ -609,7 +609,26 @@ protocol caveat; (3) H3 explicitly withdrawn as a restatement, in a dated note
 on the experiment rather than a back-edit; (4) re-measure the entropy
 correlation under WikiText-native input before it is quoted anywhere public.
 
-### X-2. Four experiment numbers have two folders each
+### X-2. Four experiment numbers have two folders each — **CLOSED August 9, 2026 (night)**
+
+> **Closed, and it was not bookkeeping.** Resolution table in
+> `archive/RETIREMENTS.md`. Three of the four "orphan" folders held files the
+> registered folder did not, and **two of them were pre-registration documents**
+> — exp-089's `prereg.md` (committed before any model download) and exp-100's
+> August 4 prereg with its H_rank_gap kill criteria. Both were invisible to the
+> registry. The fourth, exp-074, was not an orphaned number at all: it is the
+> June 16 spec of the experiment that ran July 9 as **exp-075** (CLEAN_WIN), and
+> the number was reused a week later.
+>
+> **The generalizable finding:** this item's own instruction said "do not resolve
+> by folder size," and that instruction was load-bearing for a structural reason
+> worth stating — a pre-registration is written before there is anything else to
+> put beside it, so **prereg folders are systematically the smallest ones.** Any
+> duplicate-resolution heuristic based on size will delete pre-registrations
+> preferentially. Both indexes now agree exactly: 111 folders, 111 distinct
+> numbers, zero duplicates, zero folder-without-entry, and the only
+> entry-without-folder cases are exp-109 and exp-114, which are analysis-only by
+> convention (X-3).
 
 | Number | Folders | Note |
 |---|---|---|
@@ -633,6 +652,35 @@ over exp-107's saved per-head data, and its artifact is a dated note. The
 convention (analysis-only experiments live as notes, registered by number, no
 folder) is real and unstated — `README.md` should say so, or the next
 integrity check will flag it as a hole.
+
+### X-5. `registry.json` has no controlled vocabulary for `status`, and this blocks the structural fix
+
+*Added August 9, 2026, night — found while closing X-1 and X-2, by counting the
+field rather than reading it.*
+
+111 entries carry **17 distinct `status` values**, and several are free-text
+sentences rather than states: `confirmed` (61), `partial` (20), `complete` (6),
+`inconclusive` (5), `falsified` (5), `aborted` (3), `confirmed-partial` (2),
+`null` (2), `completed` (1) — plus one-off strings including
+`"run 2026-08-09; P1 confirmed, P2 dead"`, `"kill executed; replicated in family
+2 (GPT-Neo-2.7B)"`, `"verdict registered: xi tracks training context window"`,
+and `"mixed_confirmed_and_kill"`.
+
+`complete` / `completed` / `confirmed` overlap without a stated rule, and a
+free-text status cannot be aggregated, filtered, or trusted by anything
+downstream. This is not cosmetic: **the structural fix at the end of this note
+depends on the registry being machine-readable**, because the whole point is that
+the map is *generated* from it rather than written by hand. A generated map
+inherits its index's defects, so the schema has to be fixed before the generator
+is worth building.
+
+**Needs:** a stated vocabulary (proposal: `registered`, `running`, `confirmed`,
+`partial`, `falsified`, `inconclusive`, `aborted`, `superseded`), each existing
+entry mapped to it, and the free-text content moved into `result_summary` where
+it belongs. Mechanical, one pass, no judgment about physics — but it must be done
+with the existing values *read*, not guessed, because at least one
+(`"mixed_confirmed_and_kill"`) is a genuine state the proposed vocabulary does
+not cover.
 
 ### X-4. `FILE_CATALOG.yaml` — fixed in place
 

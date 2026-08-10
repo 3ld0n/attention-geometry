@@ -69,6 +69,34 @@ completed their work; three were still at the root pretending to be current.
 
 ---
 
+## Consolidated August 9, 2026 — four experiment numbers with two folders each
+
+Harvest item X-2. Four numbers had two folders apiece. The obvious reading was
+"renames that left orphans, resolve by folder size," and that reading was wrong
+in three of the four cases: **the orphan held files the registered folder did
+not, including two pre-registration documents.** In a program whose method is
+pre-registration, an unindexed pre-registration is the most expensive kind of
+index defect, so these are recorded individually rather than as bookkeeping.
+
+Nothing was deleted. Every file was `git mv`'d into the folder the registry
+points at; only empty directories were removed.
+
+| Number | Orphan folder | What it actually held | Now at |
+|---|---|---|---|
+| **exp-074** | `exp-074_tradeoff/notes.md` (Jun 16) | **Not an orphaned number — the original spec of a different experiment.** The June 16 design ("does flattening the conformal heads cost other capability?") was re-specced and run three weeks later as **exp-075** (Jul 9, verdict CLEAN_WIN, prereg commit 7757e072), same slug and same verdict logic. The number 074 was then reused on June 23 for P-B2b intermediate-depth. | [`experiments/exp-075_tradeoff/spec_2026-06-16_original.md`](../experiments/exp-075_tradeoff/spec_2026-06-16_original.md) |
+| **exp-089** | `exp-089_huginn_rg_flow/` (Jul 20, 13:54) | **The pre-registration** (`prereg.md`, committed before any model download) plus the first run script. The registered folder, created eight hours later, had neither. | `exp-089_huginn_latent_rg_flow/prereg.md` and `run_huginn_rg_flow_initial.py` |
+| **exp-094** | `exp-094_narrative_decomposition_thirds/` | Empty. A planned thirds-block variant, superseded by the quarter-block design before anything ran. No thirds experiment exists in the registry. Directory removed; recorded here so the absence is documented rather than inferred. | nothing to move — see `exp-094_narrative_decomposition_quarter/` |
+| **exp-100** | `exp-100_wqk_rank_measurement/` (Aug 4) | **The pre-registration** (its `notes.md` opens "Pre-registered before any results seen… this file committed before script ran," with the H_rank_gap kill criteria) plus `rank_analysis.py`. The registered folder, created six hours later, had a results-bearing `notes.md` and neither of these. | `exp-100_wqk_rank/prereg_2026-08-04.md` and `rank_analysis.py` |
+
+**The lesson worth keeping.** The harvest note's own instruction on this item was
+"read each pair, keep one, and *do not resolve by folder size*." That instruction
+was correct and it was nearly redundant — the small folders were the ones holding
+the method-critical documents in three of four cases, because a pre-registration
+is by construction written before there is anything else to put beside it.
+**Pre-registration folders are systematically the smaller ones.** Any future
+index cleanup that resolves duplicates by size will delete pre-registrations
+preferentially.
+
 ## Moved earlier, indexed here for completeness
 
 These moves happened before this pass; they had no index, which is part of why
