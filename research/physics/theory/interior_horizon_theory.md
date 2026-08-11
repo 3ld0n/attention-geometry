@@ -622,7 +622,7 @@ truth detection).
 | Result | Content |
 |---|---|
 | Census | Slow-decay head population, median Δ_A ≈ 0.25 on high-R² subset (GPT-2 0.249; GPT-2-medium 0.259; OLMo-7B 0.265; GALA-7B 0.260); re-initialized controls ~zero |
-| **Two disjoint populations** | On one fixed model, the random-token Δ-window set (5 heads) and the WikiText Δ-window set (16 heads, 13 in L9–L11) share **no head at all** — Jaccard = 0.000 over 144. Each reaches Δ ≈ 0.25 in exactly one input regime and goes UV in the other two; TinyStories drives both UV. Cross-family replication has only ever been run on the random-native population (exp-109) |
+| **Two disjoint populations** | On one fixed model, the random-token Δ-window set (5 heads) and the WikiText Δ-window set (16 heads, 13 in L9–L11) share **no head at all** — Jaccard = 0.000 over 144. Each reaches Δ ≈ 0.25 in exactly one input regime and goes UV in the other two; TinyStories drives both UV (exp-109). **Cross-family: text-native population now measured in 5 additional models** — GPT-2 medium (59 heads) and Pythia-70m/160m/410m/1.4b — Δ_med ∈ [0.24, 0.28] in all six. Deep-layer concentration (GPT-2 family: 80–94%) is architecture-specific; the Δ value is not (exp-118) |
 | **Ensemble emergence** | No individual attention row is a power law: median per-row window R² 0.046–0.249 (random-native) and 0.050–0.204 (text-native); max anywhere 0.484. Row scatter is exact token-realization structure, not noise; the law appears at ~30–220 pooled rows (exp-111) |
 | **Sum rule, resolved** | Exact: no head can be a translation-invariant power law at all scales (row-stochasticity). Derived with zero free parameters from softmax normalization + approximate TI: d log a/d log i = −(1−s)·(tail fraction); measured within ±0.10 on 3 of 5, right sign on 5 of 5, both misses in the same direction (sink breaks TI). **First derived-then-confirmed prediction on A with no imported theory object** (exp-108) |
 | **Census exponent decomposes** | 2Δ_A^census = quenched (typical-row) slope + half the log-variance slope, median \|δ\| = 0.015 over 15/15 registered pairs. Registered counter-prediction died: the *pooled* object is the input-stable register, the typical row underneath swings more, and the damping mechanism is underived (exp-110) |
@@ -1006,10 +1006,12 @@ attention kernel's lag structure.
 two disjoint populations both land at ≈ 1/4 by different gates. A derivation
 that explains one basin and not the other is incomplete; a derivation that
 explains why *any* gated basin lands there would be the result the program has
-been reaching for since March. **Standing caution:** everything above is one
-model, one seed, 21 heads. The text-native population has never been measured
-outside GPT-2 small, which is the cheapest way this whole site could turn out
-to be about an artifact.
+been reaching for since March. **Standing caution (updated Aug 11, 2026):**
+The text-native population was unmeasured outside GPT-2 small; that gap is now
+closed. exp-118 measured WikiText population in five additional models (GPT-2
+medium, Pythia-70m/160m/410m/1.4b): Δ_med ∈ [0.24, 0.28] in all six. The
+artifact route through GPT-2-small-specificity is retired. The remaining open
+question is the theoretical derivation of *why* both basins reach 1/4.
 
 ---
 
