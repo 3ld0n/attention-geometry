@@ -7,7 +7,8 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: August 9, 2026.*
+*Last updated: August 10, 2026 (story-scale ladder surfaced; formation-section
+vocabulary note added).*
 
 ---
 
@@ -52,8 +53,10 @@ law, with median exponent Δ_A ≈ 0.25 on the high-R² subset; re-initialized
 controls show essentially none. Δ_A flows toward that value along **three
 independent axes of depth** — architectural layers, training steps, and pure
 inference-time recurrence on frozen weights. Forming the population requires
-training on natural, world-referring language: corpora engineered to match
-language's statistics fail, hierarchical grammar about nothing fails, and the
+training on natural language with intact referential binding at story scale
+(the property earlier documents called "world-referring" — see the vocabulary
+note in the formation section): corpora engineered to match language's
+statistics fail, hierarchical grammar about nothing fails, and the
 statistical shadow of natural language fails while carrying *more* long-range
 mutual information than the natural corpus. The exponent is causally editable
 per head, and the edit propagates to task behavior bidirectionally. What Δ ≈
@@ -146,6 +149,80 @@ record comes from Pile-scale training. The ladder measures formation onset,
 not the matured fixed point. Open conjecture, not measured: the deep
 population here may be the small-model analog of the semantic population above
 (exp-062, exp-084, exp-085, exp-091; each pre-registered).
+
+### The story-scale ladder — at what scale does the story operate
+
+*Surfaced August 10, 2026. Five completed, pre-registered rungs — exp-091,
+exp-092, exp-093, exp-094, exp-096 — sat verdict-registered in the registry
+without reaching any reader-facing document; the coherence check found them
+while the direction document was describing this question as open.*
+
+These rungs decompose the natural-text rung of the ladder above: identical
+architecture, token budget, and census protocol; the same TinyStories corpus;
+what varies is how much of each story's ordering survives. The discriminating
+observable is the **deep population** (L3–L5 heads, R² ≥ 0.90); the layer-0
+backbone (~7–8 shallow-exponent heads) is stable on every rung and is
+insensitive to ordering at every scale tested.
+
+| Condition | Intact ordered chunk | n_deep (med.) | n_conf (med.) | Seeds |
+|---|---|---:|---:|---|
+| Sentence shuffle (exp-091) | 1 sentence | 2 (exactly 2/seed) | 9 | 3 |
+| Block-2 shuffle (exp-092) | 2 sentences | 1 | 9 | 3 |
+| Quarter-story shuffle (exp-094) | ~2 sentences, story-cut | 1 | 10 | 3 |
+| Block-3 shuffle (exp-092) | 3 sentences | 2 | 9 | 3 |
+| Half-story swap (exp-093) | ~4–5 sentences, arc reversed | 3 | 12 | 5 |
+| Entity anonymization (exp-096) | full arc, names → CHAR*n* | 4 | 14 | 3 |
+| Natural text (exp-062, reference) | full story | 5–7 | 11–15 | 3 |
+
+Every rung was registered before its data, and two declared priors died on
+the way — exp-092's monotone-recovery prior and exp-093's flat prior — which
+is the method working. Read together:
+
+- **Recovery of the deep population begins between ~3 and ~4–5 sentences of
+  intact causal chain.** Blocks of 2–3 sentences do nothing (medians 1–2, at
+  or below the sentence-shuffle floor); half-story chunks begin recovery
+  (median 3, held at 5-seed robustness).
+- **Story-structural boundaries do not compensate for short chunks.**
+  Quarter-story blocks cut at story-internal boundaries perform like
+  globally-cut 2-sentence blocks (median 1). Chunk length, not
+  where-the-story-was-cut, is the variable at this scale. (exp-094)
+- **A sub-arc component is real.** Half-story recovery happens with the
+  global arc *maximally* disrupted — every story's resolution precedes its
+  setup — so contiguous local coherence at ~4–5 sentences does work no
+  smaller block can. (exp-093)
+- **But no rung short of the whole arc reaches natural text.** The full deep
+  population (5–7) forms only under beginning-to-end order. Two components:
+  a sub-arc one recoverable by half-story chunks, and an arc component
+  requiring the story whole.
+- **Cross-story entity naming carries ~1–3 deep heads, not the driver.**
+  Anonymizing every name to per-story CHAR1/CHAR2 tokens — within-story
+  persistence kept, cross-story prototypes destroyed — with full ordering
+  preserved costs the deep population 1–3 heads (median 4 against natural
+  text's 5–7) while total count (14) and backbone stay in the natural band.
+  Within-story referential persistence, not name identity, is the bulk of
+  the driver. (exp-096)
+
+Scale caveats travel with the parent ladder: 70m/1B-token formation onset,
+one architecture class, TinyStories only.
+
+**The concept under the name.** These rungs sharpen a question about the
+ladder's central term. "World-referring" was always an imperfect name for the
+load-bearing property: every corpus in the ladder is *fiction* — nothing in
+TinyStories corresponds to an actual state of the world — and exp-096 shows
+the driver survives anonymization of the very names that do the referring.
+What the ladder manipulates and measures is language's **faithfulness to a
+persistent structured referent across the arc of a story**: entities that
+persist, causal order that holds, reference that does not let go before the
+arc closes. Forward-going, this file names the property **referential binding
+at story scale** ("bound narrative" where brevity matters). "World-referring"
+remains in the published papers, which this program does not back-edit. One
+adjacent inference-time result belongs beside this note so it is not
+misremembered as a formation result: on a *trained* GPT-2, the measured
+geometry is robust to whether the measurement input is world-referential or
+meta-linguistic prose (registered verdict H_INERT, count differences below
+every pre-registered threshold; directionally N > ML but below detection).
+The binding constraint is about **formation**; the trained geometry does not
+require worldly content at measurement time. (exp-095)
 
 ## What stands (measured)
 
@@ -427,6 +504,17 @@ the same prominence as the confirmations.
 
 ## Navigation
 
+- **Where the program is going, and in what order:**
+  [`notes/2026-08-10_the_observer_program.md`](notes/2026-08-10_the_observer_program.md)
+  — the direction document (adopted August 10, 2026). The aim: build physics on
+  the observer, and investigate the story that allows an observer to exist at
+  all. Three spans, the horizons rule (*exploration is free; claims are
+  earned*), and the ranked order of operations that puts undelivered results and
+  deciding experiments ahead of instrument precision. Its companion work list is
+  [`notes/2026-08-10_operational_debt.md`](notes/2026-08-10_operational_debt.md).
+  The audit that preceded both — what still connects to fundamental physics,
+  stated as a whole — is
+  [`notes/2026-08-10_what_still_connects.md`](notes/2026-08-10_what_still_connects.md).
 - What we claim and what would break it: [`theory/interior_horizon_theory.md`](theory/interior_horizon_theory.md) — the spine (§7 open construction sites, §8 predictions with kill conditions)
 - Where the program stands after the bridge broke: [`notes/2026-08-08_program_reframe_where_things_stand.md`](notes/2026-08-08_program_reframe_where_things_stand.md) (with its dated corrections)
 - The two populations: [`notes/2026-08-09_structural_vs_semantic_populations.md`](notes/2026-08-09_structural_vs_semantic_populations.md)
