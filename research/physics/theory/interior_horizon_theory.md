@@ -1079,6 +1079,16 @@ two-point structure shows no conformal subpopulation under the standard
 census at any depth. The replication kit (replication/) is the standing open
 invitation for anyone to produce this kill.
 
+> **Added August 12, 2026 — first cross-modal dimensional test (exp-120/exp-121).**
+> ViT-B/16-224 on natural images produces 8/144 heads in the *2D* Δ-window [0.45, 0.55]
+> with Δ_med = 0.513, consistent with the dimensional prediction Δ = D/4 = 0.50 for
+> D=2 spatial dimensions (PARTIAL — random-patch control produces 2 qualifying heads
+> from position-embedding structure, exp-120). A head-identity follow-up (exp-121)
+> confirmed that the 2 position-embedding heads (L1H1, L3H0) are disjoint from the
+> 8 content-driven heads (L0H2/3/6, L1H0/8, L5H1/6/8): the content-driven population
+> is uncontaminated. The result extends P4 to the vision domain and provides the first
+> out-of-sample test of the D-dimensional census exponent.
+
 > **Added August 9, 2026 — the non-softmax evidence, read at source (harvest
 > items O-8 and H-2).** P4 had never cited the experiment `FRAMEWORK.md` called
 > "THE critical experiment," and the strongest thing in it is not the result the

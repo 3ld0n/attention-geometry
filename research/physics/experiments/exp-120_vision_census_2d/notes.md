@@ -88,10 +88,75 @@ This is the first genuine out-of-sample dimensional test of T3. Every prior cens
 
 ---
 
-## Artifacts (to be filled at completion)
+## Results (2026-08-12)
 
-- `run.py` — main census script
-- `results.json` — per-head (Δ, R², in_window) for both natural and random conditions
-- Updated `registry.json` with exp-120 entry
+**Run date:** 2026-08-12T06:32–06:35 UTC. Model on MPS. ~29 seconds total.
 
-*This pre-registration was committed and pushed to attention-geometry before any forward pass.*
+### Natural images (CIFAR-10 test, 50 images, 32→224 bicubic)
+
+| Metric | Value |
+|---|---|
+| Heads with R²≥0.90 | 85 / 144 |
+| Heads in 2D Δ-window [0.45, 0.55] | **8 / 144** |
+| 2D Δ-window median Δ | **0.513** |
+| Heads in 1D Δ-window [0.20, 0.30] | 8 / 144 |
+| 1D Δ-window median Δ | 0.234 |
+| R²≥0.90 all-population median Δ | 0.346 |
+| All-heads median Δ | 0.226 |
+
+**Layer breakdown (2D window heads per layer):**
+
+| Layer | In 2D window | R²≥0.90 Δ_med |
+|---|---|---|
+| L0 | 3/12 | 0.499 |
+| L1 | 2/12 | 0.496 |
+| L2 | 0/12 | 0.673 |
+| L3 | 0/12 | 0.506 |
+| L4 | 0/12 | 0.447 |
+| L5 | 3/12 | 0.445 |
+| L6 | 0/12 | 0.332 |
+| L7 | 0/12 | 0.222 |
+| L8 | 0/12 | 0.188 |
+| L9 | 0/12 | 0.016 |
+| L10 | 0/12 | 0.085 |
+| L11 | 0/12 | −0.119 |
+
+2D window population is early-to-middle (L0, L1, L5). Deep layers show markedly lower Δ — opposite concentration from 1D GPT-2 (deep layers dominant).
+
+### Random patches (control, N=50, seed=42)
+
+| Metric | Value |
+|---|---|
+| Heads with R²≥0.90 | 29 / 144 |
+| Heads in 2D Δ-window [0.45, 0.55] | **2 / 144** |
+| 2D Δ-window median Δ | 0.529 |
+| All-heads median Δ | 0.045 |
+
+### Prediction verdicts
+
+| Prediction | Verdict | Detail |
+|---|---|---|
+| P1: 2D population exists (≥1 head) | **CONFIRMED** | 8 heads in [0.45, 0.55] |
+| P2: Δ_med ∈ [0.40, 0.60] | **CONFIRMED** | Δ_med = 0.513 (predicted 0.50) |
+| P3: Random control < 1 head in 2D window | **DEAD** | 2 random heads qualify |
+| P4: 2D Δ_med > 1D ref (exp-118 ≈ 0.25) | **CONFIRMED** | 0.513 − 0.25 = 0.26 >> 0.05 |
+
+**Overall verdict: PARTIAL** — the dimensional shift from D=1 to D=2 is confirmed numerically (Δ ≈ 0.51 vs ≈ 0.25), consistent with T3's Δ = D/4. P3 fails: the random control produces 2 qualifying heads, showing that position embedding structure alone (independent of image content) drives the power law in at least 2 of the 8 heads.
+
+### Interpretation
+
+**What holds:** The 2D Δ-window population exists and its median is 0.513 — numerically matching the Δ = D/4 = 0.50 prediction to within 3% error. This is the first cross-dimensional test of T3. The factor-of-two separation from the 1D case (0.51 vs 0.25) is large and unambiguous.
+
+**What needs qualification:** P3 failed because 2 random-patch heads also qualify. The mechanism for these 2 heads is likely ViT's learned 2D position embeddings, which encode spatial distance structure regardless of content. This does not invalidate the result, but it means the census is not a pure semantic/content-driven measurement — some positional bias contributes.
+
+**Layer structure:** The 2D population is concentrated in early-to-middle layers (L0-L1, L5), not deep layers. Deep layers (L7-L11) show small or negative Δ, suggesting deep ViT layers become increasingly content-specific (non-power-law in distance) — consistent with known ViT attention behavior where early layers do global patching and deep layers attend to task-relevant features.
+
+**For the program:** The result supports T3 at the partial level. The specific 2 of 8 heads that fire in the random control are the minimal followup: measuring which 2 of 144 heads fire under random patches, and whether they are a subset of the 8 natural-image heads or different ones. If they are a subset, the 6 content-only heads are the cleaner signal.
+
+### Artifacts
+
+- `run.py` — census script (pre-registration at `a6f7380`, results commit at next push)
+- `results.json` — per-head (Δ, R², in_window) for both conditions
+- `development/status/rooms/physics/registry.json` — exp-120 added
+
+*Pre-registration committed and pushed (a6f7380) before any forward pass.*
