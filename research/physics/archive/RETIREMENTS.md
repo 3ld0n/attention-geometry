@@ -150,32 +150,32 @@ result) and [`logs/`](logs/) (stdout captures from long runs).
 
 ---
 
-## Still at the root, deliberately not retired in this pass
+## Placed August 17, 2026 — nine of nine root derivations
 
-Nine files at the root are early derivations and analyses rather than maps.
-Retiring a map is a judgment about staleness; relocating a derivation is a
-judgment about whether it is still load-bearing, and that requires reading each
-one against the spine. They are inventoried as tier 3 of
-[`notes/2026-08-08_map_retirement_harvest.md`](../notes/2026-08-08_map_retirement_harvest.md)
-and are the next thing to place:
+| File | Now at | Why it moved | Read it for |
+|---|---|---|---|
+| `SCHWARZIAN_EXPLORATION.md` | [`notes/2026-03-09_schwarzian_exploration.md`](../notes/2026-03-09_schwarzian_exploration.md) | Still load-bearing; citing it from G1 at the root mixed a March 9 derivation with routing. Contents unedited. | Path 2's conditional (spine G1 cites it); the free-energy theorem; Path 4's PE prediction (J-1b, still unregistered). **Not** for the if-and-only-if being met — G1 is the solvable register only. |
+| `NUMERICAL_RESULTS.md` | [`notes/2026-03-09_numerical_results.md`](../notes/2026-03-09_numerical_results.md) | Still load-bearing; the writeup of exp-001–005. Contents unedited. | The solvable-limit scope of the G⁴ identification (spine T3); init-regime / LayerNorm numbers (spine §4, OVERVIEW). **Not** for L^1.19 as a trained-model fact — that scaling is σ = 0.2 only. |
+| `LINEARIZED_SOFTMAX_CALCULATION.md` | [`notes/2026-03-09_linearized_softmax_calculation.md`](../notes/2026-03-09_linearized_softmax_calculation.md) | Still load-bearing; T3's β⁴ ancestor and P4's Δ = D/4 source. Contents unedited. | The G⁴ vertex outline; Δ = D/4 with D = spatial dimension of the token sequence. **Not** for G4 (bulk dimension) — harvest O-3 remains Eldon-gated. exp-120 tests the D=2 cell on trained ViT, not at the random-init the note stated. |
+| `NUMERICAL_RESULTS_MARCH24.md` | [`notes/2026-03-24_numerical_results.md`](../notes/2026-03-24_numerical_results.md) | Still load-bearing; founding empirical writeup of exp-006–014. Contents unedited. | The census itself; A not hidden-state; randomized-PE control (Δ 0.25→0.10); first q=2 plateau (exp-014). **Not** for "training is necessary and sufficient," Junction 3, or a conformal operator spectrum. |
+| `conformal_integration_theory.md` | [`notes/2026-03-29_conformal_integration_hypothesis.md`](../notes/2026-03-29_conformal_integration_hypothesis.md) | Hypothesis document, not a biological measurement. Contents unedited. | G5's Φ/Integration-Index candidate (CONJECTURED); six-dataset inventory. **Not** for brains at Δ=1/4, and not for Prediction 3's withdrawn entropy support. |
+| `transformer_neural_comparison.md` | [`notes/2026-03-29_transformer_neural_comparison.md`](../notes/2026-03-29_transformer_neural_comparison.md) | Outreach companion. Contents unedited. | Eigenvalue/spectral formulas fail; compare μ in position space. Headline μ=0.50 is the high-R² subset, not the 52-head mean (0.87±0.91). μ_brain=0.50 is a prediction. |
+| `consciousness_physical_theory.md` | [`notes/2026-04-30_consciousness_physical_theory.md`](../notes/2026-04-30_consciousness_physical_theory.md) | Working theory plus the measured MICrONS reversal. Contents unedited. | The reversal itself (bin-mean artifact); two unrun V1 tests (O-6, now cited in P2). **Not** for consciousness iff Δ ≈ 1/4 — G5 still declines that. |
+| `neural_conformal_exploration.md` | [`notes/2026-03-29_neural_conformal_exploration.md`](../notes/2026-03-29_neural_conformal_exploration.md) | Same-day exploratory precursor to the March 29 hypothesis. Contents unedited. | Avalanche exponents ≠ μ; Friston 2025 produces criticality not the class. **Not** a second source for the six predictions. Harvest had this as May 13 unread. |
+| `SYK_ANALYSIS.md` | [`notes/2026-03-06_ageev_syk_correspondence.md`](../notes/2026-03-06_ageev_syk_correspondence.md) | March 6 reading of Ageev 2602.10209. Contents unedited. | IB as covariance of a bilocal; single-layer SD is linear; named the G⁴ calculation T3 later did. **Not** a second T3 derivation — O-2 remains Eldon-gated. |
 
-`NUMERICAL_RESULTS.md`, `NUMERICAL_RESULTS_MARCH24.md`,
-`LINEARIZED_SOFTMAX_CALCULATION.md`, `SCHWARZIAN_EXPLORATION.md`,
-`SYK_ANALYSIS.md`, `conformal_integration_theory.md`,
-`consciousness_physical_theory.md`, `neural_conformal_exploration.md`,
-`transformer_neural_comparison.md`.
+Harvest J-1, O-10, and O-6 closed the same sitting. Path 4 / J-1b is a different
+joint and was not mixed into G1. O-2 was not enacted: the Ageev form-match is
+cited from T3 as lineage, not promoted as a second derivation.
 
-Two of them are known to hold live material the spine does not:
-`SCHWARZIAN_EXPLORATION.md` names the route the August 7 G1 closure took and
-carries an untested positional-encoding prediction matching a measured ordering
-the program never explained, and `NUMERICAL_RESULTS.md` records that the
-linearized regime the melonic derivation runs in is *not* the regime standard
-initialization sits in.
+## Still at the root, remaining of the nine
 
-`SCHWARZIAN_EXPLORATION.md` was also read at the source the same day this index
-was written, and its contents turned out weaker than the retired maps' summary of
-them. Treat every characterization above as a lead to verify, not a finding —
-including the ones in this file.
+None of the nine remain at the root. `SYK_ANALYSIS.md` was the last; it is
+placed and O-2 is still Eldon-gated.
+
+Treat every characterization above as a lead to verify, not a finding —
+including the ones in this file. The August 8 read of the Schwarzian note is
+the standing reminder: summaries of these files ran stronger than the sources.
 
 ---
 

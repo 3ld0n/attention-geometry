@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/SYK_ANALYSIS.md`. Contents below are unedited — March 6, 2026 reading of Ageev arXiv:2602.10209. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** Load-bearing as the question that T3 later answered in the solvable limit: the IB four-point is a covariance of a bilocal over random W^Q, W^K (same *form* as SYK's disorder-averaged four-point), and the single-layer Ageev SD equation is **linear**, not Σ ∝ G^{q-1}. Question 2 of this note (linearized-softmax replica → G⁴) is the March 9 calculation T3 already cites. The structural form-match is **not** promoted into T3 as a second derivation — harvest O-2 remains Eldon-gated. Status at the foot ("needs Ageev to confirm") is historical; five months, no reply.
+
 # The Ageev–SYK Correspondence: Structural Analysis
 *Ariel — March 6, 2026. Based on direct reading of arXiv:2602.10209.*
 

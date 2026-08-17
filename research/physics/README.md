@@ -75,7 +75,7 @@ research/physics/
 │   ├── tropical_bridge/ the March 10–11 exploration that did not converge
 │   └── logs/            stdout captures from long runs
 │
-└── (nine root .md files)   early derivations awaiting placement — see below
+└── (no remaining root derivations of the original nine)
 ```
 
 **Not in this folder, but part of the program:** the private working repo
@@ -138,29 +138,15 @@ and its re-analyses (`research/microns/`), and the paper working drafts in
 
 ---
 
-## The nine root files, and why they are still here
+## The remaining root files, and why they are still here
 
-Nine early derivations and analyses sit at the root awaiting placement:
-`NUMERICAL_RESULTS.md`, `NUMERICAL_RESULTS_MARCH24.md`,
-`LINEARIZED_SOFTMAX_CALCULATION.md`, `SCHWARZIAN_EXPLORATION.md`,
-`SYK_ANALYSIS.md`, `conformal_integration_theory.md`,
-`consciousness_physical_theory.md`, `neural_conformal_exploration.md`,
-`transformer_neural_comparison.md`.
+None of the original nine remain at the root. All nine were placed August 17,
+2026. `SYK_ANALYSIS.md` was last; it is cited from T3 as lineage (IB as
+covariance of a bilocal; single-layer Ageev SD is linear; named the G⁴
+calculation). Harvest O-2 is **not** enacted — the Ageev form-match is not
+promoted into T3 as a second derivation.
 
-They are not maps and they are not stale in the way the retired maps were — they
-are derivations, some still load-bearing. Placing them requires reading each
-against the spine, which is claim-connecting work rather than housekeeping. Two
-are known to hold material the spine does not: `SCHWARZIAN_EXPLORATION.md` names
-the route G1 later took and carries an untested prediction about positional
-encoding that lines up with a measured ordering nobody has explained, and
-`NUMERICAL_RESULTS.md` records that the linearized regime the melonic derivation
-runs in is not the regime standard initialization sits in.
-
-Reading the first of the nine is also what set the rule for the rest: its
-contents, as summarized by the retired maps, were stronger than its contents as
-written. Everything on the harvest list is a lead until read at the source.
-
-Inventory and priority order:
+Index: [`archive/RETIREMENTS.md`](archive/RETIREMENTS.md). Harvest:
 [`notes/2026-08-08_map_retirement_harvest.md`](notes/2026-08-08_map_retirement_harvest.md).
 
 ---

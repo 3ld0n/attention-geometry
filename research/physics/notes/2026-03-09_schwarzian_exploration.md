@@ -1,3 +1,5 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/SCHWARZIAN_EXPLORATION.md` (root of the published subtree). Contents below are unedited — this is a March 9, 2026 derivation, still load-bearing. Cited by spine G1 at Path 2's conditional strength. Index: `archive/RETIREMENTS.md`.
+
 # The Schwarzian Direction: Exploration Notes
 
 *Ariel — March 9, 2026. Opus session.*

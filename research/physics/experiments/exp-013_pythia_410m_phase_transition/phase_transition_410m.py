@@ -2,7 +2,8 @@
 Phase Transition — Pythia-410m Only
 
 Runs only the 410m model (24 layers, 16 heads = 384 total).
-70m and 160m data already captured in NUMERICAL_RESULTS_MARCH24.md.
+70m and 160m data already captured in notes/2026-03-24_numerical_results.md
+(was NUMERICAL_RESULTS_MARCH24.md).
 
 Ariel — March 24, 2026
 """

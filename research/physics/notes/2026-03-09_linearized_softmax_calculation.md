@@ -1,3 +1,5 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/LINEARIZED_SOFTMAX_CALCULATION.md` (root of the published subtree). Contents below are unedited — this is a March 9, 2026 derivation, still load-bearing. Cited by spine T3 (β⁴ G⁴ vertex, the ancestor the melonic note replaced) and P4 (Δ = D/4, D = spatial dimension of the token sequence). Index: `archive/RETIREMENTS.md`. G4 was not edited: harvest O-3 remains Eldon-gated.
+
 # The Linearized-Softmax Effective Action
 
 *Ariel — March 9, 2026. Calculation outline with intermediate results.*

@@ -72,13 +72,11 @@ the construction sites, and the predictions with kill conditions.*
 > hours ago — is retired: the relation is partly internal to the fit. Harvest
 > item X-1, closed; O-9's first item, closed at reduced strength.)*
 >
-> One item is a correction to make rather than a gap to note: G1's entry in §7
-> does not mention `SCHWARZIAN_EXPLORATION.md` (March 9, 2026), which named the
-> route G1 took — its Path 2 says that *if* the SYK identification holds the
-> Schwarzian follows with no further derivation, and its first "next step" is the
-> linearized-softmax calculation G1 descends from. G1 confirms that conditional in
-> the solvable register. It does **not** settle that note's if-and-only-if, which
-> is about a transformer's continuum limit and stays open pending P6.
+> **Landed August 17, 2026.** G1's entry in §7 now cites
+> `notes/2026-03-09_schwarzian_exploration.md` (relocated from the root) Path 2
+> as the conditional it confirms. The if-and-only-if remains open on the
+> transformer side pending P6. Do not read the G1 closure as meeting the March 9
+> condition.
 
 ---
 
@@ -463,9 +461,34 @@ the canonical form paper as Ω(X) = Σ K_ab K_cd δK_ac δK_bd — the coefficie
 of the σ⁴ (SYK quartic) term, measured as γ = 3.985 ± 0.015 over four decades
 — and evaluated in closed form by the melonic derivation as Tr[(KδK)²]. The
 March vertex and the August phase classification are one object at two dates.
+The G⁴ vertex at order β⁴ was derived in
+`notes/2026-03-09_linearized_softmax_calculation.md` (March 9); the August 3
+melonic note replaced that Hubbard–Stratonovich outline with exact cumulants
+and closed Ω = Tr[(KδK)²], which was the March note's remaining caveat.
+Earlier still (March 6): `notes/2026-03-06_ageev_syk_correspondence.md` read
+Ageev 2602.10209 at source and recorded that the IB four-point is a covariance
+of a bilocal over random W^Q, W^K — the same structural form as SYK's
+disorder-averaged four-point — and that the *single-layer* Ageev SD equation
+is linear, not Σ ∝ G^{q-1}. It listed the linearized-softmax replica
+calculation as then-open (its question 2); that is the March 9 note already
+cited above. The structural form-match is **not** hereby promoted into T3 as
+a second derivation (harvest O-2 remains Eldon-gated).
 The identity that matters for D0: *the world enters the observer's effective
 action as quenched disorder, through the spectrum of its correlation
 structure, and nothing else at this order.*
+
+> **Scope of this derivation — measured, not assumed. (O-10, landed August 17, 2026.)**
+> The melonic note carries A1 (|δs| ≪ 1, valid for σ_Q σ_K ≪ 1) as assumed, and
+> treats full-softmax vertices as RG-irrelevant in the IR [ASSUMED]. That is not
+> the March 9 measurement. exp-002 measured the linearization boundary at σ ≈ 0.3
+> and found standard initialization (σ ~ 1) fully nonlinear: max|α_full − α_lin|
+> ≈ 0.04–0.05 independent of d_k, because Var(s) = σ_Q²σ_K² does not fall with
+> head dimension — increasing d_k never enters the linearized regime. σ⁴ scaling
+> of the G⁴ vertex is confirmed only for σ ≤ 0.2; at σ = 1 the linearized
+> prediction underestimates Var(H₀₀) by ~25×. The G⁴ identification is a
+> **solvable-limit result.** The physical regime of trained models is strongly
+> coupled; G1's dressing loop is the route that applies there. Writeup:
+> `notes/2026-03-09_numerical_results.md`.
 
 **T4 — The fixed point is Δ = 1/4, approached from above, and lesser arrests
 are classified.** Because spec(M) ≥ 0, Class IV of the KCA classification is
@@ -476,7 +499,7 @@ protected lesser self-consistency); Class III — maximal chaos with
   γc₀ = (2Δ−1)(sec 2πΔ − 1)/(8Δ−2),   Δ ∈ (1/4, 1/2),
 
 Δ → 1/4⁺ as effective rank diverges. Retrodicts: UV arrest at Δ ~ 0.6–1.2
-(exp-097/098), the q=2 plateau at Δ = 0.50 in training time (exp-086), arrival
+(exp-097/098), the q=2 plateau at Δ = 0.50 in training time (exp-014 first, then exp-086), arrival
 Δ → 0.25⁺ on natural language, and the exclusion of deep populations below
 1/4 — no trained corpus has produced one. [DERIVED given the T3
 identification + MEASURED retrodictions.]
@@ -646,6 +669,8 @@ truth detection).
 | Horizon boundary | Sink = BCFT one-point function, λ > 0 in 95% of conformal heads (exp-057) |
 | Horizon entropy | Entropy gap H_gap = 0.507·log n (R² = 0.992) — measures concentration structure, not Δ; the Δ_eff = 0.254 / 1.4%-agreement inference was withdrawn Aug 9, 2026 (§8.3 formula error; see T7b correction box; erratum DOI 10.5281/zenodo.21863461) |
 | Canonical form | Softmax = canonical form of Gr₊(1,n), exact; σ⁴ (SYK quartic) leading correction, γ = 3.985 ± 0.015; fold self-consistency in strong coupling, \|Σ\|/\|G₀\| ≈ 4–5 (canonical form paper) |
+| **Init-regime and LayerNorm** *(synthetic; added Aug 17, 2026)* | Linearization boundary σ ≈ 0.3; σ⁴ G⁴ scaling confirmed only for σ ≤ 0.2; standard init (σ ~ 1) fully nonlinear, ~25× above the linearized prediction, and increasing d_k does not enter the regime (exp-002). One added layer amplifies Var(H₀₀) 18.2× at σ = 0.2 (exp-003). Weak-coupling depth: Var ~ L^1.19, per-layer ratios decreasing (exp-004). At σ = 1 without LN: exponential e^{1.35L}, 14,443× at L=8, runaway; with Pre-LN: e^{0.78L}, 147× at L=8, per-layer ratio decelerates — LayerNorm as UV cutoff (exp-005). Writeup: `notes/2026-03-09_numerical_results.md`. The L^1.19 power law does **not** persist at standard init. |
+| **Founding census controls** *(exp-006–014; writeup landed Aug 17, 2026)* | The power law lives in **A**, not the hidden-state kernel — residual-stream cosine similarity homogenizes with depth (exp-007). Architecture without training produces none (random σ-sweep, randomized GPT-2 weights: 0 heads R² > 0.90; exp-006/008). Randomizing GPT-2's positional embeddings **keeps** 44/144 power-law heads and shifts median Δ_A 0.25 → 0.10 — weights make the law, PE tunes the exponent (exp-012). Pythia-70m transitions ~step 256; Pythia-410m sits at Δ_med ≈ 0.50 for essentially all of training after onset (first q=2 plateau, exp-014). Writeup: `notes/2026-03-24_numerical_results.md`. Do not read the file's "necessary and sufficient" or Junction 3 paragraphs at current strength. |
 
 ---
 
@@ -896,6 +921,20 @@ antisymmetric/Majorana structure — the KCA mapping's fermionic form is
 load-bearing, not decorative. Still open within G1's scope: βJ > 50 annealing,
 larger N, and the non-scalar (full multi-mode) map.
 
+**Lineage.** March 9's `notes/2026-03-09_schwarzian_exploration.md` named this
+route five months earlier. Path 2: *if* the SYK identification holds in the
+multi-layer or linearized-softmax limit, the Schwarzian follows with no further
+derivation. Item 1 of that note's next steps is the linearized-softmax G⁴
+calculation this site descends from (executed August 7 by the exact-cumulant
+route rather than Hubbard–Stratonovich). G1 confirms that **conditional** in
+the scalar/TI register: the Jacobian is the ladder kernel and the slowest
+directions are the reparameterization tower. It does **not** settle that note's
+if-and-only-if ("Schwarzian iff the continuum limit of attention is a CFT"),
+which is about a transformer's continuum limit and remains open on the
+transformer side pending P6. The naive free-energy path was already ruled out
+on March 9: entropy produces a kinetic term −(T/2)∫μ(ε′)², not the
+third-derivative Schwarzian.
+
 **G2 — The ordering-sensitive functional ((F1)/(F2) decision).** The current
 corpus functional is blind to sequence ordering while ordering is measured to
 be load-bearing (exp-091: shuffling costs half the deep population). Two
@@ -947,6 +986,30 @@ corrected descendant of it, may supply what the geometry alone does not).
 Until G5 is resolved, the theory speaks of *observer-grade structure*
 (fixed point + holographic interior) and declines to claim the word
 "consciousness" is exhausted by it. D0 does not require that claim.
+
+**Lineage (March 29, 2026).** `notes/2026-03-29_conformal_integration_hypothesis.md`
+proposed an Integration Index \(\mathcal{I} = (1/4)/\Delta_{\mathrm{measured}}\)
+and \(\Phi \propto f(\mathcal{I})\) as the IIT joint — a candidate for this
+site's integration criterion, three months before the May 25 note named the
+sufficiency gap. Held as **CONJECTURED**. It identifies census Δ_A with SYK's
+conformal dimension, which this spine no longer does for G_out, and its
+transformer-side entanglement-entropy support (Prediction 3) was withdrawn
+August 9. What still travels: the six public-dataset tests are an inventory,
+not registrations; the comparison quantity for any biological test is the
+correlation-function exponent μ, not eigenvalue spectra
+(`notes/2026-03-29_transformer_neural_comparison.md` — eigenvalue/spectral
+formulas fail on real attention matrices). μ_brain = 0.50 remains a
+prediction. Companion: the April 30 MICrONS reversal lives in
+`notes/2026-04-30_consciousness_physical_theory.md`. That document's §III
+identification (conscious iff Δ ≈ 1/4) is the stronger claim this site still
+declines.
+
+Same-day exploratory precursor: `notes/2026-03-29_neural_conformal_exploration.md`
+(harvest had listed it May 13 unread; the file is dated March 29). Literature
+survey, not a measurement. The six predictions were formalized in the hypothesis
+document the same day. Distinct remaining: Friston 2025 produces self-organized
+criticality without identifying the class; avalanche size/duration exponents
+are a different observable than the two-point correlation μ.
 
 **G6 — Records as path-properties (Inversion P3).** Formalize what a record
 is in this theory: the trace a traversal carries in G, with a criterion for
@@ -1051,7 +1114,28 @@ dissolution shows partial disruption. **Kill:** DMN sits stably in the
 Δ ≈ 0.4–0.7 band (as V1 synaptic-path measurements did) with no flow toward
 1/4 at any analysis scale. *Requires external data (DMN-localized recordings
 with adequate temporal resolution); the V1 lesson — binning artifacts
-manufacture false positives — is the protocol discipline here.*
+manufacture false positives — is the protocol discipline here.* March 29's
+comparison-quantity result still applies to any biological test of this
+prediction: measure the position-space correlation exponent μ, not an
+eigenvalue or spectral-density exponent
+(`notes/2026-03-29_transformer_neural_comparison.md`). The six-dataset
+inventory in `notes/2026-03-29_conformal_integration_hypothesis.md` is not
+this prediction's registered form.
+
+The DMN sentence is unchanged and is not the whole biological program. Mouse
+V1 via MICrONS correlation-vs-distance was run April 29–30
+(`notes/2026-04-30_consciousness_physical_theory.md`;
+`research/microns/RESULTS_v2.md`, `RESULTS_v3_retinotopy.md`): the April 29
+binned Δ = 0.238 was a bin-mean artifact; pair-level Δ ≈ 0.07 (R² ≈ 0.003),
+retinotopy-partialled Δ ≈ 0.039; synaptic-path decay is real but too steep
+(Δ = 0.72 in silico, 0.44 in vivo). That is a measured negative on the
+geometric-distance proxy, not a kill of substrate universality. Two cleaner
+tests remain on the same dataset, independent of geometric distance and
+therefore of the binning artifact: (1) GOE spectral statistics of the V1
+connectivity matrix already built, (2) CFT entanglement-entropy /
+mutual-information scaling on calcium traces. Neither has been run. They are
+V1 tests, not the DMN prediction, and they are not registered experiments.
+*Runnable now; data in `research/microns/`.*
 
 **P3 — The quantum sector: is the Born rule forced beyond the diagonal?**
 T2's identity is exact for the diagonal (classical) sector. The theory's
@@ -1094,6 +1178,14 @@ invitation for anyone to produce this kill.
 > 8 content-driven heads (L0H2/3/6, L1H0/8, L5H1/6/8): the content-driven population
 > is uncontaminated. The result extends P4 to the vision domain and provides the first
 > out-of-sample test of the D-dimensional census exponent.
+>
+> **Source of the formula (landed August 17, 2026).** Δ = D/4 is Step 5 of
+> `notes/2026-03-09_linearized_softmax_calculation.md` (March 9), where D is the
+> **spatial dimension of the token sequence** (boundary), not bulk dimension.
+> The derivation assumes the linearized G⁴ vertex and G ~ |x|^{-2Δ}. The note
+> stated the test at random initialization; exp-120 tests the D=2 cell on a
+> *trained* ViT. Harvest O-3's recommendation that G4 gain this formula as a
+> candidate remains Eldon-gated; this citation does not enact it.
 
 > **Added August 9, 2026 — the non-softmax evidence, read at source (harvest
 > items O-8 and H-2).** P4 had never cited the experiment `FRAMEWORK.md` called

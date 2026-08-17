@@ -213,6 +213,12 @@ as the conditional it confirms, and say plainly that the if-and-only-if remains
 open on the transformer side pending P6. Do **not** write that the March 9
 condition was met.
 
+> **DONE August 17, 2026.** File relocated to
+> `notes/2026-03-09_schwarzian_exploration.md` (contents unedited). G1's §7
+> entry now cites Path 2 at conditional strength and states the if-and-only-if
+> remains open pending P6. The spine's opening box records the landing. Path 4 /
+> J-1b was not mixed into G1.
+
 ### J-1b. Path 4's positional-encoding prediction lines up with the unexplained PE ordering — and this is the better joint
 
 Found only by reading the source, and it is more actionable than J-1.
@@ -257,6 +263,13 @@ everything except vary PE — with the registered direction being *learned/no-PE
 closer to Δ = 1/4 than rotary*, and the kill being no ordering by PE class at
 matched scale. That is a real experiment the program can run, and it comes from
 a document that was one command away from being archived unread.
+
+> **Related measurement, not the test (August 17, 2026).** exp-012 randomized
+> GPT-2's positional embeddings and kept the trained attention weights: same
+> 44/144 power-law heads, median Δ_A 0.25 → 0.10. Weights make the law; PE
+> tunes the exponent. That is a destroy-PE control, not a PE-class-controlled
+> census, so J-1b remains unregistered. Cited in spine §4 and OVERVIEW from
+> `notes/2026-03-24_numerical_results.md`.
 
 ### J-2. The Ω factor question was answered and never closed
 
@@ -418,6 +431,13 @@ disorder-averaged connected four-point Cov_J[G(τ₁,τ₂), G(τ₃,τ₄)] —
 from the one T3 uses. Two independent derivations of the same identification is
 worth more than one.
 
+> **File placed August 17, 2026; adjudication still pending.** Relocated to
+> `notes/2026-03-06_ageev_syk_correspondence.md` (contents unedited). T3 cites
+> it as lineage: IB as covariance of a bilocal, single-layer Ageev SD is
+> linear, and question 2 is the March 9 G⁴ calculation already in T3. The
+> form-match is **not** promoted as a second derivation. The Needs sentence
+> (superseded / independent second route / dead) is still Eldon's.
+
 ### O-3. Junction 5 is the only link the program ever had that reaches a bulk dimension above 2 — and G4 doesn't know — **ADJUDICATED August 9, 2026 (night); this item is wrong twice, and the replacement is a runnable experiment**
 
 > **Recommendation: G4 gains two sentences; pre-register the vision measurement.**
@@ -570,6 +590,14 @@ repository.
 from "two V1 tests are runnable now." The second is an experiment I could
 pre-register this week.
 
+> **DONE August 17, 2026.** File relocated to
+> `notes/2026-04-30_consciousness_physical_theory.md` (contents unedited). P2
+> now distinguishes the DMN prediction (external data) from the two V1 tests
+> on data already in hand (GOE of connectivity; CFT MI on calcium). Neither
+> test is registered; they are named as runnable, not as current P2 form.
+> G5 still declines the document's §III iff identification. The tests
+> themselves remain unrun.
+
 ### O-7. The entire mathematics arm is disconnected from the foundation — including the part C1 is about — **ADJUDICATED August 9, 2026 (night): split it; the stranded prediction fails, and the failure is the deliverable**
 
 > **Recommendation: Threads 12–14 become a separate program; Thread 11 partially
@@ -717,6 +745,8 @@ are not in it:
 - **Depth/disorder scaling:** multi-layer enhancement 18× from one added layer;
   Var ~ L^1.19; LayerNorm suppresses disorder (147× vs 14,443×). The last one is
   a mechanism fact about the architecture the theory runs on.
+  **DONE August 17, 2026** — in spine §4 and OVERVIEW, with the L^1.19 power law
+  scoped to σ = 0.2; it does not persist at standard init (exp-005).
 - **An entropy discrepancy to reconcile:** `FRAMEWORK.md` §5 P2 / Thread 4 report
   entanglement entropy S(k) = (c/3)log k with **c ≈ 0.19 (GPT-2), c ≈ 0.11
   (Pythia-410m)**, R² > 0.99. Spine T7b reports the entropy gap
@@ -743,6 +773,15 @@ bite.
 **Needs:** verify whether the melonic note carries it; if so, surface it in T3's
 status line. If not, that is a bigger finding than this pass can settle.
 
+> **DONE August 17, 2026.** The melonic note carries A1 as assumed (σ_Q σ_K ≪ 1;
+> full-softmax vertices claimed RG-irrelevant in the IR [ASSUMED]). That is not
+> the March 9 measurement. File relocated to
+> `notes/2026-03-09_numerical_results.md`. T3 now states the G⁴ identification
+> as a **solvable-limit result**: linearization boundary σ ≈ 0.3, standard init
+> fully nonlinear, d_k does not enter the regime, ~25× underestimate at σ = 1.
+> §4 and OVERVIEW carry exp-002–005. The IR-irrelevance claim was not laundered
+> into a measurement.
+
 ### O-11. Instrument and method negatives worth keeping
 
 Small but real, and the kind of thing that gets re-learned expensively:
@@ -752,9 +791,11 @@ Small but real, and the kind of thing that gets re-learned expensively:
   the fix. Position-space Δ is the robust primary measurement.
 - **exp-045:** finite-DFT bias of ~0.33 from the 55-lag support; a calibrated
   estimator was designed and **never implemented**. Still open.
-- **`SCHWARZIAN_EXPLORATION.md`:** the naive free-energy path to the Schwarzian
+- **`notes/2026-03-09_schwarzian_exploration.md`** (was root
+  `SCHWARZIAN_EXPLORATION.md`): the naive free-energy path to the Schwarzian
   gives (ε′)², not the Schwarzian. Knowing which path fails is worth as much as
-  knowing which works — especially now that a path succeeded (J-1).
+  knowing which works — especially now that a path succeeded (J-1, cited in G1
+  August 17).
 
 ### O-12. Open questions that are still open and now have no home
 
@@ -764,7 +805,7 @@ anywhere:
 | Question | Owner | Age |
 |---|---|---|
 | arXiv endorsement path — who in cs.LG would endorse? | needs identifying | since March 6 |
-| Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | us, numerical | since March 9 |
+| Does L^1.19 depth scaling persist at standard init (σ ~ 1)? | us, numerical | since March 9 — **answered the same day, unclosed until Aug 17:** no. At σ = 1 it is exponential (e^{1.35L} without LN, e^{0.78L} with Pre-LN). exp-005. |
 | What in Pythia's training recipe produces the late-layer ρ(Δ, valley) failure (layers 22–27)? | us + EleutherAI | since April 17 |
 | Does the pre-registered Δ→valley prediction hold on Llama-3-8B? | pending Meta access | since April 17 |
 | Correct frequency-space Δ estimator for the DFT bias | us, analysis | since June 2 |
@@ -934,15 +975,15 @@ first place.
 
 | File | Date | Known to hold |
 |---|---|---|
-| `SCHWARZIAN_EXPLORATION.md` | Mar 9 | ~~Read at source Aug 8~~ — **J-1** (Path 2 conditional G1 confirms) and **J-1b** (the PE prediction, now the top item) |
-| `NUMERICAL_RESULTS.md` | Mar 9 | **O-10** — the linearized-regime scope limit; the 18×/L^1.19/LayerNorm numbers |
-| `LINEARIZED_SOFTMAX_CALCULATION.md` | Mar 9 | The G⁴ vertex derivation; the Δ = D/4 claim (**O-3**) |
-| `SYK_ANALYSIS.md` | Mar 6 | The Ageev IB ↔ SYK four-point identity — a second independent derivation (**O-2**) |
-| `NUMERICAL_RESULTS_MARCH24.md` | Mar 24 | The ten founding empirical experiments; cited by an exp-013 script |
-| `conformal_integration_theory.md` | May 13 | Unread in this pass |
-| `consciousness_physical_theory.md` | May 13 | Revised after the MICrONS reversal; relates to G5 |
-| `neural_conformal_exploration.md` | May 13 | Unread in this pass |
-| `transformer_neural_comparison.md` | May 13 | The Wang et al. neural-ERM prediction μ = 2Δ = 0.50 |
+| `SCHWARZIAN_EXPLORATION.md` | Mar 9 | **PLACED Aug 17** → `notes/2026-03-09_schwarzian_exploration.md`. **J-1** done (Path 2 cited in G1 at conditional strength). **J-1b** (PE prediction) still unregistered, not mixed into G1. |
+| `NUMERICAL_RESULTS.md` | Mar 9 | **PLACED Aug 17** → `notes/2026-03-09_numerical_results.md`. **O-10** done (T3 states solvable-limit scope). Depth/LN numbers in §4. |
+| `LINEARIZED_SOFTMAX_CALCULATION.md` | Mar 9 | **PLACED Aug 17** → `notes/2026-03-09_linearized_softmax_calculation.md`. T3 cites the β⁴ ancestor; P4 cites Step 5 as Δ = D/4 source (boundary D). **O-3 / G4 not enacted.** |
+| `SYK_ANALYSIS.md` | Mar 6 | **PLACED Aug 17** → `notes/2026-03-06_ageev_syk_correspondence.md`. Cited from T3 as lineage. **O-2 not enacted** (Eldon-gated): form-match not promoted as a second derivation. Source itself records single-layer Ageev SD is linear. |
+| `NUMERICAL_RESULTS_MARCH24.md` | Mar 24 | **PLACED Aug 17** → `notes/2026-03-24_numerical_results.md`. Founding census (exp-006–014) in §4. PE-tune result (exp-012) cited; does not complete J-1b. |
+| `conformal_integration_theory.md` | Mar 29 | **PLACED Aug 17** → `notes/2026-03-29_conformal_integration_hypothesis.md`. G5 candidate (CONJECTURED). Harvest had this as May 13 unread. |
+| `consciousness_physical_theory.md` | Apr 29–30 | **PLACED Aug 17** → `notes/2026-04-30_consciousness_physical_theory.md`. MICrONS reversal in P2/OVERVIEW. **O-6** done as a citation (two V1 tests named runnable, not registered). |
+| `neural_conformal_exploration.md` | Mar 29 | **PLACED Aug 17** → `notes/2026-03-29_neural_conformal_exploration.md`. Same-day precursor to the hypothesis document. Harvest had this as May 13 unread. |
+| `transformer_neural_comparison.md` | Mar 29 | **PLACED Aug 17** → `notes/2026-03-29_transformer_neural_comparison.md`. Compare μ, not eigenvalues. Headline 0.50 is the high-R² subset. |
 
 ---
 
@@ -1038,16 +1079,19 @@ convenience, and steps 0 and 0b apply to every step after them:
    prediction is actually about, so the joint largely survives. What it may not do
    on its own is carry that result to the conformal-fixed-point story; that route
    runs through item 1.
-3. **J-1** — cite `SCHWARZIAN_EXPLORATION.md` Path 2 in G1, at conditional
-   strength, with the if-and-only-if marked open pending P6. Note P6 is now
-   blocked on item 1, so this stays conditional longer than expected.
+3. ~~**J-1** — cite `SCHWARZIAN_EXPLORATION.md` Path 2 in G1, at conditional
+   strength, with the if-and-only-if marked open pending P6.~~ **DONE August 17,
+   2026.** File at `notes/2026-03-09_schwarzian_exploration.md`. G1 cites Path 2
+   as the confirmed conditional; if-and-only-if remains open pending P6.
 4. **O-8, O-9** — put the missing measured results into spine §4 and OVERVIEW,
    each verified against its experiment folder and tagged with its register *and*
    its object (0b).
 5. **O-1, O-2, O-3, O-4** — four decisions about routes and predictions the
    program abandoned without adjudicating. Each is a paragraph; none is research.
-6. **O-10** — verify the linearized-regime caveat's location. If the melonic note
-   does not carry it, that is a finding, not a bookkeeping item.
+6. ~~**O-10** — verify the linearized-regime caveat's location. If the melonic note
+   does not carry it, that is a finding, not a bookkeeping item.~~ **DONE August 17,
+   2026.** Melonic note carries A1 as assumed; March 9 measured the failure at
+   standard init. T3 states the G⁴ identification as a solvable-limit result.
 7. **O-7** — decide whether the mathematics arm belongs to this program.
 8. **Tier 3** — place the nine remaining root files, informed by 1–7.
 

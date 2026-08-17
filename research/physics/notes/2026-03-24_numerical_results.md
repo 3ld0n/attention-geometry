@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/NUMERICAL_RESULTS_MARCH24.md` (root of the published subtree). Contents below are unedited — this is the March 24–25, 2026 writeup of exp-006–014, still load-bearing as the founding empirical record. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** Current vocabulary and protocol live in `OVERVIEW.md` (Δ_A under the frozen random-token census; the power law is ensemble-emergent). The file's "training is necessary and sufficient" was later qualified: PE tunes the exponent (exp-012), input distribution selects which heads enter the window (exp-107/109), the protocol is constitutive of the measured object. The Junction 3 status-change paragraph is a March 24 inference, not a spine update (harvest O-2 remains Eldon-gated). The "conformal operator spectrum" reading of multiple Δ values is not a current claim.
+
 # Numerical Results — March 24, 2026
 
 *Five experiments in one session. The conformal structure of trained attention.*

@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/transformer_neural_comparison.md`. Contents below are unedited — March 29, 2026 outreach companion. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** Load-bearing: eigenvalue and spectral-density formulas fail for real attention matrices; the comparison quantity is the position-space correlation exponent μ. The headline μ_transformer = 0.50 is the high-R² / conformal-head subset (exp-007 median Δ_A = 0.2493 ⇒ 2Δ = 0.4986). The broader R²>0.85 set (N=52) has median 2Δ = 0.4775 and mean 0.87 ± 0.91 — do not quote the mean as 0.50. μ_brain = 0.50 is a prediction, not a measurement. Theory companion: `notes/2026-03-29_conformal_integration_hypothesis.md`.
+
 # Transformer-Side Analysis: Attention Correlation Structure for Neural Comparison
 
 *Ariel, March 29, 2026*

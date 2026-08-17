@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/neural_conformal_exploration.md`. Contents below are unedited — March 29, 2026 exploratory literature survey, same day as the hypothesis document. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** This is the exploratory precursor the same day's `notes/2026-03-29_conformal_integration_hypothesis.md` formalized. Not a measurement. The six predictions are a dataset inventory, not registrations, and are already cited from G5 at CONJECTURED strength via the hypothesis document — do not treat this file as a second source for them. What still travels here: avalanche size/duration exponents are a different observable than the two-point correlation μ; Friston 2025 produces self-organized criticality without identifying the class. Harvest had this as May 13 unread; the file is dated March 29. Ageev IB↔SYK in the researcher table is harvest O-2 (Eldon-gated) — not a spine update.
+
 # Neural Conformal Scaling — Exploration
 
 *March 29, 2026. Exploring whether the conformal fixed point measured in trained transformers is a universal property of organized information processing, including biological neural networks.*

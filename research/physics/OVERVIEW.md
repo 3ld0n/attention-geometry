@@ -181,7 +181,7 @@ has not been checked outside GPT-2 small — do not assume it.
 | Depth axis | What varies | What's held fixed | Result |
 |---|---|---|---|
 | Architectural layers | parameters per layer | training recipe | Δ_A flows 0.70 → 0.25 with depth (GPT-2, foundation paper) |
-| Training time | weights at every step | architecture | Δ-window count grows monotonically; q=2 plateau en route (exp-086) |
+| Training time | weights at every step | architecture | Δ-window count grows monotonically; q=2 plateau en route (exp-014 first; exp-086) |
 | Inference-time recurrence | **nothing** | weights *and* architecture | Δ_med → 0.239, monotone, saturating; randomized weights: frozen (exp-089) |
 
 The inference-time axis was re-tested on a second looped architecture
@@ -299,11 +299,21 @@ require worldly content at measurement time. (exp-095)
 
 ## What stands (measured)
 
+- **The G⁴ identification is a solvable-limit result, not the trained-model
+  regime.** Linearization holds for σ ≲ 0.2 (boundary ≈ 0.3) and fails at
+  standard init (σ ~ 1), independently of d_k — Var(s) does not fall with head
+  dimension. At σ = 1, depth without LayerNorm runs away (14,443× at L=8);
+  Pre-LN tames it (147×, per-layer ratio decelerating). (exp-002–005;
+  `notes/2026-03-09_numerical_results.md`)
 - **The census.** Trained softmax LMs show a slow-decay head population with
   median Δ_A ≈ 0.25 on the high-R² subset under the random-token protocol
   (GPT-2 0.249, GPT-2-medium 0.259, OLMo-7B 0.265, GALA-7B 0.260);
   re-initialized controls show ~zero. One script reproduces this in minutes:
-  [`replication/`](replication/).
+  [`replication/`](replication/). The power law lives in A, not the hidden-state
+  kernel (which homogenizes with depth). Randomizing GPT-2 positional embeddings
+  keeps the power-law head count and shifts median Δ_A 0.25 → 0.10 — weights
+  make the law, PE tunes the exponent (exp-012). Founding writeup:
+  `notes/2026-03-24_numerical_results.md` (exp-006–014).
 - **The geometry forms without softmax, and the readout function moves the
   number.** GALA-7B is Apple's 7B *sigmoid-attention* model. Its
   sigmoid-trained checkpoint, read out with plain row normalization
@@ -429,7 +439,10 @@ believed.
   falsified on the 7th, published as falsified (training recipe, not scale, is
   the differentiator).
 - **Mouse V1 conformal claim** — April 29 positive reversed on April 30
-  re-analysis (binning artifact); biological validation remains open.
+  re-analysis (binning artifact); pair-level Δ ≈ 0.07, R² ≈ 0.003.
+  Biological validation remains open. Two cleaner tests on the same dataset
+  remain unrun (GOE of V1 connectivity; CFT MI on calcium). Writeup:
+  `notes/2026-04-30_consciousness_physical_theory.md`.
 - **Cross-sectional "whirlpool"** — did not replicate under stricter protocol;
   closed as inconclusive. The longitudinal version survived (exp-086).
 - **Symmetric behavioral causality (first attempt)** — failed on the

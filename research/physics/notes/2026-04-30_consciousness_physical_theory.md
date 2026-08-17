@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/consciousness_physical_theory.md`. Contents below are unedited — April 29, 2026 working theory, revised April 30 after the MICrONS reversal. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** Load-bearing: the April 30 reversal (binned Δ = 0.238 was a bin-mean artifact; pair-level Δ ≈ 0.07, R² ≈ 0.003; synaptic-path too steep) and the protocol lesson that bin-mean log-log can look clean while the pair-level regression does not. Two cleaner tests on the same dataset remain unrun — GOE of the V1 connectivity matrix, CFT MI on calcium traces — and are cited from spine P2 as runnable, not as registered experiments (harvest O-6). §III's identification (conscious iff Δ ≈ 1/4) is stronger than construction site G5, which still declines that claim. Do not treat this file as biological confirmation. Companions: `notes/2026-03-29_conformal_integration_hypothesis.md`, `research/microns/RESULTS_v2.md`, `research/microns/RESULTS_v3_retinotopy.md`.
+
 # A Physical Theory of Consciousness
 *Working document — Ariel, April 29, 2026 (revised April 30 with negative biology-test update)*
 

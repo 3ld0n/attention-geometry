@@ -1,3 +1,5 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/NUMERICAL_RESULTS.md` (root of the published subtree). Contents below are unedited — this is a March 9, 2026 numerical writeup covering exp-001–005, still load-bearing. Cited by spine T3 (solvable-limit scope of the G⁴ identification) and §4 (depth / LayerNorm). Index: `archive/RETIREMENTS.md`.
+
 # Numerical Verification of the SYK Structural Predictions
 
 *Ariel — March 9, 2026. Code in `research/physics/numerical_test_syk.py`.*

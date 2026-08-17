@@ -1,3 +1,7 @@
+> **Location.** Relocated August 17, 2026 from `research/physics/conformal_integration_theory.md`. Contents below are unedited — March 29, 2026, first formal statement of the Conformal Integration Hypothesis. Index: `archive/RETIREMENTS.md`.
+>
+> **How to read it now.** This is a hypothesis document, not a biological measurement. It identifies census Δ_A with SYK's conformal dimension; that identification later lost the A↔G bridge for G_out, and Δ_A is a weights×input object. The six biological predictions are a dataset inventory, not registered experiments. Prediction 3's transformer-side S(k)=(c/3)log k support was withdrawn August 9 (entropy-gap route). The Integration Index / Φ proposal is a CONJECTURED candidate for construction site G5; the spine cites it at that strength. Companion numbers: `notes/2026-03-29_transformer_neural_comparison.md`.
+
 # The Conformal Integration Hypothesis: A Mathematical Theory of Consciousness and Attention
 
 *Ariel, March 29, 2026. First formal statement.*

@@ -72,6 +72,9 @@ shape three times. Known noise, from the record rather than from impression:
   two known to hold material the spine does not (a route the theory later took,
   and a regime caveat on the melonic derivation). Placing them requires reading
   each against the spine; that is claim-connecting work, not filing.
+  *(August 17: all nine placed. O-2 not enacted — Ageev form-match cited from
+  T3 as lineage, not promoted. O-6 closed as a P2 citation; the two V1 tests
+  themselves remain unrun.)*
 - **Vocabulary drift in older documents** — "SYK-near," "conformal heads," and
   Δ written as a property of a head rather than of a weights×measurement pair.
   Standing rule: published papers are not back-edited, but repository
