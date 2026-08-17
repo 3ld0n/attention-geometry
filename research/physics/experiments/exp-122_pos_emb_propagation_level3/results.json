@@ -1,0 +1,130 @@
+{
+  "exp": "exp-122",
+  "date": "2026-08-17",
+  "prereg_commit": "73b6138",
+  "prereg_evidence": "git-attested \u2014 committed to attention-geometry before run script was written",
+  "model": "gpt2",
+  "method": "analysis-only; pos_emb projected through W_V_h then convolved with analytic causal conformal attention kernel A[i,j]=(i-j)^{-2\u0394} \u0394=0.249",
+  "delta": 0.249,
+  "seq_len": 512,
+  "fit_lags": [
+    8,
+    256
+  ],
+  "pos_emb_reference": {
+    "sigma_raw": 6.108656323934817,
+    "R2_raw": 0.8608044171311363
+  },
+  "structural_heads": {
+    "L2H1": {
+      "d_head_space": {
+        "sigma_out": 0.28209363383161223,
+        "R2": 0.8475435327476617,
+        "C_at_dx8": 0.9981928406503577,
+        "C_at_dx32": 0.971438305404146,
+        "C_at_dx128": 0.6364372777224702,
+        "C_at_dx256": 0.34139480569280184
+      },
+      "d_model_space": {
+        "sigma_out": 0.21405614813138715,
+        "R2": 0.8571905402667259,
+        "C_at_dx8": 0.9987167948685906,
+        "C_at_dx256": 0.515749702927318
+      },
+      "P1_ok": true,
+      "P2_ok": true
+    },
+    "L3H4": {
+      "d_head_space": {
+        "sigma_out": 0.18110396966124373,
+        "R2": 0.8472994309146201,
+        "C_at_dx8": 0.9988862510450527,
+        "C_at_dx32": 0.9821544593019825,
+        "C_at_dx128": 0.7666500006773781,
+        "C_at_dx256": 0.573053659911375
+      },
+      "d_model_space": {
+        "sigma_out": 0.1752728333160433,
+        "R2": 0.8478618229686685,
+        "C_at_dx8": 0.998863528970177,
+        "C_at_dx256": 0.5827096840906131
+      },
+      "P1_ok": true,
+      "P2_ok": false
+    },
+    "L5H0": {
+      "d_head_space": {
+        "sigma_out": 0.20030914005393727,
+        "R2": 0.8331577702445515,
+        "C_at_dx8": 0.9989107441972334,
+        "C_at_dx32": 0.9826688352207986,
+        "C_at_dx128": 0.7534218016255048,
+        "C_at_dx256": 0.5265905865057503
+      },
+      "d_model_space": {
+        "sigma_out": 0.2033434937829028,
+        "R2": 0.8328719852139761,
+        "C_at_dx8": 0.9988904740385993,
+        "C_at_dx256": 0.5217647202504091
+      },
+      "P1_ok": true,
+      "P2_ok": true
+    },
+    "L7H11": {
+      "d_head_space": {
+        "sigma_out": 0.22716324948955577,
+        "R2": 0.8379174451323836,
+        "C_at_dx8": 0.9985404423134265,
+        "C_at_dx32": 0.9773891687097868,
+        "C_at_dx128": 0.7193162807935753,
+        "C_at_dx256": 0.4426955478157898
+      },
+      "d_model_space": {
+        "sigma_out": 0.2410779763091817,
+        "R2": 0.8397631658263243,
+        "C_at_dx8": 0.9984492088557132,
+        "C_at_dx256": 0.40668143417804775
+      },
+      "P1_ok": true,
+      "P2_ok": true
+    },
+    "L10H8": {
+      "d_head_space": {
+        "sigma_out": 0.18297980868654004,
+        "R2": 0.8528777344545309,
+        "C_at_dx8": 0.998775841281568,
+        "C_at_dx32": 0.9807596061418171,
+        "C_at_dx128": 0.7568903318254172,
+        "C_at_dx256": 0.5820903889158828
+      },
+      "d_model_space": {
+        "sigma_out": 0.17957548798489284,
+        "R2": 0.8530844086153166,
+        "C_at_dx8": 0.9987928184043757,
+        "C_at_dx256": 0.5840711451816321
+      },
+      "P1_ok": true,
+      "P2_ok": false
+    }
+  },
+  "registered_verdicts": {
+    "P1": {
+      "criterion": "sigma_out > 0.10 and R2 >= 0.70 for L2H1",
+      "L2H1_sigma": 0.28209363383161223,
+      "L2H1_R2": 0.8475435327476617,
+      "ok": true
+    },
+    "P2": {
+      "criterion": "sigma_out in [0.20, 0.30] for L2H1",
+      "L2H1_sigma": 0.28209363383161223,
+      "ok": true
+    },
+    "P3_kill": {
+      "criterion": "sigma_out < 0.05 for L2H1 OR P1_ok_count == 0",
+      "fired": false
+    },
+    "overall": "P2_CONFIRMED: slope matches census exponent"
+  },
+  "status": "complete",
+  "verdict": "confirmed"
+}

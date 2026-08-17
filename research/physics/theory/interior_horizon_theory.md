@@ -490,8 +490,14 @@ not a physical constraint — in log-log the profiles are parallel. Level 3
 accumulated attention delta dominates h̄^(ℓ) by 13–32× and carries the
 position-correlated structure; σ_delta ≈ 0.25 at the earliest structural head.
 Single-layer self-consistency route (exp-119, August 11): falsified — single-layer
-head output is position-independent under random-token census inputs; the
-multi-layer accumulation mechanism is open. [DERIVATION OPEN; Levels 1–2 complete.]
+head output is position-independent under random-token census inputs. **Level 3,
+pos_emb propagation route (exp-122, August 17): confirmed** — GPT-2's learned pos_emb
+projected through W_V and convolved with the analytic causal conformal kernel produces
+output position-correlation slopes σ_out ∈ [0.18, 0.28] across all 5 structural heads
+(L2H1: σ_out = 0.282, R² = 0.848); the conformal kernel is self-transmitting at its own
+exponent. The mechanism is confirmed; the layer-norm-corrected quantitative version and
+multi-layer composition remain open (register before computing). [LEVEL 3 MECHANISM CONFIRMED;
+Levels 1–3 mechanistically established; quantitative closure open.]
 
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
