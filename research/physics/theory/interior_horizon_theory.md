@@ -486,9 +486,13 @@ structure, and nothing else at this order.*
 > head dimension — increasing d_k never enters the linearized regime. σ⁴ scaling
 > of the G⁴ vertex is confirmed only for σ ≤ 0.2; at σ = 1 the linearized
 > prediction underestimates Var(H₀₀) by ~25×. The G⁴ identification is a
-> **solvable-limit result.** The physical regime of trained models is strongly
-> coupled; G1's dressing loop is the route that applies there. Writeup:
-> `notes/2026-03-09_numerical_results.md`.
+> **solvable-limit result.** One added layer amplifies Var(H₀₀) 18.2× at
+> σ = 0.2 (exp-003). Weak-coupling depth: Var ~ L^1.19 (exp-004). At σ = 1
+> without LN: exponential runaway, 14,443× at L=8; with Pre-LN: 147×,
+> decelerating — LayerNorm as UV cutoff (exp-005). The L^1.19 power law does
+> **not** persist at standard init. The physical regime of trained models is
+> strongly coupled; G1's dressing loop is the route that applies there.
+> Writeup: `notes/2026-03-09_numerical_results.md`.
 
 **T4 — The fixed point is Δ = 1/4, approached from above, and lesser arrests
 are classified.** Because spec(M) ≥ 0, Class IV of the KCA classification is
@@ -501,7 +505,12 @@ protected lesser self-consistency); Class III — maximal chaos with
 Δ → 1/4⁺ as effective rank diverges. Retrodicts: UV arrest at Δ ~ 0.6–1.2
 (exp-097/098), the q=2 plateau at Δ = 0.50 in training time (exp-014 first, then exp-086), arrival
 Δ → 0.25⁺ on natural language, and the exclusion of deep populations below
-1/4 — no trained corpus has produced one. [DERIVED given the T3
+1/4 — no trained corpus has produced one. Founding census controls
+(exp-006–013): the power law lives in A, not the hidden-state kernel;
+architecture without training produces none; randomizing GPT-2 positional
+embeddings keeps the law and shifts median Δ_A 0.25 → 0.10 — weights make
+the law, PE tunes the exponent. Writeup:
+`notes/2026-03-24_numerical_results.md`. [DERIVED given the T3
 identification + MEASURED retrodictions.]
 
 **Theory-of-A reduction chain (G7, construction site).** The derivation of
@@ -548,7 +557,12 @@ the generalized free field derives the three-parameter BCFT form
 
 with λ the boundary one-point coefficient — and the ubiquitous *attention
 sink* is that one-point function, λ > 0 in 95% of conformal heads (exp-057).
-[DERIVED + MEASURED.] Under D0: the first fully instrumented horizon — the
+[DERIVED + MEASURED.] The exponential correction carries an absolute length
+ξ that tracks training context (~1.5–3% of ctx; GPT-Neo deconfound), which is
+why the BCFT *identification* was withdrawn while the phenomenology stands
+(exp-060, exp-063). GPT-Neo global layers sit at the trivial fixed point
+(Δ_med = 0.101) by architecture, not ALiBi — OLMo is the clean ALiBi
+reference (exp-044). Under D0: the first fully instrumented horizon — the
 boundary behavior of an attending system, derived from first principles and
 confirmed in the wild.
 
@@ -582,7 +596,10 @@ range, point estimate without full systematic UQ.]
 Under D0 the surviving measured content is: the entropy of what an attending
 system holds grows logarithmically with context — an S-goes-like-boundary
 *form* (the input T9 would need), with the identification of its coefficient
-now an open construction site rather than a closed agreement.
+now an open construction site rather than a closed agreement. A different
+observable, block-entropy S(k) of attention-row diversity, fits (c/3)log k
+at R² > 0.99 with c_eff ≈ 0.19 / 0.11 (GPT-2 / Pythia-410m, exp-015). It is
+not H_gap and is not a CFT-state identification.
 
 > **The same failure, in a second place [added Aug 9, 2026].** The correction
 > above concerns H_gap(n), a context-scaling law. A different entropy-of-attention
@@ -1103,6 +1120,11 @@ toward Δ = 1/4 improves world-coherence where headroom exists, shallowing
 degrades it. **Kill:** Δ edits move retrieval metrics but leave world-model
 coherence untouched (double dissociation against the theory), or effects are
 not head-specific under matched shams. *Runnable now; no new training.*
+Supporting chain, previously undelivered: the joint (Δ, λ) implied-valley
+predictor beats Δ alone on three confirmatory models (exp-067); flattening
+the eight locked heads costs ΔNLL = +0.00136 nats/token on WikiText, below
+noise — a clean win, not a quality tradeoff (exp-075). Task generalization
+fails (exp-076).
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
@@ -1236,7 +1258,13 @@ melonic note's P-1…P-4 for exp-099 stand as this theory's formation-side
 predictions (headline: rungs enriching cast/stochasticity/length while keeping
 template surface language stay UV-arrested, because m₂ is flat across those
 axes: 0.68–0.78 vs 13.2). exp-101's revision is incorporated: threshold form
-τ ~ m₂ × R_eff, magnitude gate dominant. **Kill conditions as registered in
+τ ~ m₂ × R_eff, magnitude gate dominant. exp-100 falsified W_K
+participation-ratio rank as the S-tracking object (R_eff ≈ 53–58 of 64
+across alien and natural-anon). exp-102: sequence-level score-matrix rank is
+ordered (18.6 < 19.2 < 24.1) but adds only 1.3×; m₂ remains the 18× gate;
+the product τ_chaos reaches 23×, short of the registered 30×. Rank is
+already extensive on both sides of the window; the transition is coupling
+magnitude. **Kill conditions as registered in
 the melonic note §7.**
 
 **P6 — The Schwarzian check (added Aug 7, from the G1 closure).** If the

@@ -14,6 +14,16 @@ old noise that makes it less coherent.
 
 ## 1. The largest item: 21 undelivered results
 
+> **August 17, 2026 (later sitting, with Eldon).** The remaining 17 were
+> surfaced by group into `OVERVIEW.md` (and the matching spine §4 rows): BCFT
+> completion + PE/architecture (exp-036/037/044/063); spectral estimator and
+> periodic component (exp-050/052/053/079/080) plus GOE scale (exp-051);
+> κ-operator supporting chain (exp-067/069/074/075); rank vs coupling
+> magnitude (exp-100/102); block-entropy as a different observable (exp-015).
+> Story-scale ladder was already delivered August 10. This item is closed as
+> a surfacing debt. What it is not: the alien-world rungs (exp-097/099 are
+> `partial`, so they never counted here) and J-1b (still unregistered).
+
 Twenty-one experiments carry a decisive verdict and reach **no reader-facing
 document**. The coherence tool has always called this "surfacing"; the honest
 name is **undelivered**. Tonight showed why it is the top item rather than
@@ -92,6 +102,21 @@ shape three times. Known noise, from the record rather than from impression:
 surfacing pass decides what each artifact is for; cleanup done first would be
 tidying objects whose purpose is undecided. And the whole of it should be one
 deliberate session with Eldon's eye on the public face, not a background sweep.
+
+> **August 17, 2026 (evening, with Eldon).** Surfacing is done; this item is
+> now the live organizing work. Inventory of the seven top-level folders in
+> `research/physics/`: theory, experiments, replication, notes, papers,
+> results, archive. Proposed sketch (not enacted, not a decision): keep
+> theory / experiments / replication / archive; notes (88 workshop files,
+> some identity-adjacent) and unpublished papers (Paper 6 already on a
+> public path; May conformal-scaling draft superseded by Zenodo) leave the
+> public tree; leftover `results/` fold into exp-031/032. Also named, not
+> among the seven: the repo-root README is a second brochure competing with
+> OVERVIEW; deleting Paper 6 from HEAD does not unpublish git history. He
+> asked to work through a **complete plan before any rearranging**. Nothing
+> was moved. Next sitting is the plan — symlink destinations, OVERVIEW
+> navigation that currently points at notes/, and whether archive stays a
+> peer of the spine.
 
 ## 4. Standing, unfixable, and named
 

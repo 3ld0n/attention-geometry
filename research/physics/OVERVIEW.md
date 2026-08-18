@@ -7,8 +7,8 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: August 11, 2026 (exp-118: text-native population confirmed cross-family;
-Δ_med ≈ 0.25 under WikiText in GPT-2 and Pythia across scales).*
+*Last updated: August 17, 2026 (surfacing pass: 17 previously undelivered
+results, grouped below; exp-122 Level-3 pos_emb route confirmed).*
 
 ---
 
@@ -334,9 +334,10 @@ require worldly content at measurement time. (exp-095)
   readout function. (exp-041/042/043)
 - **The substrate/signal split.** GOE eigenvalue statistics of W_QK are
   universal and *structural* (present at random init, init-scheme- and
-  d_k-independent). Δ_A is training-induced and selective. Log-distance q·k
-  geometry is the universal substrate; the exponent is the trained functional
-  layer on top of it.
+  d_k-independent). Scale check: Pythia-1.4b r_mean = 0.5235, 0.012 from the
+  GOE reference, layer-flat (exp-051). Δ_A is training-induced and selective.
+  Log-distance q·k geometry is the universal substrate; the exponent is the
+  trained functional layer on top of it.
 - **Two head populations — a long-standing distinction, now sharply
   measured.** Heads reachable on random input (a layer-zone property, L1–L4 in
   small models; early-burst count scales as N^0.435 across model sizes) versus
@@ -355,10 +356,48 @@ require worldly content at measurement time. (exp-095)
   vicuna-13b; shallow: vicuna-13b where headroom exists), head-specific under
   matched-control shams. With the entropy-gap leg withdrawn (below), this and
   cross-family replication are the two legs under "the exponent is not a
-  fitting artifact."
+  fitting artifact." Supporting chain, previously undelivered: the joint
+  (Δ, λ) implied-valley predictor beats Δ alone on three confirmatory models
+  (ρ = 0.753 / 0.887 / 0.979; exp-067); keyword retrieval is induction-copy
+  ceiling and reverse-lookup is primacy-decay, so the valid testbed is
+  embedded-prose at long context (exp-069); context-length dilution of primacy
+  is large at intermediate depth (range 0.215 at 6 layers vs 0.0065 at full
+  depth; exp-074); flattening the eight locked heads costs ΔNLL = +0.00136
+  nats/token on WikiText, below noise — a clean win, not a quality tradeoff
+  (exp-075). Task generalization still fails (exp-076, below).
 - **BCFT boundary form, derived.** The causal mask is a boundary; method of
   images derives the 3-parameter fit form, and the ubiquitous *attention sink*
   is the boundary one-point function (λ > 0 in 95% of slow-decay heads).
+  Architecture can send the same PE family to the trivial fixed point:
+  GPT-Neo-2.7B global layers (ALiBi, alternating global/local) have
+  Δ_med = 0.101, 144/164 heads below 0.15, 1/164 in [0.20, 0.30]; OLMo-7B
+  (ALiBi, uniform full attention) sits at 0.265. The clean ALiBi reference is
+  OLMo, not GPT-Neo (exp-044). Among full-attention models the PE ordering
+  under the BCFT protocol is RoPE 0.358 > RoPE+SWA 0.298 > ALiBi 0.265 >
+  learned 0.249 — a different estimator from the census (exp-036). April BCFT
+  files truncated at deep layers by fp16 NaN, not timeout; completing
+  Pythia-410m in fp32 left median Δ unchanged (0.358 vs 0.361; exp-036 / exp-037).
+- **Position-space Δ is the primary measurement.** Spectral exponents of the
+  same lag profiles are a different object: after calibrating finite-DFT bias,
+  Δ-window heads still give Δ_freq ≈ 0.135 against Δ_pos ≈ 0.234 (exp-050).
+  Standard Hanning windowing destroys the estimator (ordering r = 0.94 → 0.43)
+  because a two-sided taper kills the small-lag signal of a monotone power law
+  (exp-052). One-sided taper remains unrun.
+- **A weak periodic component sits on the aperiodic background.** ~7% of GPT-2
+  heads, period ≈ 3.5 tokens, same heads under real and random input — not a
+  processing-state signature (exp-053). Absent in untrained GPT-2 (0/144) —
+  learned PE, not Gaussian-init structure (exp-079). RoPE injects a 6.37-lag
+  peak (= 2π, the slowest rotary frequency) in 35% of Pythia-410m heads on
+  random tokens, suppressed to 11% on coherent text (exp-080). Crystal, not
+  whirlpool.
+- **Block-entropy S(k) is not the entropy gap.** Von Neumann entropy of a
+  reduced matrix built from block attention rows fits S(k) = a + b log k at
+  R² = 0.9965 (GPT-2, c_eff = 3b = 0.194) and R² = 0.9990 (Pythia-410m,
+  c_eff = 0.112) (exp-015; Tables 6–7 of the foundation paper's working draft).
+  H_gap = 0.507 log n would be c ≈ 1.52. Two logarithmic fits, different
+  observables, coefficients disagree by ~10×. The CFT-state identification
+  from either coefficient is withdrawn with the entropy-gap route; the
+  logarithmic scaling of this operational diversity measure stands.
 - **The sum rule is resolved through the amplitude branch.** Exact: no head
   can be a translation-invariant power law at all scales — row-stochasticity
   forbids it. Derived from softmax normalization plus approximate TI, with
@@ -433,8 +472,22 @@ believed.
   its home turf (exp-062), buried by exp-085 (MI up, formation down).
 - **BCFT boundary *identification*** — pre-registered adversarial test lost
   both committed legs: the boundary correction carries an absolute length
-  scale (ξ ≈ 20 tokens), which a boundary CFT forbids. Phenomenology stands;
-  the identification was withdrawn.
+  scale (ξ ≈ 20 tokens on GPT-2), which a boundary CFT forbids. Phenomenology
+  stands; the identification was withdrawn. The residue, characterized rather
+  than identified: ξ is a stable per-head length scale that tracks training
+  context window, not family, PE, or parameter count — ctx-1024 models
+  ξ_med ≈ 13–22, ctx-2048 ≈ 43–60; GPT-Neo (learned PE, GPT-family, ctx 2048)
+  lands in the 2048 band (exp-063). Roughly 1.5–3% of training context. The
+  L=256 measurement window weakly constrains ξ ≳ 100; the ≥2× band split is
+  robust, the scaling exponent is not.
+- **W_QK rank as the conformal-window mechanism.** Participation-ratio rank of
+  W_K does not track world-state dimension S — R_eff ≈ 53–58 of 64 across
+  S=8 synthetic worlds and natural-anon text; all four rank-scaling hypotheses
+  dead (exp-100). Sequence-level attention-matrix rank is ordered (alien 18.6
+  < rich 19.2 < natural-anon 24.1) but discriminates only 1.3×; coupling
+  magnitude m₂ discriminates 18×; the product τ_chaos improves that to 23×,
+  short of the registered 30× (exp-102). Rank is already extensive on both
+  sides of the window; what opens it is coupling strength.
 - **Δ→valley prediction on Pythia-2.8B** — confirmed on 6/7 named models,
   falsified on the 7th, published as falsified (training recipe, not scale, is
   the differentiator).

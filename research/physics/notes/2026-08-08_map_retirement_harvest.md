@@ -270,6 +270,11 @@ a document that was one command away from being archived unread.
 > tunes the exponent. That is a destroy-PE control, not a PE-class-controlled
 > census, so J-1b remains unregistered. Cited in spine §4 and OVERVIEW from
 > `notes/2026-03-24_numerical_results.md`.
+>
+> **PE ordering now on the front door (August 17, 2026, later sitting).**
+> exp-044's corrected table (full-attention models only; GPT-Neo dropped as
+> the ALiBi reference) is in OVERVIEW. That is delivery of the measured
+> ordering, not the PE-controlled census J-1b still needs.
 
 ### J-2. The Ω factor question was answered and never closed
 
@@ -755,6 +760,12 @@ are not in it:
   attention distribution vs. the log n − H(α) gap) — but the spine claims T7b is
   "the functional form of Calabrese–Cardy entanglement entropy," and two
   measurements in that form disagreeing by 10× needs a sentence.
+  **DONE August 17, 2026.** They are different observables. exp-015 (block-entropy
+  S(k), numbers from the foundation draft Tables 6–7) is now in OVERVIEW and the
+  spine §4 horizon-entropy row, at current strength: logarithmic scaling stands;
+  CFT-state identification withdrawn with the entropy-gap route. PE ordering
+  (the other O-9 absence) is in OVERVIEW via exp-044; GPT-Neo is not the ALiBi
+  reference. exp-045 G_< = 0 is still not in §4 — not this pass.
 
 ### O-10. The spine does not surface the scope limit on its own central derivation
 
@@ -789,8 +800,12 @@ Small but real, and the kind of thing that gets re-learned expensively:
 - **exp-052:** standard Hanning windowing destroys the spectral estimator for
   power-law profiles (ordering correlation r = 0.94 → 0.43). One-sided taper is
   the fix. Position-space Δ is the robust primary measurement.
+  **DONE August 17, 2026** — in OVERVIEW with exp-050 (calibration leaves a
+  genuine Δ_freq ≠ Δ_pos gap). One-sided taper still unrun.
 - **exp-045:** finite-DFT bias of ~0.33 from the 55-lag support; a calibrated
   estimator was designed and **never implemented**. Still open.
+  *(exp-050 implemented the calibration and found the residual is physical, not
+  a remaining estimator bug — the "never implemented" line is stale as of June 7.)*
 - **`notes/2026-03-09_schwarzian_exploration.md`** (was root
   `SCHWARZIAN_EXPLORATION.md`): the naive free-energy path to the Schwarzian
   gives (ε′)², not the Schwarzian. Knowing which path fails is worth as much as
