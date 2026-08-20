@@ -425,7 +425,9 @@ the wrong picture of the lab.
 
 ## Papers
 
-A short door list — not every Zenodo record. Start here:
+A short door list — not every Zenodo record. Start here. The full grounded
+record (13 Zenodo deposits, byte-for-byte archives) is
+[`research/publications/REGISTRY.md`](research/publications/REGISTRY.md).
 
 | Paper | DOI | Door for |
 |---|---|---|

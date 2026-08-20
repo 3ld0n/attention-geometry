@@ -1,0 +1,127 @@
+{
+  "exp": "exp-123",
+  "date": "2026-08-20",
+  "prereg_commit": "c4cac26",
+  "prereg_evidence": "git-attested \u2014 committed to attention-geometry at c4cac26 before run script was written",
+  "model": "gpt2",
+  "method": "analysis-only; LN(emb_mean + pos_emb) projected through layer's W_V_h, then convolved with analytic causal conformal kernel A[i,j]=(i-j)^{-2\u0394} \u0394=0.249",
+  "delta": 0.249,
+  "seq_len": 512,
+  "fit_lags": [
+    8,
+    256
+  ],
+  "correction_vs_exp122": "applies LN(emb_mean + pos_emb) using each block's ln_1 instead of bare pos_emb",
+  "pos_emb_reference": {
+    "sigma_bare_pos_emb": 6.108656323934817,
+    "R2_bare_pos_emb": 0.8608044171311363
+  },
+  "structural_heads": {
+    "L2H1": {
+      "d_head_space": {
+        "sigma_out": 0.11402780224945536,
+        "R2": 0.8187779740424765,
+        "C_at_dx8": 0.9994040828743187,
+        "C_at_dx256": 0.7136353433749849
+      },
+      "d_model_space": {
+        "sigma_out": 0.11575888510797244,
+        "R2": 0.8261835891613157,
+        "C_at_dx8": 0.9993961304639658,
+        "C_at_dx256": 0.7200090453347379
+      },
+      "exp122_baseline_dmodel": 0.214,
+      "improved_over_exp122": false
+    },
+    "L3H4": {
+      "d_head_space": {
+        "sigma_out": 0.08785526906815806,
+        "R2": 0.8282375748567876,
+        "C_at_dx8": 0.9995097105068071,
+        "C_at_dx256": 0.7790784541473175
+      },
+      "d_model_space": {
+        "sigma_out": 0.0841864133006746,
+        "R2": 0.8318611814502578,
+        "C_at_dx8": 0.9995042996108647,
+        "C_at_dx256": 0.7867696728968525
+      },
+      "exp122_baseline_dmodel": 0.175,
+      "improved_over_exp122": false
+    },
+    "L5H0": {
+      "d_head_space": {
+        "sigma_out": 0.12514761304722083,
+        "R2": 0.8162319657919146,
+        "C_at_dx8": 0.9993739804580644,
+        "C_at_dx256": 0.6912721973138052
+      },
+      "d_model_space": {
+        "sigma_out": 0.12319071004799889,
+        "R2": 0.8143611035915154,
+        "C_at_dx8": 0.99940387410802,
+        "C_at_dx256": 0.6992050964586538
+      },
+      "exp122_baseline_dmodel": 0.203,
+      "improved_over_exp122": false
+    },
+    "L7H11": {
+      "d_head_space": {
+        "sigma_out": 0.15319113679513954,
+        "R2": 0.8178732402396851,
+        "C_at_dx8": 0.9991483560340705,
+        "C_at_dx256": 0.6129330496353248
+      },
+      "d_model_space": {
+        "sigma_out": 0.15972970661436162,
+        "R2": 0.8162086747382252,
+        "C_at_dx8": 0.9991033942596983,
+        "C_at_dx256": 0.5911926767510882
+      },
+      "exp122_baseline_dmodel": 0.241,
+      "improved_over_exp122": false
+    },
+    "L10H8": {
+      "d_head_space": {
+        "sigma_out": 0.11195858273786549,
+        "R2": 0.8511169214269046,
+        "C_at_dx8": 0.9992628017782683,
+        "C_at_dx256": 0.7337795584057544
+      },
+      "d_model_space": {
+        "sigma_out": 0.108377502234856,
+        "R2": 0.8485821850553489,
+        "C_at_dx8": 0.9992922956458726,
+        "C_at_dx256": 0.7375145159611196
+      },
+      "exp122_baseline_dmodel": 0.18,
+      "improved_over_exp122": false
+    }
+  },
+  "registered_verdicts": {
+    "P1": {
+      "criterion": "sigma_out (d_model) for L2H1 > 0.22",
+      "L2H1_sigma_dmodel": 0.11575888510797244,
+      "ok": false
+    },
+    "P2": {
+      "criterion": "sigma_out (d_model) for L2H1 in [0.22, 0.28]",
+      "L2H1_sigma_dmodel": 0.11575888510797244,
+      "ok": false
+    },
+    "P3_kill": {
+      "criterion": "sigma_out (d_model) for L2H1 <= 0.20",
+      "fired": true
+    },
+    "n_improved": 0,
+    "overall": "P3_KILL: LN correction does not improve d_model result"
+  },
+  "exp122_comparison": {
+    "L2H1_exp122_dmodel": 0.214,
+    "L2H1_exp123_dmodel": 0.11575888510797244,
+    "L2H1_sigma_delta": 0.249,
+    "gap_closed": false
+  },
+  "status": "complete",
+  "verdict": "falsified"
+}

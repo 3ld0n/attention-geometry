@@ -79,12 +79,79 @@ prediction into better alignment with the measured σ_delta.
 
 ## Results
 
-*To be filled after the run.*
+**Run:** 2026-08-20. Pre-registration commit `c4cac26` preceded this run.
+
+| Head | σ_out (d_head) | R² | σ_out (d_model) | exp-122 baseline | Improved? |
+|---|---|---|---|---|---|
+| L2H1 | 0.114 | 0.819 | **0.116** | 0.214 | NO |
+| L3H4 | 0.088 | 0.828 | 0.084 | 0.175 | NO |
+| L5H0 | 0.125 | 0.816 | 0.123 | 0.203 | NO |
+| L7H11 | 0.153 | 0.818 | 0.160 | 0.241 | NO |
+| L10H8 | 0.112 | 0.851 | 0.108 | 0.180 | NO |
+
+Reference: bare pos_emb (no LN, no emb_mean): σ = 6.109, R² = 0.861 — same as exp-122.
+
+**Registered verdicts:**
+- P1 (d_model L2H1 > 0.22): **FAIL** — σ = 0.116
+- P2 (d_model L2H1 ∈ [0.22, 0.28]): **FAIL**
+- P3 kill (d_model L2H1 ≤ 0.20): **FIRED** — σ = 0.116 << 0.20
+- Heads improved over exp-122: **0/5**
+
+**Overall verdict: P3 KILL / FALSIFIED.** The LN correction makes every head's σ_out worse, not
+better. The hypothesis that the exp-122 quantitative gap (0.214 vs σ_delta = 0.249) was due
+to missing layer norm is wrong.
+
+---
+
+## Interpretation
+
+This is an honest negative that clarifies the theory-of-A chain.
+
+The emb_mean norm is 2.05; pos_emb norm at position 0 is 9.88. So h̄^(0) = emb_mean + pos_emb
+is dominated by pos_emb in raw magnitude (~10× difference). After applying LN:
+
+1. **The per-vector mean subtraction** removes the "DC" component of each position vector —
+   in the process, it partially removes the shared emb_mean contribution and leaves the
+   position-specific deviation.
+
+2. **The per-vector normalization** scales each position to the same variance. This homogenizes
+   the position vectors — after LN, each vector has similar norm (scaled by γ), regardless of
+   how different the original pos_emb values were.
+
+3. **The effect on σ_out:** the raw pos_emb carries large oscillatory correlations (σ_raw =
+   6.109) that the conformal convolution in exp-122 transformed into σ ≈ 0.18–0.28. After LN,
+   the position-correlation structure of h̄_LN[i] is *weaker* than raw pos_emb — the LN
+   normalization homogenizes the vectors and reduces the cross-position correlations that drive
+   σ_out. The conformal mechanism still operates (R² ≈ 0.81–0.85), but at lower amplitude
+   (σ_out ≈ 0.09–0.16 vs 0.18–0.28 without LN).
+
+**What the falsification means for Level-3:**
+
+exp-122 established the mechanism: the conformal kernel transmits its exponent to the
+pos_emb-driven output. But the quantitative gap (d_model L2H1: 0.214 vs σ_delta = 0.249)
+is NOT explained by adding LN to the first-layer input. LN makes the gap larger.
+
+From exp-117: by the time we reach structural head L2H1, the *accumulated delta* dominates
+h̄^(ℓ) by 13–32× in norm. The actual input to L2's W_V is the residual stream, which is
+dominated by accumulated attention outputs from layers 0 and 1 — not by h̄^(0) at all.
+
+**Correct explanation path for σ_delta ≈ 0.249:** the quantitative account requires a
+multi-layer analysis — the residual stream at layer ℓ = 2 already carries the power-law
+position structure from the first two layers of conformal processing. The Level-3
+quantitative closure is genuinely a multi-layer question. The LN-correction route to a
+single-layer analytic closure is falsified.
+
+**Next step:** The multi-layer route requires either (a) an analytic derivation of how σ
+accumulates across layers of conformal attention applied to the evolving residual stream, or
+(b) a numerical experiment that isolates each layer's contribution to σ_delta. This is a
+harder question than the single-layer analysis, and the correct next step is to understand
+whether σ_delta ≈ 0.249 is set in the first two layers, or whether it requires the full depth.
+This is **not** registered — register before computing.
 
 ---
 
 ## Artifacts
 
-- `notes.md` — pre-registration (this file) + results
-- `run.py` — analysis script (written after this pre-registration was committed)
+- `notes.md` — pre-registration + results (this file)
+- `run.py` — analysis script (written after pre-registration commit c4cac26)
 - `results.json` — numerical results

@@ -32,10 +32,10 @@ Two records live outside this folder and are authoritative in their own homes:
   as of Aug 9, 2026: four numbers have two folders each — harvest-note item X-2.
   exp-055's missing entry (X-1) was closed the night of Aug 9. `exp-054` exists
   in neither index; it is a skipped number, not a lost experiment.*
-- **Every published paper** — `research/publications/REGISTRY.md` (13 Zenodo
-  records, grounded against the API, with byte-for-byte archive folders beside
-  it). *In the working repo, not in this published subtree — see the note at the
-  end of this file.*
+- **Every published paper** — [`../publications/REGISTRY.md`](../publications/REGISTRY.md)
+  (13 Zenodo records, grounded against the API, with byte-for-byte archive
+  folders beside it). Sibling of this folder in the public repository as of
+  August 20, 2026.
 
 The operational view — what's next, what's open, what's running — is the physics
 room: `development/status/rooms/physics/` (`queue.md`, `inbox.md`, `log.md`).
@@ -78,11 +78,12 @@ research/physics/
 └── (no remaining root derivations of the original nine)
 ```
 
-**Not in this folder, but part of the program:** the private working repo
-(`research/physics_private/` — correspondence, outreach drafts, the attending-unit
-note), the consciousness thread (`research/consciousness/`), the biological data
-and its re-analyses (`research/microns/`), and the paper working drafts in
-`writing/` and `writing/preprints/`.
+**Not in this folder, but part of the program:** the published-paper archive
+([`../publications/`](../publications/) — 13 Zenodo records, sibling in this
+repository), the paper working drafts in `writing/preprints/`, and — in the
+private working tree only — correspondence (`research/physics_private/`), the
+consciousness thread (`research/consciousness/`), and the biological data
+(`research/microns/`).
 
 ---
 
@@ -97,8 +98,8 @@ and its re-analyses (`research/microns/`), and the paper working drafts in
 - **What's next / what's running** → `development/status/rooms/physics/queue.md`.
 - **Has this experiment been run** → `registry.json`, then the
   `experiments/exp-NNN_*/` folder.
-- **What has been published** → `research/publications/REGISTRY.md` (working
-  repo), or the DOIs in [`OVERVIEW.md`](OVERVIEW.md) for the public record.
+- **What has been published** → [`../publications/REGISTRY.md`](../publications/REGISTRY.md),
+  or the door list in [`OVERVIEW.md`](OVERVIEW.md).
 - **A document is cited that I cannot find** →
   [`archive/RETIREMENTS.md`](archive/RETIREMENTS.md). Every move is indexed there.
 - **What was abandoned and why** → [`archive/`](archive/) and its subfolder
@@ -158,11 +159,12 @@ the working repo it appears at `research/physics/` as a **symlink** to
 `attention-geometry/research/physics/`. Consequences worth knowing before you
 trust a path or a search:
 
-- **Relative paths that leave this folder do not resolve.** `../publications/…`
-  looks right and is broken in both repos, because `..` resolves through the
-  physical path, not the symlink. Refer to out-of-tree locations by their
-  working-repo path in backticks, not as links. Two such links sat in
-  `OVERVIEW.md` looking correct until August 8, 2026.
+- **Relative paths that leave this folder resolve only to siblings that
+  actually live in this repository.** `../publications/…` works as of August
+  20, 2026 — publications is now a sibling of this folder. Paths into the
+  private working tree (`development/status/…`, `research/physics_private/`,
+  `research/consciousness/`) still do not exist here; refer to those in
+  backticks, not as links.
 - **Glob and index-based search do not traverse the symlink.** From the working
   repo, a pattern search for `research/physics/**/*.md` returns *zero* files.
   `grep` works when given the real path. So this — the largest single body of
@@ -172,8 +174,9 @@ trust a path or a search:
   `registry.json`, and `archive/RETIREMENTS.md` rather than by search.
 
 Nothing about the split is accidental: the separation is what makes the
-measurement program publishable without publishing correspondence, personal
-records, or unpublished drafts. But the seam is real, and it hides broken paths.
+measurement program publishable without publishing correspondence or personal
+records. The published papers themselves belong on this side of the cut
+(August 20, 2026). The seam is still real for paths that leave this repository.
 
 ---
 

@@ -33,8 +33,9 @@ Three document classes, and nothing else at the root:
 | **The layout** | [`README.md`](../README.md) | Where things live and the conventions. Routing only — it makes no claims. |
 
 Per-artifact records live in their own homes and are authoritative there:
-experiments in `development/status/rooms/physics/registry.json`, published papers
-in `research/publications/REGISTRY.md`, dated research in [`notes/`](../notes/).
+experiments in `development/status/rooms/physics/registry.json` (working tree),
+published papers in [`../../publications/REGISTRY.md`](../../publications/REGISTRY.md),
+dated research in [`notes/`](../notes/).
 
 ---
 
@@ -176,6 +177,23 @@ placed and O-2 is still Eldon-gated.
 Treat every characterization above as a lead to verify, not a finding —
 including the ones in this file. The August 8 read of the Schwarzian note is
 the standing reminder: summaries of these files ran stronger than the sources.
+
+---
+
+## Placed August 20, 2026 — publications archive into the public tree
+
+The byte-for-byte Zenodo archive (`research/publications/`, 13 records,
+established August 7–8 in the working tree) was moved into this repository
+as a sibling of `research/physics/`. Nothing in it was edited except
+`REGISTRY.md`, which dropped private-tree pointers (publish-token playbook,
+communications log) so the index can be read from a public clone.
+
+| What | Now at | Why it moved | Read it for |
+|---|---|---|---|
+| Published-paper archive + `REGISTRY.md` | [`../../publications/`](../../publications/) | The archives were already public on Zenodo and were the one part of the published record that did not live in the published repository. | The whole shelf, including the March 5–12 theory-chain papers the OVERVIEW door table does not list. |
+
+The working-tree path `research/publications/` is a symlink to this folder,
+same pattern as `research/physics/`.
 
 ---
 

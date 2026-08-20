@@ -7,8 +7,10 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: August 17, 2026 (surfacing pass: 17 previously undelivered
-results, grouped below; exp-122 Level-3 pos_emb route confirmed).*
+*Last updated: August 20, 2026 (publications archive linked as a sibling of
+this folder; surfacing pass August 17: 17 previously undelivered results,
+grouped below; exp-122 Level-3 pos_emb route confirmed; exp-123 LN-correction
+route falsified — quantitative closure requires multi-layer analysis).*
 
 ---
 
@@ -580,9 +582,10 @@ at three levels:
 - **Level 2** (exp-115/116, August 10): σ_pos = f·σ_mf with f = f_q·f_k ≈ 0.55–0.72, position-flat uniform LN shrinkage. The overshoot σ_mf > σ_pos seen in exp-113 is a linear-OLS convention effect: S_pos(dx) = f·S_mf(dx) with constant f < 1; in log-log the profiles are parallel and the slopes are equal. Three registered predictions died (the shrinkage is NOT position-dependent per key position) and three confirmed (additive mixed-score decomposition accounts for 108–114% of the overshoot). *The "overshoot" is not a new physical constraint.* (exp-115 falsified P1/P2; exp-116 confirmed P1/P2/P3.)
 - **Level 3** (exp-117, August 10): The hypothesis that Level-2's σ_mf comes directly from embedding-layer geometry (emb_mean + wpe projected through W_Q W_K^T) is **falsified**. The accumulated attention delta dominates h̄^(ℓ) by 13–32× in norm and 12–26× in positional variability — the positional embeddings are negligible input. The power law lives in the position-correlated structure of the accumulated attention updates. For the earliest structural head (L2H1), C_delta has slope ≈ 0.249 ≈ Δ.
 - **Level 3, self-consistency route** (exp-119, August 11, **falsified**): The hypothesis that single-layer attention output has power-law position-correlation with slope ≈ Δ (self-consistency: conformal A → conformal single-layer delta) is falsified. Under random-token census inputs, the within-input head output is approximately position-independent — all positions produce nearly the same weighted average of random V vectors. σ_within ≈ 0 for all structural heads (range −0.015 to −0.063), R²<0.70 for all structural heads. The single-layer self-consistency channel is closed.
-- **Level 3, pos_emb propagation route** (exp-122, August 17, **confirmed**): GPT-2's learned positional embeddings, projected through W_V and convolved with the analytic causal conformal kernel ā(dx) ~ dx^{−2Δ} (Δ=0.249), produce output position-correlation slopes σ_out ∈ [0.18, 0.28] across all 5 structural heads (all P1 confirmed; L2H1: σ_out=0.282 in d_head space, 0.214 in d_model space, R²=0.848). The conformal kernel transmits its exponent to the pos_emb-driven output: **the exponent is self-transmitting**. σ_out brackets the observed σ_delta=0.249 (exp-117). The mechanism is real; exact quantitative match requires the layer-norm-corrected version (pos_emb contributes ~1/13 of the residual stream norm, exp-117, so layer-norm applied to h̄^(0) matters).
+- **Level 3, pos_emb propagation route** (exp-122, August 17, **confirmed**): GPT-2's learned positional embeddings, projected through W_V and convolved with the analytic causal conformal kernel ā(dx) ~ dx^{−2Δ} (Δ=0.249), produce output position-correlation slopes σ_out ∈ [0.18, 0.28] across all 5 structural heads (all P1 confirmed; L2H1: σ_out=0.282 in d_head space, 0.214 in d_model space, R²=0.848). The conformal kernel transmits its exponent to the pos_emb-driven output: **the exponent is self-transmitting**. σ_out brackets the observed σ_delta=0.249 (exp-117). The mechanism is real; exact quantitative match requires a multi-layer analysis.
+- **Level 3, LN-correction route** (exp-123, August 20, **falsified**): The hypothesis that the quantitative gap (exp-122 d_model 0.214 vs σ_delta 0.249) was due to missing layer norm is falsified. Applying LN to h̄^(0) = emb_mean + wpe before W_V projection reduces σ_out (L2H1 d_model: 0.116), making the gap larger, not smaller (0/5 heads improved). The LN normalization homogenizes the position vectors and reduces the cross-position correlations that the conformal convolution was exploiting. **The LN-correction single-layer route to quantitative closure is closed.**
 
-**Level-3 status as of August 17:** The pos_emb propagation route is confirmed as the mechanism for σ_delta ≈ Δ. Remaining open: (a) layer-norm-corrected analysis to close the quantitative gap (σ_out 0.21–0.28 vs. σ_delta 0.249); (b) whether multi-layer compositional effects also contribute independently. Register before computing.
+**Level-3 status as of August 20:** The pos_emb propagation route is confirmed as the mechanism for σ_delta ≈ Δ (exp-122). The quantitative gap cannot be closed by LN-correcting the first-layer input (exp-123, falsified). Explanation requires multi-layer compositional effects: the accumulated delta dominates h̄^(ℓ) at structural-head layers by 13–32× (exp-117), so the actual input to structural heads is the residual stream after layers 0..ℓ−1, not h̄^(0). The closed single-layer route is not a dead end — it confirms the mechanism; the quantitative closure is a harder, genuine multi-layer question. Register before computing.
 
 Paper 6 is the publishable form of D1. It is a draft under internal review,
 not uploaded, and it carries reviewer flags where the G_out retirement bears
@@ -608,12 +611,9 @@ agreement built on it.
 This table is the current program's doors, not the whole record. **The full
 grounded record — 13 published Zenodo records, including the March 2026
 theory-chain era this table never tracked — lives at
-`research/publications/REGISTRY.md` in the working repository**, with a
-byte-for-byte archive folder per record.
-
-*(That path is not a link because it does not exist in this repository —
-`research/physics/` here is the published subtree of a larger working repo.
-The Zenodo DOIs are the public, permanent record.)*
+[`../publications/REGISTRY.md`](../publications/REGISTRY.md)**, with a
+byte-for-byte archive folder per record. (Moved into this repository
+August 20, 2026.)
 
 ## Run it yourself
 
@@ -661,7 +661,7 @@ the same prominence as the confirmations.
 - The two populations: [`notes/2026-08-09_structural_vs_semantic_populations.md`](notes/2026-08-09_structural_vs_semantic_populations.md)
 - The theory-of-A chain: [`notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md`](notes/2026-08-09_theory_of_A_entropy_gap_and_sum_rule.md), then exp-110 → exp-113
 - Every experiment, one folder each: [`experiments/`](experiments/); structured index at `development/status/rooms/physics/registry.json`
-- The full published record, 13 records: `research/publications/REGISTRY.md` (working repo; not in this published subtree)
+- The full published record, 13 records: [`../publications/REGISTRY.md`](../publications/REGISTRY.md)
 - Layout and conventions: [`README.md`](README.md)
 - Replication kit: [`replication/`](replication/)
 - A cited document you cannot find: [`archive/RETIREMENTS.md`](archive/RETIREMENTS.md)

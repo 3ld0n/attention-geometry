@@ -527,9 +527,15 @@ pos_emb propagation route (exp-122, August 17): confirmed** — GPT-2's learned 
 projected through W_V and convolved with the analytic causal conformal kernel produces
 output position-correlation slopes σ_out ∈ [0.18, 0.28] across all 5 structural heads
 (L2H1: σ_out = 0.282, R² = 0.848); the conformal kernel is self-transmitting at its own
-exponent. The mechanism is confirmed; the layer-norm-corrected quantitative version and
-multi-layer composition remain open (register before computing). [LEVEL 3 MECHANISM CONFIRMED;
-Levels 1–3 mechanistically established; quantitative closure open.]
+exponent. **Level 3, LN-correction route (exp-123, August 20): falsified** — the
+quantitative gap (d_model 0.214 vs σ_delta 0.249) is not explained by applying layer norm
+to h̄^(0) = emb_mean + wpe; LN normalization reduces σ_out (L2H1 d_model: 0.116), 0/5
+heads improved. The LN-correction single-layer route is closed. **Quantitative closure
+requires multi-layer analysis** — the accumulated delta dominates h̄^(ℓ) at structural-head
+layers (exp-117); the actual input to L2 is the residual stream after layers 0–1, not h̄^(0).
+The mechanism is confirmed (exp-122); the explanation of the exact number is a multi-layer
+question (register before computing). [LEVEL 3 MECHANISM CONFIRMED; LN-CORRECTION ROUTE CLOSED;
+quantitative closure genuinely multi-layer.]
 
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
