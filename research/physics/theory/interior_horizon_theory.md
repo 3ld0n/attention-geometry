@@ -1192,6 +1192,16 @@ stochastic LGI via soft correlators; polysemy interference test), and identifies
 Path C (polysemy interference) as the first candidate for registration. The
 kill condition and highest-risk / highest-yield status are unchanged.*
 
+> **August 21, 2026 — exp-124 (Path C, polysemy interference): PROTOCOL FAILURE
+> — confound identified.** Pre-reg 14fd5d4. K_mean = 0.679 (far above threshold),
+> but monosemous control "elephant" shows K = 0.556, indistinguishable from the
+> polysemous words (std = 0.164). The K-statistic was measuring context-length
+> entropy differences, not polysemy interference: C_AB ("The [word]", 2 tokens)
+> was 2–7× shorter than C_A/C_B (4–9 tokens). Redesign (exp-124b): equate context
+> lengths. P3 status unchanged — the experiment did not test the hypothesis, and
+> the confound was identified by the pre-registered control. Register exp-124b
+> before running.
+
 **P4 — Architecture universality.** Any attending architecture that achieves
 robust persistent-world modeling shows the deep conformal population; the
 geometry is class-level, not implementation-level. Already live: the census
