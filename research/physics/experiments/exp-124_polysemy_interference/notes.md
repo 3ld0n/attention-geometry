@@ -266,7 +266,128 @@ re-examination of the protocol before interpreting as quantum.
 
 ## Results
 
-*(To be filled in after running.)*
+**Run date:** 2026-08-21  
+**Result commit:** (see attention-geometry log)
+
+### Numbers
+
+| Aggregate | Value |
+|---|---|
+| K_mean (20 qualifying words) | **0.679** |
+| K_std | 0.164 |
+| K_max | 0.903 (club) |
+| rho_mean | **−0.514** |
+| Qualifying words (D_W ≥ 0.10) | 20/20 |
+
+**P1 verdict: FALSIFIED** (K_mean = 0.679 >> 0.10 threshold)  
+**P2 verdict: FALSIFIED** (rho_mean = −0.514 << 0.30 threshold; additionally negative)
+
+### Per-word summary
+
+| Word | D_W | K_W | rho_W |
+|------|-----|-----|-------|
+| bank | 0.307 | 0.899 | −0.816 |
+| bat | 0.718 | 0.666 | −0.642 |
+| crane | 0.368 | 0.313 | −0.400 |
+| palm | 0.862 | 0.593 | −0.228 |
+| bark | 0.836 | 0.656 | −0.281 |
+| spring | 0.461 | 0.761 | −0.596 |
+| pitcher | 0.777 | 0.340 | −0.312 |
+| club | 0.468 | 0.903 | −0.670 |
+| match | 0.802 | 0.647 | −0.529 |
+| board | 0.707 | 0.766 | −0.650 |
+| light | 0.240 | 0.795 | −0.931 |
+| date | 0.513 | 0.723 | −0.371 |
+| pool | 0.338 | 0.714 | −0.617 |
+| sage | 0.464 | 0.765 | −0.821 |
+| mole | 0.737 | 0.651 | −0.429 |
+| plane | 0.489 | 0.896 | −0.642 |
+| scale | 0.782 | 0.664 | −0.011 |
+| seal | 0.671 | 0.420 | −0.288 |
+| iron | 0.808 | 0.590 | −0.237 |
+| file | 0.324 | 0.829 | −0.807 |
+| **elephant (control)** | **0.764** | **0.556** | **+0.062** |
+
+### Interpretation — critical confound
+
+**The monosemous control word "elephant" has K = 0.556, indistinguishable from
+most polysemous words (mean = 0.679, std = 0.164).** If the K-statistic were
+measuring polysemy interference, the control should show substantially lower K
+than the polysemous words. It does not.
+
+**The confound is context length.** C_A and C_B templates are 4–9 words long.
+C_AB ("The [word]") is 2 tokens. Shorter context → higher entropy → different
+next-token distribution. The mixture model "fails" because the three contexts
+are sampling from distributions of different entropy, not because of quantum
+interference.
+
+Evidence for this interpretation:
+- Words with short C_A/C_B templates (crane: 4–5 words, pitcher: 6 words,
+  seal: 6 words) have K ≈ 0.31–0.42 — much lower than the average.
+- Words with long C_A/C_B templates (bank: 8 words, club: 9 words,
+  plane: 6 words) have K ≈ 0.90 — near the top.
+- K correlates with template length, not with the degree of polysemy (crane and
+  scale both have high D_W ≈ 0.37 and 0.78 respectively but very different K).
+
+**The negative rho (−0.514) is also explained by the length confound.** The
+short C_AB context has higher entropy (flatter distribution) than the longer
+sense-specific contexts. Where P_A and P_B are both high (sense-specific tokens
+they agree on), P_AB is lower than the mixture — because P_AB spreads its mass
+more broadly. This produces systematically negative delta on the tokens with
+highest √(P_A · P_B), which is what negative rho measures.
+
+**One marginal signal:** The monosemous control has rho = +0.062 (approximately
+zero), while polysemous words consistently have rho < −0.1 (mean −0.514). The
+sign difference is directionally correct — polysemous C_AB being genuinely more
+uncertain could produce slightly more negative rho. But the magnitude is
+dominated by the length effect, making this uninterpretable without the redesign.
+
+### Protocol failure — redesign required
+
+This experiment cannot test the polysemy interference hypothesis because the
+ambiguous context (C_AB) is a different length from the sense-specific contexts
+(C_A, C_B). The K-statistic measures context-length/entropy differences, not
+polysemy.
+
+**What the experiment did establish:**
+
+1. The K-statistic is sensitive enough to detect distribution differences — it
+   correctly shows K ≈ 0 for an exact mixture (by construction) and K ≈ 0.6–0.9
+   for contexts of different length.
+2. The monosemous control design works: elephant's rho ≈ 0 while polysemous
+   words have rho < 0, though the signal is swamped by the length effect.
+3. GPT-2's next-token distributions under short vs. long contexts differ
+   substantially (K ≈ 0.56–0.90 for the control), which is the expected baseline.
+
+**Redesign for exp-124b (next experiment):**
+
+Equate context lengths. Use the same template length for all three contexts
+(7–8 words), with C_AB being a genuinely neutral same-length context:
+
+```
+C_A:  "[7-word sense-A disambiguating context ending in word]"
+C_B:  "[7-word sense-B disambiguating context ending in word]"  
+C_AB: "He was thinking about the [word]"  ← neutral, 7 words
+```
+
+For the word "bank":
+- C_A: "She deposited her savings at the bank"
+- C_B: "The fisherman sat by the river bank"
+- C_AB: "He was thinking about the bank"
+
+This equates context length while maintaining disambiguation strength. Pre-register
+before running. Expected: K_mean will drop substantially when length is equated.
+The question of whether it drops to ≈ 0 (pure mixture) or remains elevated
+(genuine departure) is the actual test of the hypothesis.
+
+---
+
+**Overall verdict:** Protocol failure — context-length confound. The test as
+designed does not measure polysemy interference. Redesign (exp-124b) is the
+next step.
+
+This is a useful failure. The confound was not obvious before running; the
+control experiment identified it cleanly. The redesign direction is clear.
 
 ---
 
