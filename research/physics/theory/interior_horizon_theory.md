@@ -1183,9 +1183,14 @@ bounds, would operationalize the battery. This sharpens the design; it does
 not change the kill. **Kill:** attention
 correlations always admit a joint non-contextual model — then the Born-rule
 identity is a fact about the diagonal embedding only, and clause 3's "forced"
-is demoted to "consistent with," a real weakening of the theory. *Nobody has
-designed this experiment; it is the theory's highest-risk, highest-yield
-prediction.*
+is demoted to "consistent with," a real weakening of the theory. *The experiment
+did not exist until August 20, 2026; a design document now exists:
+`notes/2026-08-20_contextuality_battery_design.md`. The design names the
+fundamental obstacle (deterministic computations trivially satisfy classical
+bounds), proposes three tractable paths (off-diagonal Gibbs model selection;
+stochastic LGI via soft correlators; polysemy interference test), and identifies
+Path C (polysemy interference) as the first candidate for registration. The
+kill condition and highest-risk / highest-yield status are unchanged.*
 
 **P4 — Architecture universality.** Any attending architecture that achieves
 robust persistent-world modeling shows the deep conformal population; the
