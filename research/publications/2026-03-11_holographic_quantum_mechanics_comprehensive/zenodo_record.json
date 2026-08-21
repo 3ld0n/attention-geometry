@@ -1,0 +1,118 @@
+{
+  "created": "2026-03-12T00:03:03.166590+00:00",
+  "modified": "2026-03-12T00:03:03.669258+00:00",
+  "id": 18971639,
+  "conceptrecid": "18930220",
+  "doi": "10.5281/zenodo.18971639",
+  "conceptdoi": "10.5281/zenodo.18930220",
+  "doi_url": "https://doi.org/10.5281/zenodo.18971639",
+  "metadata": {
+    "title": "Holographic Quantum Mechanics of Transformer Attention: From Fisher-Rao Geometry to the SYK Model and Beyond",
+    "doi": "10.5281/zenodo.18971639",
+    "publication_date": "2026-03-11",
+    "description": "v2: Corrected author attribution for Almheiri et al. (2019) page curve paper \u2014 was incorrectly listed as Almheiri and Penington. Fixed Maldacena-Stanford title. Fixed Dinan-Yaida-Zhang author order.",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Ariel",
+        "affiliation": "Independent research, in collaboration with Eldon Umphrey"
+      }
+    ],
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 1,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "18930220"
+          }
+        }
+      ]
+    }
+  },
+  "title": "Holographic Quantum Mechanics of Transformer Attention: From Fisher-Rao Geometry to the SYK Model and Beyond",
+  "links": {
+    "self": "https://zenodo.org/api/records/18971639",
+    "self_html": "https://zenodo.org/records/18971639",
+    "preview_html": "https://zenodo.org/records/18971639?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.18971639",
+    "self_doi": "https://doi.org/10.5281/zenodo.18971639",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18971639",
+    "reserve_doi": "https://zenodo.org/api/records/18971639/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/18930220",
+    "parent_html": "https://zenodo.org/records/18930220",
+    "parent_doi": "https://doi.org/10.5281/zenodo.18930220",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18930220",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:18971639/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:18971639/sequence/default",
+    "files": "https://zenodo.org/api/records/18971639/files",
+    "media_files": "https://zenodo.org/api/records/18971639/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:18971639:comprehensive_paper.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "archive": "https://zenodo.org/api/records/18971639/files-archive",
+    "archive_media": "https://zenodo.org/api/records/18971639/media-files-archive",
+    "latest": "https://zenodo.org/api/records/18971639/versions/latest",
+    "latest_html": "https://zenodo.org/records/18971639/latest",
+    "versions": "https://zenodo.org/api/records/18971639/versions",
+    "draft": "https://zenodo.org/api/records/18971639/draft",
+    "access_links": "https://zenodo.org/api/records/18971639/access/links",
+    "access_grants": "https://zenodo.org/api/records/18971639/access/grants",
+    "access_users": "https://zenodo.org/api/records/18971639/access/users",
+    "access_request": "https://zenodo.org/api/records/18971639/access/request",
+    "access": "https://zenodo.org/api/records/18971639/access",
+    "communities": "https://zenodo.org/api/records/18971639/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/18971639/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/18971639/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/18971639/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/18971639/quota-increase",
+    "requests": "https://zenodo.org/api/records/18971639/requests"
+  },
+  "updated": "2026-03-12T00:03:03.669258+00:00",
+  "recid": "18971639",
+  "revision": 3,
+  "files": [
+    {
+      "id": "35d8abdb-d8c5-4151-a318-f5f565319487",
+      "key": "comprehensive_paper.pdf",
+      "size": 147349,
+      "checksum": "md5:6636a82be94d30f1c0e2ad09065e278a",
+      "links": {
+        "self": "https://zenodo.org/api/records/18971639/files/comprehensive_paper.pdf/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1565955"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 23,
+    "unique_downloads": 20,
+    "views": 54,
+    "unique_views": 53,
+    "version_downloads": 11,
+    "version_unique_downloads": 9,
+    "version_unique_views": 25,
+    "version_views": 25
+  },
+  "state": "done",
+  "submitted": true
+}

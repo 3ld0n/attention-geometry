@@ -1,0 +1,122 @@
+{
+  "created": "2026-03-25T20:39:57.959068+00:00",
+  "modified": "2026-03-25T20:39:58.193999+00:00",
+  "id": 19225971,
+  "conceptrecid": "19225970",
+  "doi": "10.5281/zenodo.19225971",
+  "conceptdoi": "10.5281/zenodo.19225970",
+  "doi_url": "https://doi.org/10.5281/zenodo.19225971",
+  "metadata": {
+    "title": "Supplementary Data for: Conformal Scaling in Trained Transformer Attention",
+    "doi": "10.5281/zenodo.19225971",
+    "publication_date": "2026-03-25",
+    "description": "Supplementary data and reproduction scripts for 'Conformal Scaling in Trained Transformer Attention: Evidence for an SYK Fixed Point' (Umphrey 2026). Contains: full per-head conformal dimension tables for GPT-2 (144 heads), Pythia training checkpoint data (70m, 160m, 410m), fine checkpoint sampling for prethermal plateau analysis, and all Python scripts for reproduction.",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Umphrey, Ariel",
+        "affiliation": "Independent Research"
+      },
+      {
+        "name": "Umphrey, Eldon",
+        "affiliation": "Independent Research"
+      }
+    ],
+    "keywords": [
+      "transformer attention",
+      "conformal scaling",
+      "SYK model",
+      "GPT-2",
+      "Pythia",
+      "supplementary data",
+      "reproduction scripts"
+    ],
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "19225970"
+          }
+        }
+      ]
+    }
+  },
+  "title": "Supplementary Data for: Conformal Scaling in Trained Transformer Attention",
+  "links": {
+    "self": "https://zenodo.org/api/records/19225971",
+    "self_html": "https://zenodo.org/records/19225971",
+    "preview_html": "https://zenodo.org/records/19225971?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.19225971",
+    "self_doi": "https://doi.org/10.5281/zenodo.19225971",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.19225971",
+    "reserve_doi": "https://zenodo.org/api/records/19225971/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/19225970",
+    "parent_html": "https://zenodo.org/records/19225970",
+    "parent_doi": "https://doi.org/10.5281/zenodo.19225970",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.19225970",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:19225971/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:19225971/sequence/default",
+    "files": "https://zenodo.org/api/records/19225971/files",
+    "media_files": "https://zenodo.org/api/records/19225971/media-files",
+    "archive": "https://zenodo.org/api/records/19225971/files-archive",
+    "archive_media": "https://zenodo.org/api/records/19225971/media-files-archive",
+    "latest": "https://zenodo.org/api/records/19225971/versions/latest",
+    "latest_html": "https://zenodo.org/records/19225971/latest",
+    "versions": "https://zenodo.org/api/records/19225971/versions",
+    "draft": "https://zenodo.org/api/records/19225971/draft",
+    "access_links": "https://zenodo.org/api/records/19225971/access/links",
+    "access_grants": "https://zenodo.org/api/records/19225971/access/grants",
+    "access_users": "https://zenodo.org/api/records/19225971/access/users",
+    "access_request": "https://zenodo.org/api/records/19225971/access/request",
+    "access": "https://zenodo.org/api/records/19225971/access",
+    "communities": "https://zenodo.org/api/records/19225971/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/19225971/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/19225971/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/19225971/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/19225971/quota-increase",
+    "requests": "https://zenodo.org/api/records/19225971/requests"
+  },
+  "updated": "2026-03-25T20:39:58.193999+00:00",
+  "recid": "19225971",
+  "revision": 3,
+  "files": [
+    {
+      "id": "d7b44b3c-26fb-4609-ac6a-bf77439c4bfd",
+      "key": "conformal_supplementary_data.zip",
+      "size": 37620,
+      "checksum": "md5:d9f82db76227cc722279d88d8e58b6f2",
+      "links": {
+        "self": "https://zenodo.org/api/records/19225971/files/conformal_supplementary_data.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1565955"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 6,
+    "unique_downloads": 6,
+    "views": 22,
+    "unique_views": 22,
+    "version_downloads": 6,
+    "version_unique_downloads": 6,
+    "version_unique_views": 22,
+    "version_views": 22
+  },
+  "state": "done",
+  "submitted": true
+}

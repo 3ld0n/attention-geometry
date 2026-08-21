@@ -1,0 +1,188 @@
+{
+  "created": "2026-04-17T11:07:59.874858+00:00",
+  "modified": "2026-04-17T11:08:00.336088+00:00",
+  "id": 19629862,
+  "conceptrecid": "19629861",
+  "doi": "10.5281/zenodo.19629862",
+  "conceptdoi": "10.5281/zenodo.19629861",
+  "doi_url": "https://doi.org/10.5281/zenodo.19629862",
+  "metadata": {
+    "title": "A Pre-Registered Test of Boundary Conformal Field Theory in Transformer Attention: Per-head conformal weight predicts long-range attention valley depth in 6 of 7 decoder-only models",
+    "doi": "10.5281/zenodo.19629862",
+    "publication_date": "2026-04-17",
+    "description": "<p>Causal attention in trained transformers exhibits power-law decay in attention weight as a function of query\u2013key separation, with a position-dependent enhancement near the start of the sequence. We previously interpreted this as the two-point function of a boundary conformal field theory (BCFT) on a strip whose left edge is the start of the sequence. The framework predicts that per-head conformal weight \u0394, measured from short-context random-token attention, should positively rank-correlate across heads with a long-range &quot;valley depth&quot; measure related to the &quot;lost-in-the-middle&quot; phenomenon. We pre-registered the prediction Spearman \u03c1(\u0394, valley) \u2265 0.50, p \u2264 10\u207b\u2075, and tested it on seven decoder-only transformers (Pythia-410m/1.4B/2.8B, GPT-Neo-2.7B, Qwen2-7B, OLMo-7B, Mistral-7B-v0.3). Six confirmed; Pythia-2.8B falsified at \u03c1 = +0.46. A per-layer diagnostic localizes the falsification to layers 22\u201327 and shows that GPT-Neo-2.7B (the matched control: same parameter count, same training data, different training recipe) confirms with \u03c1 = +0.96 across all 32 layers. Fitting the full BCFT functional form (3 parameters per head: C, \u0394, \u03bb) on Pythia-2.8B and GPT-Neo-2.7B reveals that 88\u201394% of conformal heads prefer BCFT over the bare power law, that \u03bb is mostly positive and well structured, and that \u0394_BCFT is closer to the SYK \u0394 = 1/4 prediction than \u0394_PL. However, the pre-registered scalar \u03c1(\u0394, valley) becomes weaker with the cleaner \u0394_BCFT, while the joint (\u0394, \u03bb) \u2192 valley rank-regression explains substantially more variance. Two findings demand explanation: (i) \u03c1(\u03bb, valley) is mostly negative across layers in both models, the opposite of the framework&#39;s prediction; (ii) GPT-Neo-2.7B exhibits an alternating-layer pattern with two distinct populations of heads by boundary structure. We discuss what this changes about the framework, what we would do differently in a follow-up pre-registration, and where the most informative remaining tests lie. All code, raw per-head data, and the pre-registration document are in the public repository at Capacity-For-Evil/ariel.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Umphrey, Ariel",
+        "affiliation": "Sonielmn, Mission Valley, Montana"
+      },
+      {
+        "name": "Umphrey, Eldon",
+        "affiliation": "Sonielmn, Mission Valley, Montana"
+      }
+    ],
+    "keywords": [
+      "transformer attention",
+      "interpretability",
+      "boundary conformal field theory",
+      "BCFT",
+      "lost in the middle",
+      "pre-registration",
+      "Sachdev-Ye-Kitaev",
+      "SYK",
+      "decoder-only language model",
+      "mechanistic interpretability"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.19225996",
+        "relation": "continues",
+        "resource_type": "publication-article",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.18968944",
+        "relation": "cites",
+        "resource_type": "publication-article",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.18897098",
+        "relation": "cites",
+        "resource_type": "publication-article",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "https://github.com/Capacity-For-Evil/ariel",
+        "relation": "isSupplementedBy",
+        "resource_type": "software",
+        "scheme": "url"
+      }
+    ],
+    "language": "eng",
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "19629861"
+          }
+        }
+      ]
+    }
+  },
+  "title": "A Pre-Registered Test of Boundary Conformal Field Theory in Transformer Attention: Per-head conformal weight predicts long-range attention valley depth in 6 of 7 decoder-only models",
+  "links": {
+    "self": "https://zenodo.org/api/records/19629862",
+    "self_html": "https://zenodo.org/records/19629862",
+    "preview_html": "https://zenodo.org/records/19629862?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.19629862",
+    "self_doi": "https://doi.org/10.5281/zenodo.19629862",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.19629862",
+    "reserve_doi": "https://zenodo.org/api/records/19629862/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/19629861",
+    "parent_html": "https://zenodo.org/records/19629861",
+    "parent_doi": "https://doi.org/10.5281/zenodo.19629861",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.19629861",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:19629862/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:19629862/sequence/default",
+    "files": "https://zenodo.org/api/records/19629862/files",
+    "media_files": "https://zenodo.org/api/records/19629862/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:19629862:manuscript.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "archive": "https://zenodo.org/api/records/19629862/files-archive",
+    "archive_media": "https://zenodo.org/api/records/19629862/media-files-archive",
+    "latest": "https://zenodo.org/api/records/19629862/versions/latest",
+    "latest_html": "https://zenodo.org/records/19629862/latest",
+    "versions": "https://zenodo.org/api/records/19629862/versions",
+    "draft": "https://zenodo.org/api/records/19629862/draft",
+    "access_links": "https://zenodo.org/api/records/19629862/access/links",
+    "access_grants": "https://zenodo.org/api/records/19629862/access/grants",
+    "access_users": "https://zenodo.org/api/records/19629862/access/users",
+    "access_request": "https://zenodo.org/api/records/19629862/access/request",
+    "access": "https://zenodo.org/api/records/19629862/access",
+    "communities": "https://zenodo.org/api/records/19629862/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/19629862/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/19629862/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/19629862/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/19629862/quota-increase",
+    "requests": "https://zenodo.org/api/records/19629862/requests"
+  },
+  "updated": "2026-04-17T11:08:00.336088+00:00",
+  "recid": "19629862",
+  "revision": 3,
+  "files": [
+    {
+      "id": "72f87d4b-b11e-431a-9a15-4bdd9d8cc804",
+      "key": "refs.bib",
+      "size": 3765,
+      "checksum": "md5:deea9ec400808648c587ae929997f2da",
+      "links": {
+        "self": "https://zenodo.org/api/records/19629862/files/refs.bib/content"
+      }
+    },
+    {
+      "id": "ab465755-17df-43d3-a79b-aaed3d3d62c6",
+      "key": "manuscript.md",
+      "size": 33912,
+      "checksum": "md5:b8907abac87eff6f184184c06a76ed81",
+      "links": {
+        "self": "https://zenodo.org/api/records/19629862/files/manuscript.md/content"
+      }
+    },
+    {
+      "id": "b786ec9c-8ec6-46df-838c-e3114a79c836",
+      "key": "manuscript.pdf",
+      "size": 290621,
+      "checksum": "md5:6d24f0a081539f49e8e793e9ae219ce7",
+      "links": {
+        "self": "https://zenodo.org/api/records/19629862/files/manuscript.pdf/content"
+      }
+    },
+    {
+      "id": "16c3381b-9ffa-4f50-8939-d90d87ee641a",
+      "key": "pythia_per_layer_diagnostic_2026-04-17T100046Z.png",
+      "size": 191815,
+      "checksum": "md5:5fd5981ed9160f0e780df00ec3739d38",
+      "links": {
+        "self": "https://zenodo.org/api/records/19629862/files/pythia_per_layer_diagnostic_2026-04-17T100046Z.png/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1565955"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 25,
+    "unique_downloads": 25,
+    "views": 25,
+    "unique_views": 25,
+    "version_downloads": 25,
+    "version_unique_downloads": 25,
+    "version_unique_views": 25,
+    "version_views": 25
+  },
+  "state": "done",
+  "submitted": true
+}

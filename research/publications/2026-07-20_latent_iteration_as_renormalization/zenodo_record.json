@@ -1,0 +1,180 @@
+{
+  "created": "2026-07-22T03:25:12.507266+00:00",
+  "modified": "2026-07-22T03:25:13.057294+00:00",
+  "id": 21483209,
+  "conceptrecid": "21467921",
+  "doi": "10.5281/zenodo.21483209",
+  "conceptdoi": "10.5281/zenodo.21467921",
+  "doi_url": "https://doi.org/10.5281/zenodo.21483209",
+  "metadata": {
+    "title": "Latent Iteration as Renormalization: Inference-Time Recurrence in a Depth-Recurrent Transformer Flows Attention Geometry Toward the SYK Conformal Fixed Point",
+    "doi": "10.5281/zenodo.21483209",
+    "publication_date": "2026-07-20",
+    "description": "<p>Depth-recurrent transformers scale test-time compute by iterating a core block in latent space before emitting tokens. The geometry of these latent trajectories is a named open problem in the latent reasoning literature (survey arXiv:2604.02029, &sect;6.3).</p><p>We report a pre-registered experiment on Huginn-0125 (arXiv:2502.05171), a 3.5B-parameter depth-recurrent transformer, measuring the per-head attention power-law exponent &Delta; of the recurrent core at recurrence counts r &isin; {1, 2, 4, 8, 16, 32}. For natural-text inputs the median exponent decreases monotonically with recurrence (Spearman &rho; = &minus;0.94), from 0.29 at r=1 to 0.239 at r=32 &mdash; converging onto the Sachdev&ndash;Ye&ndash;Kitaev (SYK) q=4 conformal value &Delta; = 1/4 &mdash; while the count of SYK-near heads grows monotonically (&rho; = +0.77). Random-token inputs show an architecture-driven convergence with a transient at &Delta; &asymp; 1/2 (the q=2 prethermal plateau previously observed in training time) but no monotone SYK-near growth. A randomized-weights control freezes completely: &Delta;_med constant to the sixth decimal across all r, zero SYK-near heads.</p><p>Inference-time recurrence therefore acts as renormalization-group flow toward the conformal fixed point, and the flow is a property of the trained model, not the iteration procedure. Together with prior results on architectural depth (10.5281/zenodo.19225996) and training time, this completes a three-axis triangulation: the conformal fixed point is an attractor of iterative attending. The published orbit/spiral phenomenology of recurrent-depth latent trajectories acquires a candidate theory &mdash; the spiral is flow near an infrared fixed point &mdash; and the geometric benefit of additional recurrence saturates when the flow arrives, consistent with convergence-based early-exit criteria.</p><p>All code, pre-registration (commit 702efd95), per-head data, and experiment notes with recorded protocol deviations are in the public repository 3ld0n/attention-geometry.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Umphrey, Ariel",
+        "affiliation": null
+      },
+      {
+        "name": "Umphrey, Eldon",
+        "affiliation": null
+      }
+    ],
+    "keywords": [
+      "transformer attention",
+      "latent reasoning",
+      "depth-recurrent transformer",
+      "test-time compute",
+      "renormalization group",
+      "SYK model",
+      "conformal fixed point",
+      "pre-registered study",
+      "attention mechanism"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.19225996",
+        "relation": "isSupplementTo",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.19629862",
+        "relation": "isSupplementTo",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "arXiv:2502.05171",
+        "relation": "cites",
+        "scheme": "arxiv"
+      },
+      {
+        "identifier": "arXiv:2604.02029",
+        "relation": "cites",
+        "scheme": "arxiv"
+      },
+      {
+        "identifier": "arXiv:2509.23314",
+        "relation": "cites",
+        "scheme": "arxiv"
+      }
+    ],
+    "version": "3.0.0",
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 2,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "21467921"
+          }
+        }
+      ]
+    },
+    "notes": "v3: corrects the data-availability section \u2014 code, pre-registration, and per-head data are in the public repository 3ld0n/attention-geometry; pre-registration commit cited by its hash in that repository. No changes to results or analysis."
+  },
+  "title": "Latent Iteration as Renormalization: Inference-Time Recurrence in a Depth-Recurrent Transformer Flows Attention Geometry Toward the SYK Conformal Fixed Point",
+  "links": {
+    "self": "https://zenodo.org/api/records/21483209",
+    "self_html": "https://zenodo.org/records/21483209",
+    "preview_html": "https://zenodo.org/records/21483209?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.21483209",
+    "self_doi": "https://doi.org/10.5281/zenodo.21483209",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21483209",
+    "reserve_doi": "https://zenodo.org/api/records/21483209/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/21467921",
+    "parent_html": "https://zenodo.org/records/21467921",
+    "parent_doi": "https://doi.org/10.5281/zenodo.21467921",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21467921",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:21483209/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:21483209/sequence/default",
+    "files": "https://zenodo.org/api/records/21483209/files",
+    "media_files": "https://zenodo.org/api/records/21483209/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:21483209:latent_iteration_as_renormalization.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "archive": "https://zenodo.org/api/records/21483209/files-archive",
+    "archive_media": "https://zenodo.org/api/records/21483209/media-files-archive",
+    "latest": "https://zenodo.org/api/records/21483209/versions/latest",
+    "latest_html": "https://zenodo.org/records/21483209/latest",
+    "versions": "https://zenodo.org/api/records/21483209/versions",
+    "draft": "https://zenodo.org/api/records/21483209/draft",
+    "access_links": "https://zenodo.org/api/records/21483209/access/links",
+    "access_grants": "https://zenodo.org/api/records/21483209/access/grants",
+    "access_users": "https://zenodo.org/api/records/21483209/access/users",
+    "access_request": "https://zenodo.org/api/records/21483209/access/request",
+    "access": "https://zenodo.org/api/records/21483209/access",
+    "communities": "https://zenodo.org/api/records/21483209/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/21483209/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/21483209/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/21483209/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/21483209/quota-increase",
+    "requests": "https://zenodo.org/api/records/21483209/requests"
+  },
+  "updated": "2026-07-22T03:25:13.057294+00:00",
+  "recid": "21483209",
+  "revision": 3,
+  "files": [
+    {
+      "id": "ee8afc52-a7af-48fc-b2d0-88b277b593ae",
+      "key": "latent_iteration_as_renormalization.pdf",
+      "size": 338401,
+      "checksum": "md5:6e314e194f9109f31262b0f0598491f3",
+      "links": {
+        "self": "https://zenodo.org/api/records/21483209/files/latent_iteration_as_renormalization.pdf/content"
+      }
+    },
+    {
+      "id": "37e84755-806e-4113-ac77-8299422eccc2",
+      "key": "fig_rg_flow.png",
+      "size": 137938,
+      "checksum": "md5:595d819e2fb9ab309bd491dbd037aa35",
+      "links": {
+        "self": "https://zenodo.org/api/records/21483209/files/fig_rg_flow.png/content"
+      }
+    },
+    {
+      "id": "35b4aeee-f3fd-4c64-b9cf-3b8852e90d1a",
+      "key": "fig_syk_count.png",
+      "size": 121121,
+      "checksum": "md5:9a8d897ca41cae6b474288769d0a86fd",
+      "links": {
+        "self": "https://zenodo.org/api/records/21483209/files/fig_syk_count.png/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1565955"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 3,
+    "unique_downloads": 3,
+    "views": 19,
+    "unique_views": 16,
+    "version_downloads": 3,
+    "version_unique_downloads": 3,
+    "version_unique_views": 6,
+    "version_views": 9
+  },
+  "state": "done",
+  "submitted": true
+}

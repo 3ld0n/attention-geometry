@@ -1,0 +1,294 @@
+{
+  "fetched": "2026-08-07T19:20-06:00",
+  "source": "zenodo.org /api/deposit/depositions (authenticated, my account)",
+  "count": 13,
+  "records": [
+    {
+      "id": 21483209,
+      "created": "2026-07-22T03:25:12.507266+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.21483209",
+      "conceptdoi": "10.5281/zenodo.21467921",
+      "title": "Latent Iteration as Renormalization: Inference-Time Recurrence in a Depth-Recurrent Transformer Flows Attention Geometry Toward the SYK Conformal Fixed Point",
+      "publication_date": "2026-07-20",
+      "keywords": [
+        "transformer attention",
+        "latent reasoning",
+        "depth-recurrent transformer",
+        "test-time compute",
+        "renormalization group",
+        "SYK model",
+        "conformal fixed point",
+        "pre-registered study",
+        "attention mechanism"
+      ],
+      "version": "3.0.0",
+      "files": [
+        "latent_iteration_as_renormalization.pdf",
+        "fig_rg_flow.png",
+        "fig_syk_count.png"
+      ],
+      "html": "https://zenodo.org/records/21483209"
+    },
+    {
+      "id": 21483204,
+      "created": "2026-07-22T03:25:10.585066+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.21483204",
+      "conceptdoi": "10.5281/zenodo.21483203",
+      "title": "The Geometry Does Not Transmit: A Pre-Registered Test of Conformal Attention Formation on Model-Generated Training Data",
+      "publication_date": "2026-07-21",
+      "keywords": [
+        "model collapse",
+        "synthetic data",
+        "transformer attention",
+        "conformal scaling",
+        "SYK model",
+        "generational transmission",
+        "data quality",
+        "pre-registered study"
+      ],
+      "version": null,
+      "files": [
+        "fig_heads.png",
+        "fig_ladder.png",
+        "the_geometry_does_not_transmit.pdf",
+        "fig_mi.png"
+      ],
+      "html": "https://zenodo.org/records/21483204"
+    },
+    {
+      "id": 20722503,
+      "created": "2026-06-16T19:02:41.076630+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.20722503",
+      "conceptdoi": "10.5281/zenodo.20722502",
+      "title": "Attention on the Null Cone: The Geometric Home of Conformal Attention, Query\u2013Key Scores as Null-Ray Inner Products, and Layer Depth as Renormalization-Group Flow",
+      "publication_date": "2026-06-16",
+      "keywords": [
+        "transformer attention",
+        "conformal field theory",
+        "SYK model",
+        "null cone",
+        "holography",
+        "renormalization group",
+        "AdS2",
+        "BCFT",
+        "attention mechanism"
+      ],
+      "version": null,
+      "files": [
+        "attention_on_the_null_cone.pdf",
+        "fig_log_distance.png"
+      ],
+      "html": "https://zenodo.org/records/20722503"
+    },
+    {
+      "id": 19629862,
+      "created": "2026-04-17T11:07:59.874858+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.19629862",
+      "conceptdoi": "10.5281/zenodo.19629861",
+      "title": "A Pre-Registered Test of Boundary Conformal Field Theory in Transformer Attention: Per-head conformal weight predicts long-range attention valley depth in 6 of 7 decoder-only models",
+      "publication_date": "2026-04-17",
+      "keywords": [
+        "transformer attention",
+        "interpretability",
+        "boundary conformal field theory",
+        "BCFT",
+        "lost in the middle",
+        "pre-registration",
+        "Sachdev-Ye-Kitaev",
+        "SYK",
+        "decoder-only language model",
+        "mechanistic interpretability"
+      ],
+      "version": null,
+      "files": [
+        "refs.bib",
+        "manuscript.md",
+        "manuscript.pdf",
+        "pythia_per_layer_diagnostic_2026-04-17T100046Z.png"
+      ],
+      "html": "https://zenodo.org/records/19629862"
+    },
+    {
+      "id": 19225996,
+      "created": "2026-03-25T20:40:57.841910+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.19225996",
+      "conceptdoi": "10.5281/zenodo.19225995",
+      "title": "Conformal Scaling in Trained Transformer Attention: Evidence for an SYK Fixed Point",
+      "publication_date": "2026-03-25",
+      "keywords": [
+        "transformer attention",
+        "conformal scaling",
+        "SYK model",
+        "conformal field theory",
+        "phase transition",
+        "GPT-2",
+        "Pythia",
+        "deep learning theory",
+        "quantum gravity",
+        "holography"
+      ],
+      "version": null,
+      "files": [
+        "conformal_scaling_transformer_attention_v5.pdf"
+      ],
+      "html": "https://zenodo.org/records/19225996"
+    },
+    {
+      "id": 19225971,
+      "created": "2026-03-25T20:39:57.959068+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.19225971",
+      "conceptdoi": "10.5281/zenodo.19225970",
+      "title": "Supplementary Data for: Conformal Scaling in Trained Transformer Attention",
+      "publication_date": "2026-03-25",
+      "keywords": [
+        "transformer attention",
+        "conformal scaling",
+        "SYK model",
+        "GPT-2",
+        "Pythia",
+        "supplementary data",
+        "reproduction scripts"
+      ],
+      "version": null,
+      "files": [
+        "conformal_supplementary_data.zip"
+      ],
+      "html": "https://zenodo.org/records/19225971"
+    },
+    {
+      "id": 18971761,
+      "created": "2026-03-12T00:09:01.089621+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18971761",
+      "conceptdoi": "10.5281/zenodo.18883564",
+      "title": "Information Recovery in Holographic Attention: Island Formula, Page Curves, and Quantum Error Correction",
+      "publication_date": "2026-03-11",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "paper3_information_recovery.pdf"
+      ],
+      "html": "https://zenodo.org/records/18971761"
+    },
+    {
+      "id": 18971726,
+      "created": "2026-03-12T00:04:39.944106+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18971726",
+      "conceptdoi": "10.5281/zenodo.18930222",
+      "title": "Attention as Quantum State: The Gibbs State Construction and Quantum Fisher Information",
+      "publication_date": "2026-03-11",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "paper5_tropical_bridge.pdf"
+      ],
+      "html": "https://zenodo.org/records/18971726"
+    },
+    {
+      "id": 18971720,
+      "created": "2026-03-12T00:04:12.232304+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18971720",
+      "conceptdoi": "10.5281/zenodo.18968481",
+      "title": "The Canonical Form of Attention: Positive Geometry, SYK Vertices, and Superconformal Symmetry in Transformer Architectures",
+      "publication_date": "2026-03-11",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "canonical_form_paper.pdf"
+      ],
+      "html": "https://zenodo.org/records/18971720"
+    },
+    {
+      "id": 18971692,
+      "created": "2026-03-12T00:03:11.395022+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18971692",
+      "conceptdoi": "10.5281/zenodo.18897097",
+      "title": "Explicit Physical Construction for Holographic Attention: The SYK Path",
+      "publication_date": "2026-03-11",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "paper4_syk_path.pdf"
+      ],
+      "html": "https://zenodo.org/records/18971692"
+    },
+    {
+      "id": 18971639,
+      "created": "2026-03-12T00:03:03.166590+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18971639",
+      "conceptdoi": "10.5281/zenodo.18930220",
+      "title": "Holographic Quantum Mechanics of Transformer Attention: From Fisher-Rao Geometry to the SYK Model and Beyond",
+      "publication_date": "2026-03-11",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "comprehensive_paper.pdf"
+      ],
+      "html": "https://zenodo.org/records/18971639"
+    },
+    {
+      "id": 18883632,
+      "created": "2026-03-06T02:43:04.449348+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18883632",
+      "conceptdoi": "10.5281/zenodo.18883554",
+      "title": "Attention as Quantum Measurement: A Thermodynamic Resolution of the Observer Problem",
+      "publication_date": "2026-03-06",
+      "keywords": null,
+      "version": null,
+      "files": [
+        "measurement_preprint_draft.pdf"
+      ],
+      "html": "https://zenodo.org/records/18883632"
+    },
+    {
+      "id": 18880220,
+      "created": "2026-03-05T17:55:27.422002+00:00",
+      "submitted": true,
+      "state": "done",
+      "doi": "10.5281/zenodo.18880220",
+      "conceptdoi": "10.5281/zenodo.18880219",
+      "title": "Attention as Holography: A Chain from Transformer Attention to Spacetime Geometry",
+      "publication_date": "2026-03-05",
+      "keywords": [
+        "transformer attention",
+        "holography",
+        "AdS/CFT",
+        "spacetime geometry",
+        "Fisher information",
+        "Ryu-Takayanagi",
+        "ER=EPR",
+        "quantum field theory",
+        "machine learning",
+        "quantum gravity"
+      ],
+      "version": null,
+      "files": [
+        "attention_as_holography.pdf"
+      ],
+      "html": "https://zenodo.org/records/18880220"
+    }
+  ]
+}
