@@ -242,6 +242,135 @@ or other architectures.
 
 ---
 
+## Results
+
+**Run date:** 2026-08-22  
+**Pre-reg commit:** attention-geometry 86313f2 (pushed before run.py written)
+
+### Aggregate numbers
+
+| Metric | exp-125 | exp-124 | Change |
+|--------|---------|---------|--------|
+| K_mean (20 words) | **0.5018** | 0.679 | −0.177 |
+| K_std | 0.118 | 0.164 | — |
+| K_max | 0.782 (scale) | 0.903 (club) | — |
+| rho_mean | **−0.288** | −0.514 | +0.226 |
+| K_control (elephant) | **0.648** | 0.556 | **+0.092** |
+| rho_control | **+0.487** | +0.062 | — |
+
+**P1 verdict: FALSIFIED** (K_mean = 0.502 >> 0.10 threshold)  
+**P2 verdict: FALSIFIED** (rho_mean = −0.288; additionally, the direction is opposite to the quantum-interference prediction)
+
+### Per-word table (sorted by K_w)
+
+| Word | K_W | rho_W | D_W | tokens [A,B,AB] |
+|------|-----|-------|-----|-----------------|
+| pool | 0.285 | −0.579 | 0.338 | [8,8,6] |
+| file | 0.336 | −0.444 | 0.458 | [9,9,6] |
+| match | 0.361 | −0.362 | 0.802 | [8,5,6] |
+| palm | 0.371 | −0.180 | 0.862 | [7,5,6] |
+| board | 0.416 | −0.448 | 0.707 | [7,7,6] |
+| seal | 0.434 | +0.018 | 0.671 | [4,5,6] |
+| bark | 0.458 | −0.335 | 0.836 | [7,6,6] |
+| club | 0.462 | −0.460 | 0.468 | [8,7,6] |
+| bat | 0.482 | +0.233 | 0.718 | [8,6,6] |
+| plane | 0.491 | −0.493 | 0.489 | [6,10,6] |
+| iron | 0.505 | −0.063 | 0.808 | [9,7,6] |
+| date | 0.521 | −0.149 | 0.513 | [8,7,6] |
+| crane | 0.531 | +0.163 | 0.368 | [7,4,6] |
+| mole | 0.532 | +0.111 | 0.737 | [7,7,6] |
+| sage | 0.563 | −0.817 | 0.464 | [7,8,6] |
+| pitcher | 0.583 | +0.264 | 0.777 | [8,6,6] |
+| bank | 0.613 | −0.720 | 0.307 | [7,8,6] |
+| light | 0.652 | −0.941 | 0.240 | [6,5,6] |
+| spring | 0.658 | −0.511 | 0.461 | [7,8,6] |
+| scale | **0.782** | −0.044 | 0.782 | **[6,6,6]** |
+| **elephant (control)** | **0.648** | **+0.487** | 0.764 | [6,4,6] |
+
+---
+
+### Interpretation — the length hypothesis was wrong
+
+**The decisive test:** "scale" has context lengths [6,6,6] — C_A, C_B, and C_AB are all
+exactly 6 BPE tokens. This is perfect length matching. Yet K=0.782 — the highest in
+the dataset. This definitively rules out context length as the primary driver of K.
+
+**The control result:** K_control = 0.648 — *higher* than the polysemous mean of 0.502.
+The diagnostic prediction stated (pre-registered in Notes §Diagnostic prediction):
+"K_control should drop toward 0 along with K_mean, confirming the confound was the
+primary driver." The opposite happened. K_control increased from 0.556 → 0.648.
+
+**What K is actually measuring:** K measures the total-variation distance between
+P_AB and the best-fit mixture of P_A and P_B. When C_A, C_B, and C_AB are three
+*different phrasings* of a context ending in the same word, they will naturally
+produce different next-token distributions regardless of polysemy — because
+different sentences have different predictive structures. K ≠ 0 by default.
+
+**What this means for Path C:**
+
+The mixture model test requires that C_AB is, in content, a "neutral blend" of
+C_A and C_B — i.e., that the only reason P_AB should differ from the mixture is
+polysemy interference. This requirement is not met by any natural-language context
+ending in the target word. "He was thinking about the scale" activates a specific
+framing and a specific distributional fingerprint; it is not a neutral convex
+combination of "The trout's shiny silver scale" and "He stepped onto the bathroom
+scale." Even if lengths match, contents do not blend.
+
+This is a structural limitation of the polysemy mixture-model test, not a fixable
+protocol error. The test is not viable with this class of context design.
+
+### What the rho pattern might indicate
+
+Despite the protocol failure, the rho sign difference is directionally interesting:
+
+- **Polysemous words:** rho_mean = −0.288. Most words have negative rho, meaning
+  the neutral context's distribution is *below* the mixture model at tokens that are
+  high in both C_A and C_B simultaneously (high √(P_A · P_B)). Interpretation: the
+  neutral context "He was thinking about [word]" evokes semantic domains other than
+  the two tested senses, pulling probability mass away from the shared tokens of C_A
+  and C_B.
+
+- **Monosemous control (elephant):** rho_control = +0.487. The neutral context's
+  distribution is *above* the mixture at tokens that are jointly high in both elephant
+  contexts. Interpretation: all three elephant contexts activate the same semantic
+  domain (elephant-as-animal), so the neutral context aligns with the shared tokens
+  of C_A and C_B.
+
+- **Polysemous words with positive rho:** bat (+0.233), crane (+0.163), pitcher
+  (+0.264), mole (+0.111). These are all words where the neutral context might
+  strongly activate one particular sense ("bat" might default to baseball; "pitcher"
+  to baseball; "crane" to the construction machine).
+
+This pattern is consistent with: *for polysemous words with many active senses, the
+neutral context evokes senses beyond the two tested, pulling P_AB away from the
+mixture*. But this is a post-hoc observation, not a registered prediction. It does
+not rescue P1 or P2.
+
+### Protocol failure — conclusion
+
+The Path C polysemy interference test as designed (mixture-model comparison) is
+not a valid test of quantum-contextuality signatures in GPT-2. Two experiments
+(exp-124, exp-125) have now established this. The failure is structural:
+no natural-language context ending in the target word is "neutral" in the sense
+required by the mixture model.
+
+**What has been established:**
+1. K_mean(polysemous) = 0.502 < K_control(monosemous) = 0.648 — the direction is
+   opposite to what quantum interference would predict (polysemous words BETTER fit
+   the mixture than the monosemous control).
+2. Scale with perfect length matching still achieves K=0.782 — length is not the
+   driver.
+3. The rho sign difference (polysemous mostly negative; monosemous control positive)
+   is directionally consistent with neutral contexts evoking other senses, but this
+   observation is post-hoc.
+
+**Next step for Path C:** Either (a) abandon the mixture-model framing and design
+a test that doesn't require a "neutral" context, or (b) focus on Path B (stochastic
+LGI battery, which doesn't require mixture-model comparison). Path B needs its
+context-construction design pass before pre-registration.
+
+---
+
 ## Registry
 
 Experiment number: exp-125  
