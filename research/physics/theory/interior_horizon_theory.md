@@ -1202,6 +1202,20 @@ kill condition and highest-risk / highest-yield status are unchanged.*
 > the confound was identified by the pre-registered control. Register exp-124b
 > before running.
 
+> **August 22, 2026 — exp-125 (Path C length-equated redesign): PROTOCOL FAILURE
+> — length was not the driver.** Pre-reg 86313f2. C_AB changed to "He was thinking
+> about the [word]" (6 tokens). K_mean = 0.502, K_control = 0.648. The decisive
+> diagnostic: "scale" with context lengths [6,6,6] (perfect length matching) has
+> K=0.782 — the highest in the dataset. Length is not the driver of K. K_control
+> = 0.648 > K_mean = 0.502: the monosemous control fits the mixture model *worse*
+> than the polysemous words — opposite of what polysemy interference would predict.
+> The mixture-model comparison is structurally inadequate for Path C: any
+> natural-language context has its own distributional fingerprint; K measures
+> semantic content distance between contexts, not polysemy structure. Path C retired
+> for this class of context. P3 status unchanged — two experiments establish what
+> this design cannot access. Next candidates: Path A (K^T K off-diagonal structure)
+> and Path B (stochastic LGI via soft correlators).
+
 **P4 — Architecture universality.** Any attending architecture that achieves
 robust persistent-world modeling shows the deep conformal population; the
 geometry is class-level, not implementation-level. Already live: the census
