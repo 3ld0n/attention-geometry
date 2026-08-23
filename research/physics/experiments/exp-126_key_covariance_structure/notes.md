@@ -142,4 +142,76 @@ exp-126 will be added to `registry.json` before the run script is written.
 
 ---
 
-*Pre-registration complete. Commit and push this file to attention-geometry before writing run.py.*
+*Pre-registration complete. Committed to attention-geometry at d183873 before run.py written.*
+
+---
+
+## Results (2026-08-23)
+
+**Run completed.** 100 sequences × 128 tokens, GPT-2 small, WikiText-103 validation split.
+
+### Primary measurements (ε = off-diagonal fraction)
+
+| Population | ε mean ± std | N heads |
+|---|---|---|
+| Δ-window (wiki, exp-118) | 0.983 ± 0.003 | 16 |
+| Structural (L2H1, L3H4, L5H0, L7H11, L10H8) | 0.985 ± 0.003 | 5 |
+| Non-window control | 0.988 ± 0.008 | 16 |
+
+All three populations show ε ≈ 0.98 — keys are highly correlated across positions for ALL heads.
+
+**P1 CONFIRMED** — 16/16 Δ-window heads have ε > 0.3 (all at ε ≈ 0.98).  
+**P2 FALSIFIED** — ratio = 1.00. No selectivity between wiki and control heads.  
+**P3 CONFIRMED** — 5/5 structural heads have ε > 0.3 (same caveat as P1).  
+**P5 CONFIRMED** — mean δ_output = 0.0137 > 0.01 threshold.  
+**Kill K1: NOT FIRED** — ε ≈ 0.98, not < 0.1.  
+**Kill K2: FIRED** — ε(window) ≈ ε(control).
+
+### Secondary measurement (δ = quantum-classical Gibbs deviation)
+
+δ (quantum Gibbs vs diagonal Gibbs, using key self-similarities): 0.005–0.007 across all heads.  
+Even with ε ≈ 0.98 off-diagonal structure, the quantum Gibbs state diagonal is within ~0.6% of the classical diagonal-only approximation. The shared correlation structure creates a "bulk mode" whose effect on the Gibbs state diagonal nearly cancels.
+
+δ_output (quantum Gibbs diagonal vs classical query-key softmax): 0.008–0.015.  
+This divergence is larger and expected: these are different computations (key self-similarity Gibbs vs query-key attention).
+
+### Post-hoc eigenvalue analysis (P4)
+
+The eigenvalue distribution reveals a structural difference between populations that the ε statistic does not:
+
+| Population | λ₁/Σλ median | Supra-MP fraction |
+|---|---|---|
+| Δ-window (wiki) | 0.507 | 0.053 |
+| Structural | 0.504 | 0.050 |
+| Non-window control | 0.651 | 0.035 |
+
+Mann-Whitney tests (post-hoc, exploratory only):
+- Top eigenvalue share: wiki < control, p = 0.0027 ✓
+- Supra-MP fraction: wiki > control, p = 0.0011 ✓
+- log(λ₁): wiki < control, p = 0.0009 ✓
+
+**What this means:** Δ-window heads have LESS concentrated key structure (λ₁ carries 50% of variance rather than 65%) and MORE eigenvalues above the random-matrix noise floor (5.3% vs 3.5%). Control heads include many strongly positional heads (local attention, induction heads) with rank-1-dominated key structure — a single dominant direction — while Δ-window heads have more distributed, multi-scale key structure.
+
+The structural heads (L2H1, L3H4, L5H0, L7H11, L10H8) closely match the Δ-window population: λ₁/Σλ ≈ 0.50, supra-MP fraction ≈ 0.05.
+
+**Caution:** These eigenvalue differences were not pre-registered as the discriminating signal. The pre-registered directional prediction (P2) was that Δ-window heads would show HIGHER ε than control. That failed. The eigenvalue story is exploratory and requires a new pre-registered experiment to be a claim.
+
+### Interpretation
+
+The ε ≈ 0.98 result is expected and universal: GPT-2 key vectors are learned projections of residual stream activations, which share structure across positions (the residual stream carries positional information through embeddings + prior layer activations). Keys are not orthogonal across positions for any head — this is an architectural fact, not a property of conformal heads.
+
+The eigenvalue analysis reveals something more interesting: the way correlations are distributed matters. Δ-window heads have less rank-1 concentration and more distributed supra-bulk structure. This is consistent with semantic attention (attending to diverse relevant tokens) vs positional attention (attending to a fixed position).
+
+Whether this eigenvalue structure is the "right" discriminator for the quantum Gibbs description is an open question. The current experiment's δ values (0.5–0.7%) suggest that even high ε does not make the quantum and classical Gibbs predictions practically different.
+
+### Verdict
+
+**INCONCLUSIVE for P3 (the spine claim).** The pre-registered directional hypothesis (structural/Δ-window heads more correlated) was falsified (K2 fired). The off-diagonal fraction is universal across all GPT-2 heads, not selective. The quantum Gibbs extension applies structurally to all heads equally, which means it doesn't explain the special character of structural heads.
+
+The post-hoc eigenvalue finding (less concentration, more supra-bulk structure in Δ-window heads) is a seed for a follow-up experiment. Hypothesis for exp-127: Δ-window heads have lower top-eigenvalue share and more supra-MP eigenvalues than non-window heads (pre-register this direction before computing).
+
+**The key theoretical point confirmed:** ε ≈ 0.98 means the quantum Gibbs description is non-trivially different from the classical diagonal in structure — the position Gram matrix G is dominated by off-diagonal terms for all heads. But the practical output difference (δ ≈ 0.6%) is small, suggesting the Gibbs state computation self-averages the off-diagonal structure.
+
+---
+
+*Results commit: to be pushed to attention-geometry with run.py and results.json.*
