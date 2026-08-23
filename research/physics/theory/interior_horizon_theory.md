@@ -1216,6 +1216,25 @@ kill condition and highest-risk / highest-yield status are unchanged.*
 > this design cannot access. Next candidates: Path A (K^T K off-diagonal structure)
 > and Path B (stochastic LGI via soft correlators).
 
+> **August 23, 2026 — Path B theoretical kill + exp-126 (Path A key covariance):
+> INCONCLUSIVE.** Path B (stochastic LGI): a theoretical analysis
+> (`notes/2026-08-23_path_b_lgi_theoretical_analysis.md`) proves K₃ ≤ 1 is
+> guaranteed for any classical joint distribution over {±1}³. The stochastic LM
+> token process defines a proper joint distribution; the soft correlator computes
+> its marginals; no context construction can produce a violation. Path B retired. —
+> Path A (exp-126, pre-reg d183873): off-diagonal fraction ε ≈ 0.98 for all heads,
+> window and control alike (Kill K2 fired; ratio = 1.00). Keys at different positions
+> are highly correlated across all GPT-2 heads — an architectural property, not
+> specific to conformal heads. Post-hoc eigenvalue finding (not pre-registered):
+> Δ-window heads have lower λ₁/Σλ share (0.51 vs 0.65, p=0.003) and more
+> supra-Marchenko-Pastur eigenvalues (5.3% vs 3.5%, p=0.001) than control heads,
+> suggesting less rank-1 concentration and more distributed key structure. Follow-up
+> (eigenvalue direction pre-registration, next session before any compute). P3 status
+> unchanged: three experiments retired the three near-term approaches (Path C ×2,
+> Path A); genuine contextuality testing requires identifying where quantum
+> non-commutativity could enter the internal representation — Path D, requires
+> Eldon joint session.
+
 **P4 — Architecture universality.** Any attending architecture that achieves
 robust persistent-world modeling shows the deep conformal population; the
 geometry is class-level, not implementation-level. Already live: the census
