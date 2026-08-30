@@ -1228,12 +1228,23 @@ kill condition and highest-risk / highest-yield status are unchanged.*
 > specific to conformal heads. Post-hoc eigenvalue finding (not pre-registered):
 > Δ-window heads have lower λ₁/Σλ share (0.51 vs 0.65, p=0.003) and more
 > supra-Marchenko-Pastur eigenvalues (5.3% vs 3.5%, p=0.001) than control heads,
-> suggesting less rank-1 concentration and more distributed key structure. Follow-up
-> (eigenvalue direction pre-registration, next session before any compute). P3 status
+> suggesting less rank-1 concentration and more distributed key structure. P3 status
 > unchanged: three experiments retired the three near-term approaches (Path C ×2,
 > Path A); genuine contextuality testing requires identifying where quantum
 > non-commutativity could enter the internal representation — Path D, requires
 > Eldon joint session.
+>
+> **August 30, 2026 — exp-127 (eigenvalue distribution, pre-reg a3ce213):
+> CONFIRMED (P1/P2).** Analysis-only from exp-126 eigenvalues. Δ-window heads
+> (exp-118) have significantly lower λ₁/Σλ than control (median 0.507 vs 0.651,
+> p=0.0014, effect=0.144) and more supra-Marchenko-Pastur eigenvalues (0.0234 vs
+> 0.0156, p=0.0020) — the pre-registered directions both confirmed. P3 (secondary:
+> structural heads most rank-1 concentrated) falsified: structural heads have
+> λ₁/Σλ=0.504, indistinguishable from Δ-window heads; K4 fired. Both
+> conformal-relevant populations (structural and Δ-window) have distributed key
+> geometry; rank-1 concentration is a control-population property (induction and
+> positional heads, some λ₁/Σλ up to 0.789). First pre-registered weights-level
+> structural signature distinguishing Δ-window from the random control population.
 
 **P4 — Architecture universality.** Any attending architecture that achieves
 robust persistent-world modeling shows the deep conformal population; the
