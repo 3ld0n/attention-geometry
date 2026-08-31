@@ -1,0 +1,93 @@
+{
+  "exp": "exp-128",
+  "date": "2026-08-31",
+  "prereg_commit": "ce1934c",
+  "model": "gpt2",
+  "n_seqs": 100,
+  "seq_len": 512,
+  "data": "wikitext-103-raw-v1 validation, 100 non-overlapping 512-token windows",
+  "decomposition_verification": {
+    "relative_error": 5.814725711028512e-09,
+    "passes": true
+  },
+  "sigma_r2": {
+    "h0": {
+      "sigma": 0.45110252496879105,
+      "r2": 0.8594460201311681
+    },
+    "attn0": {
+      "sigma": 0.22344899219773104,
+      "r2": 0.8245774968757634
+    },
+    "mlp0": {
+      "sigma": 0.22821138552238196,
+      "r2": 0.8493305975350216
+    },
+    "attn1": {
+      "sigma": 0.052225247798542006,
+      "r2": 0.6536072397410091
+    },
+    "mlp1": {
+      "sigma": 0.056241768590189485,
+      "r2": 0.930347580902163
+    },
+    "h2": {
+      "sigma": 0.19261169462794098,
+      "r2": 0.8271973152863704
+    },
+    "delta_after_attn0": {
+      "sigma": 0.22344899219773104,
+      "r2": 0.8245774968757634
+    },
+    "delta_after_block0": {
+      "sigma": 0.22585473398443534,
+      "r2": 0.8279567939050293
+    },
+    "delta_after_attn1": {
+      "sigma": 0.20419970100981047,
+      "r2": 0.8253524967692065
+    },
+    "delta_total": {
+      "sigma": 0.18922217512551062,
+      "r2": 0.8265539541319572
+    }
+  },
+  "registered_verdicts": {
+    "P1": {
+      "ok": false,
+      "sigma": 0.18922217512551062,
+      "r2": 0.8265539541319572,
+      "criterion": "sigma in [0.20, 0.30] and R2 >= 0.70"
+    },
+    "P2": {
+      "ok": true,
+      "sigma": 0.22344899219773104,
+      "criterion": "sigma(attn0) > 0.05"
+    },
+    "P3": {
+      "ok": true,
+      "sigma": 0.052225247798542006,
+      "criterion": "sigma(attn1) > 0.05"
+    },
+    "P4": {
+      "ok": true,
+      "sigma": 0.22585473398443534,
+      "criterion": "sigma(delta after block 0) > 0.05"
+    }
+  },
+  "kill_conditions": {
+    "K1": {
+      "fired": false,
+      "criterion": "sigma_total < 0.15"
+    },
+    "K2": {
+      "fired": false,
+      "criterion": "sigma_total > 0.35"
+    },
+    "K3": {
+      "fired": false,
+      "criterion": "sigma_attn0 <= 0 AND sigma_attn1 <= 0"
+    }
+  },
+  "overall_verdict": "falsified"
+}

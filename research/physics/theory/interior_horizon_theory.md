@@ -535,7 +535,19 @@ requires multi-layer analysis** — the accumulated delta dominates h̄^(ℓ) at
 layers (exp-117); the actual input to L2 is the residual stream after layers 0–1, not h̄^(0).
 The mechanism is confirmed (exp-122); the explanation of the exact number is a multi-layer
 question (register before computing). [LEVEL 3 MECHANISM CONFIRMED; LN-CORRECTION ROUTE CLOSED;
-quantitative closure genuinely multi-layer.]
+quantitative closure genuinely multi-layer.] **Multi-layer decomposition series (exp-128, exp-129,
+exp-130, exp-131; August 31): the correct protocol for the Level-3 measurement identified.**
+exp-128 (WikiText, mean-first, falsified P1): σ_delta_total = 0.189 under WikiText; individual
+block-0 writes have σ ≈ Δ (attn0 = 0.223, mlp0 = 0.228), but their cumulative sum under WikiText
+is lower than exp-117's 0.249. exp-129 (Frobenius protocol, inconclusive): Frobenius normalization
+gives σ ≈ 0 — ruled out. exp-130 (WikiText per-sequence, inconclusive): per-sequence protocol gives
+σ = 0.129 — lower than mean-first. exp-131 (random-token census, inconclusive by pre-registered P1,
+but KEY UNREGISTERED FINDING): mean-first random-token σ_delta_total = 0.258 ≈ exp-117's 0.249.
+Protocol identified: mean-first × random-token census. **MLP block 0 is the dominant contributor**
+under the census protocol (σ_mlp0 = 0.313 > σ_attn0 = 0.132). Open: why does block-0 MLP produce
+σ = 0.313? (next: measure σ of intermediate residual h^(0.5) = h^(0) + attn^(0) to
+distinguish pass-through from amplification — register before computing.) [LEVEL 3 QUANTITATIVE CLOSURE PENDING — MLP0 DOMINANT
+MECHANISM IDENTIFIED IN CENSUS REGIME; NEXT: MEASURE σ OF h^(0.5) UNDER CENSUS — REGISTER BEFORE COMPUTING.]
 
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
