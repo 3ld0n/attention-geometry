@@ -112,3 +112,38 @@ data, different aggregation level — e.g., per-head vs all-head mean).
 | P1 confirmed, P2 false | `partial` |
 | K1 fires | `inconclusive` |
 | P1 false, K1 false | `falsified` |
+
+---
+
+## Results — 2026-08-31
+
+**Pre-registration commit:** 8246e6a.
+
+### Findings
+
+| Protocol | σ(Δ_total) | R² | Notes |
+|---|---|---|---|
+| A — Frobenius normalized | **0.0003** | 0.827 | Essentially zero — flat profile |
+| B — Per-row cosine (exp-128 verify) | 0.1892 | 0.827 | Exactly matches exp-128 |
+| C — Frobenius normalized h^(2) | 0.0003 | 0.829 | Same as A (delta dominates) |
+
+Per-component Frobenius slopes: all ≈ 0.0000–0.0008. The Frobenius protocol gives near-zero σ for every component.
+
+**K1 fired.** σ_A = 0.0003 < 0.20. Verdict: **INCONCLUSIVE** (protocol does not explain discrepancy — but this rules out the Frobenius hypothesis).
+
+### Why Frobenius gives σ ≈ 0
+
+The Frobenius-normalized matrix M = Δ_total / ||Δ_total||_F has the property that M[i] · M[j] ≈ const for all (i,j) — i.e., the rows of Δ_total (the mean attention delta across 100 sequences) point in approximately the SAME direction for all positions. When averaged over 100 diverse sequences, the position-specific variation in the delta writes is washed out: the mean at every position is dominated by the global bias of the attention mechanism, not by position-specific structure. A flat Frobenius correlation (σ ≈ 0) is the expected result when the per-position means are nearly collinear.
+
+Per-row cosine (σ = 0.189) captures the SMALL residual directional variation across positions after global bias is removed. This is a weaker signal, which explains the lower value vs exp-117's 0.249.
+
+### The actual protocol difference with exp-117
+
+exp-117's C_delta values (0.950 at dx=8, 0.931 at dx=32, 0.656 at dx=128, 0.359 at dx=256) are much larger than exp-128's pooled cosine profile (which falls from ~0.93 at dx=8 to... check). The large values and clear power-law decay suggest exp-117 computed C_delta **per-sequence** (or per a single sequence), then averaged the profile — NOT from the mean-over-sequences delta.
+
+For a SINGLE sequence, each position's delta is strongly position-specific (the attention write at position 50 depends on tokens 0..50, which is different from position 100's write). Nearby positions share more context → higher cosine similarity. This gives high values like 0.950 at dx=8 and clear decay to 0.359 at dx=256.
+
+exp-128 computed the MEAN over 100 sequences first, washing out this per-sequence position-specificity. The mean delta at each position becomes the global attention bias (approximately position-independent), leaving only residual directional variation that gives σ = 0.189.
+
+**The correct protocol to reproduce exp-117: compute C_delta per-sequence, then average the pooled profile.** This is exp-130's task.
+

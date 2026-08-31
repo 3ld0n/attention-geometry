@@ -1,0 +1,81 @@
+{
+  "exp": "exp-129",
+  "date": "2026-08-31",
+  "prereg_commit": "8246e6a",
+  "source_data": "exp-128 positional_means.npz",
+  "n_seqs": 100,
+  "seq_len": 512,
+  "protocols": {
+    "A_frobenius": {
+      "description": "Frobenius normalization of delta_total",
+      "sigma": 0.00027223357907191193,
+      "r2": 0.8271311095386454
+    },
+    "B_rowcos": {
+      "description": "Per-row cosine similarity (exp-128 protocol)",
+      "sigma": 0.18922217549603007,
+      "r2": 0.8265539542134588,
+      "exp128_reported": 0.1892
+    },
+    "C_frob_h2": {
+      "description": "Frobenius normalization of h^(2)",
+      "sigma": 0.00027846556144931736,
+      "r2": 0.8287371922476687
+    }
+  },
+  "per_component_frobenius": {
+    "h0": {
+      "sigma_frob": 0.0008397812063489443,
+      "r2_frob": 0.8580883043385433
+    },
+    "attn0": {
+      "sigma_frob": 0.0004410663640549555,
+      "r2_frob": 0.8217870112149771
+    },
+    "mlp0": {
+      "sigma_frob": 0.00035602180903194206,
+      "r2_frob": 0.8523080839858523
+    },
+    "attn1": {
+      "sigma_frob": 0.00024492441025095375,
+      "r2_frob": 0.800751349900857
+    },
+    "mlp1": {
+      "sigma_frob": 1.0967423753741765e-06,
+      "r2_frob": 0.7829875399800079
+    },
+    "h2": {
+      "sigma_frob": 0.00027846556144931736,
+      "r2_frob": 0.8287371922476687
+    },
+    "delta_total": {
+      "sigma_frob": 0.00027223357907191193,
+      "r2_frob": 0.8271311095386454
+    }
+  },
+  "registered_verdicts": {
+    "P1": {
+      "ok": false,
+      "sigma_A": 0.00027223357907191193,
+      "criterion": "sigma_A in [0.22, 0.28]"
+    },
+    "P2": {
+      "ok": false,
+      "sigma_A": 0.00027223357907191193,
+      "sigma_B": 0.18922217549603007,
+      "criterion": "sigma_A > sigma_B"
+    },
+    "P3": {
+      "ok": true,
+      "diff": 6.231982377405431e-06,
+      "criterion": "|sigma_C - sigma_A| < 0.03"
+    }
+  },
+  "kill_conditions": {
+    "K1": {
+      "fired": true,
+      "criterion": "sigma_A < 0.20"
+    }
+  },
+  "overall_verdict": "inconclusive"
+}
