@@ -544,10 +544,15 @@ gives σ ≈ 0 — ruled out. exp-130 (WikiText per-sequence, inconclusive): per
 σ = 0.129 — lower than mean-first. exp-131 (random-token census, inconclusive by pre-registered P1,
 but KEY UNREGISTERED FINDING): mean-first random-token σ_delta_total = 0.258 ≈ exp-117's 0.249.
 Protocol identified: mean-first × random-token census. **MLP block 0 is the dominant contributor**
-under the census protocol (σ_mlp0 = 0.313 > σ_attn0 = 0.132). Open: why does block-0 MLP produce
-σ = 0.313? (next: measure σ of intermediate residual h^(0.5) = h^(0) + attn^(0) to
-distinguish pass-through from amplification — register before computing.) [LEVEL 3 QUANTITATIVE CLOSURE PENDING — MLP0 DOMINANT
-MECHANISM IDENTIFIED IN CENSUS REGIME; NEXT: MEASURE σ OF h^(0.5) UNDER CENSUS — REGISTER BEFORE COMPUTING.]
+under the census protocol (σ_mlp0 = 0.313 > σ_attn0 = 0.132). **MLP mechanism (exp-132,
+August 31, inconclusive K1):** Pass-through falsified — σ(h^(0.5)) = 0.144 < 0.20 threshold;
+the MLP input (h^(0) + attn0) has far less position-correlation than the MLP write (ratio 2.168).
+Unexpected: the embedding h^(0) has σ = 0.403 (wpe-dominated under random tokens), but adding
+the attention write reduces the aggregate to σ = 0.144 — the attention write partially cancels
+the positional embedding's cosine-similarity structure. The MLP is an active amplifier, not a
+passive relay. Gate pre-activations (register before computing) will determine
+whether the amplification is gate-driven. [LEVEL 3 QUANTITATIVE CLOSURE PENDING — MLP0 ACTIVE
+AMPLIFIER CONFIRMED; MECHANISM (GATE VS VALUE PATH) OPEN; REGISTER NEXT EXP BEFORE COMPUTING.]
 
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
