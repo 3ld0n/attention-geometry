@@ -1,0 +1,70 @@
+{
+  "exp": "exp-132",
+  "date": "2026-08-31",
+  "prereg_commit": "d7e27a4",
+  "model": "gpt2",
+  "n_seqs": 50,
+  "seq_len": 512,
+  "seed": 42,
+  "data": "random-token census (uniform [0, 50257), seed=42)",
+  "protocol": "mean-first cosine",
+  "sigma_results": {
+    "h0": {
+      "sigma": 0.40326384939055965,
+      "r2": 0.859630632582139,
+      "c8": 0.9807517584931356
+    },
+    "attn0": {
+      "sigma": 0.131679407661657,
+      "r2": 0.8233281823171662,
+      "c8": 0.9959963469477479
+    },
+    "h0p5": {
+      "sigma": 0.14412635121366513,
+      "r2": 0.8253769876950023,
+      "c8": 0.9955631494143369
+    },
+    "mlp0": {
+      "sigma": 0.312494467808588,
+      "r2": 0.8182336701873637,
+      "c8": 0.9593391203030922
+    }
+  },
+  "exp131_reference": {
+    "sigma_mlp0": 0.313,
+    "sigma_attn0": 0.132,
+    "sigma_delta_total": 0.258
+  },
+  "registered_predictions": {
+    "P1": {
+      "ok": false,
+      "sigma_h0p5": 0.14412635121366513,
+      "criterion": "sigma(h^0.5) >= 0.28"
+    },
+    "P2": {
+      "ok": false,
+      "sigma_h0p5": 0.14412635121366513,
+      "sigma_h0": 0.40326384939055965,
+      "criterion": "sigma(h^0.5) > sigma(h^0)"
+    },
+    "P3": {
+      "ok": true,
+      "sigma_mlp0": 0.312494467808588,
+      "criterion": "sigma_mlp0 in [0.29, 0.34] (exp-131 reproduced)"
+    }
+  },
+  "kill_conditions": {
+    "K1": {
+      "fired": true,
+      "sigma_h0p5": 0.14412635121366513,
+      "criterion": "sigma(h^0.5) < 0.20"
+    },
+    "K2": {
+      "fired": false,
+      "sigma_mlp0": 0.312494467808588,
+      "criterion": "sigma_mlp0 not in [0.28, 0.35]"
+    }
+  },
+  "overall_verdict": "inconclusive",
+  "verdict_note": "K1: \u03c3(h^0.5) < 0.20; MLP generates structure from low-\u03c3 input"
+}

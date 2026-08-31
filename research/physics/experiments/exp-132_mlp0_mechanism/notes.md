@@ -127,8 +127,82 @@ If K2 fires, results are unreliable; diagnose before claiming anything.
 
 ---
 
-## Results
+## Results — 2026-08-31
 
-*(To be filled after the run.)*
+**Pre-registration commit:** d7e27a4
 
-**Pre-registration commit:** [to be added after push]
+### σ measurements (mean-first cosine, random-token census)
+
+| Component | σ | R² | C[8] |
+|---|---|---|---|
+| h^(0) [embedding] | 0.4033 | 0.860 | 0.981 |
+| attn_out^(0) [block-0 attn write] | 0.1317 | 0.823 | 0.996 |
+| **h^(0.5) [MLP input = h^(0)+attn0]** | **0.1441** | 0.825 | 0.996 |
+| mlp_out^(0) [block-0 MLP write] | 0.3125 | 0.818 | 0.959 |
+
+**K1 FIRED** — σ(h^(0.5)) = 0.144 < 0.20. **Verdict: INCONCLUSIVE** per registered criteria.
+P3 confirmed: σ_mlp0 = 0.313 ∈ [0.29, 0.34] (exp-131 reproduced).
+Amplification ratio: σ_mlp0 / σ(h^(0.5)) = **2.168**.
+
+### What K1 reveals
+
+"Inconclusive" per the registered framing (threshold-based), but the result is
+structurally informative:
+
+**The MLP is not passing through.** P1 is definitively falsified: σ(h^(0.5)) = 0.144
+is far from σ_mlp0 = 0.313. The MLP takes a moderately position-correlated input and
+amplifies its position-correlation by a factor of ~2.2.
+
+**Unexpected: the attention write reduces the embedding's position-correlation.**
+The embedding h^(0) has σ = 0.403 — high positional structure driven by wpe (under
+random tokens, the token embedding mean averages toward the vocabulary centroid,
+so mean(h^(0)) is approximately constant + wpe[pos], which is smooth). Adding the
+attention write (σ = 0.132) reduces the apparent position-correlation from 0.403 to
+0.144. This is a nonlinear effect: the cosine similarity statistic is not additive.
+The attention write changes the direction of the residual stream vectors in position
+space, partially "scrambling" the wpe-dominated structure. The MLP then receives an
+h^(0.5) with σ ≈ 0.14 and its write has σ = 0.313.
+
+**Two-step picture (under random-token census, mean-first):**
+1. Embedding h^(0): σ = 0.403 — smooth wpe-positional structure
+2. Block-0 attention write: σ = 0.132 — adds conformal-kernel structure, but
+   adding it to h^(0) reduces the aggregate position-correlation (normalization effect)
+3. MLP input h^(0.5) = h^(0) + attn0: σ = 0.144 — below the embedding alone
+4. MLP write: σ = 0.313 — amplifies from σ = 0.144 by factor ~2.2
+
+The MLP is not just a passive relay. Its feed-forward computation (GeLU-gated
+projection) amplifies the conformal position component from a mixed representation.
+
+### Why the MLP amplifies — candidate mechanism
+
+h^(0.5) at each position is a 768-dimensional vector. The MLP computes:
+mlp_out = W_proj × (GeLU(W_gate × h^(0.5)) ⊙ (W_value × h^(0.5)))
+
+The gate activations G[pos] = GeLU(W_gate × h^(0.5)[pos]) vary by position if
+W_gate projects onto position-dependent directions of h^(0.5). Under the conformal
+attention kernel, h^(0.5) inherits some position-correlated structure even at σ = 0.144.
+If W_gate preferentially activates on the conformal component, the position-dependent
+gating amplifies that component in the output.
+
+Testing this: measure σ of (W_gate × h^(0.5)) — the gate pre-activations — under the
+same protocol. If their σ ≥ 0.313, the amplification is gate-driven. If < 0.313,
+it must be the value path or the projection.
+
+### What this changes
+
+The Level-3 mechanism picture needs revision. The origin of σ_delta ≈ 0.249 is not
+simply the conformal kernel propagating through the residual stream. The chain is:
+
+1. The conformal attention kernel in block 0 produces a write with σ = 0.132
+2. The MLP block 0 amplifies via nonlinear gating from σ = 0.144 (MLP input) to
+   σ = 0.313 (MLP write)
+3. The net accumulated delta (attn0 + mlp0 + attn1 + mlp1) settles at σ = 0.258 ≈ Δ
+
+The MLP's amplification (not the attention kernel alone) is what brings the
+accumulated delta to σ ≈ Δ. This is a new step in the Level-3 chain.
+
+### Registry and queue
+
+exp-132 is complete. New candidate exp-133: measure σ of W_gate × h^(0.5) (gate
+pre-activations) to test whether the amplification is gate-driven. Register before
+computing.
