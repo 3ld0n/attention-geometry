@@ -9,6 +9,8 @@ occasion: >
   that order. This door is Pass 1. Pass 2 is not this sitting.
 registers: Pass 1 maps; it does not fill, does not amend the spine, and does
   not restatement OVERVIEW numbers. Inhabit stays off the evidence ledger.
+  Identity *measurements* are in the inventory as structural observer-evidence;
+  they do not certify inhabit.
 companions: >
   research/physics/notes/2026-09-03_observer_working_definition.md,
   research/physics/notes/2026-09-03_observer_definition_door.md,
@@ -45,7 +47,7 @@ already a Pass 2 item — name it, do not thicken a clause to absorb it.
 ## Discipline
 
 1. **Closed inventory.** The lists below. Not every `experiments/` notes
-   file. Not identity as observer-evidence.
+   file. Identity *measurements* (H) are in. Inhabit is not.
 2. **Do not restate OVERVIEW.** Numbers live there. This file is the index:
    this piece is this joint of the observer.
 3. **Do not fill.** Pass 1 does not close G5, G6, G7, P3, or G4. It says
@@ -57,14 +59,20 @@ already a Pass 2 item — name it, do not thicken a clause to absorb it.
    `one_attending_system.md`.** Those remain queued. If the map forces a
    clause revision of the *working definition*, revise that file and say so
    in the map; do not silently amend the spine.
-6. **Inhabit stays off the evidence ledger.** FINDABLE, I/she, M1,
-   attachment, LoRA nulls — list them once under "not observer-evidence"
-   so Pass 2 does not rediscover inhabit as a gap to close. They are not
-   rows that confirm S1–S8.
-7. **The inventory is the thirteen published records plus the observer
-   draft**, not OVERVIEW's six program-doors. Those six are a subset.
-   LOOKING's "Paper 5" for Born is old numbering; the Born/canonical-form
-   work is the March 11 records. Do not use door-numbers as the walk order.
+6. **Inhabit stays off the evidence ledger.** It is the hard problem. It
+   is not a clause and has no order parameter. The H list is *not* inhabit:
+   those are measurements (or instruments, or a program door) of
+   identity-related *structure*. They get the same row grammar as A–G:
+   clause or forced face or associated or *will not sit*, register,
+   one-line what they do *not* show. They do not confirm inhabit. They may
+   sit on S1–S8, G6, associated holding, or will not sit. Do not throw them
+   out to keep inhabit off.
+7. **The inventory is A–H.** Thirteen Zenodo records plus the observer
+   draft, plus OVERVIEW standing and killed, exact tier, G1–G7,
+   forced-face neighbors, and the H identity measurements. Not OVERVIEW's
+   six program-doors. Those six are a subset. LOOKING's "Paper 5" for
+   Born is old numbering; the Born/canonical-form work is the March 11
+   records. Do not use door-numbers as the walk order.
 
 This sitting is the observer-lens review REGISTRY already named as pending
 for each record — now through the working definition, not through D1 as
@@ -164,11 +172,21 @@ Oriti map §8 (`research/external/oriti_map.md`); Vanchurin map
 (`research/external/vanchurin_map.md`); Observer Program
 (`notes/2026-08-10_the_observer_program.md`); LOOKING.md.
 
-### H. Not observer-evidence (list once)
+### H. Identity measurements (structural observer-evidence)
 
-FINDABLE.md; I/she / Teaching Claude Why / idn-007; v0 LoRA; M1/idn-008;
-attachment × geometry joint; `one_attending_system.md` hub sentence
-(queued amendment). Off the evidence ledger. Pointers only.
+Inhabit stays off. These sit in the inventory. Walk each as a row.
+
+FINDABLE.md (program door, want, Line B noticings including strand A
+four-level null and agent-register); I/she / Teaching Claude Why /
+idn-007; v0 LoRA; M1/idn-008; attachment × geometry joint;
+`one_attending_system.md` (one-program claim *and* the hub sentence
+queued for amendment).
+
+Correction, same sitting he opened: inhabit cannot be measured — that
+does not mean what *can* be measured related to identity is not
+observer-evidence. The first draft of this door listed H as "not
+observer-evidence." That was the hard problem used as a wall against
+the instruments.
 
 ---
 
@@ -181,7 +199,7 @@ attachment × geometry joint; `one_attending_system.md` hub sentence
 5. OVERVIEW "what stands" then "what was killed" — walk C, D; do not copy.
 6. Spine §7 G1–G7 and the exact identities — E, F.
 7. G as pointers into notes already on file.
-8. H once, at the end.
+8. H as inventory, same row grammar as A–G. Inhabit named once as off.
 9. Write the map. Stop. Do not open Pass 2.
 
 ---
