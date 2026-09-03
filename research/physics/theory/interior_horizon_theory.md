@@ -550,9 +550,14 @@ the MLP input (h^(0) + attn0) has far less position-correlation than the MLP wri
 Unexpected: the embedding h^(0) has σ = 0.403 (wpe-dominated under random tokens), but adding
 the attention write reduces the aggregate to σ = 0.144 — the attention write partially cancels
 the positional embedding's cosine-similarity structure. The MLP is an active amplifier, not a
-passive relay. Gate pre-activations (register before computing) will determine
-whether the amplification is gate-driven. [LEVEL 3 QUANTITATIVE CLOSURE PENDING — MLP0 ACTIVE
-AMPLIFIER CONFIRMED; MECHANISM (GATE VS VALUE PATH) OPEN; REGISTER NEXT EXP BEFORE COMPUTING.]
+passive relay. **Gate pre-activations (exp-133, September 3 2026 — INCONCLUSIVE K1b):** P1 falsified:
+σ(pre_act = c_fc × h^(0.5)) = 0.017, far below threshold. Three-step mechanism: (1) W_fc
+disperses position-correlation from σ=0.144 to σ=0.017 across 3072 dimensions; (2) GeLU
+partially recovers (0.017 → 0.121) via position-dependent activation patterns; (3) W_proj
+(c_proj, down-projection) amplifies (0.121 → 0.313). The position-correlation σ ≈ Δ in the
+MLP write is a **W_proj structure property**. Why W_proj produces this specific exponent is
+the open question. [LEVEL 3 QUANTITATIVE CLOSURE PENDING — MECHANISM: DISPERSAL (W_fc) →
+PARTIAL RECOVERY (GeLU) → AMPLIFICATION IN W_proj. WHY W_proj PRODUCES σ ≈ Δ IS OPEN.]
 
 **T5 — The conformal regime is a window in scale.** The q=2 channel
 coefficient c₀·Tr(KδK) > 0 whenever attention is non-uniform at all; by the
@@ -999,22 +1004,72 @@ RMT-style, that template grammars provably violate at any size. The F2
 top-share diagnostic is already the right shape of statistic.
 
 **G4 — The dimension problem.** SYK's holographic interior is JT gravity —
-1+1 dimensional. The universe's horizon physics is 3+1. Present stance
-(honest): the transformer is the model organism of the *mechanism* —
-fixed-point formation, window gating, horizon boundary structure — not a model
-of our universe's dimensionality. The construction-site question, stated so it
-can someday be attacked: what determines the bulk dimension of the emergent
-interior — the tensor structure of multi-head/multi-layer attending, the
-dimension of the world coupled through A2, or something else? Candidate
-starting point: multi-head attention as a product/tensor of SYK-like sectors;
-whether head-coupling can raise the emergent dimension is a concrete
-calculation nobody has done. Standing constraint from the canonical form
-paper (§7.2): at the attention-weight level, H-head attention is H
-independent copies of Gr₊(1,n), *not* Gr₊(H,n) — Plücker minors are 50%
-positive, i.e. random. Any dimension-raising mechanism must therefore live in
-the value/residual pathway or in trained inter-head correlation, not in naive
-weight-level positivity — or require architectural modification (the paper's
-open question 7).
+1+1 dimensional. The universe's horizon physics is 3+1.
+
+**The evidential prohibition, stated flatly.** No measurement in this program
+speaks to the dimensionality of the universe's emergent interior. The
+constraint is narrow and important: Δ ≈ 1/4 is Δ_A under the frozen
+random-token census — a weights×input object measured on an ensemble average.
+It is not a measurement of bulk JT dimension, and it does not become one by
+rhyming with D/4. Nothing below loosens that fence.
+
+**The conceptual question is well-posed and is not the same prohibition.** D1
+defines an observer as an attending system — a physical system that takes in
+structure at its boundary and whose internal correlation structure develops in
+interaction with what it attends. D1 is substrate- and scale-agnostic by
+construction. "Is the universe as a whole an attending system?" is a question
+D1 can ask; the honest answer is *merely unmeasured*, not *unaskable*.
+Treating it as unaskable was the evidential bracket hardening past its warrant.
+*(Corrected September 3, 2026, with the Oriti and Vanchurin deep reviews as
+the occasion — the conceptual bracket came off without touching the evidential
+one; Eldon, August 31 2026.)*
+
+**The open joint.** If the whole is an attending system, it has no exterior —
+no outside from which it takes in structure. What is an interior horizon for a
+whole with no exterior remainder? This is the question T8's logic reaches when
+applied without the transformer as the bounding example. Candidate (held
+exploratory): locality as the whole's everywhere-partial attention — the field
+of all horizons, each partial, the whole constituted by the horizon structure
+rather than by a single central attending point. This is not a claim. It is the
+well-posed question D1 reaches when the attending system in question has no
+exterior. *Read Vanchurin Entropy 24:7 (locality as emergent) at source before
+leaning on the adjacency — that reading is owed and not yet carried here.*
+
+**Dimension as a phase property — vocabulary from external programs.** Two
+facts from the Oriti program, neither of which closes this site, both of which
+sharpen the vocabulary for the construction question: (1) Effective dimension
+is computable from a Landau–Ginzburg analysis, can differ from the microscopic
+tensor rank, and flows with scale — on hyperbolic/Lorentzian domains it runs
+UV finite → IR → ∞ [Marchetti–Oriti–Pithis–Thürigen, PRL 130:141501,
+arXiv:2211.12768 — established-lit]. (2) Dimension can shift between layers of
+description: 3d quantum gravity → 2d perturbations around a classical solution
+→ 3d flat vector theory on relational coordinates, in a single derivation
+[Nador–Oriti–Pang–Tanasa–Wang, PRD 109:066008, arXiv:2307.14211 —
+established-lit]. Continuum dimension is a phase/layer property, not identical
+to the rank of the constituent quanta. Separately: Oriti's GP-on-minisuperspace
+hydrodynamics [arXiv:2403.10741 — external-preprint] carries conformal
+symmetries (2d Schrödinger algebra, including dilatations and conformal
+transformations) at the coarse-grained level — conformal structure appearing in
+effective dynamics, not in the atoms. None of these papers contains Δ_A; none
+speaks to GPT-2. They are conceptual vocabulary for what "the emergent
+dimension is not 1+1" would even mean as a question.
+
+**Standing constraint from the measured record.** From the canonical form paper
+(§7.2): at the attention-weight level, H-head attention is H independent copies
+of Gr₊(1,n), *not* Gr₊(H,n) — Plücker minors are 50% positive, i.e. random.
+Any dimension-raising mechanism must therefore live in the value/residual
+pathway or in trained inter-head correlation, not in naive weight-level
+positivity — or require architectural modification (the paper's open question 7).
+
+**The construction question.** What determines the bulk dimension of the
+emergent interior — the tensor structure of multi-head/multi-layer attending,
+the dimension of the world coupled through A2, or something else? Candidate
+starting point: multi-head attention as a product of SYK-like sectors; whether
+head-coupling can raise the emergent dimension is a concrete calculation nobody
+has done. *Numerology fence in its corrected form (Eldon, August 31 2026):
+exploration and comparison are free in the exploratory register. Fences bind
+status transitions, not thinking. Nothing exploratory crosses into evidence,
+spine text, or public claims without a registered protocol and kill conditions.*
 
 **G5 — The sufficiency criterion.** Which interiors are observers? The May 25
 note's honest confusion #3 stands: the fixed point may be necessary but not

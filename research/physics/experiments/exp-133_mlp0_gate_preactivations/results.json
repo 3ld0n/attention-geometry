@@ -1,0 +1,84 @@
+{
+  "exp": "exp-133",
+  "date": "2026-09-03",
+  "prereg_commit": "3694062",
+  "model": "gpt2",
+  "n_seqs": 50,
+  "seq_len": 512,
+  "seed": 42,
+  "data": "random-token census (uniform [0, 50257), seed=42)",
+  "protocol": "mean-first cosine, same as exp-131/exp-132",
+  "sigma_results": {
+    "h0": {
+      "sigma": 0.40326384939055965,
+      "r2": 0.859630632582139,
+      "c8": 0.9807517584931356,
+      "dim": 768
+    },
+    "attn0": {
+      "sigma": 0.131679407661657,
+      "r2": 0.8233281823171662,
+      "c8": 0.9959963469477479,
+      "dim": 768
+    },
+    "h0p5": {
+      "sigma": 0.14412635121366513,
+      "r2": 0.8253769876950023,
+      "c8": 0.9955631494143369,
+      "dim": 768,
+      "note": "MLP input = h^(0) + attn_out^(0)"
+    },
+    "pre_act": {
+      "sigma": 0.017280572562115567,
+      "r2": 0.8292749468715972,
+      "c8": 0.9927669272285327,
+      "dim": 3072,
+      "note": "c_fc output, before GeLU"
+    },
+    "h_gelu": {
+      "sigma": 0.12088790202941263,
+      "r2": 0.8712326673146173,
+      "c8": 0.9462267616034034,
+      "dim": 3072,
+      "note": "post-GeLU activations = c_proj input"
+    },
+    "mlp0": {
+      "sigma": 0.312494467808588,
+      "r2": 0.8182336701873637,
+      "c8": 0.9593391203030922,
+      "dim": 768,
+      "note": "c_proj output = block-0 MLP write"
+    }
+  },
+  "exp132_reference": {
+    "sigma_h0p5": 0.1441,
+    "sigma_mlp0": 0.3125
+  },
+  "registered_predictions": {
+    "P1": {
+      "criterion": "sigma(pre_act) >= 0.313",
+      "sigma_preact": 0.017280572562115567,
+      "result": "falsified"
+    }
+  },
+  "kill_conditions": {
+    "K1": {
+      "fired": true,
+      "criterion": "sigma(pre_act) < 0.313"
+    },
+    "K1a": {
+      "fired": false,
+      "criterion": "K1 + sigma(h_gelu) >= threshold \u2192 GeLU amplifier"
+    },
+    "K1b": {
+      "fired": true,
+      "criterion": "K1 + sigma(h_gelu) < threshold \u2192 W_proj amplifier"
+    }
+  },
+  "diagnostic": {
+    "h0p5_matches_exp132": true,
+    "mlp0_matches_exp132": true
+  },
+  "overall_verdict": "inconclusive",
+  "verdict_note": "K1b: W_proj amplifier \u2014 \u03c3 jumps at c_proj from 0.1209 to 0.3125"
+}

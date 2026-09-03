@@ -82,4 +82,54 @@ All comparisons mean-first, random-token census, same as exp-131/exp-132.
 - **exp-132** confirmed: σ(h^(0.5)) = 0.144, σ(mlp_out) = 0.313, ratio 2.168; pass-through falsified
 - This is the next rung of the G7 multi-layer mechanism investigation
 
-*Pre-registration commit establishes the ordering; results will be appended below.*
+*Pre-registration commit establishes the ordering; results appended below.*
+
+---
+
+## Results — 2026-09-03
+
+| Component | σ (mean-first) | R² | Dim |
+|---|---|---|---|
+| h^(0) [embedding] | 0.4033 | 0.860 | 768 |
+| attn_out^(0) | 0.1317 | 0.823 | 768 |
+| h^(0.5) [MLP input] | 0.1441 | 0.825 | 768 |
+| **pre_act [c_fc, pre-GeLU]** | **0.0173** | 0.829 | 3072 |
+| h_gelu [post-GeLU] | 0.1209 | 0.871 | 3072 |
+| mlp_out [c_proj output] | 0.3125 | 0.818 | 768 |
+
+exp-132 baseline reproduced: σ(h^(0.5)) = 0.1441 ✓, σ(mlp_out) = 0.3125 ✓.
+
+**P1 FALSIFIED — K1 fired:** σ(pre_act) = 0.0173, far below the 0.313 threshold.
+The gate (W_fc / c_fc linear up-projection) is not the source of amplification.
+
+**Sub-case K1b confirmed:** σ(h_gelu) = 0.1209 < 0.313.
+Neither W_fc nor GeLU delivers the amplified signal. The jump from 0.1209 → 0.3125
+occurs in W_proj (c_proj), the down-projection.
+
+**Overall verdict: INCONCLUSIVE (K1b) by registered criteria.**
+
+### What the three-step picture shows
+
+1. **W_fc disperses** (σ: 0.144 → 0.017): the up-projection from 768 → 3072 dimensions
+   scatters the position-correlated structure across the high-dimensional intermediate
+   space until it is nearly flat.
+2. **GeLU partially recovers** (σ: 0.017 → 0.121): the nonlinearity selects on
+   activation magnitude — position-dependent magnitude patterns in the 3072-d space
+   create asymmetric activation, partially restoring position-correlated structure.
+3. **W_proj amplifies** (σ: 0.121 → 0.313): the down-projection from 3072 → 768
+   projects position-correlated directions in the intermediate space into a tight bundle
+   in the output, creating the amplified position-correlation.
+
+The source of σ ≈ Δ in the MLP write is primarily a **W_proj structure property**:
+certain learned column directions in W_proj align with position-dependent patterns
+activated by GeLU, and the projection collapses these into position-correlated output.
+
+### For G7
+
+The Level-3 mechanism is not "the gate selects conformal neurons." It is:
+W_fc disperses → GeLU partially recovers → W_proj selects and amplifies.
+
+The position-correlation σ ≈ 0.313 ≈ Δ in the MLP write emerges from W_proj's learned
+column structure, not from the input's existing σ=0.144. Explaining *why* W_proj produces
+this specific exponent is the next rung. Candidate: analyze W_proj's column structure in
+the position basis to find whether it preferentially projects conformal directions.
