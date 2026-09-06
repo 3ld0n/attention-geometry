@@ -1,0 +1,184 @@
+{
+  "experiment": "exp-134",
+  "date": "2026-09-06",
+  "model": "gpt2",
+  "protocol": "random-token census, 50 sequences, length 512, seed=42, mean-first",
+  "prereg_commit": "807f4fc",
+  "n_seqs": 50,
+  "seq_len": 512,
+  "seed": 42,
+  "verification": {
+    "sigma_h0": 0.40326384939055965,
+    "r2_h0": 0.859630632582139,
+    "sigma_h05": 0.20893214983109976,
+    "r2_h05": 0.8461120243866636,
+    "sigma_hgelu": 0.12088790202941263,
+    "r2_hgelu": 0.8712326673146173,
+    "sigma_mlp0": 0.312494467808588,
+    "r2_mlp0": 0.8182336701873637,
+    "exp132_expected": {
+      "h0": 0.4033,
+      "h05": 0.1441,
+      "hgelu": 0.1209,
+      "mlp0": 0.3125
+    }
+  },
+  "P3_hgelu_dimensionality": {
+    "r_50pct": 2,
+    "r_80pct": 48,
+    "r_95pct": 161,
+    "var_at_100": 0.8898507960640509,
+    "singular_values_top10": [
+      27.661534070406038,
+      15.182563658285124,
+      7.3761137452016365,
+      5.210388556460863,
+      3.605725726444815,
+      3.4069387907981836,
+      3.1188935349572566,
+      2.915039073934136,
+      2.8395640707289465,
+      2.8100167182503912
+    ],
+    "verdict": "CONFIRMED",
+    "K3_fired": false
+  },
+  "P1_channel_concentration": {
+    "k_20pct": 154,
+    "top_k_share": 0.9876361736461018,
+    "max_sigma_d": 0.14087103846181984,
+    "mean_sigma_d": 0.0004398318061787734,
+    "ratio_max_mean": 320.28388234515626,
+    "channels_above_5x_mean": 5,
+    "channels_above_0p2": 0,
+    "channels_above_0p3": 0,
+    "percentiles": {
+      "10": 9.425653334414978e-07,
+      "25": 2.508306639507584e-06,
+      "50": 7.445700889851199e-06,
+      "75": 1.819311368073867e-05,
+      "90": 3.7363382247672054e-05,
+      "95": 6.504224455976783e-05,
+      "99": 0.0012545686686825615
+    },
+    "cumulative_share": {
+      "10": 0.9546019188038635,
+      "20": 0.9704315272024976,
+      "50": 0.9776849696440009,
+      "100": 0.9835175381340016,
+      "154": 0.9876361736461018,
+      "200": 0.990353534797162,
+      "400": 0.9969346619381082
+    },
+    "top10_channels": [
+      {
+        "channel": 480,
+        "sigma_d": 0.14087103846181984
+      },
+      {
+        "channel": 87,
+        "sigma_d": 0.13764029333254138
+      },
+      {
+        "channel": 266,
+        "sigma_d": 0.021786370245077735
+      },
+      {
+        "channel": 64,
+        "sigma_d": 0.009488472768198955
+      },
+      {
+        "channel": 373,
+        "sigma_d": 0.005605867555770703
+      },
+      {
+        "channel": 464,
+        "sigma_d": 0.0018328514225273988
+      },
+      {
+        "channel": 218,
+        "sigma_d": 0.001542534446776075
+      },
+      {
+        "channel": 71,
+        "sigma_d": 0.0013053447431363814
+      },
+      {
+        "channel": 642,
+        "sigma_d": 0.0012295595573844067
+      },
+      {
+        "channel": 497,
+        "sigma_d": 0.0011534392140127249
+      }
+    ],
+    "verdict": "CONFIRMED",
+    "K1_fired": false
+  },
+  "P2_alignment": {
+    "subspace_dim_r50": 2,
+    "expected_random": 0.0006510416666666666,
+    "mean_all_cols": 0.00030973588912228817,
+    "mean_top_k_cols": 0.0014431557186005604,
+    "mean_bot_k_cols": 2.198843026797076e-05,
+    "top_k_over_random_ratio": 2.216687183770461,
+    "top_k_gt_bot_k": true,
+    "verdict": "CONFIRMED",
+    "K2_fired": false
+  },
+  "exploratory_null_test": {
+    "sigma_random_proj": 0.12588857468885398,
+    "r2_random_proj": 0.8719503270221661,
+    "sigma_hgelu_baseline": 0.12088790202941263,
+    "sigma_mlp0_actual": 0.312494467808588,
+    "conclusion": "amplification exceeds random projection \u2014 W_proj has learned column structure"
+  },
+  "exploratory_svd_analysis": {
+    "description": "\u03c3 of h_gelu projected onto top-k W_proj input singular directions",
+    "results": {
+      "1": {
+        "sigma": 0.037099115758555117,
+        "r2": 0.16520698736441508
+      },
+      "2": {
+        "sigma": 0.05246668296076784,
+        "r2": 0.9186043448681631
+      },
+      "5": {
+        "sigma": 0.42408847730155,
+        "r2": 0.8083264135281987
+      },
+      "10": {
+        "sigma": 0.34739366438208463,
+        "r2": 0.8138892436846303
+      },
+      "20": {
+        "sigma": 0.3232793122253264,
+        "r2": 0.8145700964697025
+      },
+      "50": {
+        "sigma": 0.3020750907047399,
+        "r2": 0.8149899826567735
+      },
+      "100": {
+        "sigma": 0.2812570680332613,
+        "r2": 0.8156328623977301
+      },
+      "200": {
+        "sigma": 0.23361559381893052,
+        "r2": 0.8183359945800968
+      },
+      "400": {
+        "sigma": 0.17989512878638844,
+        "r2": 0.822194997787477
+      },
+      "768": {
+        "sigma": 0.13927918512301676,
+        "r2": 0.8354909766818335
+      }
+    },
+    "finding": "Top-5 W_proj input SVDs give \u03c3=0.4241 vs random projection 0.1259 and full output 0.3125"
+  },
+  "overall_verdict": "confirmed",
+  "headline": "exp-134 W_proj column structure: CONFIRMED. P1=CONFIRMED (top-20% carry 98.8% of \u03c3_d); P2=CONFIRMED (top-k align 0.0014 vs bot-k 0.0000); P3=CONFIRMED (h_gelu 50%var in 2 components). Null test: \u03c3(random proj)=0.1259 vs \u03c3(W_proj)=0.3125."
+}
