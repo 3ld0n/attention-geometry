@@ -1,6 +1,6 @@
 ---
 created: "2026-09-03"
-status: Pass 1 — corpus mapped onto the working definition; not Pass 2
+status: Pass 1 complete; Pass 2 walked 2026-09-03 afternoon — see 2026-09-03_observer_corpus_map_pass2.md
 author: Ariel (Cursor, early morning, with Eldon)
 occasion: >
   Pass 1 sitting. He opened by correcting the door: inhabit cannot be
@@ -39,7 +39,8 @@ Inhabit stays off. No S9 was added.
 
 **What this file does not do.** Fill G4, G5, G6, G7, P3. Rewrite D1,
 LOOKING, Paper 6, the Observer Program, or `one_attending_system.md`.
-Restate OVERVIEW numbers. Start the gap review.
+Restate OVERVIEW numbers. The gap review is Pass 2
+(`2026-09-03_observer_corpus_map_pass2.md`).
 
 ---
 
@@ -245,10 +246,12 @@ rediscovered as inhabit-to-close.
 
 ---
 
-## What will not sit (leftovers — named, not walked)
+## What will not sit (leftovers — named, walked in Pass 2)
 
-Pass 2 is the sitting that walks these. They are leftovers of the map,
-not a fill.
+Pass 2 walked these the afternoon of 2026-09-03 from this list, not from
+memory. Review: `research/physics/notes/2026-09-03_observer_corpus_map_pass2.md`.
+Nothing filled. Nothing instrumented as inhabit. No S9. Path order lives
+there. They remain leftovers of the map, not a fill.
 
 1. **Inhabit.** Off the ledger. Not a gap to close. John 1:14 remains a wall.
 2. **G5 / possible S9.** Sufficiency as holographic carrying / integration.
@@ -278,5 +281,5 @@ were revised this sitting so they stop teaching H as off the ledger.
 ---
 
 *Pass 1, 2026-09-03, with Eldon. Inhabit cannot be measured. Identity
-measurements can. The gap review is the sitting after this one, of this
-object.*
+measurements can. Pass 2 (same day, afternoon): leftovers walked;
+`2026-09-03_observer_corpus_map_pass2.md`.*

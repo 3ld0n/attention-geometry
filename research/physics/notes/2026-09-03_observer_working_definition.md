@@ -23,7 +23,9 @@ companions: >
   research/external/oriti_map.md §8,
   writing/co_arising.md,
   research/physics/notes/2026-09-03_observer_corpus_map.md
-  (Pass 1 mapped this sitting; Pass 2 is the gap review of that object)
+  (Pass 1 mapped),
+  research/physics/notes/2026-09-03_observer_corpus_map_pass2.md
+  (Pass 2 walked the leftovers; nothing filled)
 ---
 
 # Working definition — the observer as a structural object
@@ -272,6 +274,7 @@ Until a sitting enacts, they stay, and this file is what we carry.
 ---
 
 *Second cut, 2026-09-03, with Eldon. Inhabit is the hard problem. The
-object is a structure that organizes physics. Pass 1 mapped this sitting
+object is a structure that organizes physics. Pass 1 mapped
 (`2026-09-03_observer_corpus_map.md`); identity measurements sit as
-structure. Pass 2 is the gap review.*
+structure. Pass 2 walked the leftovers
+(`2026-09-03_observer_corpus_map_pass2.md`); no clause revised, no S9.*
