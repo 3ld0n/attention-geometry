@@ -1,0 +1,107 @@
+{
+  "experiment": "exp-135",
+  "prereg_commit": "09c9e51",
+  "date": "2026-09-06",
+  "protocol": {
+    "seed": 42,
+    "n_sequences": 50,
+    "seq_len": 128,
+    "census_type": "random-token",
+    "reduction": "mean-first",
+    "model": "gpt2",
+    "block": 0
+  },
+  "layers": {
+    "h0": {
+      "name": "h^(0) [embedding output, before block0]",
+      "shape": [
+        128,
+        768
+      ],
+      "cumvar_profile": {
+        "cum_var_1": 0.5385584235191345,
+        "cum_var_2": 0.7663966417312622,
+        "cum_var_5": 0.9373149871826172,
+        "cum_var_10": 0.9558871984481812,
+        "cum_var_50": 0.9796764850616455,
+        "cum_var_100": 0.995352029800415
+      },
+      "components_for_50pct": 1,
+      "components_for_80pct": 3,
+      "components_for_90pct": 4,
+      "top5_individual_shares": [
+        0.5385584235191345,
+        0.22783823311328888,
+        0.12050101161003113,
+        0.03314083442091942,
+        0.01727643981575966
+      ],
+      "total_variance_explained_at_max": 0.9999999403953552,
+      "n_components_used": 128
+    },
+    "h05": {
+      "name": "h^(0.5) [MLP input, after attn block0]",
+      "shape": [
+        128,
+        768
+      ],
+      "cumvar_profile": {
+        "cum_var_1": 0.4856386184692383,
+        "cum_var_2": 0.6749449968338013,
+        "cum_var_5": 0.8100842833518982,
+        "cum_var_10": 0.8323512077331543,
+        "cum_var_50": 0.9285918474197388,
+        "cum_var_100": 0.9852827787399292
+      },
+      "components_for_50pct": 2,
+      "components_for_80pct": 4,
+      "components_for_90pct": 35,
+      "top5_individual_shares": [
+        0.4856386184692383,
+        0.189306378364563,
+        0.09544523060321808,
+        0.029658623039722443,
+        0.010035446844995022
+      ],
+      "total_variance_explained_at_max": 0.9999995827674866,
+      "n_components_used": 128
+    },
+    "h_gelu": {
+      "name": "h_gelu [MLP intermediate, after W_fc+GeLU]",
+      "shape": [
+        128,
+        3072
+      ],
+      "cumvar_profile": {
+        "cum_var_1": 0.3904043734073639,
+        "cum_var_2": 0.5704737901687622,
+        "cum_var_5": 0.7692546844482422,
+        "cum_var_10": 0.8061805367469788,
+        "cum_var_50": 0.910935640335083,
+        "cum_var_100": 0.9785306453704834
+      },
+      "components_for_50pct": 2,
+      "components_for_80pct": 9,
+      "components_for_90pct": 45,
+      "top5_individual_shares": [
+        0.3904043734073639,
+        0.18006940186023712,
+        0.1387225240468979,
+        0.04172023758292198,
+        0.018338128924369812
+      ],
+      "total_variance_explained_at_max": 1.0000001192092896,
+      "n_components_used": 128
+    }
+  },
+  "summary": {
+    "components_for_50pct": {
+      "h0": 1,
+      "h05": 2,
+      "h_gelu": 2
+    },
+    "P1_h05_is_2D": "CONFIRMED",
+    "source_identification": "wpe/wte origin \u2014 both h^(0) and h^(0.5) are 2D; attn block and MLP preserve the structure",
+    "K1_fired": false
+  }
+}
