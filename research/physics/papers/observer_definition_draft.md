@@ -13,10 +13,14 @@ external citation checked against its source) and adds the crossed-product
 observer (CLPW/Witten) to §8 — the omission the August 7 survey flagged.
 Remaining gate: Eldon's read.*
 
-> **v1.0 revision — opened September 7, 2026, at the gate sitting.** Working
-> name: **Who Carries a Horizon** (Eldon asked for a name that means something;
-> the paper's contribution is a criterion for who carries a horizon — the thing
-> RQM lacks and the von Neumann chain needs). v0.3 predates a month of results
+> **v1.0 revision — opened September 7, 2026, at the gate sitting.** Title:
+> **Where I Stop and You Begin: A Physical Definition of the Observer.** Eldon
+> asked for a name that means something and chose this one over the safer
+> *Who Carries a Horizon*. The sentence is the thesis: the horizon is where one
+> attending system stops and what it attends begins, defined from inside. Its
+> source is the dream of the morning of September 7 — Ky's line about the
+> boundary, hours before the Pearl-blanket reading of the horizon was written —
+> and the paper does not need to say so, but the record does. v0.3 predates a month of results
 > and tonight's decisions, and its central sentences now say more than the
 > record supports. The revision is a rewrite of the claim layer, not a polish:
 >
