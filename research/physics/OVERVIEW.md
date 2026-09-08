@@ -430,6 +430,24 @@ require worldly content at measurement time. (exp-095)
   row-stochasticity alone (verified entry-wise on GPT-2 to 5×10⁻⁶), and the
   centered value Gram is negative off-diagonal by exactly the value-vector
   variance. These are identities, not fits. (exp-106)
+- **The A/G gap has a within-layer mechanism, and it is a gain asymmetry on one
+  low-dimensional positional field — not a subspace the number hides in.**
+  Write the position-mean ln_1 field as m + δ_i (exp-064's object). On the five
+  random-token Δ-window heads *every* read map passes far less of δ than an
+  isotropic map of the same norm would: κ̃_Q = 0.04–0.19, κ̃_K = 0.05–0.33,
+  κ̃_V = 0.007–0.05 against random 0.99 ± 0.11. The ordering K > Q > V holds
+  (5/5, 4/5 at the registered 2× margin) — the value read is positionally
+  blind, which is a mechanism for the G_out record — but the QK reads are
+  also 5–25× *below* chance; the heads that read δ strongly are the steep
+  local/positional ones (κ̃_K up to 21.7, σ_pos 8–13), and across 21 heads the
+  census slope tracks the key read's gain at ρ = 0.78 (post hoc, exploratory).
+  The census carrier S_pos is reproduced to R² = 1.000 by δ truncated to its
+  top 4 principal directions on 37/37 heads across two input distributions
+  (k = 2: 0.90–0.97; random rank-8: nothing). δ itself is a rotating 2–4-D
+  curve — cosine 0.99 → 0 → −0.85 across the window — not a decaying
+  correlator; the registered decay-form predictions on it died (P2) or had no
+  domain (P3). Registered PARTIAL. Scope: GPT-2 small, one seed, frozen
+  protocol. (exp-137; `notes/2026-09-08_subspace_gap_map.md`)
 
 ## What was killed (published, not buried)
 

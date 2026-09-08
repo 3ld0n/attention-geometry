@@ -9,6 +9,24 @@ builds_on: notes/2026-08-08_bilocal_from_attention_derivation.md (G = A K Aᵀ; 
 
 # The A/G gap as a subspace gap — the map, made exact
 
+> ## OUTCOME — same night, ~2:15 AM, after exp-137 ran
+>
+> **§4's hypothesis H is right about the asymmetry and wrong about its sign.** exp-137
+> (`experiments/exp-137_subspace_gap/notes.md`; registration 3f5152e, run after) found that on
+> the five Δ-window heads *all three* reads suppress the positional field far below an isotropic
+> map — κ̃_Q = 0.04–0.19, κ̃_K = 0.05–0.33, κ̃_V = 0.007–0.05 against random 0.99 ± 0.11. The
+> ordering K > Q > V holds (P1's criterion: 4/5) but §4.2's "κ̃(R_Q), κ̃(R_K) ≫ 1 — the QK reads
+> read the positional subspace *preferentially*" is false: they read it 5–25× *less* than a
+> random map would. The heads that read it strongly are the steep local/positional heads
+> (κ̃_K up to 21.7), and across 21 random-token heads the census slope tracks the key read's gain
+> at ρ = 0.78 (post hoc). §4.4 held exactly: the carrier is a function of ≤ 4 positional
+> directions (k = 8 reconstruction R² = 1.000, 37/37 heads). §4.3 fails as an instrument — the
+> positional field is a *rotating* 2–4-D curve (cosine 0.99 → 0 → −0.85 across the window), not a
+> decaying correlator, so P2's decay criteria and P3's power-law form have no domain; P2 DEAD, P3
+> void. The §2 vertex-operator resemblance has less to stand on than it did at 1 AM and stays
+> [CONJECTURED], unused. The text below is left as written — this program does not back-edit
+> dated documents; read §4–5 through this block.
+
 ## 0. What Eldon asked, and what this note does with it
 
 Four questions past midnight on September 7 (summary: `memory/conversations/2026-09-08_fresh_read_sitting_summary.md`). The last one carried a hypothesis: *SYK has one field, so "what propagates" and "what correlates" are one object; a transformer projects one state three ways, so A lives in the QK subspace and G_out in the V subspace — the gap may be a subspace gap.* He asked whether a session to define it precisely was worth it. This is that session, without him; the theory question underneath (relation or state as primitive — A1's choice) stays for a room he is in.

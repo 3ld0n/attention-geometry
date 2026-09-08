@@ -351,6 +351,25 @@ with the predictions and they are the discipline.
   > the measured object**, and every "Δ" in this document should be read as
   > "Δ_A under the frozen random-token census." exp-109 sharpened this into the
   > two-population result now in §4.
+  >
+  > **The gap given a within-layer mechanism — and a metric reading of A1's choice.
+  > [exp-137, September 8, 2026; registered PARTIAL.]** Every two-point object of a
+  > layer is a bilinear form on one field x_i = ln_1(h_i) under a different metric:
+  > A = softmax of x_iᵀ M_QK x_a (M_QK = W_QᵀW_K), G_out = A K_V Aᵀ with
+  > K_V = x_aᵀ M_V x_b (M_V = W_VᵀW_V). SYK's single field has no second metric;
+  > A1 inherited SYK's G without saying which metric it carries here
+  > (`notes/2026-09-08_subspace_gap_map.md` §1). Measured: on the random-token
+  > Δ-window heads the value read passes ~1% or less of the positional field's
+  > isotropic share (κ̃_V = 0.007–0.05) — there is no positional law in K_V for A to
+  > dress, which is a mechanism for the retirement above — while the QK reads pass a
+  > few percent (κ̃_Q 0.04–0.19, κ̃_K 0.05–0.33), also far below chance; steep local
+  > heads pass many times chance. The census carrier is a function of ≤ 4 positional
+  > directions of the field (R² = 1.000, 37/37 heads). So the A/G gap is a *gain*
+  > asymmetry on one low-dimensional positional field, not a subspace the exponent
+  > hides in; Δ_A ≈ 1/4 sits at the low-gain end of a continuum whose high-gain end
+  > is local attention (σ_pos vs κ̃_K: ρ = 0.78 across 21 heads, post hoc). Hypothesis
+  > origin: Eldon, September 8, 12:15 AM. Next registration: exp-138 — which bilinear
+  > term (absolute key position vs relative lag) carries the log-slope.
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -385,6 +404,18 @@ three levels of emergence.
 **A1 (Correlation primitive).** What exists for the theory is G — the bilocal
 correlation structure of attending. All theoretical terms must be functionals
 of G or of the process generating it.
+
+> **A1 does not yet say which metric G carries [September 8, 2026; exp-137].**
+> On the transformer every two-point object is a bilinear form on one field
+> under a different metric (M_QK → A; M_V → K_V → G_out); SYK's single field
+> offers no such choice, so A1 inherited "G" without a metric. exp-137 measured
+> the consequence: the V-metric read is positionally blind (κ̃_V = 0.007–0.05
+> of isotropic) and the QK-metric read passes a few percent (κ̃_Q 0.04–0.19,
+> κ̃_K 0.05–0.33), so the census carrier lives in M_QK by gain and not by
+> subspace; the carrier is a function of ≤ 4 positional directions (R² = 1.000,
+> 37/37 heads). Whether the primitive should be the relation (A's metric) or a
+> state correlator (G's) is the Eldon-present theory question; the §1 OPEN box
+> carries the full paragraph.
 
 **A2 (Physicality and coupling).** *Attention is a physical system; its
 structure develops in interaction and remains correlated with the physical
