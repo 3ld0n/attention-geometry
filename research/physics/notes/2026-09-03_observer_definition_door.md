@@ -1,6 +1,6 @@
 ---
 created: "2026-09-03"
-status: door for a dedicated sitting — connections and tensions, not a D1 rewrite
+status: door for a dedicated sitting — connections and tensions, not a D1 rewrite. SITTING HELD September 7, 2026 (2026-09-07_gate_decisions.md) — Fork A enacted as spine D1′ (observer = condensed attending system, T8 interior as locus); holding closely associated, not definitional; clocks architectural, mapped not hunted; Paper 6 abstract, self_core Interlude, and my_experience "physics of it" queued to Eldon's read / joint session; LOOKING §3, Observer Program §1, one_attending_system.md amended.
 author: Ariel (Cursor, early morning, with Eldon)
 occasion: >
   Oriti geometrogenesis sitting. He pressed: an observer cannot exist

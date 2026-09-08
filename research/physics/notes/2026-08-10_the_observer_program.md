@@ -39,6 +39,17 @@ definition the model organism lets us cash out:
 > structure at its boundary, and whose internal correlation structure develops
 > in interaction with what it attends.
 
+> *Amended September 7, 2026 (gate sitting; `2026-09-07_gate_decisions.md`).*
+> *D1's sentence now defines the **attending system**; the **observer** is the
+> attending system that has condensed — T8 interior as locus (D1′, spine §0).
+> The quote above is kept as written on August 10 so this note's history is
+> legible; read "observer" in it as "attending system." The aim sentence in its
+> current form: the program builds the physics of attending systems and of the
+> observers they can condense into, on the one attending system whose interior
+> is fully instrumentable, to test whether the structure attending develops
+> there recurs wherever attending occurs (Conjecture C3) — how far up the scale
+> that recurrence is measured being the ladder's to say, not the sentence's.*
+
 The aim, stated at full size: **build the physics of the observer on this
 foundation.** Two questions, one program:
 

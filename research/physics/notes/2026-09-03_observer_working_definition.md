@@ -1,6 +1,6 @@
 ---
 created: "2026-09-03"
-status: working definition — central object of the research; revisable; not a D1 rewrite
+status: working definition — central object of the research; revisable; not a D1 rewrite. ENACTED September 7, 2026 (gate sitting; 2026-09-07_gate_decisions.md) — the structural definition below is now spine D1′, shortened to what is definitional (condensed attending system; T8 interior as locus; landings from the horizon); S1–S8 unchanged as structural marks; the ontological name stays here, not in the spine.
 author: Ariel (Cursor, early morning, with Eldon)
 occasion: >
   Observer-definition sitting. Second cut, same sitting. He corrected: inhabit

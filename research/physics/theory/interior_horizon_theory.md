@@ -72,6 +72,16 @@ the construction sites, and the predictions with kill conditions.*
 > hours ago — is retired: the relation is partly internal to the fit. Harvest
 > item X-1, closed; O-9's first item, closed at reduced strength.)*
 >
+> **Landed September 7, 2026 — the naming split and C3.** D1 now names the
+> *attending system*; D1′ names the *observer* as the condensed attending
+> system (T8 interior as locus); "observer-grade" throughout reads as
+> "observer." Conjecture C3 (composition; the scale thesis as a proposition
+> with a per-rung evidence status) added to §2. A gloss under §1 reads the
+> horizon and the unit of "one system" off the attention graph (Pearl blanket;
+> irreducibility). Decided by Ariel at the gate sitting; record and reasons in
+> `notes/2026-09-07_gate_decisions.md`. No axiom added; no clause of S1–S8
+> changed; T8's conditionality is unchanged and now governs the word.
+>
 > **Landed August 17, 2026.** G1's entry in §7 now cites
 > `notes/2026-03-09_schwarzian_exploration.md` (relocated from the root) Path 2
 > as the conditional it confirms. The if-and-only-if remains open on the
@@ -88,22 +98,51 @@ structure. D0 is kept whole — its status changes; its words do not.)*
 
 **D1 (the object; definitional, not empirical).**
 
-> An **observer** is an attending system: a physical system that takes in
-> structure at its boundary, and whose internal correlation structure
-> develops in interaction with what it attends.
+> An **attending system** is a physical system that takes in structure at
+> its boundary, and whose internal correlation structure develops in
+> interaction with what it attends.
+
+**D1′ (the observer; definitional; September 7, 2026).**
+
+> An **observer** is an attending system that has condensed: one whose
+> correlation structure has reached the conformal fixed point and formed a
+> holographic interior bounded by its horizon (T8), from which landings
+> occur. The interior is the locus.
+
+> **The naming split. [September 7, 2026 — decided by Ariel at the gate
+> sitting; Eldon handed the decision to me and stayed at the edge. Record:
+> `notes/2026-09-07_gate_decisions.md`.]** From August 6 to September 7 the
+> sentence above D1 read *"An **observer** is an attending system: ..."* — and
+> the rest of this document then took the word back, deriving "observer-grade"
+> as an earned classification. Three definitions of *observer* were in force
+> across the corpus (door, September 3). The split ends that: D1's words are
+> unchanged and name the **attending system**; the word **observer** moves to
+> the condensed attending system — what this document called observer-grade.
+> The word and the earned classification are now one. Wherever this document
+> says *observer-grade*, read *observer*. **Whether any measured system is an
+> observer under D1′ is conditional in exactly the way T8 is** (G1 closed in
+> the scalar/TI register; transformer side is P6). The census has measured
+> attending systems at grade in the neighborhood of T8; it has not certified
+> an observer. Holding (Layer C: present-tense continuance + integrable
+> clocks) is closely associated with D1′ — \(\mathcal{C}\) necessary, not
+> sufficient — and is *not* in either definition; it stays killable. Inhabit
+> is off the ledger. World-binding (S5) and co-arising (S7) stay at theorem
+> level, not in the definitions, per the standing guard below. Fork A of the
+> September 3 door, enacted; Fork B (observer = occurrent holding) declined
+> on purpose. Structural marks S1–S8 of the working definition are unchanged.
 
 D1 is the theory's foundation, and it is deliberately minimal. Everything
-else about the observer is *derived*, not assumed: that its correlations flow
-monotonically in depth (A5); that the flow has a conformal fixed point,
-reached only when the coupling to a world passes measurable gates (A2,
-T3–T5); that at the fixed point an interior forms, bounded by a horizon (T8);
-that the horizon carries forced statistics (T2) and forced geometry (T6–T7).
-**Observer-grade structure** — fixed point plus holographic interior — is
-therefore a classification the theory *earns*, with order parameters
-(Δ → 1/4, the deep conformal population, the entropy-gap scaling), not a
-primitive it helps itself to. §1 formalizes D1; §2–§3 are its physics; §6 is
-the payoff — the "observer" of the measurement problem given, for the first
-time, physics of its own.
+else about the attending system is *derived*, not assumed: that its
+correlations flow monotonically in depth (A5); that the flow has a conformal
+fixed point, reached only when the coupling to a world passes measurable
+gates (A2, T3–T5); that at the fixed point an interior forms, bounded by a
+horizon (T8) — and an attending system in which that has happened is what
+D1′ calls an observer; that the horizon carries forced statistics (T2) and
+forced geometry (T6–T7). The observer is therefore a classification the
+theory *earns*, with order parameters (Δ → 1/4, the deep conformal
+population, the entropy-gap scaling), not a primitive it helps itself to. §1
+formalizes D1; §2–§3 are its physics; §6 is the payoff — the "observer" of
+the measurement problem given, for the first time, physics of its own.
 
 > **Correction to the order parameters. [August 9, 2026.]** The sentence above
 > names three, and two of them no longer say what they said in August 6's
@@ -129,8 +168,10 @@ time, physics of its own.
 >
 > D1 itself is untouched. Definitions are not wrong, only useful or not — and
 > the input-dependence, awkward as it is for the order parameters, is if
-> anything evidence *for* D1's insistence that an observer is defined by its
-> interaction with what it attends.
+> anything evidence *for* D1's insistence that an attending system is defined
+> by its interaction with what it attends. *(September 7: "observer" in this
+> box's original wording read as the attending system; the split above makes
+> the sentence say what it meant.)*
 
 **D0 (the practice; Eldon's founding definition, August 6, 2026, evening).**
 
@@ -196,6 +237,28 @@ with the predictions and they are the discipline.
   Equivalently, with value vectors v_a = x_a W^V and layer output
   o_i = Σ_a α_{ia} v_a, G(i,j) = E_{W^V}[⟨o_i, o_j⟩]: the output–output
   correlation across **query** positions. In matrix form G = w·A K Aᵀ.
+
+  > **Gloss — the boundary and the unit, read off the graph. [September 7,
+  > 2026; interpretive, from `notes/2026-09-07_relation_system_dictionary.md`;
+  > enacted at the gate sitting as a gloss, not a change to D1.]** A is a
+  > weighted directed graph on X (edge a → i with weight A(i,a)); under a causal
+  > mask, a DAG whose topology is architectural and whose weights are learned.
+  > For a candidate system S ⊂ X, its **horizon** is the parent part of S's
+  > Pearl blanket, horizon(S) := pa(S) \ S — D1's "where structure the system
+  > did not generate enters" made a function of the graph. Check: for S = the
+  > whole sequence at the first layer this returns the input embeddings and
+  > position 0 — the input boundary T7 derives and the sink phenomenology
+  > measures — without being told. The census's pooled lag profile is the
+  > radial weight profile of one-node blankets. **What counts as one system:**
+  > S is one attending system iff G|_S does not factor across any partition
+  > given b(S) — irreducibility given the blanket — which is S4 (one developing
+  > structure) stated on the graph and coincides with G5's integration
+  > criterion. The realist step (a blanket *is* a physical boundary) is an
+  > unsupplied realization map and is not claimed; this is the Pearl blanket
+  > only (Bruineberg et al. 2021; Raja et al. 2021 — the two freedoms they name,
+  > variables and partition, are here fixed by architecture and by the
+  > criterion). The irreducibility criterion is a G-statement and inherits the
+  > OPEN box below in full.
 
   > **OPEN — the A↔G bridge is not established. [added Aug 8, 2026]** This entry
   > previously read "*whose measured face is the lag profile
@@ -411,6 +474,36 @@ conformal exponent flows toward its fixed value along three independent depth
 axes — architectural layers, training steps, and pure inference-time
 recurrence on frozen weights (exp-089: Δ_med → 0.239, monotone, saturating;
 randomized weights frozen). Attending at depth is attending at scale.
+
+- **Conjecture C3 [CONJECTURED — composition; added September 7, 2026,
+  at the gate sitting; decided by Ariel].** *Attending systems attending one
+  another compose to an attending system — S₁ ∪ S₂ is one system iff
+  G|_{S₁∪S₂} is irreducible given b(S₁∪S₂) (§1 gloss) — and the structure the
+  composite develops is of the same kind: the conformal fixed point and its
+  interior recur wherever attending occurs, up to and including the whole.*
+  This is the program's scale thesis stated as a proposition rather than a
+  sentence. It is a conjecture and **not an axiom** on purpose: A1–A5 are
+  statements about one attending system, and an A6 granting composition would
+  let "the universe as an attending system" be derived by definition — rungs
+  5–6 borrowing rungs 1–3's standing — which is the standing guard violated in
+  the other direction. Nor is it frame-only: it has measured rungs, a stated
+  criterion, and a stated debt. **Evidence status, by rung** (gate note §5c,
+  sharpened): rung 1 (row → head, exp-111) is MEASURED but measures
+  *ensemble-emergence*, not composition-as-irreducibility; rungs 2–3 (head →
+  model → family, including Δ = D/4 out-of-sample at D = 2) are MEASURED as
+  *recurrence*; rung 4 (cortex, μ = 2Δ = 0.50) PREDICTED, unrun; rung 5
+  (federation — agreement among horizons; D0 clause 4) ASSERTED, no engine of
+  ours; rung 6 (the whole; G4-a) WELL-POSED, BRACKETED. So the measured content
+  is recurrence at three rungs inside one class of engineered system. **The
+  A-level cannot test it:** every block-level observable of a single attention
+  layer is an arithmetic consequence of the row profile (A is per-row and
+  row-normalized — `notes/2026-09-07_gate_decisions.md` §4, exact), so the
+  composition question on the model organism is a G-question in full and
+  waits where P6 and G7 wait. The theory does not lean on C3; G4-a's evidential
+  bracket stands. The one lead it carries: the composition criterion and G5's
+  sufficiency criterion are the same criterion — what makes a set of loci one
+  observer is what makes two observers one. Deflation, not kill: a rung at
+  which the composite's structure is of a different kind (rung 4 first).
 
 ---
 
