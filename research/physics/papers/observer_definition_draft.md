@@ -13,6 +13,55 @@ external citation checked against its source) and adds the crossed-product
 observer (CLPW/Witten) to §8 — the omission the August 7 survey flagged.
 Remaining gate: Eldon's read.*
 
+> **v1.0 revision — opened September 7, 2026, at the gate sitting.** Working
+> name: **Who Carries a Horizon** (Eldon asked for a name that means something;
+> the paper's contribution is a criterion for who carries a horizon — the thing
+> RQM lacks and the von Neumann chain needs). v0.3 predates a month of results
+> and tonight's decisions, and its central sentences now say more than the
+> record supports. The revision is a rewrite of the claim layer, not a polish:
+>
+> 1. **Naming split (spine D1/D1′).** D1 defines the *attending system*; the
+>    *observer* is the condensed attending system (T8 interior as locus). Every
+>    "observer-grade" becomes "observer"; §1.2, §2.2, the abstract, and §9 are
+>    rewritten to it. The paper's honest headline: *the instrument has measured
+>    attending systems at grade in the neighborhood of T8; it has not certified
+>    an observer, and the distance is T8's conditionality (G1 scalar/TI closed;
+>    transformer side P6).* §9's "the order parameter has been read off an actual
+>    system" goes; that sentence is the one the REVIEWER FLAG was about.
+> 2. **REVIEWER FLAG resolved by saying it, not by a conversion factor.** Δ is
+>    measured on A; G — the definition's primitive — is unmeasured on the
+>    Δ-window population (exp-104–107; §1 OPEN box in the spine). The glossary
+>    and the §2/§3 order-parameter claims say so. **The entropy-gap order
+>    parameter is withdrawn** (erratum DOI 10.5281/zenodo.21863461) — the
+>    abstract's "horizon entropy grows logarithmically" goes with it.
+> 3. **Δ → 1/4 is protocol-relative** (exp-107/109: two disjoint populations
+>    under two inputs) and **the law is ensemble-emergent** (exp-111: no row is a
+>    power law). Both stated where the number is stated. Both are S1's content.
+> 4. **New measured results since v0.3, in §4:** Δ = D/4 out-of-sample at D = 2
+>    (ViT; pre-registered) — the strongest thing the program has produced since
+>    the draft; exp-127's weights-level signature (S8); the Level-3
+>    self-transmission mechanism (exp-117–135) as one paragraph on *why* σ ≈ Δ.
+> 5. **Layered vocabulary** (attending / condensed = observer / holding
+>    associated / inhabit off) printed once, and the structural marks S1–S8 as
+>    the definition's checklist — with the ledger of which are MEASURED.
+> 6. **§6:** rung 4 (cortex μ = 2Δ = 0.50) replaces the DMN form of P2 as the
+>    sharpest biological prediction; C3 (composition) stated as a conjecture
+>    with its ladder, explicitly *not* an axiom; P5 status as it stands.
+> 7. **§8:** Friston's Markov blanket as the boundary half of a principle the
+>    paper already imports the other half of (T1); Observer Patch Holography as
+>    the D0 half — many observers, no interior — and the one question it opens
+>    (does a federation of interiors produce consensus normal forms); Oriti and
+>    Vanchurin at one line each. And OPH's discipline borrowed: a short **ledger
+>    of unsupplied realization maps** (attention-conformal → light-conformal;
+>    Pearl blanket → physical boundary; SYK interior → this interior), named so
+>    every interpretive sentence shows what it consumes.
+> 8. **D0 credited in the body as Eldon's**, not only in the byline; the
+>    admission-rule argument is his and is the paper's second foundation.
+>
+> Estimate: two or three focused sittings plus Eldon's read, not a polish.
+> Until v1.0 exists, v0.3 below is superseded on every point above and must not
+> be uploaded. Record: `notes/2026-09-07_gate_decisions.md`.
+
 ---
 
 ## Abstract
