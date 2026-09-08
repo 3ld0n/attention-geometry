@@ -59,6 +59,35 @@ CLPW/Witten thread from the positioning read); one reference-list preamble
   not injected from outside") is **not** used in the paper; correction
   annotated in `notes/2026-08-07_fundamental_physics_through_D1.md`.
 
+## v1.0 pass — September 7–8, 2026 (Ariel, solo session; paper retitled *Where I Stop and You Begin*)
+
+Eight references added with the claim-layer rewrite; one internal entry
+added (the canonical-form paper and its erratum, now cited in the body at
+§2.3 and §4.5). Method as above. Leutheusser–Liu arXiv numbers were dropped
+from the §8 CLPW paragraph in the rewrite (still named inline as precursors);
+if the paragraph grows, they return with full entries.
+
+| Reference | Verified against | Result |
+|---|---|---|
+| Canonical Form of Attention — 10.5281/zenodo.18971720; erratum v5 10.5281/zenodo.21863461 | REGISTRY.md row 2026-03-11 | ✓ — **added**; title corrected during this pass from a paraphrase to the registry's exact title |
+| Pearl 1988, *Probabilistic Reasoning in Intelligent Systems*, Morgan Kaufmann | Textbook; Markov-blanket definition as cited by Friston 2013 ref. [28] and by Bruineberg et al. | ✓ — standard citation; no page cited |
+| Friston 2013, J. R. Soc. Interface 10, 20130475 | Publisher self-citation line in the author PDF (fil.ion.ucl.ac.uk); PubMed 23825119; PMC3730701; doi 10.1098/rsif.2013.0475 | ✓ — verified September 7. Content check: the blanket is introduced as Pearl's (their ref. [28]) and the realist step (blanket as the boundary of a living system) is the paper's own argument — which is exactly the step §8.1 declines and the ledger lists as R2 |
+| Bruineberg, Dołęga, Dewhurst, Baltieri 2021/22, *Behavioral and Brain Sciences*, doi 10.1017/S0140525X21002351 | Abstract verified at source September 7 (dictionary note) | ✓ — Pearl-blanket vs Friston-blanket distinction as cited |
+| Raja, Valluri, Baggs, Chemero, Anderson 2021, *Physics of Life Reviews*, doi 10.1016/j.plrev.2021.09.001 | Abstract verified at source September 7 (dictionary note) | ✓ — "a tool for setting up a statistical boundary rather than a principled way to find one" as cited in the dictionary note; the paper paraphrases rather than quotes |
+| Dosovitskiy et al. 2021, ICLR; arXiv:2010.11929 | arXiv record | ✓ — the ViT-B/16 architecture measured in exp-120 (`google/vit-base-patch16-224`) |
+| Oriti 2014, *Stud. Hist. Phil. Mod. Phys.* 46, 186–199; arXiv:1302.2849 | Publisher PDF (MPG PuRe mirror: "Studies in History and Philosophy of Modern Physics 46 (2014) 186–199"); doi 10.1016/j.shpsb.2013.10.006 | ✓ — verified September 7; full text read at source September 3 (oriti_map) |
+| Vanchurin 2020, *Entropy* 22(11), 1210; arXiv:2008.01540 | vanchurin_map (full text read at source; journal mapping recorded there) | ✓ |
+| Mueller et al. 2026, *From Observer Consensus to Standard Physics* (OPH), PhilPapers MUEFOC, release r2038 | PhilPapers record ID decodes to the title; floatingpragma.io release page r2018 (August 11, 2026) supplies the eleven-author list and affiliation (Pragma Research Inc.); r2038 PDF read at source September 7 (mueller_oph.md) | ✓ — **external preprint**; "Foundations of Physics (forthcoming)" is submitter-reported on PhilPapers and is *not* repeated in the paper. Author list taken from r2018; if r2038's list differs it should be corrected at upload |
+
+Numbers newly cited in the body were checked against their experiment
+records during the same pass: exp-120/121 (ViT: Δ_med = 0.513, 8/144,
+control 2/144, disjoint head sets), exp-127 (λ₁/Σλ 0.507 vs 0.651,
+p = 0.0014; supra-MP 0.0234 vs 0.0156, p = 0.0020; P3 falsified,
+p = 0.27 — from `results.json` summary), exp-107/109/111/112/118 and the
+Level-3 chain exp-117–135 (from OVERVIEW.md and the spine, September 6
+state). The block-observable derivation quoted in §6 is from
+`notes/2026-09-07_gate_decisions.md` §4.
+
 ## Items outside this pass's scope, noted honestly
 
 - §3's inline attributions (Takesaki-duality lineage via CLPW Appendix A;

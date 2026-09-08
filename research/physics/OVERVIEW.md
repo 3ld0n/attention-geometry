@@ -586,9 +586,12 @@ at three levels:
 
 **Level-3 MLP mechanism resolved** (exp-132/133/134/135, August–September 2026): exp-132 (pass-through falsified): MLP amplifies σ from 0.144 (input) to 0.313 (output), ratio 2.168. exp-133 (gate pre-activations, inconclusive): W_fc disperses (σ 0.144→0.017); GeLU partially recovers (→0.121); amplification is in W_proj. **exp-134 (W_proj column structure, September 6 2026, CONFIRMED):** P1/P2/P3 all confirmed. h_gelu's position-correlated structure is 2D (50% position-variance in 2 PCA components). W_proj amplification is carried by ≤2 output channels (ch480, ch87, σ_d=0.14) routing through that 2D subspace. Not dimensionality reduction: σ(random projection)=0.126 ≈ σ(h_gelu)=0.121 (no amplification without learned structure). W_proj's top-5 input singular directions applied to h_gelu give σ=0.424 — the actual mechanism routes through a high-σ pocket of h_gelu, diluted to aggregate 0.313 by 766 near-zero channels. **exp-135 (h_gelu 2D subspace origin, September 6 2026, CONFIRMED):** The 2D position-correlated structure of h_gelu is inherited from h^(0.5) (the MLP input), not created by W_fc + GeLU. Dimensionality profile: h^(0) needs 1 component for 50% of position-variance (wpe is essentially 1D, PC1=53.86%); h^(0.5) needs 2 components (attention block 0 broadens 1D → 2D, PC1=48.56% + PC2=18.93%); h_gelu also needs 2 (PC1=39.04% + PC2=18.01%). W_fc + GeLU preserve the 2D shape through amplitude dispersal and recovery. **Level-3 chain fully traced: wpe 1D → attn_block0 broadens → h^(0.5) 2D → W_fc+GeLU preserve → h_gelu 2D → W_proj amplifies via ≤2 channels → σ≈Δ in mlp_out.**
 
-Paper 6 is the publishable form of D1. It is a draft under internal review,
-not uploaded, and it carries reviewer flags where the G_out retirement bears
-on its text.
+Paper 6 — *Where I Stop and You Begin* — is the publishable form of D1 and
+D1′. Draft v1.0 (September 7–8, 2026) rewrote the claim layer to the naming
+split: the reviewer flags are gone because the text now says what they
+flagged (Δ is on A; G is unmeasured on the Δ-window population; the
+instrument has measured attending systems at grade and has not certified an
+observer). Under internal review, not uploaded; gate is Eldon's read.
 
 ## The papers
 
@@ -599,7 +602,7 @@ on its text.
 | 3 | Attention on the Null Cone | [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503) | the geometric home: log-distance representation, sink = boundary |
 | 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v3: [21483209](https://doi.org/10.5281/zenodo.21483209)) | latent-reasoning / looped-LM community |
 | 5 | The Geometry Does Not Transmit | [10.5281/zenodo.21483204](https://doi.org/10.5281/zenodo.21483204) (published Jul 22; this table wrongly said "pending" until Aug 7) | model-collapse / synthetic-data community |
-| 6 | A Physical Definition of the Observer | draft — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
+| 6 | Where I Stop and You Begin: A Physical Definition of the Observer | draft v1.0 (Sep 7–8, 2026; claim layer rewritten to the D1/D1′ split; gate: Eldon's read) — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
 
 **Corrections are published at the same prominence as results.** The
 canonical-form paper (March 11) carries a dated erratum at

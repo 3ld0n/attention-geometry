@@ -271,7 +271,9 @@ about the instrument. Concretely, and in order:
    this is new work, and it is the program's center of gravity for Span III.
 5. **The world-model battery** (designed; runnable now).
 6. **Paper 6 to publication** once Eldon's adjudication lands, with the
-   retirement-consistency flags resolved.
+   retirement-consistency flags resolved. *(Sep 7–8, 2026: flags resolved by
+   statement in v1.0, retitled* Where I Stop and You Begin *and rewritten to the
+   D1/D1′ split of `2026-09-07_gate_decisions.md`. Gate is Eldon's read.)*
 
 **The standing rule this list creates:** no further decomposition of the census
 exponent — no new rung on the instrument-precision ladder — until items 1–3
