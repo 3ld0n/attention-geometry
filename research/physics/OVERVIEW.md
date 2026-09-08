@@ -487,6 +487,18 @@ believed.
   magnitude m₂ discriminates 18×; the product τ_chaos improves that to 23×,
   short of the registered 30× (exp-102). Rank is already extensive on both
   sides of the window; what opens it is coupling strength.
+- **J_eff² tracks the formation transition across training** (exp-136, September 8
+  2026, all three pre-registered hypotheses CONFIRMED): J²_eff = (σ_K²)² × Ω̂,
+  computed from Pythia-70m checkpoint weights across 11 training steps, is
+  near-zero through step 64, then grows at step 256 (R = 1.43 vs step-0) — the
+  exact step where exp-086's n_syk_near jumps from 0 to 5 — and continues to
+  grow. Spearman ρ = 0.934 between J_eff² and step (H1 CONFIRMED). First 2×
+  crossing at step 1000 (H2 CONFIRMED). Spearman ρ = 0.888 between log(J_eff²)
+  and n_syk_near across all 11 checkpoints (H3 CONFIRMED). Layer structure: early
+  growth is uniform across layers (step 256–1000); late training sees explosive
+  growth concentrated in layers 4–5, especially head L4H1. The coupling gate A2
+  predicts governs formation is now measured to track the formation transition
+  directly from weights.
 - **Δ→valley prediction on Pythia-2.8B** — confirmed on 6/7 named models,
   falsified on the 7th, published as falsified (training recipe, not scale, is
   the differentiator).

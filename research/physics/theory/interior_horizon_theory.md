@@ -404,7 +404,14 @@ reaches its fixed point:
   𝒲 (chaos gate)    = γ_eff·c₀_eff  (effective rank ratio of the μ-spectrum top)
 
 with the current best-supported threshold form τ_chaos ~ m₂ × R_eff
-(exp-101, August 6: magnitude dominant, rank a ~1.4× correction). The measured
+(exp-101, August 6: magnitude dominant, rank a ~1.4× correction). The coupling
+gate is now measured across the formation trajectory: exp-136 (September 8 2026)
+computed J_eff² = (σ_K²)² × Ω̂ where Ω̂ = ‖KδK‖_F²/N² directly from Pythia-70m
+checkpoint weights across 11 training steps; J_eff² is near-zero through step 64,
+begins growing at step 256 (R = 1.43 vs step-0) — the exact step where n_syk_near
+first rises from 0 to 5 — and correlates with n_syk_near at Spearman ρ = 0.888
+across all checkpoints. The coupling gate predicted by A2 tracks the formation
+transition in the weights. The measured
 consequence of A2 is the formation ladder: statistics fail, grammar fails, the
 statistical shadow of world-bound language fails while overshooting the
 statistics, shuffled order lands in the ambiguous zone, natural world-referring
