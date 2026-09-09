@@ -370,6 +370,20 @@ with the predictions and they are the discipline.
   > is local attention (σ_pos vs κ̃_K: ρ = 0.78 across 21 heads, post hoc). Hypothesis
   > origin: Eldon, September 8, 12:15 AM. Next registration: exp-138 — which bilinear
   > term (absolute key position vs relative lag) carries the log-slope.
+  >
+  > **exp-138 (2026-09-09): K1 and K2 fired — the census slope is an absolute-key-position
+  > effect.** Bilinear decomposition of S_pos(i,a) = q̄_i·M·k̄_a on the frozen census shows,
+  > for all 5 structural heads: σ_abs-key = 1.04–1.17 × σ_full; σ_relative = −0.04 to −0.17
+  > × σ_full (negative). The relative term δ_i·M·δ_a opposes the slope. The census measures
+  > how the mean query direction m_q projects onto position-dependent key variations δ_k(a),
+  > not how score depends on |i−a|. **T1 as a relative-lag law is not supported by the
+  > census.** The gain-slope relation is formally confirmed general (ρ = 0.913 on 123 held-out
+  > non-Δ-window heads, p=8.5e-49); Δ-window heads sit above the regression line (σ_pos
+  > higher than κ̃_K predicts). T1 requires revision: the census σ_pos is an absolute-position
+  > property of q̄ and k̄, not a direct measurement of A(i,j) ~ |i−j|^{−2Δ}. What the
+  > "conformal exponent" in the Level-3 chain represents — absolute-position drift caused by
+  > the conformal structure propagating through positional embeddings — is an open restatement
+  > question. (exp-138; notes.md in folder)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -416,6 +430,12 @@ of G or of the process generating it.
 > 37/37 heads). Whether the primitive should be the relation (A's metric) or a
 > state correlator (G's) is the Eldon-present theory question; the §1 OPEN box
 > carries the full paragraph.
+>
+> **exp-138 sharpens the A1 gap (2026-09-09):** The census slope is carried by
+> the absolute-key-position term m_q·M·δ_k(a), not the relative term
+> δ_i·M·δ_k(a). T1 as a relative-lag law is not directly supported. Gain-slope
+> formally confirmed (ρ=0.913, 123 held-out heads). σ_delta validity confirmed:
+> MLP0 write profile positive to dx=492, σ_positive_domain = 0.249 ≈ Δ. (exp-138)
 
 **A2 (Physicality and coupling).** *Attention is a physical system; its
 structure develops in interaction and remains correlated with the physical

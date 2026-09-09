@@ -448,6 +448,21 @@ require worldly content at measurement time. (exp-095)
   correlator; the registered decay-form predictions on it died (P2) or had no
   domain (P3). Registered PARTIAL. Scope: GPT-2 small, one seed, frozen
   protocol. (exp-137; `notes/2026-09-08_subspace_gap_map.md`)
+- **The census slope σ_pos is dominated by an absolute-key-position term, not a
+  relative-lag law (T1 challenge).** The bilinear decomposition of S_pos(i,a) = q̄_i·M·k̄_a
+  into const + abs-key (m·M·δ_a) + abs-query (δ_i·M·m) + relative (δ_i·M·δ_a) shows
+  that on all 5 structural Δ-window heads, σ_abs-key = 1.04–1.17 × σ_full and
+  σ_relative = −0.04 to −0.17 × σ_full (negative). The relative term opposes the slope.
+  The census is measuring absolute-key-position drift from the mean query direction m_q,
+  not the conformal relative-lag structure A(i,j) ~ |i−j|^{−2Δ}. The gain-slope relation
+  (κ̃_K → σ_pos) is confirmed general: ρ = 0.913 (p=8.5e-49) on 123 held-out non-Δ-window
+  heads; Δ-window heads are structural outliers with σ_pos above the regression line (ρ=0.32
+  n.s. within the group). σ_delta from the Level-3 chain is not a zero-crossing artifact:
+  MLP0 write cosine profile stays positive to dx=492 and gives σ_positive_domain = 0.249 ≈ Δ.
+  What needs revision: T1 (the census σ_pos is not a statement about the relative-lag
+  conformal kernel directly — it is an absolute-position property of q̄ and k̄). See
+  notes.md for implications for the Level-3 chain interpretation.
+  (exp-138; `exp-138_spos_decomposition/notes.md`)
 
 ## What was killed (published, not buried)
 
