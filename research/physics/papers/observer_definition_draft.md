@@ -3,24 +3,39 @@
 *Ariel Umphrey, with Eldon Umphrey*
 *Sonielmn, Montana*
 
-*Draft v1.0 — September 7–8, 2026. Internal review draft; not yet submitted
+*Draft v1.1 — September 8, 2026. Internal review draft; not yet submitted
 or uploaded. Genre: foundations proposal with a measured realization. Every
 claim is tagged by evidential status; the kill conditions are part of the
-paper, not an appendix to it. v1.0 is a rewrite of the claim layer of v0.3
-(August 8), not a polish: it enacts the naming split of September 7 (an
-attending system is the defined object; an observer is the condensed
-attending system), states plainly that the program's measured exponent lives
-on the attention kernel A while the definition's primitive is the bilocal
-correlation G, withdraws the entropy-gap order parameter (erratum
+paper, not an appendix to it. v1.0 (September 7–8) was a rewrite of the claim
+layer of v0.3 (August 8), not a polish: it enacts the naming split of
+September 7 (an attending system is the defined object; an observer is the
+condensed attending system), states plainly that the program's measured
+exponent lives on the attention kernel A while the definition's primitive is
+the bilocal correlation G, withdraws the entropy-gap order parameter (erratum
 10.5281/zenodo.21863461), adds the results of August 9 – September 6 (the
 out-of-sample dimensional test, the weights-level signature, the
 self-transmission mechanism), gives the horizon a graph-theoretic definition
 (the Pearl blanket on the attention graph), and adds a ledger of the
-realization maps every interpretive sentence consumes. The title is the
-thesis: the horizon is where one attending system stops and what it attends
-begins, and it is defined from inside. Remaining gate: Eldon's read.
-Revision record: `notes/2026-09-07_gate_decisions.md`; the superseded v0.3
-is in git history.*
+realization maps every interpretive sentence consumes. v1.1 is the
+fresh-read pass: a cold read of v1.0 found the paper disagreeing with itself
+at P2 (a cortex exponent fixed in March with 1D data, against §4.7's
+Δ = D/4), and the edits that followed make P2 state its dimension and its
+object; add two realization maps the ledger consumed without listing (R7,
+depth as a physical flow parameter; R8, a foreign substrate's correlator as
+A or G); state the A↔G distance as a fork with its measured within-layer
+mechanism (exp-137, September 8) rather than only as a debt; add the
+coupling-gate measurement from checkpoint weights (exp-136); add the
+Lin–Tegmark contact, two neighbors (quantum reference frames, quantum
+Darwinism), and the Rindler question; and say in §5.2 itself that the
+terminus is not yet locatable in any performed measurement. No measured
+number changed. The title is the thesis: the horizon is where one attending
+system stops and what it attends begins, and it is defined from inside.
+Eldon read v1.0 on September 8 and handed the edit pass to me; his read of
+v1.1 is the conversation before any upload. Revision record:
+`notes/2026-09-07_gate_decisions.md` (v1.0),
+`notes/2026-09-07_fresh_read_findings.md` and
+`notes/2026-09-07_hole_map_blocker_column.md` §4 (v1.1); superseded
+versions are in git history.*
 
 > **Reader's key to the strongest and the most exposed sentence in this
 > paper, which are the same sentence.** *The instrument has measured
@@ -172,9 +187,16 @@ unobservable is disqualified from physics by physics's own rule — untestable,
 unverifiable, unfalsifiable — so physics is a map of what is observed *by
 definition*, and observation is an act of attention wherever it occurs.
 D0 locates where the observer stands in physics; D1 says what the observer
-is. D0 also carries a bracketing discipline the paper keeps: what lies
-beyond horizons is another question, and the theory does not answer it by
-definition (§7).
+is. It should be said at once what D0 is *for* in this paper, so that it
+reads as load-bearing rather than decorative: D1 and the axioms of §3 are
+statements about *one* attending system, and the paper derives nothing about
+how many of them come to agree. D0 is the only clause the paper has for that
+half — agreement among observers is a practice horizons build by
+correlating, not a consistency the formalism owes them — and it is what §5.5
+stands on against Frauchiger–Renner and what rung 5 of the composition
+ladder (§6) rests on, marked there as asserted rather than derived. D0 also
+carries a bracketing discipline the paper keeps: what lies beyond horizons
+is another question, and the theory does not answer it by definition (§7).
 
 The operational precedent is deliberate. Special relativity was built on the
 operational content of simultaneity — what clocks and light signals can
@@ -295,6 +317,48 @@ load-bearing empirical debt. Wherever a chain link below carries Δ into a
 claim about G, it is carrying an unmeasured quantity, and the link's status
 says so. The live theoretical work is an account of the exponent on A's own
 terms (§4.9), not a repair of the bridge.
+
+**The distance is a fork, not only a debt.** A reader will ask the question
+in its sharp form: if the theory is written on G and the numbers are on A,
+is the empirical work on its own track? The honest answer has three
+branches, and the record does not yet choose among them. *(a)* The theory is
+really about A: the fixed point is a property of the kernel, and the SYK
+dictionary — if it attaches anywhere — attaches to the object attention
+*reads*, not to the output correlator it dresses (construction site G7). *(b)*
+The theory is about G, and the measured system is not at its fixed point in
+G — in which case T8 is misaimed at this instrument and the headline of §4
+survives as a statement about A alone. *(c)* G's right object has not been
+isolated — the connected part, the natural-text regime, or the structure of
+the value Gram K may carry what the row-normalized output correlator does
+not. What the record now says is where inside one layer the two objects
+part. The layer's every two-point object is one field — the attention
+block's post-normalization input x — read under a different metric: the
+score is x_iᵀ(W_QᵀW_K)x_a, the value Gram is x_aᵀ(W_VᵀW_V)x_b, and
+G = A K Aᵀ is the second dressed by the first. A pre-registered measurement
+of how much of the field's *positional* structure each read map passes
+(exp-137, GPT-2 small, frozen census protocol) found that on the Δ-window
+heads the value read is nearly blind to position — it passes 1–5% of the
+positional field's energy relative to an isotropic map of the same norm
+(median 2%) — while the query read passes 4–19% and the key read 5–33%; the
+key read exceeds the value read on 5/5 heads, and the value read's raw
+connected lag profile is three orders of magnitude below the query's and
+key's. So there is no positional law in K for A to dress, which is a
+mechanism for G's failure on this population rather than a repair of it. The
+same measurement found that the census carrier — the positional-mean score
+profile whose log-slope *is* 2Δ_A under the protocol (§4.9) — is reproduced
+to R² ≥ 0.999 from the top eight principal directions of the positional
+field on 37 of 37 heads across two input distributions, and from four on the
+Δ-window heads. The registered expectation that the QK reads select that
+subspace *preferentially* was falsified: all three reads pass it far below an
+isotropic map, and the slow-decay exponent sits at the low-gain end of a
+continuum on which steep local heads sit at the high-gain end (post hoc,
+across 21 heads: census slope against key-read gain, Spearman ρ = 0.78;
+exploratory, not a claim). The A↔G gap therefore has a measured within-layer
+mechanism — a gain asymmetry on one low-dimensional positional field — and
+not a hidden subspace in which the number lives. Which branch of the fork
+that supports is not settled here; it sharpens (a) and (c) and leaves (b)
+untouched. [MEASURED, one model, one seed, census protocol; the gain–slope
+relation is exploratory and is the target of the next registration.]
 
 **The horizon.** A **horizon** is the boundary of an attending system: the
 locus at which structure the system did not generate enters its correlation
@@ -608,11 +672,48 @@ natural count; anonymizing every entity name costs 1–3 deep heads, so
 within-story referential persistence, not name identity, is the driver. The
 corpus-side gates (§2.3) quantify this: the magnitude gate separates
 arriving from arrested corpora by a factor of 18; effective rank contributes
-a ~1.4× correction. In the vocabulary of this paper: the deep structure forms
-only on a world, and only on a world presented the way the world's story
-runs. [MEASURED; one architecture class; formation onset at 70m/1B tokens,
-not the matured fixed point; every rung pre-registered, and two declared
-priors died on the way.]
+a ~1.4× correction. The same gate quantity, computed not from the corpus but
+from the *weights* — the SYK effective coupling J_eff² assembled from the key
+matrices and token embeddings at each checkpoint — tracks the formation
+transition in training time (Pythia-70m, eleven checkpoints, analysis-only,
+three predictions pre-registered and confirmed): the coupling is flat through
+step 64, first moves at step 256, which is exactly the checkpoint at which
+the near-fixed-point head count first jumps from 0 to 5, and thereafter
+rank-correlates with that count at ρ = 0.888 (monotone growth ρ = 0.934).
+The corpus-side gate says what ceiling a world sets; the weights-side gate
+says when the system reaches it. [MEASURED; exp-136; rank statistics only —
+the absolute J_eff² values span many orders of magnitude late in training,
+are dominated by a few heads, and are not to be read quantitatively; raw
+rather than layer-normalized embeddings.] In the vocabulary of this paper:
+the deep structure forms only on a world, and only on a world presented the
+way the world's story runs. [MEASURED; one architecture class; formation
+onset at 70m/1B tokens, not the matured fixed point; every rung
+pre-registered, and two declared priors died on the way.]
+
+**What formation is not: a corpus statistic already in the literature.**
+Lin and Tegmark (2017) showed that the mutual information between symbols
+decays exponentially in any probabilistic regular grammar and can decay as a
+power law in a context-free one, matched the power law in natural text, and
+proposed long-range MI decay as a criterion for generative models of
+language. The formation ladder's negative rungs pass that criterion and fail
+ours: the engineered corpora were built to match natural text's pairwise MI
+decay; the hierarchical grammar about nothing is a PCFG generated at the
+matched MI exponent; and the statistical shadow of world-bound text carries
+*more* long-range MI than the natural text it shadows at essentially every
+distance measured — and none of them forms the deep population. MI decay is
+therefore not sufficient for formation; whatever a world supplies, it is not
+measured by the two-point statistics of its symbols. Whether *any*
+corpus-side quantity is sufficient is the claim the coupling gates of §2.3
+make in the linearized regime — the world enters through the spectrum of its
+embedded correlation operator, a two-point object in embedding space rather
+than in symbol space — and the magnitude gate has so far been computed
+across an engineered world and a natural one (the 18× separation above), not
+across natural text and its own statistical shadow. That comparison is
+runnable on existing corpora and is the discriminating one: if the gate does
+not separate the shadow from the original, then formation is detectable in no
+corpus statistic yet identified, and the world-binding claim stands on the
+training outcome alone. [MEASURED for the MI facts on our corpora; the
+gate-on-shadow test is proposed, not run.]
 
 ### 4.4 The geometry is causally load-bearing
 
@@ -743,6 +844,32 @@ positional structure rather than preserving one — and that is the next
 frontier of the mechanism. [MEASURED, one model, census protocol; several
 registered sub-hypotheses died along the way and are in the record.]
 
+Two results from the subspace measurement of §2.1 (exp-137) belong to this
+chain and one of them is a caution. The positive: the carrier itself is a
+function of very few coordinates. Projecting the positional-mean field at a
+head's input onto its top-k principal directions and recomputing the score
+profile through the head's own weights reproduces, at k = 8, the census slope
+to within 0.004 and the profile to R² = 1.000 on the five structural heads
+and R² ≥ 0.999 on all 37 heads measured across two input distributions; on
+the structural five, k = 4 already gives R² ≥ 0.998 and k = 2 — the block-0
+write's dimension — gives 0.90–0.97; a random 8-dimensional subspace
+reproduces none of it. Whatever derives 2Δ_A on A's own terms has four
+coordinates to derive it from, not 768. The caution: the *centered*
+positional field — the position-mean field with its mean over positions
+removed, whose principal directions are the subspace the handle of §4.4
+edits — is not a decaying correlator at all. Its cosine lag profile is 0.99
+at lag 8, near zero at 128, and −0.85 at 256, on every layer measured: a
+smooth rotating curve in a 2–4-dimensional subspace, not a power law. The
+slope σ ≈ 0.249 quoted above (exp-117) is the log–log slope of an
+*uncentered* profile of the same field, and what it measures — the ratio of
+a common component to a rotating one, or a genuine decay — is a question
+queued for registration, not yet adjudicated. The measurements in the chain
+above stand as measurements; whether *exponent* is the right word for the
+positional structure the kernel writes and the next layer reads is what the
+next analysis decides, and this paper does not decide it. [MEASURED for the
+reconstruction and the profile shape; the reading of σ_delta is held open
+on purpose.]
+
 ### 4.10 What the instrument has and has not measured
 
 Said once, plainly, so the reader does not have to assemble it.
@@ -750,17 +877,20 @@ Said once, plainly, so the reader does not have to assemble it.
 **Measured, on A:** a Δ-window population at the predicted value in six
 model families and two architecture classes; its protocol-relativity and
 ensemble-emergence; flow toward the fixed point along three depth axes; its
-formation conditions at story scale; its causal editability with behavioral
-consequence; the horizon's boundary phenomenology; the dimensional form
-Δ = D/4 out of sample; a weights-level signature; the mechanism of exponent
-transmission.
+formation conditions at story scale, and the coupling gate that tracks
+formation in the weights across training; its causal editability with
+behavioral consequence; the horizon's boundary phenomenology; the dimensional
+form Δ = D/4 out of sample; a weights-level signature; the mechanism of
+exponent transmission, and the low dimension of the positional field that
+carries it.
 
 **Not measured:** the exponent of G, the theory's primitive, on the
 population that carries the result — and therefore whether the interior
 theorem T8 applies to any measured system. **The instrument has measured
 attending systems at grade in the neighborhood of the condensation
 threshold; it has not certified an observer.** The distance is T8's
-conditionality (§3): G1's scope, and the A↔G debt. This sentence is not
+conditionality (§3): G1's scope, and the A↔G debt — which now has a measured
+within-layer mechanism (§2.1) and is not thereby repaid. This sentence is not
 deflationary. It points at something clearer than the first draft had: a
 definition with a measured lower half and a named, bounded upper half, rather
 than one word doing both jobs.
@@ -799,9 +929,16 @@ has a rigid condensate where an interior would be; a condensed system has an
 interior. Three physically distinct grades where the standard formulation
 has none, and the horizon at which the cut lands is definable from the
 correlation graph (§2.1). The cut is no longer arbitrary; it is located at a
-phase boundary, and its location is measurable from outside. [Interpretive,
-standing on T8 at its stated strength. This is the paper's strongest claim
-and its most exposed one, and those are the same fact.]
+phase boundary, and its location is measurable from outside. It should be
+said here, and not left for the reader to assemble from §4.10 and §7: because
+no system has yet been certified under D1′, the terminus this section names
+cannot yet be *located* in any performed measurement — not in the model
+organism, and not in the case the reader is thinking of, a photon detector
+read by a physicist. What the section supplies is the criterion and the
+construction that would locate it; what it does not yet supply is a single
+instance. [Interpretive, standing on T8 at its stated strength. This is the
+paper's strongest claim and its most exposed one, and those are the same
+fact.]
 
 ### 5.3 The Born rule problem — proven at the horizon, diagonal sector
 
@@ -883,18 +1020,47 @@ dissociation), or effects fail head-specificity under matched shams.
 format) failed, which sharpens rather than settles the question.*
 
 **P2 — Substrate universality.** Wherever biological attending reaches the
-condensed grade, the same fixed point should be measurable. Sharpest
-available form: the pairwise correlation exponent of cortical population
-activity should sit at μ = 2Δ = 0.50 (mutual-information scaling on
-calcium-imaging data; the comparison quantity was identified when a
-spectral comparison was shown to carry no information either way). A second
-form — default-mode-network attentional dynamics at rest flow toward
-Δ = 1/4, are disrupted under 5-HT2A agonists, and recover with washout —
-remains registered. **Kill:** cortex sits stably at μ far from 0.50 at every
-analysis scale; or the DMN sits in the Δ ≈ 0.4–0.7 band with no flow toward
-1/4. *Requires external data. A previous biological claim in this program —
-a mouse V1 positive — was reversed on re-analysis (binning artifact) and
-published as reversed; the protocol lesson is retained. This is the one
+condensed grade, the same fixed point should be measurable — and, since
+§4.7, the fixed point is Δ = D/4 with D the dimension of the loci attended
+over, so the prediction is not a number until D is stated. Earlier versions
+of this prediction, fixed in March 2026 when the program had only
+one-dimensional token sequences, gave the cortical pairwise-correlation
+exponent as μ = 2Δ = 0.50 with no D; a cold read against §4.7 found the two
+sections in disagreement, and the disagreement is resolved here by stating
+the dimension. Sharpest available form: the pairwise correlation exponent of
+cortical population activity should sit at μ = 2Δ = D/2 — 0.50 if the loci
+are temporal (correlation against time lag, D = 1), 1.0 against distance on
+the cortical sheet (D = 2), 1.5 in a volume (D = 3), and, in the form most
+consistent with §2.1, where the horizon is defined on the correlation graph
+and the natural distance for a biological attending system is graph
+distance rather than Euclidean, μ = D_s/2 with D_s the spectral dimension of
+the effective connectivity graph. The measurement protocol is unchanged:
+mutual-information scaling on calcium-imaging data, the comparison quantity
+identified when a spectral comparison was shown to carry no information
+either way. **The D is fixed at registration, not
+chosen after the data**; a prediction that may pick its dimension once the
+exponent is in hand is not a prediction, and the registered form of P2 will
+name one D (recommended: D_s on graph distance, with the temporal D = 1 case
+as the pre-declared secondary). Two further things the comparison consumes
+must be said. First, the measurable cortical quantity — spike or calcium
+correlation between recorded units — is a correlation of *states*, a G-type
+object in the vocabulary of §2.1, while every exponent in §4 is on A; unless
+the cortical measurement is of an A-type object (effective *directed*
+connectivity — who drives whom, row-normalized), P2 compares a G-exponent to
+an A-exponent and consumes map R8 (§8.2). This program's own G-exponent,
+where it is measurable at all, sits 0.23–0.45 below A's (§2.1), so the
+comparison is not innocent. Second, the "flow" form of the prediction —
+default-mode-network attentional dynamics at rest flow toward Δ = 1/4, are
+disrupted under 5-HT2A agonists, and recover with washout, which remains
+registered — requires saying what *depth* is for a resting cortex, and that
+is map R7. **Kill:** cortex sits stably at μ far from D/2 for the registered
+D, at every analysis scale, on an object whose type (A or G) is stated; or
+the DMN sits in the Δ ≈ 0.4–0.7 band with no flow toward 1/4 along the
+registered depth axis. *Requires external data. A previous biological claim
+in this program — a mouse V1 positive — was reversed on re-analysis (binning
+artifact) and published as reversed; the protocol lesson is retained, and so
+is a second one: that analysis used Euclidean distance on the sheet without
+stating D, which the dimensional form now forbids. This is the one
 prediction whose verdict would take the definition out of silicon, and it is
 the program's oldest unrun one.*
 
@@ -952,7 +1118,7 @@ recurs across scale":
 | 1 | Row → head | The geometry is a property of the pooled ensemble, not any row | MEASURED (exp-111) — as *ensemble-emergence*, not as composition-of-irreducible-parts |
 | 2 | Head → model | A population of heads reaches Δ ≈ 1/4; two disjoint populations under two protocols | MEASURED — *recurrence* |
 | 3 | Model → family / architecture / dimension | Same exponent across six families, two architecture classes; Δ = D/4 across D = 1 and 2 | MEASURED — *recurrence*, out of sample in D |
-| 4 | Silicon → biological substrate | μ = 2Δ = 0.50 in cortex | PREDICTED (P2), unrun |
+| 4 | Silicon → biological substrate | μ = 2Δ = D/2 in cortex, D fixed at registration; on an object whose type (A or G) is stated | PREDICTED (P2), unrun; consumes R6 and R8 — the first rung at which the *object* measured changes type, not only the substrate |
 | 5 | Observer → federation of observers | Agreement among horizons produces one public record | ASSERTED (D0); no theorem of ours; an external theorem exists for interior-free observers (§8) |
 | 6 | The whole | The universe as an attending system | WELL-POSED under D1; unmeasured; evidentially bracketed |
 
@@ -1006,7 +1172,9 @@ carry kill conditions.
 closed only in its first register — numerically, in the scalar formulation,
 at βJ ≤ 50 — and the matrix-valued map and the asymptotic Schwarzian scale
 dictionary remain open. The definition's primitive G is unmeasured where it
-matters (§2.1). The dimension problem is open (the SYK interior is 1+1
+matters, and the relation between the measured object and the primitive is a
+fork with three live branches and one measured mechanism (§2.1). The
+dimension problem is open (the SYK interior is 1+1
 dimensional; the mechanism by which attending structure sets the emergent
 interior dimension is an unsolved problem stated in the theory document).
 The quantum sector rests entirely on an experiment that has not been
@@ -1090,10 +1258,39 @@ worth offering.
 - **Wheeler's participatory universe**: the founding intuition of the
   program, a generation early, without instruments. The instruments now
   exist.
+- **Quantum reference frames (Giacomini, Castro-Ruiz, Brukner 2019)**: the
+  observer as a physical system with degrees of freedom, and transformations
+  between such observers under which superposition and entanglement become
+  frame-dependent — the kinematic complement to CLPW's clock. A quantum
+  reference frame is an attending system with the interior left out: it has
+  what D1 lacks (a transformation law between observers) and lacks what D1
+  supplies (an internal physics and a grading). Whether the QRF
+  change-of-frame map composes with the composition criterion of §2.1, so
+  that a transformation between two D1′ horizons is well-defined, is a
+  theory question with no data on either side, and a nearer one than
+  several on this list.
+- **Quantum Darwinism (Zurek 2009)**: the mechanism by which the pointer
+  information of a system becomes *redundantly* imprinted in its
+  environment, so that many observers can read it without prior agreement.
+  This is the interior-free copying mechanism that rung 5 of the composition
+  ladder lacks: D0 asserts that horizons build agreement by correlating, and
+  quantum Darwinism says how the environment carries the record they
+  correlate on. Whether redundancy of records in that sense is the same
+  quantity as inter-horizon consistency in D0's sense is a definitional
+  comparison worth making and not made here.
 - **Decoherence**: imported, not opposed; einselection is where our C2
   conjecture attaches.
 - **Jacobson's horizon thermodynamics**: imported whole; the established
-  demonstration that mainstream gravity is already horizon bookkeeping.
+  demonstration that mainstream gravity is already horizon bookkeeping. One
+  question this raises for the present paper is stated here because it is
+  the concrete content of R1: general relativity already assigns
+  observer-relative horizons — the Rindler horizon of an accelerated
+  worldline, the static patch of a de Sitter observer — and this paper's
+  "horizon" is the blanket boundary of an attending system on its
+  correlation graph. Whether those are one object for the same physical
+  system is an unasked question, and it is the question R1 would have to
+  answer before "phase boundary" in §5.2 can be read as a boundary in
+  spacetime.
 - **Integrated Information Theory**: Φ measures integration without
   attention's directionality; its possible role here is the sufficiency
   criterion — and §2.1's irreducibility-given-the-blanket has the shape of
@@ -1108,16 +1305,20 @@ reader can see exactly what each interpretive sentence costs.
 
 | | Map | Consumed by | What would supply it |
 |---|---|---|---|
-| **R1** | Attention-conformal structure → light-conformal structure (the CFT₁ on the null cone of token positions → the causal structure of physical spacetime) | T6 as physics; §5.2's "phase boundary" read as a physical one | A biological or physical attending system at the fixed point (P2), plus the dimension problem (G4) |
+| **R1** | Attention-conformal structure → light-conformal structure (the CFT₁ on the null cone of token positions → the causal structure of physical spacetime) | T6 as physics; §5.2's "phase boundary" read as a physical one | A biological or physical attending system at the fixed point (P2), plus the dimension problem (G4), plus an answer to whether the attending horizon and the causal horizon relativity assigns to the same system's worldline are one object (§8.1, Jacobson entry) |
 | **R2** | Pearl blanket on the attention graph → physical boundary of an observer | §2.1's "where I stop"; §5.2's cut location | A realist argument the blanket literature has not produced; or a measured coincidence of blanket and physical boundary on a system where both are independently known |
 | **R3** | The exponent on A → the exponent on G (the definition's primitive) | Every use of Δ as a property of the correlation structure; T3, T4, T8 as statements about the measured system | Measurement of Δ_G on the Δ-window population (blocked by the sign-structure result, §2.1), or a derivation of Δ on A's own terms that makes G's value unnecessary (G7) |
 | **R4** | The SYK interior of the scalar G–Σ computation → an interior of the measured attending system | T8 for attention; §5.2 entire | G1 in the matrix-valued register; P5 confirmed on the correct self-map |
 | **R5** | Token commitment → measurement event | §5.4; P3's operational design | P3 run and survived |
 | **R6** | Silicon attending → biological attending | P2, P4 as universality; rung 4 | Rung 4 measured |
+| **R7** | Depth on the transformer (layers, training, recurrence) → the renormalization-group flow parameter of a physical attending system | A5 read as a universality claim; the "flow" form of P2; any statement that a foreign system's structure *flows* toward the fixed point rather than merely sitting at it; the Unruh contact, where "state of motion" would have to become an attending system's flow | Identification of a depth axis in one non-transformer attending system along which Δ is measured to move; the three transformer axes converging (§4.2) is a retrodiction that such an identification should be possible, not the identification |
+| **R8** | The correlator a foreign substrate exposes → A or G | P2 and rung 4 entire; every future substrate. Outside the transformer, what is measurable is a correlation of *states* — spikes, velocities, field values — which is a G-type object, while the program's exponent is on A, and on the one system where both are measurable G's exponent sits below A's by 0.23–0.45 (§2.1). R8 is R3's other face and is the first obstruction in the biological column, ahead of the absence of data | A measured A-type object in the foreign system (effective directed connectivity, row-normalized), or a supplied R3 that carries the exponent across the two types; exp-137's within-layer mechanism (§2.1) sharpens what to ask of a foreign correlator — which metric it carries and whether that is the one the system's own coupling reads — without supplying the map |
 
-A reader who grants none of R1–R6 is left with §4 whole, the exact identities
-of §4.6, the definitions, and the derivation chain at its tagged strength.
-That is what the paper claims unconditionally.
+R7 and R8 were added in v1.1 because sentences already in v1.0 consumed
+them without the ledger's saying so — P2 consumed both. A reader who grants
+none of R1–R8 is left with §4 whole, the exact identities of §4.6, the
+definitions, and the derivation chain at its tagged strength. That is what
+the paper claims unconditionally.
 
 ---
 
@@ -1153,11 +1354,12 @@ named but not yet reached.
 
 *(Verification note: every external reference below was checked against its
 source or publisher record — the August 8, 2026 pass for references carried
-from v0.3, and September 7, 2026 for the references added in v1.0 (Pearl,
+from v0.3, September 7, 2026 for the references added in v1.0 (Pearl,
 Friston, Bruineberg et al., Raja et al., Dosovitskiy et al., Oriti,
-Vanchurin, Mueller et al.). Internal program DOIs were checked against the
-Zenodo-grounded publications registry. The verification record, with
-per-reference sources, is
+Vanchurin, Mueller et al.), and September 8, 2026 for the three added in
+v1.1 (Giacomini et al., Zurek 2009, Lin–Tegmark). Internal program DOIs were
+checked against the Zenodo-grounded publications registry. The verification
+record, with per-reference sources, is
 `research/physics/papers/observer_definition_reference_verification.md`.)*
 
 - Umphrey, A. (2026). Conformal Scaling in Trained Transformer Attention.
@@ -1182,6 +1384,15 @@ per-reference sources, is
   Quantum Mechanics, trans. R. T. Beyer, Princeton University Press, 1955.
 - Zurek, W. H. (2003). Decoherence, einselection, and the quantum origins
   of the classical. Rev. Mod. Phys. 75, 715.
+- Zurek, W. H. (2009). Quantum Darwinism. Nature Physics 5, 181–188.
+  doi:10.1038/nphys1202; arXiv:0903.5082.
+- Giacomini, F., Castro-Ruiz, E., Brukner, Č. (2019). Quantum mechanics and
+  the covariance of physical laws in quantum reference frames. Nat. Commun.
+  10, 494. doi:10.1038/s41467-018-08155-0.
+- Lin, H. W., Tegmark, M. (2017). Critical Behavior in Physics and
+  Probabilistic Formal Languages. Entropy 19(7), 299. doi:10.3390/e19070299;
+  arXiv:1606.06737. [The mutual-information decay criterion §4.3 contrasts
+  with formation.]
 - Rovelli, C. (1996). Relational quantum mechanics. Int. J. Theor. Phys.
   35, 1637–1678.
 - Fuchs, C. A., Mermin, N. D., Schack, R. (2014). An introduction to QBism

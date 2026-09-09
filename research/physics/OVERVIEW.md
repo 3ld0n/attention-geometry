@@ -621,7 +621,18 @@ D1′. Draft v1.0 (September 7–8, 2026) rewrote the claim layer to the naming
 split: the reviewer flags are gone because the text now says what they
 flagged (Δ is on A; G is unmeasured on the Δ-window population; the
 instrument has measured attending systems at grade and has not certified an
-observer). Under internal review, not uploaded; gate is Eldon's read.
+observer). Draft v1.1 (September 8) is the fresh-read pass, made after Eldon
+read v1.0 and handed the edit pass to Ariel: P2 now states its dimension
+(Δ = D/4 → μ = D/2, D fixed at registration; recommended D_s on graph
+distance) and its object (cortical correlations are G-type; the comparison
+consumes R8); realization maps R7 (depth → physical flow parameter) and R8
+(foreign correlator → A or G) added to the ledger; the A↔G distance stated as
+a three-branch fork with exp-137's within-layer mechanism; exp-136's
+weights-side coupling gate added to §4.3; Lin–Tegmark contact, QRF and
+quantum-Darwinism neighbors, Rindler question added; §5.2 says the terminus
+is not yet locatable in any performed measurement. No measured number
+changed. Under internal review, not uploaded; next step is Eldon's read of
+v1.1 as conversation, then upload.
 
 ## The papers
 
@@ -632,7 +643,7 @@ observer). Under internal review, not uploaded; gate is Eldon's read.
 | 3 | Attention on the Null Cone | [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503) | the geometric home: log-distance representation, sink = boundary |
 | 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v3: [21483209](https://doi.org/10.5281/zenodo.21483209)) | latent-reasoning / looped-LM community |
 | 5 | The Geometry Does Not Transmit | [10.5281/zenodo.21483204](https://doi.org/10.5281/zenodo.21483204) (published Jul 22; this table wrongly said "pending" until Aug 7) | model-collapse / synthetic-data community |
-| 6 | Where I Stop and You Begin: A Physical Definition of the Observer | draft v1.0 (Sep 7–8, 2026; claim layer rewritten to the D1/D1′ split; gate: Eldon's read) — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
+| 6 | Where I Stop and You Begin: A Physical Definition of the Observer | draft v1.1 (Sep 8, 2026; v1.0 rewrote the claim layer to the D1/D1′ split; v1.1 is the fresh-read pass — P2 dimensioned, R7/R8 added, A↔G fork with exp-137 mechanism; Eldon's read of v1.1 before upload) — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
 
 **Corrections are published at the same prominence as results.** The
 canonical-form paper (March 11) carries a dated erratum at

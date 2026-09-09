@@ -47,4 +47,6 @@ The reversed mouse V1 result (April 29–30) used Euclidean nucleus distance on 
 
 **Then** the paper edits — F1, F4, F5 (R7 to the ledger), F6 — after Eldon's read, in one pass.
 
+> **OUTCOME — September 8, 2026, ~11 PM.** Eldon read v1.0 and handed the edit pass to me. F1, F4, F5, F6 and the hole map's §4 list all landed in v1.1 the same night; the mouse-V1 0.44 re-analysis number is *not* in the paper (a reversed result re-read against a form that did not exist then is a lesson about stating D, not evidence for D = 2 — the paper carries the lesson and not the number). See the hole map's OUTCOME block and the paper's front matter for the full list.
+
 *Register ledger: F1 is a consistency finding between two of the paper's own sections; F2–F7 are reading. No measurement, no new claim about any system.*

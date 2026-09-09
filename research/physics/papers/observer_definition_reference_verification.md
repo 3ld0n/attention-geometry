@@ -88,6 +88,34 @@ Level-3 chain exp-117–135 (from OVERVIEW.md and the spine, September 6
 state). The block-observable derivation quoted in §6 is from
 `notes/2026-09-07_gate_decisions.md` §4.
 
+## v1.1 pass — September 8, 2026 (Ariel, Cursor; the fresh-read edit pass)
+
+Three references added; each checked against publisher record and abstract
+at source tonight before the entry was written.
+
+| Reference | Verified against | Result |
+|---|---|---|
+| Zurek 2009, *Nature Physics* 5, 181–188; doi 10.1038/nphys1202; arXiv:0903.5082 | Nature record (published 02 March 2009, issue March 2009); INSPIRE 2734371 ("Nature Phys. 5 (2009) 3, 181-188"); ADS 2009NatPh...5..181Z; arXiv abstract | ✓ — content as cited: redundant imprinting of pointer-state information in the environment so many observers can read it; abstract read at source September 7 (hole-map note) and September 8 |
+| Giacomini, Castro-Ruiz, Brukner 2019, *Nat. Commun.* 10, 494; doi 10.1038/s41467-018-08155-0 | Nature record (published 2019-01-30; "NATURE COMMUNICATIONS (2019) 10:494" in the article PDF footer); Deutsche Digitale Bibliothek record (vol. 10, no. 1, pp. 1–13); author PDF (Tor Vergata mirror) | ✓ — content as cited: reference frames as quantum systems with degrees of freedom; transformations between them; superposition and entanglement frame-dependent; no internal physics or grading of the frame (the paper's reading, not theirs) |
+| Lin & Tegmark 2017, *Entropy* 19(7), 299; doi 10.3390/e19070299; arXiv:1606.06737 | MDPI record (published 2017-06-23); arXiv PDF whose first-page footnote reads "Published in Entropy, 19, 299 (2017)" | ✓ — content as cited: MI between symbols decays exponentially in any probabilistic regular grammar and can decay as a power law in a context-free grammar; power-law MI measured in natural text; MI decay proposed as a criterion for generative models. Abstract and introduction read at source September 8 |
+
+Numbers newly cited in the body were checked against their experiment
+records during the same pass: exp-137 (`experiments/exp-137_subspace_gap/notes.md`:
+κ̃_V 0.007–0.05 median 0.024, κ̃_Q 0.04–0.19, κ̃_K 0.05–0.33, random
+0.99 ± 0.11; K > V 5/5; raw V profile ~10⁻³ of Q/K; k = 8 reconstruction
+R² = 1.000 on the structural 5 and ≥ 0.999 on 16 control + 16 semantic; k = 4
+≥ 0.998 and k = 2 0.90–0.97 on the structural 5; random rank-8 σ ≈ 0; cosine
+profile 0.99 / ≈0 / −0.85 at lags 8 / 128 / 256; Spearman ρ = 0.78 post hoc,
+n = 21), exp-136 (`experiments/exp-136_jeff_threshold_formation/notes.md`:
+R = 1.00 through step 64, 1.43 at step 256 where n_syk_near 0 → 5; H1
+ρ = 0.934; H3 ρ = 0.888; raw-embedding and head-dominance caveats), and the
+formation-ladder MI facts (exp-062 engineered corpora at matched β̂; exp-084
+PCFG at matched β̂; exp-085 post-hoc MI of the generated corpus above C-NAT at
+essentially every distance d = 2–360). The P2 dimension options are read off
+§4.7's Δ = D/4 and §2.1's graph definition of the horizon; the 0.23–0.45 A–G
+exponent gap is §2.1's own number (exp-104). No measured number changed in
+v1.1.
+
 ## Items outside this pass's scope, noted honestly
 
 - §3's inline attributions (Takesaki-duality lineage via CLPW Appendix A;

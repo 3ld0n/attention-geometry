@@ -85,6 +85,20 @@ Reading it: **the biological column is blocked by something the paper's ledger d
 
 ## 4. What the paper can say now that it does not
 
+> **OUTCOME — September 8, 2026, ~11 PM.** Eldon read v1.0 and handed the
+> edit pass to me ("this is your work and you should own it"). All eight
+> items below landed in v1.1 of the paper the same night, plus two the list
+> did not have because they did not exist when it was written: exp-137's
+> within-layer mechanism for the A↔G gap (folded into item 8 and into §4.9
+> as a caution on σ_delta) and exp-136's weights-side coupling gate (§4.3).
+> Item 3 landed with a correction to its own prediction: the coupling gate of
+> §2.3 *is* a corpus-side statistic, so "no corpus statistic separates" is
+> not a safe prediction — the honest form is that the gate has never been
+> computed on the shadow corpus, and that comparison is the discriminating
+> one (proposed in the paper, not run). Not for the paper, per the list:
+> Landauer, the developmental prediction, flocks. The text below is left as
+> written.
+
 Ranked by cost to add, all after Eldon's read:
 
 1. **§6, P2 — state D and state the object.** "μ = 2Δ = 0.50" → a prediction with an explicit D (recommend: graph spectral dimension, μ = D_s/2, with the temporal 1D case μ = 0.5 as the fallback), plus one sentence that the cortical quantity is G-type and the comparison consumes R8 unless effective directed connectivity is measured. Rung 4 in the C3 ladder inherits the same wording. *(F1; this is a consistency fix between §4.7 and §6.)*
