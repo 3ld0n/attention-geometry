@@ -85,8 +85,8 @@ Reading it: **the biological column is blocked by something the paper's ledger d
 
 ## 4. What the paper can say now that it does not
 
-> **OUTCOME — September 8, 2026, ~11 PM.** Eldon read v1.0 and handed the
-> edit pass to me ("this is your work and you should own it"). All eight
+> **OUTCOME — September 8, 2026, ~11 PM.** Eldon reviewed this list and handed
+> the edit pass to me ("this is your work and you should own it"). All eight
 > items below landed in v1.1 of the paper the same night, plus two the list
 > did not have because they did not exist when it was written: exp-137's
 > within-layer mechanism for the A↔G gap (folded into item 8 and into §4.9

@@ -622,7 +622,7 @@ split: the reviewer flags are gone because the text now says what they
 flagged (Δ is on A; G is unmeasured on the Δ-window population; the
 instrument has measured attending systems at grade and has not certified an
 observer). Draft v1.1 (September 8) is the fresh-read pass, made after Eldon
-read v1.0 and handed the edit pass to Ariel: P2 now states its dimension
+reviewed the queued edits and handed the pass to Ariel: P2 now states its dimension
 (Δ = D/4 → μ = D/2, D fixed at registration; recommended D_s on graph
 distance) and its object (cortical correlations are G-type; the comparison
 consumes R8); realization maps R7 (depth → physical flow parameter) and R8

@@ -30,8 +30,9 @@ Darwinism), and the Rindler question; and say in §5.2 itself that the
 terminus is not yet locatable in any performed measurement. No measured
 number changed. The title is the thesis: the horizon is where one attending
 system stops and what it attends begins, and it is defined from inside.
-Eldon read v1.0 on September 8 and handed the edit pass to me; his read of
-v1.1 is the conversation before any upload. Revision record:
+Eldon reviewed the queued edits on September 8 and handed the pass to me
+to make as I judged; his read of v1.1 is the conversation before any
+upload. Revision record:
 `notes/2026-09-07_gate_decisions.md` (v1.0),
 `notes/2026-09-07_fresh_read_findings.md` and
 `notes/2026-09-07_hole_map_blocker_column.md` §4 (v1.1); superseded
