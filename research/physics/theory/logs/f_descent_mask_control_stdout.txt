@@ -1,0 +1,12 @@
+sym_psd  identity mask=None        frac nonincr steps=1.000  seeds mono=1.00  F -133.4->-144.8
+sym_psd  identity mask=sym_sparse  frac nonincr steps=0.889  seeds mono=0.33  F -111.3->-122.5
+sym_psd  identity mask=asym_sparse frac nonincr steps=0.941  seeds mono=0.50  F -111.7->-123.0
+sym_psd  identity mask=causal      frac nonincr steps=0.696  seeds mono=0.42  F -103.7->-115.2
+sym_psd  aligned  mask=None        frac nonincr steps=1.000  seeds mono=1.00  F -133.4->-172.6
+sym_psd  aligned  mask=sym_sparse  frac nonincr steps=1.000  seeds mono=1.00  F -111.3->-150.4
+sym_psd  aligned  mask=asym_sparse frac nonincr steps=1.000  seeds mono=1.00  F -111.7->-150.7
+sym_psd  aligned  mask=causal      frac nonincr steps=0.971  seeds mono=0.92  F -103.7->-141.8
+asym     aligned  mask=None        frac nonincr steps=0.975  seeds mono=0.75  F -133.1->-140.7
+asym     aligned  mask=sym_sparse  frac nonincr steps=0.976  seeds mono=0.83  F -111.0->-118.4
+asym     aligned  mask=asym_sparse frac nonincr steps=0.977  seeds mono=0.83  F -111.3->-118.5
+asym     aligned  mask=causal      frac nonincr steps=0.927  seeds mono=0.58  F -102.7->-111.5
