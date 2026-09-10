@@ -1,0 +1,89 @@
+{
+  "experiment": "exp-139",
+  "date": "2026-09-10",
+  "prereg_commit": "attention-geometry 9ad9b7c",
+  "overall_verdict": "confirmed",
+  "headline": "Both confirmed. exp-127 \u0394-window key structure and exp-136 formation gate are preserved in the canonical QR gauge. The gauge issue is resolved.",
+  "part_a": {
+    "h1_confirmed": true,
+    "k1_fired": false,
+    "k2_fired": false,
+    "wiki_top_share_median": 0.505,
+    "ctrl_top_share_median": 0.584,
+    "struct_top_share_median": 0.525,
+    "effect_top_share": 0.079,
+    "p1_mw_p": 0.0061,
+    "p2_mw_p": 0.0381,
+    "effect_supra_mp": 0.0,
+    "wiki_supra_mp_median": 0.0234,
+    "ctrl_supra_mp_median": 0.0234,
+    "p3_struct_vs_wiki_p": 0.3595,
+    "p3_struct_vs_ctrl_p": 0.9105,
+    "exp127_comparison": {
+      "original_wiki_median": 0.507,
+      "original_ctrl_median": 0.651,
+      "original_effect": 0.144,
+      "original_p1_p": 0.0014,
+      "canonical_wiki_median": 0.505,
+      "canonical_ctrl_median": 0.584,
+      "canonical_effect": 0.079,
+      "canonical_p1_p": 0.0061,
+      "note": "Effect attenuated in canonical gauge (0.144 -> 0.079) but direction preserved and significant"
+    }
+  },
+  "part_b": {
+    "h2_confirmed": true,
+    "k3_fired": false,
+    "rho_step": 0.907,
+    "p_step": 0.000119,
+    "rho_nsyk": 0.888,
+    "steps": [
+      0,
+      1,
+      4,
+      16,
+      64,
+      256,
+      1000,
+      4000,
+      16000,
+      64000,
+      143000
+    ],
+    "jeff_can_means": [
+      1.0333e-22,
+      1.0333e-22,
+      1.0333e-22,
+      1.0331e-22,
+      1.0372e-22,
+      1.9419e-22,
+      3.5692e-20,
+      1.0036e-15,
+      4.958e-13,
+      1.3858e-05,
+      2.0487e-06
+    ],
+    "normalized_growth": [
+      1.0,
+      1.0,
+      1.0,
+      0.99979,
+      1.0038,
+      1.8793,
+      345.42,
+      9712700.0,
+      4798200000.0,
+      1.3411e+17,
+      1.9827e+16
+    ],
+    "exp136_comparison": {
+      "original_rho_step": 0.934,
+      "canonical_rho_step": 0.907,
+      "original_rho_nsyk": 0.888,
+      "canonical_rho_nsyk": 0.888,
+      "formation_step_original": 256,
+      "formation_step_canonical": 256,
+      "note": "Formation timing identical; rho slightly reduced (0.934 -> 0.907); formation gate conclusion preserved"
+    }
+  }
+}

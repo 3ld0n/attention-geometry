@@ -1,0 +1,129 @@
+
+exp-139: Gauge-fixed key Gram and σ_K² (canonical QR gauge)
+Pre-registration: attention-geometry 9ad9b7c
+
+======================================================================
+Part A — GPT-2 small: canonical key Gram eigenspectrum
+======================================================================
+Loading GPT-2 small...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17149.40it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (247137 > 1024). Running this sequence through the model will result in indexing errors
+  done.
+Computing QR decompositions for all heads...
+  done.
+Loading WikiText-103 validation...
+  Using 100 sequences × 128 tokens.
+Running census forward passes...
+  Forward passes done.
+Computing canonical key Gram eigenvalues...
+  done.
+
+── λ₁/Σλ (top eigenvalue share, canonical gauge) ────────────────────
+  Δ-window  (n=16): median=0.505  range=[0.445, 0.594]
+  Structural(n=5): median=0.525  range=[0.473, 0.600]
+  Control   (n=16): median=0.584  range=[0.258, 0.740]
+  P1 Mann-Whitney (window < control): U=61, p=0.0061
+  Effect (median control − window): 0.079
+
+── Supra-MP fraction (canonical gauge) ──────────────────────────────
+  Δ-window  : median=0.0234
+  Structural: median=0.0234
+  Control   : median=0.0234
+  P2 Mann-Whitney (window > control): U=167, p=0.0381
+  Effect (median window − control): 0.0000
+
+── Kill conditions ──────────────────────────────────────────────────
+  K1 (effect < 0.05): FIRED=False  (effect=0.079)
+  K2 (P1 p ≥ 0.05) : FIRED=False  (p=0.0061)
+  H1: CONFIRMED
+
+  Struct>wiki: p=0.3595  Struct>ctrl: p=0.9105
+
+── Comparison with exp-127 (gauge-dependent) ────────────────────────
+  exp-127  Δ-window λ₁/Σλ median: 0.507 → now: 0.505
+  exp-127  Control  λ₁/Σλ median: 0.651 → now: 0.584
+  exp-127  effect: 0.144  → now: 0.079
+  exp-127  P1 p:   0.0014  → now: 0.0061
+
+======================================================================
+Part B — Pythia-70m: J_eff² with canonical σ_K² (gauge-fixed)
+======================================================================
+  Loading step=0... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6808.79it/s]
+done.
+    J_eff_can²_mean=1.0333e-22  σ_K_can²_mean=0.000312
+  Loading step=1... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6923.55it/s]
+done.
+    J_eff_can²_mean=1.0333e-22  σ_K_can²_mean=0.000312
+  Loading step=4... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6055.72it/s]
+done.
+    J_eff_can²_mean=1.0333e-22  σ_K_can²_mean=0.000312
+  Loading step=16... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 5380.58it/s]
+done.
+    J_eff_can²_mean=1.0331e-22  σ_K_can²_mean=0.000312
+  Loading step=64... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 5278.13it/s]
+done.
+    J_eff_can²_mean=1.0372e-22  σ_K_can²_mean=0.000312
+  Loading step=256... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 7132.05it/s]
+done.
+    J_eff_can²_mean=1.9419e-22  σ_K_can²_mean=0.000327
+  Loading step=1000... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6550.10it/s]
+done.
+    J_eff_can²_mean=3.5692e-20  σ_K_can²_mean=0.000386
+  Loading step=4000... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 7218.13it/s]
+done.
+    J_eff_can²_mean=1.0036e-15  σ_K_can²_mean=0.000795
+  Loading step=16000... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 5814.90it/s]
+done.
+    J_eff_can²_mean=4.9580e-13  σ_K_can²_mean=0.001956
+  Loading step=64000... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6662.08it/s]
+done.
+    J_eff_can²_mean=1.3858e-05  σ_K_can²_mean=0.006677
+  Loading step=143000... Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 5657.72it/s]
+done.
+    J_eff_can²_mean=2.0487e-06  σ_K_can²_mean=0.005792
+
+── Normalized J_eff_can² growth ─────────────────────────────────────
+      Step         R=J/J_0    n_syk_near
+         0      1.0000e+00             0
+         1      1.0000e+00             0
+         4      1.0000e+00             0
+        16      9.9979e-01             0
+        64      1.0038e+00             0
+       256      1.8793e+00             5
+      1000      3.4542e+02             8
+      4000      9.7127e+06             5
+     16000      4.7982e+09             6
+     64000      1.3411e+17             9
+    143000      1.9827e+16             6
+
+── Spearman correlation with training step ──────────────────────────
+  ρ = 0.907  (p = 1.19e-04)
+  K3 (ρ < 0.50): FIRED=False
+  H2: CONFIRMED
+  ρ(J_eff_can², n_syk_near) = 0.888  (p = 2.57e-04)
+
+======================================================================
+OVERALL VERDICT: CONFIRMED
+
+Both confirmed. exp-127 Δ-window key structure and exp-136 formation gate are preserved in the canonical QR gauge. The gauge issue is resolved.
+======================================================================
+Traceback (most recent call last):
+  File "/Users/ariel/attention-geometry/research/physics/experiments/exp-139_gauge_fixed_key_gram/run.py", line 538, in <module>
+    main()
+  File "/Users/ariel/attention-geometry/research/physics/experiments/exp-139_gauge_fixed_key_gram/run.py", line 533, in main
+    json.dump(results, f, indent=2)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

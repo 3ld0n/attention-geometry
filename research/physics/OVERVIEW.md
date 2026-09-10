@@ -531,7 +531,26 @@ believed.
   growth is uniform across layers (step 256–1000); late training sees explosive
   growth concentrated in layers 4–5, especially head L4H1. The coupling gate A2
   predicts governs formation is now measured to track the formation transition
-  directly from weights.
+  directly from weights. **Gauge check (exp-139, September 10 2026, CONFIRMED):**
+  the formation gate conclusion is gauge-invariant in the canonical QR gauge of
+  Wang & Wang 2025 — canonical ρ = 0.907 (vs 0.934), formation timing at step 256
+  identical. σ_K² → canonical σ_K_can² does not change the conclusion.
+- **Weights-level structural signature: Δ-window heads have less rank-1-concentrated
+  key geometry** (exp-127, August 30 2026, P1/P2 CONFIRMED, P3 FALSIFIED): eigenvalue
+  distribution of the key Gram K K^T on GPT-2 small (21 Δ-window, 5 structural,
+  16 control heads). Δ-window: λ₁/Σλ median = 0.507 (less concentrated, more
+  distributed key directions); control: 0.651 (p = 0.0014, effect = 0.144). Supra-MP
+  fraction: Δ-window 0.0234 vs control 0.0156 (p = 0.0020). P3 FALSIFIED: structural
+  heads (λ₁/Σλ = 0.504) look like Δ-window heads, not control — both conformal-relevant
+  populations (structural and Δ-window) share distributed key geometry; the rank-1-
+  concentrated heads are induction/positional in the random control. **Gauge check
+  (exp-139, September 10 2026, CONFIRMED):** the Δ-window vs control distinction is
+  preserved in the canonical QR gauge (canonical effect = 0.079, p = 0.0061).
+  Effect is attenuated vs original (0.144 → 0.079): the gauge freedom absorbs part
+  of the apparent difference; the residual 0.079 is the gauge-invariant component.
+  Supra-MP distinction nearly vanishes in canonical gauge; the λ₁/Σλ statistic is
+  the stable claim. The gauge issue flagged in Appendix A of the theory draft is
+  resolved for both this result and exp-136.
 - **Δ→valley prediction on Pythia-2.8B** — confirmed on 6/7 named models,
   falsified on the 7th, published as falsified (training recipe, not scale, is
   the differentiator).

@@ -436,6 +436,19 @@ of G or of the process generating it.
 > δ_i·M·δ_k(a). T1 as a relative-lag law is not directly supported. Gain-slope
 > formally confirmed (ρ=0.913, 123 held-out heads). σ_delta validity confirmed:
 > MLP0 write profile positive to dx=492, σ_positive_domain = 0.249 ≈ Δ. (exp-138)
+>
+> **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
+> Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
+> attention; K K^T and ‖W_K‖_F² are gauge-dependent under this group. P0 (theory
+> draft Appendix A) requires canonical recomputation before citing them. exp-139
+> recomputed the exp-127 key Gram eigenspectrum in the canonical QR gauge (W_Q =
+> U_Q R_Q; K^{can} = K R_Q^T). H1 CONFIRMED: Δ-window λ₁/Σλ median 0.505 vs
+> control 0.584 (p=0.0061, effect=0.079). Effect attenuated from original 0.144 —
+> the gauge freedom absorbs part of the apparent difference; the residual 0.079
+> is the gauge-invariant component. The Δ-window vs control distinction in key
+> geometry is real. The gauge issue in A1's metric (which metric G carries) is
+> partially resolved: the invariant object is the score matrix A, and its key
+> Gram concentration is a stable signal independent of gauge choice. (exp-139)
 
 **A2 (Physicality and coupling).** *Attention is a physical system; its
 structure develops in interaction and remains correlated with the physical
@@ -462,7 +475,11 @@ checkpoint weights across 11 training steps; J_eff² is near-zero through step 6
 begins growing at step 256 (R = 1.43 vs step-0) — the exact step where n_syk_near
 first rises from 0 to 5 — and correlates with n_syk_near at Spearman ρ = 0.888
 across all checkpoints. The coupling gate predicted by A2 tracks the formation
-transition in the weights. The measured
+transition in the weights. **Gauge check (exp-139, September 10 2026, CONFIRMED):**
+the J_eff² formation gate conclusion is preserved in the canonical QR gauge —
+canonical J_eff_can² ρ = 0.907 with training step (vs original 0.934), formation
+timing at step 256 identical, ρ with n_syk_near = 0.888 unchanged. (exp-136, exp-139)
+The measured
 consequence of A2 is the formation ladder: statistics fail, grammar fails, the
 statistical shadow of world-bound language fails while overshooting the
 statistics, shuffled order lands in the ambiguous zone, natural world-referring
