@@ -1368,7 +1368,17 @@ Supporting chain, previously undelivered: the joint (Δ, λ) implied-valley
 predictor beats Δ alone on three confirmatory models (exp-067); flattening
 the eight locked heads costs ΔNLL = +0.00136 nats/token on WikiText, below
 noise — a clean win, not a quality tradeoff (exp-075). Task generalization
-fails (exp-076).
+fails (exp-076). **exp-140/exp-141 (September 12 2026 — both INCONCLUSIVE):** exp-140 had a
+protocol deviation (field from h before ln_1; κ̃ baselines 0.4–3.5, wrong
+tensor). exp-141 corrected the hook (ln_1 output; κ̃ baselines 0.05–0.33,
+consistent with exp-137). Both ran the same task battery. **Item-level
+double dissociation:** Task B (positional retrieval) 20/20 items improved
+under κ-amplification (p < 10⁻⁵); Task A (entity-state tracking) 11/20
+(noise; sham: 10/20). Sham null on both tasks. Median ΔP_B = +0.27 nats,
+below the +1.0 nats P2 threshold — INCONCLUSIVE by pre-registered criteria.
+Directional evidence consistent with P1's kill condition at item-level
+significance: the κ-handle on Δ-window heads governs positional retrieval,
+not world-model coherence. Not at registered median threshold.
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
