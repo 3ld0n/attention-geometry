@@ -571,17 +571,24 @@ believed.
   (κ=0.5) moved the wrong way (+0.025 against the cloud baseline), sham delta
   0.0. The mechanism is task-specific, not positional-geometric as registered.
   Scope: vicuna-13b-v1.5, the exp-072 head set. (exp-076)
-- **World-model battery — two runs (exp-140/141, September 12 2026, both INCONCLUSIVE).**
-  Both ran κ-amplification (γ=2, 5 Δ-window heads, GPT-2 small) against a sham-controlled
-  orthogonal perturbation. exp-140 had a protocol deviation (field from raw h before ln_1;
-  κ̃ baselines 0.4–3.5, inconsistent with exp-137). exp-141 corrected the hook (ln_1
-  output; κ̃ baselines 0.05–0.33, consistent with exp-137). **Item-level result:
-  Task B (positional retrieval) 20/20 items improved under amplification (p < 10⁻⁵);
-  Task A (entity-state tracking) 11/20 improved (noise; sham 10/20).** Sham null on both.
-  Median shift ΔP_B = +0.27 nats below the registered +1.0 nats threshold — INCONCLUSIVE
-  by criteria. Item-level double dissociation is decisive: the κ-handle on Δ-window heads
-  governs positional retrieval, not world-model coherence. Directional evidence consistent
-  with P1's kill condition at item-level significance, not at registered median strength.
+- **World-model battery — three runs (exp-140/141/142, September 12–13 2026, all INCONCLUSIVE by pre-registered criteria; antagonism finding from exp-142).**
+  exp-140 had a protocol deviation (field from raw h before ln_1; κ̃ baselines 0.4–3.5,
+  inconsistent with exp-137). exp-141 corrected the hook (ln_1 output; κ̃ baselines
+  0.05–0.33, consistent with exp-137). **exp-141 item-level result: Task B (positional
+  retrieval) 20/20 items improved under Δ-window amplification (γ=2; p < 10⁻⁵); Task A
+  (entity-state tracking) 11/20 improved (noise). Median ΔP_B = +0.27 nats — below the
+  registered +1.0 nats threshold; INCONCLUSIVE by criteria.**
+  exp-142 (September 13): suppressed steep/local heads (L0H10, L10H5, L8H7, L7H0, L7H9;
+  γ=−1.0 on W_K positional projection; κ̃ confirmed < 0.45 on all five). **Direction
+  inverted: Task B improved (18/20 items, ΔP_B = +0.33 nats); Task A mixed (11/20 degraded,
+  −0.13 nats, within sham range). Both sham conditions flat.** P1 (predicted degradation)
+  not fired. **Antagonism finding:** amplifying Δ-window heads improves Task B; suppressing
+  steep/local heads also improves Task B. The two populations are antagonistic — steep/local
+  (κ̃_K = 6–22, short-range, high-gain) compete with the Δ-window mechanism for positional
+  retrieval. Removing the competition improves long-range ordinal lookup; local heads
+  help entity tracking (Task A, nearby context) and hurt positional retrieval (Task B,
+  long-range position lookup). Combined manipulation (amplify Δ-window + suppress
+  steep/local simultaneously) is the predicted next test. (exp-140/141/142)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

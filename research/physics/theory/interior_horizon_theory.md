@@ -1379,6 +1379,16 @@ below the +1.0 nats P2 threshold — INCONCLUSIVE by pre-registered criteria.
 Directional evidence consistent with P1's kill condition at item-level
 significance: the κ-handle on Δ-window heads governs positional retrieval,
 not world-model coherence. Not at registered median threshold.
+**exp-142 (September 13 2026 — INCONCLUSIVE, direction inverted; antagonism finding):**
+Suppressed steep/local heads (L0H10, L10H5, L8H7, L7H0, L7H9; γ=−1.0 on W_K
+positional projection; κ̃ confirmed < 0.45 on all five). Predicted: Task B
+degrades. Found: Task B IMPROVED (18/20 items, ΔP_B = +0.33 nats); Task A mixed
+(−0.13 nats, within sham range). P1 not fired (direction wrong). **Antagonism
+finding:** both amplifying Δ-window heads (exp-141, +0.27 nats) and suppressing
+steep/local heads (exp-142, +0.33 nats) improve Task B. The two populations are
+antagonistic — steep/local (κ̃_K = 6–22) compete with the Δ-window mechanism for
+positional retrieval. Removing the competition improves long-range ordinal lookup.
+Combined manipulation (register before running) is the next test.
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
