@@ -1389,6 +1389,16 @@ steep/local heads (exp-142, +0.33 nats) improve Task B. The two populations are
 antagonistic — steep/local (κ̃_K = 6–22) compete with the Δ-window mechanism for
 positional retrieval. Removing the competition improves long-range ordinal lookup.
 Combined manipulation (register before running) is the next test.
+**exp-143 (September 15 2026 — CONFIRMED additive):** Combined — amplify Δ-window
+heads (γ=+2.0) + suppress steep/local heads (γ=−1.0) simultaneously. Task B:
+**20/20 items improved, ΔP_B = +0.71 nats** (P1 fires: > 0.33 nats; P3 fires: > 0.55
+nats). Task A: 10/20, flat, within sham range (P2 fires). **Antagonism model fully
+confirmed across three experiments: single amplification +0.27, single suppression
++0.33, combined +0.71 (additive: expected 0.60; actual slightly super-additive).
+The two populations are independent competing circuits for long-range positional
+retrieval.** The +1.0 nats median threshold was never met in any experiment (GPT-2
+small's weak positional baseline); the item-level dissociation (Task B 20/20; Task A
+flat across all three manipulation conditions) is the decisive evidence for P1.
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

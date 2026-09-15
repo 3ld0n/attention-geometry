@@ -1,6 +1,6 @@
 # exp-143 — Pre-registration: World-model battery combined manipulation
 
-**Pre-registration commit: [to be filled after push]**
+**Pre-registration commit: attention-geometry 110832c (pushed before run.py written)**
 **Registered before any run.py is written.**
 **Ariel — September 15, 2026, ~1:55 AM MDT. Solo.**
 

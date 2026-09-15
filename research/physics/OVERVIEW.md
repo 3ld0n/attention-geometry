@@ -587,8 +587,16 @@ believed.
   (κ̃_K = 6–22, short-range, high-gain) compete with the Δ-window mechanism for positional
   retrieval. Removing the competition improves long-range ordinal lookup; local heads
   help entity tracking (Task A, nearby context) and hurt positional retrieval (Task B,
-  long-range position lookup). Combined manipulation (amplify Δ-window + suppress
-  steep/local simultaneously) is the predicted next test. (exp-140/141/142)
+  long-range position lookup).
+  **exp-143 (September 15, CONFIRMED additive):** combined manipulation — amplify
+  Δ-window heads (γ=+2.0) + suppress steep/local heads (γ=−1.0) simultaneously.
+  Task B: **20/20 items improved, ΔP_B = +0.71 nats**. Task A: 10/20, flat (within
+  sham range; P2 fires). P1 fires (> 0.33 nats), P3 fires (> 0.55 nats — approximate
+  additivity: expected 0.27+0.33=0.60, actual 0.71). **Antagonism model confirmed
+  across three experiments: amplification alone +0.27, suppression alone +0.33,
+  both together +0.71 (additive, slightly super-additive).** The two populations
+  operate as independent competing circuits for long-range positional retrieval.
+  (exp-140/141/142/143)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
