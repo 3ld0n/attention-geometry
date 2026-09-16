@@ -484,6 +484,12 @@ consequence of A2 is the formation ladder: statistics fail, grammar fails, the
 statistical shadow of world-bound language fails while overshooting the
 statistics, shuffled order lands in the ambiguous zone, natural world-referring
 text in order forms the geometry (exp-062/084/085/091, OVERVIEW.md).
+The coupling-magnitude gate m₂ gives a monotonic ordering across all three
+text-like corpora: C-alien (m₂ = 0.74, 0/48 heads) < C-generated (m₂ = 7.55,
+7/48 heads) < C-NAT (m₂ = 13.17, 11–15/48 heads) — formation tracks m₂,
+placing the formation threshold at m₂ ∈ [7.55, 13.17] (exp-144, September 16
+2026). The gate is graded, not binary; paper §4.3's binary conditional requires
+correction to reflect the monotonic relationship.
 
 **A3 (Self-consistency).** At depth, the correlation of attending is
 determined through itself, with no external referent. The empirical seed of

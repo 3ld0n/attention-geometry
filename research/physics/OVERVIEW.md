@@ -206,6 +206,16 @@ budget (1.05B), and frozen census protocol. Formation criterion ≥ 10/48 heads.
 | **Sentence-shuffled natural text (C-NAT-shuf, 3 seeds)** | sentence-level world-reference, cross-sentence order destroyed | 8–9/48 | 2 ×3 | **partial ×3** (exp-091) |
 | Natural text (TinyStories, 3 seeds) | reference to a persistent world, in order | 11–15/48 | 4–7 | **yes ×3** |
 
+**Corpus functional gate (exp-144, September 16 2026):** The coupling-magnitude
+gate m₂ (IDF-weighted word-type Gram spectrum) now measured on all three text-like
+rungs: C-alien 0.74, C-generated 7.55, C-NAT 13.17. A monotonic ordering holds
+across both m₂ and formation — m₂ is a graded predictor, not a binary switch.
+The shadow corpus (C-generated) lands at 0.57× C-NAT in m₂, substantially above
+C-alien (0.056×), which is consistent with its intermediate formation (7/48 vs
+0/48 and 11–15/48). The m₂ formation threshold is bracketed at ~7.55–13.17.
+Paper 6 §4.3 requires a correction: the gate is not blind to the distinction but
+gives a graded signal rather than the binary separation the §4.3 conditional assumed.
+
 Statistics fail. Grammar fails. The statistical shadow of world-bound language
 fails *while overshooting the statistics*. Three non-overlapping bands:
 engineered ≤ 5, shuffled 8–9, natural 11–15. Anatomy across the text-like
