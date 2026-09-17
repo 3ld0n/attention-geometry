@@ -1,0 +1,2314 @@
+{
+  "model": "gpt2-medium",
+  "n_layers": 24,
+  "n_heads": 16,
+  "n_inputs": 50,
+  "seq_len": 512,
+  "seed": 42,
+  "results": [
+    {
+      "layer": 0,
+      "head": 0,
+      "kappa_K": 11.3538,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 1,
+      "kappa_K": 11.5129,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 2,
+      "kappa_K": 15.4032,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 3,
+      "kappa_K": 19.0497,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 4,
+      "kappa_K": 14.5188,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 5,
+      "kappa_K": 18.5677,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 6,
+      "kappa_K": 9.903,
+      "wiki_head": true
+    },
+    {
+      "layer": 0,
+      "head": 7,
+      "kappa_K": 21.5572,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 8,
+      "kappa_K": 8.13,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 9,
+      "kappa_K": 20.0864,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 10,
+      "kappa_K": 14.1197,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 11,
+      "kappa_K": 16.1053,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 12,
+      "kappa_K": 20.613,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 13,
+      "kappa_K": 24.1939,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 14,
+      "kappa_K": 4.4046,
+      "wiki_head": false
+    },
+    {
+      "layer": 0,
+      "head": 15,
+      "kappa_K": 13.5831,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 0,
+      "kappa_K": 5.2326,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 1,
+      "kappa_K": 3.5916,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 2,
+      "kappa_K": 1.4507,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 3,
+      "kappa_K": 3.8698,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 4,
+      "kappa_K": 3.0124,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 5,
+      "kappa_K": 7.9551,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 6,
+      "kappa_K": 8.924,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 7,
+      "kappa_K": 9.0065,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 8,
+      "kappa_K": 5.5767,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 9,
+      "kappa_K": 1.5052,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 10,
+      "kappa_K": 4.8518,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 11,
+      "kappa_K": 1.1614,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 12,
+      "kappa_K": 0.915,
+      "wiki_head": true
+    },
+    {
+      "layer": 1,
+      "head": 13,
+      "kappa_K": 1.2239,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 14,
+      "kappa_K": 8.7707,
+      "wiki_head": false
+    },
+    {
+      "layer": 1,
+      "head": 15,
+      "kappa_K": 6.9346,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 0,
+      "kappa_K": 1.165,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 1,
+      "kappa_K": 1.6159,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 2,
+      "kappa_K": 2.1443,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 3,
+      "kappa_K": 7.5954,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 4,
+      "kappa_K": 9.8119,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 5,
+      "kappa_K": 9.1105,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 6,
+      "kappa_K": 13.0889,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 7,
+      "kappa_K": 4.5254,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 8,
+      "kappa_K": 2.6187,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 9,
+      "kappa_K": 9.4511,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 10,
+      "kappa_K": 11.0254,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 11,
+      "kappa_K": 1.145,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 12,
+      "kappa_K": 3.9395,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 13,
+      "kappa_K": 4.5059,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 14,
+      "kappa_K": 3.9961,
+      "wiki_head": false
+    },
+    {
+      "layer": 2,
+      "head": 15,
+      "kappa_K": 8.0243,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 0,
+      "kappa_K": 0.1804,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 1,
+      "kappa_K": 13.525,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 2,
+      "kappa_K": 16.5538,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 3,
+      "kappa_K": 17.0059,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 4,
+      "kappa_K": 13.0734,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 5,
+      "kappa_K": 20.3108,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 6,
+      "kappa_K": 2.1886,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 7,
+      "kappa_K": 2.1036,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 8,
+      "kappa_K": 22.3758,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 9,
+      "kappa_K": 17.3172,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 10,
+      "kappa_K": 20.8683,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 11,
+      "kappa_K": 18.5479,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 12,
+      "kappa_K": 0.3044,
+      "wiki_head": true
+    },
+    {
+      "layer": 3,
+      "head": 13,
+      "kappa_K": 26.0718,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 14,
+      "kappa_K": 2.3236,
+      "wiki_head": false
+    },
+    {
+      "layer": 3,
+      "head": 15,
+      "kappa_K": 21.3806,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 0,
+      "kappa_K": 0.6719,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 1,
+      "kappa_K": 23.1023,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 2,
+      "kappa_K": 20.9474,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 3,
+      "kappa_K": 28.7807,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 4,
+      "kappa_K": 28.6316,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 5,
+      "kappa_K": 12.6538,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 6,
+      "kappa_K": 1.43,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 7,
+      "kappa_K": 12.296,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 8,
+      "kappa_K": 6.9873,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 9,
+      "kappa_K": 1.2991,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 10,
+      "kappa_K": 1.2104,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 11,
+      "kappa_K": 27.3164,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 12,
+      "kappa_K": 24.4588,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 13,
+      "kappa_K": 43.1991,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 14,
+      "kappa_K": 16.305,
+      "wiki_head": false
+    },
+    {
+      "layer": 4,
+      "head": 15,
+      "kappa_K": 3.9454,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 0,
+      "kappa_K": 0.4442,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 1,
+      "kappa_K": 7.1836,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 2,
+      "kappa_K": 11.143,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 3,
+      "kappa_K": 25.5309,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 4,
+      "kappa_K": 13.2074,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 5,
+      "kappa_K": 1.0208,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 6,
+      "kappa_K": 13.1188,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 7,
+      "kappa_K": 7.6589,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 8,
+      "kappa_K": 0.4915,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 9,
+      "kappa_K": 17.5353,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 10,
+      "kappa_K": 1.4337,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 11,
+      "kappa_K": 31.7189,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 12,
+      "kappa_K": 0.6734,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 13,
+      "kappa_K": 9.5395,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 14,
+      "kappa_K": 0.22,
+      "wiki_head": false
+    },
+    {
+      "layer": 5,
+      "head": 15,
+      "kappa_K": 15.9293,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 0,
+      "kappa_K": 0.1578,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 1,
+      "kappa_K": 0.0689,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 2,
+      "kappa_K": 0.1764,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 3,
+      "kappa_K": 0.6782,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 4,
+      "kappa_K": 0.4334,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 5,
+      "kappa_K": 4.624,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 6,
+      "kappa_K": 12.6386,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 7,
+      "kappa_K": 13.0037,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 8,
+      "kappa_K": 6.7226,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 9,
+      "kappa_K": 0.2082,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 10,
+      "kappa_K": 5.4989,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 11,
+      "kappa_K": 0.3853,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 12,
+      "kappa_K": 0.7932,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 13,
+      "kappa_K": 0.5214,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 14,
+      "kappa_K": 5.6072,
+      "wiki_head": false
+    },
+    {
+      "layer": 6,
+      "head": 15,
+      "kappa_K": 3.6555,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 0,
+      "kappa_K": 0.1678,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 1,
+      "kappa_K": 14.3974,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 2,
+      "kappa_K": 0.3229,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 3,
+      "kappa_K": 0.7421,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 4,
+      "kappa_K": 1.5386,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 5,
+      "kappa_K": 0.2571,
+      "wiki_head": true
+    },
+    {
+      "layer": 7,
+      "head": 6,
+      "kappa_K": 19.5678,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 7,
+      "kappa_K": 1.6828,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 8,
+      "kappa_K": 0.6903,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 9,
+      "kappa_K": 8.7363,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 10,
+      "kappa_K": 6.1108,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 11,
+      "kappa_K": 0.2077,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 12,
+      "kappa_K": 7.2544,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 13,
+      "kappa_K": 6.5821,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 14,
+      "kappa_K": 5.7445,
+      "wiki_head": false
+    },
+    {
+      "layer": 7,
+      "head": 15,
+      "kappa_K": 0.5561,
+      "wiki_head": true
+    },
+    {
+      "layer": 8,
+      "head": 0,
+      "kappa_K": 7.9313,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 1,
+      "kappa_K": 16.9354,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 2,
+      "kappa_K": 9.9631,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 3,
+      "kappa_K": 8.8996,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 4,
+      "kappa_K": 0.7973,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 5,
+      "kappa_K": 0.7215,
+      "wiki_head": true
+    },
+    {
+      "layer": 8,
+      "head": 6,
+      "kappa_K": 17.5202,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 7,
+      "kappa_K": 33.2505,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 8,
+      "kappa_K": 1.7825,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 9,
+      "kappa_K": 1.4004,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 10,
+      "kappa_K": 0.9768,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 11,
+      "kappa_K": 0.9113,
+      "wiki_head": true
+    },
+    {
+      "layer": 8,
+      "head": 12,
+      "kappa_K": 20.4448,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 13,
+      "kappa_K": 0.4685,
+      "wiki_head": true
+    },
+    {
+      "layer": 8,
+      "head": 14,
+      "kappa_K": 1.2324,
+      "wiki_head": false
+    },
+    {
+      "layer": 8,
+      "head": 15,
+      "kappa_K": 0.4937,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 0,
+      "kappa_K": 6.3018,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 1,
+      "kappa_K": 1.0145,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 2,
+      "kappa_K": 6.5331,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 3,
+      "kappa_K": 0.5899,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 4,
+      "kappa_K": 0.225,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 5,
+      "kappa_K": 9.0188,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 6,
+      "kappa_K": 0.4233,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 7,
+      "kappa_K": 0.4166,
+      "wiki_head": true
+    },
+    {
+      "layer": 9,
+      "head": 8,
+      "kappa_K": 4.2733,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 9,
+      "kappa_K": 0.3867,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 10,
+      "kappa_K": 9.6854,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 11,
+      "kappa_K": 10.4048,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 12,
+      "kappa_K": 2.1186,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 13,
+      "kappa_K": 0.7304,
+      "wiki_head": true
+    },
+    {
+      "layer": 9,
+      "head": 14,
+      "kappa_K": 7.1227,
+      "wiki_head": false
+    },
+    {
+      "layer": 9,
+      "head": 15,
+      "kappa_K": 14.0819,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 0,
+      "kappa_K": 1.9821,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 1,
+      "kappa_K": 0.199,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 2,
+      "kappa_K": 2.1238,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 3,
+      "kappa_K": 0.9529,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 4,
+      "kappa_K": 1.1423,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 5,
+      "kappa_K": 4.8463,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 6,
+      "kappa_K": 1.2856,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 7,
+      "kappa_K": 5.6183,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 8,
+      "kappa_K": 0.4869,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 9,
+      "kappa_K": 4.9752,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 10,
+      "kappa_K": 1.6315,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 11,
+      "kappa_K": 6.9401,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 12,
+      "kappa_K": 5.5118,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 13,
+      "kappa_K": 2.3375,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 14,
+      "kappa_K": 1.1819,
+      "wiki_head": false
+    },
+    {
+      "layer": 10,
+      "head": 15,
+      "kappa_K": 4.6741,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 0,
+      "kappa_K": 2.8985,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 1,
+      "kappa_K": 2.0195,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 2,
+      "kappa_K": 10.6169,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 3,
+      "kappa_K": 2.3448,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 4,
+      "kappa_K": 0.8506,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 5,
+      "kappa_K": 6.3797,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 6,
+      "kappa_K": 18.1067,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 7,
+      "kappa_K": 30.9091,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 8,
+      "kappa_K": 2.3674,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 9,
+      "kappa_K": 2.898,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 10,
+      "kappa_K": 1.1136,
+      "wiki_head": true
+    },
+    {
+      "layer": 11,
+      "head": 11,
+      "kappa_K": 0.8976,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 12,
+      "kappa_K": 6.0403,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 13,
+      "kappa_K": 13.2608,
+      "wiki_head": false
+    },
+    {
+      "layer": 11,
+      "head": 14,
+      "kappa_K": 1.5922,
+      "wiki_head": true
+    },
+    {
+      "layer": 11,
+      "head": 15,
+      "kappa_K": 1.5538,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 0,
+      "kappa_K": 0.896,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 1,
+      "kappa_K": 0.9701,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 2,
+      "kappa_K": 3.2524,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 3,
+      "kappa_K": 7.6298,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 4,
+      "kappa_K": 0.5856,
+      "wiki_head": true
+    },
+    {
+      "layer": 12,
+      "head": 5,
+      "kappa_K": 1.6866,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 6,
+      "kappa_K": 1.5048,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 7,
+      "kappa_K": 2.9216,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 8,
+      "kappa_K": 4.6488,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 9,
+      "kappa_K": 1.2583,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 10,
+      "kappa_K": 4.3428,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 11,
+      "kappa_K": 0.3596,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 12,
+      "kappa_K": 1.327,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 13,
+      "kappa_K": 1.8588,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 14,
+      "kappa_K": 1.9751,
+      "wiki_head": false
+    },
+    {
+      "layer": 12,
+      "head": 15,
+      "kappa_K": 9.9988,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 0,
+      "kappa_K": 0.3601,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 1,
+      "kappa_K": 1.2595,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 2,
+      "kappa_K": 5.0029,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 3,
+      "kappa_K": 24.9531,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 4,
+      "kappa_K": 17.0547,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 5,
+      "kappa_K": 11.4945,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 6,
+      "kappa_K": 1.1823,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 7,
+      "kappa_K": 4.2846,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 8,
+      "kappa_K": 7.4267,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 9,
+      "kappa_K": 1.3013,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 10,
+      "kappa_K": 12.5379,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 11,
+      "kappa_K": 1.4266,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 12,
+      "kappa_K": 9.9021,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 13,
+      "kappa_K": 6.6587,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 14,
+      "kappa_K": 0.4746,
+      "wiki_head": false
+    },
+    {
+      "layer": 13,
+      "head": 15,
+      "kappa_K": 1.2849,
+      "wiki_head": true
+    },
+    {
+      "layer": 14,
+      "head": 0,
+      "kappa_K": 2.3921,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 1,
+      "kappa_K": 12.7751,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 2,
+      "kappa_K": 2.0128,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 3,
+      "kappa_K": 7.3577,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 4,
+      "kappa_K": 7.3626,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 5,
+      "kappa_K": 1.2116,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 6,
+      "kappa_K": 1.0133,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 7,
+      "kappa_K": 11.0996,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 8,
+      "kappa_K": 8.4137,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 9,
+      "kappa_K": 0.7517,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 10,
+      "kappa_K": 2.3397,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 11,
+      "kappa_K": 1.2022,
+      "wiki_head": true
+    },
+    {
+      "layer": 14,
+      "head": 12,
+      "kappa_K": 16.5121,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 13,
+      "kappa_K": 5.4856,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 14,
+      "kappa_K": 8.8318,
+      "wiki_head": false
+    },
+    {
+      "layer": 14,
+      "head": 15,
+      "kappa_K": 1.327,
+      "wiki_head": true
+    },
+    {
+      "layer": 15,
+      "head": 0,
+      "kappa_K": 1.8422,
+      "wiki_head": true
+    },
+    {
+      "layer": 15,
+      "head": 1,
+      "kappa_K": 3.9079,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 2,
+      "kappa_K": 0.9427,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 3,
+      "kappa_K": 1.2,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 4,
+      "kappa_K": 1.9259,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 5,
+      "kappa_K": 12.8259,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 6,
+      "kappa_K": 2.4917,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 7,
+      "kappa_K": 2.6108,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 8,
+      "kappa_K": 39.8879,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 9,
+      "kappa_K": 2.3514,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 10,
+      "kappa_K": 11.083,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 11,
+      "kappa_K": 1.0952,
+      "wiki_head": true
+    },
+    {
+      "layer": 15,
+      "head": 12,
+      "kappa_K": 0.3849,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 13,
+      "kappa_K": 14.636,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 14,
+      "kappa_K": 11.6229,
+      "wiki_head": false
+    },
+    {
+      "layer": 15,
+      "head": 15,
+      "kappa_K": 11.526,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 0,
+      "kappa_K": 6.9041,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 1,
+      "kappa_K": 1.3047,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 2,
+      "kappa_K": 1.9837,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 3,
+      "kappa_K": 1.4827,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 4,
+      "kappa_K": 9.8875,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 5,
+      "kappa_K": 8.754,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 6,
+      "kappa_K": 3.2016,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 7,
+      "kappa_K": 8.0125,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 8,
+      "kappa_K": 1.7438,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 9,
+      "kappa_K": 0.7381,
+      "wiki_head": true
+    },
+    {
+      "layer": 16,
+      "head": 10,
+      "kappa_K": 5.7295,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 11,
+      "kappa_K": 0.4961,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 12,
+      "kappa_K": 0.6148,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 13,
+      "kappa_K": 0.6663,
+      "wiki_head": true
+    },
+    {
+      "layer": 16,
+      "head": 14,
+      "kappa_K": 0.6208,
+      "wiki_head": false
+    },
+    {
+      "layer": 16,
+      "head": 15,
+      "kappa_K": 2.1663,
+      "wiki_head": true
+    },
+    {
+      "layer": 17,
+      "head": 0,
+      "kappa_K": 1.7303,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 1,
+      "kappa_K": 1.8467,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 2,
+      "kappa_K": 1.1811,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 3,
+      "kappa_K": 1.3166,
+      "wiki_head": true
+    },
+    {
+      "layer": 17,
+      "head": 4,
+      "kappa_K": 2.1558,
+      "wiki_head": true
+    },
+    {
+      "layer": 17,
+      "head": 5,
+      "kappa_K": 10.4628,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 6,
+      "kappa_K": 1.9046,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 7,
+      "kappa_K": 1.2219,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 8,
+      "kappa_K": 1.2107,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 9,
+      "kappa_K": 0.8354,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 10,
+      "kappa_K": 2.82,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 11,
+      "kappa_K": 30.4761,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 12,
+      "kappa_K": 2.3482,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 13,
+      "kappa_K": 12.3517,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 14,
+      "kappa_K": 2.3964,
+      "wiki_head": false
+    },
+    {
+      "layer": 17,
+      "head": 15,
+      "kappa_K": 13.3495,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 0,
+      "kappa_K": 1.7517,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 1,
+      "kappa_K": 2.072,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 2,
+      "kappa_K": 24.7381,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 3,
+      "kappa_K": 13.0161,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 4,
+      "kappa_K": 0.4892,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 5,
+      "kappa_K": 1.721,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 6,
+      "kappa_K": 16.592,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 7,
+      "kappa_K": 1.6145,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 8,
+      "kappa_K": 0.479,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 9,
+      "kappa_K": 1.2768,
+      "wiki_head": true
+    },
+    {
+      "layer": 18,
+      "head": 10,
+      "kappa_K": 1.3113,
+      "wiki_head": true
+    },
+    {
+      "layer": 18,
+      "head": 11,
+      "kappa_K": 1.329,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 12,
+      "kappa_K": 2.0199,
+      "wiki_head": true
+    },
+    {
+      "layer": 18,
+      "head": 13,
+      "kappa_K": 1.6242,
+      "wiki_head": true
+    },
+    {
+      "layer": 18,
+      "head": 14,
+      "kappa_K": 1.831,
+      "wiki_head": false
+    },
+    {
+      "layer": 18,
+      "head": 15,
+      "kappa_K": 4.7505,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 0,
+      "kappa_K": 7.6506,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 1,
+      "kappa_K": 11.6324,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 2,
+      "kappa_K": 1.5745,
+      "wiki_head": true
+    },
+    {
+      "layer": 19,
+      "head": 3,
+      "kappa_K": 1.5044,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 4,
+      "kappa_K": 1.6594,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 5,
+      "kappa_K": 2.5208,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 6,
+      "kappa_K": 4.4491,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 7,
+      "kappa_K": 1.9378,
+      "wiki_head": true
+    },
+    {
+      "layer": 19,
+      "head": 8,
+      "kappa_K": 1.8332,
+      "wiki_head": true
+    },
+    {
+      "layer": 19,
+      "head": 9,
+      "kappa_K": 3.5368,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 10,
+      "kappa_K": 3.0618,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 11,
+      "kappa_K": 2.4934,
+      "wiki_head": true
+    },
+    {
+      "layer": 19,
+      "head": 12,
+      "kappa_K": 2.0202,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 13,
+      "kappa_K": 3.466,
+      "wiki_head": true
+    },
+    {
+      "layer": 19,
+      "head": 14,
+      "kappa_K": 4.1551,
+      "wiki_head": false
+    },
+    {
+      "layer": 19,
+      "head": 15,
+      "kappa_K": 3.3703,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 0,
+      "kappa_K": 2.8287,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 1,
+      "kappa_K": 4.0746,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 2,
+      "kappa_K": 11.3182,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 3,
+      "kappa_K": 2.1944,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 4,
+      "kappa_K": 2.2833,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 5,
+      "kappa_K": 3.3767,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 6,
+      "kappa_K": 3.1153,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 7,
+      "kappa_K": 2.9596,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 8,
+      "kappa_K": 1.962,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 9,
+      "kappa_K": 2.0641,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 10,
+      "kappa_K": 2.5546,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 11,
+      "kappa_K": 3.0841,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 12,
+      "kappa_K": 2.3916,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 13,
+      "kappa_K": 2.0977,
+      "wiki_head": true
+    },
+    {
+      "layer": 20,
+      "head": 14,
+      "kappa_K": 2.5637,
+      "wiki_head": false
+    },
+    {
+      "layer": 20,
+      "head": 15,
+      "kappa_K": 1.7698,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 0,
+      "kappa_K": 2.4514,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 1,
+      "kappa_K": 7.5897,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 2,
+      "kappa_K": 2.1055,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 3,
+      "kappa_K": 1.4168,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 4,
+      "kappa_K": 2.0466,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 5,
+      "kappa_K": 2.0503,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 6,
+      "kappa_K": 6.3565,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 7,
+      "kappa_K": 3.0404,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 8,
+      "kappa_K": 1.7194,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 9,
+      "kappa_K": 2.4465,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 10,
+      "kappa_K": 2.2207,
+      "wiki_head": true
+    },
+    {
+      "layer": 21,
+      "head": 11,
+      "kappa_K": 1.7491,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 12,
+      "kappa_K": 2.9762,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 13,
+      "kappa_K": 1.8609,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 14,
+      "kappa_K": 4.1616,
+      "wiki_head": false
+    },
+    {
+      "layer": 21,
+      "head": 15,
+      "kappa_K": 2.2549,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 0,
+      "kappa_K": 2.5385,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 1,
+      "kappa_K": 2.6089,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 2,
+      "kappa_K": 1.7538,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 3,
+      "kappa_K": 3.6963,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 4,
+      "kappa_K": 2.616,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 5,
+      "kappa_K": 4.2,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 6,
+      "kappa_K": 3.0128,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 7,
+      "kappa_K": 2.4097,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 8,
+      "kappa_K": 2.596,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 9,
+      "kappa_K": 2.4158,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 10,
+      "kappa_K": 3.4631,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 11,
+      "kappa_K": 3.0041,
+      "wiki_head": false
+    },
+    {
+      "layer": 22,
+      "head": 12,
+      "kappa_K": 3.194,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 13,
+      "kappa_K": 3.2834,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 14,
+      "kappa_K": 2.6437,
+      "wiki_head": true
+    },
+    {
+      "layer": 22,
+      "head": 15,
+      "kappa_K": 2.5436,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 0,
+      "kappa_K": 3.2667,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 1,
+      "kappa_K": 2.4794,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 2,
+      "kappa_K": 3.9243,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 3,
+      "kappa_K": 2.5003,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 4,
+      "kappa_K": 1.8722,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 5,
+      "kappa_K": 2.5885,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 6,
+      "kappa_K": 2.9077,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 7,
+      "kappa_K": 2.9863,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 8,
+      "kappa_K": 4.6551,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 9,
+      "kappa_K": 3.2869,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 10,
+      "kappa_K": 3.698,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 11,
+      "kappa_K": 8.1383,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 12,
+      "kappa_K": 2.9866,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 13,
+      "kappa_K": 6.5587,
+      "wiki_head": false
+    },
+    {
+      "layer": 23,
+      "head": 14,
+      "kappa_K": 3.1417,
+      "wiki_head": true
+    },
+    {
+      "layer": 23,
+      "head": 15,
+      "kappa_K": 2.7576,
+      "wiki_head": false
+    }
+  ]
+}
