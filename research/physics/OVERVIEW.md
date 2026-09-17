@@ -607,6 +607,14 @@ believed.
   both together +0.71 (additive, slightly super-additive).** The two populations
   operate as independent competing circuits for long-range positional retrieval.
   (exp-140/141/142/143)
+  **exp-145 (September 17, INCONCLUSIVE — direction inverted):** Extension attempt to
+  GPT-2 medium (345M). Combined manipulation on 5 WikiText-native Δ-window heads (lowest
+  κ̃_K) + 5 steep/local heads (highest κ̃_K): Task B *degraded* (ΔP_B = −0.25 nats, 0/20
+  items improved) rather than improved. Mechanism verified (κ̃ changed as expected), Task A
+  still spared. Finding: WikiText-native Δ-window heads are not interchangeable with
+  random-token structural heads as intervention targets. The random-token census for GPT-2
+  medium has not been run — this is the required next step. The antagonism model evidence
+  bracket remains GPT-2 small only. (exp-145)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

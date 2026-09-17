@@ -1405,6 +1405,12 @@ The two populations are independent competing circuits for long-range positional
 retrieval.** The +1.0 nats median threshold was never met in any experiment (GPT-2
 small's weak positional baseline); the item-level dissociation (Task B 20/20; Task A
 flat across all three manipulation conditions) is the decisive evidence for P1.
+**exp-145 (September 17 2026 — INCONCLUSIVE, direction inverted):** Extension attempt
+to GPT-2 medium (345M). Combined manipulation on WikiText-native Δ-window heads and
+steep/local heads: Task B *degraded* (ΔP_B = −0.25 nats, 0/20 items improved). Finding:
+WikiText-native Δ-window heads ≠ random-token structural heads as intervention targets.
+The random-token census for GPT-2 medium is the next required step to test generalization.
+**Evidence bracket for P1: GPT-2 small only.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
