@@ -1410,7 +1410,13 @@ to GPT-2 medium (345M). Combined manipulation on WikiText-native Δ-window heads
 steep/local heads: Task B *degraded* (ΔP_B = −0.25 nats, 0/20 items improved). Finding:
 WikiText-native Δ-window heads ≠ random-token structural heads as intervention targets.
 The random-token census for GPT-2 medium is the next required step to test generalization.
-**Evidence bracket for P1: GPT-2 small only.**
+**exp-146 (September 18 2026 — CONFIRMED):** Random-token census on GPT-2 medium
+(384 heads, frozen protocol). 24 structural heads identified (R²≥0.90, Δ∈[0.20,0.30]);
+Jaccard with WikiText-native population = 0.122 (populations substantially distinct,
+confirming the exp-145 diagnosis). Δ_med of structural = 0.239. Top-5 lowest-κ̃_K
+structural heads identified for corrected battery: L6H9, L5H14, L7H5, L9H7, L8H13. Pre-registered commit 8aa31dd (git-attested). This result establishes
+the correct intervention targets for the medium-scale generalization test.
+**Evidence bracket for P1: GPT-2 small only (battery not yet replicated in medium).**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

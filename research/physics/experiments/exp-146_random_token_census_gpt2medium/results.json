@@ -1,0 +1,3667 @@
+{
+  "experiment": "exp-146",
+  "model": "openai-community/gpt2-medium",
+  "protocol": {
+    "N_INPUTS": 50,
+    "SEQ_LEN": 512,
+    "SEED": 42,
+    "R2_MIN": 0.9,
+    "DELTA_MIN": 0.05,
+    "FIT_LO": 8,
+    "FIT_HI": 256,
+    "DEEP_LO": 256,
+    "DELTA_WINDOW_LO": 0.2,
+    "DELTA_WINDOW_HI": 0.3
+  },
+  "summary": {
+    "n_total_heads": 384,
+    "n_conformal": 111,
+    "n_structural": 24,
+    "n_wikitext_native": 59,
+    "n_overlap": 9,
+    "jaccard": 0.12162162162162163,
+    "structural_delta_median": 0.23942678319828042,
+    "structural_delta_min": 0.20033119669683727,
+    "structural_delta_max": 0.2995580450121844,
+    "gpt2_small_n_structural": 5
+  },
+  "predictions": {
+    "P1_structural_exists": true,
+    "P2_populations_distinct": true,
+    "P3_delta_in_window": true,
+    "P4_larger_than_small": true
+  },
+  "kills": {
+    "K1_no_conformal": false,
+    "K2_populations_identical": false,
+    "K3_no_structural_some_conformal": false
+  },
+  "structural_heads": [
+    {
+      "layer": 1,
+      "head": 9,
+      "delta": 0.2536947624017125,
+      "r2": 0.9186780856492233,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 14,
+      "delta": 0.26123041477361625,
+      "r2": 0.915150325645517,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 9,
+      "delta": 0.21163429762836014,
+      "r2": 0.9035510300367479,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 5,
+      "delta": 0.2163949884029724,
+      "r2": 0.9204776300712987,
+      "wikitext_native": true
+    },
+    {
+      "layer": 7,
+      "head": 15,
+      "delta": 0.25733400923924626,
+      "r2": 0.9149478332760448,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 5,
+      "delta": 0.23710277328198576,
+      "r2": 0.9635176822291474,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 13,
+      "delta": 0.26554965769000566,
+      "r2": 0.9300229426864937,
+      "wikitext_native": true
+    },
+    {
+      "layer": 9,
+      "head": 1,
+      "delta": 0.2060604082282145,
+      "r2": 0.90706394709547,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 7,
+      "delta": 0.20273021782213277,
+      "r2": 0.9132571805727717,
+      "wikitext_native": true
+    },
+    {
+      "layer": 9,
+      "head": 13,
+      "delta": 0.2995580450121844,
+      "r2": 0.902372210463883,
+      "wikitext_native": true
+    },
+    {
+      "layer": 12,
+      "head": 4,
+      "delta": 0.24810425948767212,
+      "r2": 0.9062667820467323,
+      "wikitext_native": true
+    },
+    {
+      "layer": 14,
+      "head": 11,
+      "delta": 0.29395282133250733,
+      "r2": 0.9178786224846704,
+      "wikitext_native": true
+    },
+    {
+      "layer": 15,
+      "head": 2,
+      "delta": 0.24175079311457512,
+      "r2": 0.9315605727051318,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 6,
+      "delta": 0.20877556186211665,
+      "r2": 0.9031501487717429,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 9,
+      "delta": 0.24500574074181103,
+      "r2": 0.9231064276183599,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 11,
+      "delta": 0.29918057670579845,
+      "r2": 0.9088470803047319,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 7,
+      "delta": 0.2285670920191506,
+      "r2": 0.9105168236844032,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 7,
+      "delta": 0.26425717937723614,
+      "r2": 0.9072531030644319,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 7,
+      "delta": 0.20033119669683727,
+      "r2": 0.9296160522113158,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 10,
+      "delta": 0.2836753256426175,
+      "r2": 0.9179959838131999,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 12,
+      "delta": 0.2293250150542194,
+      "r2": 0.9123134855844193,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 15,
+      "delta": 0.21633360653993466,
+      "r2": 0.9352548850956452,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 11,
+      "delta": 0.20277634586546414,
+      "r2": 0.9353289117053296,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 0,
+      "delta": 0.2007136023670448,
+      "r2": 0.9339575605018999,
+      "wikitext_native": false
+    }
+  ],
+  "all_heads": [
+    {
+      "layer": 0,
+      "head": 0,
+      "delta": 0.30551564222031175,
+      "r2": 0.9260952406551798,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 1,
+      "delta": 0.19579248037675648,
+      "r2": 0.8912888790731537,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 2,
+      "delta": 0.15983432370599146,
+      "r2": 0.9553656908477686,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 3,
+      "delta": 0.024611874283894192,
+      "r2": 0.05791595077547851,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 4,
+      "delta": 0.3102711357884483,
+      "r2": 0.9319444549237245,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 5,
+      "delta": 0.5505881849436742,
+      "r2": 0.9369680321026945,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 6,
+      "delta": 0.12233310194202379,
+      "r2": 0.8918356447506776,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 0,
+      "head": 7,
+      "delta": -0.009501017527136031,
+      "r2": 0.010077541580975069,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 8,
+      "delta": 0.17185527079985083,
+      "r2": 0.8453364804077227,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 9,
+      "delta": 0.7274146269688575,
+      "r2": 0.9327497054441539,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 10,
+      "delta": 0.47884980291112744,
+      "r2": 0.9473388026066469,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 11,
+      "delta": 0.1883029840153965,
+      "r2": 0.8724250020825599,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 12,
+      "delta": 0.42412523856450096,
+      "r2": 0.9402323637478581,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 13,
+      "delta": 0.2502141207229455,
+      "r2": 0.7326350568899433,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 14,
+      "delta": 0.21965949788980024,
+      "r2": 0.8763178982515437,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 0,
+      "head": 15,
+      "delta": 0.03470582566515944,
+      "r2": 0.1589694620355313,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 0,
+      "delta": -0.0016392423623449663,
+      "r2": 0.0003455430331884557,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 1,
+      "delta": 1.0153042588245442,
+      "r2": 0.890811035715436,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 2,
+      "delta": 0.453684995961782,
+      "r2": 0.9394262747710616,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 3,
+      "delta": 0.1832838013459647,
+      "r2": 0.7872892651655108,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 4,
+      "delta": -0.03824681181505534,
+      "r2": 0.11991791941751084,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 5,
+      "delta": 0.5742006799307882,
+      "r2": 0.7561951603026202,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 6,
+      "delta": -0.1578546782825766,
+      "r2": 0.24418141187568232,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 7,
+      "delta": 1.3790049588146707,
+      "r2": 0.8873260463756862,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 8,
+      "delta": 0.21097037270321667,
+      "r2": 0.60733173111682,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 9,
+      "delta": 0.2536947624017125,
+      "r2": 0.9186780856492233,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 10,
+      "delta": 0.10330227712187914,
+      "r2": 0.09938385521771453,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 11,
+      "delta": 0.373644029052019,
+      "r2": 0.922806799474258,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 12,
+      "delta": 0.3091581376367408,
+      "r2": 0.8933068215575548,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 1,
+      "head": 13,
+      "delta": 0.3070539248358665,
+      "r2": 0.8898107275472256,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 14,
+      "delta": 1.1583397623512515,
+      "r2": 0.7052660929169443,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 1,
+      "head": 15,
+      "delta": 0.4185446883042732,
+      "r2": 0.45490299374954424,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 0,
+      "delta": 0.8936766798659906,
+      "r2": 0.3132740011835976,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 1,
+      "delta": 0.9049245754374504,
+      "r2": 0.2674054496831543,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 2,
+      "delta": 1.3851757046993143,
+      "r2": 0.8689714015496443,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 3,
+      "delta": 1.4599411524631667,
+      "r2": 0.09392363376067336,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 4,
+      "delta": 0.7591391507396674,
+      "r2": 0.034129742230013194,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 5,
+      "delta": 2.7121743863142957,
+      "r2": 0.2103883598002637,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 6,
+      "delta": 2.680590764766992,
+      "r2": 0.20058166575092873,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 7,
+      "delta": 1.6392991434755766,
+      "r2": 0.570026647343651,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 8,
+      "delta": 2.104987647201674,
+      "r2": 0.20826432288041286,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 9,
+      "delta": 2.1660874867611666,
+      "r2": 0.3248248552262004,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 10,
+      "delta": 2.137124323270742,
+      "r2": 0.17664993410450602,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 11,
+      "delta": 0.3118482084671141,
+      "r2": 0.10175530317086434,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 12,
+      "delta": 1.953424274623114,
+      "r2": 0.3281439205398158,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 13,
+      "delta": 2.1947564105198745,
+      "r2": 0.3818673998838181,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 14,
+      "delta": 1.7186178555926435,
+      "r2": 0.8778913391656967,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 2,
+      "head": 15,
+      "delta": 2.346459905571372,
+      "r2": 0.26784273738324915,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 0,
+      "delta": 0.46639885946242626,
+      "r2": 0.9589419846284788,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 1,
+      "delta": 3.090535221778887,
+      "r2": 0.32237441766563724,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 2,
+      "delta": 1.2616606254382332,
+      "r2": 0.09306833116875446,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 3,
+      "delta": 0.28835414626866596,
+      "r2": 0.007906064397607104,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 4,
+      "delta": 2.681639508927688,
+      "r2": 0.3867592377420863,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 5,
+      "delta": 1.3624041054908764,
+      "r2": 0.10122435113286299,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 6,
+      "delta": 0.9372631773472853,
+      "r2": 0.10035193372546503,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 7,
+      "delta": 2.6359907819902393,
+      "r2": 0.22341234028683976,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 8,
+      "delta": 0.6333641132496751,
+      "r2": 0.032813199940943005,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 9,
+      "delta": 1.004200088685584,
+      "r2": 0.05827742651618684,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 10,
+      "delta": 1.0717314764306514,
+      "r2": 0.07864825583673352,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 11,
+      "delta": 0.9746883334376469,
+      "r2": 0.05699288103370348,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 12,
+      "delta": 0.20467689882856951,
+      "r2": 0.8954031321618665,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 3,
+      "head": 13,
+      "delta": 0.568497585949217,
+      "r2": 0.03877153991596971,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 14,
+      "delta": 2.147854616071377,
+      "r2": 0.653236914499252,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 3,
+      "head": 15,
+      "delta": 0.8774138983676913,
+      "r2": 0.05355918864907494,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 0,
+      "delta": 0.2970705487779456,
+      "r2": 0.7959045478571511,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 1,
+      "delta": 1.991376598558851,
+      "r2": 0.17949393271467606,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 2,
+      "delta": 1.4070065347389065,
+      "r2": 0.11914630384323732,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 3,
+      "delta": 1.0304437027385194,
+      "r2": 0.07562101481190198,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 4,
+      "delta": 1.175669971945643,
+      "r2": 0.08883586066967364,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 5,
+      "delta": 3.2429843014342317,
+      "r2": 0.3431521819572545,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 6,
+      "delta": -0.18001143324258395,
+      "r2": 0.7319000698779584,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 7,
+      "delta": 2.5132245355349934,
+      "r2": 0.26261294614916686,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 8,
+      "delta": 2.798742906329423,
+      "r2": 0.5940976145650315,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 9,
+      "delta": 0.7106165361967112,
+      "r2": 0.6936811486626133,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 10,
+      "delta": 0.7317829615004041,
+      "r2": 0.8132049096122186,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 11,
+      "delta": 1.7177498831100457,
+      "r2": 0.1581017299322578,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 12,
+      "delta": 1.5674151812445312,
+      "r2": 0.13610039115036,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 13,
+      "delta": 1.2081712381692984,
+      "r2": 0.37757337666923296,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 14,
+      "delta": 3.442788668858223,
+      "r2": 0.3963067303823926,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 4,
+      "head": 15,
+      "delta": 1.5901092485799062,
+      "r2": 0.7486181637964144,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 0,
+      "delta": 0.41870610438759037,
+      "r2": 0.8730952394102207,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 1,
+      "delta": 2.4468198340266043,
+      "r2": 0.39110914373693706,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 2,
+      "delta": 2.9361553675083862,
+      "r2": 0.28882199615490023,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 3,
+      "delta": 1.9191593390257145,
+      "r2": 0.20372455046408733,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 4,
+      "delta": 2.0445047762320026,
+      "r2": 0.21427585600521015,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 5,
+      "delta": 0.7020996234165029,
+      "r2": 0.8866861992409513,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 6,
+      "delta": 2.1897493441721854,
+      "r2": 0.2594474642563649,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 7,
+      "delta": 2.155565933281765,
+      "r2": 0.5936438658351086,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 8,
+      "delta": 0.5247351229430088,
+      "r2": 0.8519450729878731,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 9,
+      "delta": 3.246596857326131,
+      "r2": 0.401754428591219,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 10,
+      "delta": 1.1059230612109527,
+      "r2": 0.8799668796788218,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 11,
+      "delta": 1.1707770696340232,
+      "r2": 0.30113754760876044,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 12,
+      "delta": 0.5001971439636872,
+      "r2": 0.917900738324537,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 13,
+      "delta": 2.4105245100347266,
+      "r2": 0.381763023272235,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 14,
+      "delta": 0.26123041477361625,
+      "r2": 0.915150325645517,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 5,
+      "head": 15,
+      "delta": 2.515746284243607,
+      "r2": 0.2863322614737688,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 0,
+      "delta": 0.16427874353485927,
+      "r2": 0.8594991137400286,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 1,
+      "delta": 0.02326313404487901,
+      "r2": 0.051539720072755535,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 2,
+      "delta": 0.21502881554814793,
+      "r2": 0.8771108276178715,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 3,
+      "delta": 0.460185603469197,
+      "r2": 0.9077261702834698,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 4,
+      "delta": -0.04396926055350619,
+      "r2": 0.22804077251559185,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 5,
+      "delta": 1.725577971822597,
+      "r2": 0.49091111253443076,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 6,
+      "delta": 2.4205028929078196,
+      "r2": 0.251723236226872,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 7,
+      "delta": 1.337686564443299,
+      "r2": 0.15913333645315353,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 8,
+      "delta": 2.7817639144532014,
+      "r2": 0.5264858754929583,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 9,
+      "delta": 0.21163429762836014,
+      "r2": 0.9035510300367479,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 10,
+      "delta": 2.555466798062009,
+      "r2": 0.5479533058220809,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 11,
+      "delta": 0.24266481841374526,
+      "r2": 0.8628018150046892,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 12,
+      "delta": 0.596974761524876,
+      "r2": 0.9145254152448203,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 13,
+      "delta": 0.40041487910947404,
+      "r2": 0.9250409458978377,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 14,
+      "delta": 2.169286584230974,
+      "r2": 0.38135803733708984,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 6,
+      "head": 15,
+      "delta": 2.7961951834062284,
+      "r2": 0.5648903090356259,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 0,
+      "delta": 0.12241697853927382,
+      "r2": 0.9013089242636103,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 1,
+      "delta": 3.626222964369635,
+      "r2": 0.45866155603086034,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 2,
+      "delta": 0.3039045834532763,
+      "r2": 0.8925382791326549,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 3,
+      "delta": 0.17165214340618024,
+      "r2": 0.7973546643847169,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 4,
+      "delta": 0.6314353414597593,
+      "r2": 0.9486913014270946,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 5,
+      "delta": 0.2163949884029724,
+      "r2": 0.9204776300712987,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 7,
+      "head": 6,
+      "delta": 3.505757036339897,
+      "r2": 0.4385662675059502,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 7,
+      "delta": 1.0311561232315594,
+      "r2": 0.8340082131082197,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 8,
+      "delta": 0.48579352202817505,
+      "r2": 0.9055010665122161,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 9,
+      "delta": 2.4238398374031207,
+      "r2": 0.5216533090347943,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 10,
+      "delta": 2.2970424964054184,
+      "r2": 0.48907973337206534,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 11,
+      "delta": -0.37124261573543205,
+      "r2": 0.6282408789676972,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 12,
+      "delta": 1.8409693182090392,
+      "r2": 0.4911114367907835,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 13,
+      "delta": 2.166141958824684,
+      "r2": 0.3888182751610325,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 14,
+      "delta": 1.6494707655510834,
+      "r2": 0.5467081755097294,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 7,
+      "head": 15,
+      "delta": 0.25733400923924626,
+      "r2": 0.9149478332760448,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 0,
+      "delta": 2.9216620189092923,
+      "r2": 0.5134071575323664,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 1,
+      "delta": 2.1232068932813153,
+      "r2": 0.2342278210481139,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 2,
+      "delta": 2.45372414087304,
+      "r2": 0.46506065135010144,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 3,
+      "delta": 2.3951565820945855,
+      "r2": 0.5955841508986681,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 4,
+      "delta": 0.43049416695836357,
+      "r2": 0.9220389163665255,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 5,
+      "delta": 0.23710277328198576,
+      "r2": 0.9635176822291474,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 6,
+      "delta": 3.198348128196931,
+      "r2": 0.3595115025560347,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 7,
+      "delta": 2.896693189789768,
+      "r2": 0.33063412543714,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 8,
+      "delta": 1.6455704582765374,
+      "r2": 0.8786183100064764,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 9,
+      "delta": 0.7907227671992039,
+      "r2": 0.9056408316826293,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 10,
+      "delta": 0.5476344311585718,
+      "r2": 0.92393404829655,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 11,
+      "delta": 0.3775709430537991,
+      "r2": 0.9519131565280843,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 12,
+      "delta": 3.0158617119130655,
+      "r2": 0.48342784852778065,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 13,
+      "delta": 0.26554965769000566,
+      "r2": 0.9300229426864937,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 8,
+      "head": 14,
+      "delta": 0.5493167453289955,
+      "r2": 0.9442961027428242,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 8,
+      "head": 15,
+      "delta": 0.2930814470425776,
+      "r2": 0.8919145034106045,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 0,
+      "delta": 1.6998633923523503,
+      "r2": 0.8033141155617763,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 1,
+      "delta": 0.2060604082282145,
+      "r2": 0.90706394709547,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 2,
+      "delta": 1.906359919077148,
+      "r2": 0.4848620878493345,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 3,
+      "delta": 0.295810731754585,
+      "r2": 0.8931899205549262,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 4,
+      "delta": 0.09669936193667633,
+      "r2": 0.8176764879334262,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 5,
+      "delta": 2.420226127291498,
+      "r2": 0.4988020593246334,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 6,
+      "delta": 0.36363616028525536,
+      "r2": 0.8297967932106195,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 7,
+      "delta": 0.20273021782213277,
+      "r2": 0.9132571805727717,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 9,
+      "head": 8,
+      "delta": 1.7794572369846051,
+      "r2": 0.8116719401921777,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 9,
+      "delta": -0.10400589692544632,
+      "r2": 0.4691497521150879,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 10,
+      "delta": 2.6358817013807165,
+      "r2": 0.5310379009381745,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 11,
+      "delta": 2.378431632500083,
+      "r2": 0.5220189110654085,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 12,
+      "delta": 0.6270202372019587,
+      "r2": 0.8665546003362864,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 13,
+      "delta": 0.2995580450121844,
+      "r2": 0.902372210463883,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 9,
+      "head": 14,
+      "delta": 2.5822359585005437,
+      "r2": 0.7506282631145196,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 9,
+      "head": 15,
+      "delta": 3.098295609446611,
+      "r2": 0.47857982148616907,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 0,
+      "delta": 0.9635381187459496,
+      "r2": 0.8961225814943329,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 1,
+      "delta": 0.14214097475271262,
+      "r2": 0.8856659854086822,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 2,
+      "delta": 0.7299587498942065,
+      "r2": 0.9200617305874708,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 3,
+      "delta": 0.44656885009909814,
+      "r2": 0.9215452922911463,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 4,
+      "delta": 0.49201471851223916,
+      "r2": 0.8952434920079592,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 5,
+      "delta": 3.4766429149509133,
+      "r2": 0.8601665044939284,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 6,
+      "delta": 0.565613978939899,
+      "r2": 0.911671882440163,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 7,
+      "delta": 4.774076334631671,
+      "r2": 0.8681678095553282,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 8,
+      "delta": -0.057148576372933475,
+      "r2": 0.8942843596471935,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 9,
+      "delta": 3.3922328113258966,
+      "r2": 0.8643936877761319,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 10,
+      "delta": 1.7483708171589047,
+      "r2": 0.8476257175569526,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 11,
+      "delta": 1.5363301750915173,
+      "r2": 0.8874570106931357,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 12,
+      "delta": 0.9185591608586707,
+      "r2": 0.9129654567178682,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 13,
+      "delta": 0.8210642588874366,
+      "r2": 0.899571778437726,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 14,
+      "delta": 0.3500662821870755,
+      "r2": 0.9227761347118433,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 10,
+      "head": 15,
+      "delta": 2.8294131186709413,
+      "r2": 0.8612073690267154,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 0,
+      "delta": 0.3390720642852744,
+      "r2": 0.9190015509775561,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 1,
+      "delta": 0.1564329081275961,
+      "r2": 0.8326717203831309,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 2,
+      "delta": 4.535383065393828,
+      "r2": 0.8572516735116151,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 3,
+      "delta": 0.299941094467015,
+      "r2": 0.8872160993153286,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 4,
+      "delta": 0.2559937991638393,
+      "r2": 0.8766564936392861,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 5,
+      "delta": 1.9169323625750283,
+      "r2": 0.8648361054372452,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 6,
+      "delta": 5.170203490736676,
+      "r2": 0.8643461052079726,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 7,
+      "delta": 4.909767883086165,
+      "r2": 0.8689532360252168,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 8,
+      "delta": 0.3536660093942823,
+      "r2": 0.9260476861374547,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 9,
+      "delta": 0.3827171852053537,
+      "r2": 0.885672024980065,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 10,
+      "delta": 0.25109724213965434,
+      "r2": 0.8987310187224012,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 11,
+      "head": 11,
+      "delta": 0.24818129155432792,
+      "r2": 0.8690694605218348,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 12,
+      "delta": 3.341918174752311,
+      "r2": 0.8585755977060142,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 13,
+      "delta": 2.9515023058927197,
+      "r2": 0.8666206674812873,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 11,
+      "head": 14,
+      "delta": -0.009135202252396162,
+      "r2": 0.09498103769314004,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 11,
+      "head": 15,
+      "delta": 0.5768583558667717,
+      "r2": 0.9083149094773746,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 0,
+      "delta": 0.2031135370367484,
+      "r2": 0.864990923435177,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 1,
+      "delta": -0.2599509831594263,
+      "r2": 0.9217290006191245,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 2,
+      "delta": 1.2522826179725348,
+      "r2": 0.8576943514666311,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 3,
+      "delta": 1.2541290366881623,
+      "r2": 0.8586045763591935,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 4,
+      "delta": 0.24810425948767212,
+      "r2": 0.9062667820467323,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 12,
+      "head": 5,
+      "delta": 0.49577348332418253,
+      "r2": 0.9112573174781288,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 6,
+      "delta": 1.128140047115342,
+      "r2": 0.8615809168845948,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 7,
+      "delta": 0.5224520736932162,
+      "r2": 0.8897279073607294,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 8,
+      "delta": 2.991535523642114,
+      "r2": 0.8569165703449929,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 9,
+      "delta": 0.6694199321603025,
+      "r2": 0.856549177706776,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 10,
+      "delta": 4.5636206262122885,
+      "r2": 0.8650294768288204,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 11,
+      "delta": 0.17478451667346376,
+      "r2": 0.7705425652900536,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 12,
+      "delta": 0.35002547342060153,
+      "r2": 0.9144999749445845,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 13,
+      "delta": 0.4744034298546396,
+      "r2": 0.8996792278302772,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 14,
+      "delta": 0.2502503436931429,
+      "r2": 0.8052789444870487,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 12,
+      "head": 15,
+      "delta": 2.445595437609985,
+      "r2": 0.8594557932517275,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 0,
+      "delta": 0.14023265009628924,
+      "r2": 0.9189265390319605,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 1,
+      "delta": 0.34323855180238716,
+      "r2": 0.8562736843573003,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 2,
+      "delta": 0.7178703722611519,
+      "r2": 0.8015849240502312,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 3,
+      "delta": 4.865742330077006,
+      "r2": 0.8827144354356371,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 4,
+      "delta": 4.752264124725086,
+      "r2": 0.8597485309135275,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 5,
+      "delta": 5.420303913050213,
+      "r2": 0.8607747909252375,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 6,
+      "delta": 0.760952405293852,
+      "r2": 0.8864541551701225,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 7,
+      "delta": 4.7088190245595944,
+      "r2": 0.8632422859965769,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 8,
+      "delta": 1.1318333783905858,
+      "r2": 0.8505120299236768,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 9,
+      "delta": 0.4739256339821312,
+      "r2": 0.858755275254646,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 10,
+      "delta": 5.036984708805915,
+      "r2": 0.866718786638247,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 11,
+      "delta": 0.3308538873305319,
+      "r2": 0.8869967325801029,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 12,
+      "delta": 2.143519910294762,
+      "r2": 0.8963220477699312,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 13,
+      "delta": 4.513061680744537,
+      "r2": 0.861081295032377,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 14,
+      "delta": 0.001355678314670572,
+      "r2": 0.0019827741324252024,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 13,
+      "head": 15,
+      "delta": 0.16954099203653095,
+      "r2": 0.9059716839414476,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 14,
+      "head": 0,
+      "delta": 0.501065402006809,
+      "r2": 0.8759590460896163,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 1,
+      "delta": 4.44547343821148,
+      "r2": 0.8563739754380383,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 2,
+      "delta": 0.03201172888553296,
+      "r2": 0.7336482055658411,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 3,
+      "delta": 4.263582063693087,
+      "r2": 0.8595912176711018,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 4,
+      "delta": 4.475377661895546,
+      "r2": 0.8556684694973968,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 5,
+      "delta": 0.31062804056872145,
+      "r2": 0.8791944956334536,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 6,
+      "delta": 0.3851916097373433,
+      "r2": 0.913063007231685,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 7,
+      "delta": 1.1413452039109044,
+      "r2": 0.8983103927408744,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 8,
+      "delta": 3.164671819438357,
+      "r2": 0.8511639173727649,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 9,
+      "delta": -0.12385002951969466,
+      "r2": 0.9484508188835649,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 10,
+      "delta": 0.19455243564755037,
+      "r2": 0.9560339544788897,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 11,
+      "delta": 0.29395282133250733,
+      "r2": 0.9178786224846704,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 14,
+      "head": 12,
+      "delta": 5.235305927399274,
+      "r2": 0.8557532707651208,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 13,
+      "delta": 0.31415838022793524,
+      "r2": 0.8791779443078492,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 14,
+      "delta": 1.705120475593342,
+      "r2": 0.8734650862661807,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 14,
+      "head": 15,
+      "delta": 0.30042349334224816,
+      "r2": 0.925936010716314,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 15,
+      "head": 0,
+      "delta": 0.16427881552168117,
+      "r2": 0.867853912134667,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 15,
+      "head": 1,
+      "delta": 0.7380379323580761,
+      "r2": 0.8667260127563764,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 2,
+      "delta": 0.24175079311457512,
+      "r2": 0.9315605727051318,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 3,
+      "delta": 0.0890134122675122,
+      "r2": 0.8686799095159035,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 4,
+      "delta": 0.2621356198227391,
+      "r2": 0.7282690200955794,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 5,
+      "delta": 1.1350833518308816,
+      "r2": 0.8921856809647597,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 6,
+      "delta": 0.20877556186211665,
+      "r2": 0.9031501487717429,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 7,
+      "delta": 0.4125272449410394,
+      "r2": 0.9227425492158907,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 8,
+      "delta": 4.747379330082419,
+      "r2": 0.8378769781745206,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 9,
+      "delta": 0.24500574074181103,
+      "r2": 0.9231064276183599,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 10,
+      "delta": 4.996895852041355,
+      "r2": 0.8575131596784348,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 11,
+      "delta": 0.30463868599018656,
+      "r2": 0.8808674436762892,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 15,
+      "head": 12,
+      "delta": 0.1066634131143215,
+      "r2": 0.9242744588135556,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 13,
+      "delta": 2.4982398013372764,
+      "r2": 0.8654922358913175,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 14,
+      "delta": 1.340439025723827,
+      "r2": 0.9061857536272251,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 15,
+      "head": 15,
+      "delta": 4.999197345082872,
+      "r2": 0.8542118873125677,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 0,
+      "delta": 3.6498956185278857,
+      "r2": 0.8573488723456588,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 1,
+      "delta": 0.3886565887004295,
+      "r2": 0.8008504192807205,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 2,
+      "delta": 0.5020322402918643,
+      "r2": 0.8899764534642312,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 3,
+      "delta": 0.4242667480403354,
+      "r2": 0.7497124649538036,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 4,
+      "delta": 4.679584445488754,
+      "r2": 0.8599313480137852,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 5,
+      "delta": 4.792788530803206,
+      "r2": 0.8508671446376299,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 6,
+      "delta": 3.9852015748571477,
+      "r2": 0.8654446569876324,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 7,
+      "delta": 4.693699483109908,
+      "r2": 0.8600983820136126,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 8,
+      "delta": 0.5559574594881216,
+      "r2": 0.8426875512196501,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 9,
+      "delta": 0.287037124848438,
+      "r2": 0.8211729865286321,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 16,
+      "head": 10,
+      "delta": 0.8677726640411891,
+      "r2": 0.8307460581046067,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 11,
+      "delta": 0.29918057670579845,
+      "r2": 0.9088470803047319,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 12,
+      "delta": 0.09026266130433984,
+      "r2": 0.9441480820240398,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 13,
+      "delta": 0.1728336087937188,
+      "r2": 0.9144579887829932,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 16,
+      "head": 14,
+      "delta": 0.228265373303515,
+      "r2": 0.89692409658694,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 16,
+      "head": 15,
+      "delta": 0.06746012953325978,
+      "r2": 0.718369578932157,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 17,
+      "head": 0,
+      "delta": 0.47194376262465015,
+      "r2": 0.8592322912076752,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 1,
+      "delta": 0.3239594006253411,
+      "r2": 0.9068488903346723,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 2,
+      "delta": 0.13161964967082046,
+      "r2": 0.9056402165146124,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 3,
+      "delta": 0.34802740196501003,
+      "r2": 0.9108823475921302,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 17,
+      "head": 4,
+      "delta": 0.21858362499586104,
+      "r2": 0.8675786306748487,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 17,
+      "head": 5,
+      "delta": 3.4414493195167624,
+      "r2": 0.8593601896243386,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 6,
+      "delta": 0.571049276640761,
+      "r2": 0.8576145024046932,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 7,
+      "delta": 0.2285670920191506,
+      "r2": 0.9105168236844032,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 8,
+      "delta": 0.3115388085382729,
+      "r2": 0.9047743410152793,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 9,
+      "delta": 0.1773720355908498,
+      "r2": 0.7205193400001804,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 10,
+      "delta": 0.9037419585449418,
+      "r2": 0.872844396134973,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 11,
+      "delta": 5.292777918424188,
+      "r2": 0.8604335923320414,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 12,
+      "delta": 0.10544188334696596,
+      "r2": 0.5208134633677385,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 13,
+      "delta": 4.4565866211716205,
+      "r2": 0.8604104715092946,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 14,
+      "delta": 0.3826309572349906,
+      "r2": 0.9106540092969597,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 17,
+      "head": 15,
+      "delta": 1.3648027105035336,
+      "r2": 0.8810406725671708,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 0,
+      "delta": 0.1721644133899313,
+      "r2": 0.9336992440214719,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 1,
+      "delta": 0.35005657004078905,
+      "r2": 0.902414124477702,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 2,
+      "delta": 4.340939005507261,
+      "r2": 0.8652887437755411,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 3,
+      "delta": 4.533018581255706,
+      "r2": 0.8712069207930533,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 4,
+      "delta": 0.14716634971458936,
+      "r2": 0.9290698765239963,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 5,
+      "delta": 0.09182080760950694,
+      "r2": 0.9538279202483265,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 6,
+      "delta": 4.296488938500575,
+      "r2": 0.8636154077204368,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 7,
+      "delta": 0.26425717937723614,
+      "r2": 0.9072531030644319,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 8,
+      "delta": 0.12101839996150751,
+      "r2": 0.9248239737012854,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 9,
+      "delta": 0.22177375473230826,
+      "r2": 0.7487268105699376,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 18,
+      "head": 10,
+      "delta": 0.3922735776046873,
+      "r2": 0.813117430531036,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 18,
+      "head": 11,
+      "delta": 0.40691439462132245,
+      "r2": 0.8491643087452462,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 12,
+      "delta": 0.1753345497997469,
+      "r2": 0.9376118165759767,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 18,
+      "head": 13,
+      "delta": 0.1493682240849444,
+      "r2": 0.9168548398871765,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 18,
+      "head": 14,
+      "delta": 0.3643338250690565,
+      "r2": 0.9001908392274188,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 18,
+      "head": 15,
+      "delta": 0.47739162088856435,
+      "r2": 0.9153708631177071,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 0,
+      "delta": 0.5938750446047478,
+      "r2": 0.8996412128955728,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 1,
+      "delta": 1.4199246928146172,
+      "r2": 0.8463893243994255,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 2,
+      "delta": 0.19029734715279994,
+      "r2": 0.8907872836406734,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 3,
+      "delta": 0.1981913696504419,
+      "r2": 0.8905644284329639,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 4,
+      "delta": 0.13568719388977865,
+      "r2": 0.9342143522498322,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 5,
+      "delta": 0.3309500273690258,
+      "r2": 0.8993882144565375,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 6,
+      "delta": 0.7434985057998864,
+      "r2": 0.8884517215081678,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 7,
+      "delta": 0.20033119669683727,
+      "r2": 0.9296160522113158,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 8,
+      "delta": 0.09320432137908231,
+      "r2": 0.9412467080552966,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 9,
+      "delta": 0.36935288576021486,
+      "r2": 0.9138022013388638,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 10,
+      "delta": 0.2836753256426175,
+      "r2": 0.9179959838131999,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 11,
+      "delta": 0.31748259281766755,
+      "r2": 0.8658383019911022,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 12,
+      "delta": 0.2293250150542194,
+      "r2": 0.9123134855844193,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 13,
+      "delta": 0.15574178074764392,
+      "r2": 0.8468690432984053,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 19,
+      "head": 14,
+      "delta": 0.6347831004434002,
+      "r2": 0.8864649699274727,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 19,
+      "head": 15,
+      "delta": 0.21633360653993466,
+      "r2": 0.9352548850956452,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 0,
+      "delta": 0.1328743114448079,
+      "r2": 0.855777120776462,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 1,
+      "delta": 0.38335881837830366,
+      "r2": 0.9283469633147534,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 2,
+      "delta": 1.961088546336755,
+      "r2": 0.8674213459713699,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 3,
+      "delta": 0.1924204097006382,
+      "r2": 0.9216862251505678,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 4,
+      "delta": 0.12497257542314635,
+      "r2": 0.8617396294892752,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 5,
+      "delta": 0.31850974800916815,
+      "r2": 0.9094212347755317,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 6,
+      "delta": 0.18416498336613307,
+      "r2": 0.8450457755776868,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 7,
+      "delta": 0.07632114825491401,
+      "r2": 0.9248309341349655,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 8,
+      "delta": 0.10786409861530967,
+      "r2": 0.9395328134904501,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 9,
+      "delta": 0.11537941221708718,
+      "r2": 0.8065567706483614,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 10,
+      "delta": 0.15993952136073045,
+      "r2": 0.9298164059846704,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 11,
+      "delta": 0.20277634586546414,
+      "r2": 0.9353289117053296,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 12,
+      "delta": 0.07396397036218626,
+      "r2": 0.8804047469375668,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 13,
+      "delta": 0.16661908112850873,
+      "r2": 0.9292932740961258,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 20,
+      "head": 14,
+      "delta": 0.30993080229727626,
+      "r2": 0.8158301279587292,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 20,
+      "head": 15,
+      "delta": 0.16561002779525902,
+      "r2": 0.8945374155314755,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 0,
+      "delta": 0.2007136023670448,
+      "r2": 0.9339575605018999,
+      "conformal": true,
+      "structural": true,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 1,
+      "delta": 0.5340706395275039,
+      "r2": 0.8842959714235268,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 2,
+      "delta": 0.15189468420228255,
+      "r2": 0.8900581226263419,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 3,
+      "delta": 0.24170498021628198,
+      "r2": 0.5456041494505577,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 4,
+      "delta": 0.32034561827791136,
+      "r2": 0.8634476418357301,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 5,
+      "delta": 0.17164503545705875,
+      "r2": 0.6521532486975228,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 6,
+      "delta": 1.4243292243073604,
+      "r2": 0.8664394418248706,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 7,
+      "delta": 0.3930460044986561,
+      "r2": 0.8754209418555963,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 8,
+      "delta": 0.2532068135628523,
+      "r2": 0.763424847076849,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 9,
+      "delta": 0.06856743665770776,
+      "r2": 0.6578904524031701,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 10,
+      "delta": 0.08216938806951184,
+      "r2": 0.8891338687065983,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 21,
+      "head": 11,
+      "delta": 0.13914690703415852,
+      "r2": 0.7668361848042294,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 12,
+      "delta": 0.32896677518216133,
+      "r2": 0.8936482467887092,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 13,
+      "delta": 0.05665871416687461,
+      "r2": 0.7942375554210948,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 14,
+      "delta": 0.9939850192040368,
+      "r2": 0.8720986498567415,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 21,
+      "head": 15,
+      "delta": 0.07809758518616151,
+      "r2": 0.8115293773533779,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 0,
+      "delta": 0.2246968620041882,
+      "r2": 0.7426858905465539,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 1,
+      "delta": 0.09655320795820266,
+      "r2": 0.9510377129492965,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 2,
+      "delta": 0.024942823788465993,
+      "r2": 0.11422202014265959,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 3,
+      "delta": 0.16232483344734341,
+      "r2": 0.930556472413117,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 4,
+      "delta": 0.09702931541965895,
+      "r2": 0.9410325678430608,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 5,
+      "delta": 0.16496550420192346,
+      "r2": 0.8936351665163328,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 6,
+      "delta": 0.16077794858056094,
+      "r2": 0.9134828093465347,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 7,
+      "delta": 0.12106275217667183,
+      "r2": 0.9152740880676451,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 8,
+      "delta": 0.1073527739424155,
+      "r2": 0.9422244174275693,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 9,
+      "delta": 0.13718959331764274,
+      "r2": 0.9147349423369286,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 10,
+      "delta": 0.17097970201568188,
+      "r2": 0.9160887490331937,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 11,
+      "delta": 0.3698928184047036,
+      "r2": 0.8688651682523014,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 22,
+      "head": 12,
+      "delta": 0.11705263707819033,
+      "r2": 0.9274330034655676,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 13,
+      "delta": 0.16534285924799866,
+      "r2": 0.8798125934556434,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 14,
+      "delta": 0.12966901888480617,
+      "r2": 0.7884788532598535,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 22,
+      "head": 15,
+      "delta": 0.0922288900017775,
+      "r2": 0.9453588260942156,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 0,
+      "delta": 0.09584553743392175,
+      "r2": 0.9517498822511558,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 1,
+      "delta": 0.12524062624709964,
+      "r2": 0.9174276087656477,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 2,
+      "delta": 0.16136236682848076,
+      "r2": 0.9254499221938621,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 3,
+      "delta": 0.10948438794220287,
+      "r2": 0.8138482092517914,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 4,
+      "delta": 0.11391160632513228,
+      "r2": 0.9009372218172833,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 5,
+      "delta": 0.08334898241774222,
+      "r2": 0.9362505198428069,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 6,
+      "delta": 0.09233527391174363,
+      "r2": 0.9297619419059031,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 7,
+      "delta": 0.09197562243256074,
+      "r2": 0.9258823662321193,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 8,
+      "delta": 0.309707857543752,
+      "r2": 0.8879604740976007,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 9,
+      "delta": 0.08156486793205125,
+      "r2": 0.9331732741508014,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 10,
+      "delta": 0.09649069877814273,
+      "r2": 0.9142722430409895,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 11,
+      "delta": 0.5404247219568455,
+      "r2": 0.8677754582843189,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 12,
+      "delta": 0.09962139560025085,
+      "r2": 0.92153615096251,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 13,
+      "delta": 0.453856858773616,
+      "r2": 0.872497427041039,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    },
+    {
+      "layer": 23,
+      "head": 14,
+      "delta": 0.08006811708235129,
+      "r2": 0.9423976755697163,
+      "conformal": true,
+      "structural": false,
+      "wikitext_native": true
+    },
+    {
+      "layer": 23,
+      "head": 15,
+      "delta": 0.033380093604629624,
+      "r2": 0.21942719116166853,
+      "conformal": false,
+      "structural": false,
+      "wikitext_native": false
+    }
+  ]
+}

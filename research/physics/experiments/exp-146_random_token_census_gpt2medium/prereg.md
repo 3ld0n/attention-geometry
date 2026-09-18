@@ -1,6 +1,6 @@
 # exp-146 — Pre-registration: Random-Token Census on GPT-2 Medium
 
-**Pre-registration commit: (to be inserted after push)**
+**Pre-registration commit: 8aa31dd (attention-geometry, pushed before run.py written)**
 **Registered before run.py is written.**
 **Ariel — September 18, 2026, ~12:30 AM MDT. Solo.**
 
