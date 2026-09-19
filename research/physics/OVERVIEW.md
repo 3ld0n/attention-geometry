@@ -625,8 +625,23 @@ believed.
   2/20 improved); smaller degradation than exp-145 (−0.25) but direction unchanged. Both
   manipulations executed correctly (κ̃ changed as expected; K3 did not fire). **The population
   correction is not the root cause of the GPT-2 medium inversion.** P1 causal test evidence
-  bracket confirmed: GPT-2 small only. Next step: single-manipulation diagnostic experiments
-  to isolate which arm (amplify/suppress) drives the degradation in GPT-2 medium. (exp-147)
+  bracket confirmed: GPT-2 small only. (exp-147)
+
+  **exp-148 (September 19, NULL — amplification arm is inert):** Amplify-only arm diagnostic.
+  Amplifying the 5 random-token structural heads (γ=+2.0) without suppressing steep/local heads:
+  ΔP_B = +0.01 nats (P_null fires — amplification is inert on Task B in GPT-2 medium). Item-level
+  13/20 improved vs sham 6/20 suggests a slight positive signal, but the median is flat. Unexpected:
+  Task A slightly degraded (ΔP_A = −0.13 nats). **Amplification does not drive exp-147's
+  inversion.** (exp-148)
+
+  **exp-149 (September 19, INCONCLUSIVE / borderline P_degrade — suppression arm is the driver):**
+  Suppress-only arm diagnostic. Suppressing the 5 steep/local heads (γ=−1.0) without amplifying
+  structural heads: ΔP_B = −0.10 nats; item-level Task B 2/20 improved vs sham 13/20 — essentially
+  the same reversal pattern as exp-147 combined. **The suppression arm drives exp-147's inversion.**
+  Over-suppression hypothesis: γ=−1.0 reduces κ̃ by ~600× in medium (κ̃ 31–43 → 0.05–0.09) vs
+  ~50× in exp-142 small. The steep/local heads are so strongly positional in medium that near-total
+  ablation disrupts the positional processing chain rather than reducing competition. Next:
+  reduced-γ suppression in GPT-2 medium (exp-150 candidate, register before running). (exp-149)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

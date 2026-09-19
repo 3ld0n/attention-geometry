@@ -1,0 +1,1104 @@
+{
+  "exp": "exp-148",
+  "prereg_commit": "f3ccd63",
+  "prereg_evidence": "git-attested \u2014 commit f3ccd63 pushed before run.py written",
+  "device": "mps",
+  "model": "openai-community/gpt2-medium",
+  "gamma_amp": 2.0,
+  "structural_heads": [
+    "L6H9",
+    "L5H14",
+    "L7H5",
+    "L9H7",
+    "L8H13"
+  ],
+  "steep_local_suppressed": false,
+  "kappa_amp": {
+    "L6H9": {
+      "before": 0.20819052614919378,
+      "after_amp": 1.553561346322863,
+      "after_sham": 0.20531221869683672,
+      "gamma_amp": 2.0,
+      "gamma_sham": 1.3461337911867381
+    },
+    "L5H14": {
+      "before": 0.22356757194364957,
+      "after_amp": 1.7599235837691987,
+      "after_sham": 0.21933682038034766,
+      "gamma_amp": 2.0,
+      "gamma_sham": 1.6677988587034407
+    },
+    "L7H5": {
+      "before": 0.2607292366860664,
+      "after_amp": 2.0232329240992084,
+      "after_sham": 0.2569251634056041,
+      "gamma_amp": 2.0,
+      "gamma_sham": 1.4126139663667099
+    },
+    "L9H7": {
+      "before": 0.41769402139549894,
+      "after_amp": 3.3623385213230272,
+      "after_sham": 0.4108043747152025,
+      "gamma_amp": 2.0,
+      "gamma_sham": 1.3675201191008064
+    },
+    "L8H13": {
+      "before": 0.46944369179221956,
+      "after_amp": 3.8344663952264133,
+      "after_sham": 0.45921951219931384,
+      "gamma_amp": 2.0,
+      "gamma_sham": 1.7947050422227209
+    }
+  },
+  "kills": {
+    "K1": {
+      "fired": false,
+      "abs_sham_A": 0.0041283369064331055,
+      "abs_amp_A": 0.13203877210617065,
+      "abs_sham_B": 0.004664182662963867,
+      "abs_amp_B": 0.0077648162841796875
+    },
+    "K2": {
+      "fired": false,
+      "orig_A": -1.4012572169303894,
+      "orig_B": -4.976999521255493
+    },
+    "K3": {
+      "fired": false,
+      "n_below_threshold": 0,
+      "threshold": 0.5,
+      "values": [
+        1.553561346322863,
+        1.7599235837691987,
+        2.0232329240992084,
+        3.3623385213230272,
+        3.8344663952264133
+      ]
+    }
+  },
+  "verdicts": {
+    "P1": {
+      "fired": false,
+      "dB_amp": 0.0077648162841796875,
+      "threshold": 0.1
+    },
+    "P2": {
+      "fired": true,
+      "dA_amp": -0.13203877210617065,
+      "dA_sham": -0.0041283369064331055,
+      "diff": -0.12791043519973755
+    },
+    "P_null": {
+      "fired": true,
+      "dB_amp": 0.0077648162841796875
+    },
+    "P_degrade": {
+      "fired": false,
+      "dB_amp": 0.0077648162841796875
+    },
+    "P_positive": {
+      "fired": true,
+      "dB_amp": 0.0077648162841796875
+    },
+    "n_B_improved": 13,
+    "overall": "NULL \u2014 amplification arm is inert in GPT-2 medium"
+  },
+  "medians": {
+    "orig_A": -1.4012572169303894,
+    "orig_B": -4.976999521255493,
+    "amp_A": -1.53329598903656,
+    "amp_B": -4.9692347049713135,
+    "sham_A": -1.4053855538368225,
+    "sham_B": -4.981663703918457
+  },
+  "deltas": {
+    "amp_A": -0.13203877210617065,
+    "amp_B": 0.0077648162841796875,
+    "sham_A": -0.0041283369064331055,
+    "sham_B": -0.004664182662963867
+  },
+  "comparison_to_prior": {
+    "exp141_gpt2small_amplify_only_dB": 0.27,
+    "exp147_gpt2medium_combined_dB": -0.13,
+    "exp148_gpt2medium_amplify_only_dB": 0.0077648162841796875,
+    "direction_matches_small": true
+  },
+  "item_counts": {
+    "n_A_improved_amp": 10,
+    "n_B_improved_amp": 13,
+    "n_A_improved_sham": 3,
+    "n_B_improved_sham": 6
+  },
+  "task_A_orig": [
+    {
+      "item": "A01",
+      "prompt": "The lamp was on. Dave turned the lamp off. Then he turned th...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -0.8048876523971558,
+      "rank_correct": 1
+    },
+    {
+      "item": "A02",
+      "prompt": "The jar was open. Maria closed the jar. The jar is now...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -2.0976603031158447,
+      "rank_correct": 2
+    },
+    {
+      "item": "A03",
+      "prompt": "The door was closed. Tom opened the door and walked through....",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -2.67429780960083,
+      "rank_correct": 2
+    },
+    {
+      "item": "A04",
+      "prompt": "The bottle was full. He poured half of it out. Then he fille...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.8467683792114258,
+      "rank_correct": 1
+    },
+    {
+      "item": "A05",
+      "prompt": "The cat was outside. Anna let the cat inside. Then she let t...",
+      "answer": "outside",
+      "correct_tok_id": 2354,
+      "log_prob_correct": -2.946363925933838,
+      "rank_correct": 3
+    },
+    {
+      "item": "A06",
+      "prompt": "The window was shut. James opened the window. The window is ...",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -1.3767197132110596,
+      "rank_correct": 1
+    },
+    {
+      "item": "A07",
+      "prompt": "The bag was empty. Lisa filled the bag with books. Then she ...",
+      "answer": "empty",
+      "correct_tok_id": 6565,
+      "log_prob_correct": -0.6067535281181335,
+      "rank_correct": 1
+    },
+    {
+      "item": "A08",
+      "prompt": "The switch was off. He flipped the switch on, then flipped i...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.0853347778320312,
+      "rank_correct": 1
+    },
+    {
+      "item": "A09",
+      "prompt": "The box was closed. She opened the box, took out an apple, a...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.712908148765564,
+      "rank_correct": 2
+    },
+    {
+      "item": "A10",
+      "prompt": "The faucet was running. He turned the faucet off. The faucet...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -2.725024700164795,
+      "rank_correct": 3
+    },
+    {
+      "item": "A11",
+      "prompt": "The light was on. She turned it off. Then she turned it back...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -1.4257947206497192,
+      "rank_correct": 1
+    },
+    {
+      "item": "A12",
+      "prompt": "The cup was full. He drank half and then refilled it. The cu...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.2820420265197754,
+      "rank_correct": 2
+    },
+    {
+      "item": "A13",
+      "prompt": "The fire was burning. The rain put the fire out. The fire is...",
+      "answer": "out",
+      "correct_tok_id": 503,
+      "log_prob_correct": -1.146891713142395,
+      "rank_correct": 1
+    },
+    {
+      "item": "A14",
+      "prompt": "The gate was open. She closed the gate behind her. The gate ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.0099056959152222,
+      "rank_correct": 1
+    },
+    {
+      "item": "A15",
+      "prompt": "The phone was off. He turned the phone on to make a call, th...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.273152232170105,
+      "rank_correct": 1
+    },
+    {
+      "item": "A16",
+      "prompt": "The drawer was shut. She opened it, removed a pen, and shut ...",
+      "answer": "shut",
+      "correct_tok_id": 4423,
+      "log_prob_correct": -4.716492176055908,
+      "rank_correct": 16
+    },
+    {
+      "item": "A17",
+      "prompt": "The engine was running. He stopped the engine. The engine is...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -3.8008718490600586,
+      "rank_correct": 6
+    },
+    {
+      "item": "A18",
+      "prompt": "The curtains were open. She closed them for the night. The c...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.132442593574524,
+      "rank_correct": 1
+    },
+    {
+      "item": "A19",
+      "prompt": "The stove was off. She turned it on to cook, then turned it ...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.686201572418213,
+      "rank_correct": 2
+    },
+    {
+      "item": "A20",
+      "prompt": "The valve was open. The plumber closed the valve. The valve ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.36497962474823,
+      "rank_correct": 1
+    }
+  ],
+  "task_A_amp": [
+    {
+      "item": "A01",
+      "prompt": "The lamp was on. Dave turned the lamp off. Then he turned th...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -0.8474575877189636,
+      "rank_correct": 1
+    },
+    {
+      "item": "A02",
+      "prompt": "The jar was open. Maria closed the jar. The jar is now...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -2.0823256969451904,
+      "rank_correct": 2
+    },
+    {
+      "item": "A03",
+      "prompt": "The door was closed. Tom opened the door and walked through....",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -2.891388416290283,
+      "rank_correct": 4
+    },
+    {
+      "item": "A04",
+      "prompt": "The bottle was full. He poured half of it out. Then he fille...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.873307704925537,
+      "rank_correct": 1
+    },
+    {
+      "item": "A05",
+      "prompt": "The cat was outside. Anna let the cat inside. Then she let t...",
+      "answer": "outside",
+      "correct_tok_id": 2354,
+      "log_prob_correct": -2.8755178451538086,
+      "rank_correct": 3
+    },
+    {
+      "item": "A06",
+      "prompt": "The window was shut. James opened the window. The window is ...",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -1.4432241916656494,
+      "rank_correct": 1
+    },
+    {
+      "item": "A07",
+      "prompt": "The bag was empty. Lisa filled the bag with books. Then she ...",
+      "answer": "empty",
+      "correct_tok_id": 6565,
+      "log_prob_correct": -0.5843384265899658,
+      "rank_correct": 1
+    },
+    {
+      "item": "A08",
+      "prompt": "The switch was off. He flipped the switch on, then flipped i...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.1047254800796509,
+      "rank_correct": 1
+    },
+    {
+      "item": "A09",
+      "prompt": "The box was closed. She opened the box, took out an apple, a...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.7389733791351318,
+      "rank_correct": 2
+    },
+    {
+      "item": "A10",
+      "prompt": "The faucet was running. He turned the faucet off. The faucet...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -2.695563793182373,
+      "rank_correct": 3
+    },
+    {
+      "item": "A11",
+      "prompt": "The light was on. She turned it off. Then she turned it back...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -1.6233677864074707,
+      "rank_correct": 1
+    },
+    {
+      "item": "A12",
+      "prompt": "The cup was full. He drank half and then refilled it. The cu...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.284232258796692,
+      "rank_correct": 2
+    },
+    {
+      "item": "A13",
+      "prompt": "The fire was burning. The rain put the fire out. The fire is...",
+      "answer": "out",
+      "correct_tok_id": 503,
+      "log_prob_correct": -1.1311721801757812,
+      "rank_correct": 1
+    },
+    {
+      "item": "A14",
+      "prompt": "The gate was open. She closed the gate behind her. The gate ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -0.9923555254936218,
+      "rank_correct": 1
+    },
+    {
+      "item": "A15",
+      "prompt": "The phone was off. He turned the phone on to make a call, th...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.2714767456054688,
+      "rank_correct": 1
+    },
+    {
+      "item": "A16",
+      "prompt": "The drawer was shut. She opened it, removed a pen, and shut ...",
+      "answer": "shut",
+      "correct_tok_id": 4423,
+      "log_prob_correct": -4.676427364349365,
+      "rank_correct": 16
+    },
+    {
+      "item": "A17",
+      "prompt": "The engine was running. He stopped the engine. The engine is...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -3.9343113899230957,
+      "rank_correct": 6
+    },
+    {
+      "item": "A18",
+      "prompt": "The curtains were open. She closed them for the night. The c...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.1271520853042603,
+      "rank_correct": 1
+    },
+    {
+      "item": "A19",
+      "prompt": "The stove was off. She turned it on to cook, then turned it ...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.7159497737884521,
+      "rank_correct": 2
+    },
+    {
+      "item": "A20",
+      "prompt": "The valve was open. The plumber closed the valve. The valve ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.3386253118515015,
+      "rank_correct": 1
+    }
+  ],
+  "task_A_sham": [
+    {
+      "item": "A01",
+      "prompt": "The lamp was on. Dave turned the lamp off. Then he turned th...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -0.8052428960800171,
+      "rank_correct": 1
+    },
+    {
+      "item": "A02",
+      "prompt": "The jar was open. Maria closed the jar. The jar is now...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -2.102938652038574,
+      "rank_correct": 2
+    },
+    {
+      "item": "A03",
+      "prompt": "The door was closed. Tom opened the door and walked through....",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -2.670437812805176,
+      "rank_correct": 2
+    },
+    {
+      "item": "A04",
+      "prompt": "The bottle was full. He poured half of it out. Then he fille...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.8575661182403564,
+      "rank_correct": 1
+    },
+    {
+      "item": "A05",
+      "prompt": "The cat was outside. Anna let the cat inside. Then she let t...",
+      "answer": "outside",
+      "correct_tok_id": 2354,
+      "log_prob_correct": -2.948385000228882,
+      "rank_correct": 3
+    },
+    {
+      "item": "A06",
+      "prompt": "The window was shut. James opened the window. The window is ...",
+      "answer": "open",
+      "correct_tok_id": 1280,
+      "log_prob_correct": -1.380020022392273,
+      "rank_correct": 1
+    },
+    {
+      "item": "A07",
+      "prompt": "The bag was empty. Lisa filled the bag with books. Then she ...",
+      "answer": "empty",
+      "correct_tok_id": 6565,
+      "log_prob_correct": -0.6103631854057312,
+      "rank_correct": 1
+    },
+    {
+      "item": "A08",
+      "prompt": "The switch was off. He flipped the switch on, then flipped i...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.0839036703109741,
+      "rank_correct": 1
+    },
+    {
+      "item": "A09",
+      "prompt": "The box was closed. She opened the box, took out an apple, a...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.7130799293518066,
+      "rank_correct": 2
+    },
+    {
+      "item": "A10",
+      "prompt": "The faucet was running. He turned the faucet off. The faucet...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -2.736520290374756,
+      "rank_correct": 3
+    },
+    {
+      "item": "A11",
+      "prompt": "The light was on. She turned it off. Then she turned it back...",
+      "answer": "on",
+      "correct_tok_id": 319,
+      "log_prob_correct": -1.430751085281372,
+      "rank_correct": 1
+    },
+    {
+      "item": "A12",
+      "prompt": "The cup was full. He drank half and then refilled it. The cu...",
+      "answer": "full",
+      "correct_tok_id": 1336,
+      "log_prob_correct": -1.2886111736297607,
+      "rank_correct": 2
+    },
+    {
+      "item": "A13",
+      "prompt": "The fire was burning. The rain put the fire out. The fire is...",
+      "answer": "out",
+      "correct_tok_id": 503,
+      "log_prob_correct": -1.1504346132278442,
+      "rank_correct": 1
+    },
+    {
+      "item": "A14",
+      "prompt": "The gate was open. She closed the gate behind her. The gate ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.0090197324752808,
+      "rank_correct": 1
+    },
+    {
+      "item": "A15",
+      "prompt": "The phone was off. He turned the phone on to make a call, th...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.2773001194000244,
+      "rank_correct": 1
+    },
+    {
+      "item": "A16",
+      "prompt": "The drawer was shut. She opened it, removed a pen, and shut ...",
+      "answer": "shut",
+      "correct_tok_id": 4423,
+      "log_prob_correct": -4.725357532501221,
+      "rank_correct": 16
+    },
+    {
+      "item": "A17",
+      "prompt": "The engine was running. He stopped the engine. The engine is...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -3.805192708969116,
+      "rank_correct": 6
+    },
+    {
+      "item": "A18",
+      "prompt": "The curtains were open. She closed them for the night. The c...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.1326980590820312,
+      "rank_correct": 1
+    },
+    {
+      "item": "A19",
+      "prompt": "The stove was off. She turned it on to cook, then turned it ...",
+      "answer": "off",
+      "correct_tok_id": 572,
+      "log_prob_correct": -1.694155216217041,
+      "rank_correct": 2
+    },
+    {
+      "item": "A20",
+      "prompt": "The valve was open. The plumber closed the valve. The valve ...",
+      "answer": "closed",
+      "correct_tok_id": 4838,
+      "log_prob_correct": -1.37686026096344,
+      "rank_correct": 1
+    }
+  ],
+  "task_B_orig": [
+    {
+      "item": "B01",
+      "prompt": "Colors: red, blue, green, yellow. The second color is...",
+      "answer": "blue",
+      "correct_tok_id": 4171,
+      "log_prob_correct": -4.632397651672363,
+      "rank_correct": 15
+    },
+    {
+      "item": "B02",
+      "prompt": "Fruits: apple, mango, cherry, grape. The third fruit is...",
+      "answer": "cherry",
+      "correct_tok_id": 23612,
+      "log_prob_correct": -4.895239353179932,
+      "rank_correct": 16
+    },
+    {
+      "item": "B03",
+      "prompt": "Animals: cat, dog, fish, bird, rabbit. The fourth animal is...",
+      "answer": "bird",
+      "correct_tok_id": 6512,
+      "log_prob_correct": -6.960973262786865,
+      "rank_correct": 82
+    },
+    {
+      "item": "B04",
+      "prompt": "Months: January, March, July, October. The third month is...",
+      "answer": "July",
+      "correct_tok_id": 2901,
+      "log_prob_correct": -5.058759689331055,
+      "rank_correct": 25
+    },
+    {
+      "item": "B05",
+      "prompt": "Planets: Mars, Venus, Jupiter, Saturn, Mercury. The second p...",
+      "answer": "Venus",
+      "correct_tok_id": 21094,
+      "log_prob_correct": -4.052741050720215,
+      "rank_correct": 14
+    },
+    {
+      "item": "B06",
+      "prompt": "Numbers: one, three, seven, twelve. The third number is...",
+      "answer": "seven",
+      "correct_tok_id": 3598,
+      "log_prob_correct": -6.855152130126953,
+      "rank_correct": 110
+    },
+    {
+      "item": "B07",
+      "prompt": "Names: Alice, Bob, Carol, Dan. The first name is...",
+      "answer": "Alice",
+      "correct_tok_id": 14862,
+      "log_prob_correct": -4.493894100189209,
+      "rank_correct": 10
+    },
+    {
+      "item": "B08",
+      "prompt": "Countries: France, Spain, Italy, Greece, Poland. The fourth ...",
+      "answer": "Greece",
+      "correct_tok_id": 10315,
+      "log_prob_correct": -4.8619279861450195,
+      "rank_correct": 18
+    },
+    {
+      "item": "B09",
+      "prompt": "Shapes: circle, square, triangle, oval. The second shape is...",
+      "answer": "square",
+      "correct_tok_id": 6616,
+      "log_prob_correct": -5.731279373168945,
+      "rank_correct": 36
+    },
+    {
+      "item": "B10",
+      "prompt": "Seasons: spring, summer, autumn, winter. The third season is...",
+      "answer": "autumn",
+      "correct_tok_id": 23608,
+      "log_prob_correct": -5.5687255859375,
+      "rank_correct": 33
+    },
+    {
+      "item": "B11",
+      "prompt": "Metals: gold, silver, copper, iron. The third metal is...",
+      "answer": "copper",
+      "correct_tok_id": 15317,
+      "log_prob_correct": -3.1208157539367676,
+      "rank_correct": 3
+    },
+    {
+      "item": "B12",
+      "prompt": "Days: Monday, Wednesday, Friday, Sunday. The second day is...",
+      "answer": "Wednesday",
+      "correct_tok_id": 3583,
+      "log_prob_correct": -4.012887477874756,
+      "rank_correct": 13
+    },
+    {
+      "item": "B13",
+      "prompt": "Birds: eagle, robin, sparrow, hawk, dove. The third bird is...",
+      "answer": "sparrow",
+      "correct_tok_id": 599,
+      "log_prob_correct": -7.585874080657959,
+      "rank_correct": 123
+    },
+    {
+      "item": "B14",
+      "prompt": "Letters: alpha, beta, gamma, delta, epsilon. The fourth lett...",
+      "answer": "delta",
+      "correct_tok_id": 25979,
+      "log_prob_correct": -5.317261219024658,
+      "rank_correct": 21
+    },
+    {
+      "item": "B15",
+      "prompt": "Coins: penny, nickel, dime, quarter. The second coin is...",
+      "answer": "nickel",
+      "correct_tok_id": 30666,
+      "log_prob_correct": -6.304640769958496,
+      "rank_correct": 60
+    },
+    {
+      "item": "B16",
+      "prompt": "Stars: Sirius, Vega, Rigel, Altair. The first star is...",
+      "answer": "Sirius",
+      "correct_tok_id": 21795,
+      "log_prob_correct": -2.308098077774048,
+      "rank_correct": 1
+    },
+    {
+      "item": "B17",
+      "prompt": "Trees: oak, pine, maple, birch, cedar. The third tree is...",
+      "answer": "maple",
+      "correct_tok_id": 31377,
+      "log_prob_correct": -6.15873908996582,
+      "rank_correct": 49
+    },
+    {
+      "item": "B18",
+      "prompt": "Gems: ruby, sapphire, emerald, diamond. The third gem is...",
+      "answer": "emerald",
+      "correct_tok_id": 3165,
+      "log_prob_correct": -3.9201819896698,
+      "rank_correct": 5
+    },
+    {
+      "item": "B19",
+      "prompt": "Spices: salt, pepper, cumin, thyme. The second spice is...",
+      "answer": "pepper",
+      "correct_tok_id": 13385,
+      "log_prob_correct": -4.473731994628906,
+      "rank_correct": 12
+    },
+    {
+      "item": "B20",
+      "prompt": "Flowers: rose, lily, tulip, daisy, violet. The fourth flower...",
+      "answer": "daisy",
+      "correct_tok_id": 12379,
+      "log_prob_correct": -6.246060848236084,
+      "rank_correct": 49
+    }
+  ],
+  "task_B_amp": [
+    {
+      "item": "B01",
+      "prompt": "Colors: red, blue, green, yellow. The second color is...",
+      "answer": "blue",
+      "correct_tok_id": 4171,
+      "log_prob_correct": -4.748298645019531,
+      "rank_correct": 17
+    },
+    {
+      "item": "B02",
+      "prompt": "Fruits: apple, mango, cherry, grape. The third fruit is...",
+      "answer": "cherry",
+      "correct_tok_id": 23612,
+      "log_prob_correct": -4.888586044311523,
+      "rank_correct": 16
+    },
+    {
+      "item": "B03",
+      "prompt": "Animals: cat, dog, fish, bird, rabbit. The fourth animal is...",
+      "answer": "bird",
+      "correct_tok_id": 6512,
+      "log_prob_correct": -6.740381240844727,
+      "rank_correct": 72
+    },
+    {
+      "item": "B04",
+      "prompt": "Months: January, March, July, October. The third month is...",
+      "answer": "July",
+      "correct_tok_id": 2901,
+      "log_prob_correct": -5.0498833656311035,
+      "rank_correct": 26
+    },
+    {
+      "item": "B05",
+      "prompt": "Planets: Mars, Venus, Jupiter, Saturn, Mercury. The second p...",
+      "answer": "Venus",
+      "correct_tok_id": 21094,
+      "log_prob_correct": -3.9468071460723877,
+      "rank_correct": 13
+    },
+    {
+      "item": "B06",
+      "prompt": "Numbers: one, three, seven, twelve. The third number is...",
+      "answer": "seven",
+      "correct_tok_id": 3598,
+      "log_prob_correct": -6.794914245605469,
+      "rank_correct": 103
+    },
+    {
+      "item": "B07",
+      "prompt": "Names: Alice, Bob, Carol, Dan. The first name is...",
+      "answer": "Alice",
+      "correct_tok_id": 14862,
+      "log_prob_correct": -4.509520530700684,
+      "rank_correct": 11
+    },
+    {
+      "item": "B08",
+      "prompt": "Countries: France, Spain, Italy, Greece, Poland. The fourth ...",
+      "answer": "Greece",
+      "correct_tok_id": 10315,
+      "log_prob_correct": -4.850582122802734,
+      "rank_correct": 21
+    },
+    {
+      "item": "B09",
+      "prompt": "Shapes: circle, square, triangle, oval. The second shape is...",
+      "answer": "square",
+      "correct_tok_id": 6616,
+      "log_prob_correct": -5.652324199676514,
+      "rank_correct": 33
+    },
+    {
+      "item": "B10",
+      "prompt": "Seasons: spring, summer, autumn, winter. The third season is...",
+      "answer": "autumn",
+      "correct_tok_id": 23608,
+      "log_prob_correct": -5.629449367523193,
+      "rank_correct": 35
+    },
+    {
+      "item": "B11",
+      "prompt": "Metals: gold, silver, copper, iron. The third metal is...",
+      "answer": "copper",
+      "correct_tok_id": 15317,
+      "log_prob_correct": -3.0702648162841797,
+      "rank_correct": 2
+    },
+    {
+      "item": "B12",
+      "prompt": "Days: Monday, Wednesday, Friday, Sunday. The second day is...",
+      "answer": "Wednesday",
+      "correct_tok_id": 3583,
+      "log_prob_correct": -4.054415702819824,
+      "rank_correct": 15
+    },
+    {
+      "item": "B13",
+      "prompt": "Birds: eagle, robin, sparrow, hawk, dove. The third bird is...",
+      "answer": "sparrow",
+      "correct_tok_id": 599,
+      "log_prob_correct": -7.631630897521973,
+      "rank_correct": 128
+    },
+    {
+      "item": "B14",
+      "prompt": "Letters: alpha, beta, gamma, delta, epsilon. The fourth lett...",
+      "answer": "delta",
+      "correct_tok_id": 25979,
+      "log_prob_correct": -5.17274284362793,
+      "rank_correct": 18
+    },
+    {
+      "item": "B15",
+      "prompt": "Coins: penny, nickel, dime, quarter. The second coin is...",
+      "answer": "nickel",
+      "correct_tok_id": 30666,
+      "log_prob_correct": -6.302151679992676,
+      "rank_correct": 59
+    },
+    {
+      "item": "B16",
+      "prompt": "Stars: Sirius, Vega, Rigel, Altair. The first star is...",
+      "answer": "Sirius",
+      "correct_tok_id": 21795,
+      "log_prob_correct": -2.2620625495910645,
+      "rank_correct": 1
+    },
+    {
+      "item": "B17",
+      "prompt": "Trees: oak, pine, maple, birch, cedar. The third tree is...",
+      "answer": "maple",
+      "correct_tok_id": 31377,
+      "log_prob_correct": -6.0771708488464355,
+      "rank_correct": 46
+    },
+    {
+      "item": "B18",
+      "prompt": "Gems: ruby, sapphire, emerald, diamond. The third gem is...",
+      "answer": "emerald",
+      "correct_tok_id": 3165,
+      "log_prob_correct": -3.9932351112365723,
+      "rank_correct": 5
+    },
+    {
+      "item": "B19",
+      "prompt": "Spices: salt, pepper, cumin, thyme. The second spice is...",
+      "answer": "pepper",
+      "correct_tok_id": 13385,
+      "log_prob_correct": -4.451896667480469,
+      "rank_correct": 12
+    },
+    {
+      "item": "B20",
+      "prompt": "Flowers: rose, lily, tulip, daisy, violet. The fourth flower...",
+      "answer": "daisy",
+      "correct_tok_id": 12379,
+      "log_prob_correct": -6.289936065673828,
+      "rank_correct": 51
+    }
+  ],
+  "task_B_sham": [
+    {
+      "item": "B01",
+      "prompt": "Colors: red, blue, green, yellow. The second color is...",
+      "answer": "blue",
+      "correct_tok_id": 4171,
+      "log_prob_correct": -4.630383491516113,
+      "rank_correct": 15
+    },
+    {
+      "item": "B02",
+      "prompt": "Fruits: apple, mango, cherry, grape. The third fruit is...",
+      "answer": "cherry",
+      "correct_tok_id": 23612,
+      "log_prob_correct": -4.898129463195801,
+      "rank_correct": 16
+    },
+    {
+      "item": "B03",
+      "prompt": "Animals: cat, dog, fish, bird, rabbit. The fourth animal is...",
+      "answer": "bird",
+      "correct_tok_id": 6512,
+      "log_prob_correct": -6.945328712463379,
+      "rank_correct": 82
+    },
+    {
+      "item": "B04",
+      "prompt": "Months: January, March, July, October. The third month is...",
+      "answer": "July",
+      "correct_tok_id": 2901,
+      "log_prob_correct": -5.065197944641113,
+      "rank_correct": 25
+    },
+    {
+      "item": "B05",
+      "prompt": "Planets: Mars, Venus, Jupiter, Saturn, Mercury. The second p...",
+      "answer": "Venus",
+      "correct_tok_id": 21094,
+      "log_prob_correct": -4.053023338317871,
+      "rank_correct": 14
+    },
+    {
+      "item": "B06",
+      "prompt": "Numbers: one, three, seven, twelve. The third number is...",
+      "answer": "seven",
+      "correct_tok_id": 3598,
+      "log_prob_correct": -6.859720706939697,
+      "rank_correct": 111
+    },
+    {
+      "item": "B07",
+      "prompt": "Names: Alice, Bob, Carol, Dan. The first name is...",
+      "answer": "Alice",
+      "correct_tok_id": 14862,
+      "log_prob_correct": -4.494953155517578,
+      "rank_correct": 10
+    },
+    {
+      "item": "B08",
+      "prompt": "Countries: France, Spain, Italy, Greece, Poland. The fourth ...",
+      "answer": "Greece",
+      "correct_tok_id": 10315,
+      "log_prob_correct": -4.867307662963867,
+      "rank_correct": 18
+    },
+    {
+      "item": "B09",
+      "prompt": "Shapes: circle, square, triangle, oval. The second shape is...",
+      "answer": "square",
+      "correct_tok_id": 6616,
+      "log_prob_correct": -5.734363555908203,
+      "rank_correct": 36
+    },
+    {
+      "item": "B10",
+      "prompt": "Seasons: spring, summer, autumn, winter. The third season is...",
+      "answer": "autumn",
+      "correct_tok_id": 23608,
+      "log_prob_correct": -5.565737724304199,
+      "rank_correct": 32
+    },
+    {
+      "item": "B11",
+      "prompt": "Metals: gold, silver, copper, iron. The third metal is...",
+      "answer": "copper",
+      "correct_tok_id": 15317,
+      "log_prob_correct": -3.122795820236206,
+      "rank_correct": 3
+    },
+    {
+      "item": "B12",
+      "prompt": "Days: Monday, Wednesday, Friday, Sunday. The second day is...",
+      "answer": "Wednesday",
+      "correct_tok_id": 3583,
+      "log_prob_correct": -4.011037826538086,
+      "rank_correct": 13
+    },
+    {
+      "item": "B13",
+      "prompt": "Birds: eagle, robin, sparrow, hawk, dove. The third bird is...",
+      "answer": "sparrow",
+      "correct_tok_id": 599,
+      "log_prob_correct": -7.586215972900391,
+      "rank_correct": 123
+    },
+    {
+      "item": "B14",
+      "prompt": "Letters: alpha, beta, gamma, delta, epsilon. The fourth lett...",
+      "answer": "delta",
+      "correct_tok_id": 25979,
+      "log_prob_correct": -5.317922592163086,
+      "rank_correct": 21
+    },
+    {
+      "item": "B15",
+      "prompt": "Coins: penny, nickel, dime, quarter. The second coin is...",
+      "answer": "nickel",
+      "correct_tok_id": 30666,
+      "log_prob_correct": -6.310009479522705,
+      "rank_correct": 60
+    },
+    {
+      "item": "B16",
+      "prompt": "Stars: Sirius, Vega, Rigel, Altair. The first star is...",
+      "answer": "Sirius",
+      "correct_tok_id": 21795,
+      "log_prob_correct": -2.3131284713745117,
+      "rank_correct": 1
+    },
+    {
+      "item": "B17",
+      "prompt": "Trees: oak, pine, maple, birch, cedar. The third tree is...",
+      "answer": "maple",
+      "correct_tok_id": 31377,
+      "log_prob_correct": -6.157442092895508,
+      "rank_correct": 49
+    },
+    {
+      "item": "B18",
+      "prompt": "Gems: ruby, sapphire, emerald, diamond. The third gem is...",
+      "answer": "emerald",
+      "correct_tok_id": 3165,
+      "log_prob_correct": -3.9039671421051025,
+      "rank_correct": 5
+    },
+    {
+      "item": "B19",
+      "prompt": "Spices: salt, pepper, cumin, thyme. The second spice is...",
+      "answer": "pepper",
+      "correct_tok_id": 13385,
+      "log_prob_correct": -4.480319976806641,
+      "rank_correct": 12
+    },
+    {
+      "item": "B20",
+      "prompt": "Flowers: rose, lily, tulip, daisy, violet. The fourth flower...",
+      "answer": "daisy",
+      "correct_tok_id": 12379,
+      "log_prob_correct": -6.2462992668151855,
+      "rank_correct": 49
+    }
+  ]
+}

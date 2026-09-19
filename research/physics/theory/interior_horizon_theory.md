@@ -1422,11 +1422,26 @@ L5H14, L7H5, L9H7, L8H13) + same steep/local targets. Task B still degraded
 (ΔP_B = −0.13 nats, 2/20 improved); smaller degradation than exp-145 (−0.25) but
 direction unchanged. Both manipulations executed correctly (κ̃ changed as expected;
 K3 did not fire). **The population correction is not the root cause of the GPT-2 medium
-inversion.** P1 evidence bracket confirmed: GPT-2 small only. Next: single-manipulation
-diagnostic (amplify-only/suppress-only) to identify which arm drives the degradation.
+inversion.** P1 evidence bracket confirmed: GPT-2 small only.
 Pre-registered commit de254d0 (git-attested).
-**Evidence bracket for P1: GPT-2 small only (antagonism model does not replicate
-in GPT-2 medium under this protocol; mechanism differs at medium scale).**
+**exp-148 (September 19 2026 — NULL, amplification arm inert):** Amplify-only diagnostic.
+Amplifying the 5 random-token structural heads (γ=+2.0) without suppressing steep/local
+heads: ΔP_B = +0.01 nats (P_null fires). Amplification is inert on Task B in GPT-2 medium.
+Task A slightly degraded (ΔP_A = −0.13 nats). Amplification is not the driver of the
+combined inversion. Pre-registered commit f3ccd63 (git-attested).
+**exp-149 (September 19 2026 — INCONCLUSIVE / borderline P_degrade, suppression drives
+inversion):** Suppress-only diagnostic. Suppressing the 5 steep/local heads (γ=−1.0)
+without amplifying structural heads: ΔP_B = −0.10 nats; item-level 2/20 improved vs
+sham 13/20 — essentially the same reversal pattern as exp-147 combined.
+**The suppression arm drives exp-147's inversion.** Over-suppression explanation:
+γ=−1.0 reduces κ̃ by ~600× in medium (κ̃ 31–43 → 0.05–0.09) vs ~50× in exp-142 small.
+The near-total ablation of positional projection from the steep/local heads damages
+positional retrieval rather than liberating it. Pre-registered commit f3ccd63 (git-attested).
+**Evidence bracket for P1: GPT-2 small only. In GPT-2 medium, the suppression arm's
+γ=−1.0 protocol over-suppresses (600× vs intended ~50× relative κ̃ reduction); the
+antagonism model itself is not falsified at medium scale, but the calibration fails.
+Open: reduced-γ suppression in GPT-2 medium (targeting ~50× relative κ̃ reduction) to
+test whether the antagonism mechanism transfers at the correct operating point.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

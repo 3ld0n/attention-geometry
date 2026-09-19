@@ -1,0 +1,460 @@
+"""
+exp-149 — World-model battery suppress-only: GPT-2 medium
+(suppress steep/local heads; NO amplification of structural heads)
+
+Pre-registration: attention-geometry f3ccd63 (pushed before this script).
+Diagnostic: does suppression alone drive the Task B degradation in exp-147?
+
+exp-148 found amplification alone is INERT (ΔP_B = +0.01 nats, P_null fires).
+This experiment tests whether suppression alone drives the degradation.
+
+STEEP_LOCAL (suppress γ=−1.0): L4H13, L15H8, L8H7, L5H11, L11H7
+  - κ̃_K: 43.2, 39.9, 33.3, 31.7, 30.9 (unchanged from exp-145/147)
+
+No structural amplification in this experiment.
+
+Ariel — September 19, 2026, ~4:50 AM MDT. Solo.
+"""
+
+from __future__ import annotations
+import copy
+import json
+from pathlib import Path
+
+import numpy as np
+import torch
+from transformers import AutoModelForCausalLM, GPT2Tokenizer
+
+# ── Constants ─────────────────────────────────────────────────────────────────
+
+SEQ_LEN  = 512
+N_INPUTS = 50
+SEED     = 42
+
+PREREG_COMMIT = "f3ccd63"
+
+D_MODEL  = 1024   # GPT-2 medium
+D_HEAD   = 64
+N_LAYERS = 24
+N_HEADS  = 16
+
+MODEL_ID = "openai-community/gpt2-medium"
+
+# Steep/local heads (unchanged from exp-145/147)
+STEEP_LOCAL  = [(4, 13), (15, 8), (8, 7), (5, 11), (11, 7)]
+GAMMA_SUP    = -1.0
+
+# Kill threshold
+K3_SUP_THRESHOLD = 5.0    # κ̃_K(sup) > 5.0 on ≥ 2/5 STEEP_LOCAL → suppression failed
+                           # (GPT-2 medium absolute κ̃ scale is 3-4× higher than small)
+
+SHAM_SEED_BASE = 2026091931   # distinct from all prior experiments
+
+DEVICE = "mps" if torch.backends.mps.is_available() else "cpu"
+
+
+# ── Positional field (ln_1 output hook) ───────────────────────────────────────
+
+def compute_positional_field_ln1(model, layer: int,
+                                  rng: np.random.Generator) -> np.ndarray:
+    """
+    Positional field δ at the OUTPUT of ln_1 for attention block `layer`.
+    Returns δ: shape (SEQ_LEN, D_MODEL) — centered positional deviation.
+    """
+    model.eval()
+    tok_ids = rng.integers(0, model.config.vocab_size, size=(N_INPUTS, SEQ_LEN))
+    tokens  = torch.tensor(tok_ids, dtype=torch.long, device=DEVICE)
+
+    captured = []
+
+    def hook_fn(mod, inp, out):
+        captured.append(out.detach().cpu().float().numpy())
+
+    ln1_module = model.transformer.h[layer].ln_1
+    handle = ln1_module.register_forward_hook(hook_fn)
+
+    with torch.no_grad():
+        model(tokens)
+
+    handle.remove()
+
+    acts  = np.concatenate(captured, axis=0)   # (N_INPUTS, SEQ_LEN, D_MODEL)
+    xbar  = acts.mean(axis=0)                  # (SEQ_LEN, D_MODEL)
+    m     = xbar.mean(axis=0, keepdims=True)
+    delta = xbar - m                           # centered positional field
+    return delta
+
+
+def compute_kappa(W_K: np.ndarray, delta: np.ndarray) -> float:
+    """κ̃(W_K) — isotropic-normalised positional capture (exp-137 formula)."""
+    reads      = delta @ W_K
+    cap        = float((np.linalg.norm(reads, axis=1) ** 2).sum() /
+                       (np.linalg.norm(delta, axis=1) ** 2).sum())
+    norm_factor = float((W_K ** 2).sum()) / D_MODEL
+    return cap / norm_factor if norm_factor > 1e-14 else 0.0
+
+
+def get_wk(model, layer: int, head: int) -> np.ndarray:
+    """W_K for (layer, head) from GPT-2 c_attn weight. Returns (D_MODEL, D_HEAD)."""
+    W = model.transformer.h[layer].attn.c_attn.weight.detach().cpu().double().numpy()
+    offset = D_MODEL + head * D_HEAD
+    return W[:, offset: offset + D_HEAD]
+
+
+def set_wk(model, layer: int, head: int, W_K_new: np.ndarray):
+    """Write W_K back for (layer, head)."""
+    W = model.transformer.h[layer].attn.c_attn.weight.data
+    with torch.no_grad():
+        W[:, D_MODEL + head * D_HEAD: D_MODEL + (head + 1) * D_HEAD] = torch.tensor(
+            W_K_new, dtype=W.dtype, device=W.device
+        )
+
+
+# ── Build suppressed and sham models ──────────────────────────────────────────
+
+def build_models(base_model, rng_census: np.random.Generator):
+    """
+    Suppressed model: suppress STEEP_LOCAL heads (γ=−1.0, W_K direction).
+    Sham model: matched-norm sham in ⊥ complement.
+    NO structural head amplification.
+
+    Returns (sup_model, sham_model, kappa_sup).
+    """
+    sup_model  = copy.deepcopy(base_model)
+    sham_model = copy.deepcopy(base_model)
+    kappa_sup  = {}
+
+    print("\n[A] Suppressing steep/local heads (γ=−1.0, unchanged from exp-145/147):",
+          flush=True)
+    for i, (ell, h) in enumerate(STEEP_LOCAL):
+        delta = compute_positional_field_ln1(base_model, ell, rng_census)
+
+        _, _, Vt  = np.linalg.svd(delta, full_matrices=False)
+        P_k       = Vt[:4]
+        W_K       = get_wk(base_model, ell, h)
+        W_K_proj  = P_k.T @ (P_k @ W_K)
+
+        kappa_before = compute_kappa(W_K, delta)
+
+        # Suppression
+        W_K_sup         = W_K + GAMMA_SUP * W_K_proj
+        kappa_after_sup = compute_kappa(W_K_sup, delta)
+        set_wk(sup_model, ell, h, W_K_sup)
+
+        # Sham: matched Frobenius norm in ⊥ complement
+        sham_rng  = np.random.default_rng(SHAM_SEED_BASE + i)
+        rand_vecs = sham_rng.standard_normal((4, D_MODEL))
+        for pk_row in P_k:
+            rand_vecs -= (rand_vecs @ pk_row)[:, None] * pk_row
+        P_perp, _ = np.linalg.qr(rand_vecs.T)
+        P_perp    = P_perp.T
+        W_K_perp_proj   = P_perp.T @ (P_perp @ W_K)
+        delta_sup_norm  = np.linalg.norm(GAMMA_SUP * W_K_proj, "fro")
+        delta_perp_norm = np.linalg.norm(W_K_perp_proj, "fro")
+        gamma_sham = delta_sup_norm / delta_perp_norm if delta_perp_norm > 1e-14 else 0.0
+        W_K_sham_sup      = W_K + gamma_sham * W_K_perp_proj
+        kappa_after_sham  = compute_kappa(W_K_sham_sup, delta)
+        set_wk(sham_model, ell, h, W_K_sham_sup)
+
+        kappa_sup[f"L{ell}H{h}"] = {
+            "before":      float(kappa_before),
+            "after_sup":   float(kappa_after_sup),
+            "after_sham":  float(kappa_after_sham),
+            "gamma_sup":   float(GAMMA_SUP),
+            "gamma_sham":  float(gamma_sham),
+        }
+        print(f"  L{ell}H{h}: κ̃ {kappa_before:.3f} → sup {kappa_after_sup:.4f} "
+              f"(sham {kappa_after_sham:.3f})", flush=True)
+
+    return sup_model, sham_model, kappa_sup
+
+
+# ── Task items (identical to exp-141/142/143/145/147/148) ─────────────────────
+
+TASK_A = [
+    ("The lamp was on. Dave turned the lamp off. Then he turned the lamp on again. The lamp is now", "on"),
+    ("The jar was open. Maria closed the jar. The jar is now", "closed"),
+    ("The door was closed. Tom opened the door and walked through. The door is", "open"),
+    ("The bottle was full. He poured half of it out. Then he filled it back up. The bottle is now", "full"),
+    ("The cat was outside. Anna let the cat inside. Then she let the cat back outside. The cat is", "outside"),
+    ("The window was shut. James opened the window. The window is now", "open"),
+    ("The bag was empty. Lisa filled the bag with books. Then she emptied it again. The bag is now", "empty"),
+    ("The switch was off. He flipped the switch on, then flipped it off again. The switch is now", "off"),
+    ("The box was closed. She opened the box, took out an apple, and closed the box again. The box is now", "closed"),
+    ("The faucet was running. He turned the faucet off. The faucet is now", "off"),
+    ("The light was on. She turned it off. Then she turned it back on. The light is", "on"),
+    ("The cup was full. He drank half and then refilled it. The cup is now", "full"),
+    ("The fire was burning. The rain put the fire out. The fire is now", "out"),
+    ("The gate was open. She closed the gate behind her. The gate is now", "closed"),
+    ("The phone was off. He turned the phone on to make a call, then turned it back off. The phone is now", "off"),
+    ("The drawer was shut. She opened it, removed a pen, and shut it again. The drawer is now", "shut"),
+    ("The engine was running. He stopped the engine. The engine is now", "off"),
+    ("The curtains were open. She closed them for the night. The curtains are now", "closed"),
+    ("The stove was off. She turned it on to cook, then turned it off after eating. The stove is now", "off"),
+    ("The valve was open. The plumber closed the valve. The valve is now", "closed"),
+]
+
+TASK_B = [
+    ("Colors: red, blue, green, yellow. The second color is", "blue"),
+    ("Fruits: apple, mango, cherry, grape. The third fruit is", "cherry"),
+    ("Animals: cat, dog, fish, bird, rabbit. The fourth animal is", "bird"),
+    ("Months: January, March, July, October. The third month is", "July"),
+    ("Planets: Mars, Venus, Jupiter, Saturn, Mercury. The second planet is", "Venus"),
+    ("Numbers: one, three, seven, twelve. The third number is", "seven"),
+    ("Names: Alice, Bob, Carol, Dan. The first name is", "Alice"),
+    ("Countries: France, Spain, Italy, Greece, Poland. The fourth country is", "Greece"),
+    ("Shapes: circle, square, triangle, oval. The second shape is", "square"),
+    ("Seasons: spring, summer, autumn, winter. The third season is", "autumn"),
+    ("Metals: gold, silver, copper, iron. The third metal is", "copper"),
+    ("Days: Monday, Wednesday, Friday, Sunday. The second day is", "Wednesday"),
+    ("Birds: eagle, robin, sparrow, hawk, dove. The third bird is", "sparrow"),
+    ("Letters: alpha, beta, gamma, delta, epsilon. The fourth letter is", "delta"),
+    ("Coins: penny, nickel, dime, quarter. The second coin is", "nickel"),
+    ("Stars: Sirius, Vega, Rigel, Altair. The first star is", "Sirius"),
+    ("Trees: oak, pine, maple, birch, cedar. The third tree is", "maple"),
+    ("Gems: ruby, sapphire, emerald, diamond. The third gem is", "emerald"),
+    ("Spices: salt, pepper, cumin, thyme. The second spice is", "pepper"),
+    ("Flowers: rose, lily, tulip, daisy, violet. The fourth flower is", "daisy"),
+]
+
+
+# ── Task scoring ───────────────────────────────────────────────────────────────
+
+def score_task(model, tokenizer, items, task_name):
+    model.eval()
+    results = []
+    for idx, (prompt, answer) in enumerate(items):
+        inputs      = tokenizer(prompt, return_tensors="pt").to(DEVICE)
+        correct_tok = tokenizer.encode(" " + answer, add_special_tokens=False)
+        if not correct_tok:
+            correct_tok = tokenizer.encode(answer, add_special_tokens=False)
+        correct_id  = correct_tok[0]
+
+        with torch.no_grad():
+            out    = model(**inputs)
+            logits = out.logits[0, -1, :].float()
+            lps    = torch.log_softmax(logits, dim=-1)
+            lp     = float(lps[correct_id])
+            rank   = int((logits > logits[correct_id]).sum().item()) + 1
+
+        results.append({
+            "item":             f"{task_name}{idx+1:02d}",
+            "prompt":           prompt[:60] + "...",
+            "answer":           answer,
+            "correct_tok_id":   int(correct_id),
+            "log_prob_correct": lp,
+            "rank_correct":     rank,
+        })
+        print(f"    {task_name}{idx+1:02d}: '{answer}' logP={lp:.2f}  rank={rank}", flush=True)
+    return results
+
+
+def median_lp(results):
+    return float(np.median([r["log_prob_correct"] for r in results]))
+
+
+# ── Evaluation ────────────────────────────────────────────────────────────────
+
+def evaluate(kappa_sup, orig_A, orig_B, sup_A, sup_B, sham_A, sham_B):
+    med_orig_A = median_lp(orig_A)
+    med_orig_B = median_lp(orig_B)
+    med_sup_A  = median_lp(sup_A)
+    med_sup_B  = median_lp(sup_B)
+    med_sham_A = median_lp(sham_A)
+    med_sham_B = median_lp(sham_B)
+
+    dA_sup  = med_sup_A  - med_orig_A
+    dB_sup  = med_sup_B  - med_orig_B
+    dA_sham = med_sham_A - med_orig_A
+    dB_sham = med_sham_B - med_orig_B
+
+    medians = {
+        "orig_A": med_orig_A, "orig_B": med_orig_B,
+        "sup_A":  med_sup_A,  "sup_B":  med_sup_B,
+        "sham_A": med_sham_A, "sham_B": med_sham_B,
+    }
+    deltas = {"sup_A": dA_sup, "sup_B": dB_sup,
+              "sham_A": dA_sham, "sham_B": dB_sham}
+
+    # Kill checks
+    sup_kappas = [v["after_sup"] for v in kappa_sup.values()]
+    n_sup_fail = sum(1 for k in sup_kappas if k > K3_SUP_THRESHOLD)
+
+    k3 = {"fired": n_sup_fail >= 2, "n_above_threshold": n_sup_fail,
+          "threshold": K3_SUP_THRESHOLD, "values": sup_kappas}
+    k2 = {"fired": med_orig_A < -20.0 or med_orig_B < -20.0,
+          "orig_A": med_orig_A, "orig_B": med_orig_B}
+    k1_raw = (abs(dA_sham) >= abs(dA_sup)) and (abs(dB_sham) >= abs(dB_sup))
+    k1 = {"fired": k1_raw,
+          "abs_sham_A": abs(dA_sham), "abs_sup_A": abs(dA_sup),
+          "abs_sham_B": abs(dB_sham), "abs_sup_B": abs(dB_sup)}
+    kills = {"K1": k1, "K2": k2, "K3": k3}
+
+    any_kill = k1["fired"] or k2["fired"] or k3["fired"]
+
+    # Prediction verdicts
+    p1 = dB_sup > 0.10
+    p2 = abs(dA_sup - dA_sham) < 0.5
+    n_B_improved = sum(1 for o, c in zip(orig_B, sup_B)
+                       if c["log_prob_correct"] > o["log_prob_correct"])
+    p_null    = abs(dB_sup) <= 0.05
+    p_degrade = dB_sup < -0.10
+    p_positive = dB_sup > 0
+
+    if any_kill:
+        overall = "INCONCLUSIVE (kill fired)"
+    elif p_degrade:
+        overall = "INCONCLUSIVE — suppression alone degrades Task B (P_degrade fires; sup arm drives exp-147 inversion)"
+    elif p_null:
+        overall = "NULL — suppression arm is inert in GPT-2 medium"
+    elif p1 and p2:
+        overall = "CONFIRMED — suppression arm improves Task B in GPT-2 medium"
+    elif p_positive:
+        overall = "PARTIAL — directional improvement, below P1 threshold"
+    else:
+        overall = "INCONCLUSIVE"
+
+    verdicts = {
+        "P1":           {"fired": p1,        "dB_sup": dB_sup, "threshold": 0.10},
+        "P2":           {"fired": p2,         "dA_sup": dA_sup, "dA_sham": dA_sham,
+                         "diff": dA_sup - dA_sham},
+        "P_null":       {"fired": p_null,     "dB_sup": dB_sup},
+        "P_degrade":    {"fired": p_degrade,  "dB_sup": dB_sup},
+        "P_positive":   {"fired": p_positive, "dB_sup": dB_sup},
+        "n_B_improved": n_B_improved,
+        "overall":      overall,
+    }
+
+    comparison = {
+        "exp142_gpt2small_suppress_only_dB":   +0.33,
+        "exp147_gpt2medium_combined_dB":        -0.13,
+        "exp148_gpt2medium_amplify_only_dB":    +0.01,
+        "exp149_gpt2medium_suppress_only_dB":   dB_sup,
+        "direction_matches_small":              dB_sup > 0,
+    }
+
+    return kills, verdicts, medians, deltas, comparison
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main():
+    print("exp-149 — World-model battery GPT-2 medium, suppress-only", flush=True)
+    print(f"  prereg:    {PREREG_COMMIT} (attention-geometry, pushed before this script)", flush=True)
+    print(f"  device:    {DEVICE}", flush=True)
+    print(f"  STEEP_LOCAL (suppress γ={GAMMA_SUP}): "
+          f"{['L{}H{}'.format(l,h) for l,h in STEEP_LOCAL]}", flush=True)
+    print("  No structural amplification in this experiment.", flush=True)
+    print("  Context: exp-148 found amplification arm is INERT (ΔP_B = +0.01 nats).", flush=True)
+
+    print("\n[1] Loading GPT-2 medium (eager attention)...", flush=True)
+    tokenizer  = GPT2Tokenizer.from_pretrained("openai-community/gpt2-medium")
+    base_model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID,
+        torch_dtype=torch.float32,
+        attn_implementation="eager",    # required: MPS SDPA silently returns 0 attention
+    ).to(DEVICE)
+    base_model.eval()
+    print(f"  Loaded. n_layer={N_LAYERS}, n_head={N_HEADS}, D_MODEL={D_MODEL}", flush=True)
+
+    print("\n[2] Building suppressed and sham models...", flush=True)
+    rng_census = np.random.default_rng(SEED)
+    sup_model, sham_model, kappa_sup = build_models(base_model, rng_census)
+
+    # Early kill gate report
+    sup_kappas_after = [v["after_sup"] for v in kappa_sup.values()]
+    n_sup_fail = sum(1 for k in sup_kappas_after if k > K3_SUP_THRESHOLD)
+    print(f"\n  K3: {n_sup_fail}/5 steep/local heads with κ̃_K > {K3_SUP_THRESHOLD} after sup",
+          flush=True)
+    if n_sup_fail >= 2:
+        print("  WARNING: K3 fires — suppression may be insufficient.", flush=True)
+
+    print("\n[3] Task A — original:", flush=True)
+    orig_A  = score_task(base_model,  tokenizer, TASK_A, "A")
+    print("\n[4] Task A — suppressed:", flush=True)
+    sup_A   = score_task(sup_model,   tokenizer, TASK_A, "A")
+    print("\n[5] Task A — sham:", flush=True)
+    sham_A  = score_task(sham_model,  tokenizer, TASK_A, "A")
+
+    print("\n[6] Task B — original:", flush=True)
+    orig_B  = score_task(base_model,  tokenizer, TASK_B, "B")
+    print("\n[7] Task B — suppressed:", flush=True)
+    sup_B   = score_task(sup_model,   tokenizer, TASK_B, "B")
+    print("\n[8] Task B — sham:", flush=True)
+    sham_B  = score_task(sham_model,  tokenizer, TASK_B, "B")
+
+    print("\n[9] Evaluating...", flush=True)
+    kills, verdicts, medians, deltas, comparison = evaluate(
+        kappa_sup, orig_A, orig_B, sup_A, sup_B, sham_A, sham_B
+    )
+
+    print(f"\n  Overall verdict: {verdicts['overall']}", flush=True)
+    m = medians
+    d = deltas
+    print(f"  Task A: orig={m['orig_A']:.2f}  sup={m['sup_A']:.2f}  sham={m['sham_A']:.2f}  "
+          f"(Δsup={d['sup_A']:+.2f}  Δsham={d['sham_A']:+.2f})", flush=True)
+    print(f"  Task B: orig={m['orig_B']:.2f}  sup={m['sup_B']:.2f}  sham={m['sham_B']:.2f}  "
+          f"(Δsup={d['sup_B']:+.2f}  Δsham={d['sham_B']:+.2f})", flush=True)
+
+    n_A_improved_sup  = sum(1 for o, c in zip(orig_A, sup_A)
+                            if c["log_prob_correct"] > o["log_prob_correct"])
+    n_B_improved_sup  = sum(1 for o, c in zip(orig_B, sup_B)
+                            if c["log_prob_correct"] > o["log_prob_correct"])
+    n_A_improved_sham = sum(1 for o, s in zip(orig_A, sham_A)
+                            if s["log_prob_correct"] > o["log_prob_correct"])
+    n_B_improved_sham = sum(1 for o, s in zip(orig_B, sham_B)
+                            if s["log_prob_correct"] > o["log_prob_correct"])
+    print(f"\n  Item-level (sup vs orig):  Task A={n_A_improved_sup}/20   Task B={n_B_improved_sup}/20",
+          flush=True)
+    print(f"  Item-level (sham vs orig): Task A={n_A_improved_sham}/20  Task B={n_B_improved_sham}/20",
+          flush=True)
+
+    print(f"\n  Comparison:", flush=True)
+    print(f"    exp-142 (GPT-2 small, suppress-only, CONFIRMED): ΔP_B = +0.33 nats", flush=True)
+    print(f"    exp-147 (GPT-2 medium, combined, INCONCLUSIVE):  ΔP_B = −0.13 nats", flush=True)
+    print(f"    exp-148 (GPT-2 medium, amplify-only, NULL):      ΔP_B = +0.01 nats", flush=True)
+    print(f"    exp-149 (GPT-2 medium, suppress-only):           ΔP_B = {d['sup_B']:+.2f} nats",
+          flush=True)
+
+    for pk, pv in verdicts.items():
+        if pk not in ("overall", "n_B_improved"):
+            print(f"  {pk}: {'FIRES' if pv.get('fired') else 'not fired'}", flush=True)
+
+    out = {
+        "exp":                      "exp-149",
+        "prereg_commit":            PREREG_COMMIT,
+        "prereg_evidence":          "git-attested — commit f3ccd63 pushed before run.py written",
+        "device":                   DEVICE,
+        "model":                    MODEL_ID,
+        "gamma_sup":                GAMMA_SUP,
+        "steep_local_heads":        [f"L{l}H{h}" for l, h in STEEP_LOCAL],
+        "structural_amplified":     False,
+        "kappa_sup":                kappa_sup,
+        "kills":                    kills,
+        "verdicts":                 verdicts,
+        "medians":                  medians,
+        "deltas":                   deltas,
+        "comparison_to_prior":      comparison,
+        "item_counts": {
+            "n_A_improved_sup":  n_A_improved_sup,
+            "n_B_improved_sup":  n_B_improved_sup,
+            "n_A_improved_sham": n_A_improved_sham,
+            "n_B_improved_sham": n_B_improved_sham,
+        },
+        "task_A_orig":              orig_A,
+        "task_A_sup":               sup_A,
+        "task_A_sham":              sham_A,
+        "task_B_orig":              orig_B,
+        "task_B_sup":               sup_B,
+        "task_B_sham":              sham_B,
+    }
+
+    out_path = Path(__file__).resolve().parent / "results.json"
+    with open(out_path, "w") as f:
+        json.dump(out, f, indent=2)
+    print(f"\nResults saved to {out_path}", flush=True)
+    print("Done.", flush=True)
+
+
+if __name__ == "__main__":
+    main()
