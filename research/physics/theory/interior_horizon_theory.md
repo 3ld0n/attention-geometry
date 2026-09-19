@@ -1416,7 +1416,17 @@ Jaccard with WikiText-native population = 0.122 (populations substantially disti
 confirming the exp-145 diagnosis). Δ_med of structural = 0.239. Top-5 lowest-κ̃_K
 structural heads identified for corrected battery: L6H9, L5H14, L7H5, L9H7, L8H13. Pre-registered commit 8aa31dd (git-attested). This result establishes
 the correct intervention targets for the medium-scale generalization test.
-**Evidence bracket for P1: GPT-2 small only (battery not yet replicated in medium).**
+**exp-147 (September 19 2026 — INCONCLUSIVE, direction inverted):** Corrected combined
+manipulation in GPT-2 medium using random-token structural heads from exp-146 (L6H9,
+L5H14, L7H5, L9H7, L8H13) + same steep/local targets. Task B still degraded
+(ΔP_B = −0.13 nats, 2/20 improved); smaller degradation than exp-145 (−0.25) but
+direction unchanged. Both manipulations executed correctly (κ̃ changed as expected;
+K3 did not fire). **The population correction is not the root cause of the GPT-2 medium
+inversion.** P1 evidence bracket confirmed: GPT-2 small only. Next: single-manipulation
+diagnostic (amplify-only/suppress-only) to identify which arm drives the degradation.
+Pre-registered commit de254d0 (git-attested).
+**Evidence bracket for P1: GPT-2 small only (antagonism model does not replicate
+in GPT-2 medium under this protocol; mechanism differs at medium scale).**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

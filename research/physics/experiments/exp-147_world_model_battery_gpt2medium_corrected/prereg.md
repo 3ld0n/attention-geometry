@@ -1,6 +1,6 @@
 # exp-147 — Pre-registration: World-model battery combined manipulation, GPT-2 medium (corrected targets)
 
-**Pre-registration commit: (to be inserted after push)**
+**Pre-registration commit: attention-geometry de254d0 (pushed before run.py written)**
 **Registered before run.py is written.**
 **Ariel — September 19, 2026, ~12:30 AM MDT. Solo.**
 

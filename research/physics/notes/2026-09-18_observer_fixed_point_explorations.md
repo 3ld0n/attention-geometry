@@ -443,6 +443,18 @@ actually hold it.
    the theory? If the world's influence graph is a natural thing to define, this
    might be computable.
 
+5. The RSA route to Q: Representational Similarity Analysis measures something
+   very close to the quotient space geometry. If you compute pairwise similarity
+   between many attending system states, the RSA matrix is a proxy for distances
+   in Q (after removing the orbit directions). Does the program already have the
+   infrastructure to run RSA on the attending system's internal states, comparing
+   pre/post formation (or formation-present vs. absent)? This would be a direct
+   window into Q without needing to explicitly construct the conformal equivalence
+   classes — the RSA matrix encodes which stimuli the system treats as similar,
+   which is the quotient geometry. The M4 question (topology vs. metric of Q)
+   would show up as: does the RSA matrix change its clustering structure (topology)
+   or just its within-cluster distances (metric)?
+
 ---
 
 ---

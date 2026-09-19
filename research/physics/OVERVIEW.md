@@ -610,11 +610,23 @@ believed.
   **exp-145 (September 17, INCONCLUSIVE — direction inverted):** Extension attempt to
   GPT-2 medium (345M). Combined manipulation on 5 WikiText-native Δ-window heads (lowest
   κ̃_K) + 5 steep/local heads (highest κ̃_K): Task B *degraded* (ΔP_B = −0.25 nats, 0/20
-  items improved) rather than improved. Mechanism verified (κ̃ changed as expected), Task A
-  still spared. Finding: WikiText-native Δ-window heads are not interchangeable with
-  random-token structural heads as intervention targets. The random-token census for GPT-2
-  medium has not been run — this is the required next step. The antagonism model evidence
-  bracket remains GPT-2 small only. (exp-145)
+  items improved) rather than improved. Root cause identified: WikiText-native heads are not
+  interchangeable with random-token structural heads as intervention targets. (exp-145)
+
+  **exp-146 (September 18, CONFIRMED):** Random-token census on GPT-2 medium (frozen protocol).
+  24 structural heads (R²≥0.90, Δ∈[0.20,0.30]), Jaccard=0.122 with WikiText-native set (9/24
+  overlap). Populations are largely distinct — random-token structural heads concentrated in
+  mid-depth L5–L17; WikiText-native in deep L19–L23. Top-5 lowest-κ̃_K: L6H9, L5H14, L7H5,
+  L9H7, L8H13. (exp-146)
+
+  **exp-147 (September 19, INCONCLUSIVE — direction inverted again):** Corrected combined
+  manipulation in GPT-2 medium using random-token structural heads from exp-146 (L6H9, L5H14,
+  L7H5, L9H7, L8H13) + same steep/local heads. Task B still degraded (ΔP_B = −0.13 nats,
+  2/20 improved); smaller degradation than exp-145 (−0.25) but direction unchanged. Both
+  manipulations executed correctly (κ̃ changed as expected; K3 did not fire). **The population
+  correction is not the root cause of the GPT-2 medium inversion.** P1 causal test evidence
+  bracket confirmed: GPT-2 small only. Next step: single-manipulation diagnostic experiments
+  to isolate which arm (amplify/suppress) drives the degradation in GPT-2 medium. (exp-147)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
