@@ -640,8 +640,18 @@ believed.
   the same reversal pattern as exp-147 combined. **The suppression arm drives exp-147's inversion.**
   Over-suppression hypothesis: γ=−1.0 reduces κ̃ by ~600× in medium (κ̃ 31–43 → 0.05–0.09) vs
   ~50× in exp-142 small. The steep/local heads are so strongly positional in medium that near-total
-  ablation disrupts the positional processing chain rather than reducing competition. Next:
-  reduced-γ suppression in GPT-2 medium (exp-150 candidate, register before running). (exp-149)
+  ablation disrupts the positional processing chain rather than reducing competition. (exp-149)
+
+  **exp-150 (September 21, INCONCLUSIVE — over-suppression hypothesis weakened):**
+  Reduced-γ suppress-only arm in GPT-2 medium. Pre-registered γ=−0.86 targeting ~50× relative
+  κ̃ reduction (matching exp-142's small-model regime). Regime confirmed: 5/5 steep/local heads at
+  ~42× reduction (within the [20×, 100×] pre-registered window). Result: ΔP_B = −0.08 nats;
+  item-level Task B 2/20 improved vs sham 4/20. **Item-level Task B signal is identical between
+  exp-149 (γ=−1.0, ~600× reduction) and exp-150 (γ=−0.86, ~42× reduction).** The degradation is
+  not a suppression-magnitude effect. The over-suppression hypothesis is weakened: the 5 steep/local
+  heads in GPT-2 medium behave as load-bearing relays for Task B performance, not competitors —
+  suppressing them at any tested level consistently degrades positional retrieval. P1 causal evidence
+  bracket remains GPT-2 small only. (exp-150)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

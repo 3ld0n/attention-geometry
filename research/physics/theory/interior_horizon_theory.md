@@ -1437,11 +1437,24 @@ sham 13/20 — essentially the same reversal pattern as exp-147 combined.
 γ=−1.0 reduces κ̃ by ~600× in medium (κ̃ 31–43 → 0.05–0.09) vs ~50× in exp-142 small.
 The near-total ablation of positional projection from the steep/local heads damages
 positional retrieval rather than liberating it. Pre-registered commit f3ccd63 (git-attested).
-**Evidence bracket for P1: GPT-2 small only. In GPT-2 medium, the suppression arm's
-γ=−1.0 protocol over-suppresses (600× vs intended ~50× relative κ̃ reduction); the
-antagonism model itself is not falsified at medium scale, but the calibration fails.
-Open: reduced-γ suppression in GPT-2 medium (targeting ~50× relative κ̃ reduction) to
-test whether the antagonism mechanism transfers at the correct operating point.**
+**exp-150 (September 21 2026 — INCONCLUSIVE, over-suppression hypothesis weakened):**
+Reduced-γ suppress-only in GPT-2 medium. Pre-registered γ=−0.86, targeting ~50× relative
+κ̃ reduction (matching exp-142's small-model regime). Regime confirmed: 5/5 steep/local
+heads at ~42× reduction (within pre-registered [20×, 100×] window; κ̃: 31–43 → 0.71–1.04).
+Result: ΔP_B = −0.08 nats; item-level 2/20 improved — identical to exp-149 (2/20 at γ=−1.0,
+~600× reduction). **The degradation is not a suppression-magnitude effect.** The 5
+steep/local heads in GPT-2 medium function as load-bearing relays for Task B performance,
+not competitors — suppressing them at any tested level (42× or 600×) consistently degrades
+positional retrieval. The over-suppression hypothesis is weakened.
+Pre-registered commit 3b44c1c (git-attested).
+
+**Evidence bracket for P1: GPT-2 small only (exp-141/142/143: three-directional confirmation).
+In GPT-2 medium (exp-145 through exp-150, six experiments), no manipulation has produced
+positive Task B signal. The antagonism mechanism does not replicate at the medium scale with
+the tested target populations. Two untested routes remain: (a) amplification-only at higher
+γ or deeper target heads in medium; (b) functional ablation of steep/local heads to determine
+whether they are relays or competitors. These are the open questions for P1's medium-scale
+replication.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
