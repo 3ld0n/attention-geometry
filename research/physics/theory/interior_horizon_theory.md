@@ -1448,13 +1448,25 @@ not competitors — suppressing them at any tested level (42× or 600×) consist
 positional retrieval. The over-suppression hypothesis is weakened.
 Pre-registered commit 3b44c1c (git-attested).
 
+**exp-151 (September 22 2026 — NULL, H_arch confirmed; amplification route closed):**
+Higher-γ amplification-only in GPT-2 medium. Same 5 structural heads as exp-148 (L6H9,
+L5H14, L7H5, L9H7, L8H13). γ=+5.0 (36× expected factor; 28–30× achieved; K3 kill not
+fired). Result: ΔP_B = +0.01 nats, item-level 12/20 vs sham 15/20 (P_null fires).
+**Identical to exp-148 (γ=+2.0, +0.01 nats).** H_arch confirmed: the positional retrieval
+signal is absent at both tested gain levels. The amplification route for P1 medium
+replication is closed. Geometry-function gap from the structural head side: W_K positional
+geometry (census-passing) does not entail positional retrieval function in medium.
+Pre-registered commit 7ec2b60 (git-attested).
+
 **Evidence bracket for P1: GPT-2 small only (exp-141/142/143: three-directional confirmation).
-In GPT-2 medium (exp-145 through exp-150, six experiments), no manipulation has produced
-positive Task B signal. The antagonism mechanism does not replicate at the medium scale with
-the tested target populations. Two untested routes remain: (a) amplification-only at higher
-γ or deeper target heads in medium; (b) functional ablation of steep/local heads to determine
-whether they are relays or competitors. These are the open questions for P1's medium-scale
-replication.**
+In GPT-2 medium (exp-145 through exp-151, seven experiments), no manipulation has produced
+positive Task B signal. Two amplification levels tested (γ=+2.0 exp-148 and γ=+5.0 exp-151)
+and two suppression levels (γ=−1.0 exp-149 and γ=−0.86 exp-150) — all null or degrading.
+The amplification route is closed (H_arch confirmed: null persists at 29–30× gain,
+identical to 9× at exp-148). The relay interpretation for steep/local heads is supported
+by all suppression experiments. One untested route remains: full causal ablation of the
+5 steep/local heads (zero W_K contribution) to confirm relay account directly. Pre-register
+before any code.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

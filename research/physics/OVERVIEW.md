@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 6, 2026 (exp-134/135 added: Level-3 MLP mechanism fully traced — wpe 1D → attn_block0 broadens to 2D → h^(0.5) 2D preserved through MLP → W_proj amplifies via ≤2 channels → σ≈Δ in mlp_out).*
+*Last updated: September 22, 2026 (exp-151 added: higher-γ amplification NULL in GPT-2 medium — H_arch confirmed, amplification route closed; P1 evidence bracket confirmed GPT-2 small only).*
 
 ---
 
@@ -650,8 +650,24 @@ believed.
   exp-149 (γ=−1.0, ~600× reduction) and exp-150 (γ=−0.86, ~42× reduction).** The degradation is
   not a suppression-magnitude effect. The over-suppression hypothesis is weakened: the 5 steep/local
   heads in GPT-2 medium behave as load-bearing relays for Task B performance, not competitors —
-  suppressing them at any tested level consistently degrades positional retrieval. P1 causal evidence
+  suppressing them at any tested level consistently degrades positional retrieval.   P1 causal evidence
   bracket remains GPT-2 small only. (exp-150)
+
+  **exp-151 (September 22, NULL — amplification route closed; H_arch confirmed):**
+  Higher-γ amplification-only in GPT-2 medium. Pre-registered γ=+5.0 (36× expected factor) on the
+  same 5 random-token structural heads (L6H9, L5H14, L7H5, L9H7, L8H13). Tests H_thresh
+  (calibration issue — signal present but below detection at γ=+2.0) vs H_arch (real
+  architectural difference). Amplification confirmed: κ̃ 0.2–0.5 → 5.8–14.1 (28–30× achieved;
+  K3 kill did not fire). Result: **ΔP_B = +0.01 nats — identical to exp-148 at γ=+2.0.** Item-level:
+  12/20 Task B improved vs sham 15/20 (null). P_null fires. **H_arch is confirmed: the
+  positional retrieval signal from structural heads in GPT-2 medium is absent regardless of gain
+  level. The amplification route for P1 medium replication is closed.** Task A mildly degraded
+  (ΔP_A = −0.14 nats, 10/20 vs sham 16/20) — structural heads in medium do *something* under
+  amplification, but not positional retrieval. Geometry-function gap confirmed from the structural
+  head side: W_K positional geometry (census-passing) does not entail positional retrieval function
+  in medium. P1 causal evidence bracket: GPT-2 small only (seven experiments in medium, two routes
+  tested at multiple levels — zero positive Task B signal). Remaining solo route: causal ablation
+  of steep/local heads to confirm relay account. (exp-151)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
