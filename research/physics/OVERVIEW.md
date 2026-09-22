@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 22, 2026 (exp-151 added: higher-γ amplification NULL in GPT-2 medium — H_arch confirmed, amplification route closed; P1 evidence bracket confirmed GPT-2 small only).*
+*Last updated: September 22, 2026 (exp-152 added: W_K ablation of steep/local heads INCONCLUSIVE — suppression-ablation dissociation; relay account not confirmed; suppression-caused degradation is misrouting artifact, not relay disruption).*
 
 ---
 
@@ -668,6 +668,23 @@ believed.
   in medium. P1 causal evidence bracket: GPT-2 small only (seven experiments in medium, two routes
   tested at multiple levels — zero positive Task B signal). Remaining solo route: causal ablation
   of steep/local heads to confirm relay account. (exp-151)
+
+  **exp-152 (September 22, INCONCLUSIVE — suppression-ablation dissociation; relay account not confirmed):**
+  Causal W_K ablation of the 5 steep/local heads in GPT-2 medium (L4H13, L15H8, L8H7, L5H11,
+  L11H7). Ablation confirmed: κ̃ = 0.000 on all 5 heads (uniform attention; K3 not fired).
+  Result: **ΔP_B = +0.051 nats — Task B did NOT degrade.** Item-level: 10/20 improved vs sham
+  13/20 (sham ΔP_B = −0.021). P1 not fired; P_relay not fired. **Relay account (simple form:
+  positional concentration of steep/local heads is load-bearing for Task B) is not confirmed.**
+  Key finding — suppression-ablation dissociation: suppression (exp-149: −0.10, exp-150: −0.08)
+  consistently degrades Task B; full W_K ablation does not. Interpretation: the suppression
+  mechanism leaves a residual W_K (non-positional component intact) that misroutes attention for
+  Task B — active interference, not relay disruption. The steep/local heads do not relay
+  positional information via their concentrated attention pattern; the suppression-caused
+  degradation is a suppression artifact. Task A mildly degraded (ΔP_A = −0.158, 10/20 improved
+  vs sham 7/20) — these heads do something for entity-state tracking via W_K routing that is
+  absent under ablation. Next route: W_V ablation (unregistered candidate) — test whether the
+  value-pathway contribution is load-bearing for Task B. P1 medium replication: all tested routes
+  (amplification, suppression, W_K ablation) inconclusive or null. (exp-152)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

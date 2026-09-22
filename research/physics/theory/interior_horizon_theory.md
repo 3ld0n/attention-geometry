@@ -1458,15 +1458,22 @@ replication is closed. Geometry-function gap from the structural head side: W_K 
 geometry (census-passing) does not entail positional retrieval function in medium.
 Pre-registered commit 7ec2b60 (git-attested).
 
+**exp-152 (September 22 2026 — INCONCLUSIVE, suppression-ablation dissociation; relay account
+not confirmed in simple form):** Full W_K ablation (W_K = 0) of the 5 steep/local heads
+(L4H13, L15H8, L8H7, L5H11, L11H7). Ablation confirmed: κ̃ = 0 on all 5 heads. Result:
+ΔP_B = +0.051 nats — Task B did NOT degrade. Suppression-ablation dissociation established:
+suppression (exp-149: −0.10, exp-150: −0.08) degrades Task B; W_K ablation does not.
+Interpretation: the suppression mechanism leaves residual non-positional W_K that misroutes
+attention for Task B — active interference, not relay disruption. The steep/local heads are not
+load-bearing relays via their positional concentration. Next route: W_V ablation (candidate,
+unregistered) — test whether the value-pathway contribution is load-bearing.
+
 **Evidence bracket for P1: GPT-2 small only (exp-141/142/143: three-directional confirmation).
-In GPT-2 medium (exp-145 through exp-151, seven experiments), no manipulation has produced
-positive Task B signal. Two amplification levels tested (γ=+2.0 exp-148 and γ=+5.0 exp-151)
-and two suppression levels (γ=−1.0 exp-149 and γ=−0.86 exp-150) — all null or degrading.
-The amplification route is closed (H_arch confirmed: null persists at 29–30× gain,
-identical to 9× at exp-148). The relay interpretation for steep/local heads is supported
-by all suppression experiments. One untested route remains: full causal ablation of the
-5 steep/local heads (zero W_K contribution) to confirm relay account directly. Pre-register
-before any code.**
+In GPT-2 medium (exp-145 through exp-152, eight experiments), no manipulation has produced
+positive Task B signal. Two amplification levels (exp-148/151), two suppression levels
+(exp-149/150), and one W_K ablation (exp-152) — all null or degrading. Relay account not
+confirmed: W_K ablation does not degrade Task B (suppression degradation is likely a
+misrouting artifact from residual W_K). Untested route: W_V ablation of steep/local heads.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
