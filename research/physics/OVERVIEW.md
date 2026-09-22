@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 22, 2026 (exp-152 added: W_K ablation of steep/local heads INCONCLUSIVE — suppression-ablation dissociation; relay account not confirmed; suppression-caused degradation is misrouting artifact, not relay disruption).*
+*Last updated: September 22, 2026 (exp-153 added: W_V ablation of steep/local heads INCONCLUSIVE/subclinical — P_null fires (|ΔP_B| = 0.070 ≤ 0.10); value payload is NOT load-bearing for Task B; causal story for suppression degradation now complete: partial W_K disruption → active misrouting; complete W_K/W_V removal → heads neutral for Task B).*
 
 ---
 
@@ -682,9 +682,24 @@ believed.
   positional information via their concentrated attention pattern; the suppression-caused
   degradation is a suppression artifact. Task A mildly degraded (ΔP_A = −0.158, 10/20 improved
   vs sham 7/20) — these heads do something for entity-state tracking via W_K routing that is
-  absent under ablation. Next route: W_V ablation (unregistered candidate) — test whether the
-  value-pathway contribution is load-bearing for Task B. P1 medium replication: all tested routes
-  (amplification, suppression, W_K ablation) inconclusive or null. (exp-152)
+  absent under ablation.   P1 medium replication: all tested routes (amplification, suppression, W_K ablation) inconclusive or null.
+  Next route tested: W_V ablation (exp-153). (exp-152)
+
+  **exp-153 (September 22, INCONCLUSIVE/subclinical — value payload is not load-bearing for Task B):**
+  W_V ablation of the same 5 steep/local heads (L4H13, L15H8, L8H7, L5H11, L11H7). W_V zeroed
+  (‖W_V‖_F → 0); W_K unchanged. Result: **ΔP_B = −0.070 nats — P_null fires (|ΔP_B| ≤ 0.10).**
+  Item-level: 7/20 improved vs sham 12/20. P1 (< −0.10) not fired. The value payload is not
+  load-bearing for Task B in the sense of decisive degradation when removed. The sham (random W_V,
+  matched norm) gives ΔP_B = +0.018 (12/20 improved) — essentially baseline. The mild negative
+  direction of ablation vs sham (Δ ≈ −0.088 nats, 7 vs 12/20) suggests a weak positive value
+  contribution that is subclinical. **Causal story complete (exp-149/150/152/153):** partial W_K
+  disruption (suppression) → active misrouting by residual non-positional W_K → Task B degrades.
+  Complete W_K removal (ablation) → uniform averager, no misrouting → Task B unchanged (+0.051).
+  Complete W_V removal → mild subclinical loss → Task B subclinically degrades (−0.070). The
+  steep/local heads are weakly positive contributors via their value pathway, but not load-bearing
+  relays. P1 medium replication: all tested routes (nine experiments in medium) null or subclinical.
+  H_arch holds: GPT-2 medium's steep/local heads do not play the same functional role as small's
+  Δ-window antagonist. (exp-153)
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

@@ -1468,12 +1468,24 @@ attention for Task B — active interference, not relay disruption. The steep/lo
 load-bearing relays via their positional concentration. Next route: W_V ablation (candidate,
 unregistered) — test whether the value-pathway contribution is load-bearing.
 
+**exp-153 (September 22 2026 — INCONCLUSIVE/subclinical; P_null fires; causal story for
+suppression degradation complete):** W_V ablation (W_V = 0) of same 5 steep/local heads; W_K
+unchanged. Result: ΔP_B = −0.070 nats — P_null fires (|ΔP_B| ≤ 0.10). Item-level: 7/20 improved
+vs sham 12/20. The value payload is NOT load-bearing for Task B (below P1 threshold). The sham
+(random W_V, matched norm) gives ΔP_B = +0.018 — essentially baseline. Weak negative gap between
+ablation and sham (Δ ≈ −0.088 nats) suggests a subclinical positive value contribution. Causal
+story for suppression-caused degradation now complete: partial W_K disruption (suppression) leaves
+residual non-positional W_K → active misrouting → Task B degrades. Complete removal of W_K or W_V
+→ heads are neutral (subclinical) for Task B. Pre-registered commit 5b63fdb (git-attested).
+
 **Evidence bracket for P1: GPT-2 small only (exp-141/142/143: three-directional confirmation).
-In GPT-2 medium (exp-145 through exp-152, eight experiments), no manipulation has produced
-positive Task B signal. Two amplification levels (exp-148/151), two suppression levels
-(exp-149/150), and one W_K ablation (exp-152) — all null or degrading. Relay account not
-confirmed: W_K ablation does not degrade Task B (suppression degradation is likely a
-misrouting artifact from residual W_K). Untested route: W_V ablation of steep/local heads.**
+In GPT-2 medium (exp-145 through exp-153, nine experiments), no manipulation has produced positive
+Task B signal. All routes tested — two amplification levels (exp-148/151), two suppression levels
+(exp-149/150), W_K ablation (exp-152), W_V ablation (exp-153) — all null, subclinical, or degrading.
+Causal story complete: suppression degradation is a misrouting artifact from residual W_K; neither
+W_K ablation nor W_V ablation degrades Task B decisively. H_arch holds. The steep/local heads in
+GPT-2 medium do not play the same functional antagonist role they play in GPT-2 small. P1 in
+medium: no confirmed mechanism. Moving on.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be
