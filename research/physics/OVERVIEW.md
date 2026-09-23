@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 23, 2026 (exp-156 added: structural-head W_K ablation — INCONCLUSIVE on predictions but interference finding: structural trained W_K interferes with positional retrieval; ablation ≈ sham for Task B (+0.485 nats, 17/20). Task C subclinical (−0.031 nats). Gain-of-function mechanism (exp-141 κ̃) operates through attention distribution shape, not W_K routing. Second suppression-ablation-analog.)*
+*Last updated: September 23, 2026 (exp-157 added: structural-head W_V ablation — CONFIRMED H_attention_shape. ΔP_B = +0.412 nats (18/20), matching W_K ablation exp-156 (+0.485 nats). Both W_K routing and W_V write of structural heads interfere with Task B. Three-experiment arc complete: gain-of-function (exp-141 κ̃) operates through attention distribution, not value payload.)*
 
 ---
 
@@ -739,6 +739,21 @@ believed.
   distribution shape, not W_K routing. Task C subclinically degraded (−0.031 vs sham +0.006) — below
   threshold; structural heads are approximately neutral for content retrieval. Second
   suppression-ablation-analog, now for Task B in GPT-2 small structural heads. (exp-156)
+
+  **exp-157 (September 23, CONFIRMED — H_attention_shape; structural-head W_V ablation):**
+  W_V=0 ablation (+ bias_V=0) of the same 5 structural heads. Pre-registration:
+  attention-geometry b6adea5 (git-attested, before run.py).
+  Results: **Task B: ΔP_B = +0.412 nats, 18/20 improved. Sham: +0.194 nats. Task C: ΔP_C = −0.074
+  nats, P3 fires (|ΔP_C| < 0.10). Reference W_K ablation (exp-156): +0.485 nats.**
+  P2 fires (H_attention_shape confirmed): W_V ablation matches W_K ablation (within 0.073 nats).
+  K1 does not fire; K2 does not fire. **Both W_K routing and W_V value write of the structural heads
+  interfere with Task B. Silencing the head entirely gives the same release as removing only the
+  routing. Three-experiment arc complete:** (1) κ̃ amplification improves Task B (+0.270 nats,
+  exp-141); (2) W_K=0 improves Task B (+0.485 nats, exp-156); (3) W_V=0 improves Task B (+0.412
+  nats, exp-157). The gain-of-function (exp-141) operates through attention distribution
+  concentration affecting downstream residual stream computation, not through the structural heads'
+  own value payload. Task C remains subclinical (−0.074 nats) — structural heads neutral for
+  content retrieval through both weight matrices. (exp-157)
 
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a

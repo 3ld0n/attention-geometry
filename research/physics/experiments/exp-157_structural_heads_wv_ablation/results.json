@@ -1,0 +1,511 @@
+{
+  "experiment": "exp-157",
+  "prereg_commit": "b6adea5",
+  "protocol": "W_V=0 ablation (+ bias_V=0) of 5 structural (random-native) \u0394-window heads; sham: matched-norm random W_V, bias_V=0",
+  "model": "gpt2",
+  "structural_heads": [
+    "L2H1",
+    "L3H4",
+    "L5H0",
+    "L7H11",
+    "L10H8"
+  ],
+  "ablation_checks": {
+    "L2H1": {
+      "norm_before": 31.96520272659466,
+      "norm_after": 0.0
+    },
+    "L3H4": {
+      "norm_before": 27.73772546601659,
+      "norm_after": 0.0
+    },
+    "L5H0": {
+      "norm_before": 22.348449665348593,
+      "norm_after": 0.0
+    },
+    "L7H11": {
+      "norm_before": 27.34390871412521,
+      "norm_after": 0.0
+    },
+    "L10H8": {
+      "norm_before": 30.952921732213014,
+      "norm_after": 0.0
+    }
+  },
+  "sham_info": {
+    "L2H1": {
+      "orig_norm": 31.96520272659466,
+      "sham_norm": 31.965202724538887
+    },
+    "L3H4": {
+      "orig_norm": 27.73772546601659,
+      "sham_norm": 27.73772546535835
+    },
+    "L5H0": {
+      "orig_norm": 22.348449665348593,
+      "sham_norm": 22.34844966813391
+    },
+    "L7H11": {
+      "orig_norm": 27.34390871412521,
+      "sham_norm": 27.34390871684171
+    },
+    "L10H8": {
+      "orig_norm": 30.952921732213014,
+      "sham_norm": 30.95292173625122
+    }
+  },
+  "K2_fires": false,
+  "value_outputs_zeroed": true,
+  "reference_wk_ablation_delta_P_B": 0.485,
+  "task_b": {
+    "description": "Positional retrieval \u2014 list-lookup battery from exp-143",
+    "n_items": 20,
+    "delta_P_B": 0.41187548637390137,
+    "delta_P_B_sham": 0.19394960853969678,
+    "n_improved": 18,
+    "n_degraded": 2,
+    "items": [
+      {
+        "id": "B-01",
+        "prompt_short": "Colors: red, blue, green, yellow. The second color is",
+        "target": " blue",
+        "logp_orig": -4.038715362548828,
+        "logp_abl": -3.802525758743286,
+        "logp_sham": -3.623292922973633,
+        "delta_abl": 0.236189603805542,
+        "delta_sham": 0.4154224395751953
+      },
+      {
+        "id": "B-02",
+        "prompt_short": "Animals: cat, dog, horse, rabbit. The third animal is",
+        "target": " horse",
+        "logp_orig": -8.158119201660156,
+        "logp_abl": -7.730364799499512,
+        "logp_sham": -7.694864273071289,
+        "delta_abl": 0.42775440216064453,
+        "delta_sham": 0.4632549285888672
+      },
+      {
+        "id": "B-03",
+        "prompt_short": "Days: Monday, Wednesday, Friday, Sunday. The first day ",
+        "target": " Monday",
+        "logp_orig": -3.000422954559326,
+        "logp_abl": -2.770937204360962,
+        "logp_sham": -3.639934539794922,
+        "delta_abl": 0.22948575019836426,
+        "delta_sham": -0.6395115852355957
+      },
+      {
+        "id": "B-04",
+        "prompt_short": "Rivers: Thames, Nile, Amazon, Rhine. The fourth river i",
+        "target": " Rhine",
+        "logp_orig": -4.099311023950577,
+        "logp_abl": -3.8489240184426308,
+        "logp_sham": -4.200657472014427,
+        "delta_abl": 0.250387005507946,
+        "delta_sham": -0.1013464480638504
+      },
+      {
+        "id": "B-05",
+        "prompt_short": "Cities: Paris, London, Berlin, Rome. The second city is",
+        "target": " London",
+        "logp_orig": -4.566336631774902,
+        "logp_abl": -4.041396617889404,
+        "logp_sham": -3.7470171451568604,
+        "delta_abl": 0.524940013885498,
+        "delta_sham": 0.819319486618042
+      },
+      {
+        "id": "B-06",
+        "prompt_short": "Fruits: apple, pear, plum, grape. The third fruit is",
+        "target": " plum",
+        "logp_orig": -6.5973639488220215,
+        "logp_abl": -6.274420738220215,
+        "logp_sham": -6.749398708343506,
+        "delta_abl": 0.32294321060180664,
+        "delta_sham": -0.15203475952148438
+      },
+      {
+        "id": "B-07",
+        "prompt_short": "Metals: gold, iron, silver, copper. The first metal is",
+        "target": " gold",
+        "logp_orig": -3.2225425243377686,
+        "logp_abl": -3.168185234069824,
+        "logp_sham": -3.1689207553863525,
+        "delta_abl": 0.054357290267944336,
+        "delta_sham": 0.053621768951416016
+      },
+      {
+        "id": "B-08",
+        "prompt_short": "Planets: Mars, Venus, Saturn, Jupiter. The fourth plane",
+        "target": " Jupiter",
+        "logp_orig": -3.6234703063964844,
+        "logp_abl": -3.1643450260162354,
+        "logp_sham": -3.5432960987091064,
+        "delta_abl": 0.459125280380249,
+        "delta_sham": 0.08017420768737793
+      },
+      {
+        "id": "B-09",
+        "prompt_short": "Months: March, June, October, January. The third month ",
+        "target": " October",
+        "logp_orig": -4.736366271972656,
+        "logp_abl": -3.7220377922058105,
+        "logp_sham": -4.3542633056640625,
+        "delta_abl": 1.0143284797668457,
+        "delta_sham": 0.38210296630859375
+      },
+      {
+        "id": "B-10",
+        "prompt_short": "Birds: eagle, robin, sparrow, finch. The second bird is",
+        "target": " robin",
+        "logp_orig": -4.68113698810339,
+        "logp_abl": -4.638585931621492,
+        "logp_sham": -4.455484971404076,
+        "delta_abl": 0.04255105648189783,
+        "delta_sham": 0.22565201669931412
+      },
+      {
+        "id": "B-11",
+        "prompt_short": "Shapes: circle, square, triangle, diamond. The fourth s",
+        "target": " diamond",
+        "logp_orig": -7.022642135620117,
+        "logp_abl": -6.626645565032959,
+        "logp_sham": -6.662644386291504,
+        "delta_abl": 0.3959965705871582,
+        "delta_sham": 0.3599977493286133
+      },
+      {
+        "id": "B-12",
+        "prompt_short": "Trees: oak, pine, birch, maple. The third tree is",
+        "target": " birch",
+        "logp_orig": -3.3536756482208148,
+        "logp_abl": -2.9232388194068335,
+        "logp_sham": -3.1914284478407353,
+        "delta_abl": 0.43043682881398126,
+        "delta_sham": 0.16224720038007945
+      },
+      {
+        "id": "B-13",
+        "prompt_short": "Countries: France, Japan, Brazil, Canada. The second co",
+        "target": " Japan",
+        "logp_orig": -3.3867430686950684,
+        "logp_abl": -3.51052188873291,
+        "logp_sham": -3.4341514110565186,
+        "delta_abl": -0.1237788200378418,
+        "delta_sham": -0.047408342361450195
+      },
+      {
+        "id": "B-14",
+        "prompt_short": "Gems: ruby, pearl, jade, sapphire. The first gem is",
+        "target": " ruby",
+        "logp_orig": -4.793220043182373,
+        "logp_abl": -4.8934221267700195,
+        "logp_sham": -5.935474395751953,
+        "delta_abl": -0.10020208358764648,
+        "delta_sham": -1.14225435256958
+      },
+      {
+        "id": "B-15",
+        "prompt_short": "Spices: salt, pepper, cumin, cinnamon. The fourth spice",
+        "target": " cinnamon",
+        "logp_orig": -3.6731176376342773,
+        "logp_abl": -3.285118818283081,
+        "logp_sham": -4.852748870849609,
+        "delta_abl": 0.3879988193511963,
+        "delta_sham": -1.179631233215332
+      },
+      {
+        "id": "B-16",
+        "prompt_short": "Tools: hammer, saw, drill, chisel. The third tool is",
+        "target": " drill",
+        "logp_orig": -7.759565353393555,
+        "logp_abl": -7.262835502624512,
+        "logp_sham": -6.978850364685059,
+        "delta_abl": 0.49672985076904297,
+        "delta_sham": 0.7807149887084961
+      },
+      {
+        "id": "B-17",
+        "prompt_short": "Seasons: winter, spring, summer, autumn. The second sea",
+        "target": " spring",
+        "logp_orig": -5.823838233947754,
+        "logp_abl": -4.841609001159668,
+        "logp_sham": -4.822987079620361,
+        "delta_abl": 0.9822292327880859,
+        "delta_sham": 1.0008511543273926
+      },
+      {
+        "id": "B-18",
+        "prompt_short": "Coins: penny, nickel, dime, quarter. The fourth coin is",
+        "target": " quarter",
+        "logp_orig": -8.903008460998535,
+        "logp_abl": -8.227479934692383,
+        "logp_sham": -8.615107536315918,
+        "delta_abl": 0.6755285263061523,
+        "delta_sham": 0.2879009246826172
+      },
+      {
+        "id": "B-19",
+        "prompt_short": "Flowers: rose, lily, daisy, iris. The first flower is",
+        "target": " rose",
+        "logp_orig": -7.710134506225586,
+        "logp_abl": -7.2099103927612305,
+        "logp_sham": -8.198554992675781,
+        "delta_abl": 0.5002241134643555,
+        "delta_sham": -0.4884204864501953
+      },
+      {
+        "id": "B-20",
+        "prompt_short": "Letters: alpha, beta, gamma, delta. The third letter is",
+        "target": " gamma",
+        "logp_orig": -6.560146331787109,
+        "logp_abl": -5.890813827514648,
+        "logp_sham": -5.364607334136963,
+        "delta_abl": 0.6693325042724609,
+        "delta_sham": 1.1955389976501465
+      }
+    ]
+  },
+  "task_c": {
+    "description": "Content-specified long-range retrieval \u2014 items from exp-155",
+    "n_items": 20,
+    "delta_P_C": -0.07349721381130314,
+    "delta_P_C_sham": -0.17414733299907925,
+    "n_improved": 8,
+    "n_degraded": 12,
+    "items": [
+      {
+        "id": "C-01",
+        "entity": "mansion",
+        "property": "crimson",
+        "n_prompt_tokens": 90,
+        "logp_orig": -7.699650764465332,
+        "logp_abl": -7.6884918212890625,
+        "logp_sham": -9.00998592376709,
+        "delta_abl": 0.011158943176269531,
+        "delta_sham": -1.3103351593017578
+      },
+      {
+        "id": "C-02",
+        "entity": "lighthouse",
+        "property": "cobalt",
+        "n_prompt_tokens": 82,
+        "logp_orig": -1.630596591043286,
+        "logp_abl": -1.2263167016208172,
+        "logp_sham": -1.38547233492136,
+        "delta_abl": 0.40427988942246884,
+        "delta_sham": 0.245124256121926
+      },
+      {
+        "id": "C-03",
+        "entity": "granary",
+        "property": "weathered",
+        "n_prompt_tokens": 85,
+        "logp_orig": -4.681305054575205,
+        "logp_abl": -4.612836538814008,
+        "logp_sham": -5.478007435798645,
+        "delta_abl": 0.06846851576119661,
+        "delta_sham": -0.7967023812234402
+      },
+      {
+        "id": "C-04",
+        "entity": "chapel",
+        "property": "stone",
+        "n_prompt_tokens": 76,
+        "logp_orig": -1.9629594087600708,
+        "logp_abl": -2.070868730545044,
+        "logp_sham": -2.276611089706421,
+        "delta_abl": -0.10790932178497314,
+        "delta_sham": -0.3136516809463501
+      },
+      {
+        "id": "C-05",
+        "entity": "cottage",
+        "property": "thatched",
+        "n_prompt_tokens": 73,
+        "logp_orig": -4.583286575973034,
+        "logp_abl": -4.727738479152322,
+        "logp_sham": -4.549328375607729,
+        "delta_abl": -0.1444519031792879,
+        "delta_sham": 0.03395820036530495
+      },
+      {
+        "id": "C-06",
+        "entity": "tower",
+        "property": "crumbling",
+        "n_prompt_tokens": 80,
+        "logp_orig": -4.396454811096191,
+        "logp_abl": -4.855095863342285,
+        "logp_sham": -4.738726615905762,
+        "delta_abl": -0.45864105224609375,
+        "delta_sham": -0.3422718048095703
+      },
+      {
+        "id": "C-07",
+        "entity": "farmhouse",
+        "property": "whitewashed",
+        "n_prompt_tokens": 81,
+        "logp_orig": -2.9573917745923004,
+        "logp_abl": -2.9039199872252843,
+        "logp_sham": -2.3609099267050624,
+        "delta_abl": 0.05347178736701608,
+        "delta_sham": 0.596481847887238
+      },
+      {
+        "id": "C-08",
+        "entity": "warehouse",
+        "property": "corrugated",
+        "n_prompt_tokens": 74,
+        "logp_orig": -1.8063444183208048,
+        "logp_abl": -1.845429524158438,
+        "logp_sham": -1.6525116997460525,
+        "delta_abl": -0.03908510583763314,
+        "delta_sham": 0.15383271857475234
+      },
+      {
+        "id": "C-09",
+        "entity": "mill",
+        "property": "derelict",
+        "n_prompt_tokens": 78,
+        "logp_orig": -0.9342195987701416,
+        "logp_abl": -0.9611513018608093,
+        "logp_sham": -1.9361028671264648,
+        "delta_abl": -0.026931703090667725,
+        "delta_sham": -1.0018832683563232
+      },
+      {
+        "id": "C-10",
+        "entity": "schoolhouse",
+        "property": "clapboard",
+        "n_prompt_tokens": 77,
+        "logp_orig": -2.708745634804169,
+        "logp_abl": -2.628326952457428,
+        "logp_sham": -2.7510251626372337,
+        "delta_abl": 0.08041868234674121,
+        "delta_sham": -0.042279527833064545
+      },
+      {
+        "id": "C-11",
+        "entity": "inn",
+        "property": "timber",
+        "n_prompt_tokens": 83,
+        "logp_orig": -4.777782917022705,
+        "logp_abl": -4.984407424926758,
+        "logp_sham": -5.362705230712891,
+        "delta_abl": -0.20662450790405273,
+        "delta_sham": -0.5849223136901855
+      },
+      {
+        "id": "C-12",
+        "entity": "barn",
+        "property": "gambrel",
+        "n_prompt_tokens": 80,
+        "logp_orig": -4.5107271110173315,
+        "logp_abl": -5.218575515784323,
+        "logp_sham": -4.7083890525391325,
+        "delta_abl": -0.7078484047669917,
+        "delta_sham": -0.19766194152180105
+      },
+      {
+        "id": "C-13",
+        "entity": "fort",
+        "property": "earthen",
+        "n_prompt_tokens": 75,
+        "logp_orig": -2.1366776532959193,
+        "logp_abl": -2.258735688403249,
+        "logp_sham": -1.9776265911447506,
+        "delta_abl": -0.12205803510732949,
+        "delta_sham": 0.1590510621511687
+      },
+      {
+        "id": "C-14",
+        "entity": "cathedral",
+        "property": "gothic",
+        "n_prompt_tokens": 74,
+        "logp_orig": -2.0539141592259207,
+        "logp_abl": -2.164810332780083,
+        "logp_sham": -2.204546883702278,
+        "delta_abl": -0.11089617355416248,
+        "delta_sham": -0.15063272447635745
+      },
+      {
+        "id": "C-15",
+        "entity": "windmill",
+        "property": "wooden",
+        "n_prompt_tokens": 69,
+        "logp_orig": -7.461455821990967,
+        "logp_abl": -8.165279388427734,
+        "logp_sham": -6.165821075439453,
+        "delta_abl": -0.7038235664367676,
+        "delta_sham": 1.2956347465515137
+      },
+      {
+        "id": "C-16",
+        "entity": "abbey",
+        "property": "ruined",
+        "n_prompt_tokens": 81,
+        "logp_orig": -6.132842540740967,
+        "logp_abl": -5.947792053222656,
+        "logp_sham": -11.231800079345703,
+        "delta_abl": 0.18505048751831055,
+        "delta_sham": -5.098957538604736
+      },
+      {
+        "id": "C-17",
+        "entity": "lockhouse",
+        "property": "redbrick",
+        "n_prompt_tokens": 85,
+        "logp_orig": -3.5481295436620712,
+        "logp_abl": -3.44807456061244,
+        "logp_sham": -5.555886045098305,
+        "delta_abl": 0.10005498304963112,
+        "delta_sham": -2.0077565014362335
+      },
+      {
+        "id": "C-18",
+        "entity": "gatehouse",
+        "property": "mossy",
+        "n_prompt_tokens": 78,
+        "logp_orig": -3.3836679980158806,
+        "logp_abl": -3.809644527733326,
+        "logp_sham": -3.9793420135974884,
+        "delta_abl": -0.4259765297174454,
+        "delta_sham": -0.5956740155816078
+      },
+      {
+        "id": "C-19",
+        "entity": "dovecote",
+        "property": "hexagonal",
+        "n_prompt_tokens": 76,
+        "logp_orig": -4.6269704438745975,
+        "logp_abl": -4.814365237951279,
+        "logp_sham": -4.655132256448269,
+        "delta_abl": -0.18739479407668114,
+        "delta_sham": -0.02816181257367134
+      },
+      {
+        "id": "C-20",
+        "entity": "boathouse",
+        "property": "cedar",
+        "n_prompt_tokens": 82,
+        "logp_orig": -4.316641747951508,
+        "logp_abl": -4.297810733318329,
+        "logp_sham": -4.170214265584946,
+        "delta_abl": 0.01883101463317871,
+        "delta_sham": 0.1464274823665619
+      }
+    ]
+  },
+  "predictions": {
+    "P1_fires": false,
+    "P2_fires": true,
+    "P3_fires": true,
+    "K1_fires": false,
+    "K2_fires": false,
+    "K3_fires": false,
+    "wv_close_to_wk_ablation": true
+  },
+  "verdict": "confirmed",
+  "headline": "H_attention_shape confirmed: W_V ablation matches W_K ablation (\u0394P_B=+0.412 vs exp-156 +0.485 nats). Value write was also interfering. Gain-of-function (exp-141) operates through attention distribution, not value payload."
+}
