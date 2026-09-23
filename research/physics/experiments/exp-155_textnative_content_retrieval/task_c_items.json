@@ -1,0 +1,187 @@
+{
+  "description": "Task C — Content-specified long-range retrieval battery, exp-155",
+  "committed_with_prereg": true,
+  "construction_note": "Each item: setup sentence introducing entity+property, filler text ~80-150 tokens not mentioning the entity, then a cue sentence with entity name and a blank for the property. Target is the property adjective token. Filler drawn from geography/weather/abstract prose that does not refer to the entity.",
+  "items": [
+    {
+      "id": "C-01",
+      "entity": "mansion",
+      "property": "crimson",
+      "setup": "The mansion had crimson shutters.",
+      "filler": "The valley stretched for miles in every direction, its floor carpeted with tall grasses that bent in the autumn wind. A narrow river cut through the middle, fed by snowmelt from the peaks to the north. Farmers had worked this land for generations, and the soil was dark and rich. Clouds gathered in the afternoon and moved eastward before dissolving into clear sky.",
+      "cue": "The shutters on the mansion were",
+      "target_token": " crimson"
+    },
+    {
+      "id": "C-02",
+      "entity": "lighthouse",
+      "property": "cobalt",
+      "setup": "The lighthouse had been painted cobalt blue.",
+      "filler": "Rain fell steadily through the night, drumming against rooftops and collecting in low spots along the road. By morning the fields were sodden, and the farmers agreed to delay the harvest another day. The river gauge rose by two feet but remained well below flood stage. Children in the village stayed indoors and played cards.",
+      "cue": "Everyone remembered that the lighthouse had been painted",
+      "target_token": " cobalt"
+    },
+    {
+      "id": "C-03",
+      "entity": "granary",
+      "property": "weathered",
+      "setup": "The granary had weathered boards.",
+      "filler": "A long dry spell had settled over the region, lasting most of the month. Springs that normally ran clear were reduced to muddy trickles, and the stock ponds shrank back from their banks. The county extension office issued advisories about fire risk in the grasslands east of the hills. Most residents were accustomed to such dry spells and simply waited.",
+      "cue": "The boards of the granary were",
+      "target_token": " weathered"
+    },
+    {
+      "id": "C-04",
+      "entity": "chapel",
+      "property": "stone",
+      "setup": "The chapel was built from stone.",
+      "filler": "Trade winds shifted earlier than expected that year, bringing moisture from the south and cooling the afternoons considerably. Scientists monitoring the patterns noted the change as consistent with a longer cycle that recurred every decade or so. The fishing boats adapted their routes accordingly, moving closer to the shore where conditions were more favorable.",
+      "cue": "The chapel had always been built from",
+      "target_token": " stone"
+    },
+    {
+      "id": "C-05",
+      "entity": "cottage",
+      "property": "thatched",
+      "setup": "The cottage had a thatched roof.",
+      "filler": "Three valleys met at the junction, each draining a different watershed into the common basin below. Geologists had mapped the fault lines running through the region and estimated that the last significant movement had occurred several centuries ago. The sediment layers visible in the roadcuts told a slow story of accumulation and erosion.",
+      "cue": "Visitors admired the cottage for its",
+      "target_token": " thatched"
+    },
+    {
+      "id": "C-06",
+      "entity": "tower",
+      "property": "crumbling",
+      "setup": "The tower had crumbling walls.",
+      "filler": "Migratory birds arrived in large flocks each autumn, resting in the wetlands before continuing south. The birders who gathered to watch kept careful counts, noting that certain species had declined markedly over the past two decades. Volunteers banded birds near the main feeding grounds and sent the data to a coordinating body that tracked movements across the continent.",
+      "cue": "The walls of the tower were",
+      "target_token": " crumbling"
+    },
+    {
+      "id": "C-07",
+      "entity": "farmhouse",
+      "property": "whitewashed",
+      "setup": "The farmhouse was whitewashed every spring.",
+      "filler": "Iron ore had been extracted from the hills for two centuries, leaving behind a landscape of shallow pits and tailings piles. Remediation efforts had begun in earnest only recently, with native grasses being seeded across the disturbed ground. The water quality downstream had improved measurably over the past ten years according to monitoring data.",
+      "cue": "Each spring the farmhouse was",
+      "target_token": " whitewashed"
+    },
+    {
+      "id": "C-08",
+      "entity": "warehouse",
+      "property": "corrugated",
+      "setup": "The warehouse had corrugated metal walls.",
+      "filler": "Ocean temperatures in the southern basin had risen by nearly a degree over the past fifty years, shifting the distribution of several fish species northward. This movement had economic consequences for coastal communities that had built their industries around particular target species. Adaptive management plans were being developed in several jurisdictions.",
+      "cue": "The walls of the warehouse were made of",
+      "target_token": " corrugated"
+    },
+    {
+      "id": "C-09",
+      "entity": "mill",
+      "property": "derelict",
+      "setup": "The mill stood derelict by the river.",
+      "filler": "Forest succession in the absence of fire had led to a dramatic increase in stand density over the past century. Ecologists studying the changes noted that understory diversity had declined and the fuel loads had risen to levels that made large fires more likely. Prescribed burn programs had been proposed but faced resistance from neighboring landowners.",
+      "cue": "By the river stood the derelict",
+      "target_token": " mill"
+    },
+    {
+      "id": "C-10",
+      "entity": "schoolhouse",
+      "property": "clapboard",
+      "setup": "The schoolhouse had clapboard siding.",
+      "filler": "Volcanic activity along the arc had produced a series of small earthquakes over the preceding months. Seismologists monitoring the network of stations noted that the pattern was consistent with movement of magma at depth rather than fault slip. Public advisories were issued recommending review of emergency plans in potentially affected communities.",
+      "cue": "The old schoolhouse was covered in",
+      "target_token": " clapboard"
+    },
+    {
+      "id": "C-11",
+      "entity": "inn",
+      "property": "timber",
+      "setup": "The inn was framed with timber beams.",
+      "filler": "Peatlands in the northern part of the watershed had been accumulating organic matter since the last glaciation. Hydrologists studying the system found that the peat layer regulated water flow during both wet and dry periods, releasing water slowly during droughts and absorbing excess during floods. Its role as a carbon store was also well documented.",
+      "cue": "Inside the inn, the ceiling showed exposed",
+      "target_token": " timber"
+    },
+    {
+      "id": "C-12",
+      "entity": "barn",
+      "property": "gambrel",
+      "setup": "The barn had a gambrel roof.",
+      "filler": "Permafrost in the high latitudes was thawing at rates that surprised researchers who had modeled the process under various emissions scenarios. The actual rates of thaw exceeded model predictions in several regions, suggesting that feedbacks not fully captured in the models were operating. This had implications for both carbon accounting and infrastructure stability.",
+      "cue": "The barn was easily identified by its",
+      "target_token": " gambrel"
+    },
+    {
+      "id": "C-13",
+      "entity": "fort",
+      "property": "earthen",
+      "setup": "The fort was surrounded by earthen ramparts.",
+      "filler": "Kelp forests along the coast had suffered significant losses in the preceding decade due to a combination of elevated sea temperatures and changes in the urchin population that grazed the kelp. Restoration efforts involved removing urchins from targeted areas and transplanting kelp from healthy source populations nearby.",
+      "cue": "The fort was protected by its",
+      "target_token": " earthen"
+    },
+    {
+      "id": "C-14",
+      "entity": "cathedral",
+      "property": "gothic",
+      "setup": "The cathedral had gothic arches.",
+      "filler": "Soil carbon stocks in temperate forests were found to be substantially larger than previously estimated when researchers used new sampling techniques that captured deeper soil horizons. This revised accounting had implications for national inventories submitted under international climate agreements. Follow-up measurements were planned across a broader geographic range.",
+      "cue": "The nave of the cathedral featured tall",
+      "target_token": " gothic"
+    },
+    {
+      "id": "C-15",
+      "entity": "windmill",
+      "property": "wooden",
+      "setup": "The windmill had wooden vanes.",
+      "filler": "Groundwater levels in the central basin had been declining for several decades due to extraction exceeding natural recharge. The aquifer had been studied extensively and the data showed a consistent downward trend. Some municipalities had begun investing in water recycling infrastructure to reduce dependence on the aquifer.",
+      "cue": "The old windmill still turned on its",
+      "target_token": " wooden"
+    },
+    {
+      "id": "C-16",
+      "entity": "abbey",
+      "property": "ruined",
+      "setup": "The abbey lay ruined on the hillside.",
+      "filler": "Coral reefs in the tropical zone had experienced repeated bleaching events over the past two decades. Each event corresponded to a period of elevated sea surface temperature. Recovery between events was incomplete, and the species composition of the reefs had shifted markedly from historical baselines documented in surveys going back to the mid-twentieth century.",
+      "cue": "On the hillside lay the",
+      "target_token": " ruined"
+    },
+    {
+      "id": "C-17",
+      "entity": "lockhouse",
+      "property": "redbrick",
+      "setup": "The lockhouse was built of redbrick.",
+      "filler": "River deltas are among the most dynamic landforms on earth, shaped by the balance between sediment deposition and erosion. Human modifications to rivers upstream have in many cases reduced the sediment supply reaching deltas, causing them to subside and erode. This poses serious challenges for the millions of people who live on delta plains.",
+      "cue": "The canal keeper lived in the redbrick",
+      "target_token": " lockhouse"
+    },
+    {
+      "id": "C-18",
+      "entity": "gatehouse",
+      "property": "mossy",
+      "setup": "The gatehouse had mossy walls.",
+      "filler": "Ice cores extracted from high-altitude glaciers had been used to reconstruct climate variability going back hundreds of thousands of years. The records showed repeated cycles of glacial advance and retreat, paced by variations in the earth's orbit. More recent sections of the cores documented changes in atmospheric composition that corresponded to industrialization.",
+      "cue": "The gatehouse was recognizable by its",
+      "target_token": " mossy"
+    },
+    {
+      "id": "C-19",
+      "entity": "dovecote",
+      "property": "hexagonal",
+      "setup": "The dovecote was hexagonal in shape.",
+      "filler": "Mangrove forests fringe tropical coastlines and provide habitat for numerous species as well as protection from storm surge. Their extent had declined substantially over the past century due to land conversion for aquaculture and coastal development. Restoration programs using both nursery-grown and naturally recruited seedlings had met with variable success.",
+      "cue": "In the garden stood a",
+      "target_token": " hexagonal"
+    },
+    {
+      "id": "C-20",
+      "entity": "boathouse",
+      "property": "cedar",
+      "setup": "The boathouse was built of cedar planks.",
+      "filler": "Nesting success of certain seabird species had declined in colonies where food availability near the breeding sites had decreased. Researchers tracked foraging trips using GPS loggers and found that birds were traveling much farther from the colony than in previous decades, suggesting that prey had become less abundant or accessible in nearby waters.",
+      "cue": "The smell of the boathouse was distinctly",
+      "target_token": " cedar"
+    }
+  ]
+}
