@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 23, 2026 (exp-154/155 added: text-native Δ-window head functional characterization — double dissociation CONFIRMED: text-native heads → content retrieval (W_K ablation: ΔP_C = −0.855 nats, 20/20 degraded; sham ≈ ablation, confirming W_K structure carries the function); structural heads → positional retrieval (exp-141/143); ablation of text-native heads also improved positional retrieval +0.189 nats 16/20, consistent with competition-clearing from exp-142).*
+*Last updated: September 23, 2026 (exp-156 added: structural-head W_K ablation — INCONCLUSIVE on predictions but interference finding: structural trained W_K interferes with positional retrieval; ablation ≈ sham for Task B (+0.485 nats, 17/20). Task C subclinical (−0.031 nats). Gain-of-function mechanism (exp-141 κ̃) operates through attention distribution shape, not W_K routing. Second suppression-ablation-analog.)*
 
 ---
 
@@ -723,8 +723,22 @@ believed.
   amplify → positional retrieval +0.27 nats 20/20 (exp-141). (2) Steep/local heads: suppress →
   positional retrieval +0.33 nats 18/20 (exp-142). (3) Text-native heads: ablate → content
   retrieval −0.855 nats 20/20 AND positional retrieval +0.189 nats 16/20 (competition-clearing,
-  same pattern as steep/local). **Double dissociation confirmed: structural heads support
+  same pattern as steep/local).   **Double dissociation confirmed: structural heads support
   positional retrieval; text-native heads support content retrieval and compete with positional.** (exp-155)
+
+  **exp-156 (September 23, INCONCLUSIVE — structural-head W_K ablation: interference finding):**
+  W_K ablation (W_K=0) of the 5 structural (random-native) Δ-window heads in GPT-2 small. Symmetric
+  design to exp-155. Pre-registration: attention-geometry ecaa354 (git-attested, before run.py).
+  Results: **Task B (positional retrieval): ΔP_B = +0.485 nats, 17/20 improved. Sham: +0.490 nats.**
+  **Task C (content retrieval): ΔP_C = −0.031 nats, 13/20 degraded. Sham: +0.006 nats.**
+  P1 (ΔP_B < −0.10) does not fire — Task B *improved*. K1 (ΔP_C < −0.10) does not fire. K2 (both < 0.10)
+  does not fire (Task B effect is large). P2 fires (|ΔP_C| < |ΔP_B|). **Interference finding:**
+  ablation ≈ sham for Task B, meaning any disruption to the trained W_K (zeroing or randomizing) improves
+  positional retrieval equally. The trained structural W_K interferes with positional retrieval rather than
+  driving it. The gain-of-function result from exp-141 (κ̃ amplification) operates through attention
+  distribution shape, not W_K routing. Task C subclinically degraded (−0.031 vs sham +0.006) — below
+  threshold; structural heads are approximately neutral for content retrieval. Second
+  suppression-ablation-analog, now for Task B in GPT-2 small structural heads. (exp-156)
 
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
