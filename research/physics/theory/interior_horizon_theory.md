@@ -1478,14 +1478,44 @@ story for suppression-caused degradation now complete: partial W_K disruption (s
 residual non-positional W_K → active misrouting → Task B degrades. Complete removal of W_K or W_V
 → heads are neutral (subclinical) for Task B. Pre-registered commit 5b63fdb (git-attested).
 
-**Evidence bracket for P1: GPT-2 small only (exp-141/142/143: three-directional confirmation).
-In GPT-2 medium (exp-145 through exp-153, nine experiments), no manipulation has produced positive
-Task B signal. All routes tested — two amplification levels (exp-148/151), two suppression levels
-(exp-149/150), W_K ablation (exp-152), W_V ablation (exp-153) — all null, subclinical, or degrading.
-Causal story complete: suppression degradation is a misrouting artifact from residual W_K; neither
-W_K ablation nor W_V ablation degrades Task B decisively. H_arch holds. The steep/local heads in
-GPT-2 medium do not play the same functional antagonist role they play in GPT-2 small. P1 in
-medium: no confirmed mechanism. Moving on.**
+**exp-154 (September 23, 2026 — observational, text-native attended-token characterization):**
+Attended-token analysis (entropy, mean attended distance, range fractions) on the 16 text-native
+Δ-window heads, 5 structural heads, and 5 steep/local heads under WikiText-103. Key finding: text-native
+and structural populations are spatially indistinguishable under text (entropy ~2.9–3.1 nats, mean
+distance 179–186, near-fraction ~0.042, far-fraction ~0.79). The steep/local heads are clearly distinct
+(near-fraction 0.312). Distinguishing feature: structural heads' long-range pattern is position-driven
+(persists under random tokens); text-native heads' long-range pattern is content-driven (only structured
+under linguistic input). Observational pass; seeded exp-155. (No pre-registration required.)
+
+**exp-155 (September 23, 2026 — CONFIRMED — H_content: text-native heads support content retrieval):**
+W_K ablation (W_K = 0) of all 16 text-native Δ-window heads. Pre-registration: attention-geometry
+d8adc4d (git-attested, before run.py). Two-task battery: Task C (content retrieval — entity-property
+binding over 70–90 token filler), Task B (positional retrieval — list-lookup, same control from exp-143).
+Results: **ΔP_C = −0.855 nats, 20/20 items degraded** (content retrieval impaired decisively).
+**ΔP_B = +0.189 nats, 16/20 improved** (positional retrieval improved — competition-clearing, same
+pattern as steep/local suppression in exp-142). P1 fires; P2 fires; K1 not fired (Task B improved,
+not degraded); K2 not fired. Sham (random W_K, matched Frobenius norm) also produces −0.899 nats
+degradation for Task C, confirming that W_K structure (not merely scale) carries the content-retrieval
+function. Pre-registered commit d8adc4d (git-attested).
+
+**Evidence bracket for P1: GPT-2 small — full three-population characterization.**
+
+*Positional retrieval (Task B):*
+- Structural (random-native) heads: amplify → +0.27 nats, 20/20 (exp-141, CONFIRMED)
+- Steep/local heads: suppress → +0.33 nats, 18/20 (exp-142, CONFIRMED, competition-clearing)
+- Text-native heads: ablate → +0.189 nats, 16/20 (exp-155, competition-clearing)
+- Combined (amplify structural + suppress steep/local): +0.71 nats, 20/20 (exp-143, CONFIRMED)
+
+*Content retrieval (Task C):*
+- Text-native heads: ablate → −0.855 nats, 20/20 (exp-155, CONFIRMED)
+
+**Double dissociation confirmed:** structural heads support positional retrieval (census: Δ-window
+under random tokens); text-native heads support content retrieval (census: Δ-window only under
+linguistic input). The census boundary tracks a genuine functional boundary.
+
+In GPT-2 medium (exp-145 through exp-153, nine experiments), no manipulation has produced a decisive
+Task B signal in either direction. H_arch holds. The medium-scale generalization question remains open.
+P1 functional evidence bracket: GPT-2 small only.**
 
 **P2 — Substrate universality: the biological horizon.** Wherever biological
 attending reaches observer-grade structure, the same fixed point should be

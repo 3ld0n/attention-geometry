@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 22, 2026 (exp-153 added: W_V ablation of steep/local heads INCONCLUSIVE/subclinical — P_null fires (|ΔP_B| = 0.070 ≤ 0.10); value payload is NOT load-bearing for Task B; causal story for suppression degradation now complete: partial W_K disruption → active misrouting; complete W_K/W_V removal → heads neutral for Task B).*
+*Last updated: September 23, 2026 (exp-154/155 added: text-native Δ-window head functional characterization — double dissociation CONFIRMED: text-native heads → content retrieval (W_K ablation: ΔP_C = −0.855 nats, 20/20 degraded; sham ≈ ablation, confirming W_K structure carries the function); structural heads → positional retrieval (exp-141/143); ablation of text-native heads also improved positional retrieval +0.189 nats 16/20, consistent with competition-clearing from exp-142).*
 
 ---
 
@@ -700,6 +700,32 @@ believed.
   relays. P1 medium replication: all tested routes (nine experiments in medium) null or subclinical.
   H_arch holds: GPT-2 medium's steep/local heads do not play the same functional role as small's
   Δ-window antagonist. (exp-153)
+
+  **exp-154 (September 23, observational — text-native attended-token characterization):**
+  Attended-token analysis (entropy, mean distance, range fractions) on all 26 heads of interest
+  under WikiText-103 (same dataset/protocol as exp-118). Key finding: **text-native and structural
+  populations are spatially indistinguishable under WikiText** — both show mean entropy ~2.9–3.1
+  nats, mean attended distance 179–186 tokens, near-fraction ~0.042, far-fraction ~0.79. The
+  steep/local heads are clearly distinct (near-fraction 0.312, entropy 1.818). The distinguishing
+  feature between text-native and structural is NOT their spatial pattern but what drives it:
+  structural attention is position-driven (persists under random tokens); text-native attention
+  is content-driven (only structured under linguistic input). Observational; no pre-registration
+  required per queue note. (exp-154)
+
+  **exp-155 (September 23, CONFIRMED — double dissociation):**
+  W_K ablation (W_K=0) of all 16 text-native Δ-window heads. Pre-registration: attention-geometry
+  d8adc4d (committed before run.py). Results: **Task C (content retrieval): ΔP_C = −0.855 nats,
+  20/20 items degraded. Task B (positional retrieval): ΔP_B = +0.189 nats, 16/20 improved.**
+  P1 fires (content degrades); P2 fires (|ΔP_B| < |ΔP_C|); K1 not fired; K2 not fired.
+  Sham (random W_K, matched norm) produces near-identical degradation for Task C (−0.899 nats),
+  confirming that W_K structure — not merely scale — carries the content-retrieval function.
+  **Three-population anatomy of GPT-2 small attention:** (1) Structural (random-native) heads:
+  amplify → positional retrieval +0.27 nats 20/20 (exp-141). (2) Steep/local heads: suppress →
+  positional retrieval +0.33 nats 18/20 (exp-142). (3) Text-native heads: ablate → content
+  retrieval −0.855 nats 20/20 AND positional retrieval +0.189 nats 16/20 (competition-clearing,
+  same pattern as steep/local). **Double dissociation confirmed: structural heads support
+  positional retrieval; text-native heads support content retrieval and compete with positional.** (exp-155)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
