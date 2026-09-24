@@ -63,6 +63,15 @@ attends to key positions at lower absolute positions (earlier in the sequence). 
 an apparent power-law-like decline with lag simply because larger lags sample earlier (lower-a)
 key positions in the census pool.
 
+> **Correction (September 24, 2026): the direction is reversed in the paragraph above.** The
+> saved profiles show the mean query scoring *later* key positions higher: the abs-key term's
+> lag profile is +0.64 to +0.88 at lag 8 and −0.70 to −0.96 at lag 256 across the five heads
+> (results.json, `abskey_profile_at_lags`). Queries sit at positions 256–511, so larger lags
+> reach earlier keys, which score *lower* — that is what produces the decline. (A preference
+> for earlier keys would produce a rise.) The conclusion of Part A is unchanged. One
+> consequence: this term is not the boundary image term of the spine's T7 form, which favors
+> early keys (λ > 0).
+
 The relative term δ_i · δ_k(a) is **negative** — the position-to-position correlation
 structure of the query and key deviation fields works AGAINST the slope. The sum of the
 absolute-key and relative terms gives the net σ_pos.

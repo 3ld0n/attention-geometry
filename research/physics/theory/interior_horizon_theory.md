@@ -885,9 +885,18 @@ product at head level: ρ(Δ_score, Δ_pos) = +0.976 (exp-056). [ESTABLISHED-LIT
 > structural heads the census slope is carried by the absolute-key-position
 > term, with the relative-lag term negative (§1 OPEN box) — so the
 > A(i,j) ~ |i−j|^{−2Δ} form above is not what the census measures on that
-> population. Absolute-position dependence alone does not rule out a
+> population. Absolute-position dependence alone would not rule out a
 > boundary-conformal structure (T7's derived form carries an absolute-position
-> image term), but whether exp-138's term is that one has not been checked. C4
+> image term), but exp-138's term is not that one: checked the same night
+> against its saved profiles, the average query scores *later* keys higher,
+> while the image term (λ > 0) favors early ones. Two facts frame the
+> relative-lag restatement. Under softmax, a query-only term cancels, so a key
+> score *linear* in absolute position is exactly a relative, exponential-in-lag
+> law — ALiBi is built that way. A power law in lag has no such absolute
+> equivalent; an absolute term can only imitate one over a finite window from a
+> fixed query pool. The deciding measurement is the census from query pools at
+> different positions: a relative law looks the same from every pool, while
+> absolute drift changes shape. C4
 > (§2) offers T6 a formation-side route — a geometry learned from causal
 > relevance alone is at most conformal (Malament; dimension > 2, distinguishing)
 > — and says where to look: the text-native population (P7(e)).
