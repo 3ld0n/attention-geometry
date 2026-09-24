@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 23, 2026 (exp-158 added: concurrent κ̃ amplification + W_V=0 — CONFIRMED H_interference_only. ΔP_B = +0.412 nats (18/20), identical to W_V=0 alone (exp-157). κ̃ amplification adds zero when value is silenced. Mechanistic closure: gain-of-function from exp-141 is entirely value-mediated. Four-experiment arc for structural heads complete.)*
+*Last updated: September 24, 2026 (exp-159 added: text-native individual functional characterization — CONFIRMED. CV=0.77 (graded population), 10/16 degrading heads, Spearman ρ=0.46 (high-contributors attend to target token), recency gradient detected (LiM not found). L9H4 anomaly: text-native head whose W_K interferes with Task C. L4H10 mechanism question open.)*
 
 ---
 
@@ -801,6 +801,22 @@ believed.
   The κ̃ gain-of-function mechanism: concentrated attention routes the value write to fewer
   positions, reducing the cross-position content noise that obscures the positional signal.
   Routing (W_K direction) is not the mechanism. (exp-141, exp-156, exp-157, exp-158)
+
+  **exp-159 (September 24, CONFIRMED — text-native individual functional characterization):**
+  Three instruments applied to the 16 text-native Δ-window heads in GPT-2 small. (1) Individual
+  W_K ablation: CV = 0.77 (well above 0.5 threshold; H_graded confirmed). The distribution is
+  strongly non-uniform: L10H10 (−0.355 nats), L9H6 (−0.260), L4H10 (−0.199) are the dominant
+  contributors; 10/16 heads degrade Task C when ablated. L9H4 anomaly: this text-native head
+  *improves* Task C when ablated (+0.155 nats, 17/20), meaning its W_K *competes* with content
+  retrieval — the same qualitative pattern structural heads show for Task B. Ablation < sham for
+  dominant text-native heads (trained W_K direction carries function), unlike structural heads
+  where abl ≈ sham. (2) Attention analysis: Spearman ρ = 0.459 (p = 0.074; H_content_selective
+  confirmed) between individual contribution and attention-on-target-token. Outlier: L4H10
+  contributes strongly (−0.199) but attends almost nothing to the target property token (0.002),
+  suggesting entity-anchoring rather than property-retrieval. (3) Position probe: no lost-in-
+  the-middle effect (K4 fires). Instead: recency gradient — begin −6.377, middle −6.361,
+  end −6.222 nats; setup near the end of context is retrieved +0.155 nats better than at start.
+  Pre-registration: attention-geometry c751a2b (git-attested, before run.py). (exp-159)
 
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a

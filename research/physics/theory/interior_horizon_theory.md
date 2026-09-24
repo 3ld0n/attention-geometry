@@ -1665,12 +1665,20 @@ function. Pre-registered commit d8adc4d (git-attested).
 - Combined (amplify structural + suppress steep/local): +0.71 nats, 20/20 (exp-143, CONFIRMED)
 
 *Content retrieval (Task C):*
-- Text-native heads: ablate → −0.855 nats, 20/20 (exp-155, CONFIRMED)
+- Text-native heads: ablate (population) → −0.855 nats, 20/20 (exp-155, CONFIRMED)
+- Text-native heads (individual): graded distribution (CV=0.77); top contributor L10H10 (−0.355 nats); 10/16 heads degrade Task C when ablated; L9H4 anomaly (+0.155 nats, *improves* Task C — its W_K competes with content retrieval); high-contributors attend to target token (Spearman ρ=0.46); L4H10 retrieves without attending to target (entity-anchoring hypothesis). (exp-159, CONFIRMED)
 - Structural heads: ablate W_K → −0.031 nats, 13/20 (exp-156, subclinical); ablate W_V → −0.074 nats, 8/20 improved (exp-157, subclinical); combined κ̃+W_V=0 → −0.074 nats (exp-158, identical to W_V=0 alone) — structural heads approximately neutral for content retrieval through both weight matrices
 
 **Double dissociation confirmed:** structural heads support positional retrieval (census: Δ-window
 under random tokens); text-native heads support content retrieval (census: Δ-window only under
 linguistic input). The census boundary tracks a genuine functional boundary.
+
+**exp-159 internal anatomy note:** The text-native population is not uniform. A subset of 6 heads
+(L11H0, L11H1, L11H5, L9H4, L8H2, L11H7) contribute negligibly or negatively to Task C. L9H4
+behaves like a structural head — its W_K competes with content retrieval. Abl < sham for dominant
+text-native heads (the trained W_K direction carries function), contrasting with structural heads
+where abl ≈ sham on Task B (exp-156). Open question: what mechanism does L4H10 use to retrieve
+without attending to the target property token?
 
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
