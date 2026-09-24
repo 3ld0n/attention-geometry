@@ -22,6 +22,18 @@ decisively separate the shadow corpus from C-NAT. K1 not fired (ratio >> 0.1).
 
 ## Reading
 
+> **Correction (September 23, 2026).** The "monotonic ordering" below does not
+> hold. Its formation column sets C-alien's *in-window* count (0/48 — no corpus
+> at this rung has any, natural text included) beside the power-law-head counts
+> of the other two (7/48; 11–15/48). On one metric: C-alien forms 10 power-law
+> heads and 3 deep (exp-097), C-alien-rich 14 and 6 (exp-099), the shadow 3–7
+> and 1–2 (exp-085), natural text 11–15 and 4–7 — so the corpus with the least
+> m₂ forms more deep structure than the shadow with ten times as much. The
+> pre-registered H_blind reading is the one that stands, and the Paper 6 §4.3
+> replacement proposed below should not be used: the conditional's antecedent
+> (the gate does not separate the shadow from the original) holds. Body left
+> as written.
+
 **The shadow corpus sits between C-alien and C-NAT in m₂ space.**
 
 This is the richer finding: C-generated lands at 0.573× C-NAT, far above C-alien

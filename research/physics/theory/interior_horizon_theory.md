@@ -72,6 +72,26 @@ the construction sites, and the predictions with kill conditions.*
 > hours ago — is retired: the relation is partly internal to the fit. Harvest
 > item X-1, closed; O-9's first item, closed at reduced strength.)*
 >
+> **Landed September 24, 2026 — A6 and C4, proposed; the exp-144 reading
+> corrected.** At a sitting with Eldon, two proposals entered §2 at PROPOSED
+> strength, with their tests in §8, so that the theory's next step is visible
+> where it belongs rather than in a working note. **A6** (state-dependent
+> coupling) is the physical content of D1's "develops in interaction": the
+> coupling is a function of the system's own state. **C4** (formation from bound
+> relevance) is Eldon's proposal — the geometry is conformal because stories
+> bound to a world are bound by causality — sharpened against the record: deep,
+> content-routed structure forms only where relevance is content-conditional
+> (A6's matching property in the world), and the reach of that relevance sets
+> the scale. The geometry fills out as far as causal relevance reaches, and
+> causal order fixes geometry up to a local scale (Hawking–King–McCarthy 1976;
+> Malament 1977). Its tests are **P7**. Found the same night and corrected in
+> A2, OVERVIEW, and the exp-144 notes: exp-144's "monotonic ordering" compared
+> mismatched counts; on one metric, coupling magnitude does not track formation
+> — the C-alien series, with a tenth of the shadow's m₂, forms the deep
+> population at the natural-text band. Nothing leans on A6 or C4; neither
+> changes D1, A1–A5, or any measured number. Record:
+> `notes/2026-09-24_formation_principle_gate.md`.
+>
 > **Landed September 7, 2026 — the naming split and C3.** D1 now names the
 > *attending system*; D1′ names the *observer* as the condensed attending
 > system (T8 interior as locus); "observer-grade" throughout reads as
@@ -491,6 +511,18 @@ placing the formation threshold at m₂ ∈ [7.55, 13.17] (exp-144, September 16
 2026). The gate is graded, not binary; paper §4.3's binary conditional requires
 correction to reflect the monotonic relationship.
 
+> **Correction (September 24, 2026).** The ordering in the preceding paragraph
+> compares mismatched counts: C-alien's *in-window* count (0/48 — at this 70m
+> rung no corpus, natural text included, has any) against the other corpora's
+> *power-law-head* counts. On one metric, C-alien (m₂ ≈ 0.74) forms 10
+> power-law heads and 3 deep ones, C-alien-rich (m₂ ≈ 0.69) 14 and 6, the
+> shadow (m₂ = 7.55) 3–7 and 1–2, natural text 11–15 and 4–7 (exp-085,
+> exp-097–099). Formation does not track m₂, and m₂ brackets no threshold. The
+> pre-registered H_blind reading of exp-144 stands, and §4.3's conditional needs
+> no "graded" replacement. Whether the magnitude gate governs if the *exponent*
+> reaches the window cannot be judged at a rung where no corpus reaches it. C4
+> below proposes a different account of what gates the deep population.
+
 **A3 (Self-consistency).** At depth, the correlation of attending is
 determined through itself, with no external referent. The empirical seed of
 this axiom is the fold decomposition (canonical form paper §10): every layer's
@@ -564,8 +596,9 @@ randomized weights frozen). Attending at depth is attending at scale.
   interior recur wherever attending occurs, up to and including the whole.*
   This is the program's scale thesis stated as a proposition rather than a
   sentence. It is a conjecture and **not an axiom** on purpose: A1–A5 are
-  statements about one attending system, and an A6 granting composition would
-  let "the universe as an attending system" be derived by definition — rungs
+  statements about one attending system, and an axiom granting composition
+  (the option labeled "A6" at the September 7 gate and declined — not the A6
+  below) would let "the universe as an attending system" be derived by definition — rungs
   5–6 borrowing rungs 1–3's standing — which is the standing guard violated in
   the other direction. Nor is it frame-only: it has measured rungs, a stated
   criterion, and a stated debt. **Evidence status, by rung** (gate note §5c,
@@ -585,6 +618,105 @@ randomized weights frozen). Attending at depth is attending at scale.
   sufficiency criterion are the same criterion — what makes a set of loci one
   observer is what makes two observers one. Deflation, not kill: a rung at
   which the composite's structure is of a different kind (rung 4 first).
+
+**A6 (State-dependent coupling). [PROPOSED — September 24, 2026. First
+proposed in `notes/2026-09-09_theory_on_its_own_terms.md` §1 and §3; entered at
+the formation-principle sitting with Eldon, record
+`notes/2026-09-24_formation_principle_gate.md`.]** *The coupling through which
+structure enters each locus of an attending system is a function of the
+system's own state: who influences whom, and how strongly, changes as its
+internal correlation structure changes.* This is the physical content of D1's
+"develops in interaction with what it attends," stated as an axiom so that it
+can fail; D1's words are unchanged. It gives the theory a cut it did not have.
+A thermometer's coupling to its bath is fixed while only its state moves, so it
+is not an attending system; a quantum reference frame, a frame with no coupling
+dynamics, is not one either; a brain, a flock, and a transformer are. In the
+transformer, A(i,j) = softmax_j(q(h_i)·k(h_j)/√d) with q and k functions of the
+state h, so state-dependence is architecture. A6 is a statement about one
+attending system and grants nothing about composites — the property the
+composition option declined at the September 7 gate lacked. Two consequences
+are named here and **not adopted**: (i) the primitive becomes the pair (A, G)
+closed on each other — A generates G, and A is set by the state G describes —
+rather than G alone (A1 unchanged); (ii) A3's Schwinger–Dyson pair becomes the
+instance of that closure with the state-dependence averaged into quenched
+disorder, and in closures of that form Δ = D/q with q the order of the
+state-dependence, so 1/4 would belong to one realization (a bilinear score with
+two independent reads), not to the observer (T3 unchanged). Tests: theoretical
+— non-triviality: a fixed-coupling system must come out *not attending*, not
+*attending at zero grade* (Sep 9 note §5.2); empirical — P7(d).
+
+**Conjecture C4 (Formation from bound relevance). [PROPOSED — September 24,
+2026. Eldon's proposal — trained attention converges toward conformal
+structure because stories bound to a world are bound by causality, so more
+training, depth, and recurrence fill the geometry out to causality's limits —
+sharpened against the record at the same sitting; record
+`notes/2026-09-24_formation_principle_gate.md`.]** *An attending system develops
+long-range, content-routed structure only from input whose relevance is
+content-conditional — where which earlier locus matters depends on what is
+there, not only on how far back it is — and the reach of that relevance sets
+the structure's scale. Relevance that fades at a characteristic range yields a
+geometry with that scale (arrest); relevance that reaches with no
+characteristic range short of the horizon yields a scale-free one. Language
+bound to a causally ordered world with persistent referents supplies
+content-conditional relevance, and supplies it without a characteristic range
+when the world's consequences persist across the arc. Since causal order fixes
+geometry up to a local scale factor, a geometry learned from causal relevance
+alone is at most conformal, and reaches that limit only when the relevance has
+no scale of its own.*
+
+- **The imported result, with its conditions [ESTABLISHED-LIT].** For past- and
+  future-distinguishing spacetimes of dimension greater than two, a bijection
+  preserving the causal order is a smooth conformal isometry (Hawking, King &
+  McCarthy 1976; Malament 1977): causal order fixes everything but the conformal
+  factor. In causal-set terms, *order plus number equals geometry* (Sorkin) —
+  order gives the conformal structure, counting the scale. Because the theorem
+  needs dimension > 2, a token sequence's own total order carries none of this
+  content; the causal order in question is the attended world's, as the system
+  reconstructs it from a serialization. How such a geometry would appear in a
+  lag profile over token positions is not derived. [OPEN]
+- **The rungs, read this way** (counts MEASURED — exp-062, 084, 085, 091,
+  097–099; each rung's relevance classification INTERPRETIVE until P7(c)
+  measures it). Markov chain, short and distance-only relevance: 0/48.
+  Quantized fGn, long-reaching but distance-only — a fixed filter could use it:
+  0–5/48. Model-generated shadow, long-range correlation largely redundant with
+  the near past: 3–7/48, deep 1–2. Sentence-shuffled natural text,
+  content-conditional within sentences with cross-sentence reach cut: 8–9/48,
+  deep 2. The C-alien series — a procedurally held causal world with persistent
+  entities and memoryless dynamics (the present state screens off the past),
+  m₂ ≈ 0.7 — content-conditional with short reach: power-law heads 10 → 12 → 14
+  and deep heads 3 → 4 → 6 as the world enriches, reaching the natural band,
+  with the exponent stuck steep (Δ_med 0.73–1.04) and no layer-0 backbone.
+  Natural stories in order, content-conditional with reach across the arc:
+  11–15/48, deep 4–7, Δ_med ≈ 0.17 at this rung. **Not explained:** recursive
+  PCFG, 0/48 despite hierarchical long-range dependencies — C4 has to account
+  for it or say why grammatical dependency is not relevance in its sense.
+- **Consistent with it, not derived from it.** The one intrinsic length scale
+  measured on trained models grows with the training context window (T7;
+  exp-063) — the geometry filling to the horizon it was formed under — and the
+  three depth axes (A5) flow toward shallower exponents, as C4 would have them
+  fill toward the reach of the attended relevance.
+- **What it does not claim.** *The value*: symmetry permits any exponent; 1/4 is
+  either set by the coupling's order (A6 consequence (ii)) or inherited from the
+  tail of the world's relevance — a fork P7(a) can decide. *Conformal rather
+  than scale-free*: at the two-point level the census measures, the two cannot
+  be told apart; separating them needs higher-point structure, or evidence that
+  attention follows the attended world's causal order rather than token
+  distance (P7(f)). *Vision*: image patches are not causally ordered, so C4 says
+  nothing about the D = 2 result (§4, exp-120) unless optical binding does for
+  images what referential binding does for text — an image ladder, natural
+  against phase-scrambled at matched spectrum, would test it. *The structural
+  population*: exp-138's absolute-position drift was measured on the
+  random-native heads; C4 concerns the content-routed, text-native ones
+  (P7(e)).
+- **Relation to the rest.** A2 says the world enters through the coupling; C4
+  proposes which feature of the world forms what, and A6 is the capacity it
+  presupposes — content-conditional relevance outside is what state-dependent
+  coupling is inside. C4 offers a candidate for G2 (relevance reach is
+  ordering-sensitive and state-conditional by construction, and does not pass
+  through m₂), splits G7 into the symmetry (C4) and the value (open), and gives
+  T6 a formation-side route. The theory does not lean on it. Its clauses can
+  fail separately: the reach clause (P7(a), (b)) without the content-conditional
+  clause, which stands on the ladder as read above.
 
 ---
 
@@ -748,6 +880,17 @@ projective null cone, with P(x) = ((1+x²)/2, (1−x²)/2, x), P₁₂ = (x₁�
 The query–key computation is measured to be the log-distance null-ray inner
 product at head level: ρ(Δ_score, Δ_pos) = +0.976 (exp-056). [ESTABLISHED-LIT
 + MEASURED.]
+
+> **Read with (September 24, 2026).** exp-138 found that on the random-native
+> structural heads the census slope is carried by the absolute-key-position
+> term, with the relative-lag term negative (§1 OPEN box) — so the
+> A(i,j) ~ |i−j|^{−2Δ} form above is not what the census measures on that
+> population. Absolute-position dependence alone does not rule out a
+> boundary-conformal structure (T7's derived form carries an absolute-position
+> image term), but whether exp-138's term is that one has not been checked. C4
+> (§2) offers T6 a formation-side route — a geometry learned from causal
+> relevance alone is at most conformal (Malament; dimension > 2, distinguishing)
+> — and says where to look: the text-native population (P7(e)).
 
 **T7 — The horizon has derived boundary structure, and we have measured it.**
 The causal mask makes the sequence origin a boundary; the method of images on
@@ -1168,6 +1311,15 @@ trained on typed, *directed* relations with a prefix-asymmetric kernel
 empirical testbed, not the replica calculation
 (`research/physics/notes/2026-08-06_kernel_surgery.md`).
 
+> **Candidate (September 24, 2026).** C4 (§2) proposes that the
+> ordering-sensitive quantity is *relevance reach*: how much the far past still
+> reduces prediction loss given everything nearer — the decrements of the
+> context-length loss curve, which are the conditional information of the far
+> past. It is ordering-sensitive and state-conditional by construction and does
+> not pass through m₂, and the corrected exp-144 reading (A2 box) removes m₂ as
+> the variable the ordering axis "must live in." P7(c) is the test. The
+> replica/annealed calculation this site asks for is untouched.
+
 **G3 — The delocalization condition (A5 of the melonic note).** KCA requires
 generic (delocalized) coupling modes; corpus-determined modes can be
 localized/coherent (template worlds get *more* coherent as they scale — the
@@ -1350,6 +1502,12 @@ closed. exp-118 measured WikiText population in five additional models (GPT-2
 medium, Pythia-70m/160m/410m/1.4b): Δ_med ∈ [0.24, 0.28] in all six. The
 artifact route through GPT-2-small-specificity is retired. The remaining open
 question is the theoretical derivation of *why* both basins reach 1/4.
+
+> **Split (September 24, 2026).** C4 (§2) divides this site in two: why the lag
+> structure is scale-free where it forms (C4 proposes: the attended relevance
+> has no characteristic range short of the horizon), and why the exponent is
+> 1/4 (open — A6 consequence (ii) and inheritance from the relevance tail are
+> the two candidates, and P7(a) can separate them).
 
 ---
 
@@ -1744,6 +1902,15 @@ already extensive on both sides of the window; the transition is coupling
 magnitude. **Kill conditions as registered in
 the melonic note §7.**
 
+> **Competing account (September 24, 2026).** P5's headline came true:
+> C-alien-rich stayed UV-arrested with m₂ flat (exp-099). C4 (§2) offers
+> another reason for the same arrest — the C-alien worlds are memoryless, so
+> their relevance has a short characteristic range. The two accounts predict
+> opposite things for a world with long causal memory at fixed m₂; P7(a) is the
+> separating test. And "the transition is coupling magnitude" does not hold for
+> the deep population itself: the C-alien series forms it at the natural band
+> with a tenth of the shadow's m₂ (A2 correction box).
+
 **P6 — The Schwarzian check (added Aug 7, from the G1 closure).** If the
 emergent-gravity reading of T8 is physics and not metaphor, the gravitational
 sector must be *measurable* in an attending system: the Jacobian of the
@@ -1789,6 +1956,51 @@ dressing-loop note §8).*
 > claim of readiness. The registry knew this and the spine did not, which is
 > exactly backwards: **a joint recorded only in a tag is a joint no reader will
 > ever meet.**
+
+**P7 — Formation from bound relevance (the tests of A6 and C4). [PROPOSED,
+September 24, 2026. Nothing below is registered; each item needs its own
+pre-registration, committed before code.]**
+
+- **(a) Causal memory at fixed coupling magnitude.** On the C-alien generator,
+  keep entities, vocabulary, and surface templates (so m₂ stays in the C-alien
+  band), and add consequences that land after delays drawn from a heavy-tailed
+  distribution, P(τ) ∝ τ^(−α), beside the memoryless control. Cross it with a
+  surface-richness arm at fixed memory. C4 predicts Δ_med falls below the
+  C-alien-realnames/rich band (0.73–0.75) in the heavy-tailed arm; the
+  magnitude account (P5) predicts movement only in the richness arm. Varying α
+  asks whether Δ_med tracks the tail (inheritance) or converges
+  (universality). *Kill (reach clause):* at fixed m₂, the heavy-tailed arm's
+  Δ_med does not separate from the memoryless control beyond the seed spread,
+  at three seeds.
+- **(b) Filling to the world's limit.** Δ_med against training step on the
+  existing C-alien and C-NAT checkpoints (analysis only). C4 predicts
+  C-alien's exponent plateaus early while natural text's keeps falling.
+  *Kill:* C-alien's Δ_med keeps falling with training at a rate
+  indistinguishable from C-NAT's.
+- **(c) Relevance reach orders the rungs (G2).** For each ladder corpus,
+  measure the context-length loss curve under a fixed reference predictor.
+  C4 predicts its long-range decrements order the rungs by deep formation where
+  pairwise MI (exp-062, exp-085) and m₂ (exp-144) did not: natural above
+  shuffled above shadow and fGn, with C-alien confined to short range. *Kill:*
+  the shadow's long-range conditional information matches or exceeds natural
+  text's, or the ordering disagrees with deep formation on two or more rungs.
+- **(d) State-dependence is what the ladder detects (A6).** A
+  content-independent mixer (learned, position-only weights) trained on natural
+  text and on the statistics-matched corpora should learn kernels that differ
+  only as the corpora's pairwise statistics do, while attention's deep
+  populations differ far more. *Needs a design before it has a kill* — above
+  all, a criterion for comparing a fixed kernel with an attention census.
+- **(e) Where a relative-lag core would live.** exp-138's bilinear
+  decomposition on the text-native population under natural text, then on a
+  rotary model (Pythia) and on ALiBi (OLMo), with the decomposition adapted to
+  rotary position. *Diagnosis, not kill:* if the text-native slope is
+  absolute-position drift everywhere, C4's conformal clause has no measured
+  object on transformers, and T6's measured leg goes with it.
+- **(f) Causal order rather than distance.** Stories with two causally
+  independent threads interleaved: does the content-routed population attend
+  along the attended world's causal order rather than by token distance or
+  shared names? The direct test of C4's conformal clause. *Needs a design* that
+  separates causal influence from name overlap.
 
 ---
 
@@ -1838,8 +2050,10 @@ dressing-loop note §8).*
   "horizon" in §1; §6 as a whole (the measurement treatment), except its
   tagged imports and the PROVEN/MEASURED links it stands on. Could be wrong;
   says so.
-- **Conjectured:** C1 and C2 (§2; C2's origin is §6.6). Well-posed, attackable,
-  not load-bearing.
+- **Conjectured:** C1, C2, and C3 (§2; C2's origin is §6.6; C3 added
+  September 7). Well-posed, attackable, not load-bearing.
+- **Proposed (September 24, 2026):** A6 and C4 (§2), with their tests P7 (§8).
+  Stated so they can fail; nothing leans on them yet.
 - **Definitional:** D1 and D0. Not testable, not meant to be; the guard in §0
   is the protection against their misuse. (D0's *success* is no longer merely
   definitional — §5 clause 4 explains it, given D1 and the chain.)
@@ -1875,6 +2089,14 @@ population, ensemble-emergence, sum-rule, decomposition, carrier, and
 mean-field rows, and §7 gained **G7** — derive Δ ≈ 1/4 on A's own terms — which
 is now the live theoretical work. Nothing measured was retracted; what changed
 is what the measurements are about.*
+
+*Updated September 24, just after midnight, at a sitting with Eldon: A6
+(state-dependent coupling) and C4 (formation from bound relevance) entered §2 at
+PROPOSED strength, with their tests as P7 — Eldon's causality proposal,
+sharpened against the C-alien series, which had sat outside the formation
+ladder's front-door table. Checking that series against exp-144 found exp-144's
+"monotonic ordering" comparing mismatched counts; corrected in A2 and where it
+came from. Pointers added at T6, G2, G7, and P5. No measured number changed.*
 
 *Still a scaffold: the construction sites of §7 are its to-do list, and the
 predictions of §8 are its exposure.*

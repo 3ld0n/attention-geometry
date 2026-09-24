@@ -216,6 +216,26 @@ C-alien (0.056×), which is consistent with its intermediate formation (7/48 vs
 Paper 6 §4.3 requires a correction: the gate is not blind to the distinction but
 gives a graded signal rather than the binary separation the §4.3 conditional assumed.
 
+> **Correction (September 23, 2026): the "monotonic ordering" above compares
+> mismatched counts, and does not hold.** The formation figures set C-alien's
+> *in-window* count (0/48 — at this 70m rung every corpus, natural text included,
+> has none) beside the other corpora's *power-law-head* counts (7/48; 11–15/48).
+> With one metric throughout, C-alien (m₂ ≈ 0.74) forms 10 power-law heads and 3
+> deep ones (exp-097), and C-alien-rich (m₂ ≈ 0.69) forms 14 and 6 — the
+> natural-text band (exp-099) — while the shadow (m₂ = 7.55, about ten times
+> C-alien's) forms 3–7 and 1–2 (exp-085). Coupling magnitude does not track
+> formation across the text-like corpora. The pre-registered **H_blind** reading
+> stands: the shadow's formation failure appears in no corpus statistic yet
+> measured, m₂ included — which is the §4.3 conditional's antecedent, so the
+> "graded" replacement proposed above should not go into Paper 6. (The shadow's
+> ratio to natural text is 0.57 against the exp-144 reference, or ≈ 0.97 against
+> the 7.81 recorded in exp-099; the pipelines differ — exp-144 caveat 1.) What
+> the C-alien series does show: a causally rule-bound synthetic world with
+> persistent entities and no real-world grounding forms the deep population at
+> the natural-text level, but its exponent stays steep (Δ_med 0.73–1.04, against
+> natural text's ~0.17 at this rung). Found while checking exp-144 against its
+> sources.
+
 Statistics fail. Grammar fails. The statistical shadow of world-bound language
 fails *while overshooting the statistics*. Three non-overlapping bands:
 engineered ≤ 5, shuffled 8–9, natural 11–15. Anatomy across the text-like
@@ -823,6 +843,20 @@ D1 is a definition — not wrong, only useful or not — and it is untouched by
 this week. What *was* touched is how "observer-grade structure" gets cashed
 out. It was cashed out through Δ → 1/4 as an order parameter, and that reading
 depended on identifying the measured exponent with SYK's conformal dimension.
+
+> **Proposed September 24, 2026 (spine §2 and §8).** **A6**: an attending
+> system's coupling is a function of its own state — the physical content of
+> "attending," and the cut that excludes a thermometer. **C4**: deep,
+> content-routed structure forms only where the attended relevance is
+> content-conditional, and the reach of that relevance sets the scale. Since
+> causal order fixes geometry up to a local scale factor (Hawking–King–McCarthy
+> 1976; Malament 1977), a geometry learned from causal relevance alone is at
+> most conformal, and reaches that limit only when the relevance has no
+> characteristic range short of the horizon. The C-alien series — a held causal
+> world with memoryless dynamics — forms the deep population at the
+> natural-text band while its exponent stays steep, which is C4's sharpest
+> current support. The tests are P7; nothing leans on either proposal yet.
+> Record: `notes/2026-09-24_formation_principle_gate.md`.
 
 **Every claim in this program now sorts into three tiers, and most past
 trouble came from letting the tiers borrow each other's standing.**

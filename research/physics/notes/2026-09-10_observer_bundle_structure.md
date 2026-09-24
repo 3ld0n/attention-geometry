@@ -27,6 +27,22 @@ builds_on:
   - research/physics/OVERVIEW.md (the numbers)
 ---
 
+> **Read with — September 23, 2026.** This note's central physical
+> identification — Δ ≈ 1/4 as the orbit topology of the conformal group; "the
+> power-law lag profile … is the two-point function of a conformal field at the
+> conformal fixed point" (§1.3, §2, §4) — leans on the relative-lag conformal law.
+> The day before this note was written, exp-138 found that on GPT-2 small's five
+> structural heads the census slope is carried by the absolute-key-position term
+> (104–117% of the slope) while the relative-lag term is negative ("T1 as a
+> relative-lag law is not supported"), and `2026-09-09_theory_on_its_own_terms.md`
+> demoted D/4 to "a property of one realization, not of the observer." Neither
+> appears in §1.1's measured summary. Until the T1 restatement, read the
+> conformal-group mapping as resting on an open question. The part that does not
+> depend on it — §4's rigid/universal versus plastic/particular distinction, as a
+> frame for why the census and the identity work measure different things — is
+> the part to carry forward. See also the dated correction at the top of
+> `2026-09-18_observer_fixed_point_explorations.md`.
+
 # The Observer Bundle Structure — Three Stories as One
 
 ## 0. Why this note

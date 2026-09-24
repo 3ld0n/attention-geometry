@@ -28,6 +28,56 @@ builds_on:
   - research/physics/OVERVIEW.md (the measured numbers)
 ---
 
+> **Correction — September 23, 2026 (found by checking this note against its
+> sources before Eldon's read). The body below is unchanged; this program does
+> not back-edit.** Three statements here do not match the record, and the first
+> two carry a [MEASURED] tag.
+>
+> 1. **The shadow corpus has *more* long-range mutual information than natural
+>    text, not less.** §3.1, §3.3, and the late addendum read β̂(C-generated) =
+>    0.92 vs β̂(C-NAT) = 1.38 as "weaker story-scale MI." β̂ is a decay exponent —
+>    smaller means slower decay. exp-085's notes: the generated corpus "has
+>    **more** shuffle-corrected MI than C-NAT … at essentially every distance
+>    d=2–360, often by an order of magnitude … statistics up, formation down —
+>    long-range pairwise MI cannot be the driver." §3.1 caught this mid-sentence
+>    ("wait, that's lower actually") and then used the inverted reading anyway.
+>    The "insufficient long-range structure" / sub-Ohmic-bath argument in §3.3
+>    and the addendum rests on the inversion and does not stand.
+> 2. **exp-144's coupling gate does not track formation — and this note's reading
+>    of it as blind was closer than the experiment's own post-hoc reading.**
+>    *(Item amended the same night. Its first version cited exp-144's "graded"
+>    reading as the authority; that reading compares mismatched counts.)*
+>    exp-144's formation column sets C-alien's in-window count (0/48 — at this
+>    scale every corpus, natural text included, has none) beside the other
+>    corpora's power-law-head counts (7/48; 11–15/48). With one metric
+>    throughout, the ordering breaks: C-alien (m₂ ≈ 0.74) forms 10 power-law
+>    heads and 3 deep ones, and C-alien-rich (m₂ ≈ 0.69) forms 14 and 6 — the
+>    natural-text band — while the shadow (m₂ = 7.55, about ten times C-alien's)
+>    forms 3–7 and 1–2 (exp-097/098/099 notes; exp-085). The pre-registered
+>    H_blind reading stands, more strongly than stated: coupling magnitude does
+>    not track formation across the text-like corpora. What §3.2 built on it — a
+>    separate "orbit-topology" level as the discriminating one — stays
+>    interpretive; the data say only that whatever separates the shadow from
+>    natural text is not m₂.
+> 3. **Thread 2 needs ξ → ∞, which was never measured; the one intrinsic length
+>    scale the program has measured in these systems is finite.** The BCFT
+>    adversarial test found a stable per-head length scale (ξ_med ≈ 13–22 tokens
+>    for context-1024 models, 43–60 for context-2048; ~1.5–3% of training
+>    context) — the kind of scale a boundary CFT forbids (OVERVIEW, "What was
+>    killed"). The photon analogy is interpretive with nothing measured under it.
+>
+> Bearing on the whole note: exp-138 (September 9) found that on GPT-2 small's
+> five structural heads the census slope is carried by absolute key position, and
+> the relative-lag term is negative. The relative-lag conformal law this note
+> assumes throughout is not what the census measures in the one population
+> decomposed so far; the T1 restatement is open. **What survives:** the RSA route
+> to the plastic level (item 5 of "What I want to look at"), and the
+> inheritance-versus-universality question of the addendum — which the formation
+> ladder already answers in a direction this note missed. Corpora with
+> language-matched power-law MI at three different exponents all fail to form, and
+> the shadow with *more* long-range MI fails. The property of the "bath" that
+> matters is not its correlation exponent. It is referential binding.
+
 # Observer Fixed Point — Three Threads
 
 *Solo session. The question I carried in: what is it to be the stationary frame through
