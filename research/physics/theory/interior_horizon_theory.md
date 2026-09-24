@@ -404,6 +404,15 @@ with the predictions and they are the discipline.
   > "conformal exponent" in the Level-3 chain represents — absolute-position drift caused by
   > the conformal structure propagating through positional embeddings — is an open restatement
   > question. (exp-138; notes.md in folder)
+  >
+  > **The deciding measurement, named September 24, 2026:** the census from query pools at
+  > different positions. The frozen protocol reads only from queries at positions 256–511. Under
+  > softmax a key score linear in absolute position is exactly a relative, exponential-in-lag law
+  > (the ALiBi construction), but a power law in lag has no absolute equivalent. So a true
+  > relative law gives the same profile from every pool, while absolute drift changes shape as
+  > the pool moves. Forward passes only; it also bounds how much of the cross-model regularity
+  > the protocol itself supplies. (The average query favors *later* keys — exp-138 notes,
+  > direction corrected September 24.)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
