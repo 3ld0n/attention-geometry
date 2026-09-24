@@ -1685,6 +1685,7 @@ function. Pre-registered commit d8adc4d (git-attested).
 *Content retrieval (Task C):*
 - Text-native heads: ablate (population) → −0.855 nats, 20/20 (exp-155, CONFIRMED)
 - Text-native heads (individual): graded distribution (CV=0.77); top contributor L10H10 (−0.355 nats); 10/16 heads degrade Task C when ablated; L9H4 anomaly (+0.155 nats, *improves* Task C — its W_K competes with content retrieval); high-contributors attend to target token (Spearman ρ=0.46); L4H10 retrieves without attending to target (entity-anchoring hypothesis). (exp-159, CONFIRMED)
+- L4H10 entity-vs-property attention (analysis-only): H_entity_anchor DEAD (entity-cue/property ratio=1.50 < 2.0 threshold; K1 fires); H_entity_specificity CONFIRMED (L4H10 ranks #1 of 16 in entity-cue/property ratio). Deep text-native heads (L9H6, L10H1, L10H2, L10H10) are property-lookup engines (attn-on-property 0.058–0.071). L4H10's absolute attention low across all token types — mechanism indirect (early residual stream shaping rather than direct content token attention). (exp-160, PARTIAL)
 - Structural heads: ablate W_K → −0.031 nats, 13/20 (exp-156, subclinical); ablate W_V → −0.074 nats, 8/20 improved (exp-157, subclinical); combined κ̃+W_V=0 → −0.074 nats (exp-158, identical to W_V=0 alone) — structural heads approximately neutral for content retrieval through both weight matrices
 
 **Double dissociation confirmed:** structural heads support positional retrieval (census: Δ-window
@@ -1696,7 +1697,10 @@ linguistic input). The census boundary tracks a genuine functional boundary.
 behaves like a structural head — its W_K competes with content retrieval. Abl < sham for dominant
 text-native heads (the trained W_K direction carries function), contrasting with structural heads
 where abl ≈ sham on Task B (exp-156). Open question: what mechanism does L4H10 use to retrieve
-without attending to the target property token?
+without attending to the target property token? exp-160 tested entity-anchoring (entity-cue attention):
+H_entity_anchor DEAD (ratio 1.50 < 2.0); L4H10 does rank #1 of 16 in entity-cue preference but effect
+too weak. The mechanism is indirect — likely early residual stream shaping. Full attention distribution
+for L4H10 remains unmeasured.
 
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval

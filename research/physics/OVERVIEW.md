@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 24, 2026 (exp-159 added: text-native individual functional characterization — CONFIRMED. CV=0.77 (graded population), 10/16 degrading heads, Spearman ρ=0.46 (high-contributors attend to target token), recency gradient detected (LiM not found). L9H4 anomaly: text-native head whose W_K interferes with Task C. L4H10 mechanism question open.)*
+*Last updated: September 24, 2026 (exp-160 added: L4H10 entity-vs-property attention analysis — PARTIAL. H_entity_anchor DEAD (ratio=1.50 < 2.0 threshold); H_entity_specificity CONFIRMED (rank 1/16). Deep text-native heads are property-lookup engines (attn-on-property 0.06–0.07). L4H10 mechanism indirect — not direct entity or property token attention.)*
 
 ---
 
@@ -817,6 +817,20 @@ believed.
   the-middle effect (K4 fires). Instead: recency gradient — begin −6.377, middle −6.361,
   end −6.222 nats; setup near the end of context is retrieved +0.155 nats better than at start.
   Pre-registration: attention-geometry c751a2b (git-attested, before run.py). (exp-159)
+
+  **exp-160 (September 24, PARTIAL — L4H10 entity-vs-property attention analysis):**
+  Analysis-only follow-up to exp-159's L4H10 outlier (strong Task C contributor, near-zero
+  attn-on-property). H_entity_anchor: DEAD — L4H10's entity-cue/property ratio = 1.50,
+  below the pre-registered 2.0 threshold; K1 fires. H_entity_specificity: CONFIRMED — L4H10
+  ranks #1 of 16 text-native heads in entity-cue/property attention ratio. Exploratory
+  H_entity_setup: CONFIRMED — L4H10 entity-setup (0.00543) > property (0.00287). The
+  population structure is revealed: deep text-native heads (L9H6: 0.070, L10H10: 0.071,
+  L10H1: 0.058, L10H2: 0.033 attn-on-property) are the property-lookup engines; L4H10's
+  absolute attention levels are low across all token types. L4H10's Task C contribution
+  (−0.199 nats in exp-159) operates through an indirect mechanism — early residual stream
+  shaping rather than direct content token attention. What L4H10 attends to (full attention
+  distribution) remains an open question. Pre-registration: attention-geometry 066fa20
+  (git-attested, before run.py). (exp-160)
 
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a

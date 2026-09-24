@@ -1,0 +1,2257 @@
+{
+  "experiment": "exp-160",
+  "prereg_commit": "066fa20",
+  "model": "gpt2",
+  "text_native_heads": [
+    "L4H10",
+    "L7H1",
+    "L8H2",
+    "L9H4",
+    "L9H6",
+    "L10H1",
+    "L10H2",
+    "L10H10",
+    "L11H0",
+    "L11H1",
+    "L11H2",
+    "L11H4",
+    "L11H5",
+    "L11H6",
+    "L11H7",
+    "L11H9"
+  ],
+  "item_results": [
+    {
+      "item_id": "C-01",
+      "entity": "mansion",
+      "property": "crimson",
+      "seq_len": 90,
+      "entity_cue_positions": [
+        88
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        3
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.004638649057596922,
+          "attn_entity_setup": 0.004708678461611271,
+          "attn_property": 0.0011049408931285143
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0038009448908269405,
+          "attn_entity_setup": 0.010563934221863747,
+          "attn_property": 0.014907988719642162
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.021926218643784523,
+          "attn_entity_setup": 0.006351975724101067,
+          "attn_property": 0.01200555544346571
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.00018811202608048916,
+          "attn_entity_setup": 0.002174855675548315,
+          "attn_property": 0.002750152489170432
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0009293765760958195,
+          "attn_entity_setup": 0.0034066662192344666,
+          "attn_property": 0.014282038435339928
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0009964044438675046,
+          "attn_entity_setup": 0.0025940784253180027,
+          "attn_property": 0.045700203627347946
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0007450793636962771,
+          "attn_entity_setup": 0.0036348269786685705,
+          "attn_property": 0.017954517155885696
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0009425596217624843,
+          "attn_entity_setup": 0.004139354452490807,
+          "attn_property": 0.02056543342769146
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.010846681892871857,
+          "attn_entity_setup": 0.016180962324142456,
+          "attn_property": 0.024892600253224373
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.007657105568796396,
+          "attn_entity_setup": 0.01370176114141941,
+          "attn_property": 0.011833560653030872
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0014178331475704908,
+          "attn_entity_setup": 0.005693068262189627,
+          "attn_property": 0.017858805134892464
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0012128606904298067,
+          "attn_entity_setup": 0.008956807665526867,
+          "attn_property": 0.018799088895320892
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0007000782643444836,
+          "attn_entity_setup": 0.0019988243002444506,
+          "attn_property": 0.0017229259246960282
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0005692483391612768,
+          "attn_entity_setup": 0.001561718643642962,
+          "attn_property": 0.019884822890162468
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.005520877428352833,
+          "attn_entity_setup": 0.009323147125542164,
+          "attn_property": 0.008765149861574173
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0003398765402380377,
+          "attn_entity_setup": 0.0011530284537002444,
+          "attn_property": 0.0037113367579877377
+        }
+      }
+    },
+    {
+      "item_id": "C-02",
+      "entity": "lighthouse",
+      "property": "cobalt",
+      "seq_len": 82,
+      "entity_cue_positions": [
+        78
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        5,
+        6
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0057084402069449425,
+          "attn_entity_setup": 0.007927212864160538,
+          "attn_property": 0.0033288244158029556
+        },
+        "L7H1": {
+          "attn_entity_cue": 8.407792483922094e-05,
+          "attn_entity_setup": 0.0005396488704718649,
+          "attn_property": 0.13441938161849976
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.009708342142403126,
+          "attn_entity_setup": 0.01614955998957157,
+          "attn_property": 0.005448427051305771
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0005146030453033745,
+          "attn_entity_setup": 0.0024684309028089046,
+          "attn_property": 0.08404245972633362
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.00017947761807590723,
+          "attn_entity_setup": 0.004341201391071081,
+          "attn_property": 0.6502180099487305
+        },
+        "L10H1": {
+          "attn_entity_cue": 7.919719791971147e-05,
+          "attn_entity_setup": 0.0016790744848549366,
+          "attn_property": 0.380245566368103
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0021980982273817062,
+          "attn_entity_setup": 0.014819971285760403,
+          "attn_property": 0.12044939398765564
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0013850962277501822,
+          "attn_entity_setup": 0.02178158052265644,
+          "attn_property": 0.4257553815841675
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.009015367366373539,
+          "attn_entity_setup": 0.024011386558413506,
+          "attn_property": 0.020342884585261345
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.014048764482140541,
+          "attn_entity_setup": 0.0430462621152401,
+          "attn_property": 0.07258958369493484
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.016833363100886345,
+          "attn_entity_setup": 0.0653684064745903,
+          "attn_property": 0.14921170473098755
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.00331095396541059,
+          "attn_entity_setup": 0.013908782973885536,
+          "attn_property": 0.05357521027326584
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.002646050648763776,
+          "attn_entity_setup": 0.013966310769319534,
+          "attn_property": 0.0569462850689888
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.001738208462484181,
+          "attn_entity_setup": 0.011866369284689426,
+          "attn_property": 0.24570763111114502
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.00990437250584364,
+          "attn_entity_setup": 0.019423451274633408,
+          "attn_property": 0.08109160512685776
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0024686898104846478,
+          "attn_entity_setup": 0.024211984127759933,
+          "attn_property": 0.2636027932167053
+        }
+      }
+    },
+    {
+      "item_id": "C-03",
+      "entity": "granary",
+      "property": "weathered",
+      "seq_len": 85,
+      "entity_cue_positions": [
+        82,
+        83
+      ],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 2,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0021106163039803505,
+          "attn_entity_setup": 0.003064475953578949,
+          "attn_property": 0.0062102023512125015
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.015852108597755432,
+          "attn_entity_setup": 0.009355447255074978,
+          "attn_property": 0.0666862279176712
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0058578685857355595,
+          "attn_entity_setup": 0.0038149626925587654,
+          "attn_property": 0.011093568056821823
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0022557443007826805,
+          "attn_entity_setup": 0.010689936578273773,
+          "attn_property": 0.020098455250263214
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0008921000408008695,
+          "attn_entity_setup": 0.004730071872472763,
+          "attn_property": 0.037335239350795746
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.002477074973285198,
+          "attn_entity_setup": 0.008824720978736877,
+          "attn_property": 0.02054506354033947
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.00087661889847368,
+          "attn_entity_setup": 0.005063828080892563,
+          "attn_property": 0.012421472929418087
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0018394195940345526,
+          "attn_entity_setup": 0.014260626398026943,
+          "attn_property": 0.02356809750199318
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.013046551495790482,
+          "attn_entity_setup": 0.016230491921305656,
+          "attn_property": 0.028960417956113815
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.004095248878002167,
+          "attn_entity_setup": 0.015047920867800713,
+          "attn_property": 0.018864385783672333
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0025735285598784685,
+          "attn_entity_setup": 0.017476651817560196,
+          "attn_property": 0.022920623421669006
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0024713173042982817,
+          "attn_entity_setup": 0.013774396851658821,
+          "attn_property": 0.039448171854019165
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.00116515823174268,
+          "attn_entity_setup": 0.004109676461666822,
+          "attn_property": 0.0188472680747509
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0012887318152934313,
+          "attn_entity_setup": 0.010440889745950699,
+          "attn_property": 0.013082238845527172
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.002694218186661601,
+          "attn_entity_setup": 0.010313920676708221,
+          "attn_property": 0.05288725346326828
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0005482167471200228,
+          "attn_entity_setup": 0.0036014383658766747,
+          "attn_property": 0.020193004980683327
+        }
+      }
+    },
+    {
+      "item_id": "C-04",
+      "entity": "chapel",
+      "property": "stone",
+      "seq_len": 76,
+      "entity_cue_positions": [
+        70
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.007940002717077732,
+          "attn_entity_setup": 0.009997115470468998,
+          "attn_property": 0.0035811818670481443
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0008034077472984791,
+          "attn_entity_setup": 0.0023542132694274187,
+          "attn_property": 0.06217757239937782
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.013865550048649311,
+          "attn_entity_setup": 0.010469991713762283,
+          "attn_property": 0.010004312731325626
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0008142326259985566,
+          "attn_entity_setup": 0.004431882407516241,
+          "attn_property": 0.1705370396375656
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.002735445275902748,
+          "attn_entity_setup": 0.01620582491159439,
+          "attn_property": 0.1681438386440277
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.001833055168390274,
+          "attn_entity_setup": 0.009849988855421543,
+          "attn_property": 0.2051582783460617
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0027951672673225403,
+          "attn_entity_setup": 0.014814522117376328,
+          "attn_property": 0.08191250264644623
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.01005608681589365,
+          "attn_entity_setup": 0.036000318825244904,
+          "attn_property": 0.08906638622283936
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.01926513947546482,
+          "attn_entity_setup": 0.025893617421388626,
+          "attn_property": 0.015522812493145466
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.017022576183080673,
+          "attn_entity_setup": 0.032795973122119904,
+          "attn_property": 0.02598077990114689
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.012685461901128292,
+          "attn_entity_setup": 0.06570375710725784,
+          "attn_property": 0.07262487709522247
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.002887162147089839,
+          "attn_entity_setup": 0.01193040981888771,
+          "attn_property": 0.016263214871287346
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0021982581820338964,
+          "attn_entity_setup": 0.0120519595220685,
+          "attn_property": 0.015572805888950825
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.00898355059325695,
+          "attn_entity_setup": 0.02730310894548893,
+          "attn_property": 0.04582161083817482
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0033974710386246443,
+          "attn_entity_setup": 0.014633450657129288,
+          "attn_property": 0.0674060732126236
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0035265882033854723,
+          "attn_entity_setup": 0.011157218366861343,
+          "attn_property": 0.028072647750377655
+        }
+      }
+    },
+    {
+      "item_id": "C-05",
+      "entity": "cottage",
+      "property": "thatched",
+      "seq_len": 73,
+      "entity_cue_positions": [
+        70
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0031715736258774996,
+          "attn_entity_setup": 0.003338115056976676,
+          "attn_property": 0.004650721326470375
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.030688419938087463,
+          "attn_entity_setup": 0.030041294172406197,
+          "attn_property": 0.01820773258805275
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.012125832028687,
+          "attn_entity_setup": 0.004441511817276478,
+          "attn_property": 0.006800428032875061
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.003595297457650304,
+          "attn_entity_setup": 0.00824146717786789,
+          "attn_property": 0.005791692994534969
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.03753103315830231,
+          "attn_entity_setup": 0.02514074556529522,
+          "attn_property": 0.03228292986750603
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.017079584300518036,
+          "attn_entity_setup": 0.009781903587281704,
+          "attn_property": 0.024210812523961067
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.016963083297014236,
+          "attn_entity_setup": 0.016078822314739227,
+          "attn_property": 0.013857978396117687
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.02695513516664505,
+          "attn_entity_setup": 0.0358256921172142,
+          "attn_property": 0.01952432282269001
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.004498307593166828,
+          "attn_entity_setup": 0.007992032915353775,
+          "attn_property": 0.015141833573579788
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.04461945965886116,
+          "attn_entity_setup": 0.033794522285461426,
+          "attn_property": 0.02349991165101528
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.027601677924394608,
+          "attn_entity_setup": 0.033746011555194855,
+          "attn_property": 0.014660485088825226
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.009440802037715912,
+          "attn_entity_setup": 0.015430744737386703,
+          "attn_property": 0.019432779401540756
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.018760835751891136,
+          "attn_entity_setup": 0.015113859437406063,
+          "attn_property": 0.019091995432972908
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.009953266941010952,
+          "attn_entity_setup": 0.0118744857609272,
+          "attn_property": 0.008275581523776054
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.05012570694088936,
+          "attn_entity_setup": 0.0331176295876503,
+          "attn_property": 0.029908200725913048
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.009856794029474258,
+          "attn_entity_setup": 0.008940029889345169,
+          "attn_property": 0.01841307431459427
+        }
+      }
+    },
+    {
+      "item_id": "C-06",
+      "entity": "tower",
+      "property": "crumbling",
+      "seq_len": 80,
+      "entity_cue_positions": [
+        78
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        3
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.007979747839272022,
+          "attn_entity_setup": 0.009383037686347961,
+          "attn_property": 0.003176290774717927
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.003094325540587306,
+          "attn_entity_setup": 0.00452718511223793,
+          "attn_property": 0.03374633193016052
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.006172945722937584,
+          "attn_entity_setup": 0.005253803450614214,
+          "attn_property": 0.01188091840595007
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0010678039398044348,
+          "attn_entity_setup": 0.005240829661488533,
+          "attn_property": 0.009588082320988178
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0014364976668730378,
+          "attn_entity_setup": 0.004186034202575684,
+          "attn_property": 0.07374382764101028
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0016137596685439348,
+          "attn_entity_setup": 0.0033123111352324486,
+          "attn_property": 0.16903866827487946
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.003381903050467372,
+          "attn_entity_setup": 0.007650517392903566,
+          "attn_property": 0.030092021450400352
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.002741666976362467,
+          "attn_entity_setup": 0.007113618776202202,
+          "attn_property": 0.060088373720645905
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.011270356364548206,
+          "attn_entity_setup": 0.02296038158237934,
+          "attn_property": 0.02039232663810253
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.014116144739091396,
+          "attn_entity_setup": 0.015032689087092876,
+          "attn_property": 0.007996111176908016
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0036319519858807325,
+          "attn_entity_setup": 0.013736148364841938,
+          "attn_property": 0.026751171797513962
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0016777182463556528,
+          "attn_entity_setup": 0.009602394886314869,
+          "attn_property": 0.029959004372358322
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0012687977869063616,
+          "attn_entity_setup": 0.003574156668037176,
+          "attn_property": 0.02685117907822132
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.002386521315202117,
+          "attn_entity_setup": 0.005042208358645439,
+          "attn_property": 0.01735740900039673
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.002839460037648678,
+          "attn_entity_setup": 0.006391878239810467,
+          "attn_property": 0.03188871592283249
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0024121697060763836,
+          "attn_entity_setup": 0.0028774032834917307,
+          "attn_property": 0.05176043510437012
+        }
+      }
+    },
+    {
+      "item_id": "C-07",
+      "entity": "farmhouse",
+      "property": "whitewashed",
+      "seq_len": 81,
+      "entity_cue_positions": [
+        78,
+        79
+      ],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4,
+        5,
+        6
+      ],
+      "n_entity_cue_tokens": 2,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.017525924369692802,
+          "attn_entity_setup": 0.015163257718086243,
+          "attn_property": 0.0036954060196876526
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.01194595918059349,
+          "attn_entity_setup": 0.019901221618056297,
+          "attn_property": 0.050341859459877014
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0069687459617853165,
+          "attn_entity_setup": 0.008362418971955776,
+          "attn_property": 0.011828536167740822
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0035312436521053314,
+          "attn_entity_setup": 0.010343463160097599,
+          "attn_property": 0.009802496992051601
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0027991568204015493,
+          "attn_entity_setup": 0.008468645624816418,
+          "attn_property": 0.06157005950808525
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.003041882999241352,
+          "attn_entity_setup": 0.00758758932352066,
+          "attn_property": 0.07315479218959808
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.001901939045637846,
+          "attn_entity_setup": 0.0062607042491436005,
+          "attn_property": 0.05369177833199501
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0030010156333446503,
+          "attn_entity_setup": 0.009555231779813766,
+          "attn_property": 0.04941032826900482
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.042962558567523956,
+          "attn_entity_setup": 0.034625764936208725,
+          "attn_property": 0.023584429174661636
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.007389872334897518,
+          "attn_entity_setup": 0.009853191673755646,
+          "attn_property": 0.03521563857793808
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.00658513605594635,
+          "attn_entity_setup": 0.016144994646310806,
+          "attn_property": 0.025928905233740807
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.011187253519892693,
+          "attn_entity_setup": 0.03887480869889259,
+          "attn_property": 0.032139841467142105
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0028664206620305777,
+          "attn_entity_setup": 0.006301569752395153,
+          "attn_property": 0.01753005012869835
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.002228451194241643,
+          "attn_entity_setup": 0.007722741458564997,
+          "attn_property": 0.05899576097726822
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0029228576458990574,
+          "attn_entity_setup": 0.007952332496643066,
+          "attn_property": 0.009722894057631493
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0011104249861091375,
+          "attn_entity_setup": 0.0037049574311822653,
+          "attn_property": 0.04754982143640518
+        }
+      }
+    },
+    {
+      "item_id": "C-08",
+      "entity": "warehouse",
+      "property": "corrugated",
+      "seq_len": 74,
+      "entity_cue_positions": [
+        70
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        3,
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.008898732252418995,
+          "attn_entity_setup": 0.006272120401263237,
+          "attn_property": 0.003503157990053296
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.00039063888834789395,
+          "attn_entity_setup": 0.002473576692864299,
+          "attn_property": 0.002312829252332449
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.024117032065987587,
+          "attn_entity_setup": 0.011722879484295845,
+          "attn_property": 0.004547660704702139
+        },
+        "L9H4": {
+          "attn_entity_cue": 7.655478111701086e-05,
+          "attn_entity_setup": 0.0013082444202154875,
+          "attn_property": 0.029487570747733116
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0015317340148612857,
+          "attn_entity_setup": 0.010282154195010662,
+          "attn_property": 0.008794371038675308
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0010857366723939776,
+          "attn_entity_setup": 0.003066249890252948,
+          "attn_property": 0.034711699932813644
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.005346810910850763,
+          "attn_entity_setup": 0.01191634964197874,
+          "attn_property": 0.008235045708715916
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.003543715225532651,
+          "attn_entity_setup": 0.010280315764248371,
+          "attn_property": 0.06885388493537903
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.003177263308316469,
+          "attn_entity_setup": 0.010519301518797874,
+          "attn_property": 0.03454211354255676
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.01407686248421669,
+          "attn_entity_setup": 0.010188260115683079,
+          "attn_property": 0.012066185474395752
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.011782677844166756,
+          "attn_entity_setup": 0.029693743214011192,
+          "attn_property": 0.026069840416312218
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0017250318778678775,
+          "attn_entity_setup": 0.008049736730754375,
+          "attn_property": 0.009747613221406937
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0035123233683407307,
+          "attn_entity_setup": 0.013631829060614109,
+          "attn_property": 0.03000243380665779
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0037731111515313387,
+          "attn_entity_setup": 0.004859995096921921,
+          "attn_property": 0.03539067879319191
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.010190948843955994,
+          "attn_entity_setup": 0.013580279424786568,
+          "attn_property": 0.014731286093592644
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0037677851505577564,
+          "attn_entity_setup": 0.005110715050250292,
+          "attn_property": 0.02057918906211853
+        }
+      }
+    },
+    {
+      "item_id": "C-09",
+      "entity": "mill",
+      "property": "derelict",
+      "seq_len": 78,
+      "entity_cue_positions": [],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        3,
+        4
+      ],
+      "n_entity_cue_tokens": 0,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.00506244832649827,
+          "attn_property": 0.0022891287226229906
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.007388651371002197,
+          "attn_property": 0.0728892832994461
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.004217691719532013,
+          "attn_property": 0.012407086789608002
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.09677644819021225,
+          "attn_property": 0.06959450244903564
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.265555202960968,
+          "attn_property": 0.00433624442666769
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.588205873966217,
+          "attn_property": 0.003802916966378689
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.2703026533126831,
+          "attn_property": 0.0013187449658289552
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.4895613193511963,
+          "attn_property": 0.002867068164050579
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.014871196821331978,
+          "attn_property": 0.004685545340180397
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.10949425399303436,
+          "attn_property": 0.00487917847931385
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.1541939228773117,
+          "attn_property": 0.002797753317281604
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.039696116000413895,
+          "attn_property": 0.006686563603579998
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.1904415339231491,
+          "attn_property": 0.0025752359069883823
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.11286963522434235,
+          "attn_property": 0.0031951318960636854
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.2781820595264435,
+          "attn_property": 0.002425274346023798
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.15229840576648712,
+          "attn_property": 0.002533645136281848
+        }
+      }
+    },
+    {
+      "item_id": "C-10",
+      "entity": "schoolhouse",
+      "property": "clapboard",
+      "seq_len": 77,
+      "entity_cue_positions": [
+        72,
+        73
+      ],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4,
+        5,
+        6
+      ],
+      "n_entity_cue_tokens": 2,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.005436329171061516,
+          "attn_entity_setup": 0.009062466211616993,
+          "attn_property": 0.0025320667773485184
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.00275685777887702,
+          "attn_entity_setup": 0.0020812146831303835,
+          "attn_property": 0.005739560816437006
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.053501952439546585,
+          "attn_entity_setup": 0.018838470801711082,
+          "attn_property": 0.010961380787193775
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0017683855257928371,
+          "attn_entity_setup": 0.0021041727159172297,
+          "attn_property": 0.01338907703757286
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.003462941152974963,
+          "attn_entity_setup": 0.010179851204156876,
+          "attn_property": 0.0283658429980278
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.002583268564194441,
+          "attn_entity_setup": 0.0037128920666873455,
+          "attn_property": 0.007981820963323116
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0033534024842083454,
+          "attn_entity_setup": 0.006786796264350414,
+          "attn_property": 0.014020424336194992
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0026845871470868587,
+          "attn_entity_setup": 0.0061020501889288425,
+          "attn_property": 0.03849444538354874
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.010098811239004135,
+          "attn_entity_setup": 0.008870457299053669,
+          "attn_property": 0.00414452888071537
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.03902854397892952,
+          "attn_entity_setup": 0.025901269167661667,
+          "attn_property": 0.010228563100099564
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.004513404797762632,
+          "attn_entity_setup": 0.009120854549109936,
+          "attn_property": 0.02424825355410576
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0038213529624044895,
+          "attn_entity_setup": 0.00927734561264515,
+          "attn_property": 0.010572090744972229
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.012396692298352718,
+          "attn_entity_setup": 0.018415722995996475,
+          "attn_property": 0.025732403621077538
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0011066821170970798,
+          "attn_entity_setup": 0.003087751567363739,
+          "attn_property": 0.030687132850289345
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.026431676000356674,
+          "attn_entity_setup": 0.028668416664004326,
+          "attn_property": 0.024687618017196655
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0011698370799422264,
+          "attn_entity_setup": 0.0028815579134970903,
+          "attn_property": 0.015181515365839005
+        }
+      }
+    },
+    {
+      "item_id": "C-11",
+      "entity": "inn",
+      "property": "timber",
+      "seq_len": 83,
+      "entity_cue_positions": [
+        77
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.000547148403711617,
+          "attn_entity_setup": 0.0002794271567836404,
+          "attn_property": 0.0020032513421028852
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.001622792799025774,
+          "attn_entity_setup": 0.0008308824617415667,
+          "attn_property": 0.0015546692302450538
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0089799165725708,
+          "attn_entity_setup": 0.0029921552632004023,
+          "attn_property": 0.006755296606570482
+        },
+        "L9H4": {
+          "attn_entity_cue": 5.141272777109407e-05,
+          "attn_entity_setup": 0.00040647410787642,
+          "attn_property": 0.02438664622604847
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.00259613455273211,
+          "attn_entity_setup": 0.0056762490421533585,
+          "attn_property": 0.021077418699860573
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.004636948928236961,
+          "attn_entity_setup": 0.005964551120996475,
+          "attn_property": 0.018265102058649063
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.002515091560781002,
+          "attn_entity_setup": 0.006241600960493088,
+          "attn_property": 0.024334106594324112
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0072356341406702995,
+          "attn_entity_setup": 0.014159608632326126,
+          "attn_property": 0.049263328313827515
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.001159924198873341,
+          "attn_entity_setup": 0.0013437882298603654,
+          "attn_property": 0.005492675118148327
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.021392473950982094,
+          "attn_entity_setup": 0.006293372251093388,
+          "attn_property": 0.006054573226720095
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.010947702452540398,
+          "attn_entity_setup": 0.014298534952104092,
+          "attn_property": 0.029841400682926178
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.00217858306132257,
+          "attn_entity_setup": 0.006203248165547848,
+          "attn_property": 0.014428751543164253
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0028797383420169353,
+          "attn_entity_setup": 0.005954822525382042,
+          "attn_property": 0.01412317156791687
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.007631339598447084,
+          "attn_entity_setup": 0.014593920670449734,
+          "attn_property": 0.024961017072200775
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.017339492216706276,
+          "attn_entity_setup": 0.013752195052802563,
+          "attn_property": 0.01342078484594822
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.009225216694176197,
+          "attn_entity_setup": 0.007523388136178255,
+          "attn_property": 0.015653574839234352
+        }
+      }
+    },
+    {
+      "item_id": "C-12",
+      "entity": "barn",
+      "property": "gambrel",
+      "seq_len": 80,
+      "entity_cue_positions": [
+        74
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0014220470329746604,
+          "attn_entity_setup": 0.0013465294614434242,
+          "attn_property": 0.0014046297874301672
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.027793653309345245,
+          "attn_entity_setup": 0.030952291563153267,
+          "attn_property": 0.044181711971759796
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.007887732237577438,
+          "attn_entity_setup": 0.005267116241157055,
+          "attn_property": 0.003758443985134363
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0006509083905257285,
+          "attn_entity_setup": 0.0036313896998763084,
+          "attn_property": 0.021073143929243088
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.015560870058834553,
+          "attn_entity_setup": 0.06011788547039032,
+          "attn_property": 0.10371804982423782
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.010089060291647911,
+          "attn_entity_setup": 0.024388333782553673,
+          "attn_property": 0.022960176691412926
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.02131078951060772,
+          "attn_entity_setup": 0.04865759611129761,
+          "attn_property": 0.062156595289707184
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.019169218838214874,
+          "attn_entity_setup": 0.06575433164834976,
+          "attn_property": 0.20195065438747406
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.006861049681901932,
+          "attn_entity_setup": 0.003928313031792641,
+          "attn_property": 0.004109574947506189
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.03041691705584526,
+          "attn_entity_setup": 0.03258717805147171,
+          "attn_property": 0.02981911227107048
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.028710637241601944,
+          "attn_entity_setup": 0.04929916188120842,
+          "attn_property": 0.11090916395187378
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.007570824585855007,
+          "attn_entity_setup": 0.016929812729358673,
+          "attn_property": 0.027768921107053757
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.00873550958931446,
+          "attn_entity_setup": 0.03440040349960327,
+          "attn_property": 0.015189130790531635
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.03039761818945408,
+          "attn_entity_setup": 0.04637747257947922,
+          "attn_property": 0.09470751881599426
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.022262005135416985,
+          "attn_entity_setup": 0.053292278200387955,
+          "attn_property": 0.043686430901288986
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0020953041967004538,
+          "attn_entity_setup": 0.012665166519582272,
+          "attn_property": 0.15184973180294037
+        }
+      }
+    },
+    {
+      "item_id": "C-13",
+      "entity": "fort",
+      "property": "earthen",
+      "seq_len": 75,
+      "entity_cue_positions": [
+        70
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        5,
+        6,
+        7
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.002650437643751502,
+          "attn_entity_setup": 0.002554967300966382,
+          "attn_property": 0.004234940279275179
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.06499551981687546,
+          "attn_entity_setup": 0.053330663591623306,
+          "attn_property": 0.003684170078486204
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.008359285071492195,
+          "attn_entity_setup": 0.005007594358175993,
+          "attn_property": 0.007997160777449608
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0006688842549920082,
+          "attn_entity_setup": 0.010353872552514076,
+          "attn_property": 0.0058779045939445496
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.006778473500162363,
+          "attn_entity_setup": 0.03455467149615288,
+          "attn_property": 0.0031040548346936703
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.012015575543045998,
+          "attn_entity_setup": 0.03485405445098877,
+          "attn_property": 0.004968155175447464
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.005132877267897129,
+          "attn_entity_setup": 0.012279963120818138,
+          "attn_property": 0.017118515446782112
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.00833735242486,
+          "attn_entity_setup": 0.03440132737159729,
+          "attn_property": 0.0474189855158329
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.014519568532705307,
+          "attn_entity_setup": 0.01673896424472332,
+          "attn_property": 0.009573154151439667
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.010452973656356335,
+          "attn_entity_setup": 0.028286095708608627,
+          "attn_property": 0.010726154781877995
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.014535240828990936,
+          "attn_entity_setup": 0.03574681654572487,
+          "attn_property": 0.01380852423608303
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.004762715194374323,
+          "attn_entity_setup": 0.015638111159205437,
+          "attn_property": 0.10853125154972076
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.007912591099739075,
+          "attn_entity_setup": 0.021536802873015404,
+          "attn_property": 0.01675492152571678
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.014857981353998184,
+          "attn_entity_setup": 0.049036044627428055,
+          "attn_property": 0.022927263751626015
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.007393643260002136,
+          "attn_entity_setup": 0.019924521446228027,
+          "attn_property": 0.02068524993956089
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.010188501328229904,
+          "attn_entity_setup": 0.02600901387631893,
+          "attn_property": 0.002385546453297138
+        }
+      }
+    },
+    {
+      "item_id": "C-14",
+      "entity": "cathedral",
+      "property": "gothic",
+      "seq_len": 74,
+      "entity_cue_positions": [
+        71
+      ],
+      "entity_setup_positions": [
+        1
+      ],
+      "property_setup_positions": [
+        3,
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 1,
+      "n_entity_setup_tokens": 1,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.009131698869168758,
+          "attn_entity_setup": 0.007967897690832615,
+          "attn_property": 0.002935840282589197
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.011652442626655102,
+          "attn_entity_setup": 0.009886537678539753,
+          "attn_property": 0.005779408849775791
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0044184294529259205,
+          "attn_entity_setup": 0.003436747472733259,
+          "attn_property": 0.027848999947309494
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0007888276595622301,
+          "attn_entity_setup": 0.0058036562986671925,
+          "attn_property": 0.003953924402594566
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.012121746316552162,
+          "attn_entity_setup": 0.014314979314804077,
+          "attn_property": 0.00982274953275919
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0056822653859853745,
+          "attn_entity_setup": 0.007777635473757982,
+          "attn_property": 0.016500039026141167
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.009868689812719822,
+          "attn_entity_setup": 0.016218267381191254,
+          "attn_property": 0.030248943716287613
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.024111909791827202,
+          "attn_entity_setup": 0.045018017292022705,
+          "attn_property": 0.04596101492643356
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.027042539790272713,
+          "attn_entity_setup": 0.022742440924048424,
+          "attn_property": 0.015235724858939648
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.045529358088970184,
+          "attn_entity_setup": 0.03461001440882683,
+          "attn_property": 0.024412337690591812
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.03360976278781891,
+          "attn_entity_setup": 0.06140616163611412,
+          "attn_property": 0.03308539465069771
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.004195576999336481,
+          "attn_entity_setup": 0.01352294348180294,
+          "attn_property": 0.05817475914955139
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.004445772152394056,
+          "attn_entity_setup": 0.010693792253732681,
+          "attn_property": 0.009695036336779594
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.018316082656383514,
+          "attn_entity_setup": 0.02630685456097126,
+          "attn_property": 0.03582749515771866
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.01761678047478199,
+          "attn_entity_setup": 0.022638576105237007,
+          "attn_property": 0.028751187026500702
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.006322077475488186,
+          "attn_entity_setup": 0.006366970017552376,
+          "attn_property": 0.011638717725872993
+        }
+      }
+    },
+    {
+      "item_id": "C-15",
+      "entity": "windmill",
+      "property": "wooden",
+      "seq_len": 69,
+      "entity_cue_positions": [
+        63,
+        64
+      ],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4
+      ],
+      "n_entity_cue_tokens": 2,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.004471437074244022,
+          "attn_entity_setup": 0.0041739363223314285,
+          "attn_property": 0.0010700342245399952
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.007582666352391243,
+          "attn_entity_setup": 0.008876793086528778,
+          "attn_property": 0.0056001851335167885
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.003073145402595401,
+          "attn_entity_setup": 0.006418166682124138,
+          "attn_property": 0.006170029751956463
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0059813763946294785,
+          "attn_entity_setup": 0.010028071701526642,
+          "attn_property": 0.00045559409772977233
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.006248329300433397,
+          "attn_entity_setup": 0.03667795658111572,
+          "attn_property": 0.011516626924276352
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.010864363051950932,
+          "attn_entity_setup": 0.02734200842678547,
+          "attn_property": 0.010958964936435223
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.008510544896125793,
+          "attn_entity_setup": 0.04335727542638779,
+          "attn_property": 0.05323219671845436
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.03205081820487976,
+          "attn_entity_setup": 0.07971683889627457,
+          "attn_property": 0.05939887464046478
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.02541305683553219,
+          "attn_entity_setup": 0.024146899580955505,
+          "attn_property": 0.009414426051080227
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.006802314426749945,
+          "attn_entity_setup": 0.018399639055132866,
+          "attn_property": 0.008367771282792091
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.023489871993660927,
+          "attn_entity_setup": 0.046386826783418655,
+          "attn_property": 0.018152642995119095
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.016282564029097557,
+          "attn_entity_setup": 0.03459835797548294,
+          "attn_property": 0.013956020586192608
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.005662736017256975,
+          "attn_entity_setup": 0.02292846515774727,
+          "attn_property": 0.007511506788432598
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.015924979001283646,
+          "attn_entity_setup": 0.036138489842414856,
+          "attn_property": 0.013636510819196701
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.009332920424640179,
+          "attn_entity_setup": 0.022728905081748962,
+          "attn_property": 0.035793911665678024
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.007065982557833195,
+          "attn_entity_setup": 0.02612595446407795,
+          "attn_property": 0.004875288810580969
+        }
+      }
+    },
+    {
+      "item_id": "C-16",
+      "entity": "abbey",
+      "property": "ruined",
+      "seq_len": 81,
+      "entity_cue_positions": [],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4
+      ],
+      "n_entity_cue_tokens": 0,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 1,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.003339594230055809,
+          "attn_property": 0.0016287164762616158
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.01999453827738762,
+          "attn_property": 0.061145804822444916
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.0076824682764709,
+          "attn_property": 0.013406598009169102
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.1580934077501297,
+          "attn_property": 0.03043600171804428
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.1485891044139862,
+          "attn_property": 0.01298843789845705
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.04284311830997467,
+          "attn_property": 0.027306577190756798
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.16375775635242462,
+          "attn_property": 0.002425696700811386
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.17622429132461548,
+          "attn_property": 0.00415358692407608
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.038024045526981354,
+          "attn_property": 0.006134286057204008
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.12835174798965454,
+          "attn_property": 0.008868340402841568
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.12112356722354889,
+          "attn_property": 0.0036946572363376617
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.08889037370681763,
+          "attn_property": 0.003989558666944504
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.07845987379550934,
+          "attn_property": 0.013997631147503853
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.16286486387252808,
+          "attn_property": 0.004296110011637211
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.0503402054309845,
+          "attn_property": 0.009499677456915379
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.08274686336517334,
+          "attn_property": 0.023168329149484634
+        }
+      }
+    },
+    {
+      "item_id": "C-17",
+      "entity": "lockhouse",
+      "property": "redbrick",
+      "seq_len": 85,
+      "entity_cue_positions": [],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        6,
+        7,
+        8
+      ],
+      "n_entity_cue_tokens": 0,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 3,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.005510535091161728,
+          "attn_property": 0.002503526397049427
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.017864840105175972,
+          "attn_property": 0.039562009274959564
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.008401140570640564,
+          "attn_property": 0.015388301573693752
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.12216552346944809,
+          "attn_property": 0.0030671178828924894
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.25940364599227905,
+          "attn_property": 0.02770211175084114
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.35678890347480774,
+          "attn_property": 0.013651515357196331
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.17062732577323914,
+          "attn_property": 0.002329656621441245
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.1439323127269745,
+          "attn_property": 0.0172665324062109
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.019372671842575073,
+          "attn_property": 0.02925039827823639
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.18380288779735565,
+          "attn_property": 0.01310516707599163
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.06530936062335968,
+          "attn_property": 0.009808355011045933
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.033975012600421906,
+          "attn_property": 0.014826485887169838
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.08083254843950272,
+          "attn_property": 0.010701769962906837
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.11200495064258575,
+          "attn_property": 0.03223586827516556
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.154816672205925,
+          "attn_property": 0.007177409250289202
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.35688886046409607,
+          "attn_property": 0.00346754165366292
+        }
+      }
+    },
+    {
+      "item_id": "C-18",
+      "entity": "gatehouse",
+      "property": "mossy",
+      "seq_len": 78,
+      "entity_cue_positions": [
+        72,
+        73
+      ],
+      "entity_setup_positions": [
+        1,
+        2
+      ],
+      "property_setup_positions": [
+        4,
+        5
+      ],
+      "n_entity_cue_tokens": 2,
+      "n_entity_setup_tokens": 2,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0034077721647918224,
+          "attn_entity_setup": 0.0030828015878796577,
+          "attn_property": 0.0026038712821900845
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.02992260456085205,
+          "attn_entity_setup": 0.07007088512182236,
+          "attn_property": 0.10939151048660278
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.007909326814115047,
+          "attn_entity_setup": 0.008366834372282028,
+          "attn_property": 0.016621531918644905
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0028522778302431107,
+          "attn_entity_setup": 0.007936688140034676,
+          "attn_property": 0.011509773321449757
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.014945248141884804,
+          "attn_entity_setup": 0.035459235310554504,
+          "attn_property": 0.10275646299123764
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.017866091802716255,
+          "attn_entity_setup": 0.03429834172129631,
+          "attn_property": 0.057608187198638916
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.015206015668809414,
+          "attn_entity_setup": 0.03043453022837639,
+          "attn_property": 0.043633319437503815
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.012032721191644669,
+          "attn_entity_setup": 0.025494089350104332,
+          "attn_property": 0.15204471349716187
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.008488466963171959,
+          "attn_entity_setup": 0.01007365994155407,
+          "attn_property": 0.008497977629303932
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.023088034242391586,
+          "attn_entity_setup": 0.032838620245456696,
+          "attn_property": 0.010954707860946655
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.021923042833805084,
+          "attn_entity_setup": 0.044136349111795425,
+          "attn_property": 0.05006518214941025
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.009357934817671776,
+          "attn_entity_setup": 0.022127382457256317,
+          "attn_property": 0.019169893115758896
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.006128435023128986,
+          "attn_entity_setup": 0.03041752427816391,
+          "attn_property": 0.0199638269841671
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0066274250857532024,
+          "attn_entity_setup": 0.019380012527108192,
+          "attn_property": 0.02817516401410103
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.017460722476243973,
+          "attn_entity_setup": 0.03616379201412201,
+          "attn_property": 0.024212371557950974
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0067800190299749374,
+          "attn_entity_setup": 0.017781609669327736,
+          "attn_property": 0.05952856317162514
+        }
+      }
+    },
+    {
+      "item_id": "C-19",
+      "entity": "dovecote",
+      "property": "hexagonal",
+      "seq_len": 76,
+      "entity_cue_positions": [],
+      "entity_setup_positions": [
+        1,
+        2,
+        3
+      ],
+      "property_setup_positions": [
+        5,
+        6
+      ],
+      "n_entity_cue_tokens": 0,
+      "n_entity_setup_tokens": 3,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.00530405156314373,
+          "attn_property": 0.0028576646000146866
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.01556982472538948,
+          "attn_property": 0.0061341747641563416
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.0024177622981369495,
+          "attn_property": 0.006010978948324919
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.08143763244152069,
+          "attn_property": 0.009178896434605122
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.02277653105556965,
+          "attn_property": 0.019351180642843246
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.00912686437368393,
+          "attn_property": 0.02540605328977108
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.11110282689332962,
+          "attn_property": 0.06557959318161011
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.09830275177955627,
+          "attn_property": 0.047285739332437515
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.026208925992250443,
+          "attn_property": 0.017485933378338814
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.03322427719831467,
+          "attn_property": 0.017464134842157364
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.047073736786842346,
+          "attn_property": 0.0437556616961956
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.0889819860458374,
+          "attn_property": 0.035894326865673065
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.4037979245185852,
+          "attn_property": 0.0038942727260291576
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.08585032820701599,
+          "attn_property": 0.05548322945833206
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.04179311543703079,
+          "attn_property": 0.024988770484924316
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0,
+          "attn_entity_setup": 0.03801560029387474,
+          "attn_property": 0.01436695083975792
+        }
+      }
+    },
+    {
+      "item_id": "C-20",
+      "entity": "boathouse",
+      "property": "cedar",
+      "seq_len": 82,
+      "entity_cue_positions": [
+        77,
+        78,
+        79
+      ],
+      "entity_setup_positions": [
+        1,
+        2,
+        3
+      ],
+      "property_setup_positions": [
+        7,
+        8
+      ],
+      "n_entity_cue_tokens": 3,
+      "n_entity_setup_tokens": 3,
+      "n_property_tokens": 2,
+      "per_head": {
+        "L4H10": {
+          "attn_entity_cue": 0.0011570120695978403,
+          "attn_entity_setup": 0.001032436965033412,
+          "attn_property": 0.0020345812663435936
+        },
+        "L7H1": {
+          "attn_entity_cue": 0.003285457845777273,
+          "attn_entity_setup": 0.002994694747030735,
+          "attn_property": 0.00029637894476763904
+        },
+        "L8H2": {
+          "attn_entity_cue": 0.007936186157166958,
+          "attn_entity_setup": 0.005189944989979267,
+          "attn_property": 0.005648611579090357
+        },
+        "L9H4": {
+          "attn_entity_cue": 0.0008212772663682699,
+          "attn_entity_setup": 0.0015589548274874687,
+          "attn_property": 0.0004358816077001393
+        },
+        "L9H6": {
+          "attn_entity_cue": 0.003985635470598936,
+          "attn_entity_setup": 0.007258250378072262,
+          "attn_property": 0.0025552171282470226
+        },
+        "L10H1": {
+          "attn_entity_cue": 0.0045655956491827965,
+          "attn_entity_setup": 0.004984327591955662,
+          "attn_property": 0.0005705926450900733
+        },
+        "L10H2": {
+          "attn_entity_cue": 0.003832797287032008,
+          "attn_entity_setup": 0.007370638661086559,
+          "attn_property": 0.0025157243944704533
+        },
+        "L10H10": {
+          "attn_entity_cue": 0.006020863074809313,
+          "attn_entity_setup": 0.026330063119530678,
+          "attn_property": 0.0053198630921542645
+        },
+        "L11H0": {
+          "attn_entity_cue": 0.02433105558156967,
+          "attn_entity_setup": 0.01787850260734558,
+          "attn_property": 0.009845259599387646
+        },
+        "L11H1": {
+          "attn_entity_cue": 0.02535535953938961,
+          "attn_entity_setup": 0.031363822519779205,
+          "attn_property": 0.00630648247897625
+        },
+        "L11H2": {
+          "attn_entity_cue": 0.011828931979835033,
+          "attn_entity_setup": 0.022076454013586044,
+          "attn_property": 0.006589637603610754
+        },
+        "L11H4": {
+          "attn_entity_cue": 0.019303476437926292,
+          "attn_entity_setup": 0.04037565365433693,
+          "attn_property": 0.04978149011731148
+        },
+        "L11H5": {
+          "attn_entity_cue": 0.002976653166115284,
+          "attn_entity_setup": 0.013532017357647419,
+          "attn_property": 0.0008713630959391594
+        },
+        "L11H6": {
+          "attn_entity_cue": 0.013903594575822353,
+          "attn_entity_setup": 0.03694899380207062,
+          "attn_property": 0.00252829072996974
+        },
+        "L11H7": {
+          "attn_entity_cue": 0.018697528168559074,
+          "attn_entity_setup": 0.024702392518520355,
+          "attn_property": 0.0024339924566447735
+        },
+        "L11H9": {
+          "attn_entity_cue": 0.0022480483166873455,
+          "attn_entity_setup": 0.003054749919101596,
+          "attn_property": 0.00013216977822594345
+        }
+      }
+    }
+  ],
+  "head_means": {
+    "L4H10": {
+      "mean_attn_entity_cue": 0.00430987844010815,
+      "mean_attn_entity_setup": 0.005428555276012048,
+      "mean_attn_property": 0.0028674488537944855,
+      "ratio_entity_cue_over_property": 1.5025118660933732
+    },
+    "L7H1": {
+      "mean_attn_entity_cue": 0.01081359388990677,
+      "mean_attn_entity_setup": 0.015979916931246407,
+      "mean_attn_property": 0.03693793957791058,
+      "ratio_entity_cue_over_property": 0.2927424017438031
+    },
+    "L8H2": {
+      "mean_attn_entity_cue": 0.010140425467398018,
+      "mean_attn_entity_setup": 0.0072401598445139825,
+      "mean_attn_property": 0.010329191363416612,
+      "ratio_entity_cue_over_property": 0.9816299728298711
+    },
+    "L9H4": {
+      "mean_attn_entity_cue": 0.001281347093936347,
+      "mean_attn_entity_setup": 0.027259770093951374,
+      "mean_attn_property": 0.026272820692975075,
+      "ratio_entity_cue_over_property": 0.0487689669846512
+    },
+    "L9H6": {
+      "mean_attn_entity_cue": 0.00568670998327434,
+      "mean_attn_entity_setup": 0.04886624536011368,
+      "mean_attn_property": 0.069683235604316,
+      "ratio_entity_cue_over_property": 0.08160683595016899
+    },
+    "L10H1": {
+      "mean_attn_entity_cue": 0.0048254932320560325,
+      "mean_attn_entity_setup": 0.05934914107201621,
+      "mean_attn_property": 0.05813725931511726,
+      "ratio_entity_cue_over_property": 0.0830003045997852
+    },
+    "L10H2": {
+      "mean_attn_entity_cue": 0.005196945427451282,
+      "mean_attn_entity_setup": 0.04836883862735704,
+      "mean_attn_property": 0.03287641140050255,
+      "ratio_entity_cue_over_property": 0.15807039563254194
+    },
+    "L10H10": {
+      "mean_attn_entity_cue": 0.008105390003765933,
+      "mean_attn_entity_setup": 0.06719768701586873,
+      "mean_attn_property": 0.0714128507534042,
+      "ratio_entity_cue_over_property": 0.11349885096876056
+    },
+    "L11H0": {
+      "mean_attn_entity_cue": 0.01159983494435437,
+      "mean_attn_entity_setup": 0.018130690261023118,
+      "mean_attn_property": 0.015362445125356316,
+      "ratio_entity_cue_over_property": 0.7550282407172878
+    },
+    "L11H1": {
+      "mean_attn_entity_cue": 0.016254600463435055,
+      "mean_attn_entity_setup": 0.04193068793974817,
+      "mean_attn_property": 0.017961634020321072,
+      "ratio_entity_cue_over_property": 0.9049118545223532
+    },
+    "L11H2": {
+      "mean_attn_entity_cue": 0.011633511271793396,
+      "mean_attn_entity_setup": 0.04588672642130405,
+      "mean_attn_property": 0.035139152000192554,
+      "ratio_entity_cue_over_property": 0.3310603571586614
+    },
+    "L11H4": {
+      "mean_attn_entity_cue": 0.005069306393852458,
+      "mean_attn_entity_setup": 0.026537221297621726,
+      "mean_attn_property": 0.029157251864671708,
+      "ratio_entity_cue_over_property": 0.1738549491025714
+    },
+    "L11H5": {
+      "mean_attn_entity_cue": 0.004212802529218606,
+      "mean_attn_entity_setup": 0.04910798087948933,
+      "mean_attn_property": 0.016378760692896323,
+      "ratio_entity_cue_over_property": 0.2571956091547565
+    },
+    "L11H6": {
+      "mean_attn_entity_cue": 0.006984339619521052,
+      "mean_attn_entity_setup": 0.03930654177092947,
+      "mean_attn_property": 0.03965882334159687,
+      "ratio_entity_cue_over_property": 0.1761061707048903
+    },
+    "L11H7": {
+      "mean_attn_entity_cue": 0.011206534039229155,
+      "mean_attn_entity_setup": 0.04308696095831692,
+      "mean_attn_property": 0.02670819282066077,
+      "ratio_entity_cue_over_property": 0.41957591584573806
+    },
+    "L11H9": {
+      "mean_attn_entity_cue": 0.003456276592623908,
+      "mean_attn_entity_setup": 0.03965574576868676,
+      "mean_attn_property": 0.03793319386750227,
+      "ratio_entity_cue_over_property": 0.09111243024423027
+    }
+  },
+  "entity_cue_property_ratios_ranked": [
+    {
+      "head": "L4H10",
+      "ratio": 1.5025118660933732,
+      "rank": 1
+    },
+    {
+      "head": "L8H2",
+      "ratio": 0.9816299728298711,
+      "rank": 2
+    },
+    {
+      "head": "L11H1",
+      "ratio": 0.9049118545223532,
+      "rank": 3
+    },
+    {
+      "head": "L11H0",
+      "ratio": 0.7550282407172878,
+      "rank": 4
+    },
+    {
+      "head": "L11H7",
+      "ratio": 0.41957591584573806,
+      "rank": 5
+    },
+    {
+      "head": "L11H2",
+      "ratio": 0.3310603571586614,
+      "rank": 6
+    },
+    {
+      "head": "L7H1",
+      "ratio": 0.2927424017438031,
+      "rank": 7
+    },
+    {
+      "head": "L11H5",
+      "ratio": 0.2571956091547565,
+      "rank": 8
+    },
+    {
+      "head": "L11H6",
+      "ratio": 0.1761061707048903,
+      "rank": 9
+    },
+    {
+      "head": "L11H4",
+      "ratio": 0.1738549491025714,
+      "rank": 10
+    },
+    {
+      "head": "L10H2",
+      "ratio": 0.15807039563254194,
+      "rank": 11
+    },
+    {
+      "head": "L10H10",
+      "ratio": 0.11349885096876056,
+      "rank": 12
+    },
+    {
+      "head": "L11H9",
+      "ratio": 0.09111243024423027,
+      "rank": 13
+    },
+    {
+      "head": "L10H1",
+      "ratio": 0.0830003045997852,
+      "rank": 14
+    },
+    {
+      "head": "L9H6",
+      "ratio": 0.08160683595016899,
+      "rank": 15
+    },
+    {
+      "head": "L9H4",
+      "ratio": 0.0487689669846512,
+      "rank": 16
+    }
+  ],
+  "l4h10_rank_in_ratio_distribution": 1,
+  "hypothesis_results": {
+    "H_entity_anchor": {
+      "result": "dead",
+      "l4h10_mean_attn_entity_cue": 0.00430987844010815,
+      "l4h10_mean_attn_property": 0.0028674488537944855,
+      "ratio": 1.5025118660933732,
+      "k1_fires": true
+    },
+    "H_entity_specificity": {
+      "result": "confirmed",
+      "l4h10_rank": 1,
+      "k2_fires": false
+    },
+    "H_entity_setup_exploratory": {
+      "result": "confirmed",
+      "l4h10_mean_attn_entity_setup": 0.005428555276012048,
+      "l4h10_mean_attn_property": 0.0028674488537944855
+    }
+  },
+  "verdict": "partial",
+  "headline": "H_entity_anchor DEAD (ratio=1.50 < 2.0; K1 fires): absolute entity-cue attention too weak. H_entity_specificity CONFIRMED (L4H10 rank 1/16 in entity-cue/property ratio). Deep text-native heads (L9H6, L10H1, L10H2, L10H10) are property-lookup engines (attn-on-property 0.06-0.07). L4H10 is the most entity-cue-oriented head in the population but effect is weak."
+}
