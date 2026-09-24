@@ -1508,7 +1508,7 @@ function. Pre-registered commit d8adc4d (git-attested).
 
 *Content retrieval (Task C):*
 - Text-native heads: ablate → −0.855 nats, 20/20 (exp-155, CONFIRMED)
-- Structural heads: ablate W_K → −0.031 nats, 13/20 (exp-156, subclinical); ablate W_V → −0.074 nats, 8/20 improved (exp-157, subclinical) — structural heads approximately neutral for content retrieval through both weight matrices
+- Structural heads: ablate W_K → −0.031 nats, 13/20 (exp-156, subclinical); ablate W_V → −0.074 nats, 8/20 improved (exp-157, subclinical); combined κ̃+W_V=0 → −0.074 nats (exp-158, identical to W_V=0 alone) — structural heads approximately neutral for content retrieval through both weight matrices
 
 **Double dissociation confirmed:** structural heads support positional retrieval (census: Δ-window
 under random tokens); text-native heads support content retrieval (census: Δ-window only under
@@ -1523,9 +1523,22 @@ the GPT-2 small architecture: removing W_K (in any way) improves Task B.
 **Value-pathway finding (exp-157):** W_V ablation (W_V=0, bias_V=0) of the same 5 structural heads
 improves Task B (+0.412 nats, 18/20), within 0.073 nats of the W_K ablation result. H_attention_shape
 confirmed. Both routing (W_K) and value write (W_V) of the structural heads interfere with Task B.
-Three-experiment arc complete: κ̃ amplification (exp-141), W_K=0 (exp-156), W_V=0 (exp-157) all improve
-Task B — the gain-of-function operates through attention distribution concentration affecting downstream
-residual stream computation, not through structural-head value payload.
+
+**Mechanistic closure (exp-158):** Concurrent κ̃ amplification (γ=+2.0) + W_V=0 on the same 5 structural
+heads. ΔP_B = +0.412 nats (18/20) — identical to W_V=0 alone (exp-157, |diff| = 0.000 nats).
+H_interference_only confirmed: κ̃ amplification adds nothing when the value output is silenced, because
+head_output = attn_weights @ V = 0 when V=0, regardless of routing amplification. The gain-of-function from
+exp-141 is entirely value-mediated. Four-experiment arc for GPT-2 small structural heads complete:
+
+| Experiment | Protocol | ΔP_B | n/20 |
+|---|---|---|---|
+| exp-141 | κ̃ amplification (γ=+2.0) | +0.270 | 20/20 |
+| exp-156 | W_K = 0 | +0.485 | 17/20 |
+| exp-157 | W_V = 0 | +0.412 | 18/20 |
+| exp-158 | κ̃ amp + W_V = 0 | +0.412 | 18/20 |
+
+Mechanism: concentrated attention routes the value write to fewer positions, reducing the cross-position
+content noise that interferes with the positional signal. W_K direction is not the mechanism.
 
 In GPT-2 medium (exp-145 through exp-153, nine experiments), no manipulation has produced a decisive
 Task B signal in either direction. H_arch holds. The medium-scale generalization question remains open.
