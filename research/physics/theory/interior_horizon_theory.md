@@ -414,6 +414,19 @@ with the predictions and they are the discipline.
   > the protocol itself supplies. (The average query favors *later* keys — exp-138 notes,
   > direction corrected September 24.)
 
+  > **exp-161 (2026-09-25): PARTIAL.** Three non-overlapping pools (B: 256–511, C: 512–767,
+  > D: 768–1023) on 5 structural + 4 text-native Δ-window heads in GPT-2 small (N=200 sequences,
+  > seq_len=1024). Pool-dependence confirmed for 2/5 structural heads (L5H0: Δσ=0.052; L10H8:
+  > Δσ=0.064; L2H1 borderline 0.047) and all 4 text-native heads (Δσ = 0.054–0.151). Pre-registered
+  > K1 threshold (3/5 structural) formally not met, but the pattern is real and the text-native
+  > population strongly pool-sensitive. Two structural heads (L3H4: Δσ=0.014; L7H11: Δσ=0.015)
+  > are anomalously pool-stable. Direction: σ increases B → C ≤ D for most heads; H_direction
+  > prediction (decreasing) DEAD. The standard census pool (B) gives the *lowest* σ.
+  > Census exponent is not pool-invariant for most heads — corroborates exp-138's absolute-key
+  > finding. But the two pool-stable structural heads are unexplained. The OPEN box stands with
+  > sharper constraints: T1 as a uniform relative-lag law is not supported; the structural
+  > population is heterogeneous in pool-sensitivity. (exp-161; notes.md in folder)
+
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
 closing that gap is the theory's load-bearing empirical debt, and the whole
@@ -902,10 +915,13 @@ product at head level: ρ(Δ_score, Δ_pos) = +0.976 (exp-056). [ESTABLISHED-LIT
 > relative-lag restatement. Under softmax, a query-only term cancels, so a key
 > score *linear* in absolute position is exactly a relative, exponential-in-lag
 > law — ALiBi is built that way. A power law in lag has no such absolute
-> equivalent; an absolute term can only imitate one over a finite window from a
-> fixed query pool. The deciding measurement is the census from query pools at
-> different positions: a relative law looks the same from every pool, while
-> absolute drift changes shape. C4
+  > equivalent; an absolute term can only imitate one over a finite window from a
+  > fixed query pool. The deciding measurement is the census from query pools at
+  > different positions: a relative law looks the same from every pool, while
+  > absolute drift changes shape. **exp-161 (2026-09-25, PARTIAL): pool-dependence
+  > confirmed for 2/5 structural and all 4 text-native Δ-window heads; L3H4 and
+  > L7H11 structural heads pool-stable (Δσ<0.02). Census exponent heterogeneously
+  > absolute-position dependent; T1 as relative-lag law lacks clean support.** C4
 > (§2) offers T6 a formation-side route — a geometry learned from causal
 > relevance alone is at most conformal (Malament; dimension > 2, distinguishing)
 > — and says where to look: the text-native population (P7(e)).

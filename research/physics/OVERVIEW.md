@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 24, 2026 (exp-160 added: L4H10 entity-vs-property attention analysis — PARTIAL. H_entity_anchor DEAD (ratio=1.50 < 2.0 threshold); H_entity_specificity CONFIRMED (rank 1/16). Deep text-native heads are property-lookup engines (attn-on-property 0.06–0.07). L4H10 mechanism indirect — not direct entity or property token attention.)*
+*Last updated: September 25, 2026 (exp-161 added: census query-pool test — PARTIAL. Pool-dependence confirmed for 2/5 structural heads and all 4 text-native heads (Δσ 0.052–0.151 across pools B/C/D). Direction: σ increases with later pools (B < C ≤ D for most heads). Two structural heads (L3H4, L7H11) are notably pool-stable (Δσ < 0.02). Census exponent has absolute-position component; T1 as relative-lag law lacks clean support. Spine §1 OPEN box stands — sharper constraints added.)*
 
 ---
 
@@ -493,6 +493,27 @@ require worldly content at measurement time. (exp-095)
   conformal kernel directly — it is an absolute-position property of q̄ and k̄). See
   notes.md for implications for the Level-3 chain interpretation.
   (exp-138; `exp-138_spos_decomposition/notes.md`)
+
+- **Census query-pool test: pool-dependence confirmed for most heads (T1 challenge sharpened).** The
+  standard census reads queries from positions 256–511 only. If the census measures a relative-lag
+  law A(i,j) ~ |i−j|^{−2Δ}, σ_pos should be pool-invariant. The test: run the census from three
+  non-overlapping pools (B: 256–511, C: 512–767, D: 768–1023) on the 5 structural and 4 top
+  text-native Δ-window heads in GPT-2 small.
+
+  **Result (PARTIAL):** Pool-dependence confirmed for 2/5 structural heads (L5H0: Δσ=0.052;
+  L10H8: Δσ=0.064) and all 4 text-native heads (Δσ = 0.054–0.151). Pre-registered K1 threshold
+  was 3/5 structural heads — formally NOT_DEAD, but the pattern is real: σ increases monotonically
+  B → C → D for 3/5 structural heads (L2H1 Δσ=0.047, borderline). Direction prediction (H_direction:
+  decreasing) DEAD — the actual direction is increasing (σ grows with later pools). Two structural
+  heads (L3H4 Δσ=0.014; L7H11 Δσ=0.015) are anomalously pool-stable.
+
+  *What the result means:* Corroborates exp-138's finding that the census slope has a significant
+  absolute-key-position component. A pure relative-lag law would produce pool-invariant σ; most
+  heads do not. The standard census (pool B) gives the *lowest* σ — later pools give higher values.
+  The two pool-stable heads (L3H4, L7H11) remain unexplained: they may carry a genuine
+  relative-lag component, or their absolute-key effect is below the noise floor at N=200 sequences.
+  T1 as a relative-lag law lacks clean support. Spine §1 OPEN box stands; constraints sharpened.
+  Pre-registration: attention-geometry 64b914b (git-attested, before run.py). (exp-161)
 
 ## What was killed (published, not buried)
 
