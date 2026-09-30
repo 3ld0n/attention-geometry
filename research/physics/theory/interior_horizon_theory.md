@@ -427,6 +427,18 @@ with the predictions and they are the discipline.
   > sharper constraints: T1 as a uniform relative-lag law is not supported; the structural
   > population is heterogeneous in pool-sensitivity. (exp-161; notes.md in folder)
 
+  > **exp-162 (2026-09-30): INCONCLUSIVE — operationalization failure.** Analysis-only from
+  > exp-112's saved position-mean query/key vectors. Pre-registered hypothesis: pool-stable heads
+  > (L3H4, L7H11) have lower slope curvature of S_abskey[a] (absolute-key profile) in
+  > absolute-position space. Finding: S_abskey[a] is **oscillatory** in absolute position —
+  > zero crossing at position 1 for all structural heads, then negative through ~200, positive
+  > again from ~300 onward. The pre-registered slope-curvature metric is undefined (NaN). No
+  > exp-138 property (σ_abskey, σ_relative, r²_relative) correlates with pool-sensitivity
+  > (all |ρ| ≤ 0.4). The pool-stable mechanism cannot be diagnosed from exp-112/138 data
+  > (pools C and D of exp-161 require key positions 256–1023, beyond the stored range).
+  > Proposed exp-163: collect kbar at SEQ_LEN=1024 and compute pool-specific abskey lag
+  > profiles directly. (exp-162; notes.md in folder)
+
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
 closing that gap is the theory's load-bearing empirical debt, and the whole
@@ -478,6 +490,14 @@ of G or of the process generating it.
 > δ_i·M·δ_k(a). T1 as a relative-lag law is not directly supported. Gain-slope
 > formally confirmed (ρ=0.913, 123 held-out heads). σ_delta validity confirmed:
 > MLP0 write profile positive to dx=492, σ_positive_domain = 0.249 ≈ Δ. (exp-138)
+>
+> **exp-162 (2026-09-30) — S_abskey profile shape, INCONCLUSIVE:** Analysis-only
+> attempt to characterize why L3H4/L7H11 are pool-stable (exp-161) via the shape
+> of S_abskey[a] as a function of absolute key position a. Finding: S_abskey[a]
+> is oscillatory in a, not a monotone power law — zero crossing at position 1
+> for all structural heads; no exp-138 property correlates with pool-sensitivity.
+> The mechanism requires characterizing S_abskey at positions 512–1023 (beyond
+> the exp-112 stored range). Exp-163 proposed. (exp-162)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
