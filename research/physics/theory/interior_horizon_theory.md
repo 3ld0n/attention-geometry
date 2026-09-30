@@ -450,6 +450,16 @@ with the predictions and they are the discipline.
   > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
   > now ready: three experiments (exp-138, exp-161, exp-163) confirm the census measures
   > absolute-key-position drift locally, not a relative-lag power law.** (exp-163)
+  >
+  > **exp-164 (2026-09-30): FALSIFIED — H_relative dead.** New forward passes (same
+  > protocol as exp-163); saved full kbar/qbar arrays as npz. Tested whether the
+  > query×key relative interaction term S_relative[i,j] = dk_q[i]·dk_k[j]/√d
+  > DECREASES from query pool B→D for L3H4, canceling the S_abskey increase. K1 fires:
+  > L3H4's relative slope increases B→D (−0.28→−0.003), not decreases. All 5 structural
+  > heads show the relative term becoming less-negative from pool B to D — a universal
+  > structural pattern, not specific to pool-stable heads. The mechanism behind L3H4's
+  > pool-stability is not bilinear cancellation. kbar_qbar.npz on disk; next: softmax
+  > nonlinearity analysis from saved arrays (exp-165 candidate). (exp-164; notes.md)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -510,7 +520,7 @@ of G or of the process generating it.
 > for all structural heads; no exp-138 property correlates with pool-sensitivity.
 > Exp-163 followed. (exp-162)
 >
-> **exp-163 (2026-09-30) — Pool-stable mechanism confirmed, CONFIRMED:** New forward
+> **exp-163 (2026-09-30) — Pool-stable mechanism via kbar, CONFIRMED:** New forward
 > passes at SEQ_LEN=1024. Full S_abskey[a] profile for positions 0–1023: large
 > positive spike at a=0, long negative trough through positions 1–~510, zero
 > crossing near position ~511, monotone positive rise through 1023. Pool-stable
@@ -520,6 +530,12 @@ of G or of the process generating it.
 > >0.05. The A1 implication: the census primitive is absolute-key-position drift
 > with a structured oscillatory profile; the theory's relation-vs-state question
 > is sharpened by knowing what exactly the census observable measures. (exp-163)
+>
+> **exp-164 (2026-09-30) — Bilinear decomposition of pool-stability, FALSIFIED:**
+> Tested H_relative: the query×key interaction term S_relative[i,j] decreasing
+> from pool B→D for L3H4, canceling the S_abskey increase. K1 fires — relative
+> slope increases B→D (−0.28→−0.003) for L3H4; all heads show same direction.
+> kbar_qbar.npz saved; mechanism remains open. (exp-164)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

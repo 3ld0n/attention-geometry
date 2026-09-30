@@ -1,0 +1,132 @@
+{
+  "experiment": "exp-164",
+  "date": "2026-09-30",
+  "prereg_commit": "32cf3b7",
+  "prereg_evidence": "git-attested \u2014 32cf3b7 committed and pushed before run.py was written",
+  "model": "gpt2",
+  "seq_len": 1024,
+  "n_seqs": 200,
+  "seed": 42,
+  "elapsed_s": 61.5,
+  "npz_saved": "/Users/ariel/attention-geometry/research/physics/experiments/exp-164_l3h4_bilinear_decomposition/kbar_qbar.npz",
+  "heads": {
+    "L2H1": {
+      "abskey_pool_slopes": {
+        "B": 1.991189,
+        "C": 3.263918,
+        "D": 7.18863
+      },
+      "abskey_cross_pool_range": 5.197441,
+      "rel_pool_slopes": {
+        "B": -0.182345,
+        "C": -0.172545,
+        "D": -0.134049
+      },
+      "rel_cross_pool_range": 0.048297,
+      "rel_B_to_D_delta": 0.048297,
+      "exp163_delta_sigma": 0.0517
+    },
+    "L3H4": {
+      "abskey_pool_slopes": {
+        "B": 1.853429,
+        "C": 4.64151,
+        "D": 7.297904
+      },
+      "abskey_cross_pool_range": 5.444475,
+      "rel_pool_slopes": {
+        "B": -0.280278,
+        "C": -0.043336,
+        "D": -0.002671
+      },
+      "rel_cross_pool_range": 0.277607,
+      "rel_B_to_D_delta": 0.277607,
+      "exp163_delta_sigma": 0.0141
+    },
+    "L5H0": {
+      "abskey_pool_slopes": {
+        "B": 1.717267,
+        "C": 4.418122,
+        "D": 7.927965
+      },
+      "abskey_cross_pool_range": 6.210697,
+      "rel_pool_slopes": {
+        "B": -0.247303,
+        "C": 0.013471,
+        "D": 0.073162
+      },
+      "rel_cross_pool_range": 0.320466,
+      "rel_B_to_D_delta": 0.320466,
+      "exp163_delta_sigma": 0.0557
+    },
+    "L7H11": {
+      "abskey_pool_slopes": {
+        "B": 1.545756,
+        "C": 3.391473,
+        "D": 5.351723
+      },
+      "abskey_cross_pool_range": 3.805967,
+      "rel_pool_slopes": {
+        "B": -0.158408,
+        "C": -0.014936,
+        "D": 0.031694
+      },
+      "rel_cross_pool_range": 0.190102,
+      "rel_B_to_D_delta": 0.190102,
+      "exp163_delta_sigma": 0.0177
+    },
+    "L10H8": {
+      "abskey_pool_slopes": {
+        "B": 2.065164,
+        "C": 4.931398,
+        "D": 9.758212
+      },
+      "abskey_cross_pool_range": 7.693048,
+      "rel_pool_slopes": {
+        "B": -0.262614,
+        "C": -0.032,
+        "D": 0.065449
+      },
+      "rel_cross_pool_range": 0.328064,
+      "rel_B_to_D_delta": 0.328064,
+      "exp163_delta_sigma": 0.0695
+    }
+  },
+  "kill_conditions": {
+    "K1_fires": true,
+    "K2_fires": false
+  },
+  "verdict": "H_RELATIVE FALSIFIED",
+  "verdict_detail": "K1 fires: L3H4 rel_slope_D \u2265 rel_slope_B (\u0394=+0.2776). No cancellation mechanism from relative term.",
+  "exp163_sigma_reference": {
+    "L2H1": {
+      "B": 0.2707,
+      "C": 0.3172,
+      "D": 0.3224,
+      "delta": 0.0517
+    },
+    "L3H4": {
+      "B": 0.2954,
+      "C": 0.3096,
+      "D": 0.3093,
+      "delta": 0.0141
+    },
+    "L5H0": {
+      "B": 0.2222,
+      "C": 0.2532,
+      "D": 0.2779,
+      "delta": 0.0557
+    },
+    "L7H11": {
+      "B": 0.21,
+      "C": 0.2113,
+      "D": 0.2277,
+      "delta": 0.0177
+    },
+    "L10H8": {
+      "B": 0.2822,
+      "C": 0.2886,
+      "D": 0.3516,
+      "delta": 0.0695
+    }
+  }
+}

@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 30, 2026 (exp-163 added: pool-stable mechanism via kbar at SEQ_LEN=1024 — CONFIRMED (H1 and H2). Pool-stable heads L3H4/L7H11 have lower cross-pool S_abskey slope range; Spearman ρ=0.700 with exp-161 Δσ. Direct census confirms clean separation: pool-stable Δσ<0.02, pool-sensitive Δσ>0.05. Key finding: S_abskey has a zero crossing near position 511 for all structural heads and monotone positive rise to 1023. exp-162 result (S_abskey oscillatory, NaN metric) referenced. T1 restatement conversation ready.)*
+*Last updated: September 30, 2026 (exp-164 added: bilinear decomposition of L3H4 pool-stability — H_relative FALSIFIED. The query×key relative term does not cancel the S_abskey increase B→D; mechanism remains open. kbar_qbar.npz on disk for softmax nonlinearity follow-on. exp-163: pool-stable mechanism via kbar CONFIRMED (Spearman ρ=0.700; pool-stable Δσ<0.02, pool-sensitive Δσ>0.05; S_abskey zero crossing near position 511 universal across structural heads).)*
 
 ---
 
@@ -541,6 +541,15 @@ require worldly content at measurement time. (exp-095)
   the S_abskey profile's zero crossing near 511 and positive recovery phase are the structural
   origin of pool-sensitivity. Pre-registration: attention-geometry fff5fc2 (git-attested, before
   run.py). (exp-163)
+
+- **The relative-term cancellation hypothesis — FALSIFIED (exp-164, 2026-09-30).**
+  H_relative (that the query×key interaction term S_relative[i,j] = dk_q[i]·dk_k[j]/√d
+  decreases from pool B→D for L3H4, offsetting the S_abskey increase) was falsified: K1
+  fires. All 5 structural heads show the relative term becoming less-negative from pool B to
+  pool D — a universal structural feature, not a pool-stable-specific cancellation.
+  kbar_qbar.npz saved for follow-on analysis. The mechanism behind L3H4's pool-stability
+  remains open; the honest negative is the next experiment's foundation.
+  Pre-registration: attention-geometry 32cf3b7 (git-attested, before run.py). (exp-164)
 
 ## What was killed (published, not buried)
 
