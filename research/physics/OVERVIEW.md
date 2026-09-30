@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 25, 2026 (exp-161 added: census query-pool test — PARTIAL. Pool-dependence confirmed for 2/5 structural heads and all 4 text-native heads (Δσ 0.052–0.151 across pools B/C/D). Direction: σ increases with later pools (B < C ≤ D for most heads). Two structural heads (L3H4, L7H11) are notably pool-stable (Δσ < 0.02). Census exponent has absolute-position component; T1 as relative-lag law lacks clean support. Spine §1 OPEN box stands — sharper constraints added.)*
+*Last updated: September 30, 2026 (exp-163 added: pool-stable mechanism via kbar at SEQ_LEN=1024 — CONFIRMED (H1 and H2). Pool-stable heads L3H4/L7H11 have lower cross-pool S_abskey slope range; Spearman ρ=0.700 with exp-161 Δσ. Direct census confirms clean separation: pool-stable Δσ<0.02, pool-sensitive Δσ>0.05. Key finding: S_abskey has a zero crossing near position 511 for all structural heads and monotone positive rise to 1023. exp-162 result (S_abskey oscillatory, NaN metric) referenced. T1 restatement conversation ready.)*
 
 ---
 
@@ -510,10 +510,37 @@ require worldly content at measurement time. (exp-095)
   *What the result means:* Corroborates exp-138's finding that the census slope has a significant
   absolute-key-position component. A pure relative-lag law would produce pool-invariant σ; most
   heads do not. The standard census (pool B) gives the *lowest* σ — later pools give higher values.
-  The two pool-stable heads (L3H4, L7H11) remain unexplained: they may carry a genuine
-  relative-lag component, or their absolute-key effect is below the noise floor at N=200 sequences.
-  T1 as a relative-lag law lacks clean support. Spine §1 OPEN box stands; constraints sharpened.
   Pre-registration: attention-geometry 64b914b (git-attested, before run.py). (exp-161)
+
+- **Pool-stable mechanism confirmed via kbar at SEQ_LEN=1024.** exp-162 (analysis-only from
+  exp-112's npz, SEQ_LEN=512) found S_abskey[a] is oscillatory — zero crossing near position 1,
+  not a monotone decay — and the pre-registered slope metric was undefined (NaN). exp-163
+  extended to SEQ_LEN=1024 with new forward passes.
+
+  **H1 (kbar mechanism):** Pool-stable heads (L3H4, L7H11) have lower mean cross-pool S_abskey
+  slope range (4.63) than pool-sensitive heads (L2H1, L5H0, L10H8) (6.37). Spearman ρ=0.700
+  between cross-pool slope range and exp-161 Δσ values. K1 and K2 not fired. **CONFIRMED**
+  (with nuance: L3H4 slope range 5.44 slightly exceeds L2H1 5.20 — likely a residual
+  query-side contribution for L3H4).
+
+  **H2 (direct census replication):** Pool-stability replicates cleanly at SEQ_LEN=1024.
+  Clean separation: pool-stable L3H4 Δσ=0.0141, L7H11 Δσ=0.0177 (both < 0.020); pool-sensitive
+  L2H1=0.0517, L5H0=0.0557, L10H8=0.0695 (all > 0.050). Gap between classes ~0.03. K3 not fired.
+
+  **Key structural finding:** S_abskey[a] has a zero crossing near position ~511 for ALL five
+  structural heads, then rises monotonically to position 1023. Pool-sensitive heads show a steeper
+  rise in the 512–1023 range (slope range 5.2–7.7); pool-stable L7H11 has the flattest recovery
+  (range 3.8). The pool-stability behavioral class is confirmed as clean and reproducible.
+
+  *What the result means:* The mechanism behind pool-stability is partially characterized:
+  L7H11's S_abskey profile has a more uniform slope across the 256–1023 range, making its
+  apparent σ more stable across query pools. L3H4 has a steeper kbar profile than its census
+  behavior would predict — a query-side contribution (not yet measured) likely partially cancels
+  the key-side variation. The T1 restatement conversation (seeded by exp-138, sharpened by
+  exp-161/162/163) is now ready: the census measures absolute-key-position drift locally, and
+  the S_abskey profile's zero crossing near 511 and positive recovery phase are the structural
+  origin of pool-sensitivity. Pre-registration: attention-geometry fff5fc2 (git-attested, before
+  run.py). (exp-163)
 
 ## What was killed (published, not buried)
 

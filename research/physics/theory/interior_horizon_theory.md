@@ -436,8 +436,20 @@ with the predictions and they are the discipline.
   > exp-138 property (σ_abskey, σ_relative, r²_relative) correlates with pool-sensitivity
   > (all |ρ| ≤ 0.4). The pool-stable mechanism cannot be diagnosed from exp-112/138 data
   > (pools C and D of exp-161 require key positions 256–1023, beyond the stored range).
-  > Proposed exp-163: collect kbar at SEQ_LEN=1024 and compute pool-specific abskey lag
-  > profiles directly. (exp-162; notes.md in folder)
+  > (exp-162; notes.md in folder)
+
+  > **exp-163 (2026-09-30): CONFIRMED (H1 and H2).** New forward passes at SEQ_LEN=1024.
+  > H1 (kbar mechanism): pool-stable heads have lower mean cross-pool S_abskey slope range
+  > (4.63 vs 6.37 for sensitive); Spearman ρ=0.700 with exp-161 Δσ values; K1 and K2 not
+  > fired. Nuance: L3H4 slope range (5.44) slightly exceeds L2H1 (5.20), suggesting a
+  > query-side contribution for L3H4 not captured by kbar alone. H2 (direct census): clean
+  > separation confirmed — pool-stable L3H4 Δσ=0.0141, L7H11=0.0177; pool-sensitive
+  > L2H1=0.0517, L5H0=0.0557, L10H8=0.0695 (gap ~0.03). Key structural finding: S_abskey[a]
+  > has a zero crossing near position ~511 for ALL structural heads, then rises monotonically
+  > to position 1023. Pool-sensitive heads have a steeper rise in the 512–1023 range. The
+  > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
+  > now ready: three experiments (exp-138, exp-161, exp-163) confirm the census measures
+  > absolute-key-position drift locally, not a relative-lag power law.** (exp-163)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -496,8 +508,18 @@ of G or of the process generating it.
 > of S_abskey[a] as a function of absolute key position a. Finding: S_abskey[a]
 > is oscillatory in a, not a monotone power law — zero crossing at position 1
 > for all structural heads; no exp-138 property correlates with pool-sensitivity.
-> The mechanism requires characterizing S_abskey at positions 512–1023 (beyond
-> the exp-112 stored range). Exp-163 proposed. (exp-162)
+> Exp-163 followed. (exp-162)
+>
+> **exp-163 (2026-09-30) — Pool-stable mechanism confirmed, CONFIRMED:** New forward
+> passes at SEQ_LEN=1024. Full S_abskey[a] profile for positions 0–1023: large
+> positive spike at a=0, long negative trough through positions 1–~510, zero
+> crossing near position ~511, monotone positive rise through 1023. Pool-stable
+> heads have lower cross-pool slope range in the 256–1023 region (mean 4.63 vs
+> 6.37 for sensitive, ρ=0.700 with exp-161 Δσ). Direct census at SEQ_LEN=1024
+> cleanly confirms two behavioral classes: pool-stable Δσ<0.02, pool-sensitive
+> >0.05. The A1 implication: the census primitive is absolute-key-position drift
+> with a structured oscillatory profile; the theory's relation-vs-state question
+> is sharpened by knowing what exactly the census observable measures. (exp-163)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
