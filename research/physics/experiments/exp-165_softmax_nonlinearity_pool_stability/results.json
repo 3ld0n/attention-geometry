@@ -1,0 +1,126 @@
+{
+  "experiment": "exp-165",
+  "date": "2026-10-07",
+  "prereg_commit": "90753e5",
+  "prereg_evidence": "git-attested \u2014 em dash \u2014 pre-registered commit 90753e5 pushed to attention-geometry before run.py was written",
+  "analysis_only": true,
+  "data_source": "exp-164_l3h4_bilinear_decomposition/kbar_qbar.npz",
+  "protocol": {
+    "d_head": 64,
+    "lag_min": 8,
+    "lag_max": 256,
+    "pools": {
+      "B": [
+        256,
+        512
+      ],
+      "C": [
+        512,
+        768
+      ],
+      "D": [
+        768,
+        1024
+      ]
+    },
+    "pool_stride": 2
+  },
+  "results_by_head": {
+    "L2H1": {
+      "sigma_pred": {
+        "B": 0.5582517215814807,
+        "C": 0.6419627841063296,
+        "D": 0.6529554480531529
+      },
+      "r2_pred": {
+        "B": 0.9657966280271112,
+        "C": 0.9669200478349935,
+        "D": 0.9672546059104369
+      },
+      "delta_sigma_pred": 0.09470372647167213,
+      "delta_sigma_emp": 0.051700000000000024,
+      "pool_stable": false
+    },
+    "L3H4": {
+      "sigma_pred": {
+        "B": 0.5999196110776489,
+        "C": 0.628181110100099,
+        "D": 0.6255466904578814
+      },
+      "r2_pred": {
+        "B": 0.8970998202268192,
+        "C": 0.9040838352214506,
+        "D": 0.8973772091636989
+      },
+      "delta_sigma_pred": 0.025627079380232454,
+      "delta_sigma_emp": 0.013900000000000023,
+      "pool_stable": true
+    },
+    "L5H0": {
+      "sigma_pred": {
+        "B": 0.4558876244896308,
+        "C": 0.5278292611340273,
+        "D": 0.5784382507109984
+      },
+      "r2_pred": {
+        "B": 0.8801502490643008,
+        "C": 0.9025858270610658,
+        "D": 0.9033183742999591
+      },
+      "delta_sigma_pred": 0.12255062622136759,
+      "delta_sigma_emp": 0.05569999999999997,
+      "pool_stable": false
+    },
+    "L7H11": {
+      "sigma_pred": {
+        "B": 0.4199780751237364,
+        "C": 0.4303621856722205,
+        "D": 0.46631887849211573
+      },
+      "r2_pred": {
+        "B": 0.895358031706141,
+        "C": 0.8918678166282816,
+        "D": 0.8901943537538282
+      },
+      "delta_sigma_pred": 0.04634080336837931,
+      "delta_sigma_emp": 0.01770000000000002,
+      "pool_stable": true
+    },
+    "L10H8": {
+      "sigma_pred": {
+        "B": 0.5829364016298266,
+        "C": 0.6086731651113781,
+        "D": 0.7513329257867035
+      },
+      "r2_pred": {
+        "B": 0.8871291655356696,
+        "C": 0.896839872818162,
+        "D": 0.9091719816095055
+      },
+      "delta_sigma_pred": 0.1683965241568769,
+      "delta_sigma_emp": 0.06940000000000002,
+      "pool_stable": false
+    }
+  },
+  "hypotheses": {
+    "H1_ordering": {
+      "result": "CONFIRMED",
+      "max_delta_stable": 0.04634080336837931,
+      "min_delta_sensitive": 0.09470372647167213,
+      "K1_fires": false
+    },
+    "H2_accuracy": {
+      "result": "FALSIFIED",
+      "pairs_within_0.05": 0,
+      "total_pairs": 15,
+      "K2_fires": true
+    },
+    "H3_spearman": {
+      "result": "CONFIRMED",
+      "rho": 0.9964285714285712,
+      "pval": 2.415979319970353e-15,
+      "K3_fires": false
+    }
+  },
+  "overall_verdict": "PARTIAL"
+}

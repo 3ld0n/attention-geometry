@@ -460,6 +460,17 @@ with the predictions and they are the discipline.
   > structural pattern, not specific to pool-stable heads. The mechanism behind L3H4's
   > pool-stability is not bilinear cancellation. kbar_qbar.npz on disk; next: softmax
   > nonlinearity analysis from saved arrays (exp-165 candidate). (exp-164; notes.md)
+  >
+  > **exp-165 (2026-10-07): PARTIAL — H1 CONFIRMED, H2 FALSIFIED (K2), H3 CONFIRMED.**
+  > Analysis-only from kbar_qbar.npz; no new forward passes. Mean-field attention
+  > A_approx(i,j) = softmax(qbar[h,i]·kbar[h,j]/√d) (causal). H1 (ordering): CONFIRMED —
+  > max(Δσ_pred stable)=0.046 < min(Δσ_pred sensitive)=0.095; clean gap, perfect ordering.
+  > H3 (Spearman ρ): CONFIRMED — ρ=0.996 across all 15 (head,pool) pairs. H2 (accuracy):
+  > FALSIFIED — σ_pred ≈ 2×σ_emp systematically (0/15 within 0.05). The softmax
+  > nonlinearity carries the pool-stability ordering; the factor-of-2 offset is a Jensen
+  > gap from token fluctuations. For T1: σ_emp ≈ (1/2)×mean-field slope; the census
+  > slope is not the relative-lag exponent of A, but ≈half the mean-field absolute-
+  > key-position drift slope after Jensen compression. Pre-reg: 90753e5. (exp-165)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -536,6 +547,14 @@ of G or of the process generating it.
 > from pool B→D for L3H4, canceling the S_abskey increase. K1 fires — relative
 > slope increases B→D (−0.28→−0.003) for L3H4; all heads show same direction.
 > kbar_qbar.npz saved; mechanism remains open. (exp-164)
+>
+> **exp-165 (2026-10-07) — Mean-field softmax nonlinearity, PARTIAL:**
+> Analysis-only from kbar_qbar.npz. H1 (ordering) CONFIRMED: mean-field Δσ_pred
+> preserves pool-stable < pool-sensitive (max stable 0.046 < min sensitive 0.095),
+> ρ=0.996. H2 (accuracy) FALSIFIED: σ_pred ≈ 2×σ_emp (Jensen gap from token
+> fluctuations dilutes empirical census by ≈2×). Pool-stability ordering is a
+> mean-field effect of the softmax geometry; per-token fluctuations scale the
+> exponent but do not change the ordering. (exp-165)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

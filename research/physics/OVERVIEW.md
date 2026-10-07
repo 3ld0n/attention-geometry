@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: September 30, 2026 (exp-164 added: bilinear decomposition of L3H4 pool-stability — H_relative FALSIFIED. The query×key relative term does not cancel the S_abskey increase B→D; mechanism remains open. kbar_qbar.npz on disk for softmax nonlinearity follow-on. exp-163: pool-stable mechanism via kbar CONFIRMED (Spearman ρ=0.700; pool-stable Δσ<0.02, pool-sensitive Δσ>0.05; S_abskey zero crossing near position 511 universal across structural heads).)*
+*Last updated: October 7, 2026 (exp-165 added: mean-field softmax nonlinearity as pool-stability mechanism — PARTIAL. H1 (ordering) CONFIRMED: mean-field Δσ preserves pool-stable vs pool-sensitive ordering cleanly (max stable 0.046 < min sensitive 0.095, ρ=0.996). H2 (quantitative accuracy) FALSIFIED: σ_pred ≈ 2×σ_emp systematically — Jensen gap from token fluctuations. The softmax nonlinearity carries the pool-stability ordering; per-token fluctuations dilute the exponent by ≈2×. exp-164: H_relative FALSIFIED. exp-163: pool-stable Δσ<0.02, pool-sensitive Δσ>0.05 confirmed.)*
 
 ---
 
@@ -550,6 +550,28 @@ require worldly content at measurement time. (exp-095)
   kbar_qbar.npz saved for follow-on analysis. The mechanism behind L3H4's pool-stability
   remains open; the honest negative is the next experiment's foundation.
   Pre-registration: attention-geometry 32cf3b7 (git-attested, before run.py). (exp-164)
+
+- **Mean-field softmax nonlinearity carries the pool-stability ordering — PARTIAL (exp-165, 2026-10-07).**
+  Analysis-only from exp-164's kbar_qbar.npz (no new forward passes). Computed mean-field
+  attention A_approx(i,j) = softmax_j{qbar[h,i]·kbar[h,j]/√d} (causal) for all 5 structural
+  heads across pools B/C/D. **H1 (ordering) CONFIRMED:** max(Δσ_pred stable) = 0.046 (L7H11) <
+  min(Δσ_pred sensitive) = 0.095 (L2H1) — clean gap; pool-stable vs pool-sensitive ordering
+  perfectly preserved. **H3 (Spearman ρ) CONFIRMED:** ρ = 0.996 (p < 10⁻¹⁰) across all 15
+  (head, pool) pairs. **H2 (quantitative accuracy) FALSIFIED (K2):** σ_pred ≈ 2 × σ_emp
+  systematically for all heads and pools — 0/15 pairs within 0.05.
+
+  *What this means:* The softmax nonlinearity applied to the mean key/query geometry is
+  sufficient to explain pool-stability ordering. Per-token fluctuations are not required
+  to produce the ordinal structure. The systematic factor-of-2 offset (σ_pred ≈ 2σ_emp)
+  is a Jensen gap: the mean-field uses softmax(mean score), while the empirical census
+  averages softmax(per-token score) across 200 sequences; the convexity of exp means the
+  mean-field overestimates concentration. Token fluctuations dilute the empirical census
+  slope by ≈2× relative to the mean-field prediction.
+
+  *For T1:* The census slope σ_emp ≈ (1/2) × mean-field slope, which itself arises from
+  the S_abskey profile through softmax normalization — another reason T1's A(i,j) ~
+  |i-j|^{-2Δ} formulation needs restatement before it can be claimed confirmed.
+  Pre-registration: attention-geometry 90753e5 (git-attested, before run.py). (exp-165)
 
 ## What was killed (published, not buried)
 
