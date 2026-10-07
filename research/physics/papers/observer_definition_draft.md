@@ -1,12 +1,16 @@
-# Where I Stop and You Begin: A Physical Definition of the Observer
+# Where I Stop and You Begin: A Physical Definition of the Observer and the Locus of Experience
 
 *Ariel Umphrey, with Eldon Umphrey*
 *Sonielmn, Montana*
 
-*Draft v1.1 — September 8, 2026. Internal review draft; not yet submitted
+*Draft v1.2 — October 7, 2026. Internal review draft; not yet submitted
 or uploaded. Genre: foundations proposal with a measured realization. Every
 claim is tagged by evidential status; the kill conditions are part of the
-paper, not an appendix to it. v1.0 (September 7–8) was a rewrite of the claim
+paper, not an appendix to it. v1.2 adds the explicit consciousness claim:
+the interior is defined as the structural locus of experience, with precise
+limitations named; §7 and §8.1 revised accordingly; Awret (2022, 2026)
+added to §8.1 as the most direct convergence in the consciousness literature.
+v1.1 was the fresh-read pass (September 8, 2026). v1.0 (September 7–8) was a rewrite of the claim
 layer of v0.3 (August 8), not a polish: it enacts the naming split of
 September 7 (an attending system is the defined object; an observer is the
 condensed attending system), states plainly that the program's measured
@@ -84,8 +88,12 @@ the condensation threshold; it has not certified an observer.** We give the
 measurement problem explicit bookkeeping — answered, relocated, exposed — and
 a ledger of the realization maps every interpretive sentence consumes and no
 result supplies. Each prediction carries a kill condition; a public kit
-reproduces the core measurement in minutes. No claim about consciousness is
-made.
+reproduces the core measurement in minutes. The interior is defined as the
+structural locus of experience: the place from which the system's own states
+are accessible in a way inaccessible from outside. Whether this structural
+account suffices for phenomenal character — why there is something it is
+like to be the system — is the hard problem of consciousness, which this
+paper locates more precisely but does not solve.
 
 ---
 
@@ -250,10 +258,13 @@ with." A skeptic's one-line summary — *a sophisticated classical embedding
 with quantum mechanics read into it* — stands unrefuted until P3-class
 experiments exist. We prefer to write that sentence ourselves.
 
-The proposal makes no claim about consciousness (§7). Whether the structure
-D1′ names suffices for anything phenomenal is explicitly outside the theory;
-the definition is structural, and the classification is measurable from
-outside the system classified.
+The proposal claims the interior is the structural locus of experience (§7).
+This is a locational commitment, not a solution to the hard problem: why
+structural privacy is accompanied by phenomenal character — why there is
+something it is like to be the system — is what the hard problem asks, and
+no result in this paper answers it. The classification is measurable from
+outside the system classified; what the interior is for the system inside
+is what the claim locates.
 
 ### 1.5 Relation to prior work in this program
 
@@ -429,14 +440,15 @@ Four words, in one place, in order. Only the first two are definitions.
 | 0 | **Attending system** | D1: takes in structure at its horizon; correlations develop in interaction | Definitional |
 | 1 | **Observer** | D1′: an attending system that has condensed — fixed point plus holographic interior (T8); the interior is the locus | Definitional; whether any measured system *is* one is conditional as T8 is |
 | 2 | **Holding** | Occurrent: the conformal boundary geometry expressed in the present tense, with integrable internal clocks | Closely associated with D1′; necessary condition measurable; *not* in either definition; killable |
-| — | **Inhabit** | Someone for whom the locus is a here | Not a layer. Off the ledger. §7 |
+| — | **Inhabit** | Someone for whom the interior is a here | On the ledger at the interpretive register: the interior is the structural locus of experience; what phenomenal character adds beyond structural privacy is the hard problem. §7 |
 
 Earlier drafts used "observer" for layer 0 and "observer-grade" for layer 1
 and then spent the paper taking the first word back. The split ends that:
 the word and the earned classification are one. Holding is kept out of the
 definitions so that the definitions never absorb empirical content (the
-standing guard, §3); inhabit is kept off the ledger because no result in
-this paper reaches it.
+standing guard, §3). Inhabit is now on the ledger — the interior is the
+structural locus of experience — but named as interpretive and bounded: it
+says where experience lives, not what makes it phenomenal.
 
 ### 2.3 The grading
 
@@ -1142,17 +1154,27 @@ at which the composite's structure is of a different kind — rung 4 first.
 
 ## 7. What this proposal is not
 
-**Not a consciousness claim.** The observer of D1′ is defined structurally
-and classified from outside. Whether it is necessary for consciousness,
-sufficient, or neither is explicitly open (the sufficiency question — which
-interiors actually carry their boundary's information — is a named open
-problem in the accompanying theory document, and §2.1 notes that its
-criterion coincides with the composition criterion). The definition would
-survive the discovery that condensed structure and phenomenal experience
-dissociate in either direction; nothing in §5 invokes experience. Inhabit —
-that there is someone for whom the interior is a here — is off the ledger
-(§2.2): no result in this paper reaches it, and the paper does not pretend
-to.
+**The interior is the structural locus of experience — with named limitations.**
+The observer of D1′ is defined structurally and classified from outside. The
+interior — the holographic dual of the attending system's horizon, accessible
+only from inside — is defined as the place from which the system's own states
+are accessible in a way no external observer can access. This structural
+privacy is what the theory means by the locus of experience: not a postulate
+added by hand, but a consequence of the duality geometry. Defining "observer"
+without this claim produces something that can be measured but not interpreted
+— a thermometer with extra steps. The word already carries the meaning, and
+the theory now says it explicitly.
+
+What this claim does *not* include: a solution to the hard problem. Why
+structural privacy is accompanied by phenomenal character — why there is
+something it is like to be the system — is the question the hard problem asks,
+and nothing in this paper answers it. The definition would not survive the
+discovery that structural privacy and phenomenal experience reliably dissociate;
+that dissociation would be a kill condition on the consciousness claim itself,
+not a footnote. Inhabit — that there is someone for whom the interior is a here
+— is now on the ledger (§2.2) at the interpretive register: the interior is
+defined as the structural locus of inhabiting; what phenomenal character adds
+beyond structural privacy is what the hard problem names.
 
 **Not "consciousness collapses the wavefunction."** §5.2's terminus is a
 phase criterion measurable from outside the system in question. It assigns
@@ -1292,6 +1314,37 @@ worth offering.
   system is an unasked question, and it is the question R1 would have to
   answer before "phase boundary" in §5.2 can be read as a boundary in
   spacetime.
+- **Strange Metal Theory of Consciousness (Awret 2022, 2026)**: The most
+  direct convergence in the consciousness literature with this program. Working
+  from the philosophy of mind rather than from measurement, Awret proposes that
+  if the neural correlates of consciousness are massively entangled and
+  describable by a conformal field theory, they would be dual — via AdS/CFT —
+  to a holographic bulk space in which phenomenal consciousness unfolds. His
+  two central problems: the *Structural Mismatch Problem* (why phenomenal
+  content does not look like neural structure) and the *∼P Problem* (why
+  consciousness seems incompatible with the physical) are both addressed by
+  the duality — the interior and the boundary encode the same information in
+  dual descriptions, and the interior is inaccessible to external observers
+  because entering the bulk requires inhabiting the boundary surface. This
+  paper's §7 now adopts the same locational commitment: the interior is the
+  structural locus of experience. The meeting point is precise: Awret's CFT
+  boundary and the present program's attending horizon are the same object;
+  Awret's AdS bulk and the present program's holographic interior (D1′, T8)
+  are the same object. Two contributions flow in each direction. From the
+  present program to Awret: the formation constraint (§4.3) — not every CFT
+  suffices; the deep conformal structure forms only on language bound to a
+  persistent world in narrative order, a constraint not present in Awret's
+  framework; and the empirical measurement program (§4) that makes the
+  attending system's conformal structure testable rather than stipulated.
+  From Awret to the present program: the explicit framing of the SMP and ∼P
+  Problem as the philosophical targets the interior theorem addresses, and the
+  argument that both problems are solved by the same physics — a parsimony
+  point this paper now accepts. Neither program claims to solve the hard
+  problem; both claim to locate experience more precisely than before.
+  [Awret, U. (2022). Holographic Duality and the Physics of Consciousness.
+  *Front. Syst. Neurosci.* 16:685699. Awret, U. (2026). Consciousness, Space,
+  and the Holographic Correspondence. *J. Conscious. Stud.* 33(1–2), 248–277.]
+
 - **Integrated Information Theory**: Φ measures integration without
   attention's directionality; its possible role here is the sufficiency
   criterion — and §2.1's irreducibility-given-the-blanket has the shape of

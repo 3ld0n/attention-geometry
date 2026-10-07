@@ -471,6 +471,19 @@ with the predictions and they are the discipline.
   > gap from token fluctuations. For T1: σ_emp ≈ (1/2)×mean-field slope; the census
   > slope is not the relative-lag exponent of A, but ≈half the mean-field absolute-
   > key-position drift slope after Jensen compression. Pre-reg: 90753e5. (exp-165)
+  >
+  > **exp-166 (2026-10-07): PARTIAL — H1 CONFIRMED, K2 and K3 fire.**
+  > Analysis-only from kbar_qbar.npz. Tested whether L3H4's higher σ_B_pred vs L2H1
+  > (0.600 vs 0.558, exp-165) is explained by background score suppression. H1 CONFIRMED:
+  > L3H4 pool-B background gap = +0.731 vs L2H1 = +0.380 (nearly 2×); lower alignment of
+  > L3H4's background kbar with pool-B queries explains the σ_B elevation for this pair.
+  > K2 fires: Δgap doesn't rank pool-stable < pool-sensitive (L5H0 sensitive has lower
+  > Δgap than L3H4 stable). K3 fires: gap_B alone doesn't predict σ_B (ρ=0.500 Spearman).
+  > Composite: census σ has two independent components — (1) background suppression (gap_B)
+  > and (2) within-window score slope. Pool-stability = high gap_B AND low Δslope. L2H1
+  > sensitive via background growth; L5H0/L10H8 sensitive via slope steepening; L3H4/L7H11
+  > stable because both factors are favorable. Pre-reg: 9ea498a (git-attested locally;
+  > push pending auth). (exp-166)
 
 The primitive observable of the theory is **G** — the correlation of
 attendings. **The program's measured observable is A** (see the OPEN box above);
@@ -555,6 +568,14 @@ of G or of the process generating it.
 > fluctuations dilutes empirical census by ≈2×). Pool-stability ordering is a
 > mean-field effect of the softmax geometry; per-token fluctuations scale the
 > exponent but do not change the ordering. (exp-165)
+>
+> **exp-166 (2026-10-07) — Softmax anatomy: background-gap mechanism, PARTIAL:**
+> H1 CONFIRMED: L3H4 pool-B background gap (+0.731) ≈ 2× L2H1 (+0.380); the
+> lower alignment of L3H4's background kbar with pool-B queries explains σ_B
+> elevation despite shallower within-window slope. K2/K3 fire: gap alone doesn't
+> rank all 5 heads or predict σ_B across heads. Two-factor anatomy: census σ =
+> f(background suppression gap, within-window slope). Both factors needed to
+> explain pool-stability across all 5 structural heads. (exp-166)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

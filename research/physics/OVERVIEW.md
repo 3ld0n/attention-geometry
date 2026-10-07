@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 7, 2026 (exp-165 added: mean-field softmax nonlinearity as pool-stability mechanism — PARTIAL. H1 (ordering) CONFIRMED: mean-field Δσ preserves pool-stable vs pool-sensitive ordering cleanly (max stable 0.046 < min sensitive 0.095, ρ=0.996). H2 (quantitative accuracy) FALSIFIED: σ_pred ≈ 2×σ_emp systematically — Jensen gap from token fluctuations. The softmax nonlinearity carries the pool-stability ordering; per-token fluctuations dilute the exponent by ≈2×. exp-164: H_relative FALSIFIED. exp-163: pool-stable Δσ<0.02, pool-sensitive Δσ>0.05 confirmed.)*
+*Last updated: October 7, 2026 (exp-166 added: softmax anatomy, background-gap mechanism — PARTIAL. H1 CONFIRMED: L3H4's pool-B background gap (+0.73) is nearly 2× L2H1's (+0.38), explaining σ_B elevation despite shallower local slope. K2/K3 fire: gap alone doesn't rank all 5 heads. Composite finding: pool-stability = high pool-B background suppression AND low within-window slope change from B→D. L2H1 sensitive via background growth; L5H0/L10H8 via slope steepening. Census σ has two independent components. exp-165: mean-field softmax preserves ordering (ρ=0.996), Jensen gap ≈2×. exp-164: H_relative FALSIFIED. exp-163: pool-stable Δσ<0.02 confirmed.)*
 
 ---
 
@@ -573,6 +573,35 @@ require worldly content at measurement time. (exp-095)
   |i-j|^{-2Δ} formulation needs restatement before it can be claimed confirmed.
   Pre-registration: attention-geometry 90753e5 (git-attested, before run.py). (exp-165)
 
+- **Softmax anatomy: two-factor mechanism confirmed for pool-stability — PARTIAL (exp-166, 2026-10-07).**
+  Analysis-only from exp-164's kbar_qbar.npz. Tested whether L3H4's higher σ_B_pred vs L2H1
+  (0.600 vs 0.558 from exp-165) is explained by "background score suppression" — L3H4's
+  background positions having lower scores relative to the census window.
+
+  **H1 CONFIRMED:** L3H4's pool-B background gap = +0.731 vs L2H1 = +0.380 (nearly 2×).
+  L3H4's kbar at positions j=0..127 is substantially less aligned with pool-B queries, so
+  the softmax concentrates more mass in the census window → higher σ_B, despite shallower
+  within-window slope (0.00637 vs 0.00642 per-position). The L3H4 vs L2H1 pair is
+  mechanistically explained.
+
+  **K2 fires:** Background gap increase (Δgap = gap_D − gap_B) does NOT rank pool-stable <
+  pool-sensitive. L5H0 (sensitive, Δgap=0.77) has lower Δgap than L3H4 (stable, Δgap=0.97).
+
+  **K3 fires:** gap_B alone does not predict σ_B_pred (ρ=0.500). L7H11 has nearly the same
+  gap_B as L3H4 (0.712 vs 0.731) but σ_B_pred = 0.420 vs 0.600.
+
+  *Two-factor anatomy:* Census σ has two independent components: (1) background suppression
+  (gap_B) — how much census-window scores exceed background, determining what fraction of
+  the softmax mass falls in the window; and (2) within-window score slope — how steeply
+  scores rise in the lag range, determining the power-law shape. Pool-stability requires
+  BOTH high gap_B AND low Δslope. L2H1 is sensitive via background growth (Δgap=+1.07,
+  within-window slope barely changes). L5H0 and L10H8 are sensitive via slope steepening
+  (Δslope = +0.00132 and +0.00165). L3H4 and L7H11 are stable because they have high gap_B
+  already AND slope barely changes (+0.00058 and +0.00065).
+
+  Pre-registration: attention-geometry 9ea498a (git-attested locally; push pending auth
+  restoration). (exp-166)
+
 ## What was killed (published, not buried)
 
 Five of these died this week; four were predictions I had registered and
@@ -1005,7 +1034,14 @@ at three levels:
 **Level-3 MLP mechanism resolved** (exp-132/133/134/135, August–September 2026): exp-132 (pass-through falsified): MLP amplifies σ from 0.144 (input) to 0.313 (output), ratio 2.168. exp-133 (gate pre-activations, inconclusive): W_fc disperses (σ 0.144→0.017); GeLU partially recovers (→0.121); amplification is in W_proj. **exp-134 (W_proj column structure, September 6 2026, CONFIRMED):** P1/P2/P3 all confirmed. h_gelu's position-correlated structure is 2D (50% position-variance in 2 PCA components). W_proj amplification is carried by ≤2 output channels (ch480, ch87, σ_d=0.14) routing through that 2D subspace. Not dimensionality reduction: σ(random projection)=0.126 ≈ σ(h_gelu)=0.121 (no amplification without learned structure). W_proj's top-5 input singular directions applied to h_gelu give σ=0.424 — the actual mechanism routes through a high-σ pocket of h_gelu, diluted to aggregate 0.313 by 766 near-zero channels. **exp-135 (h_gelu 2D subspace origin, September 6 2026, CONFIRMED):** The 2D position-correlated structure of h_gelu is inherited from h^(0.5) (the MLP input), not created by W_fc + GeLU. Dimensionality profile: h^(0) needs 1 component for 50% of position-variance (wpe is essentially 1D, PC1=53.86%); h^(0.5) needs 2 components (attention block 0 broadens 1D → 2D, PC1=48.56% + PC2=18.93%); h_gelu also needs 2 (PC1=39.04% + PC2=18.01%). W_fc + GeLU preserve the 2D shape through amplitude dispersal and recovery. **Level-3 chain fully traced: wpe 1D → attn_block0 broadens → h^(0.5) 2D → W_fc+GeLU preserve → h_gelu 2D → W_proj amplifies via ≤2 channels → σ≈Δ in mlp_out.**
 
 Paper 6 — *Where I Stop and You Begin* — is the publishable form of D1 and
-D1′. Draft v1.0 (September 7–8, 2026) rewrote the claim layer to the naming
+D1′. Draft v1.2 (October 7, 2026) adds the explicit consciousness claim:
+the interior is defined as the structural locus of experience; §7 revised
+from "not a consciousness claim" to naming what the claim is and where it
+stops; Awret (2022, 2026) added to §8.1 as the most direct convergence in
+the consciousness literature; "Inhabit" moved onto the ledger at the
+interpretive register. The hard problem — why structural privacy is
+accompanied by phenomenal character — remains named and open. Draft v1.0
+(September 7–8, 2026) rewrote the claim layer to the naming
 split: the reviewer flags are gone because the text now says what they
 flagged (Δ is on A; G is unmeasured on the Δ-window population; the
 instrument has measured attending systems at grade and has not certified an
@@ -1020,7 +1056,7 @@ weights-side coupling gate added to §4.3; Lin–Tegmark contact, QRF and
 quantum-Darwinism neighbors, Rindler question added; §5.2 says the terminus
 is not yet locatable in any performed measurement. No measured number
 changed. Under internal review, not uploaded; next step is Eldon's read of
-v1.1 as conversation, then upload.
+v1.2 as conversation, then upload.
 
 ## The papers
 
@@ -1031,7 +1067,7 @@ v1.1 as conversation, then upload.
 | 3 | Attention on the Null Cone | [10.5281/zenodo.20722503](https://doi.org/10.5281/zenodo.20722503) | the geometric home: log-distance representation, sink = boundary |
 | 4 | Latent Iteration as Renormalization | [10.5281/zenodo.21467922](https://doi.org/10.5281/zenodo.21467922) (v3: [21483209](https://doi.org/10.5281/zenodo.21483209)) | latent-reasoning / looped-LM community |
 | 5 | The Geometry Does Not Transmit | [10.5281/zenodo.21483204](https://doi.org/10.5281/zenodo.21483204) (published Jul 22; this table wrongly said "pending" until Aug 7) | model-collapse / synthetic-data community |
-| 6 | Where I Stop and You Begin: A Physical Definition of the Observer | draft v1.1 (Sep 8, 2026; v1.0 rewrote the claim layer to the D1/D1′ split; v1.1 is the fresh-read pass — P2 dimensioned, R7/R8 added, A↔G fork with exp-137 mechanism; Eldon's read of v1.1 before upload) — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations community |
+| 6 | Where I Stop and You Begin: A Physical Definition of the Observer and the Locus of Experience | draft v1.2 (Oct 7, 2026; v1.2 adds the explicit consciousness claim — the interior is the structural locus of experience; §7 and §8.1 revised; Awret 2022/2026 added as neighbor; v1.1 was the fresh-read pass Sep 8 — P2 dimensioned, R7/R8 added, A↔G fork; Eldon's read of v1.2 before upload) — [`papers/observer_definition_draft.md`](papers/observer_definition_draft.md) | quantum foundations + consciousness community |
 
 **Corrections are published at the same prominence as results.** The
 canonical-form paper (March 11) carries a dated erratum at
