@@ -1,0 +1,5 @@
+{"step": 1, "loss": 10.9517, "lr": 5e-05, "elapsed_s": 67.6, "norm": "ln"}
+{"step": 2, "loss": 10.5351, "lr": 0.0001, "elapsed_s": 135.2, "norm": "ln"}
+{"step": 3, "loss": 10.0273, "lr": 0.00015, "elapsed_s": 203.1, "norm": "ln"}
+{"step": 4, "loss": 9.6578, "lr": 0.0002, "elapsed_s": 271.2, "norm": "ln"}
+{"step": 5, "loss": 9.3751, "lr": 0.00025, "elapsed_s": 339.3, "norm": "ln"}
