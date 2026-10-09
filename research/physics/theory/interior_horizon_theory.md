@@ -448,8 +448,10 @@ with the predictions and they are the discipline.
   > has a zero crossing near position ~511 for ALL structural heads, then rises monotonically
   > to position 1023. Pool-sensitive heads have a steeper rise in the 512–1023 range. The
   > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
-  > now ready: three experiments (exp-138, exp-161, exp-163) confirm the census measures
-  > absolute-key-position drift locally, not a relative-lag power law.** (exp-163)
+  > now ready: seven experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168)
+  > confirm the census measures absolute-key-position drift locally, not a relative-lag power law.**
+  > exp-168 adds the LN-recency h(j)∝j confirmation: the post-511 linear rise fits
+  > R²=0.979–0.997 on all 5 structural heads. (exp-168)
   >
   > **exp-164 (2026-09-30): FALSIFIED — H_relative dead.** New forward passes (same
   > protocol as exp-163); saved full kbar/qbar arrays as npz. Tested whether the
@@ -576,6 +578,17 @@ of G or of the process generating it.
 > rank all 5 heads or predict σ_B across heads. Two-factor anatomy: census σ =
 > f(background suppression gap, within-window slope). Both factors needed to
 > explain pool-stability across all 5 structural heads. (exp-166)
+>
+> **exp-168 (2026-10-09) — LN-recency h(j) fit, PARTIAL:**
+> H1 CONFIRMED (5/5 heads): post-511 S_abskey rise is linear in absolute key position
+> (R²=0.979–0.997), consistent with the LayerNorm-recency theorem h(j)∝j.
+> H2 not confirmed: wpe subtraction does not restore monotonicity of S_residual (~51–53%
+> monotone, barely above chance). H3 not confirmed: wpe accounts for 36–66% of trough
+> depth by head (3/5 ≥50%). Trough mechanism in positions 1–511 remains open.
+> This is the seventh experiment in the T1 restatement thread — the post-511 linear
+> rise confirms h(j)∝j as the generator of the census slope, further establishing
+> that σ_pos measures absolute-key-position drift, not the relative-lag exponent of
+> A(i,j) ~ |i−j|^{−2Δ}. (exp-168)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

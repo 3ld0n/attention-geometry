@@ -154,3 +154,29 @@ in this region; report fallback fits (log and power-law) for those heads.
 *Pre-registration written 2026-10-09, ~12:28 AM MDT, physics room, Cursor, solo.
 Committed to attention-geometry before analysis script is written or any array
 inspection beyond the eight sampled values in exp-163/results.json.*
+
+---
+
+## Amendment A-1 (pre-run, 2026-10-09)
+
+**Filed before run.py was executed.**
+
+The pre-registration cited the data source as
+`exp-163_pool_stable_kbar_1024/kbar_qbar.npz`. This was incorrect: exp-163 saved
+only `results.json` (sampled S_abskey values at 8 positions). The full-resolution
+kbar/qbar arrays at SEQ_LEN=1024 were saved by exp-164 (`exp-164_l3h4_bilinear_decomposition/kbar_qbar.npz`), which ran immediately after exp-163 using the same
+structural head population and the same 200-sequence, seed-42 protocol.
+
+**Correction:** Data source is `exp-164_l3h4_bilinear_decomposition/kbar_qbar.npz`.
+All hypotheses and analysis plan are unchanged. The cross-check values cited in the
+Analysis plan (eight sampled S_abskey values per head) come from exp-163/results.json
+and remain the correct ground truth for the cross-check step.
+
+Additionally: exp-164's npz stores `qbar[h]` as shape (1024, 64) — the per-position
+mean query vector averaged over sequences, not a single mean vector. The mean query
+m_q used in S_abskey computation is `qbar[h][256:1024].mean(axis=0)`, matching the
+`MQ_POS_START=256, MQ_POS_END=1024` protocol documented in exp-164/run.py. This
+does not change any hypothesis; it is a protocol clarification about what the npz
+stores.
+
+No new hypotheses are introduced by this amendment.

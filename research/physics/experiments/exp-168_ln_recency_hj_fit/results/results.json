@@ -1,0 +1,162 @@
+{
+  "experiment": "exp-168",
+  "date": "2026-10-09",
+  "prereg_commit": "cd07df8",
+  "prereg_evidence": "git-attested \u2014 registration committed before run.py was written",
+  "analysis_only": true,
+  "model": "gpt2",
+  "source_experiment": "exp-164",
+  "kbar_path": "/Users/ariel/attention-geometry/research/physics/experiments/exp-164_l3h4_bilinear_decomposition/kbar_qbar.npz",
+  "elapsed_s": 1.9,
+  "cross_check_max_error": 0.7073677481965528,
+  "h1_results": {
+    "L2H1": {
+      "linear": {
+        "slope": 0.0062311970597277834,
+        "intercept": -4.057023111678207,
+        "r2": 0.979254054764859
+      },
+      "log": {
+        "slope": 4.59120777370576,
+        "intercept": -29.686473030049648,
+        "r2": 0.9526969343152907
+      },
+      "power": {
+        "gamma": 1.915862030029997,
+        "log_c": -11.82135983131553,
+        "r2": 0.9914322119926128
+      },
+      "h1_pass": true
+    },
+    "L3H4": {
+      "linear": {
+        "slope": 0.007461902978292522,
+        "intercept": -4.843944564649783,
+        "r2": 0.9971708344842517
+      },
+      "log": {
+        "slope": 5.540159712215518,
+        "intercept": -35.81463022146358,
+        "r2": 0.9850616423362447
+      },
+      "power": {
+        "gamma": 2.092289072790945,
+        "log_c": -12.856633927623921,
+        "r2": 0.9882931267105585
+      },
+      "h1_pass": true
+    },
+    "L5H0": {
+      "linear": {
+        "slope": 0.007732656694280207,
+        "intercept": -5.077924503675142,
+        "r2": 0.9929280964501997
+      },
+      "log": {
+        "slope": 5.721762347359579,
+        "intercept": -37.04373199221133,
+        "r2": 0.9742455688084848
+      },
+      "power": {
+        "gamma": 2.175538151875548,
+        "log_c": -13.430167554833158,
+        "r2": 0.993587425902264
+      },
+      "h1_pass": true
+    },
+    "L7H11": {
+      "linear": {
+        "slope": 0.005729779789391096,
+        "intercept": -3.740746364015682,
+        "r2": 0.9944744805919405
+      },
+      "log": {
+        "slope": 4.253956850720721,
+        "intercept": -27.521103509138964,
+        "r2": 0.9823186926163229
+      },
+      "power": {
+        "gamma": 1.8647961287504806,
+        "log_c": -11.507850505382322,
+        "r2": 0.9918551929227872
+      },
+      "h1_pass": true
+    },
+    "L10H8": {
+      "linear": {
+        "slope": 0.009438244283849642,
+        "intercept": -6.267023268518999,
+        "r2": 0.9891520663016525
+      },
+      "log": {
+        "slope": 6.96950908823527,
+        "intercept": -45.18879423156549,
+        "r2": 0.9665703737677162
+      },
+      "power": {
+        "gamma": 2.3194043107171596,
+        "log_c": -14.25976796251166,
+        "r2": 0.9929529514093052
+      },
+      "h1_pass": true
+    }
+  },
+  "h1_n_confirmed": 5,
+  "h2_results": {
+    "L2H1": {
+      "monotone_fraction": 0.5097847358121331,
+      "h2_pass": false
+    },
+    "L3H4": {
+      "monotone_fraction": 0.5303326810176126,
+      "h2_pass": false
+    },
+    "L5H0": {
+      "monotone_fraction": 0.5313111545988258,
+      "h2_pass": false
+    },
+    "L7H11": {
+      "monotone_fraction": 0.525440313111546,
+      "h2_pass": false
+    },
+    "L10H8": {
+      "monotone_fraction": 0.5195694716242661,
+      "h2_pass": false
+    }
+  },
+  "h2_n_confirmed": 0,
+  "h3_results": {
+    "L2H1": {
+      "trough_abskey": 4.561035173099377,
+      "trough_wpe": 2.8667554328168725,
+      "wpe_fraction": 0.6285317529943133,
+      "h3_pass": true
+    },
+    "L3H4": {
+      "trough_abskey": 7.133710589804721,
+      "trough_wpe": 3.415772810010978,
+      "wpe_fraction": 0.4788213324623366,
+      "h3_pass": false
+    },
+    "L5H0": {
+      "trough_abskey": 8.751739880288632,
+      "trough_wpe": 5.283316790611142,
+      "wpe_fraction": 0.6036875938818349,
+      "h3_pass": true
+    },
+    "L7H11": {
+      "trough_abskey": 5.994691850325507,
+      "trough_wpe": 3.929308166314579,
+      "wpe_fraction": 0.6554645784005095,
+      "h3_pass": true
+    },
+    "L10H8": {
+      "trough_abskey": 6.68457072524244,
+      "trough_wpe": 2.4018928071531067,
+      "wpe_fraction": 0.3593189309947788,
+      "h3_pass": false
+    }
+  },
+  "h3_n_confirmed": 3,
+  "verdict": "LN-recency h(j) fits post-511 rise; wpe trough subtraction inconclusive"
+}

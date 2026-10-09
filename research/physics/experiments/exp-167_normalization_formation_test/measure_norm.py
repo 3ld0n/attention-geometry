@@ -23,12 +23,18 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import torch
 from transformers import GPTNeoXConfig, GPTNeoXForCausalLM
+
+# Ensure train_norm.py is importable whether we're running locally or in Modal
+_this_dir = str(Path(__file__).resolve().parent)
+if _this_dir not in sys.path:
+    sys.path.insert(0, _this_dir)
 
 from train_norm import BASE_CONFIG, RMSNorm, apply_norm_patch  # reuse definitions
 

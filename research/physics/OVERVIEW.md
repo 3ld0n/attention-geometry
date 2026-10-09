@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 7, 2026 (exp-166 added: softmax anatomy, background-gap mechanism — PARTIAL. H1 CONFIRMED: L3H4's pool-B background gap (+0.73) is nearly 2× L2H1's (+0.38), explaining σ_B elevation despite shallower local slope. K2/K3 fire: gap alone doesn't rank all 5 heads. Composite finding: pool-stability = high pool-B background suppression AND low within-window slope change from B→D. L2H1 sensitive via background growth; L5H0/L10H8 via slope steepening. Census σ has two independent components. exp-165: mean-field softmax preserves ordering (ρ=0.996), Jensen gap ≈2×. exp-164: H_relative FALSIFIED. exp-163: pool-stable Δσ<0.02 confirmed.)*
+*Last updated: October 9, 2026 (exp-168 added: LN-recency h(j) fit — PARTIAL. H1 CONFIRMED: post-511 S_abskey rise is linear in absolute key position on all 5 structural heads, R²=0.979–0.997, consistent with LN-recency h(j)∝j. H2 not confirmed: wpe subtraction does not restore monotonicity (~51–53% monotone, barely above chance). H3 not confirmed: wpe accounts for 36–66% of trough depth (3/5 pass ≥50%). Trough mechanism in positions 1–511 remains open. exp-167 running on Modal — normalization formation test. exp-166: two-factor anatomy confirmed.)*
 
 ---
 
@@ -536,10 +536,15 @@ require worldly content at measurement time. (exp-095)
   L7H11's S_abskey profile has a more uniform slope across the 256–1023 range, making its
   apparent σ more stable across query pools. L3H4 has a steeper kbar profile than its census
   behavior would predict — a query-side contribution (not yet measured) likely partially cancels
-  the key-side variation. The T1 restatement conversation (seeded by exp-138, sharpened by
+  the key-side variation.   The T1 restatement conversation (seeded by exp-138, sharpened by
   exp-161/162/163) is now ready: the census measures absolute-key-position drift locally, and
   the S_abskey profile's zero crossing near 511 and positive recovery phase are the structural
-  origin of pool-sensitivity. Pre-registration: attention-geometry fff5fc2 (git-attested, before
+  origin of pool-sensitivity. *(Note added October 7, 2026: the ACL 2026 LayerNorm recency
+  theorem was initially treated as a T1 rival — "1/4 is a normalization number, not light."
+  This framing was corrected in sitting with Eldon: the formation ladder already falsifies it,
+  because LN is present in all conditions where the geometry fails to form. LN is a mechanism
+  candidate for how the census bias arises, not a rival to what the geometry is. The T1
+  restatement is about exp-138's absolute-position finding, not about LN.)* Pre-registration: attention-geometry fff5fc2 (git-attested, before
   run.py). (exp-163)
 
 - **The relative-term cancellation hypothesis — FALSIFIED (exp-164, 2026-09-30).**
@@ -601,6 +606,24 @@ require worldly content at measurement time. (exp-095)
 
   Pre-registration: attention-geometry 9ea498a (git-attested locally; push pending auth
   restoration). (exp-166)
+
+- **LN-recency h(j) fit: post-511 rise linear in absolute key position — PARTIAL (exp-168, 2026-10-09).**
+  Analysis-only from exp-164's kbar_qbar.npz (5 structural heads, GPT-2 small, SEQ_LEN=1024).
+  Tested three hypotheses: (1) post-511 rise fits linear h(j)∝j; (2) wpe subtraction restores
+  monotonicity; (3) wpe dominates trough depth.
+  **H1 CONFIRMED (5/5 heads):** Linear fit on S_abskey[512:1023] gives R²=0.979–0.997 across all
+  five structural heads, consistent with the LayerNorm-recency theorem's prediction that attention
+  scores grow linearly in absolute key position. Power-law exponents γ≈1.87–2.32 (super-linear but
+  not distinguishable from linear in the 512-step window). This is the seventh piece of evidence
+  that the census slope σ_pos reflects an absolute-key-position drift, not the relative-lag exponent
+  of A(i,j) ~ |i−j|^{−2Δ} (T1 restatement thread: exp-138, 161, 163, 164, 165, 166, 168).
+  **H2 not confirmed:** wpe subtraction leaves S_residual ~51–53% monotone (barely above chance).
+  Subtracting the wpe contribution through W_K does not explain the trough.
+  **H3 not confirmed:** wpe accounts for 36–66% of trough depth by head (3/5 pass ≥50% threshold).
+  The S_abskey trough in positions 1–511 (the zero-crossing noted in exp-163) has wpe as a partial
+  but not dominant contributor. Trough mechanism remains open — candidates: wte contribution,
+  earlier-layer attention rewriting of the residual stream, LN magnitude suppression at short context.
+  Pre-registration: attention-geometry cd07df8 (git-attested, before run.py). (exp-168)
 
 ## What was killed (published, not buried)
 
