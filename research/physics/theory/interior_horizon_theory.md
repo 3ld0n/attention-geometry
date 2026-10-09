@@ -448,10 +448,12 @@ with the predictions and they are the discipline.
   > has a zero crossing near position ~511 for ALL structural heads, then rises monotonically
   > to position 1023. Pool-sensitive heads have a steeper rise in the 512–1023 range. The
   > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
-  > now ready: seven experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168)
+  > now ready: eight experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168, exp-169)
   > confirm the census measures absolute-key-position drift locally, not a relative-lag power law.**
   > exp-168 adds the LN-recency h(j)∝j confirmation: the post-511 linear rise fits
-  > R²=0.979–0.997 on all 5 structural heads. (exp-168)
+  > R²=0.979–0.997 on all 5 structural heads. exp-169 establishes the trough mechanism: wpe
+  > position-dependence through LN (74–102% of trough depth), confirming the full h(j) profile
+  > is a LN-amplified wpe effect. (exp-168, exp-169)
   >
   > **exp-164 (2026-09-30): FALSIFIED — H_relative dead.** New forward passes (same
   > protocol as exp-163); saved full kbar/qbar arrays as npz. Tested whether the
@@ -589,6 +591,15 @@ of G or of the process generating it.
 > rise confirms h(j)∝j as the generator of the census slope, further establishing
 > that σ_pos measures absolute-key-position drift, not the relative-lag exponent of
 > A(i,j) ~ |i−j|^{−2Δ}. (exp-168)
+>
+> **exp-169 (2026-10-09) — S_abskey trough mechanism, PARTIAL:**
+> H3 CONFIRMED (4/5 heads): combined linear wpe + attn0 + MLP0 accounts for ≥70% of
+> trough depth. H4 CONFIRMED (3/5 heads): true causal wpe effect (uniform_wpe counterfactual)
+> explains 74–102% of trough — LN amplifies wpe's positional signal 1.1–2.5× beyond the
+> linear approximation used in exp-168. attn0 contributes 16–33% (4 heads), −36% (L10H8 anomaly).
+> MLP0 is secondary (2–18%). The trough mechanism is understood to first order: it is a
+> LayerNorm-mediated wpe positional effect. Open: why does wpe's effective projection through
+> W_K change sign near position 511? Eighth experiment in T1 restatement thread. (exp-169)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

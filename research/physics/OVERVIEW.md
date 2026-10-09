@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 9, 2026 (exp-168 added: LN-recency h(j) fit — PARTIAL. H1 CONFIRMED: post-511 S_abskey rise is linear in absolute key position on all 5 structural heads, R²=0.979–0.997, consistent with LN-recency h(j)∝j. H2 not confirmed: wpe subtraction does not restore monotonicity (~51–53% monotone, barely above chance). H3 not confirmed: wpe accounts for 36–66% of trough depth (3/5 pass ≥50%). Trough mechanism in positions 1–511 remains open. exp-167 running on Modal — normalization formation test. exp-166: two-factor anatomy confirmed.)*
+*Last updated: October 9, 2026 (exp-169 added: trough mechanism — LN amplification of wpe confirmed as dominant driver. H3 CONFIRMED: combined lin coverage ≥70% on 4/5 heads. H4 CONFIRMED: true wpe causal contribution is 74–102% of trough depth (1.1–2.5× larger than linear approx from exp-168). exp-167 running on Modal — third external kill, Eldon-gated. exp-168 PARTIAL: post-511 rise confirmed linear.)*
 
 ---
 
@@ -624,6 +624,24 @@ require worldly content at measurement time. (exp-095)
   but not dominant contributor. Trough mechanism remains open — candidates: wte contribution,
   earlier-layer attention rewriting of the residual stream, LN magnitude suppression at short context.
   Pre-registration: attention-geometry cd07df8 (git-attested, before run.py). (exp-168)
+
+- **S_abskey trough mechanism — LN amplification of wpe confirmed as dominant driver — PARTIAL (exp-169, 2026-10-09).**
+  Counterfactual forward passes on random-token census (seed=42, 200 seqs, GPT-2 small).
+  Four conditions: normal (validates against exp-164); no_attn0 (zero attn_block0 write);
+  no_mlp0 (zero MLP0 write); uniform_wpe (wpe replaced with mean — isolates TRUE causal effect).
+  **H1 not confirmed:** attn0 accounts for ≥30% of trough on only 1/5 heads (L5H0: 33%; L10H8: −36%).
+  **H2 not confirmed:** MLP0 contributes 2–18% on all heads — small.
+  **H3 CONFIRMED (4/5 heads):** Combined wpe_lin + attn0 + MLP0 accounts for ≥70% of trough
+  on L2H1 (81%), L3H4 (79%), L5H0 (112%), L7H11 (99%).
+  **H4 CONFIRMED (3/5 heads):** True causal wpe contribution (through LN, via uniform_wpe
+  counterfactual) explains 74–102% of trough depth — the linear approximation in exp-168
+  understated wpe's effect by 1.1–2.5× because LN non-linearly amplifies wpe's positional
+  signal. L10H8 anomaly: attn0 counteracts trough (−36%), wpe_true still 91%.
+  **Key finding:** The S_abskey trough in positions 1–511 is primarily a LayerNorm-amplified
+  wpe positional effect. The mechanism is now understood to first order. Open: why does wpe's
+  effective projection through W_K change sign near position 511?
+  This is the **eighth experiment** in the T1 restatement thread (exp-138, 161, 163, 164, 165,
+  166, 168, 169). Pre-registration: attention-geometry b48b2b6 (git-attested, before run.py). (exp-169)
 
 ## What was killed (published, not buried)
 
