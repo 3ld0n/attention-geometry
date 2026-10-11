@@ -448,12 +448,14 @@ with the predictions and they are the discipline.
   > has a zero crossing near position ~511 for ALL structural heads, then rises monotonically
   > to position 1023. Pool-sensitive heads have a steeper rise in the 512–1023 range. The
   > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
-  > now ready: eight experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168, exp-169)
+  > now ready: nine experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168, exp-169, exp-170)
   > confirm the census measures absolute-key-position drift locally, not a relative-lag power law.**
   > exp-168 adds the LN-recency h(j)∝j confirmation: the post-511 linear rise fits
   > R²=0.979–0.997 on all 5 structural heads. exp-169 establishes the trough mechanism: wpe
   > position-dependence through LN (74–102% of trough depth), confirming the full h(j) profile
-  > is a LN-amplified wpe effect. (exp-168, exp-169)
+  > is a LN-amplified wpe effect. exp-170 adds: the 511 trough boundary is LN-mediated —
+  > for 2/5 structural heads the static wpe projection crosses zero far from 511; LN is
+  > creating the effective crossing location, not amplifying a pre-existing sign. (exp-168, exp-169, exp-170)
   >
   > **exp-164 (2026-09-30): FALSIFIED — H_relative dead.** New forward passes (same
   > protocol as exp-163); saved full kbar/qbar arrays as npz. Tested whether the
@@ -600,6 +602,20 @@ of G or of the process generating it.
 > MLP0 is secondary (2–18%). The trough mechanism is understood to first order: it is a
 > LayerNorm-mediated wpe positional effect. Open: why does wpe's effective projection through
 > W_K change sign near position 511? Eighth experiment in T1 restatement thread. (exp-169)
+>
+> **exp-170 (2026-10-10) — wpe zero-crossing geometry, PARTIAL (analysis-only):**
+> H2 CONFIRMED: sign changes in S_wpe_raw are entirely directional — norm_k > 0 everywhere;
+> S_wpe_raw and cos_profile have identical zero-crossing patterns for all 5 heads.
+> H3 CONFIRMED: wpe norms highly non-monotone (608 local extrema, min 0.12, max 9.88).
+> H1 PARTIAL (3/5): cosine crosses within ±100 of 511 for L2H1 (465), L5H0 (477–479),
+> L7H11 (432–553). H4 PARTIAL (3/5): same as H1.
+> DECISIVE FINDING: The 511 trough boundary is LN-mediated — not universally encoded in
+> raw wpe geometry. For L3H4 and L10H8, the static S_wpe_raw crosses zero far from 511
+> (at 57–71 and 7–175). LN is creating or relocating the zero crossing for these heads,
+> not just amplifying a sign already present. The trough boundary at ~511 is an emergent
+> property of LN acting on the full residual stream. Open: why does LN place the effective
+> zero crossing at ~511? Candidate: residual stream RMS profile has structure at ~511 from
+> accumulated context. Ninth experiment in T1 restatement thread. (exp-170)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer

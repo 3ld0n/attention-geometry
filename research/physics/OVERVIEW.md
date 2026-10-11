@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 9, 2026 (exp-169 added: trough mechanism — LN amplification of wpe confirmed as dominant driver. H3 CONFIRMED: combined lin coverage ≥70% on 4/5 heads. H4 CONFIRMED: true wpe causal contribution is 74–102% of trough depth (1.1–2.5× larger than linear approx from exp-168). exp-167 running on Modal — third external kill, Eldon-gated. exp-168 PARTIAL: post-511 rise confirmed linear.)*
+*Last updated: October 10, 2026 (exp-170 added: wpe zero-crossing geometry — sign changes in S_wpe are purely directional (H2 CONFIRMED), but the 511 trough boundary is LN-mediated rather than universal in raw wpe geometry (H1/H4 PARTIAL: 3/5 heads). For L3H4 and L10H8, the static wpe projection crosses zero well below 511; LN is creating/relocating the zero crossing, not just amplifying. T1 restatement thread now at 9 experiments.)*
 
 ---
 
@@ -642,6 +642,27 @@ require worldly content at measurement time. (exp-095)
   effective projection through W_K change sign near position 511?
   This is the **eighth experiment** in the T1 restatement thread (exp-138, 161, 163, 164, 165,
   166, 168, 169). Pre-registration: attention-geometry b48b2b6 (git-attested, before run.py). (exp-169)
+
+- **wpe zero-crossing geometry: direction vs magnitude — PARTIAL (exp-170, 2026-10-10).**
+  Analysis-only from GPT-2 small weights + exp-164 qbar. Tested whether the S_wpe sign
+  crossing near position 511 is present in the raw (pre-LN) wpe geometry.
+  **H1 PARTIAL (3/5 heads):** The cosine between k_wpe[a] and qbar crosses zero within
+  ±100 of position 511 for L2H1 (at 465), L5H0 (at 477–479), and L7H11 (at 432–553).
+  L3H4 and L10H8 cross at early positions (57, 71 and 7, 44, 173, 175) — not near 511.
+  **H2 CONFIRMED:** Sign changes in S_wpe_raw are entirely directional — S_wpe_raw and
+  cos_profile have identical zero-crossing patterns; norm_k > 0 everywhere.
+  **H3 CONFIRMED:** The wpe norm profile has 608 local extrema (min 0.12, max 9.88) —
+  highly non-monotone, sinusoidal structure.
+  **H4 PARTIAL (3/5 heads):** Same as H1.
+  **Decisive finding:** The 511 trough boundary is LN-mediated, not universally encoded in
+  raw wpe geometry. For L3H4 and L10H8, LN is creating or relocating the zero crossing in
+  the effective wpe contribution — not just amplifying a sign that was already there.
+  **Open question:** Why does LN place the effective zero crossing near 511? Candidate:
+  the residual stream RMS profile has structure at ~511 (accumulated context grows with
+  position, changing LN's normalization factor and thus the effective wpe projection).
+  This is the **ninth experiment** in the T1 restatement thread (exp-138, 161, 163, 164,
+  165, 166, 168, 169, 170). Pre-registration: attention-geometry 9f6cfeb (git-attested,
+  before run.py). (exp-170)
 
 ## What was killed (published, not buried)
 
