@@ -448,14 +448,17 @@ with the predictions and they are the discipline.
   > has a zero crossing near position ~511 for ALL structural heads, then rises monotonically
   > to position 1023. Pool-sensitive heads have a steeper rise in the 512–1023 range. The
   > two behavioral classes are clean and reproducible. **The T1 restatement conversation is
-  > now ready: nine experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168, exp-169, exp-170)
+  > now ready: ten experiments (exp-138, exp-161, exp-163, exp-164, exp-165, exp-166, exp-168, exp-169, exp-170, exp-171)
   > confirm the census measures absolute-key-position drift locally, not a relative-lag power law.**
   > exp-168 adds the LN-recency h(j)∝j confirmation: the post-511 linear rise fits
   > R²=0.979–0.997 on all 5 structural heads. exp-169 establishes the trough mechanism: wpe
   > position-dependence through LN (74–102% of trough depth), confirming the full h(j) profile
   > is a LN-amplified wpe effect. exp-170 adds: the 511 trough boundary is LN-mediated —
   > for 2/5 structural heads the static wpe projection crosses zero far from 511; LN is
-  > creating the effective crossing location, not amplifying a pre-existing sign. (exp-168, exp-169, exp-170)
+  > creating the effective crossing location, not amplifying a pre-existing sign. exp-171 adds:
+  > accumulated layer writes drive the negative trough throughout [400, 624] — M1 (direction)
+  > mechanism confirmed; M2 (LN denominator) not supported (RMS decreases with position);
+  > bilinear S_abskey zero crossing is at ~634–650, not ~511. (exp-168, exp-169, exp-170, exp-171)
   >
   > **exp-164 (2026-09-30): FALSIFIED — H_relative dead.** New forward passes (same
   > protocol as exp-163); saved full kbar/qbar arrays as npz. Tested whether the
@@ -616,6 +619,16 @@ of G or of the process generating it.
 > property of LN acting on the full residual stream. Open: why does LN place the effective
 > zero crossing at ~511? Candidate: residual stream RMS profile has structure at ~511 from
 > accumulated context. Ninth experiment in T1 restatement thread. (exp-170)
+>
+> **exp-171 (2026-10-11) — residual stream decomposition, PARTIAL (analysis-only):**
+> H4 CONFIRMED for all 5 structural heads: accumulated layer writes (wpe-ablated
+> residual → LN → key projection) contribute uniformly negative S_delta throughout
+> [400, 624] (95–100% negative, mean −0.65 to −1.14). M1 mechanism confirmed.
+> H3 FALSIFIED: residual stream RMS DECREASES with position (slopes −0.000067 to
+> −0.000738/pos) — M2 (LN denominator amplification) not supported. Protocol
+> clarification: bilinear S_abskey crosses zero at ~634–650, not ~511. "511 trough
+> boundary" in prior experiments referred to S_wpe_lin sign change, not S_abskey.
+> Tenth experiment in T1 restatement thread. (exp-171)
 >
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
