@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 10, 2026 (exp-170 added: wpe zero-crossing geometry — sign changes in S_wpe are purely directional (H2 CONFIRMED), but the 511 trough boundary is LN-mediated rather than universal in raw wpe geometry (H1/H4 PARTIAL: 3/5 heads). For L3H4 and L10H8, the static wpe projection crosses zero well below 511; LN is creating/relocating the zero crossing, not just amplifying. T1 restatement thread now at 9 experiments.)*
+*Last updated: October 11, 2026 (exp-171 added: residual stream decomposition — accumulated layer writes drive S_abskey trough (H4 CONFIRMED for all 5 heads: 95–100% negative S_delta in [400,624], mean −0.65 to −1.14); M2 mechanism (LN denominator) falsified (RMS decreases with position); protocol clarification: bilinear S_abskey zero crossing at ~634–650, not ~511. T1 restatement thread now at 10 experiments.)*
 
 ---
 
@@ -663,6 +663,28 @@ require worldly content at measurement time. (exp-095)
   This is the **ninth experiment** in the T1 restatement thread (exp-138, 161, 163, 164,
   165, 166, 168, 169, 170). Pre-registration: attention-geometry 9f6cfeb (git-attested,
   before run.py). (exp-170)
+
+- **Residual stream decomposition — accumulated writes drive S_abskey trough — PARTIAL (exp-171, 2026-10-11).**
+  Analysis-only from GPT-2 small. Fresh forward passes (N=100, seed=42, matching exp-164);
+  residual streams captured at structural head layers via hooks on ln_1. Tested whether
+  accumulated layer writes (wpe-ablated residual → LN → key projection) drive the S_abskey
+  negative trough, and whether LN denominator (RMS) has structure at ~511.
+  **H4 CONFIRMED (all 5 heads):** Accumulated layer writes (S_delta) are uniformly negative
+  in [400, 624] for all structural heads: L2H1 96%, L3H4 100%, L5H0 100%, L7H11 100%,
+  L10H8 100% negative. Mean S_delta ranges −0.65 (L2H1) to −1.14 (L10H8). M1 mechanism
+  confirmed: the negative trough is driven by accumulated layer writes, not wpe alone.
+  **H3 FALSIFIED:** Residual stream RMS DECREASES slightly with position at all structural
+  head layers (slopes −0.000067 to −0.000738/pos). M2 mechanism (LN denominator
+  amplification at ~511) is not supported.
+  **H1 not confirmed / K2 fires:** S_delta doesn't cross zero in [400, 624] for L3H4 or
+  L10H8. The window was built around "511" but S_delta's crossing is outside it.
+  **Protocol clarification:** The bilinear S_abskey (from kbar/qbar) crosses zero at
+  ~634–650 across all heads, not ~511. The "511 trough boundary" from exp-163/168/169/170
+  referred to S_wpe_lin (wpe component's sign change), not S_abskey itself. At position
+  511, S_full is strongly negative for all heads (L3H4 = −1.00, L10H8 = −1.25).
+  This is the **tenth experiment** in the T1 restatement thread (exp-138, 161, 163, 164,
+  165, 166, 168, 169, 170, 171). Pre-registration: attention-geometry e309533 (git-attested,
+  before run.py). (exp-171)
 
 ## What was killed (published, not buried)
 
