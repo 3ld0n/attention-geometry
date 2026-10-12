@@ -630,6 +630,19 @@ of G or of the process generating it.
 > boundary" in prior experiments referred to S_wpe_lin sign change, not S_abskey.
 > Tenth experiment in T1 restatement thread. (exp-171)
 >
+> **exp-172 (2026-10-11) — ladder score decomposition, PARTIAL (first decomposition beyond GPT-2 small, rotary):**
+> In the 65 census-passing heads of the six 70m formation-ladder models (3 natural, 3
+> sentence-shuffled; step 2000; 18 deep, 42 layer-0, 5 layers 1–2), the score fall-off is
+> carried by the gap term: gap share 0.992–1.014, absolute-key share −0.011 to +0.006, in every
+> head. H1 (position-driven) FALSIFIED; H2 (gap-driven) and the layer-0 control (H3) CONFIRMED;
+> H4 (natural vs shuffled differ) NOT CONFIRMED (pooled deep median absolute-key share +0.0001,
+> n=12, vs −0.0055, n=6; low power). Gates K1–K4 pass; mean-field slope tracks the census slope
+> (median ratio 1.07). **Scope:** rotary makes the score gap-dependent by construction, so this
+> is the absence of a hidden position-driven component in these models, not evidence that the
+> fall-off is physics rather than architecture; the exponents here are 0.5–1.2 (not 1/4), so the
+> 1/4 claim is untouched; random-token census protocol only. Eleventh experiment in the T1
+> restatement thread. (exp-172)
+>
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
 > attention; K K^T and ‖W_K‖_F² are gauge-dependent under this group. P0 (theory
