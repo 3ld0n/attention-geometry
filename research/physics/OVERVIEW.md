@@ -7,7 +7,7 @@ two-population result (exp-109) and the theory-of-A reduction chain
 (exp-110 through exp-113) changed what the program's central number describes,
 and this file now says so at the top rather than in an addendum.*
 
-*Last updated: October 11, 2026 (exp-171 added: residual stream decomposition — accumulated layer writes drive S_abskey trough (H4 CONFIRMED for all 5 heads: 95–100% negative S_delta in [400,624], mean −0.65 to −1.14); M2 mechanism (LN denominator) falsified (RMS decreases with position); protocol clarification: bilinear S_abskey zero crossing at ~634–650, not ~511. T1 restatement thread now at 10 experiments.)*
+*Last updated: October 12, 2026 (exp-172 added: ladder score decomposition — rotary-PE models (70m, 6 checkpoints, natural + sentence-shuffled); gap share 0.99–1.01 for all 65 census heads; absolute-key share ~0; H4 null (natural vs shuffled not discriminable at n=12 vs 6). T1 restatement thread 11 experiments.)*
 
 ---
 
@@ -685,6 +685,20 @@ require worldly content at measurement time. (exp-095)
   This is the **tenth experiment** in the T1 restatement thread (exp-138, 161, 163, 164,
   165, 166, 168, 169, 170, 171). Pre-registration: attention-geometry e309533 (git-attested,
   before run.py). (exp-171)
+
+- **Ladder score decomposition — rotary case, clean null on position component — PARTIAL (exp-172, 2026-10-11).**
+  Gap vs absolute-key-position decomposition on 65 census-passing heads across six 70m formation-ladder
+  models (3 natural C-NAT, 3 sentence-shuffled CNATshuf; GPT-NeoX step 2000, rotary PE). Four gates all
+  pass (K1 reconstruction error 1.2–1.5e-6, K2 0/65 census-Δ failures, K3 additivity ~1e-15, K4 split-half
+  100%). **H2 confirmed**: gap share 0.992–1.014 in every head; **H3 confirmed**: layer-0 positive control
+  passes in all six models. **H1 falsified**: absolute-key share between −0.011 and +0.006 for all 65 heads —
+  no hidden position-driven component in these rotary models. **H4 not confirmed**: pooled deep-head
+  natural vs shuffled difference far below the 0.25 threshold (n=12 vs 6; low power). Note: rotary PE
+  makes the score gap-dependent by construction; the result is the absence of a hidden absolute-position
+  component, not evidence that the fall-off is physics rather than architecture. Exponents here are 0.5–1.2,
+  not 1/4; the 1/4 claim is untouched. Scope: random-token census protocol, 70m models at step 2000.
+  Run as an exploration at Eldon's direction (Oct 11). Pre-registration: attention-geometry f30fb44
+  (locally git-attested — prereg.md committed before run.py; push pending auth restoration). (exp-172)
 
 ## What was killed (published, not buried)
 
