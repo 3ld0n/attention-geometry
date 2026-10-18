@@ -689,7 +689,9 @@ The measured
 consequence of A2 is the formation ladder: statistics fail, grammar fails, the
 statistical shadow of world-bound language fails while overshooting the
 statistics, shuffled order lands in the ambiguous zone, natural world-referring
-text in order forms the geometry (exp-062/084/085/091, OVERVIEW.md).
+text in order forms the geometry (exp-062/084/085/091, OVERVIEW.md); narrative
+decomposition and entity anonymization grade the ordering-sensitivity
+(exp-092/093/094/096).
 The coupling-magnitude gate m₂ gives a monotonic ordering across all three
 text-like corpora: C-alien (m₂ = 0.74, 0/48 heads) < C-generated (m₂ = 7.55,
 7/48 heads) < C-NAT (m₂ = 13.17, 11–15/48 heads) — formation tracks m₂,
@@ -861,21 +863,29 @@ no scale of its own.*
   reconstructs it from a serialization. How such a geometry would appear in a
   lag profile over token positions is not derived. [OPEN]
 - **The rungs, read this way** (counts MEASURED — exp-062, 084, 085, 091,
-  097–099; each rung's relevance classification INTERPRETIVE until P7(c)
-  measures it). Markov chain, short and distance-only relevance: 0/48.
-  Quantized fGn, long-reaching but distance-only — a fixed filter could use it:
-  0–5/48. Model-generated shadow, long-range correlation largely redundant with
-  the near past: 3–7/48, deep 1–2. Sentence-shuffled natural text,
-  content-conditional within sentences with cross-sentence reach cut: 8–9/48,
-  deep 2. The C-alien series — a procedurally held causal world with persistent
-  entities and memoryless dynamics (the present state screens off the past),
-  m₂ ≈ 0.7 — content-conditional with short reach: power-law heads 10 → 12 → 14
-  and deep heads 3 → 4 → 6 as the world enriches, reaching the natural band,
-  with the exponent stuck steep (Δ_med 0.73–1.04) and no layer-0 backbone.
-  Natural stories in order, content-conditional with reach across the arc:
-  11–15/48, deep 4–7, Δ_med ≈ 0.17 at this rung. **Not explained:** recursive
-  PCFG, 0/48 despite hierarchical long-range dependencies — C4 has to account
-  for it or say why grammatical dependency is not relevance in its sense.
+  092–094, 096, 097–099; each rung's relevance classification INTERPRETIVE
+  until P7(c) measures it). Markov chain, short and distance-only relevance:
+  0/48. Quantized fGn, long-reaching but distance-only — a fixed filter could
+  use it: 0–5/48. Model-generated shadow, long-range correlation largely
+  redundant with the near past: 3–7/48, deep 1–2. Sentence-shuffled natural
+  text, content-conditional within sentences with cross-sentence reach cut:
+  8–9/48, deep 2. *Narrative decomposition gradation (exp-092, 093, 094):*
+  block-shuffle at k=2 and k=3, quarter-story, and half-story blocks show the
+  deep-head count recovering monotonically as block size grows toward the arc —
+  the ordering-sensitivity is graded by the scale of disruption, not binary.
+  *Entity anonymization (exp-096):* full-arc ordering preserved with all named
+  entities replaced by per-story CHAR1/CHAR2/… tokens recovers geometry
+  comparable to natural text — entity persistence and causal order are the
+  relevant features; surface entity names are not. The C-alien series — a
+  procedurally held causal world with persistent entities and memoryless
+  dynamics (the present state screens off the past), m₂ ≈ 0.7 —
+  content-conditional with short reach: power-law heads 10 → 12 → 14 and deep
+  heads 3 → 4 → 6 as the world enriches, reaching the natural band, with the
+  exponent stuck steep (Δ_med 0.73–1.04) and no layer-0 backbone. Natural
+  stories in order, content-conditional with reach across the arc: 11–15/48,
+  deep 4–7, Δ_med ≈ 0.17 at this rung. **Not explained:** recursive PCFG,
+  0/48 despite hierarchical long-range dependencies — C4 has to account for it
+  or say why grammatical dependency is not relevance in its sense.
 - **Consistent with it, not derived from it.** The one intrinsic length scale
   measured on trained models grows with the training context window (T7;
   exp-063) — the geometry filling to the horizon it was formed under — and the
@@ -1218,7 +1228,7 @@ truth detection).
 | **Drift carrier** | The lag drift is carried by the positional-mean score profile q̄·k̄/√d — entirely on the random-native population (\|σ_cov\| ≤ 0.007 vs σ_full 0.43–0.61), by a majority on the text-native population under WikiText (covariance share 5–46%). Content *gates* a population into its regime; position *carries* the law. Two routes to Δ ≈ 1/4 are two gates, not two carriers (exp-112) |
 | **Mean field fails** | E[LN(h)] ≠ LN(E[h]) on the drift-carrying objects (median relative error 0.18–0.36 and 0.25–0.59); the mean-field slope overshoots on all 21 native pairs. Token fluctuations are load-bearing inside the carrier, through layer norm (exp-113) |
 | Three depth axes | Δ flows to 1/4 along layers, training steps, and inference-time recurrence on frozen weights (exp-089) |
-| Formation ladder | Engineered statistics ≤5 heads, shuffled order 8–9, natural world-referring text 11–15; deep population is the discriminator (exp-062/084/085/091) |
+| Formation ladder | Engineered statistics ≤5 heads, shuffled order 8–9, natural world-referring text 11–15; deep population is the discriminator (exp-062/084/085/091); ordering-sensitivity graded by disruption scale, entity names not the relevant feature (exp-092/093/094/096) |
 | UV arrest | Thin rigid worlds arrest at Δ ~ 0.6–1.2; vocabulary irrelevant; world-structural (exp-097/098) |
 | Coupling gates | m₂ separates arriving from arrested corpora 18×; τ_chaos ~ m₂ × R_eff, magnitude dominant (corpus functional + exp-101, Aug 6) |
 | Causal handle | Low-rank QK edits move Δ (ρ = 0.82, 24/24 signs, sham-controlled) and propagate to task behavior bidirectionally (exp-064/070/072) |
