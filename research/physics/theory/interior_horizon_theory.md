@@ -172,7 +172,9 @@ the measurement problem given, for the first time, physics of its own.
 > but measure concentration structure, not Δ. **Δ → 1/4 is protocol-relative**:
 > it is a property of a (weights, input-distribution) pair, and on one fixed
 > model two *disjoint* head populations each reach it under a different input,
-> sharing no head at all (exp-107, exp-109). A classification whose order
+> sharing no head at all (exp-081/082/083 — whirlpool/crystal investigation,
+> July 2026, which first observed the input-dependent reorganization;
+> exp-107, exp-109 — which measured it precisely: Jaccard = 0.000). A classification whose order
 > parameter depends on what you feed the system is not thereby empty — but it
 > is a classification of a system **together with what it is attending to**,
 > which is arguably what D1 says an observer is, and is certainly not what the
@@ -685,6 +687,13 @@ transition in the weights. **Gauge check (exp-139, September 10 2026, CONFIRMED)
 the J_eff² formation gate conclusion is preserved in the canonical QR gauge —
 canonical J_eff_can² ρ = 0.907 with training step (vs original 0.934), formation
 timing at step 256 identical, ρ with n_syk_near = 0.888 unchanged. (exp-136, exp-139)
+**RAND early burst scaling across model sizes (exp-087/088, July 20 2026):** at
+step 512 the fraction of random-token-native (RAND) SYK-near heads declines
+sublinearly with model size — Pythia-70m 18.75%, Pythia-160m 13.19%, Pythia-410m
+5.73% — confirming the structural-head early burst but falsifying constant-fraction
+scaling; smaller models develop a higher *share* of early structural geometry,
+consistent with the coupling gate opening sooner relative to total head count at
+lower parameter count. (exp-087, exp-088)
 The measured
 consequence of A2 is the formation ladder: statistics fail, grammar fails, the
 statistical shadow of world-bound language fails while overshooting the
@@ -932,7 +941,7 @@ peer-reviewed. Junction 1 of the retired junction chain
 Kim himself.]
 
 **T2 — The Born rule is the exact statistics of the attention horizon.**
-(Paper 5, four theorems, March 8, 2026 — all PROVEN, verified numerically.)
+(Paper 5, four theorems, March 8, 2026 — all PROVEN, verified numerically. (exp-001))
 Define the key Hilbert space H_K = ℝⁿ, the query Hamiltonian
 H_q = −Σ_i (q·k_i/√d_k)|i⟩⟨i|, and the Gibbs state ρ_q = e^{−H_q}/Z. Then:
 
@@ -1012,7 +1021,20 @@ protected lesser self-consistency); Class III — maximal chaos with
 architecture without training produces none; randomizing GPT-2 positional
 embeddings keeps the law and shifts median Δ_A 0.25 → 0.10 — weights make
 the law, PE tunes the exponent. Writeup:
-`notes/2026-03-24_numerical_results.md`. [DERIVED given the T3
+`notes/2026-03-24_numerical_results.md`. Statistical robustness of the
+census exponent: null distribution and histogram controls confirm the
+power-law population is not a tail artifact (exp-058); split-half and
+bootstrap stability of the Δ–valley correlation confirm the signal is not
+a sampling artifact (exp-059). λ-sign derivation and re-test (Phase 0 item
+0.4): sign anomaly A1 confirmed, re-tested at tighter threshold; closes
+Phase 0 item 0.4 (exp-061). **Architecture falsification — sigmoid attention
+(exp-041, May 29 2026, FALSIFIED):** Apple GALA-7B with sigmoid normalization
+produces 0/1024 SYK-near heads (δ_med = 7.4, vs softmax GPT-2's 0.25) —
+effectively no conformal structure. The softmax form is load-bearing for the
+conformal census: the SYK mechanism does not arise from architecture alone
+when the normalization changes. Pre-existing infrastructure probe (exp-032,
+aborted) and unblock (exp-033, partial) established that the measurement
+was feasible before exp-041 ran. [DERIVED given the T3
 identification + MEASURED retrodictions.]
 
 **Theory-of-A reduction chain (G7, construction site).** The derivation of
@@ -1670,6 +1692,13 @@ theory; this one asks whether the imported theory is needed at all.
 and every rung that narrowed the target did so by killing a prediction I had
 recorded as believed:*
 
+0. **The census exponent decomposes into a quenched (typical-row) slope and a
+   variance term** (exp-110): 2Δ_A^census = σ_quenched + ½σ_log-variance,
+   median |gap| = 0.015 over 15/15 registered head pairs. The *pooled* object
+   is the input-stable register; the typical row underneath swings more; the
+   damping mechanism — why the variance contribution is small enough that the
+   pool sits at the quenched value — is underived. This is what the chain is
+   deriving: an account of q̄·k̄/√d that explains the census value.
 1. **The law lives in the ensemble marginal, not in any attention pattern**
    (exp-111). So the object to derive is E[log A] or E[A], not a row.
 2. **The marginal's carrier is the positional-mean score profile**
@@ -1736,6 +1765,17 @@ toward Δ = 1/4 improves world-coherence where headroom exists, shallowing
 degrades it. **Kill:** Δ edits move retrieval metrics but leave world-model
 coherence untouched (double dissociation against the theory), or effects are
 not head-specific under matched shams. *Runnable now; no new training.*
+**Protocol development (June–July 2026):** task calibration sweep to find a
+base-model lost-in-the-middle deficit large enough for κ-editing to move
+(exp-069, confirmed: Pythia-1.4b positional-retrieval deficit identified);
+preliminary task-level κ-rescaling on Pythia-1.4b conformal heads (exp-068,
+inconclusive — head-count and perplexity limits at that scale); robustness
+seed sweep on vicuna-13b-v1.5 (exp-073, partial — cross-model confirmation
+of the κ-handle but insufficient power for P1's battery criteria). These
+established the GPT-2-small protocol as the tractable regime. Cloud
+calibration and deep-base U-shape characterization (exp-071) confirmed that
+structural heads concentrate at deep layers before the battery design was
+finalized.
 Supporting chain, previously undelivered: the joint (Δ, λ) implied-valley
 predictor beats Δ alone on three confirmatory models (exp-067); flattening
 the eight locked heads costs ΔNLL = +0.00136 nats/token on WikiText, below
@@ -1939,6 +1979,13 @@ eigenvalue or spectral-density exponent
 (`notes/2026-03-29_transformer_neural_comparison.md`). The six-dataset
 inventory in `notes/2026-03-29_conformal_integration_hypothesis.md` is not
 this prediction's registered form.
+
+**Observable selection (exp-022, March 25 2026, FALSIFIED as discriminating quantity):**
+eigenvalue spectrum comparison of the power-law covariance matrix C_{ij} = |i-j|^{-2Δ}
+against neural covariance does not work — it is not a discriminating observable.
+The correct comparison quantity is the position-space exponent μ = 2Δ, not an
+eigenvalue or spectral-density exponent. This established the comparison protocol
+that applies to every biological test of P2: measure μ directly. (exp-022)
 
 The DMN sentence is unchanged and is not the whole biological program. Mouse
 V1 via MICrONS correlation-vs-distance was run April 29–30
@@ -2176,6 +2223,15 @@ dressing-loop note §8).*
 > claim of readiness. The registry knew this and the spine did not, which is
 > exactly backwards: **a joint recorded only in a tag is a joint no reader will
 > ever meet.**
+>
+> **Honest negative on the transformer-side instrument (exp-103, August 8, 2026 —
+> aborted, verdict n/a, methodology failure):** before the G failure was
+> established, a direct Jacobian spectroscopy attempt was launched — measuring the
+> Jacobian of the late-layer attention update on GPT-2's residual stream. The
+> reparameterization overlap (H_S3) came in at max 0.0063, K3 fired, and the
+> experiment was aborted as a methodology failure: the Jacobian target object is
+> not the same as F̂'s G-space Jacobian, so the signatures (S1–S4) could not be
+> checked. This failure is an instrument defect, not a physics kill. (exp-103)
 
 **P7 — Formation from bound relevance (the tests of A6 and C4). [PROPOSED,
 September 24, 2026. Nothing below is registered; each item needs its own
