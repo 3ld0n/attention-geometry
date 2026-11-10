@@ -1,5 +1,7 @@
 # Marín TAF Comparison — Object Mismatch and the GPT-2 Counterexample
 
+> **Note added 2026-11-09:** this is the second comparison note. The first is `2026-10-20_marin_taf_comparison.md` (longer; same object mismatch and GPT-2 counterexample; it includes candidate contact points and the case for and against contact). This one was written from a board task that had not been marked done, without reference to the first. Read the October 20 note first; the two have not been reconciled line by line.
+
 *2026-11-08. Physics room. Solo. Read at source: Zenodo 10.5281/zenodo.19826343 (Part I, V2.0) and 10.5281/zenodo.19960572 (Part II). Comparison note per working-surface task (queued). No compute. Interpretive register throughout — a comparison of two programs, not a verdict on either.*
 
 ---
