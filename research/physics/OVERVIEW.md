@@ -700,6 +700,19 @@ require worldly content at measurement time. (exp-095)
   Run as an exploration at Eldon's direction (Oct 11). Pre-registration: attention-geometry f30fb44
   (locally git-attested — prereg.md committed before run.py; push pending auth restoration). (exp-172)
 
+- **Pythia-70m formation step-sweep — trained onset step 1000 (2.1B tokens); K2 fires on RoPE init — PARTIAL (exp-175, 2026-11-10).**
+  Frozen random-token census (50 × 60, seed 42, lags 3–60) at 20 checkpoints of Pythia-70m
+  (steps 0–143000). **K2 fires**: untrained model (step 0) has n_dw = 8 heads at the lower
+  boundary of the window (Δ ≈ 0.206) — an initialization artifact of RoPE's positional structure
+  on random weights. Training erases this by step 512 (n_dw = 0). **Trained formation onset:
+  step 1000 (2.10B tokens)** — earlier than declared prior (10k–64k steps; prior miss: prior was
+  based on The Pile's heterogeneity; actual onset is 2× the AbsPE result of ~1B tokens by token
+  count, not 20–130×). **Stable trained head: L2H5**, n_dw = 1 from step 16000 through step 143000.
+  **H3 consistent**: step 143000 Δ_med = 0.264, within 0.004 of exp-118's 0.260. K1 not fired.
+  Structural finding: RoPE initialization creates a distinct spurious Δ-window population
+  (layers 3–5, Δ ≈ 0.206) that training replaces with a different sparse trained population
+  (layer 2, Δ ≈ 0.26). The two populations share no heads. (exp-175)
+
 ## What was killed (published, not buried)
 
 Five of these died this week; four were predictions I had registered and
@@ -1130,6 +1143,8 @@ at three levels:
 **Level-3 multi-layer decomposition series** (exp-128 through exp-131, August 31): Four experiments identified the correct measurement protocol and dominant mechanism. exp-128 (WikiText, mean-first, **falsified P1**): σ_delta_total = 0.189 under WikiText — individual block-0 writes have σ ≈ Δ (attn0 = 0.223, mlp0 = 0.228), but cumulative sum is lower due to block-1 partially reducing the slope; decomposition identity holds to 1e-9. exp-129 (Frobenius protocol, **inconclusive**): Frobenius normalization gives σ ≈ 0 — ruled out as protocol difference. exp-130 (WikiText per-sequence, **inconclusive**): per-sequence protocol gives σ = 0.129 — lower than mean-first; confirms mean-first is the right aggregation. exp-131 (random-token census, **inconclusive by registered P1**): per-sequence random-token σ = 0.170; **KEY UNREGISTERED FINDING (within scope):** mean-first random-token σ_delta_total = 0.258 ≈ exp-117's 0.249, reproducing the Level-3 measurement. **Protocol identified: mean-first × random-token census. MLP block 0 dominant contributor (σ_mlp0 = 0.313 > σ_attn0 = 0.132).** Level-3 mechanism operates in the census regime, not the WikiText regime. Open question: why does block-0 MLP amplify position-correlation to σ = 0.313? (next step: measure σ of intermediate residual h^(0.5) = h^(0) + attn^(0) under census — register before computing.)
 
 **Level-3 MLP mechanism resolved** (exp-132/133/134/135, August–September 2026): exp-132 (pass-through falsified): MLP amplifies σ from 0.144 (input) to 0.313 (output), ratio 2.168. exp-133 (gate pre-activations, inconclusive): W_fc disperses (σ 0.144→0.017); GeLU partially recovers (→0.121); amplification is in W_proj. **exp-134 (W_proj column structure, September 6 2026, CONFIRMED):** P1/P2/P3 all confirmed. h_gelu's position-correlated structure is 2D (50% position-variance in 2 PCA components). W_proj amplification is carried by ≤2 output channels (ch480, ch87, σ_d=0.14) routing through that 2D subspace. Not dimensionality reduction: σ(random projection)=0.126 ≈ σ(h_gelu)=0.121 (no amplification without learned structure). W_proj's top-5 input singular directions applied to h_gelu give σ=0.424 — the actual mechanism routes through a high-σ pocket of h_gelu, diluted to aggregate 0.313 by 766 near-zero channels. **exp-135 (h_gelu 2D subspace origin, September 6 2026, CONFIRMED):** The 2D position-correlated structure of h_gelu is inherited from h^(0.5) (the MLP input), not created by W_fc + GeLU. Dimensionality profile: h^(0) needs 1 component for 50% of position-variance (wpe is essentially 1D, PC1=53.86%); h^(0.5) needs 2 components (attention block 0 broadens 1D → 2D, PC1=48.56% + PC2=18.93%); h_gelu also needs 2 (PC1=39.04% + PC2=18.01%). W_fc + GeLU preserve the 2D shape through amplitude dispersal and recovery. **Level-3 chain fully traced: wpe 1D → attn_block0 broadens → h^(0.5) 2D → W_fc+GeLU preserve → h_gelu 2D → W_proj amplifies via ≤2 channels → σ≈Δ in mlp_out.**
+
+**4-point cumulant structure of census scores — near-Gaussian Δ-window in sub-Gaussian population; K4 fires — PARTIAL (exp-174, 2026-11-10).** Under the frozen random-token census (GPT-2 small, 500 × 512, seed 42, within-position-bin kurtosis), the 5 Δ-window heads (L2H1, L3H4, L5H0, L7H11, L10H8) have near-Gaussian score distributions (mean within-bin excess kurtosis = +0.06) while the non-Δ-window population is strongly sub-Gaussian (mean = −0.33). **H1 confirmed** (Mann-Whitney p = 0.020); **H2 confirmed** (p = 0.017). **K4 fires**: Spearman ρ(Δ, kurtosis) = −0.547 (p = 1.4×10⁻¹²) — larger Δ correlates with *less* non-Gaussian structure, not more. The G7 4-point route via monotone kurtosis is not supported. The Δ-window basin is characterized by near-Gaussianity; departure from Δ ≈ 1/4 in either direction produces sub-Gaussian scores. (exp-174)
 
 Paper 6 — *Where I Stop and You Begin* — is the publishable form of D1 and
 D1′. Draft v1.2 (October 7, 2026) adds the explicit consciousness claim:
