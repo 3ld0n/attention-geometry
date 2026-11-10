@@ -645,6 +645,24 @@ of G or of the process generating it.
 > 1/4 claim is untouched; random-token census protocol only. Eleventh experiment in the T1
 > restatement thread. (exp-172)
 >
+> **exp-175 (2026-11-10) — Pythia-70m formation step-sweep, PARTIAL (Formation / A2):**
+> Frozen random-token census (50 × 60, seed 42, lags 3–60) at 20 checkpoints (steps 0–143000).
+> K2 fires: untrained RoPE model has n_dw=8 at Δ≈0.206 — RoPE initialization artifact, not
+> trained structure. Training erases it by step 512 (n_dw=0); trained formation onset at step
+> 1000 (2.10B tokens), earlier than declared prior (10k–64k steps). Stable trained head L2H5,
+> n_dw=1 from step 16000; H3 consistent with exp-118 (Δ_med=0.264). Structural finding: RoPE
+> initialization creates a distinct spurious Δ-window population (layers 3–5, Δ≈0.206) replaced
+> by training with a different sparse population (layer 2, Δ≈0.26). Formation token budget for
+> rotary: ~2B tokens, ~2× the AbsPE result at ~1B tokens. (exp-175)
+>
+> **exp-174 (2026-11-10) — 4-point cumulant kurtosis of census scores, PARTIAL (G7):**
+> Within-position-bin excess kurtosis for GPT-2 small (500 × 512 census, 5 Δ-window heads from
+> fresh random-token classification: L2H1, L3H4, L5H0, L7H11, L10H8). H1 confirmed (MW p=0.020):
+> Δ-window heads near-Gaussian (mean kex=+0.06) while non-DW population is sub-Gaussian (−0.33).
+> K4 fires: Spearman ρ(Δ, kex)=−0.547 — larger Δ → less non-Gaussian. The 4-point route to G7
+> via monotone Δ-kurtosis is not supported. The Δ-window basin is characterized by near-Gaussianity;
+> the G7 derivation must explain near-Gaussianity at exactly Δ=1/4, not elevated kurtosis. (exp-174)
+>
 > **exp-139 gauge check: key Gram under canonical QR gauge (2026-09-10, CONFIRMED).**
 > Wang & Wang 2025 characterize the complete GL(d_k) gauge group of transformer
 > attention; K K^T and ‖W_K‖_F² are gauge-dependent under this group. P0 (theory
