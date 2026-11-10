@@ -150,7 +150,8 @@ for step in STEPS:
             MODEL_ID,
             revision=revision,
             trust_remote_code=False,
-            torch_dtype=torch.float32,
+            dtype=torch.float32,
+            attn_implementation="eager",
         )
         model.eval()
     except Exception as e:
