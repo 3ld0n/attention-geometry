@@ -1051,6 +1051,27 @@ believed.
   distribution) remains an open question. Pre-registration: attention-geometry 066fa20
   (git-attested, before run.py). (exp-160)
 
+  **exp-177 (November 13, FALSIFIED — cross-family functional characterization, Pythia-410m):**
+  Cross-family replication of exp-159 on Pythia-410m (RoPE, 24 layers, 16 text-native heads
+  from exp-118, Δ_med = 0.2426). Same three instruments: (1) W_K ablation; (2) attention-on-
+  target; (3) recency / LiM probe. **H_rep (all 4 sub-hypotheses confirm) is FALSIFIED (1/4).**
+  H_graded confirmed (CV = 0.897, higher than GPT-2 small's 0.775 — the population is even
+  more dominated by 1–2 heads). K2 fires: only 2/16 heads show mean ΔP_C < −0.05 on Task C
+  ablation (threshold 10; exp-159 had 10/16). The only substantial degraders are L12H13
+  (−0.100 nats, 12/20 items) and L3H14 (−0.054 nats, 10/20 items). K3 fires: Spearman
+  ρ = 0.347 between |ΔP_C| and attention-on-target (threshold 0.40; exp-159: 0.459). K4
+  fires: recency gradient = +0.031 nats (threshold 0.10; exp-159: +0.155). The declared
+  prior H_recency was wrong in a second way: Pythia-410m shows a middle-performance dip
+  (U-shape), suggesting LiM-like behavior that GPT-2 small did not show. Multi-token sub-
+  analysis (6 single-token items): mean ΔP_C = +0.014 — confirming the effect is not an
+  artifact of the multi-token sum protocol.
+  **Scope implication:** the content-retrieval functional signature of the text-native
+  population (graded, content-selective W_K, recency gradient) holds for GPT-2/AbsPE and
+  is NOT demonstrated to hold for Pythia-410m/RoPE at the same thresholds. The geometric
+  classification (Δ-window membership) does not imply identical functional content across
+  architecture families. Pre-registration: attention-geometry 9ebf6ef (git-attested, before
+  run.py). (exp-177)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

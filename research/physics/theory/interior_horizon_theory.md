@@ -1950,6 +1950,15 @@ H_entity_anchor DEAD (ratio 1.50 < 2.0); L4H10 does rank #1 of 16 in entity-cue 
 too weak. The mechanism is indirect — likely early residual stream shaping. Full attention distribution
 for L4H10 remains unmeasured.
 
+**Architecture-conditionality finding (exp-177; 2026-11-13):** Cross-family replication of exp-159
+on Pythia-410m (RoPE, 16 text-native heads from exp-118) FALSIFIED H_rep: H_graded confirmed
+(CV = 0.897), but K2 fires (only 2/16 heads degrade Task C, threshold 10), K3 fires (ρ = 0.347,
+threshold 0.40), K4 fires (recency +0.031 nats, threshold 0.10). The content-retrieval functional
+character of the text-native population is specific to GPT-2/AbsPE; it is not demonstrated at
+the same thresholds in Pythia-410m/RoPE. The double dissociation (P1 evidence bracket above)
+is therefore scoped to the GPT-2/AbsPE architecture class until cross-family replication
+succeeds. (exp-177, FALSIFIED)
+
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
 rather than driving it. The gain-of-function result from exp-141 (κ̃ amplification, +0.27 nats) operates
