@@ -1072,6 +1072,21 @@ believed.
   architecture families. Pre-registration: attention-geometry 9ebf6ef (git-attested, before
   run.py). (exp-177)
 
+  **exp-178 (November 14, FALSIFIED — native-battery discrimination test, Pythia-410m):**
+  Architecture-conditionality confirmed with a fresh 20-item battery where all targets are
+  single tokens in the GPT-NeoX tokenizer, ruling out the multi-token protocol as a cause
+  of the exp-177 null. **Result: 0/16 heads with ΔP_C < −0.05 (stronger null than exp-177's
+  2/16). Declared prior H_arch supported.** Additional findings: (1) CV = 1.1478 — the
+  graded tier structure is even steeper with native stimuli; (2) 8/16 heads are competitors
+  (positive ΔP_abl), with L8H15 as dominant competitor (+0.219 nats, 20/20 items); (3)
+  reversed recency in Instrument 3 — Begin > Middle > End (end-minus-begin = −0.401 nats),
+  the opposite of GPT-2 small's standard recency gradient (+0.155). The reversed recency is
+  novel: not an LiM U-shape but a monotone anti-recency preference for early-context entity
+  bindings. Architecture-conditionality of the functional anatomy is established; the scope
+  limit on "text-native heads carry content-retrieval function" is firm for AbsPE/GPT-2
+  architecture class. Pre-registration: attention-geometry acd81b0 (git-attested, before
+  run.py). (exp-178)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

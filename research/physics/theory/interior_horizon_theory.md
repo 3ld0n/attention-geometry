@@ -1959,6 +1959,16 @@ the same thresholds in Pythia-410m/RoPE. The double dissociation (P1 evidence br
 is therefore scoped to the GPT-2/AbsPE architecture class until cross-family replication
 succeeds. (exp-177, FALSIFIED)
 
+**Native-battery confirmation (exp-178; 2026-11-14):** Architecture-conditionality confirmed
+with a fresh 20-item battery where all targets are single tokens in the GPT-NeoX tokenizer,
+ruling out the multi-token protocol as a cause of exp-177's null. Result: 0/16 heads with
+ΔP_C < −0.05 (stronger null than exp-177's 2/16); declared prior H_arch supported. Additional
+findings: CV = 1.1478 (steeper graded tier); 8/16 heads are competitors with L8H15 as dominant
+(+0.219 nats, 20/20 items); reversed recency pattern in position probe (Begin > Middle > End;
+end-minus-begin = −0.401 nats), opposite of GPT-2 small's standard recency. Scope limit firm:
+the three-population functional anatomy is architecture-conditional for content-retrieval.
+(exp-178, FALSIFIED)
+
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
 rather than driving it. The gain-of-function result from exp-141 (κ̃ amplification, +0.27 nats) operates
