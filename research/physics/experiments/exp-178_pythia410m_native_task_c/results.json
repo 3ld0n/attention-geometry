@@ -1,0 +1,182 @@
+{
+  "experiment": "exp-178",
+  "date": "2026-11-14",
+  "model": "EleutherAI/pythia-410m",
+  "prereg_commit": "acd81b0",
+  "battery": "task_c_native_items.json (20 single-token targets, GPT-NeoX tokenizer)",
+  "instrument1": {
+    "cv_abs_contributions": 1.1478,
+    "h_graded": true,
+    "n_degrading_heads": 0,
+    "h_positive": false,
+    "mean_dp_all_heads": 0.0282,
+    "per_head": [
+      {
+        "layer": 0,
+        "head": 3,
+        "label": "L0H3",
+        "dp_abl": -0.0206,
+        "dp_sham": -0.0203,
+        "n_improved_abl": 5,
+        "n_improved_sham": 9
+      },
+      {
+        "layer": 1,
+        "head": 8,
+        "label": "L1H8",
+        "dp_abl": 0.0208,
+        "dp_sham": 0.0183,
+        "n_improved_abl": 14,
+        "n_improved_sham": 13
+      },
+      {
+        "layer": 2,
+        "head": 8,
+        "label": "L2H8",
+        "dp_abl": 0.0088,
+        "dp_sham": 0.0047,
+        "n_improved_abl": 13,
+        "n_improved_sham": 10
+      },
+      {
+        "layer": 3,
+        "head": 2,
+        "label": "L3H2",
+        "dp_abl": 0.0632,
+        "dp_sham": 0.0398,
+        "n_improved_abl": 14,
+        "n_improved_sham": 15
+      },
+      {
+        "layer": 3,
+        "head": 7,
+        "label": "L3H7",
+        "dp_abl": 0.0999,
+        "dp_sham": 0.1595,
+        "n_improved_abl": 14,
+        "n_improved_sham": 15
+      },
+      {
+        "layer": 3,
+        "head": 14,
+        "label": "L3H14",
+        "dp_abl": 0.0184,
+        "dp_sham": -0.0302,
+        "n_improved_abl": 13,
+        "n_improved_sham": 6
+      },
+      {
+        "layer": 4,
+        "head": 12,
+        "label": "L4H12",
+        "dp_abl": 0.0157,
+        "dp_sham": -0.0218,
+        "n_improved_abl": 11,
+        "n_improved_sham": 6
+      },
+      {
+        "layer": 7,
+        "head": 11,
+        "label": "L7H11",
+        "dp_abl": 0.0694,
+        "dp_sham": 0.0723,
+        "n_improved_abl": 15,
+        "n_improved_sham": 17
+      },
+      {
+        "layer": 8,
+        "head": 15,
+        "label": "L8H15",
+        "dp_abl": 0.219,
+        "dp_sham": 0.3291,
+        "n_improved_abl": 20,
+        "n_improved_sham": 20
+      },
+      {
+        "layer": 9,
+        "head": 15,
+        "label": "L9H15",
+        "dp_abl": -0.0433,
+        "dp_sham": -0.0233,
+        "n_improved_abl": 5,
+        "n_improved_sham": 8
+      },
+      {
+        "layer": 12,
+        "head": 3,
+        "label": "L12H3",
+        "dp_abl": 0.0524,
+        "dp_sham": 0.0882,
+        "n_improved_abl": 18,
+        "n_improved_sham": 16
+      },
+      {
+        "layer": 12,
+        "head": 13,
+        "label": "L12H13",
+        "dp_abl": -0.0207,
+        "dp_sham": -0.1642,
+        "n_improved_abl": 9,
+        "n_improved_sham": 6
+      },
+      {
+        "layer": 14,
+        "head": 15,
+        "label": "L14H15",
+        "dp_abl": -0.0328,
+        "dp_sham": -0.0493,
+        "n_improved_abl": 7,
+        "n_improved_sham": 5
+      },
+      {
+        "layer": 19,
+        "head": 15,
+        "label": "L19H15",
+        "dp_abl": -0.0142,
+        "dp_sham": -0.0598,
+        "n_improved_abl": 7,
+        "n_improved_sham": 9
+      },
+      {
+        "layer": 21,
+        "head": 11,
+        "label": "L21H11",
+        "dp_abl": 0.0177,
+        "dp_sham": 0.0186,
+        "n_improved_abl": 17,
+        "n_improved_sham": 16
+      },
+      {
+        "layer": 22,
+        "head": 1,
+        "label": "L22H1",
+        "dp_abl": -0.0023,
+        "dp_sham": 0.0115,
+        "n_improved_abl": 10,
+        "n_improved_sham": 12
+      }
+    ]
+  },
+  "instrument2": {
+    "spearman_rho": 0.2059,
+    "spearman_pval": 0.4443,
+    "h_content_selective": false
+  },
+  "instrument3": {
+    "mean_lp_begin": -2.1696,
+    "mean_lp_middle": -2.2999,
+    "mean_lp_end": -2.5702,
+    "end_minus_begin": -0.4006,
+    "h_recency": false,
+    "h_lim_pattern": false,
+    "reversed_recency": true,
+    "note": "Begin > Middle > End \u2014 reversed recency; begin (early-context setup) outperforms end (late-context setup). Not the LiM U-shape; a monotone anti-recency gradient."
+  },
+  "summary": {
+    "n_subhypotheses_confirmed": 1,
+    "h_graded_confirmed": true,
+    "h_rep": "falsified",
+    "declared_prior_h_arch": "supported",
+    "note": "H_arch supported: architecture-conditionality finding is not a task-design artifact. 0/16 heads degrade on native single-token battery (stronger null than exp-177 2/16). Reversed recency unexpected."
+  }
+}
