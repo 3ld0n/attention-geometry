@@ -1,0 +1,187 @@
+{
+  "description": "exp-178 native Task C battery for Pythia-410m. All 20 targets are single tokens in the GPT-NeoX tokenizer. Designed 2026-11-14 as part of exp-178 pre-registration, before run.py is written. Each item: entity establishes the property in 'setup'; 'filler' is unrelated text that separates setup from retrieval; 'cue' expects the target property as the next token.",
+  "tokenizer": "EleutherAI/pythia-410m (GPT-NeoX tokenizer)",
+  "token_verification": "Each target_token verified as single token before this file was committed.",
+  "items": [
+    {
+      "id": "C-01",
+      "entity": "hall",
+      "property": "marble",
+      "setup": "The floor of the hall was marble.",
+      "filler": "Morning light moved slowly across the valley, touching the ridge first and then the lower slopes and finally the flat ground by the river. The air was cool and still. A hawk turned in a wide circle above the east field without beating its wings. The last of the season's fruit had been picked from the orchard and the branches stood bare. Workers had begun to stack the winter wood under the eaves of the barn, and the pile grew higher each afternoon as the colder days approached.",
+      "cue": "Everyone remembered that the floor of the hall was",
+      "target_token": " marble"
+    },
+    {
+      "id": "C-02",
+      "entity": "weathervane",
+      "property": "copper",
+      "setup": "The weathervane on the roof had been made from copper.",
+      "filler": "The river had run low all summer but now in the autumn the rains had come and the water moved with more purpose through the narrow channel between the two hills. Herons stood at the margins and waited. The old footbridge swayed slightly when anyone crossed it. Moss had grown thick on the northern face of every stone along the bank. Fish rose at dusk and left rings on the surface that spread and flattened and disappeared.",
+      "cue": "The weathervane that turned above the roof had been made from",
+      "target_token": " copper"
+    },
+    {
+      "id": "C-03",
+      "entity": "steps",
+      "property": "granite",
+      "setup": "The front steps had been cut from granite.",
+      "filler": "Light snow fell through the morning and settled on the ground without accumulating. By midday the sky had cleared and the temperature dropped. The road through the village was quiet for most of the day except when a truck passed headed toward the mill. Cattle moved slowly across the upper pasture and gathered near the stone wall at the lower end where the grass was still green under the frost. Smoke rose straight up from the chimneys in the absence of wind.",
+      "cue": "The front steps leading to the door had been cut from",
+      "target_token": " granite"
+    },
+    {
+      "id": "C-04",
+      "entity": "bell",
+      "property": "bronze",
+      "setup": "The bell in the tower had been cast from bronze.",
+      "filler": "An old track led away from the main road toward the abandoned farmstead at the edge of the forest. The track was overgrown but still passable on foot. Nettles had colonized the ditch on either side and the trees had begun to encroach from the field margins. A family of deer had made a trail through the nettles and the signs of their passage were visible in the pressed vegetation. The farmstead itself was hidden from view until you were nearly upon it.",
+      "cue": "When the bell was tested it turned out to have been cast from",
+      "target_token": " bronze"
+    },
+    {
+      "id": "C-05",
+      "entity": "floors",
+      "property": "oak",
+      "setup": "The floors in the cottage were oak.",
+      "filler": "The tide came in during the night and receded before first light. What it left behind was a fresh line of wrack across the upper beach and several large pieces of driftwood that had not been there before. The sand was dark and firm close to the water and lighter and drier further up the beach. Children who came down in the morning found a crab in a tidal pool and watched it move sideways across the stone-covered bottom for a long time before returning home.",
+      "cue": "Visitors often remarked that the floors in the cottage were made of",
+      "target_token": " oak"
+    },
+    {
+      "id": "C-06",
+      "entity": "gate",
+      "property": "iron",
+      "setup": "The gate at the end of the drive had been forged from iron.",
+      "filler": "On the hillside above the village the old quarry was now full of water and reflected the sky. Birches had grown up around the rim and their roots gripped the crumbling edges. Frogs lived there now and their calls carried down into the valley in the spring evenings. The path that led up to the quarry had been used only by walkers for many years. The stone that had once been cut there could be seen in walls and buildings throughout the valley and the town below.",
+      "cue": "The old gate at the entrance to the drive had been forged from",
+      "target_token": " iron"
+    },
+    {
+      "id": "C-07",
+      "entity": "candlesticks",
+      "property": "silver",
+      "setup": "The candlesticks on the mantelpiece were made of silver.",
+      "filler": "In the late afternoon the shadows of the mountains stretched across the valley floor and the temperature fell quickly once the sun had gone behind the ridge. The shepherd brought the flock down from the higher pasture and penned them in the lower field for the night. His dog moved in wide arcs behind the sheep dropping low when any animal broke from the group. The shepherd counted them as they came through the gate and found the number correct. He latched the gate and walked back to the farmhouse across the dark field.",
+      "cue": "The old candlesticks kept on the mantelpiece were made of",
+      "target_token": " silver"
+    },
+    {
+      "id": "C-08",
+      "entity": "chimney",
+      "property": "brick",
+      "setup": "The chimney on the south wall had been built from brick.",
+      "filler": "The estuary was wide at high tide and the birds that gathered there were numerous. Curlews moved along the mud with their long bills probing the surface. A flock of knot turned together above the water and their white undersides flashed against the grey sky. The distant sound of the sea was constant. Fishermen who worked the estuary in small boats came ashore at the slipway and stacked their pots on the quay. By late afternoon the tide had turned and the mud began to show at the margins.",
+      "cue": "The tall chimney on the south wall of the building had been built from",
+      "target_token": " brick"
+    },
+    {
+      "id": "C-09",
+      "entity": "hearth",
+      "property": "slate",
+      "setup": "The hearth in front of the fireplace was paved with slate.",
+      "filler": "The autumn migration had begun and the skies above the headland were busy. Swallows gathered on the telephone wires in the morning and left in the afternoon heading south. Chaffinches moved through the hawthorn hedges and their calls overlapped with the sounds of the wind. The brambles were heavy with fruit and had not yet been stripped by the blackbirds. A light rain came and went before noon. The path along the cliff edge was muddy and the sea below was grey and flecked with foam.",
+      "cue": "Workers laid the hearth in front of the fire using",
+      "target_token": " slate"
+    },
+    {
+      "id": "C-10",
+      "entity": "moldings",
+      "property": "plaster",
+      "setup": "The ornamental moldings along the cornice had been made from plaster.",
+      "filler": "The canal had been closed to traffic for many years but the towpath was still walked regularly. Narrowboats that had been moored for the season sat low in the water with their hatches shut. A family of coots lived under the bank near the first lock and their calls echoed off the water. Willows trailed their branches and the reflections they made were broken by the wind. The lock keeper's cottage at the end of the first pound had been converted into a private house and the garden was well kept.",
+      "cue": "The decorative moldings running along the ceiling cornice had been made from",
+      "target_token": " plaster"
+    },
+    {
+      "id": "C-11",
+      "entity": "archway",
+      "property": "limestone",
+      "setup": "The archway leading into the courtyard had been carved from limestone.",
+      "filler": "The highland plateau was open in every direction and the wind moved across it without obstruction. The ground was wet underfoot and the pools between the tussocks reflected the pale sky. Where the peat had been cut it showed a dark face to the weather. Ptarmigan moved along the ridgeline in a loose group and disappeared behind a low outcrop. The distant loch was dark below the cloud. Snow had fallen here three weeks earlier and the peat was still frozen in places beneath the surface.",
+      "cue": "The old archway at the entrance to the courtyard had been carved from",
+      "target_token": " limestone"
+    },
+    {
+      "id": "C-12",
+      "entity": "cushions",
+      "property": "velvet",
+      "setup": "The seat cushions on the bench had been covered in velvet.",
+      "filler": "The coastal path ran between low cliff and the sea and in one place it had been redirected inland because the original route had fallen away. Yellow gorse grew on the landward side and its smell was strong in the sun. Below the path the sea moved in long swells from the southwest. Seals were visible on a rock shelf when the tide was out. The path descended eventually to a small beach where freshwater came down from the hillside and mixed with the sea at the tide line.",
+      "cue": "The seat cushions on the long bench along the wall had been covered in",
+      "target_token": " velvet"
+    },
+    {
+      "id": "C-13",
+      "entity": "sails",
+      "property": "canvas",
+      "setup": "The sails on the old vessel had been made from canvas.",
+      "filler": "The river below the weir was fast and clear. A kingfisher crossed from bank to bank twice during the morning and perched each time on a low branch overhanging the water. The current created a small standing wave at the edge of the deeper pool and trout held in the shadow of the bank just upstream of it. An otter had passed here recently its marks visible in the mud beside the water. The alders on the opposite bank were beginning to lose their leaves and the yellow ones lay in the current.",
+      "cue": "The old sailing vessel was fitted with sails made from",
+      "target_token": " canvas"
+    },
+    {
+      "id": "C-14",
+      "entity": "tablecloth",
+      "property": "linen",
+      "setup": "The tablecloth in the dining room had been woven from linen.",
+      "filler": "Late in the year the heath was brown and grey but the seed heads of the grasses still showed pale yellow where the sun caught them. The old drove road was dry now and the wheel marks of summer traffic had hardened into the surface. Ponies moved slowly in the middle distance and paid no attention to the person walking along the ridge. The sky to the west was red at sunset and the temperature dropped sharply as the light failed. Bats appeared above the hedgerows at dusk and moved back and forth in rapid arcs.",
+      "cue": "The tablecloth spread across the dining table had been woven from",
+      "target_token": " linen"
+    },
+    {
+      "id": "C-15",
+      "entity": "staircase",
+      "property": "spiral",
+      "setup": "The staircase inside the tower had been built in a spiral.",
+      "filler": "The limestone pavement was bare and grey and the grykes between the blocks were deep and filled with shade-tolerant plants. Ferns grew there in remarkable variety and in one deep grike a small tree had established itself and was growing slowly upward toward the light. The blocks themselves were smooth from long weathering and had been crossed by so many feet that in some places the surface was worn to a polish. The view from the edge of the pavement stretched across the dale to the moorland beyond.",
+      "cue": "The staircase that wound up through the interior of the tower had been built in a",
+      "target_token": " spiral"
+    },
+    {
+      "id": "C-16",
+      "entity": "column",
+      "property": "hollow",
+      "setup": "The stone column turned out to be completely hollow inside.",
+      "filler": "The island was visible on clear days from the headland and on still evenings the lights of its single settlement could be seen. The ferry ran twice daily in summer and once a day in winter when the weather allowed. A colony of gannets occupied the northern cliffs and in season their white forms were visible from the mainland. The crossing took forty minutes and in heavy weather the small ferry rolled considerably. Most passengers who made the crossing regularly had learned to stand facing forward and watch the horizon.",
+      "cue": "When the builder examined the old stone column he found it was completely",
+      "target_token": " hollow"
+    },
+    {
+      "id": "C-17",
+      "entity": "entrance floor",
+      "property": "polished",
+      "setup": "The entrance floor had been polished to a shine.",
+      "filler": "The pine forest was dark even in the middle of the day and the ground beneath the trees was soft with needles. Crossbills moved through the upper canopy with a distinctive chipping call. Where a tree had fallen the light came through and young birches had grown up quickly in the gap. The smell of the forest was strong. A stream ran through the lower part and in its banks the roots of the pines were exposed where the water had cut into the earth. The stream was cold even in summer.",
+      "cue": "Guests entering the building immediately noticed that the entrance floor had been",
+      "target_token": " polished"
+    },
+    {
+      "id": "C-18",
+      "entity": "handrail",
+      "property": "twisted",
+      "setup": "The iron handrail along the staircase had been twisted by the blacksmith.",
+      "filler": "The chalk downland was wide and the sky was wide above it. A kestrel hovered above the turf and then moved on without striking. The short grass was full of flowers in summer and in spring the orchids came up in the unfertilized strip along the path edge. The view from the top of the escarpment reached across twenty miles of lower ground to the clay vale and the distant ridge beyond. Sheep had grazed here for centuries and their paths crossed the turf in every direction.",
+      "cue": "The iron handrail along the main staircase had been carefully",
+      "target_token": " twisted"
+    },
+    {
+      "id": "C-19",
+      "entity": "millstone",
+      "property": "ancient",
+      "setup": "The millstone beside the entrance to the mill was ancient.",
+      "filler": "The ice on the lake had formed three weeks before and was now thick enough to walk on. Children had been sliding on the near end of it since the weekend. Reeds at the margins were locked in the ice and stood upright in the wind. The fishing hut at the far end was dark and empty. By February the ice would be safe enough to drive a tractor across if the temperature stayed cold which it had not reliably done in recent years. The mountains beyond the lake were white above the treeline.",
+      "cue": "The millstone beside the entrance to the old mill was remarkably",
+      "target_token": " ancient"
+    },
+    {
+      "id": "C-20",
+      "entity": "passage",
+      "property": "winding",
+      "setup": "The underground passage was winding and difficult to navigate.",
+      "filler": "The orchard had been planted a hundred years ago and the trees were large now and their branches swept low to the ground. Some had needed supports to keep them upright. The variety of apple grown there was local and not often seen elsewhere and it kept well through the winter. Mistletoe grew high in the canopy of several trees. The grass beneath was not cut until after the harvest and was always long and thick and full of insects in summer. A wooden ladder leaned against the oldest tree at the edge of the orchard.",
+      "cue": "Anyone who tried to follow the underground passage found it",
+      "target_token": " winding"
+    }
+  ]
+}
