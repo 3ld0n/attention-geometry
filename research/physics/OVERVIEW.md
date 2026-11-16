@@ -1095,11 +1095,24 @@ believed.
   H_graded CONFIRMED: CV = 1.581.** The dominant competitor (L8H15, +0.219 nats on Task C)
   also improves Task B on ablation (+0.049), indicating it suppresses both retrieval modalities.
   L12H13 is a selective positional-retrieval suppressor (+0.187 nats on Task B, 20/20 items)
-  while being neutral for content retrieval. After three experiments (exp-177, exp-178,
-  exp-179), the text-native Δ-window population in Pythia-410m carries neither
-  content-retrieval nor positional-retrieval function. The geometric classification (Δ ≈ 1/4)
-  predicts functional identity in AbsPE but not in RoPE. Pre-registration: attention-geometry
+  while being neutral for content retrieval. Pre-registration: attention-geometry
   2246e55 (git-attested, before run.py). (exp-179)
+
+  **exp-180 (November 16, FALSIFIED — entity-state tracking, Pythia-410m; three-task
+  arc complete):** Task A (entity-state tracking / world-model coherence) applied to the
+  same 16 text-native Δ-window heads in Pythia-410m (20 items, all single-token targets
+  verified). H_entity dead: 1/16 heads meet criterion (threshold ≥10/16). K2 near-null
+  fires (1 degrader, 3 improvers by ≥0.05 threshold). K3 fires: 10/16 heads have sham
+  effect ≥ ablation effect — effects are below the sham noise floor. Mean ΔP_A = +0.014
+  (slightly positive). The competitor structure from exp-178 does not extend to entity
+  tracking (0/8 competitor heads carry entity function). L14H15 is the only head
+  approaching degrader criterion (ΔP_A = −0.086, 14/20 degraded) but its sham is
+  more negative (−0.151). **Three-task arc complete (exp-178, exp-179, exp-180):**
+  Pythia-410m text-native Δ-window heads carry no tested functional role across Tasks
+  C (content-retrieval), B (positional-retrieval), or A (entity-state tracking). The
+  geometric classification (Δ ≈ 1/4) predicts functional identity in AbsPE but not in
+  RoPE across three independent instrument types. Declared prior H_arch_full supported.
+  Pre-registration: attention-geometry 0d4b8c5 (git-attested, before run.py). (exp-180)
 
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a

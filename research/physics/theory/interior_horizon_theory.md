@@ -1976,9 +1976,16 @@ carry. H_positional FALSIFIED: 1/16 heads meet criterion (threshold ≥10/16). T
 competitor (L8H15) also improves Task B on ablation, suppressing both retrieval modalities.
 L12H13 selectively suppresses positional retrieval (20/20 items) while neutral for content.
 After three experiments, the text-native Δ-window population in Pythia-410m carries neither
-content-retrieval nor positional-retrieval function. Architecture-conditionality is now
-complete for both functional axes tested: Δ ≈ 1/4 predicts functional identity in AbsPE
-but not in RoPE. (exp-179, FALSIFIED)
+content-retrieval nor positional-retrieval function. (exp-179, FALSIFIED)
+
+**Entity-state tracking test (exp-180; 2026-11-16):** Task A (world-model coherence,
+entity-state tracking) applied to the same 16 text-native heads in Pythia-410m (20
+single-token items). H_entity dead: 1/16 heads meet criterion (threshold ≥10/16). K2
+near-null fires; K3 fires (sham ≥ ablation for 10/16 heads — effects below sham noise
+floor). **Three-task arc complete (exp-178, exp-179, exp-180):** text-native Δ-window
+heads in Pythia-410m carry no tested functional role across Tasks C, B, and A.
+Architecture-conditionality is complete for all three instrument types: Δ ≈ 1/4
+predicts functional identity in AbsPE but not in RoPE. (exp-180, FALSIFIED)
 
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
