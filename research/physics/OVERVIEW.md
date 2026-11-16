@@ -1087,6 +1087,20 @@ believed.
   architecture class. Pre-registration: attention-geometry acd81b0 (git-attested, before
   run.py). (exp-178)
 
+  **exp-179 (November 15, FALSIFIED — positional retrieval test, Pythia-410m):**
+  Following the competitor structure found in exp-178 (8/16 text-native heads improve Task C
+  on ablation), the declared prior was that these heads serve positional retrieval (Task B,
+  list-lookup at stated position) — the same function GPT-2 small's structural/steep-local
+  heads carry. **H_positional FALSIFIED: 1/16 heads meet the criterion (threshold ≥10/16).
+  H_graded CONFIRMED: CV = 1.581.** The dominant competitor (L8H15, +0.219 nats on Task C)
+  also improves Task B on ablation (+0.049), indicating it suppresses both retrieval modalities.
+  L12H13 is a selective positional-retrieval suppressor (+0.187 nats on Task B, 20/20 items)
+  while being neutral for content retrieval. After three experiments (exp-177, exp-178,
+  exp-179), the text-native Δ-window population in Pythia-410m carries neither
+  content-retrieval nor positional-retrieval function. The geometric classification (Δ ≈ 1/4)
+  predicts functional identity in AbsPE but not in RoPE. Pre-registration: attention-geometry
+  2246e55 (git-attested, before run.py). (exp-179)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from

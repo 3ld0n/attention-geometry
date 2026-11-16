@@ -1969,6 +1969,17 @@ end-minus-begin = −0.401 nats), opposite of GPT-2 small's standard recency. Sc
 the three-population functional anatomy is architecture-conditional for content-retrieval.
 (exp-178, FALSIFIED)
 
+**Positional-retrieval test (exp-179; 2026-11-15):** Following the competitor structure
+(exp-178: 8/16 text-native heads improve Task C on ablation), the declared prior was that these
+heads serve positional retrieval (Task B, list-lookup) — the role GPT-2 small's structural heads
+carry. H_positional FALSIFIED: 1/16 heads meet criterion (threshold ≥10/16). The dominant
+competitor (L8H15) also improves Task B on ablation, suppressing both retrieval modalities.
+L12H13 selectively suppresses positional retrieval (20/20 items) while neutral for content.
+After three experiments, the text-native Δ-window population in Pythia-410m carries neither
+content-retrieval nor positional-retrieval function. Architecture-conditionality is now
+complete for both functional axes tested: Δ ≈ 1/4 predicts functional identity in AbsPE
+but not in RoPE. (exp-179, FALSIFIED)
+
 **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
 rather than driving it. The gain-of-function result from exp-141 (κ̃ amplification, +0.27 nats) operates
