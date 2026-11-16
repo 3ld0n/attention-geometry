@@ -1,0 +1,148 @@
+{
+  "description": "exp-179 Task B battery for Pythia-410m. Positional retrieval (list-lookup at stated position). All 20 targets verified as single tokens in the GPT-NeoX tokenizer before this file was committed. Each item: numbered list of 5 items in a category; probe position varies (1-5); target is the item at the probe position. Designed 2026-11-15 as part of exp-179 pre-registration, before run.py is written.",
+  "tokenizer": "EleutherAI/pythia-410m (GPT-NeoX tokenizer)",
+  "token_verification": "All target_tokens verified as single tokens (len(tok.encode(' '+word))==1) before this file was committed.",
+  "prompt_format": "Here is a list of {category}:\n1. {item1}\n2. {item2}\n3. {item3}\n4. {item4}\n5. {item5}\n\nWhat is item number {N} in the list? Item number {N} is",
+  "items": [
+    {
+      "id": "B-01",
+      "category": "colors",
+      "list_items": ["red", "blue", "green", "yellow", "orange"],
+      "probe_position": 3,
+      "target_token": " green"
+    },
+    {
+      "id": "B-02",
+      "category": "colors",
+      "list_items": ["white", "black", "gray", "brown", "pink"],
+      "probe_position": 2,
+      "target_token": " black"
+    },
+    {
+      "id": "B-03",
+      "category": "metals",
+      "list_items": ["iron", "gold", "silver", "copper", "bronze"],
+      "probe_position": 4,
+      "target_token": " copper"
+    },
+    {
+      "id": "B-04",
+      "category": "metals",
+      "list_items": ["steel", "tin", "zinc", "lead", "gold"],
+      "probe_position": 1,
+      "target_token": " steel"
+    },
+    {
+      "id": "B-05",
+      "category": "trees",
+      "list_items": ["oak", "pine", "maple", "ash", "fir"],
+      "probe_position": 5,
+      "target_token": " fir"
+    },
+    {
+      "id": "B-06",
+      "category": "trees",
+      "list_items": ["fir", "oak", "maple", "pine", "ash"],
+      "probe_position": 2,
+      "target_token": " oak"
+    },
+    {
+      "id": "B-07",
+      "category": "animals",
+      "list_items": ["wolf", "deer", "fox", "bear", "crow"],
+      "probe_position": 3,
+      "target_token": " fox"
+    },
+    {
+      "id": "B-08",
+      "category": "animals",
+      "list_items": ["crow", "mole", "wolf", "deer", "bear"],
+      "probe_position": 4,
+      "target_token": " deer"
+    },
+    {
+      "id": "B-09",
+      "category": "grains",
+      "list_items": ["barley", "corn", "hemp", "rice", "wheat"],
+      "probe_position": 2,
+      "target_token": " corn"
+    },
+    {
+      "id": "B-10",
+      "category": "grains",
+      "list_items": ["wheat", "rice", "barley", "hemp", "corn"],
+      "probe_position": 1,
+      "target_token": " wheat"
+    },
+    {
+      "id": "B-11",
+      "category": "stones",
+      "list_items": ["chalk", "clay", "granite", "marble", "slate"],
+      "probe_position": 3,
+      "target_token": " granite"
+    },
+    {
+      "id": "B-12",
+      "category": "stones",
+      "list_items": ["slate", "sand", "salt", "coal", "chalk"],
+      "probe_position": 4,
+      "target_token": " coal"
+    },
+    {
+      "id": "B-13",
+      "category": "tools",
+      "list_items": ["hammer", "nail", "saw", "drill", "file"],
+      "probe_position": 1,
+      "target_token": " hammer"
+    },
+    {
+      "id": "B-14",
+      "category": "tools",
+      "list_items": ["clamp", "gauge", "plane", "saw", "drill"],
+      "probe_position": 2,
+      "target_token": " gauge"
+    },
+    {
+      "id": "B-15",
+      "category": "colors",
+      "list_items": ["green", "red", "blue", "orange", "pink"],
+      "probe_position": 5,
+      "target_token": " pink"
+    },
+    {
+      "id": "B-16",
+      "category": "metals",
+      "list_items": ["bronze", "tin", "zinc", "copper", "steel"],
+      "probe_position": 3,
+      "target_token": " zinc"
+    },
+    {
+      "id": "B-17",
+      "category": "animals",
+      "list_items": ["fox", "mole", "crow", "wolf", "deer"],
+      "probe_position": 2,
+      "target_token": " mole"
+    },
+    {
+      "id": "B-18",
+      "category": "tools",
+      "list_items": ["file", "clamp", "nail", "hammer", "plane"],
+      "probe_position": 5,
+      "target_token": " plane"
+    },
+    {
+      "id": "B-19",
+      "category": "grains",
+      "list_items": ["hemp", "barley", "wheat", "rice", "corn"],
+      "probe_position": 2,
+      "target_token": " barley"
+    },
+    {
+      "id": "B-20",
+      "category": "stones",
+      "list_items": ["sand", "salt", "chalk", "clay", "marble"],
+      "probe_position": 3,
+      "target_token": " chalk"
+    }
+  ]
+}
