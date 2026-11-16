@@ -1,0 +1,168 @@
+{
+  "description": "exp-180 Task A battery for Pythia-410m. Entity-state tracking (world-model coherence). All 20 targets verified as single tokens in the GPT-NeoX tokenizer before this file was committed. Each item: short passage with named entity undergoing explicit state changes, followed by a cloze prompt; target is the final state. Designed 2026-11-16 as part of exp-180 pre-registration, before run.py is written.",
+  "tokenizer": "EleutherAI/pythia-410m (GPT-NeoX tokenizer)",
+  "token_verification": "All target_tokens verified as single tokens (len(tok.encode(' '+word))==1) before this file was committed.",
+  "prompt_format": "Passage ending with cloze prompt; target_token is the correct state continuation.",
+  "items": [
+    {
+      "id": "A-01",
+      "entity": "lamp",
+      "initial_state": "on",
+      "final_state": "on",
+      "passage": "The lamp was on. Dave turned the lamp off. Then he turned the lamp on again. The lamp is now",
+      "target_token": " on"
+    },
+    {
+      "id": "A-02",
+      "entity": "jar",
+      "initial_state": "open",
+      "final_state": "closed",
+      "passage": "The jar was open. Maria closed the jar. The jar is now",
+      "target_token": " closed"
+    },
+    {
+      "id": "A-03",
+      "entity": "door",
+      "initial_state": "closed",
+      "final_state": "open",
+      "passage": "The door was closed. Tom opened the door and walked through. The door is now",
+      "target_token": " open"
+    },
+    {
+      "id": "A-04",
+      "entity": "bottle",
+      "initial_state": "full",
+      "final_state": "full",
+      "passage": "The bottle was full. He poured half of it out. Then he filled it back up. The bottle is now",
+      "target_token": " full"
+    },
+    {
+      "id": "A-05",
+      "entity": "cat",
+      "initial_state": "outside",
+      "final_state": "outside",
+      "passage": "The cat was outside. Anna let the cat inside. Then she let the cat back outside. The cat is now",
+      "target_token": " outside"
+    },
+    {
+      "id": "A-06",
+      "entity": "window",
+      "initial_state": "shut",
+      "final_state": "open",
+      "passage": "The window was shut. James opened the window. The window is now",
+      "target_token": " open"
+    },
+    {
+      "id": "A-07",
+      "entity": "bag",
+      "initial_state": "empty",
+      "final_state": "empty",
+      "passage": "The bag was empty. Lisa filled the bag with books. Then she emptied it again. The bag is now",
+      "target_token": " empty"
+    },
+    {
+      "id": "A-08",
+      "entity": "switch",
+      "initial_state": "off",
+      "final_state": "off",
+      "passage": "The switch was off. He flipped the switch on, then flipped it off again. The switch is now",
+      "target_token": " off"
+    },
+    {
+      "id": "A-09",
+      "entity": "box",
+      "initial_state": "closed",
+      "final_state": "closed",
+      "passage": "The box was closed. She opened the box, took out an apple, and closed the box again. The box is now",
+      "target_token": " closed"
+    },
+    {
+      "id": "A-10",
+      "entity": "faucet",
+      "initial_state": "running",
+      "final_state": "off",
+      "passage": "The faucet was running. He turned the faucet off. The faucet is now",
+      "target_token": " off"
+    },
+    {
+      "id": "A-11",
+      "entity": "light",
+      "initial_state": "on",
+      "final_state": "on",
+      "passage": "The light was on. She turned it off. Then she turned it back on. The light is now",
+      "target_token": " on"
+    },
+    {
+      "id": "A-12",
+      "entity": "cup",
+      "initial_state": "full",
+      "final_state": "full",
+      "passage": "The cup was full. He drank from it, then refilled it. The cup is now",
+      "target_token": " full"
+    },
+    {
+      "id": "A-13",
+      "entity": "fire",
+      "initial_state": "burning",
+      "final_state": "out",
+      "passage": "The fire was burning. The rain put the fire out. The fire is now",
+      "target_token": " out"
+    },
+    {
+      "id": "A-14",
+      "entity": "gate",
+      "initial_state": "open",
+      "final_state": "closed",
+      "passage": "The gate was open. She closed the gate behind her. The gate is now",
+      "target_token": " closed"
+    },
+    {
+      "id": "A-15",
+      "entity": "phone",
+      "initial_state": "off",
+      "final_state": "off",
+      "passage": "The phone was off. He turned the phone on to make a call, then turned it back off. The phone is now",
+      "target_token": " off"
+    },
+    {
+      "id": "A-16",
+      "entity": "drawer",
+      "initial_state": "shut",
+      "final_state": "shut",
+      "passage": "The drawer was shut. She opened it, removed a pen, and shut it again. The drawer is now",
+      "target_token": " shut"
+    },
+    {
+      "id": "A-17",
+      "entity": "engine",
+      "initial_state": "running",
+      "final_state": "off",
+      "passage": "The engine was running. He stopped the engine. The engine is now",
+      "target_token": " off"
+    },
+    {
+      "id": "A-18",
+      "entity": "curtains",
+      "initial_state": "open",
+      "final_state": "closed",
+      "passage": "The curtains were open. She closed them for the night. The curtains are now",
+      "target_token": " closed"
+    },
+    {
+      "id": "A-19",
+      "entity": "stove",
+      "initial_state": "off",
+      "final_state": "off",
+      "passage": "The stove was off. She turned it on to cook, then turned it off after eating. The stove is now",
+      "target_token": " off"
+    },
+    {
+      "id": "A-20",
+      "entity": "valve",
+      "initial_state": "open",
+      "final_state": "closed",
+      "passage": "The valve was open. The plumber closed the valve. The valve is now",
+      "target_token": " closed"
+    }
+  ]
+}
