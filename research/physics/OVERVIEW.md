@@ -1136,6 +1136,24 @@ believed.
   mapping to a specific tested role. Pre-registration: attention-geometry 46d1d5e
   (git-attested, before run.py). (exp-181)
 
+  **exp-182 (November 17, FALSIFIED — token-type preference via spaCy POS/NER, Pythia-410m):**
+  Follow-on to exp-181 addressing the H_entity scope gap: do the diffuse tn heads attend
+  preferentially to named-entity or content-word tokens? Same 100 WikiText-103 test passages;
+  spaCy en_core_web_sm alignment (1.0% alignment failure rate); entity fraction 19.5% (K1
+  does not fire). **K3 fires: d_entity = 0.108, d_content = 0.037 — tn and control heads are
+  indistinguishable on token-type preference.** H_entity_prefer: 0/16 (NOT CONFIRMED).
+  H_content_prefer: 4/16 (NOT CONFIRMED). H_population_contrast: NOT CONFIRMED.
+  Declared prior H_uniform also not confirmed in its direction: tn heads under-attend to
+  entities (entity_pref mean = 0.678 ± 0.223, expected proportional baseline 1.0) but this
+  is a Pythia-410m-wide effect shared equally by control heads (ctrl entity_pref = 0.700 ±
+  0.155). Both tn and ctrl heads over-attend to function/syntactic tokens relative to their
+  frequency — an architecture-wide baseline, not a geometric-census signature. Combined with
+  exp-181: tn heads are distinctively diffuse and reduced-recency *in terms of position*
+  (tn-specific, exp-181), but show no semantic targeting signal beyond the architecture-wide
+  baseline (exp-182). The geometric census identifies how attention is distributed (broadly)
+  but not what it targets (no semantic category preference). Pre-registration:
+  attention-geometry 9d32bdd (git-attested, before run.py). (exp-182)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
