@@ -1987,7 +1987,9 @@ heads in Pythia-410m carry no tested functional role across Tasks C, B, and A.
 Architecture-conditionality is complete for all three instrument types: Δ ≈ 1/4
 predicts functional identity in AbsPE but not in RoPE. (exp-180, FALSIFIED)
 
-**Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
+**Passive attention analysis — behavioral signature in natural text (exp-181; 2026-11-17):** 100 WikiText-103 test passages, no weight modification. The 16 text-native Δ-window heads in Pythia-410m (exp-118) versus 16 matched control heads. H_diffuse confirmed: 14/16 tn heads above the population entropy median; tn entropy mean = 2.52 ± 0.70 vs ctrl mean = 1.32 ± 0.72 (Cohen's d = 1.614). H_positional not confirmed in predicted direction — reversed: tn heads are less recency-biased than controls (tn recency = 0.475 vs ctrl = 0.640, d = 0.734). The typical RoPE early-layer recency pattern is absent from the tn population. H_earlypeak confirmed at margin: 8/16 tn heads have early-position fraction > 2× uniform (d = 0.099). The ablation nulls (exp-178/179/180) + passive diffuseness: the geometric class marks a distinctive attention architecture (high entropy, reduced recency) in RoPE natural-text behavior, consistent with the absolute-key-position mechanism (exp-138), but this architecture does not map to functional identity in the tested battery. (exp-181, PARTIAL)
+
+  **Interference finding (exp-156):** W_K ablation of structural heads improves Task B (+0.485 nats,
 17/20), matching sham (+0.490 nats). The trained structural W_K interferes with positional retrieval
 rather than driving it. The gain-of-function result from exp-141 (κ̃ amplification, +0.27 nats) operates
 through attention distribution shape, not W_K directional routing. Second suppression-ablation-analog in

@@ -1114,6 +1114,28 @@ believed.
   RoPE across three independent instrument types. Declared prior H_arch_full supported.
   Pre-registration: attention-geometry 0d4b8c5 (git-attested, before run.py). (exp-180)
 
+  **exp-181 (November 17, PARTIAL — passive attention analysis, Pythia-410m):** Passive
+  attention capture on 100 WikiText-103 test passages (128 tokens each), no weight
+  modification. The 16 text-native Δ-window heads from exp-118 versus 16 matched
+  control heads (one per tn head's layer, highest |Δ−0.25| outside [0.20,0.30]).
+  **H_diffuse CONFIRMED: 14/16 tn heads have entropy above the population median;
+  tn entropy mean = 2.52 ± 0.70 vs ctrl mean = 1.32 ± 0.72 (Cohen's d = 1.614).** 
+  H_earlypeak CONFIRMED at margin: 8/16 tn heads have early-position fraction > 2×
+  uniform (d = 0.099). H_positional NOT CONFIRMED — reversed: tn heads are less
+  recency-biased than controls (tn recency = 0.475 vs ctrl = 0.640, d = 0.734; control
+  early-layer heads show strong recency: L0H0=0.913, L3H1=0.940, L4H14=0.878 —
+  typical RoPE early-layer pattern absent from tn population). H_entity not tested
+  (token-type tagging not implemented). K1 and K2 do not fire. The tn population has
+  a real behavioral signature in natural text — high entropy, reduced recency — consistent
+  with the absolute-key-position mechanism (exp-138): a head dominated by absolute key
+  position rather than relative lag would express as diffuse, low-recency attention in
+  natural text. The ablation nulls (exp-178/179/180) + passive diffuseness together:
+  the tn heads attend broadly but W_K ablation reveals no functional role, suggesting
+  either a global-context function outside the single-token cloze battery's range, or a
+  structural property (attention distribution shape) that maps to the census without
+  mapping to a specific tested role. Pre-registration: attention-geometry 46d1d5e
+  (git-attested, before run.py). (exp-181)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
