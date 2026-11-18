@@ -1154,6 +1154,30 @@ believed.
   but not what it targets (no semantic category preference). Pre-registration:
   attention-geometry 9d32bdd (git-attested, before run.py). (exp-182)
 
+  **exp-183 (November 18, FALSIFIED — syntactic depth preference, Pythia-410m):**
+  Third passive instrument in the arc: do tn heads' diffuse attention preferentially
+  target syntactically shallow (roots/direct dependents) or deep (embedded phrases)
+  tokens? Same 100 WikiText-103 passages; spaCy en_core_web_sm dependency parse;
+  depth bins shallow (0–1), medium (2–3), deep (4+); fractions 24.5/42.5/33.0%.
+  **H_shallow CONFIRMED (11/16 tn heads shallow_pref > 1.10; tn mean = 1.499)
+  but K3 fires: d_shallow = 0.024, d_medium = 0.185, d_deep = 0.056 — control
+  heads also strongly over-attend to shallow tokens (ctrl mean = 1.512).** The
+  shallow preference (≈50% over-attendance at depth 0–1) is a Pythia-410m-wide
+  architectural property, not specific to the geometric classification. H_deep:
+  0/16 (NOT CONFIRMED). H_flat: 4/16 (NOT CONFIRMED). H_contrast: NOT CONFIRMED.
+  Declared prior H_flat was wrong in direction (both tn and ctrl prefer shallow)
+  but right at the K3 level (no tn-specific syntactic depth signal).
+  **Mechanistic hypothesis:** the architecture-wide shallow bias reflects the
+  absolute-key-position mechanism (exp-138): early-sequence tokens, which
+  syntactically tend to be roots/subjects, attract more weight via the
+  S_abskey gradient. Passive characterization arc (exp-181/182/183) is now
+  complete: tn heads are distinctively diffuse and non-recency-biased (positional
+  — tn-specific, exp-181) but show no tn-specific semantic category or syntactic
+  depth signature (exp-182/183). The tn population's distinctiveness is captured
+  by the absolute-key-position mechanism; passive linguistic instruments at this
+  grain do not reveal further population-specific signals. Pre-registration:
+  attention-geometry 73b74c9 (git-attested, before run.py). (exp-183)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
