@@ -1178,6 +1178,30 @@ believed.
   grain do not reveal further population-specific signals. Pre-registration:
   attention-geometry 73b74c9 (git-attested, before run.py). (exp-183)
 
+  **GPT-2 small LiM at long contexts — functional characterization complete (exp-184; 2026-11-19):**
+  Extends exp-159 Instrument 3 to ~380-token contexts (10 passage blocks × ~38 tokens,
+  multi-document retrieval). **H_lim FIRES against declared prior (25% confidence): genuine
+  U-shape at this context length.** Baseline log-probs: early = −5.918, middle = −6.681,
+  late = −4.640; middle − late = −2.041 nats; middle − early = −0.763 nats. The shape is
+  asymmetric (late > early > middle): a large late-position advantage atop the LiM trough.
+  **H_tn_differential FIRES (against K2 null; declared confidence 35%): tn heads contribute
+  most in the late position.** Mean |ΔP|: early = 0.380, middle = 0.466, late = 0.813 nats;
+  |ΔP(late)| − |ΔP(early)| = +0.433 nats. When the model retrieves accurately (late), the
+  top-4 tn heads (L10H10, L9H6, L4H10, L7H1) are doing more work. When retrieval is hardest
+  (middle/LiM trough), their contribution is smaller. Declared prior on the full finding
+  was H_recency + K2: monotone recency gradient, position-uniform tn contribution. Both
+  wrong in an informative direction. **Summary characterization (exp-159 + exp-184 complete):**
+  GPT-2 small text-native Δ-window heads are content-selective retrievers with recency-conditioned
+  contribution: at short contexts they show a monotone recency gradient (exp-159 Inst. 3);
+  at long contexts where LiM emerges in the architecture as a whole, their contribution is
+  concentrated in the late-position retrieval success and suppressed in the LiM trough. They
+  are not position-agnostic; they are recency-conditioned. **This closes the functional
+  characterization task (causal editing + attended-token + LiM — exp-159 Inst. 1–3 + exp-184).**
+  Architecture-conditionality picture now complete for both architectures: GPT-2/AbsPE tn heads
+  have specific, recency-conditioned content-retrieval function; Pythia-410m/RoPE tn heads have
+  no functional signature across any tested instrument. Pre-registration: attention-geometry
+  efdcec8 (git-attested, before run.py). (exp-184)
+
 - **Three Pythia Δ values that were never measured.** A May cron run reported
   Δ_med ≈ 0.28 / 0.38 / 0.60 for Pythia-410m / 1.4b / 6.9b and drew a
   "same depth, dramatically different Δ" conclusion from it. Re-derivation from
