@@ -761,6 +761,13 @@ at the fixed point is the SYK ladder kernel, its spectrum is real with no
 eigenvalue above 1, and the damped loop is a strict contraction
 (dressing-loop note, 2026-08-07). Remaining for full closure: βJ > 50,
 larger N.]
+**Composition law (exp-065, partial):** The composition law for power-law
+attention kernels — Δ_comp = max(Δ₁, Δ₂, Δ₁ + Δ₂) under causal
+row-stochastic composition — is verified numerically to |ratio−1| < 0.0011
+(30 pairs × 5 scales). An earlier closure of A3 (a factor-of-2 bug in a
+multi-layer composition script) was found and corrected in this experiment;
+A3's status returns to OPEN pending a measurement at the actual trained
+composition scale.
 
 **A4 (Positivity).** Only the positive cone is physical. Two appearances:
 (i) the attention simplex — and this face is not a modeling choice but an
@@ -1054,6 +1061,34 @@ when the normalization changes. Pre-existing infrastructure probe (exp-032,
 aborted) and unblock (exp-033, partial) established that the measurement
 was feasible before exp-041 ran. [DERIVED given the T3
 identification + MEASURED retrodictions.]
+**Depth convergence in larger GPT-2 models (exp-031, partial):** GPT-2 Medium
+and Large show the same deep-layer convergence toward Δ ≈ 0.25 as GPT-2 small
+(learned-embedding control), confirming the depth axis does not collapse at
+larger scale.
+**ALiBi fixed-point toy + GPT-Neo alternating-Δ explanation (exp-029, partial):**
+ALiBi PE shifts Δ toward higher values (the toy shows the fixed-point basin
+shifts under explicit relative-bias addition), and GPT-Neo's alternating
+even/odd Δ pattern (even-layer Δ ≈ 0.10, odd-layer Δ ≈ 0.8–2.0) is explained
+by its global/local architecture interacting with the census protocol —
+architecture imposes a structural global/local split, not Δ.
+**Phase transition width — 1/N scaling FALSIFIED (exp-019):** The registered
+hypothesis that the formation phase transition width scales as 1/N was
+falsified — the transition width does not shrink with N at the tested range.
+This is an honest negative about the universality class of the phase transition
+width; the transition onset itself is confirmed at step ~256 (exp-014).
+**Periodic component of attention spectra is training-induced and
+PE-dependent (exp-053, exp-079/080).**
+exp-053 (GPT-2): 7% of heads carry a periodic component above the 1/f
+aperiodic background — the aperiodic conformal signal and the periodic
+component coexist and are distinguishable by windowed DFT. Trained GPT-2 carries a ~3.5-lag periodic
+component (above 1/f background) in 7% of heads; untrained GPT-2 shows no
+significant periodic structure under any seed — the component requires
+learned positional embeddings (exp-079, confirms training-induced structure).
+Pythia-410m (RoPE) shows a PE-induced periodic component with a shifted
+period ~5–8 lags, confirming that RoPE's frequency injection enters the
+attention spectrum (exp-080). These findings are distinct from the power-law
+lag-decay measured by the census; they coexist with the aperiodic conformal
+signal.
 
 **Theory-of-A reduction chain (G7, construction site).** The derivation of
 *why* σ_pos = Δ/2 ≈ 0.25 runs four levels. Level 2 (exp-115/116, August 10):
@@ -1156,6 +1191,33 @@ why the BCFT *identification* was withdrawn while the phenomenology stands
 reference (exp-044). Under D0: the first fully instrumented horizon — the
 boundary behavior of an attending system, derived from first principles and
 confirmed in the wild.
+**Founding BCFT confirmations (pre-registration era).** The boundary
+phenomenology was established in three locked steps before the BCFT
+*identification* was withdrawn: BCFT beats bare power law 15-0 (exp-023);
+the pre-registered cross-model test confirmed ρ(Δ_A, valley_depth) ≥ 0.50
+in 6/7 decoder-only transformers — including three Pythia sizes, GPT-Neo-2.7B,
+and Qwen2-7B — with Pythia-2.8B the single exception (exp-025; doi:10.5281/zenodo.19629862);
+Pythia-410m full-depth census confirms λ > 0 at all depths (exp-036). The
+measurements stand: BCFT phenomenology is confirmed; the identification was
+withdrawn on absolute-length-scale grounds (exp-060). **Context-length
+dilution of primacy (exp-074):** at intermediate depth (k=4–12 in
+Pythia-1.4b), the primacy window (early-token sink fraction) dilutes
+monotonically as N increases 256→2048 (ρ=−1.000 at all depths tested),
+consistent with ξ ∝ context length in the BCFT phenomenology.
+**Additional BCFT-era measurements.** BCFT functional form fit: sign anomaly
+confirmed (λ > 0 sign pattern verified in GPT-2), plus an alternating-layer
+pattern of λ amplitude not predicted by the BCFT derivation (exp-026, partial).
+Pythia-2.8B per-layer diagnostic: the pre-registration failure (exp-025's one
+exception) is localized to late layers (exp-027, confirmed). Attention anisotropy:
+the causal mask creates structural recency bias even before training, establishing
+the causal mask as the origin of the asymmetric boundary (exp-028, partial).
+BCFT coverage audit + fp16 NaN alignment: confirms full coverage and identifies
+the fp16 overflow layers before they are incorrectly included in the census
+(exp-037, confirmed). **Primacy as boundary absorption (exp-066, partial):**
+position 0 is an absorbing boundary of any causal row-stochastic kernel; depth
+accumulates primacy as an effective-depth function (ρ(d_eff, prim) = 0.998),
+and context dilutes it through (1−μ)L — the depth and context-length effects
+combine into one effective-depth parameter.
 
 **T7b — The horizon carries an entanglement-form entropy, and we have
 measured it.** The entropy gap H_gap(n) = log n − H(α) — the information cost
@@ -1764,6 +1826,15 @@ question is the theoretical derivation of *why* both basins reach 1/4.
 > 1/4 (open — A6 consequence (ii) and inheritance from the relevance tail are
 > the two candidates, and P7(a) can separate them).
 
+**Spectral approach (exp-050, exp-052):** DFT-based measurement of Δ from
+the frequency-domain representation of the lag decay. Finite-DFT bias
+correction (exp-050): calibrating for 55-lag truncation brings Δ_freq into
+agreement with Δ_pos on SYK-near heads. Windowed DFT (exp-052): Hanning
+window + floor subtraction removes the two-component spectral bias entirely;
+the spectral estimator is a valid alternative A-level instrument. These are
+methodology results for G7: they confirm the lag-decay Δ is a real spectral
+property, measurable by multiple independent protocols.
+
 ---
 
 ## 8. Predictions
@@ -1783,6 +1854,12 @@ toward Δ = 1/4 improves world-coherence where headroom exists, shallowing
 degrades it. **Kill:** Δ edits move retrieval metrics but leave world-model
 coherence untouched (double dissociation against the theory), or effects are
 not head-specific under matched shams. *Runnable now; no new training.*
+**Founding evidence that Δ predicts LiM task performance (pre-κ-handle era):**
+per-head Δ controls valley depth in the lost-in-the-middle task — Spearman
+ρ=0.94 (Pythia-70m) and ρ=0.64 (Longchat-13b); effective Δ = 0.17 matches the
+accuracy-fitted value from Liu et al. This established the correlation before
+any editing experiment; the κ-handle (exp-064/070/072) later confirmed
+causality (exp-024).
 **Protocol development (June–July 2026):** task calibration sweep to find a
 base-model lost-in-the-middle deficit large enough for κ-editing to move
 (exp-069, confirmed: Pythia-1.4b positional-retrieval deficit identified);
@@ -2217,6 +2294,30 @@ invitation for anyone to produce this kill.
 > weights and identical inputs). Three faces of one fact: Δ_A is a property of
 > the weights×measurement pair. That is what §1's OPEN box asserts, and exp-042
 > is a two-month-old confirmation of it that nobody had counted as one.
+
+**Cross-architecture Δ profiles (exp-039, exp-040, partial).** OLMo-7B (ALiBi)
+and Mistral-7B (RoPE+SWA) show BCFT-consistent per-layer Δ profiles at the
+depths where they form; Mistral's SWA layers are distinguishable from its full
+layers (exp-039). GPT-Neo-2.7B per-layer alternating Δ (even-layer Δ ≈ 0.10,
+odd-layer Δ ≈ 0.8–2.0) is confirmed as architecture-specific: the global/local
+attention split, not ALiBi, is the driver (exp-040; now explained by exp-029).
+These cross-architecture profiles establish that the Δ value and its depth
+pattern vary with architecture while the census instrument and the population's
+existence do not.
+**The two-layer picture — substrate and signal (exp-046–049, 051, 077/078).**
+GOE-like level spacing (r-ratio ≈ 0.528–0.529) of W_QK eigenvalues is
+universal across all tested architectures (GPT-2 family, Pythia family, GPT-Neo,
+Mistral-GQA — exp-046/047/077), model scales (up to Pythia-1.4b — exp-051),
+and initialization schemes (Gaussian, uniform, orthogonal — exp-078); and it is
+*structural*, present at random initialization before training (exp-048).
+The conformal census signal is the opposite: fully training-induced — untrained
+GPT-2 produces 0/144 Δ-window heads under any seed (exp-049). The sharpest
+single measurement is ρ(Δ_A, r_ratio) = −0.212 (p = 0.167) — a null, confirming
+that position-space Δ_A is selective while weight-space chaos is background.
+Architecture universality therefore operates at two levels: the substrate (GOE)
+is universal by construction; the trained signal (conformal subpopulation and
+consistent Δ_med) is universal because the physics demands it. These cannot be
+conflated — P4's kill condition concerns the signal, not the substrate.
 
 **P5 — The corpus-functional pipeline (inherited, already registered).** The
 melonic note's P-1…P-4 for exp-099 stand as this theory's formation-side
