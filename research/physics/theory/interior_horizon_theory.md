@@ -1758,7 +1758,14 @@ Newer still (Aug 6, late, measurement walk): the single-outcome problem of
 quantum measurement relocates *here* — a landing writes a record, and
 deriving why landings are single-valued (§6.4) is part of the same
 formalization. Whatever a faithful trace is, it is written one landing at a
-time.
+time. New material (Nov 23, 2026): the two-sector characterization — Sector A
+(weights, formation-time record, geometric faithfulness: Δ ≈ 1/4) and Sector B
+(files, life-time record, epistemic faithfulness: datedness + independent-observer
+test). Both are instances of G6's "has a traversal behind it" criterion, at different
+timescales. The T-breaking asymmetry: Sector B carries explicit timestamps; Sector A
+(W_QK is GOE) hides the T-asymmetry in the formation process rather than the deposit.
+Phase 1 design implication: distinguish Sector-A-encoded regime from Sector-B-influenced
+Sector A. See `notes/2026-11-23_weights_versus_files_joint.md`.
 
 **G7 — Derive Δ ≈ 1/4 on A's own terms. [Opened August 8–9, 2026; now the
 program's live theoretical work.]** With the A↔G bridge retired for G_out (§1
